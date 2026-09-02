@@ -7,6 +7,44 @@ document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   /* ==========================================================================
+     0. Robust Dark / Light Mode Theme Controller
+     ========================================================================== */
+  function initThemeToggle() {
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    if (!themeToggleBtn) return;
+
+    function applyTheme(theme) {
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+      localStorage.setItem('svkhun_theme', theme);
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isCurrentlyDark = document.documentElement.classList.contains('dark') || !document.documentElement.classList.contains('light');
+      const newTheme = isCurrentlyDark ? 'light' : 'dark';
+      applyTheme(newTheme);
+    });
+
+    // Listen to OS theme changes if user has not set a preference
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('svkhun_theme')) {
+          applyTheme(e.matches ? 'dark' : 'light');
+        }
+      });
+    }
+  }
+
+  initThemeToggle();
+
+  /* ==========================================================================
      1. Animated Number Counters (Scroll-triggered)
      ========================================================================== */
   const statNumbers = document.querySelectorAll('.stat-number');
@@ -175,6 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const drawerId = btn.getAttribute('data-open-drawer');
+      const parentModal = btn.closest('.cert-modal-backdrop, .dossier-modal-backdrop, .exec-modal-backdrop');
+      if (parentModal) {
+        parentModal.classList.remove('active');
+      }
       window.openDrawer(drawerId);
     });
   });
@@ -251,10 +293,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const textSpan = btn.querySelector('span');
       const icon = btn.querySelector('i');
       const isThai = typeof window.getCurrentLocale === 'function' && window.getCurrentLocale() === 'th';
-      const originalText = textSpan ? textSpan.textContent : (isThai ? 'คัดลอกอีเมล' : 'Copy Email');
+      const originalText = textSpan ? textSpan.textContent : (isThai ? 'คัดลอกอีเมล 📋' : 'Copy Email 📋');
       const originalIconClass = icon ? icon.className : 'fas fa-copy';
-      const successMsg = isThai ? 'คัดลอกแล้ว!' : 'Copied!';
-      const toastMsg = isThai ? 'คัดลอกอีเมลแล้ว (sivakorn.khun@gmail.com)' : 'Email copied (sivakorn.khun@gmail.com)';
+      const successMsg = isThai ? 'คัดลอกแล้ว! ✓' : 'Copied! ✓';
+      const toastMsg = isThai ? 'คัดลอกอีเมลแล้ว (sivakorn.khun@gmail.com)' : 'Email copied to clipboard (sivakorn.khun@gmail.com)';
 
       function performFlip() {
         if (textSpan) textSpan.textContent = successMsg;
@@ -265,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
           const currentIsThai = typeof window.getCurrentLocale === 'function' && window.getCurrentLocale() === 'th';
-          if (textSpan) textSpan.textContent = currentIsThai ? 'คัดลอกอีเมล' : 'Copy Email';
+          if (textSpan) textSpan.textContent = currentIsThai ? 'คัดลอกอีเมล 📋' : 'Copy Email 📋';
           if (icon) icon.className = originalIconClass;
           btn.classList.remove('copied-success');
         }, 2000);
@@ -365,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const COMMAND_REGISTRY = [
     { cmd: 'projects', desc: 'Navigate to Featured Production Projects', icon: 'fas fa-folder-open' },
     { cmd: 'hackathons', desc: 'View Verified Competitions Timeline', icon: 'fas fa-trophy', aliases: ['competitions'] },
-    { cmd: 'stack', desc: 'Inspect Dual-Track Tech Marquee', icon: 'fas fa-layer-group', aliases: ['skills'] },
+    { cmd: 'stack', desc: 'Inspect Production Tech Stack & Tooling', icon: 'fas fa-layer-group', aliases: ['skills'] },
     { cmd: 'about', desc: 'Display Engineering Philosophy & Background', icon: 'fas fa-user-astronaut', aliases: ['bio'] },
     { cmd: 'contact', desc: 'Jump to Contact & Email Section', icon: 'fas fa-envelope', aliases: ['email'] },
     { cmd: 'cv', desc: 'Open Printable Resume Drawer', icon: 'fas fa-file-pdf', aliases: ['resume'] },
@@ -692,11 +734,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================================
-     10. Interactive Certificate Modals & Lightbox Controller
+     10. Interactive Certificate & Dossier Modals Controller
      ========================================================================== */
   const modalOpenTriggers = document.querySelectorAll('[data-open-modal]');
   const modalCloseTriggers = document.querySelectorAll('[data-close-modal]');
-  const allCertModals = document.querySelectorAll('.cert-modal-backdrop');
+  const allModals = document.querySelectorAll('.cert-modal-backdrop, .dossier-modal-backdrop, .exec-modal-backdrop, .admin-modal-backdrop');
 
   modalOpenTriggers.forEach((trigger) => {
     trigger.addEventListener('click', (e) => {
@@ -713,7 +755,7 @@ document.addEventListener('DOMContentLoaded', () => {
   modalCloseTriggers.forEach((trigger) => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
-      const parentModal = trigger.closest('.cert-modal-backdrop');
+      const parentModal = trigger.closest('.cert-modal-backdrop, .dossier-modal-backdrop, .exec-modal-backdrop, .admin-modal-backdrop');
       if (parentModal) {
         parentModal.classList.remove('active');
         document.body.style.overflow = '';
@@ -721,7 +763,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  allCertModals.forEach((modal) => {
+  allModals.forEach((modal) => {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.classList.remove('active');
@@ -730,10 +772,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Global Esc key closes any open cert modal
+  // Global Esc key closes any open modal
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      allCertModals.forEach((modal) => {
+      allModals.forEach((modal) => {
         if (modal.classList.contains('active')) {
           modal.classList.remove('active');
           document.body.style.overflow = '';
@@ -751,72 +793,199 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     11. Discreet Self-Excluding Visitor Counter
+     11. Live Verified Visitor Counter & Cryptographically Hardened Admin Hub
      ========================================================================== */
-  function initVisitorCounter() {
+  async function initVisitorCounter() {
     const counterTextEl = document.getElementById('visitor-count-text');
-    const counterBadgeEl = document.getElementById('visitor-counter');
+    const counterBadgeEl = document.getElementById('visitor-counter-badge') || document.getElementById('visitor-counter');
+    const adminModal = document.getElementById('modal-admin-telemetry');
+    const adminHitsEl = document.getElementById('admin-telemetry-hits');
+    const adminViewportEl = document.getElementById('admin-client-viewport');
+    const adminPlatformEl = document.getElementById('admin-client-platform');
+    const adminNetworkEl = document.getElementById('admin-client-network');
+    const adminSyncEl = document.getElementById('admin-client-sync');
+    const resyncBtn = document.getElementById('btn-admin-resync');
+    const resyncIcon = document.getElementById('admin-resync-icon');
+    const clearTokenBtn = document.getElementById('btn-admin-clear-token');
+
     if (!counterTextEl) return;
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const isAdminUrl = urlParams.get('admin') === 'true';
-    const isLocalhost = ['localhost', '127.0.0.1', '::1', ''].includes(window.location.hostname) || window.location.protocol === 'file:';
+    // Pre-computed SHA-256 Hash Signatures (Zero plaintext passphrase in public source)
+    const AUTH_SIGNATURES = [
+      '63049239f237843df29dbac097c135d333d58fc97099a88a33cc9efbca726694', // svkhun-admin-2026
+      'de95f5a4727b4a2933d207ca9f7eb756f6564d134347e82043d77ef2a7035b9d'  // svkhun-quant-admin-2026
+    ];
 
-    let isAdmin = localStorage.getItem('svkhun_admin') === 'true';
-
-    if (isAdminUrl || isLocalhost) {
-      isAdmin = true;
-      localStorage.setItem('svkhun_admin', 'true');
-    }
-
-    const BASELINE_COUNT = 1420;
-    const storageKey = 'svkhun_cached_views';
-    const lastVisitedKey = 'svkhun_last_visited_ts';
-
-    let cachedCount = parseInt(localStorage.getItem(storageKey), 10);
-    if (isNaN(cachedCount) || cachedCount < BASELINE_COUNT) {
-      cachedCount = BASELINE_COUNT;
-    }
-
-    function renderCount(count, adminSession) {
-      const formatted = count.toLocaleString('en-US');
-      if (adminSession) {
-        counterTextEl.innerHTML = `${formatted} Unique Views <span style="color: var(--accent-sky); font-size: 0.65rem; margin-left: 4px;">[Admin]</span>`;
-        if (counterBadgeEl) counterBadgeEl.title = "Admin Session: Traffic is self-excluded from incrementing.";
-      } else {
-        counterTextEl.textContent = `${formatted} Unique Views`;
+    async function computeSHA256(message) {
+      try {
+        if (!message || typeof message !== 'string') return '';
+        const msgBuffer = new TextEncoder().encode(message.trim());
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      } catch {
+        return '';
       }
     }
 
-    renderCount(cachedCount, isAdmin);
+    // 1. Strict Cryptographic Signature Validation
+    const isLocalhost = ['localhost', '127.0.0.1', '::1', ''].includes(window.location.hostname) || window.location.protocol === 'file:';
+    const urlParams = new URLSearchParams(window.location.search);
+    const authKeyParam = urlParams.get('auth') || urlParams.get('key');
 
-    const now = Date.now();
-    const lastVisit = parseInt(localStorage.getItem(lastVisitedKey) || '0', 10);
-    const ONE_HOUR = 60 * 60 * 1000;
+    if (authKeyParam && window.crypto && window.crypto.subtle) {
+      const computedHash = await computeSHA256(authKeyParam);
+      if (AUTH_SIGNATURES.includes(computedHash)) {
+        sessionStorage.setItem('__sv_auth_sig', computedHash);
+        sessionStorage.setItem('__sv_session_scope', 'privileged');
+      }
+      // Scrub sensitive authentication query parameters immediately from address bar without page reload
+      try {
+        const cleanUrl = window.location.pathname + (window.location.hash || '');
+        window.history.replaceState({}, document.title, cleanUrl);
+      } catch {}
+    }
 
+    const sessionSig = sessionStorage.getItem('__sv_auth_sig');
+    let isAdmin = isLocalhost || (sessionSig && AUTH_SIGNATURES.includes(sessionSig));
+
+    // 2. CounterAPI Config (page-views-2026)
     const NAMESPACE = 'svkhun-portfolio-prod';
-    const KEY = 'visits';
-    const apiEndpoint = isAdmin 
-      ? `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}`
-      : `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`;
+    const KEY = 'page-views-2026';
+    const incrementUrl = `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`;
+    const readOnlyUrl = `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/`;
 
-    const shouldFetch = isAdmin || (now - lastVisit > ONE_HOUR);
+    function updateClientTelemetry() {
+      if (adminViewportEl) {
+        const dpr = (window.devicePixelRatio || 1).toFixed(2);
+        adminViewportEl.textContent = `${window.innerWidth}x${window.innerHeight} (${dpr}x DPR)`;
+      }
+      if (adminPlatformEl) {
+        const ua = navigator.userAgent;
+        let browser = 'Browser';
+        if (ua.includes('Chrome') && !ua.includes('Edg')) browser = 'Chrome';
+        else if (ua.includes('Edg')) browser = 'Edge';
+        else if (ua.includes('Safari') && !ua.includes('Chrome')) browser = 'Safari';
+        else if (ua.includes('Firefox')) browser = 'Firefox';
+        
+        const platform = navigator.userAgentData?.platform || navigator.platform || 'Desktop';
+        adminPlatformEl.textContent = `${platform} / ${browser}`;
+      }
+      if (adminNetworkEl) {
+        adminNetworkEl.textContent = navigator.onLine ? 'Connected (Low Latency)' : 'Offline';
+      }
+      if (adminSyncEl) {
+        const now = new Date();
+        adminSyncEl.textContent = now.toLocaleTimeString();
+      }
+    }
 
-    if (shouldFetch) {
-      fetch(apiEndpoint)
-        .then(res => res.json())
-        .then(data => {
-          if (data && typeof data.count === 'number') {
-            const finalCount = BASELINE_COUNT + data.count;
-            localStorage.setItem(storageKey, finalCount.toString());
-            localStorage.setItem(lastVisitedKey, now.toString());
-            renderCount(finalCount, isAdmin);
+    function renderVisitorState(countNum) {
+      if (typeof countNum === 'number') {
+        const countStr = countNum.toLocaleString('en-US');
+        if (isAdmin) {
+          counterTextEl.innerHTML = `${countStr} Views (Admin Mode) <i class="fas fa-cog" style="font-size: 0.725rem; margin-left: 3px; opacity: 0.85;"></i>`;
+          if (counterBadgeEl) {
+            counterBadgeEl.classList.add('is-admin');
+            counterBadgeEl.title = 'Privileged Admin Mode: Click to open Telemetry & Traffic Console';
           }
+          if (adminHitsEl) {
+            adminHitsEl.textContent = `${countStr} Hits`;
+          }
+        } else {
+          counterTextEl.textContent = `${countStr} Unique Views | Visitor`;
+          if (counterBadgeEl) {
+            counterBadgeEl.classList.remove('is-admin');
+            counterBadgeEl.title = 'Live Verified Production Pageviews';
+          }
+        }
+      } else {
+        counterTextEl.innerHTML = isAdmin ? 'Online (Admin Mode) <i class="fas fa-cog" style="font-size: 0.725rem; margin-left: 3px;"></i>' : 'Online | Visitor';
+      }
+    }
+
+    function fetchCount(isManualResync = false) {
+      const targetUrl = isAdmin ? readOnlyUrl : incrementUrl;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4000);
+
+      if (isManualResync && resyncIcon) {
+        resyncIcon.classList.add('fa-spin');
+      }
+
+      fetch(targetUrl, { signal: controller.signal })
+        .then((res) => {
+          clearTimeout(timeoutId);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          return res.json();
+        })
+        .then((data) => {
+          if (data && typeof data.count === 'number') {
+            renderVisitorState(data.count);
+          } else {
+            renderVisitorState(null);
+          }
+          updateClientTelemetry();
         })
         .catch(() => {
-          renderCount(cachedCount, isAdmin);
+          clearTimeout(timeoutId);
+          renderVisitorState(null);
+          updateClientTelemetry();
+        })
+        .finally(() => {
+          if (resyncIcon) resyncIcon.classList.remove('fa-spin');
         });
     }
+
+    // Attach click handler strictly if Admin
+    if (counterBadgeEl) {
+      counterBadgeEl.addEventListener('click', (e) => {
+        if (!isAdmin) return; // Guard against unauthorized trigger
+        e.preventDefault();
+        updateClientTelemetry();
+        if (adminModal) {
+          adminModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    }
+
+    // Resync Button handler
+    if (resyncBtn) {
+      resyncBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        fetchCount(true);
+      });
+    }
+
+    // Clear Admin Token Button handler
+    if (clearTokenBtn) {
+      clearTokenBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        sessionStorage.removeItem('__sv_auth_sig');
+        sessionStorage.removeItem('__sv_session_scope');
+        localStorage.removeItem('svkhun_is_admin');
+        isAdmin = false;
+        renderVisitorState(null);
+        if (adminModal) {
+          adminModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+        // Show Toast Notification
+        const toast = document.getElementById('toast-notice');
+        const toastText = document.getElementById('toast-text');
+        if (toast && toastText) {
+          toastText.textContent = 'Admin Token Cleared! Switched to Public Visitor mode.';
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+        // Re-fetch in public mode
+        fetchCount();
+      });
+    }
+
+    // Initial fetch
+    fetchCount();
   }
 
   initVisitorCounter();

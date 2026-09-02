@@ -53,14 +53,16 @@
       }
     }
 
-    draw() {
+      const isLight = document.documentElement.classList.contains('light');
       ctx.beginPath();
       ctx.moveTo(this.x, this.y);
       ctx.lineTo(
         this.x - Math.cos(this.angle) * this.length,
         this.y - Math.sin(this.angle) * this.length
       );
-      ctx.strokeStyle = `rgba(56, 189, 248, ${this.opacity})`;
+      ctx.strokeStyle = isLight 
+        ? `rgba(2, 132, 199, ${this.opacity * 0.7})` 
+        : `rgba(56, 189, 248, ${this.opacity})`;
       ctx.lineWidth = 0.8;
       ctx.stroke();
     }
@@ -78,7 +80,7 @@
       this.vy = -(0.35 + Math.random() * 0.45);
       this.radius = Math.random() * 1.8 + 1.0;
       this.baseRadius = this.radius;
-      this.color = CONFIG.colors[Math.floor(Math.random() * CONFIG.colors.length)];
+      this.colorIndex = Math.floor(Math.random() * CONFIG.colors.length);
       this.pulseSpeed = 0.015 + Math.random() * 0.02;
       this.pulse = Math.random() * Math.PI;
     }
@@ -108,9 +110,13 @@
     }
 
     draw() {
+      const isLight = document.documentElement.classList.contains('light');
+      const lightColors = ['#0284c7', '#059669', '#0369a1', '#64748b'];
+      const color = isLight ? lightColors[this.colorIndex] : CONFIG.colors[this.colorIndex];
+
       ctx.beginPath();
       ctx.arc(this.x, this.y, Math.max(0.5, this.radius), 0, Math.PI * 2);
-      ctx.fillStyle = this.color;
+      ctx.fillStyle = color;
       ctx.fill();
     }
   }
@@ -138,6 +144,9 @@
   }
 
   function drawConnections() {
+    const isLight = document.documentElement.classList.contains('light');
+    const linePrefix = isLight ? 'rgba(2, 132, 199, ' : CONFIG.lineColor;
+    const sagePrefix = isLight ? 'rgba(5, 150, 105, ' : CONFIG.sageLineColor;
     const len = particles.length;
 
     for (let i = 0; i < len; i++) {
@@ -150,11 +159,11 @@
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < 115) {
-          const alpha = (1 - dist / 115) * 0.16;
+          const alpha = (1 - dist / 115) * (isLight ? 0.18 : 0.16);
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
           ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = CONFIG.lineColor + alpha + ')';
+          ctx.strokeStyle = linePrefix + alpha + ')';
           ctx.lineWidth = 0.7;
           ctx.stroke();
         }
@@ -170,7 +179,7 @@
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
           ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = CONFIG.sageLineColor + alpha + ')';
+          ctx.strokeStyle = sagePrefix + alpha + ')';
           ctx.lineWidth = 0.9;
           ctx.stroke();
         }
@@ -180,7 +189,7 @@
     if (mouse.active && mouse.x !== null) {
       ctx.beginPath();
       ctx.arc(mouse.x, mouse.y, 3, 0, Math.PI * 2);
-      ctx.fillStyle = '#38bdf8';
+      ctx.fillStyle = isLight ? '#0284c7' : '#38bdf8';
       ctx.fill();
     }
   }

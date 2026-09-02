@@ -31,7 +31,8 @@
 
     const total = cards.length;
     const isMobile = window.innerWidth < 768;
-    const spacing = isMobile ? 320 : 440;
+    const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+    const spacing = isMobile ? 320 : (isTablet ? 460 : 580);
 
     cards.forEach((card, idx) => {
       let offset = idx - currentIndex;
@@ -46,33 +47,33 @@
       let zIndex = 1;
 
       if (offset === 0) {
-        // Active Focal Center Card
-        transform = `translateX(0px) scale(1.0)`;
+        // Active Focal Center Card: Subtle scale-102 with full clarity & top z-index
+        transform = `translateX(0px) scale(1.02)`;
         opacity = 1;
         pointerEvents = 'auto';
         zIndex = 10;
         card.classList.add('active');
         card.classList.remove('inactive');
       } else if (offset === 1) {
-        // Immediate Right Preview Card
-        transform = `translateX(${spacing}px) scale(0.94)`;
-        opacity = 0.70;
+        // Immediate Right Preview Card: 40% opacity, scale-93, lower z-index
+        transform = `translateX(${spacing}px) scale(0.93)`;
+        opacity = 0.40;
         pointerEvents = 'auto';
-        zIndex = 5;
+        zIndex = 4;
         card.classList.remove('active');
         card.classList.add('inactive');
       } else if (offset === -1) {
-        // Immediate Left Preview Card
-        transform = `translateX(-${spacing}px) scale(0.94)`;
-        opacity = 0.70;
+        // Immediate Left Preview Card: 40% opacity, scale-93, lower z-index
+        transform = `translateX(-${spacing}px) scale(0.93)`;
+        opacity = 0.40;
         pointerEvents = 'auto';
-        zIndex = 5;
+        zIndex = 4;
         card.classList.remove('active');
         card.classList.add('inactive');
       } else {
         // Out of immediate view
-        const tx = offset > 0 ? spacing * 1.5 : -spacing * 1.5;
-        transform = `translateX(${tx}px) scale(0.88)`;
+        const tx = offset > 0 ? spacing * 1.6 : -spacing * 1.6;
+        transform = `translateX(${tx}px) scale(0.85)`;
         opacity = 0;
         pointerEvents = 'none';
         zIndex = 1;

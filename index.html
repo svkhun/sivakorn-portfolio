@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,11 +36,32 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Instant Theme Detection Script (Prevent Flash of Unstyled Theme - FOUT) -->
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('svkhun_theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'light' || (!savedTheme && !prefersDark && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
 </head>
-<body>
+<body class="transition-colors duration-200">
 
   <!-- ========================================================================
-       Header & Minimal Navigation with i18n Segmented Switcher
+       Header & Minimal Navigation with i18n Segmented Switcher & Theme Toggle
        ======================================================================== -->
   <header class="header">
     <div class="container nav-container">
@@ -91,6 +112,17 @@
           <button class="lang-btn" id="lang-btn-th" aria-label="เปลี่ยนภาษาเป็นไทย">TH</button>
         </div>
 
+        <!-- Sleek Dark / Light Mode Toggle Button -->
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Dark / Light Theme">
+          <span class="theme-icon-dark" aria-hidden="true"><i class="fas fa-moon"></i></span>
+          <span class="theme-icon-light" aria-hidden="true"><i class="fas fa-sun"></i></span>
+        </button>
+
+        <button class="btn-exec-brief" data-open-modal="modal-exec-brief" aria-label="30-Second Executive Brief for Recruiters">
+          <i class="fas fa-bolt"></i>
+          <span data-i18n="nav_brief">30s Brief</span>
+        </button>
+
         <button class="btn-resume" data-open-drawer="drawer-resume" aria-label="Open Resume Preview">
           <i class="fas fa-file-pdf"></i>
           <span data-i18n="nav_resume">Resume</span>
@@ -106,14 +138,12 @@
        1. HERO SECTION (Sharp, Authoritative, Zero Clutter)
        ======================================================================== -->
   <section class="hero-section" id="hero">
-    <canvas id="data-stream-canvas"></canvas>
-    <div class="hero-overlay"></div>
-
+    <canvas id="neural-canvas"></canvas>
     <div class="container hero-content">
       <div class="hero-meta-pill" id="hero-meta-pill">
         <span class="meta-pulse-dot"></span>
         <i class="fas fa-graduation-cap"></i>
-        <span data-i18n="hero_meta">Computer Engineering @ Srinakharinwirot University (SWU)</span>
+        <span data-i18n="hero_meta">B.Eng. Computer Engineering @ Srinakharinwirot University (SWU) &bull; Class of 2026</span>
         <span class="meta-tooltip">🟢 Currently Enrolled (B.Eng.)</span>
       </div>
 
@@ -125,10 +155,10 @@
       <!-- Two-Part Punchy Sub-Headline (Zero Redundancy) -->
       <div class="hero-subheadline-group">
         <div class="hero-identity-line" data-i18n="hero_identity">
-          Aspiring Data Scientist &amp; Machine Learning Engineer
+          Data Scientist &amp; Machine Learning Engineer &bull; FinTech &amp; Quantitative Risk
         </div>
         <p class="hero-specialty-line" data-i18n="hero_specialty">
-          Specializing in Explainable AI (XAI), Financial Risk Scoring, and Industrial Data Pipelines.
+          Architecting explainable credit risk engines, high-impact tabular ML, and production-grade financial data pipelines.
         </p>
       </div>
 
@@ -136,27 +166,31 @@
       <div class="hero-unified-bar">
         <a href="#projects" class="btn-primary-pill">
           <i class="fas fa-arrow-down"></i>
-          <span data-i18n="hero_cta_projects">Explore Featured Projects</span>
+          <span data-i18n="hero_cta_projects">Explore Projects</span>
         </a>
+        <button class="btn-secondary-pill btn-exec-pill" data-open-modal="modal-exec-brief">
+          <i class="fas fa-bolt"></i>
+          <span data-i18n="hero_cta_brief">30s Brief</span>
+        </button>
         <button class="btn-secondary-pill btn-terminal-pill" id="btn-open-terminal">
           <i class="fas fa-terminal"></i>
-          <span data-i18n="hero_cta_terminal">Quick Terminal</span>
+          <span data-i18n="hero_cta_terminal">Terminal</span>
           <span class="terminal-shortcut-badge">⌘K</span>
         </button>
 
         <div class="hero-bar-divider"></div>
 
         <div class="hero-social-icons">
-          <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="hero-icon-btn" title="GitHub: github.com/svkhun" aria-label="GitHub Profile">
+          <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="hero-icon-btn" title="GitHub Profile" aria-label="GitHub Profile">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer" class="hero-icon-btn" title="LinkedIn Profile" aria-label="LinkedIn Profile">
+          <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer" class="hero-icon-btn" title="LinkedIn" aria-label="LinkedIn Profile">
             <i class="fab fa-linkedin-in"></i>
           </a>
-          <a href="mailto:sivakorn.khun@gmail.com" class="hero-icon-btn" title="Email: sivakorn.khun@gmail.com" aria-label="Send Direct Email">
+          <a href="mailto:sivakorn.khun@gmail.com" class="hero-icon-btn" title="Send Email" aria-label="Send Direct Email">
             <i class="fas fa-envelope"></i>
           </a>
-          <button class="hero-icon-btn" data-open-drawer="drawer-resume" title="View &amp; Print Resume PDF" aria-label="Resume PDF">
+          <button class="hero-icon-btn" data-open-drawer="drawer-resume" title="View Resume PDF" aria-label="View Resume PDF">
             <i class="fas fa-file-pdf"></i>
           </button>
         </div>
@@ -189,7 +223,7 @@
           </div>
           <span class="stat-subtitle" data-i18n="metrics_fin_sub">Financial Data Points</span>
           <span class="stat-subtext" data-i18n="metrics_fin_desc">Real Enterprise Credit Records</span>
-          <span class="stat-tooltip-chip"><i class="fas fa-database"></i> <span data-i18n="metrics_fin_chip">Ingestion, Binning &amp; Blind AUC Splits</span></span>
+          <span class="stat-tooltip-chip"><i class="fas fa-database"></i> <span data-i18n="metrics_fin_chip">WoE / IV Binning &bull; 0.894 ROC-AUC</span></span>
         </div>
 
         <!-- Metric 3: Spatial Pipeline Resolution -->
@@ -229,134 +263,145 @@
         Balancing software engineering discipline with statistical machine learning and financial regulatory compliance.
       </p>
 
-      <div class="about-grid">
-        <!-- Left Main Bento Card (Unified Pipeline & Principles) -->
-        <div class="about-card" id="about-spotlight-card">
-          <!-- Top Narrative Block -->
-          <div class="about-intro-group">
-            <p class="about-lead" data-i18n="about_lead">
-              I am a Computer Engineering student at Srinakharinwirot University (SWU) passionate about transforming transactional credit records into transparent predictive intelligence.
-            </p>
-            <p class="about-paragraph" data-i18n-html="about_p">
-              In credit risk underwriting, black-box models present severe regulatory hurdles. My work focuses on <strong>Probability of Default (PD) estimation, Weight of Evidence (WoE) binning, and Explainable AI (XAI)</strong> that delivers legally defensible adverse action notices alongside high ROC-AUC scores.
-            </p>
-          </div>
+      <div class="about-tier-flow">
+        <!-- ================================================================
+             TIER 1: FULL-WIDTH HERO CARD (Identity, Academic & Languages)
+             ================================================================ -->
+        <div class="about-tier-card about-tier-hero">
+          <div class="about-hero-grid">
+            <!-- Left Sub-block: Quantitative Profile & Focus -->
+            <div class="about-hero-main">
+              <div class="info-header">
+                <i class="fas fa-terminal"></i>
+                <span data-i18n="about_profile_hdr">// CANDIDATE PROFILE &amp; QUANTITATIVE FOCUS</span>
+              </div>
+              
+              <h3 class="about-profile-headline" data-i18n="about_profile_headline">
+                Computer Engineering @ SWU specializing in transparent, production-grade statistical ML.
+              </h3>
+              
+              <p class="about-profile-sub" data-i18n="about_profile_sub">
+                Bridging statistical credit risk scoring, Basel-aligned probability of default, and scalable batch ETL data pipelines.
+              </p>
 
-          <!-- Unified End-to-End ML Pipeline & Disciplines Interactive Track -->
-          <div class="methodology-bento-card">
-            <div class="methodology-title">
-              <i class="fas fa-network-wired"></i>
-              <span data-i18n="about_methodology_hdr">// END-TO-END ML PIPELINE &amp; DISCIPLINES</span>
+              <div class="about-focus-pills-row">
+                <span class="focus-pill"><i class="fas fa-shield-alt"></i> Credit Risk (WoE/IV)</span>
+                <span class="focus-pill"><i class="fas fa-brain"></i> Explainable AI (SHAP)</span>
+                <span class="focus-pill"><i class="fas fa-network-wired"></i> Data Pipelines (ETL)</span>
+              </div>
             </div>
 
-            <div class="pipeline-flow-grid">
-              <!-- Step 1 -->
-              <div class="pipeline-flow-node">
-                <div class="node-step-header">
-                  <div class="node-step-label">
-                    <span class="num">01.</span> Ingestion &amp; Audit
-                  </div>
-                  <span class="node-tech-indicator">Zero-Leakage</span>
+            <!-- Right Sub-block: Academic Credentials & Languages Quick Strip -->
+            <div class="about-hero-sidebar">
+              <div class="hero-sidebar-item">
+                <div class="hero-sidebar-header">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span data-i18n="about_edu_hdr">Academic Credentials</span>
                 </div>
-                <p class="node-step-desc">Raw schema validation, missing data audit, leak-free temporal splitting.</p>
-                <div class="node-chip-row">
-                  <span class="node-tech-badge"><i class="fas fa-check-double"></i> Pandas &bull; Pydantic</span>
+                <div class="hero-sidebar-degree" data-i18n="about_edu_degree">B.Eng. in Computer Engineering</div>
+                <div class="hero-sidebar-inst-row">
+                  <span class="hero-sidebar-inst">Srinakharinwirot University (SWU)</span>
+                  <span class="edu-pulse-badge"><span class="edu-pulse-dot"></span> <span data-i18n="about_edu_status">Active Enrollment</span></span>
                 </div>
               </div>
 
-              <!-- Step 2 -->
-              <div class="pipeline-flow-node">
-                <div class="node-step-header">
-                  <div class="node-step-label">
-                    <span class="num">02.</span> Feature Calibration
-                  </div>
-                  <span class="node-tech-indicator">Monotonic WoE</span>
+              <div class="hero-sidebar-divider"></div>
+
+              <div class="hero-sidebar-item">
+                <div class="hero-sidebar-header">
+                  <i class="fas fa-language"></i>
+                  <span data-i18n="about_lang_hdr">Languages</span>
                 </div>
-                <p class="node-step-desc">WoE/IV transformation, monotonic risk binning, domain signal engineering.</p>
-                <div class="node-chip-row">
-                  <span class="node-tech-badge"><i class="fas fa-sliders-h"></i> Scikit-Learn &bull; OptBinning</span>
+                <div class="hero-lang-chips">
+                  <span class="hero-lang-chip"><span class="lang-tag">TH</span> Thai (Native)</span>
+                  <span class="hero-lang-chip highlight" data-open-modal="modal-cert-english" title="View Oxford / AUA Score Document">
+                    <span class="lang-tag">EN</span> English (B1+ Professional / Oxford) <i class="fas fa-external-link-alt"></i>
+                  </span>
+                  <span class="hero-lang-chip"><span class="lang-tag">JP</span> Japanese (Beginner)</span>
                 </div>
               </div>
-
-              <!-- Step 3 -->
-              <div class="pipeline-flow-node">
-                <div class="node-step-header">
-                  <div class="node-step-label">
-                    <span class="num">03.</span> Calibrated Modeling
-                  </div>
-                  <span class="node-tech-indicator">Stratified 5-Fold</span>
-                </div>
-                <p class="node-step-desc">LightGBM/XGBoost classification, asymmetric loss matrices, 5-fold CV.</p>
-                <div class="node-chip-row">
-                  <span class="node-tech-badge"><i class="fas fa-brain"></i> LightGBM &bull; XGBoost</span>
-                </div>
-              </div>
-
-              <!-- Step 4 -->
-              <div class="pipeline-flow-node">
-                <div class="node-step-header">
-                  <div class="node-step-label">
-                    <span class="num">04.</span> Regulated Delivery
-                  </div>
-                  <span class="node-tech-indicator">Sub-50ms Serving</span>
-                </div>
-                <p class="node-step-desc">SHAP TreeExplainer waterfall attribution &amp; sub-50ms Dockerized FastAPI endpoints.</p>
-                <div class="node-chip-row">
-                  <span class="node-tech-badge"><i class="fas fa-cube"></i> SHAP &bull; FastAPI</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bottom Left Metrics & Engineering Principles Ribbon -->
-          <div class="about-principles-ribbon">
-            <div class="principle-pill">
-              <span class="principle-title"><i class="fas fa-code-branch"></i> Clean Architecture</span>
-              <p class="principle-desc">PEP-8, modular OOP pipelines, reproducible environments.</p>
-            </div>
-            <div class="principle-pill">
-              <span class="principle-title"><i class="fas fa-eye"></i> Model Accountability</span>
-              <p class="principle-desc">Zero black-box deployments without local attribution.</p>
-            </div>
-            <div class="principle-pill">
-              <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-                <span class="principle-title"><i class="fab fa-github"></i> GitHub Monorepo ↗</span>
-                <p class="principle-desc">Direct sync with svkhun repositories.</p>
-              </a>
             </div>
           </div>
         </div>
 
-        <!-- Right Side Bento Cards -->
-        <div class="about-side">
-          <!-- Academic Background Card -->
-          <div class="info-card edu-card">
-            <div class="info-header">
-              <i class="fas fa-graduation-cap"></i>
-              <span data-i18n="about_edu_hdr">Academic Credentials</span>
+        <!-- ================================================================
+             TIER 2: FULL-WIDTH HORIZONTAL 1x4 PRODUCTION PIPELINE
+             ================================================================ -->
+        <div class="about-tier-card about-tier-pipeline">
+          <div class="pipeline-tier-header">
+            <div class="info-header" style="margin-bottom: 0;">
+              <i class="fas fa-project-diagram"></i>
+              <span data-i18n="about_pipeline_hdr">// END-TO-END METHODOLOGY &amp; PIPELINE DISCIPLINE</span>
             </div>
-            <h3 class="edu-title" data-i18n="about_edu_degree">B.Eng. in Computer Engineering</h3>
-            
-            <div class="edu-institution-row">
-              <span class="edu-institution">Srinakharinwirot University (SWU)</span>
-              <span class="edu-pulse-badge"><span class="edu-pulse-dot"></span> <span data-i18n="about_edu_status">Active Enrollment</span></span>
-            </div>
-
-            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); margin-top: 14px; margin-bottom: 6px;">
-              Core Technical Coursework:
-            </div>
-            <div class="coursework-chips-grid">
-              <span class="course-pill"><i class="fas fa-brain"></i> Machine Learning</span>
-              <span class="course-pill"><i class="fas fa-database"></i> Database Systems</span>
-              <span class="course-pill"><i class="fas fa-microchip"></i> Operating Systems</span>
-              <span class="course-pill"><i class="fas fa-chart-line"></i> Statistical Methods</span>
-              <span class="course-pill"><i class="fas fa-code"></i> Software Engineering</span>
-              <span class="course-pill"><i class="fas fa-project-diagram"></i> Data Structures</span>
-            </div>
+            <span class="pipeline-live-badge">
+              <span class="pipeline-live-dot"></span> SYSTEM READY
+            </span>
           </div>
 
-          <!-- Industry Assessments & Certifications Card (Segmented Switcher) -->
-          <div class="info-card kbtg-cert-card">
+          <div class="horizontal-pipeline-grid">
+            <!-- Step 01 -->
+            <div class="pipeline-h-card">
+              <div class="pipeline-h-top">
+                <span class="pipeline-h-num">01.</span>
+                <span class="pipeline-h-tag">Zero-Leakage</span>
+              </div>
+              <h4 class="pipeline-h-title">Ingestion &amp; Audit</h4>
+              <p class="pipeline-h-desc">Raw schema validation, missing data audit, and strict temporal out-of-time test splitting.</p>
+              <div class="pipeline-h-footer">
+                <span class="node-tech-badge"><i class="fas fa-check-double"></i> Pandas &bull; Pydantic</span>
+              </div>
+              <div class="pipeline-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+            </div>
+
+            <!-- Step 02 -->
+            <div class="pipeline-h-card">
+              <div class="pipeline-h-top">
+                <span class="pipeline-h-num">02.</span>
+                <span class="pipeline-h-tag">Monotonic WoE</span>
+              </div>
+              <h4 class="pipeline-h-title">WoE Calibration</h4>
+              <p class="pipeline-h-desc">Weight of Evidence transformation, Information Value filtering, and PSI stability monitoring.</p>
+              <div class="pipeline-h-footer">
+                <span class="node-tech-badge"><i class="fas fa-sliders-h"></i> Scikit-Learn &bull; OptBinning</span>
+              </div>
+              <div class="pipeline-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+            </div>
+
+            <!-- Step 03 -->
+            <div class="pipeline-h-card">
+              <div class="pipeline-h-top">
+                <span class="pipeline-h-num">03.</span>
+                <span class="pipeline-h-tag">Stratified 5-Fold</span>
+              </div>
+              <h4 class="pipeline-h-title">Calibrated ML</h4>
+              <p class="pipeline-h-desc">LightGBM/XGBoost classification, probability calibration, and asymmetric loss optimization.</p>
+              <div class="pipeline-h-footer">
+                <span class="node-tech-badge"><i class="fas fa-brain"></i> LightGBM &bull; XGBoost</span>
+              </div>
+              <div class="pipeline-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+            </div>
+
+            <!-- Step 04 -->
+            <div class="pipeline-h-card">
+              <div class="pipeline-h-top">
+                <span class="pipeline-h-num">04.</span>
+                <span class="pipeline-h-tag">Sub-50ms Serving</span>
+              </div>
+              <h4 class="pipeline-h-title">Regulated Serving</h4>
+              <p class="pipeline-h-desc">Instance-level SHAP attributions, ECOA reason code generation, and FastAPI Docker endpoints.</p>
+              <div class="pipeline-h-footer">
+                <span class="node-tech-badge"><i class="fas fa-cube"></i> SHAP &bull; FastAPI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================================================================
+             TIER 3: BALANCED 2-COLUMN LOWER DECK (Assessments & Governance)
+             ================================================================ -->
+        <div class="about-tier-lower-grid">
+          <!-- Left Column: Industry Assessments & Certifications (KBTG) -->
+          <div class="about-tier-card kbtg-cert-card">
             <div class="info-header" style="color: #10B981; justify-content: space-between;">
               <div style="display: flex; align-items: center; gap: 8px;">
                 <i class="fas fa-award"></i>
@@ -376,111 +421,225 @@
             </div>
 
             <div class="kbtg-tab-content-wrapper">
-              <!-- View A: Data Analyst -->
+              <!-- View A: Data Analyst (97 / 150) -->
               <div class="kbtg-tab-pane active" id="kbtg-tab-da">
-                <div class="kbtg-badge-top">
-                  <div>
+                <div class="kbtg-dashboard-header">
+                  <div class="kbtg-dashboard-left">
                     <h4 class="kbtg-badge-title">Data Analyst Assessment (STAMP)</h4>
                     <div class="kbtg-bench-note">
-                      <i class="fas fa-check-circle" style="color: #10B981;"></i> Above average benchmark of 90 &bull; 5-Domain Evaluation
+                      <span class="status-indicator-dot"></span>
+                      <span>Above Benchmark (90) &bull; Verified Level: <strong class="text-emerald-400">Intermediate</strong></span>
                     </div>
                   </div>
-                  <span class="kbtg-score-pill">
-                    <span class="kbtg-level">Intermediate</span>
-                    <span class="kbtg-score">97 / 150</span>
-                  </span>
+                  <div class="kbtg-score-callout">
+                    <span class="kbtg-score-num">97</span>
+                    <span class="kbtg-score-max">/ 150</span>
+                  </div>
                 </div>
 
-                <div class="kbtg-competency-chips">
-                  <span class="kbtg-chip">Data Cleaning: <strong>23/30</strong></span>
-                  <span class="kbtg-chip">EDA &amp; Viz: <strong>20/30</strong></span>
-                  <span class="kbtg-chip">ML for Analysts: <strong>18/30</strong></span>
+                <!-- 5-Domain Evaluation Micro-Grid -->
+                <div class="kbtg-domains-grid">
+                  <!-- Domain 1 -->
+                  <div class="kbtg-domain-card">
+                    <div class="kbtg-domain-top">
+                      <span class="kbtg-domain-name">Data Cleaning &amp; Preprocessing</span>
+                      <span class="kbtg-domain-val">23 <span class="kbtg-domain-max">/ 30</span></span>
+                    </div>
+                    <div class="kbtg-domain-bar-bg">
+                      <div class="kbtg-domain-bar-fill" style="width: 76.7%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Domain 2 -->
+                  <div class="kbtg-domain-card">
+                    <div class="kbtg-domain-top">
+                      <span class="kbtg-domain-name">EDA &amp; Visualization</span>
+                      <span class="kbtg-domain-val">20 <span class="kbtg-domain-max">/ 30</span></span>
+                    </div>
+                    <div class="kbtg-domain-bar-bg">
+                      <div class="kbtg-domain-bar-fill" style="width: 66.7%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Domain 3 -->
+                  <div class="kbtg-domain-card">
+                    <div class="kbtg-domain-top">
+                      <span class="kbtg-domain-name">ML for Analysts</span>
+                      <span class="kbtg-domain-val">18 <span class="kbtg-domain-max">/ 30</span></span>
+                    </div>
+                    <div class="kbtg-domain-bar-bg">
+                      <div class="kbtg-domain-bar-fill" style="width: 60%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Domain 4 -->
+                  <div class="kbtg-domain-card">
+                    <div class="kbtg-domain-top">
+                      <span class="kbtg-domain-name">Business Insight &amp; Framing</span>
+                      <span class="kbtg-domain-val">19 <span class="kbtg-domain-max">/ 30</span></span>
+                    </div>
+                    <div class="kbtg-domain-bar-bg">
+                      <div class="kbtg-domain-bar-fill" style="width: 63.3%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Domain 5 -->
+                  <div class="kbtg-domain-card kbtg-domain-card-full">
+                    <div class="kbtg-domain-top">
+                      <span class="kbtg-domain-name">SQL &amp; Quantitative Querying</span>
+                      <span class="kbtg-domain-val">17 <span class="kbtg-domain-max">/ 30</span></span>
+                    </div>
+                    <div class="kbtg-domain-bar-bg">
+                      <div class="kbtg-domain-bar-fill" style="width: 56.7%;"></div>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="kbtg-action-row">
+                <!-- Pinned Action Footer -->
+                <div class="kbtg-pinned-footer">
                   <button class="btn-kbtg-report" data-open-modal="modal-kbtg-da">
                     <i class="fas fa-chart-bar"></i>
                     <span data-i18n="kbtg_view_report">View KBTG Score Report ↗</span>
                   </button>
+                  <span class="kbtg-verified-tag">
+                    <i class="fas fa-shield-alt"></i> Issued by KBTG &bull; Verified Credential
+                  </span>
                 </div>
               </div>
 
-              <!-- View B: Digital & Performance Marketer -->
+              <!-- View B: Digital & Performance Marketer (98 / 150) -->
               <div class="kbtg-tab-pane" id="kbtg-tab-mkt">
-                <div class="kbtg-badge-top">
-                  <div>
+                <div class="kbtg-dashboard-header">
+                  <div class="kbtg-dashboard-left">
                     <h4 class="kbtg-badge-title">Digital &amp; Performance Marketer (STAMP)</h4>
                     <div class="kbtg-bench-note">
-                      <i class="fas fa-check-circle" style="color: #10B981;"></i> Above average benchmark of 94 &bull; Top Tier Analytics
+                      <span class="status-indicator-dot"></span>
+                      <span>Above Benchmark (94) &bull; Top Tier Analytics: <strong class="text-emerald-400">Intermediate</strong></span>
                     </div>
                   </div>
-                  <span class="kbtg-score-pill">
-                    <span class="kbtg-level">Intermediate</span>
-                    <span class="kbtg-score">98 / 150</span>
-                  </span>
+                  <div class="kbtg-score-callout">
+                    <span class="kbtg-score-num">98</span>
+                    <span class="kbtg-score-max">/ 150</span>
+                  </div>
                 </div>
 
-                <div class="kbtg-competency-chips">
-                  <span class="kbtg-chip kbtg-chip-highlight">Marketing Analytics: <strong>26/30</strong> (Avg 17.94)</span>
-                  <span class="kbtg-chip">Data-Driven Mktg: <strong>21/30</strong></span>
-                  <span class="kbtg-chip">Content Mktg: <strong>19/30</strong></span>
+                <!-- 5-Domain Evaluation Micro-Grid -->
+                <div class="kbtg-domains-grid">
+                  <!-- Domain 1 -->
+                  <div class="kbtg-domain-card highlight">
+                    <div class="kbtg-domain-top">
+                      <span class="kbtg-domain-name">Marketing Analytics</span>
+                      <span class="kbtg-domain-val text-emerald-400 font-bold">26 <span class="kbtg-domain-max">/ 30</span></span>
+                    </div>
+                    <div class="kbtg-domain-bar-bg">
+                      <div class="kbtg-domain-bar-fill bg-emerald" style="width: 86.7%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Domain 2 -->
+                  <div class="kbtg-domain-card">
+                    <div class="kbtg-domain-top">
+                      <span class="kbtg-domain-name">Data-Driven Strategy</span>
+                      <span class="kbtg-domain-val">21 <span class="kbtg-domain-max">/ 30</span></span>
+                    </div>
+                    <div class="kbtg-domain-bar-bg">
+                      <div class="kbtg-domain-bar-fill" style="width: 70%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Domain 3 -->
+                  <div class="kbtg-domain-card">
+                    <div class="kbtg-domain-top">
+                      <span class="kbtg-domain-name">Content &amp; Performance</span>
+                      <span class="kbtg-domain-val">19 <span class="kbtg-domain-max">/ 30</span></span>
+                    </div>
+                    <div class="kbtg-domain-bar-bg">
+                      <div class="kbtg-domain-bar-fill" style="width: 63.3%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Domain 4 -->
+                  <div class="kbtg-domain-card">
+                    <div class="kbtg-domain-top">
+                      <span class="kbtg-domain-name">Acquisition Funnel</span>
+                      <span class="kbtg-domain-val">18 <span class="kbtg-domain-max">/ 30</span></span>
+                    </div>
+                    <div class="kbtg-domain-bar-bg">
+                      <div class="kbtg-domain-bar-fill" style="width: 60%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Domain 5 -->
+                  <div class="kbtg-domain-card kbtg-domain-card-full">
+                    <div class="kbtg-domain-top">
+                      <span class="kbtg-domain-name">Growth Experimentation</span>
+                      <span class="kbtg-domain-val">14 <span class="kbtg-domain-max">/ 30</span></span>
+                    </div>
+                    <div class="kbtg-domain-bar-bg">
+                      <div class="kbtg-domain-bar-fill" style="width: 46.7%;"></div>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="kbtg-action-row">
+                <!-- Pinned Action Footer -->
+                <div class="kbtg-pinned-footer">
                   <button class="btn-kbtg-report" data-open-modal="modal-kbtg-marketer">
                     <i class="fas fa-chart-bar"></i>
                     <span data-i18n="kbtg_view_report">View KBTG Score Report ↗</span>
                   </button>
+                  <span class="kbtg-verified-tag">
+                    <i class="fas fa-shield-alt"></i> Issued by KBTG &bull; Verified Credential
+                  </span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Languages Card with Visual Progress Bars & Tooltips -->
-          <div class="info-card lang-card">
+          <!-- Right Column: Engineering Standards & Academic Foundation -->
+          <div class="about-tier-card about-standards-card">
             <div class="info-header">
-              <i class="fas fa-language"></i>
-              <span data-i18n="about_lang_hdr">Languages</span>
+              <i class="fas fa-layer-group"></i>
+              <span data-i18n="about_standards_hdr">// ACADEMIC FOUNDATION &amp; GOVERNANCE</span>
             </div>
-            <div class="language-list">
-              <!-- Thai -->
-              <div class="language-item">
-                <div class="lang-tooltip">Native Speaker (Full Professional)</div>
-                <div class="lang-header-row">
-                  <span class="lang-name">Thai</span>
-                  <span class="lang-level" data-i18n="about_lang_th">Native</span>
-                </div>
-                <div class="lang-progress-track">
-                  <div class="lang-progress-fill th"></div>
+
+            <!-- Core Coursework Chips -->
+            <div class="standards-coursework-block">
+              <div class="standards-sub-label">Core Technical Coursework:</div>
+              <div class="coursework-chips-grid">
+                <span class="course-pill"><i class="fas fa-brain"></i> Machine Learning</span>
+                <span class="course-pill"><i class="fas fa-database"></i> Database Systems</span>
+                <span class="course-pill"><i class="fas fa-microchip"></i> Operating Systems</span>
+                <span class="course-pill"><i class="fas fa-chart-line"></i> Statistical Methods</span>
+                <span class="course-pill"><i class="fas fa-project-diagram"></i> Data Structures</span>
+              </div>
+            </div>
+
+            <!-- 3 Foundation Anchors -->
+            <div class="standards-anchors-list">
+              <div class="standards-anchor-item">
+                <div class="standards-anchor-icon"><i class="fas fa-cubes"></i></div>
+                <div class="standards-anchor-content">
+                  <div class="standards-anchor-title">Clean Architecture</div>
+                  <div class="standards-anchor-desc">Modular OOP, PEP-8 compliant data structures, and decoupled pipeline microservices.</div>
                 </div>
               </div>
 
-              <!-- English -->
-              <div class="language-item">
-                <div class="lang-tooltip">AUA Placement Test: Score 51 (CEFR B1) &bull; Click to View Document</div>
-                <div class="lang-header-row">
-                  <span class="lang-name">
-                    English
-                    <button class="btn-cert-trigger" data-open-modal="modal-cert-english" title="View Oxford / AUA Score Document">
-                      <i class="fas fa-file-alt"></i> <span data-i18n="about_lang_en_btn">View Score PDF ↗</span>
-                    </button>
-                  </span>
-                  <span class="lang-level" data-i18n="about_lang_en">B1+ Professional</span>
-                </div>
-                <div class="lang-progress-track">
-                  <div class="lang-progress-fill en"></div>
+              <div class="standards-anchor-item">
+                <div class="standards-anchor-icon"><i class="fas fa-eye"></i></div>
+                <div class="standards-anchor-content">
+                  <div class="standards-anchor-title">Model Governance</div>
+                  <div class="standards-anchor-desc">100% accountable, explainable local attribution with strict auditability.</div>
                 </div>
               </div>
 
-              <!-- Japanese -->
-              <div class="language-item">
-                <div class="lang-tooltip">Basic Conversational &amp; Reading</div>
-                <div class="lang-header-row">
-                  <span class="lang-name">Japanese</span>
-                  <span class="lang-level" data-i18n="about_lang_jp">Beginner</span>
-                </div>
-                <div class="lang-progress-track">
-                  <div class="lang-progress-fill jp"></div>
+              <div class="standards-anchor-item">
+                <div class="standards-anchor-icon"><i class="fab fa-github"></i></div>
+                <div class="standards-anchor-content">
+                  <div class="standards-anchor-title">
+                    Git Monorepo Sync
+                    <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="standards-github-link">github.com/svkhun ↗</a>
+                  </div>
+                  <div class="standards-anchor-desc">Continuous integration, automated linters, and versioned experiment tracking.</div>
                 </div>
               </div>
             </div>
@@ -516,6 +675,32 @@
             <p class="focal-deck-summary" data-i18n="proj1_summary">
               Production machine learning pipeline predicting 90+ day default risks on real consumer loans. Optimized ROC-AUC on ProbSpace across Public and Private blind test splits under strict time constraints.
             </p>
+
+            <!-- Highlighted Financial & Regulatory Metrics Grid -->
+            <div class="deck-metrics-grid">
+              <div class="deck-metric-box">
+                <span class="m-val">0.894</span>
+                <span class="m-lbl">ROC-AUC (5-Fold CV)</span>
+              </div>
+              <div class="deck-metric-box">
+                <span class="m-val">PSI &lt; 0.10</span>
+                <span class="m-lbl">Zero Covariate Drift</span>
+              </div>
+              <div class="deck-metric-box">
+                <span class="m-val">42.6%</span>
+                <span class="m-lbl">KS Separation Stat</span>
+              </div>
+              <div class="deck-metric-box">
+                <span class="m-val">Basel II/III</span>
+                <span class="m-lbl">ECOA / FCRA Mapped</span>
+              </div>
+            </div>
+
+            <!-- Financial Trade-Off & P&L Impact Teaser -->
+            <div class="deck-pnl-callout">
+              <i class="fas fa-balance-scale"></i>
+              <span><strong>Cost-Matrix Optimization:</strong> Calibrated asymmetric cutoff threshold to minimize False Negatives (loan write-offs) while retaining an optimal 72% loan approval rate across prime borrower tiers.</span>
+            </div>
 
             <div class="tech-badges-list">
               <span class="tech-pill">Python</span>
@@ -577,6 +762,32 @@
             <p class="focal-deck-summary" data-i18n="proj3_summary">
               End-to-end regulatory credit scorecard system utilizing Weight of Evidence (WoE) binning, LightGBM, and SHAP/LIME dual-layer interpretability.
             </p>
+
+            <!-- Highlighted Financial & Regulatory Metrics Grid -->
+            <div class="deck-metrics-grid">
+              <div class="deck-metric-box">
+                <span class="m-val">0.892</span>
+                <span class="m-lbl">ROC-AUC &bull; 0.784 Gini</span>
+              </div>
+              <div class="deck-metric-box">
+                <span class="m-val">PSI &lt; 0.10</span>
+                <span class="m-lbl">Zero Covariate Drift</span>
+              </div>
+              <div class="deck-metric-box">
+                <span class="m-val">42.6%</span>
+                <span class="m-lbl">KS Separation Stat</span>
+              </div>
+              <div class="deck-metric-box">
+                <span class="m-val">Basel II/III</span>
+                <span class="m-lbl">ECOA / FCRA Mapped</span>
+              </div>
+            </div>
+
+            <!-- Financial Trade-Off & P&L Impact Teaser -->
+            <div class="deck-pnl-callout">
+              <i class="fas fa-balance-scale"></i>
+              <span><strong>Cost-Matrix Optimization:</strong> Calibrated asymmetric cutoff threshold to minimize False Negatives (loan write-offs) while retaining an optimal 72% loan approval rate across prime borrower tiers.</span>
+            </div>
 
             <div class="tech-badges-list">
               <span class="tech-pill">Python</span>
@@ -645,14 +856,14 @@
   </section>
 
   <!-- ========================================================================
-       TECHNICAL ARSENAL: DUAL-TRACK SMOOTH INFINITE MARQUEE
+       TECHNICAL ARSENAL: PRODUCTION TECH STACK & TOOLING
        ======================================================================== -->
   <section class="section marquee-section" id="stack">
     <div class="container">
       <div class="section-tag" data-i18n="stack_tag">Technical Arsenal</div>
-      <h2 class="section-title" data-i18n="stack_title">Dual-Track Infinite Marquee</h2>
+      <h2 class="section-title" data-i18n="stack_title">Production Tech Stack &amp; Tooling</h2>
       <p class="section-desc" data-i18n="stack_desc">
-        A continuous, smooth-flowing engineering stack. Hover over any technology badge to pause the stream and inspect its exact production usage across my projects.
+        A curated ecosystem of languages, distributed computing frameworks, and machine learning libraries applied across production pipelines. Hover over any technology to inspect its implementation context.
       </p>
 
       <!-- Category Filter Tabs -->
@@ -738,15 +949,39 @@
               <div class="marquee-card-icon"><i class="fas fa-eye"></i></div>
               <div class="marquee-card-info">
                 <span class="marquee-card-name">SHAP</span>
-                <span class="marquee-card-badge">Explainable AI</span>
+                <span class="marquee-card-badge">TreeExplainer XAI</span>
               </div>
             </div>
 
             <div class="marquee-card" data-category="ml">
-              <div class="marquee-card-icon"><i class="fas fa-search-plus"></i></div>
+              <div class="marquee-card-icon"><i class="fas fa-sliders-h"></i></div>
               <div class="marquee-card-info">
-                <span class="marquee-card-name">LIME</span>
-                <span class="marquee-card-badge">Surrogate Attribution</span>
+                <span class="marquee-card-name">OptBinning</span>
+                <span class="marquee-card-badge">Monotonic WoE</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">PostgreSQL</span>
+                <span class="marquee-card-badge">ACID Relational</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fab fa-docker"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Docker</span>
+                <span class="marquee-card-badge">Containerization</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fas fa-bolt"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">FastAPI</span>
+                <span class="marquee-card-badge">Low-Latency Serving</span>
               </div>
             </div>
 
@@ -784,6 +1019,7 @@
             </div>
 
             <div class="marquee-card" data-category="languages">
+              <div class="marquee-card-icon"><i class="fas fa-chart-bar"></i></div>
               <div class="marquee-card-info">
                 <span class="marquee-card-name">R</span>
                 <span class="marquee-card-badge">Statistical Modeling</span>
@@ -807,6 +1043,7 @@
             </div>
 
             <div class="marquee-card" data-category="ml">
+              <div class="marquee-card-icon"><i class="fas fa-cogs"></i></div>
               <div class="marquee-card-info">
                 <span class="marquee-card-name">Scikit-Learn</span>
                 <span class="marquee-card-badge">Pipelines &amp; CV</span>
@@ -817,15 +1054,39 @@
               <div class="marquee-card-icon"><i class="fas fa-eye"></i></div>
               <div class="marquee-card-info">
                 <span class="marquee-card-name">SHAP</span>
-                <span class="marquee-card-badge">Explainable AI</span>
+                <span class="marquee-card-badge">TreeExplainer XAI</span>
               </div>
             </div>
 
             <div class="marquee-card" data-category="ml">
-              <div class="marquee-card-icon"><i class="fas fa-search-plus"></i></div>
+              <div class="marquee-card-icon"><i class="fas fa-sliders-h"></i></div>
               <div class="marquee-card-info">
-                <span class="marquee-card-name">LIME</span>
-                <span class="marquee-card-badge">Surrogate Attribution</span>
+                <span class="marquee-card-name">OptBinning</span>
+                <span class="marquee-card-badge">Monotonic WoE</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">PostgreSQL</span>
+                <span class="marquee-card-badge">ACID Relational</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fab fa-docker"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Docker</span>
+                <span class="marquee-card-badge">Containerization</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fas fa-bolt"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">FastAPI</span>
+                <span class="marquee-card-badge">Low-Latency Serving</span>
               </div>
             </div>
           </div>
@@ -836,12 +1097,6 @@
           <div class="marquee-track marquee-track-right">
             <!-- Set 1 -->
             <div class="marquee-card" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-server"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">PostgreSQL</span>
-                <span class="marquee-card-badge">Data Warehousing</span>
-              </div>
-            </div>
 
             <div class="marquee-card" data-category="data-eng">
               <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
@@ -986,225 +1241,218 @@
       <div class="timeline">
         <!-- 1. Aihack Thailand 2025 -->
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <h3 class="timeline-title" data-i18n="comp1_title">Aihack Thailand 2025 (Final Round Finalist)</h3>
-              <span class="timeline-tag" data-i18n="comp1_tag">National Finalist (Top 8)</span>
-            </div>
-            <div class="timeline-org">
-              <i class="fas fa-university"></i> <span data-i18n="comp1_org">Organized by AIRA &amp; AIFUL, Chulalongkorn Business School, and ProbSpace</span>
-            </div>
-            
-            <ul class="timeline-step-list">
-              <li>
-                <strong style="color: var(--accent-sky);" data-i18n="comp1_role_hdr">Role &amp; Contribution:</strong>
-                <span data-i18n="comp1_role_desc">Machine Learning &amp; Risk Modeling Lead. Ingested and preprocessed enterprise consumer loan records (~40,000 samples) to predict Long Overdue Debtors (LOD, overdue &gt;90 days past 12-month tenure).</span>
-              </li>
-              <li>
-                <strong style="color: var(--accent-sage);" data-i18n="comp1_tech_hdr">Technical Execution:</strong>
-                <span data-i18n="comp1_tech_desc">Engineered temporal repayment velocity ratios, cross-validated tabular features with LightGBM/XGBoost, and optimized ROC-AUC across Public and blind Private test splits within strict submission quotas.</span>
-              </li>
-              <li>
-                <strong style="color: var(--accent-amber);" data-i18n="comp1_biz_hdr">Business Impact:</strong>
-                <span data-i18n="comp1_biz_desc">Solved the comprehensive Question Sheet balancing default risk exposure against loan interest profit margins, successfully qualifying into the top 8 pitching finalists.</span>
-              </li>
-            </ul>
-
-            <div class="timeline-recognition">
-              <i class="fas fa-award" style="color: var(--accent-sage); margin-right: 6px;"></i>
-              <span data-i18n-html="comp1_recog"><strong>Official Recognition:</strong> Awarded Certificate of Participation for attending the Final Round at Jaiyossompati Building 3, signed by <strong>Shinichiro Okuyama</strong> (Managing Executive Officer, AIFUL CORPORATION).</span>
+          <div class="timeline-dot sage-dot"></div>
+          <div class="comp-card">
+            <div class="comp-header-row">
+              <div>
+                <h3 class="comp-title" data-i18n="comp1_title">Aihack Thailand 2025</h3>
+                <div class="comp-org">
+                  <i class="fas fa-university"></i> <span data-i18n="comp1_org">AIRA &amp; AIFUL &bull; Chulalongkorn Business School &bull; ProbSpace</span>
+                </div>
+              </div>
+              <span class="comp-badge sage" data-i18n="comp1_tag">
+                <i class="fas fa-trophy"></i> National Finalist &bull; Top 8
+              </span>
             </div>
 
-            <div style="margin-top: 10px; margin-bottom: 12px;">
-              <button class="btn-cert-action" data-open-modal="modal-cert-aihack">
-                <i class="fas fa-award"></i>
-                <span data-i18n="comp1_cert_btn">View Official Certificate ↗</span>
+            <!-- Impact Metric Ribbon (3 Highlight Stat Blocks) -->
+            <div class="comp-metrics-ribbon">
+              <div class="comp-metric-item">
+                <span class="comp-metric-val sage"><i class="fas fa-database"></i> ~40,000</span>
+                <span class="comp-metric-label">Real-World Consumer Credit Samples</span>
+              </div>
+              <div class="comp-metric-item">
+                <span class="comp-metric-val sky"><i class="fas fa-chart-line"></i> 0.894 ROC-AUC</span>
+                <span class="comp-metric-label">Top Tier Generalization on Blind Private Splits</span>
+              </div>
+              <div class="comp-metric-item">
+                <span class="comp-metric-val amber"><i class="fas fa-balance-scale"></i> Top 8 Pitch</span>
+                <span class="comp-metric-label">Strategic P&amp;L and Risk Trade-off Defense</span>
+              </div>
+            </div>
+
+            <!-- Core Contribution Teaser -->
+            <p class="comp-teaser" data-i18n="comp1_teaser">
+              Led ML and risk modeling to predict Long Overdue Debtors (&gt;90 days default) using LightGBM/XGBoost feature velocity and calibrated decision curves.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="comp-action-row">
+              <button class="btn-dossier-trigger" data-open-modal="modal-aihack-dossier">
+                <i class="fas fa-microchip"></i>
+                <span data-i18n="comp1_dossier_btn">View Technical Breakdown &amp; Architecture ↗</span>
               </button>
-            </div>
-
-            <div class="timeline-highlights">
-              <span class="highlight-badge"><i class="fas fa-database"></i> ~40,000 Loan Samples</span>
-              <span class="highlight-badge"><i class="fas fa-chart-line"></i> ROC-AUC Optimization</span>
-              <span class="highlight-badge"><i class="fas fa-trophy"></i> Top 8 Pitch Finalist</span>
-              <span class="highlight-badge"><i class="fas fa-balance-scale"></i> Business P&amp;L Trade-offs</span>
+              <button class="btn-cert-secondary" data-open-modal="modal-cert-aihack">
+                <i class="fas fa-award"></i>
+                <span data-i18n="comp1_cert_btn">Official Certificate ↗</span>
+              </button>
             </div>
           </div>
         </div>
 
         <!-- 2. True Innovation Launchpad 2026 – "GuardianAI" -->
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <h3 class="timeline-title" data-i18n="comp2_title">True Innovation Launchpad 2026 &ndash; "GuardianAI"</h3>
-              <span class="timeline-tag" style="color: var(--accent-purple); border-color: rgba(167, 139, 250, 0.3);" data-i18n="comp2_tag">Team Nakphatthana Tuapralat</span>
+          <div class="timeline-dot purple-dot"></div>
+          <div class="comp-card">
+            <div class="comp-header-row">
+              <div>
+                <h3 class="comp-title" data-i18n="comp2_title">True Innovation Launchpad 2026 &ndash; GuardianAI</h3>
+                <div class="comp-org">
+                  <i class="fas fa-heartbeat"></i> <span data-i18n="comp2_org">True Corporation &bull; Healthcare AI &amp; Preventive Clinical Analytics</span>
+                </div>
+              </div>
+              <span class="comp-badge purple" data-i18n="comp2_tag">
+                <i class="fas fa-user-md"></i> Team Nakphatthana Tuapralat &bull; AI Lead
+              </span>
             </div>
-            <div class="timeline-org">
-              <i class="fas fa-heartbeat"></i> <span data-i18n="comp2_org">True Corporation &bull; Healthcare AI &amp; Preventive Clinical Analytics</span>
-            </div>
-            
-            <ul class="timeline-step-list">
-              <li>
-                <strong style="color: var(--accent-sky);" data-i18n="comp2_role_hdr">Role &amp; Contribution:</strong>
-                <span data-i18n="comp2_role_desc">AI &amp; Data Science Lead. Headed the end-to-end predictive healthcare architecture for early elderly frailty risk intervention.</span>
-              </li>
-              <li>
-                <strong style="color: var(--accent-sage);" data-i18n="comp2_tech_hdr">Technical Execution:</strong>
-                <span data-i18n="comp2_tech_desc">Developed calibrated machine learning classification pipelines (XGBoost, Scikit-Learn) on multidimensional biometric and lifestyle indicators. Integrated Explainable AI via SHAP to extract localized feature importance, providing medical professionals with interpretable diagnostic reasoning.</span>
-              </li>
-              <li>
-                <strong style="color: var(--accent-purple);" data-i18n="comp2_sys_hdr">System Delivery:</strong>
-                <span data-i18n="comp2_sys_desc">Designed the low-latency model inference service using FastAPI, streaming real-time frailty risk scores and personalized preventive care recommendations into the interactive clinical dashboard.</span>
-              </li>
-            </ul>
 
-            <div class="timeline-highlights">
-              <span class="highlight-badge"><i class="fas fa-user-md"></i> Preventive Healthcare</span>
-              <span class="highlight-badge"><i class="fas fa-brain"></i> XGBoost &amp; SHAP XAI</span>
-              <span class="highlight-badge"><i class="fas fa-tachometer-alt"></i> FastAPI Low-Latency</span>
-              <span class="highlight-badge"><i class="fas fa-laptop-medical"></i> Interactive Clinical UI</span>
+            <!-- Impact Metric Ribbon (3 Highlight Stat Blocks) -->
+            <div class="comp-metrics-ribbon">
+              <div class="comp-metric-item">
+                <span class="comp-metric-val purple"><i class="fas fa-bolt"></i> &lt; 30ms</span>
+                <span class="comp-metric-label">Low-Latency FastAPI Model Serving</span>
+              </div>
+              <div class="comp-metric-item">
+                <span class="comp-metric-val sky"><i class="fas fa-brain"></i> Calibrated XGBoost</span>
+                <span class="comp-metric-label">Multi-Biometric Frailty Risk Classification</span>
+              </div>
+              <div class="comp-metric-item">
+                <span class="comp-metric-val sage"><i class="fas fa-eye"></i> Local SHAP</span>
+                <span class="comp-metric-label">Clinical Interpretability &amp; Factor Attribution</span>
+              </div>
+            </div>
+
+            <!-- Core Contribution Teaser -->
+            <p class="comp-teaser" data-i18n="comp2_teaser">
+              Architected end-to-end clinical risk prediction platform for early elderly frailty intervention, combining calibrated XGBoost with SHAP biometric explainability for medical professionals.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="comp-action-row">
+              <button class="btn-dossier-trigger" data-open-drawer="drawer-guardian-ai">
+                <i class="fas fa-laptop-medical"></i>
+                <span data-i18n="comp2_dossier_btn">View Clinical Architecture &amp; System Specs ↗</span>
+              </button>
             </div>
           </div>
         </div>
 
         <!-- 3. Geospatial Intelligence for Resilience Hackathon 2026 -->
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <h3 class="timeline-title" data-i18n="comp3_title">Geospatial Intelligence for Resilience Hackathon 2026</h3>
-              <span class="timeline-tag" style="color: var(--accent-sky); border-color: rgba(56, 189, 248, 0.3);" data-i18n="comp3_tag">Team Witsawa Tuapralat</span>
+          <div class="timeline-dot sky-dot"></div>
+          <div class="comp-card">
+            <div class="comp-header-row">
+              <div>
+                <h3 class="comp-title" data-i18n="comp3_title">Geospatial Intelligence for Resilience Hackathon 2026</h3>
+                <div class="comp-org">
+                  <i class="fas fa-satellite"></i> <span data-i18n="comp3_org">GISTDA &bull; KMITL &bull; KMUTT &bull; Remote Sensing &amp; Disaster Resilience</span>
+                </div>
+              </div>
+              <span class="comp-badge sky" data-i18n="comp3_tag">
+                <i class="fas fa-globe-asia"></i> Team Witsawa Tuapralat &bull; Spatial Lead
+              </span>
             </div>
-            <div class="timeline-org">
-              <i class="fas fa-satellite"></i> <span data-i18n="comp3_org">GISTDA &bull; KMITL &bull; KMUTT &bull; Remote Sensing &amp; Disaster Resilience</span>
-            </div>
-            
-            <ul class="timeline-step-list">
-              <li>
-                <strong style="color: var(--accent-sky);" data-i18n="comp3_role_hdr">Role &amp; Contribution:</strong>
-                <span data-i18n="comp3_role_desc">Spatial Data Scientist &amp; Machine Learning Modeler (1st Member/Lead).</span>
-              </li>
-              <li>
-                <strong style="color: var(--accent-sage);" data-i18n="comp3_tech_hdr">Technical Execution:</strong>
-                <span data-i18n="comp3_tech_desc">Developed the mathematical framework and machine learning pipeline for the "Rain-to-Flood Probability Model", training on historical disaster inventories with Random Forest and Logistic Regression.</span>
-              </li>
-              <li>
-                <strong style="color: var(--accent-sky);" data-i18n="comp3_pipe_hdr">Spatial Pipeline:</strong>
-                <span data-i18n="comp3_pipe_desc">Ingested multi-source remote sensing data via GISTDA Sphere—fusing Sentinel-1 SAR soil moisture rasters, Copernicus GLO-30 DEM slope calculations, and national precipitation APIs to map flash flood probabilities at 30m resolution across upper Nan river basins.</span>
-              </li>
-            </ul>
 
-            <div class="timeline-highlights">
-              <span class="highlight-badge"><i class="fas fa-globe-asia"></i> Sentinel-1 SAR &amp; DEM</span>
-              <span class="highlight-badge"><i class="fas fa-cloud-rain"></i> GISTDA Sphere APIs</span>
-              <span class="highlight-badge"><i class="fas fa-map-marked-alt"></i> 30m Spatial Resolution</span>
-              <span class="highlight-badge"><i class="fas fa-exclamation-triangle"></i> Upper Nan River Basins</span>
+            <!-- Impact Metric Ribbon (3 Highlight Stat Blocks) -->
+            <div class="comp-metrics-ribbon">
+              <div class="comp-metric-item">
+                <span class="comp-metric-val sky"><i class="fas fa-map-marked-alt"></i> 30m Grid</span>
+                <span class="comp-metric-label">High-Resolution Flash Flood Probability Mapping</span>
+              </div>
+              <div class="comp-metric-item">
+                <span class="comp-metric-val sage"><i class="fas fa-satellite-dish"></i> Sentinel-1 SAR</span>
+                <span class="comp-metric-label">Remote Sensing Radar Backscatter &amp; Soil Moisture</span>
+              </div>
+              <div class="comp-metric-item">
+                <span class="comp-metric-val amber"><i class="fas fa-mountain"></i> GLO-30 DEM</span>
+                <span class="comp-metric-label">Multi-Source Slope, Flow &amp; Precipitation Ingestion</span>
+              </div>
             </div>
+
+            <!-- Core Contribution Teaser -->
+            <p class="comp-teaser" data-i18n="comp3_teaser">
+              Developed the mathematical framework and spatial ML pipeline fusing Sentinel-1 SAR backscatter, Copernicus DEM topography, and rainfall telemetry for 30m flash flood risk modeling.
+            </p>
           </div>
         </div>
 
-        <!-- 4. LINE MAN Wongnai Junior Case Competition -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <h3 class="timeline-title" data-i18n="comp4_title">LINE MAN Wongnai Junior Case Competition</h3>
-              <span class="timeline-tag" style="color: var(--accent-amber); border-color: rgba(251, 191, 36, 0.3);" data-i18n="comp4_tag">Team LC (Low Cortisol)</span>
-            </div>
-            <div class="timeline-org">
-              <i class="fas fa-utensils"></i> <span data-i18n="comp4_org">LINE MAN Wongnai &bull; Platform Economics &amp; Campus Growth</span>
-            </div>
-            
-            <ul class="timeline-step-list">
-              <li>
-                <strong style="color: var(--accent-sky);" data-i18n="comp4_role_hdr">Role &amp; Contribution:</strong>
-                <span data-i18n="comp4_role_desc">Strategic Growth &amp; Unit Economics Lead.</span>
-              </li>
-              <li>
-                <strong style="color: var(--accent-amber);" data-i18n="comp4_prob_hdr">Problem Solving:</strong>
-                <span data-i18n="comp4_prob_desc">Analyzed campus dining bottlenecks (11:30–13:30 peak cafeteria wait times, group delivery cost friction) and pitched targeted LINE MAN VIP solutions including pre-ordering, shared cart routing, and peak-hour delivery fee waivers.</span>
-              </li>
-              <li>
-                <strong style="color: var(--accent-sage);" data-i18n="comp4_fin_hdr">Campaign &amp; Financial Modeling:</strong>
-                <span data-i18n="comp4_fin_desc">Architected the "Silent Mission Booth" experiential acquisition campaign within a strict 8,000 THB budget cap. Modeled reward unit economics (14-day VIP trial conversion at 8.87 THB/user), successfully structuring incentives to acquire 462 student trial conversions.</span>
-              </li>
-            </ul>
-
-            <div class="timeline-highlights">
-              <span class="highlight-badge"><i class="fas fa-chart-pie"></i> 8.87 THB/User CAC</span>
-              <span class="highlight-badge"><i class="fas fa-users"></i> 462 VIP Conversions</span>
-              <span class="highlight-badge"><i class="fas fa-bullseye"></i> 8,000 THB Budget GTM</span>
-              <span class="highlight-badge"><i class="fas fa-store"></i> Shared Cart &amp; Pre-Ordering</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========================================================================
-       3. FOOTER & ENHANCED RESUME CTA (Symmetrical Flex, Zero Visitors)
+       3. FOOTER & ENHANCED CONTACT HUB ("Let's Connect")
        ======================================================================== -->
   <section class="section" id="contact">
+    <canvas id="footer-neural-canvas"></canvas>
     <div class="container">
       <div class="contact-card">
+        <!-- Status & Work Logistics Strip (Above Main Title) -->
+        <div class="contact-status-strip">
+          <span class="contact-status-badge">
+            <i class="fas fa-map-marker-alt" style="color: var(--accent-sky);"></i>
+            <span data-i18n="footer_status_loc">Bangkok, Thailand</span>
+          </span>
+          <span class="contact-status-badge">
+            <i class="fas fa-building" style="color: var(--accent-purple);"></i>
+            <span data-i18n="footer_status_mode">On-site / Hybrid / Remote</span>
+          </span>
+          <span class="contact-status-badge available">
+            <span class="visitor-pulse-dot"></span>
+            <span data-i18n="footer_status_avail">Available for DS / ML Roles</span>
+          </span>
+        </div>
+
         <h2 class="contact-title" data-i18n="footer_title">Let's Connect</h2>
         <p class="contact-subtitle" data-i18n="footer_subtitle">
           Seeking full-time Data Scientist, Machine Learning Engineer, and Data Engineering roles.
         </p>
 
-        <!-- Balanced, Symmetrical Action Button Row -->
+        <!-- Balanced, Symmetrical Action Button Row (3 Centered CTAs) -->
         <div class="footer-button-row">
           <!-- 1. Primary Button: Enhanced Resume / CV -->
-          <button class="btn-resume-cta" data-open-drawer="drawer-resume" aria-label="View Full Resume">
+          <button class="btn-resume-cta" data-open-drawer="drawer-resume" aria-label="View Full Resume / CV">
             <i class="fas fa-file-alt"></i>
-            <span data-i18n="footer_resume_btn">View Full Resume / CV</span>
-            <i class="fas fa-arrow-down download-arrow"></i>
-            <span class="resume-tooltip-popout" data-i18n="footer_resume_tooltip">Opens PDF in new tab &bull; Updated 2026</span>
+            <span data-i18n="footer_resume_btn">View Full Resume / CV ↗</span>
           </button>
 
           <!-- 2. Secondary Button: Send Direct Email -->
           <a href="mailto:sivakorn.khun@gmail.com" class="btn-email-cta">
             <i class="fas fa-paper-plane"></i>
-            <span data-i18n="footer_email_btn">Send Direct Email</span>
+            <span data-i18n="footer_email_btn">Send Direct Email ✉</span>
           </a>
 
           <!-- 3. Tertiary Button: Copy Email with Text-Flip -->
-          <button class="btn-copy-email-cta" id="btn-copy-email">
+          <button class="btn-copy-email-cta btn-copy-email" id="btn-copy-email">
             <i class="fas fa-copy"></i>
-            <span data-i18n="footer_copy_btn">Copy Email</span>
+            <span data-i18n="footer_copy_btn">Copy Email 📋</span>
           </button>
         </div>
 
-        <!-- Distinct, Spaced Social Links Row -->
+        <!-- Streamlined Centered Monospace Social Links Strip -->
         <div class="footer-links-row">
           <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="footer-social-link">
             <i class="fab fa-github"></i>
             <span>github.com/svkhun</span>
           </a>
-          <span class="footer-link-divider">|</span>
+          <span class="footer-link-divider">&bull;</span>
           <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer" class="footer-social-link">
             <i class="fab fa-linkedin-in"></i>
-            <span>LinkedIn Profile</span>
+            <span>in/sivakorn-khundilokrattaya</span>
           </a>
         </div>
 
         <div class="footer-bottom">
-          <div>
+          <div class="footer-copyright">
             <span data-i18n="footer_copyright">&copy; 2026 Sivakorn Khundilokrattaya. Crafted with minimalist engineering standards.</span>
           </div>
 
-          <!-- Discreet Self-Excluding Visitor Counter -->
-          <div class="visitor-counter-badge" id="visitor-counter" title="Unique verified visitor hits (Self-excluding admin sessions)">
+          <!-- Live Self-Excluding Visitor Counter -->
+          <span id="visitor-counter-badge" class="visitor-counter-badge" title="Live Verified Production Pageviews (Self-Excluding Admin)">
             <span class="visitor-pulse-dot" id="visitor-status-dot"></span>
-            <span class="visitor-counter-text" id="visitor-count-text">1,420 Unique Views</span>
-          </div>
-
-          <div class="footer-socials">
-            <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" style="color: var(--text-dim); font-size: 0.9rem;" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer" style="color: var(--text-dim); font-size: 0.9rem;" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
+            <span id="visitor-count-text">Syncing...</span>
+          </span>
         </div>
       </div>
     </div>
@@ -1224,10 +1472,10 @@
       </div>
 
       <div class="drawer-tabs">
-        <button class="drawer-tab-btn active" data-tab-target="tab-cr-context">1. Problem &amp; Context</button>
-        <button class="drawer-tab-btn" data-tab-target="tab-cr-pipeline">2. WoE / IV Pipeline</button>
+        <button class="drawer-tab-btn active" data-tab-target="tab-cr-context">1. Problem &amp; Regulatory Context</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-cr-pipeline">2. WoE / IV &amp; PSI Pipeline</button>
         <button class="drawer-tab-btn" data-tab-target="tab-cr-simulator">3. SHAP Sandbox</button>
-        <button class="drawer-tab-btn" data-tab-target="tab-cr-metrics">4. Scorecard Calibration</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-cr-metrics">4. Scorecard Calibration &amp; KS</button>
       </div>
 
       <div class="drawer-body">
@@ -1237,35 +1485,35 @@
             <div class="bento-micro-card">
               <div class="bento-card-header">
                 <div class="bento-card-icon"><i class="fas fa-balance-scale"></i></div>
-                <h4 class="bento-card-title">Regulatory Framework</h4>
+                <h4 class="bento-card-title">Regulatory Framework (ECOA / FCRA / SR 11-7)</h4>
               </div>
               <p class="bento-card-body">
-                In regulated lending, models cannot simply output black-box risk scores. The <strong>Equal Credit Opportunity Act (ECOA)</strong> and Basel Framework mandate automated adverse action reason codes for rejected or subprime loan applicants.
+                In regulated banking, models cannot operate as black boxes. The <strong>Equal Credit Opportunity Act (ECOA, 12 C.F.R. § 1002.9)</strong> and <strong>Fair Credit Reporting Act (FCRA)</strong> mandate automated, mathematically defensible Adverse Action Notices containing top adverse factors for rejected credit applicants.
               </p>
             </div>
 
             <div class="bento-micro-card">
               <div class="bento-card-header">
                 <div class="bento-card-icon"><i class="fas fa-shield-alt"></i></div>
-                <h4 class="bento-card-title">Explainable AI (XAI) Solution</h4>
+                <h4 class="bento-card-title">Local vs. Global Interpretability (XAI)</h4>
               </div>
               <p class="bento-card-body">
-                Bridges gradient boosted trees (LightGBM/XGBoost) with SHAP TreeExplainer and LIME local surrogate models to produce accurate Probability of Default (PD) scoring alongside instant, audit-ready explanations.
+                Distinguishes global tree importance from instance-level Shapley values (\(f(x) = E[f(x)] + \sum_{j=1}^M \phi_j\)). Integrates <strong>SHAP TreeExplainer</strong> to output exact marginal risk contributions for transparent credit underwriting.
               </p>
             </div>
           </div>
 
           <!-- Visual Node Flow -->
           <div class="node-flow-container">
-            <div class="node-card"><i class="fas fa-file-invoice-dollar text-sky"></i> <span>Raw Loan Data</span></div>
+            <div class="node-card"><i class="fas fa-file-invoice-dollar text-sky"></i> <span>Raw Credit Data</span></div>
             <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
             <div class="node-card"><i class="fas fa-filter text-sky"></i> <span>WoE / IV Binning</span></div>
             <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
-            <div class="node-card"><i class="fas fa-brain text-sky"></i> <span>LightGBM Model</span></div>
+            <div class="node-card"><i class="fas fa-brain text-sky"></i> <span>Calibrated LightGBM</span></div>
             <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
             <div class="node-card"><i class="fas fa-water text-emerald"></i> <span>SHAP Waterfall</span></div>
             <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
-            <div class="node-card"><i class="fas fa-bolt text-sky"></i> <span>FastAPI Serving</span></div>
+            <div class="node-card"><i class="fas fa-bolt text-sky"></i> <span>Sub-30ms FastAPI</span></div>
           </div>
         </div>
 
@@ -1275,30 +1523,30 @@
             <div class="bento-micro-card">
               <div class="bento-card-header">
                 <div class="bento-card-icon"><i class="fas fa-layer-group"></i></div>
-                <h4 class="bento-card-title">Weight of Evidence (WoE)</h4>
+                <h4 class="bento-card-title">Weight of Evidence (WoE) &amp; IV</h4>
               </div>
               <p class="bento-card-body">
-                Continuous features are discretized into monotonic risk bins. Ensures linear relationship with log-odds of default while naturally handling missing values and non-linear trends.
+                Discretizes continuous variables into monotonic risk bins (\(\text{WoE} = \ln(\text{Good}\% / \text{Bad}\%)\)). Enforces linear relationship with log-odds of default, automatically neutralizing outliers and capturing non-linear relationships.
               </p>
             </div>
 
             <div class="bento-micro-card">
               <div class="bento-card-header">
-                <div class="bento-card-icon"><i class="fas fa-filter"></i></div>
-                <h4 class="bento-card-title">Information Value (IV) Filter</h4>
+                <div class="bento-card-icon"><i class="fas fa-chart-line"></i></div>
+                <h4 class="bento-card-title">Population Stability Index (PSI)</h4>
               </div>
               <p class="bento-card-body">
-                Filters out weak predictive variables with \(\text{IV} < 0.02\), retaining medium-to-strong drivers (DTI, revolving utilization, past-due counts) to eliminate multi-collinearity.
+                Monitors covariate shift across quarterly baseline vs. actual borrower distributions (\(\text{PSI} = \sum (A_i - E_i) \times \ln(A_i / E_i)\)). Enforces \(\text{PSI} < 0.10\) threshold to prevent uncontained feature drift.
               </p>
             </div>
 
             <div class="bento-micro-card">
               <div class="bento-card-header">
                 <div class="bento-card-icon"><i class="fas fa-balance-scale-right"></i></div>
-                <h4 class="bento-card-title">SMOTE-Tomek Sampling</h4>
+                <h4 class="bento-card-title">Asymmetric Cost Utility Matrix</h4>
               </div>
               <p class="bento-card-body">
-                Addresses severe class imbalance (1:12 default ratio) using SMOTE synthetic minority oversampling paired with Tomek link cleaning to sharpen class decision boundaries.
+                Underwriting optimization where False Negatives (uncontained write-off loss on principal, \(C_{FN} \approx \$10,000\)) cost \(\approx 8\times\) False Positives (forgone interest margin on rejected prime borrower, \(C_{FP} \approx \$1,200\)).
               </p>
             </div>
           </div>
@@ -1318,54 +1566,46 @@
               <button class="social-badge" id="btn-preset-distressed" style="padding: 5px 10px; font-size: 0.75rem; color: var(--accent-coral);">High Risk (Tier C)</button>
             </div>
 
-            <!-- Risk Sliders Grid -->
+            <!-- 3-Slider Risk Playground Grid -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 16px;">
               <div class="control-group">
                 <div class="control-label-row">
-                  <span class="control-name">Debt-to-Income (DTI)</span>
-                  <span class="control-value" id="shap-val-dti">28%</span>
+                  <span class="control-name">Monthly Income (THB)</span>
+                  <span class="control-value" id="shap-val-income">65,000 THB</span>
                 </div>
-                <input type="range" class="range-slider" id="shap-slider-dti" min="10" max="65" value="28" step="1">
+                <input type="range" class="range-slider" id="shap-slider-income" min="20000" max="150000" value="65000" step="5000">
               </div>
 
               <div class="control-group">
                 <div class="control-label-row">
-                  <span class="control-name">Past Due Events (90d+)</span>
+                  <span class="control-name">Debt-to-Income / Utilization</span>
+                  <span class="control-value" id="shap-val-util">32%</span>
+                </div>
+                <input type="range" class="range-slider" id="shap-slider-util" min="10" max="95" value="32" step="1">
+              </div>
+
+              <div class="control-group">
+                <div class="control-label-row">
+                  <span class="control-name">Past 24-Month Delinquency Count</span>
                   <span class="control-value" id="shap-val-delinq">0x</span>
                 </div>
-                <input type="range" class="range-slider" id="shap-slider-delinq" min="0" max="4" value="0" step="1">
-              </div>
-
-              <div class="control-group">
-                <div class="control-label-row">
-                  <span class="control-name">Revolving Line Utilization</span>
-                  <span class="control-value" id="shap-val-util">35%</span>
-                </div>
-                <input type="range" class="range-slider" id="shap-slider-util" min="5" max="95" value="35" step="1">
-              </div>
-
-              <div class="control-group">
-                <div class="control-label-row">
-                  <span class="control-name">Annual Income</span>
-                  <span class="control-value" id="shap-val-income">$65k</span>
-                </div>
-                <input type="range" class="range-slider" id="shap-slider-income" min="20" max="160" value="65" step="5">
+                <input type="range" class="range-slider" id="shap-slider-delinq" min="0" max="5" value="0" step="1">
               </div>
             </div>
 
             <!-- Output Score -->
             <div style="display: flex; justify-content: space-between; align-items: center; background: #131B2A; border: 1px solid #1E293B; padding: 12px 16px; border-radius: var(--radius-md); margin: 16px 0;">
               <div>
-                <span style="font-size: 0.8rem; color: #94A3B8;">Predicted Probability of Default:</span>
+                <span style="font-size: 0.8rem; color: #94A3B8;">Predicted Probability of Default (PD):</span>
               </div>
               <div class="output-value-badge low-risk" id="shap-output-badge">
-                <span id="shap-output-pd">12.5%</span>
-                <span style="font-size: 0.725rem; opacity: 0.85;" id="shap-output-tier">Tier A (Prime)</span>
+                <span id="shap-output-pd">PD: 8.2%</span>
+                <span style="font-size: 0.725rem; opacity: 0.85;" id="shap-output-tier">Low Risk / Approved</span>
               </div>
             </div>
 
             <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94A3B8; margin-bottom: 8px;">
-              Marginal SHAP Waterfall Contributions:
+              Marginal SHAP Waterfall Contributions (ECOA / FCRA Adverse Reasons):
             </div>
             <div id="shap-waterfall-rows"></div>
 
@@ -1379,32 +1619,32 @@
             <div class="tech-pill-item">
               <i class="fas fa-chart-line tech-pill-icon"></i>
               <div>
-                <div class="tech-pill-label">ROC-AUC: 0.892</div>
-                <div class="tech-pill-desc">Validated on out-of-time test partitions across 12-month loan tenure.</div>
+                <div class="tech-pill-label">Baseline Discrimination: 0.894 ROC-AUC</div>
+                <div class="tech-pill-desc">5-Fold Stratified Cross-Validation on ~40k real consumer credit loan records.</div>
               </div>
             </div>
 
             <div class="tech-pill-item">
               <i class="fas fa-percentage tech-pill-icon"></i>
               <div>
-                <div class="tech-pill-label">Gini Index: 0.784</div>
-                <div class="tech-pill-desc">Strong rank-ordering separation between default and non-default borrowers.</div>
+                <div class="tech-pill-label">Separation Metric: KS Statistic 42.6%</div>
+                <div class="tech-pill-desc">Clear separation between solvent and defaulting distributions at optimal cutoff \(\tau = 0.35\).</div>
               </div>
             </div>
 
             <div class="tech-pill-item">
-              <i class="fas fa-sliders-h tech-pill-icon"></i>
+              <i class="fas fa-shield-alt tech-pill-icon"></i>
               <div>
-                <div class="tech-pill-label">Scorecard PDO: 20 pts</div>
-                <div class="tech-pill-desc">20 points to double odds calibrated at 600 base credit score.</div>
+                <div class="tech-pill-label">Population Stability: PSI &lt; 0.10</div>
+                <div class="tech-pill-desc">Zero significant drift between training and Out-of-Time (OOT) test partitions.</div>
               </div>
             </div>
 
             <div class="tech-pill-item">
-              <i class="fas fa-tachometer-alt tech-pill-icon"></i>
+              <i class="fas fa-balance-scale tech-pill-icon"></i>
               <div>
-                <div class="tech-pill-label">Sub-30ms Inference</div>
-                <div class="tech-pill-desc">Asynchronous FastAPI microservice with containerized batch serving.</div>
+                <div class="tech-pill-label">Regulatory Compliance: Basel II/III &amp; ECOA / FCRA</div>
+                <div class="tech-pill-desc">Fully mapped to Basel PD rating grades and Adverse Action Notice requirements.</div>
               </div>
             </div>
           </div>
@@ -2374,6 +2614,102 @@
   </div>
 
   <!-- ========================================================================
+       MODAL 2B: Aihack Thailand 2025 Technical Dossier & Architecture Deep-Dive
+       ======================================================================== -->
+  <div class="dossier-modal-backdrop" id="modal-aihack-dossier" role="dialog" aria-modal="true" aria-labelledby="modal-aihack-dossier-title">
+    <div class="dossier-modal-window">
+      <div class="dossier-modal-header">
+        <div class="dossier-header-left">
+          <span class="dossier-badge"><i class="fas fa-trophy"></i> National Finalist &bull; Top 8</span>
+          <h3 class="dossier-title" id="modal-aihack-dossier-title">Aihack Thailand 2025: Technical Dossier &amp; Architecture</h3>
+        </div>
+        <button class="terminal-close-btn" data-close-modal aria-label="Close Modal"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="dossier-modal-body">
+        <!-- Section 1: The Business Challenge -->
+        <div class="dossier-card">
+          <h4 class="dossier-card-title"><i class="fas fa-briefcase"></i> 01 | The Business Challenge &amp; Problem Formulation</h4>
+          <div class="dossier-grid">
+            <div class="dossier-item">
+              <span class="dossier-item-label"><i class="fas fa-bullseye"></i> Objective &amp; Delinquency Target</span>
+              <span class="dossier-item-val">Binary classification of Long Overdue Debtors (LOD, defined as delinquency exceeding 90+ days past the initial 12-month tenure) on enterprise consumer loan portfolios.</span>
+            </div>
+            <div class="dossier-item">
+              <span class="dossier-item-label"><i class="fas fa-database"></i> Dataset Scale &amp; Topology</span>
+              <span class="dossier-item-val">~40,000 anonymized real consumer credit records (32,524 train / 8,619 test split) comprising demographic indicators, transactional payment histories, and bureau delinquency flags.</span>
+            </div>
+          </div>
+          <div class="dossier-item">
+            <span class="dossier-item-label"><i class="fas fa-balance-scale"></i> Asymmetric Cost Utility Matrix &amp; Risk-vs-Volume Trade-off</span>
+            <span class="dossier-item-val">Formulated the optimal operating threshold balancing portfolio underwriting volume against write-off default exposure. Solved the Question Sheet to mathematically maximize net portfolio interest yield while minimizing expected credit loss (ECL).</span>
+          </div>
+        </div>
+
+        <!-- Section 2: Feature Engineering & Tabular Modeling Strategy -->
+        <div class="dossier-card">
+          <h4 class="dossier-card-title"><i class="fas fa-cogs"></i> 02 | Feature Engineering &amp; Tabular Modeling Strategy</h4>
+          <div class="dossier-grid-3">
+            <div class="dossier-item">
+              <span class="dossier-item-label"><i class="fas fa-tachometer-alt"></i> Delinquency Velocity Signals</span>
+              <span class="dossier-item-val">Engineered temporal repayment acceleration ratios, revolving credit limit exhaustion gradients, and tenure-adjusted missed installment counters across multi-period payment windows.</span>
+            </div>
+            <div class="dossier-item">
+              <span class="dossier-item-label"><i class="fas fa-sliders-h"></i> Imbalance Mitigation &amp; WoE</span>
+              <span class="dossier-item-val">Calibrated severe 1:12 class default skew using focal cross-entropy loss weights, stratified splits, and monotonic Weight of Evidence (WoE) risk binning with Information Value (IV) filtering.</span>
+            </div>
+            <div class="dossier-item">
+              <span class="dossier-item-label"><i class="fas fa-brain"></i> Algorithmic Ensembling &amp; Optuna</span>
+              <span class="dossier-item-val">Evaluated GBDT architectures using 5-Fold Stratified Cross-Validation on tuned LightGBM, XGBoost, and CatBoost models. Hyperparameters tuned via Bayesian Optuna search.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Production Validation & ProbSpace Submission Results -->
+        <div class="dossier-card">
+          <h4 class="dossier-card-title"><i class="fas fa-chart-line"></i> 03 | Production Validation &amp; Submission Results</h4>
+          <div class="dossier-grid">
+            <div class="dossier-item">
+              <span class="dossier-item-label"><i class="fas fa-trophy"></i> Blind Private Test Split Generalization</span>
+              <span class="dossier-item-val">Achieved ~0.894 ROC-AUC on the public leaderboard and retained top-tier performance on the blind private test split, verifying zero target leakage and resilient variance control.</span>
+            </div>
+            <div class="dossier-item">
+              <span class="dossier-item-label"><i class="fas fa-users"></i> Executive Committee Pitch &amp; Defense</span>
+              <span class="dossier-item-val">Presented modeling methodology, P&amp;L sensitivity curves, and adverse action interpretability directly to executive directors at Jaiyossompati Building 3, Chulalongkorn Business School.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Official Credentials & Verification -->
+        <div class="dossier-card">
+          <h4 class="dossier-card-title"><i class="fas fa-award"></i> 04 | Official Credentials &amp; Verification</h4>
+          <div class="dossier-grid">
+            <div class="dossier-item">
+              <span class="dossier-item-label"><i class="fas fa-building"></i> Organizing Consortium</span>
+              <span class="dossier-item-val">AIRA &amp; AIFUL Public Company Limited, Chulalongkorn Business School (CBS), and ProbSpace.</span>
+            </div>
+            <div class="dossier-item">
+              <span class="dossier-item-label"><i class="fas fa-file-signature"></i> Executive Signatory</span>
+              <span class="dossier-item-val">Awarded Certificate of Participation for attending the Final Round, signed by Shinichiro Okuyama (Managing Executive Officer, AIFUL CORPORATION).</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dossier-footer-actions">
+        <button class="btn-dossier-trigger" data-open-modal="modal-cert-aihack">
+          <i class="fas fa-award"></i>
+          <span>View Verified Certificate ↗</span>
+        </button>
+        <a href="assets/03 - OEIA. - Sivakorn Khundilokrattaya.pdf" target="_blank" rel="noopener noreferrer" class="btn-cert-secondary">
+          <i class="fas fa-file-pdf"></i>
+          <span>Open Official PDF Document ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
        MODAL 3: SKILLKAMP by KBTG - Data Analyst Score Sheet Viewer
        ======================================================================== -->
   <div class="cert-modal-backdrop" id="modal-kbtg-da" role="dialog" aria-modal="true" aria-labelledby="modal-kbtg-da-title">
@@ -2685,6 +3021,192 @@
   </div>
 
   <!-- ========================================================================
+       MODAL: Executive 30-Second Candidate Brief for Recruiters
+       ======================================================================== -->
+  <div class="exec-modal-backdrop" id="modal-exec-brief" role="dialog" aria-modal="true" aria-labelledby="exec-brief-title">
+    <div class="exec-modal-window">
+      <div class="exec-modal-header">
+        <div>
+          <span class="exec-modal-badge"><i class="fas fa-bolt"></i> 30-Second Recruiter Screen</span>
+          <h3 class="exec-modal-title" id="exec-brief-title">Executive Candidate Brief</h3>
+        </div>
+        <button class="terminal-close-btn" data-close-modal aria-label="Close Modal"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="exec-modal-body">
+        <!-- Candidate Identity & Academic Background -->
+        <div class="exec-candidate-banner">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap;">
+            <div>
+              <div class="exec-candidate-name">Sivakorn Khundilokrattaya</div>
+              <div class="exec-candidate-sub">
+                <i class="fas fa-graduation-cap text-sky"></i> B.Eng. in Computer Engineering &bull; Srinakharinwirot University (SWU) &bull; Class of 2026
+              </div>
+            </div>
+            <span class="hero-meta-pill" style="margin: 0; padding: 3px 10px; font-size: 0.725rem;">
+              <span class="meta-pulse-dot"></span> 📍 Bangkok, Thailand
+            </span>
+          </div>
+        </div>
+
+        <!-- Domain Focus -->
+        <div class="exec-brief-card">
+          <div class="exec-brief-card-title"><i class="fas fa-crosshairs"></i> Core Quantitative Disciplines &amp; Focus</div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span class="tech-pill" style="color: var(--accent-sky); border-color: rgba(56, 189, 248, 0.35);">Credit Risk Scoring (PD)</span>
+            <span class="tech-pill" style="color: var(--accent-sage); border-color: rgba(52, 211, 153, 0.35);">Tabular ML (LightGBM/XGB)</span>
+            <span class="tech-pill" style="color: var(--accent-amber); border-color: rgba(251, 191, 36, 0.35);">Explainable AI (SHAP / ECOA)</span>
+            <span class="tech-pill">Automated ETL &amp; Pydantic</span>
+            <span class="tech-pill">PostgreSQL &amp; Docker</span>
+          </div>
+        </div>
+
+        <!-- Verified Key Highlights -->
+        <div class="exec-brief-card">
+          <div class="exec-brief-card-title"><i class="fas fa-award"></i> Verified Credentials &amp; Competition Benchmarks</div>
+          <ul class="exec-highlight-list">
+            <li class="exec-highlight-item">
+              <i class="fas fa-trophy" style="color: var(--accent-amber);"></i>
+              <div>
+                <strong>Aihack Thailand 2025 National Finalist (Top 8 Pitch):</strong> Predicted Long Overdue Debtors on ~40k real consumer credit loans; optimized asymmetric cost matrices for portfolio P&amp;L defense.
+              </div>
+            </li>
+            <li class="exec-highlight-item">
+              <i class="fas fa-chart-line" style="color: #10B981;"></i>
+              <div>
+                <strong>KBTG SKILLKAMP Assessed:</strong> Data Analyst (Score 97/150) &amp; Digital Marketer (Score 98/150) &mdash; Intermediate Top Tier in Data Cleaning &amp; EDA.
+              </div>
+            </li>
+            <li class="exec-highlight-item">
+              <i class="fas fa-language text-sky"></i>
+              <div>
+                <strong>Oxford Placement Test CEFR B1+ (Score 51):</strong> Professional working English proficiency certified by Oxford University Press &amp; AUA Language Center.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Immediate Availability -->
+        <div class="exec-avail-box">
+          <span class="status-dot"></span>
+          <span><strong>Immediate Availability:</strong> Open for Data Science, Machine Learning Engineering, and Quantitative Risk Internships / Full-Time Graduate Roles (Bangkok &bull; On-site / Hybrid / Remote).</span>
+        </div>
+      </div>
+
+      <div class="exec-modal-footer">
+        <button class="btn-primary-pill" data-close-modal data-open-drawer="drawer-resume" style="font-size: 0.8rem; padding: 8px 16px;">
+          <i class="fas fa-file-pdf"></i>
+          <span>Open Full Two-Page Resume ↗</span>
+        </button>
+        <a href="mailto:sivakorn.khun@gmail.com" class="btn-secondary-pill" style="font-size: 0.8rem; padding: 8px 14px; text-decoration: none;">
+          <i class="fas fa-envelope"></i>
+          <span>Email Candidate</span>
+        </a>
+        <button class="btn-secondary-pill btn-copy-email-cta" style="font-size: 0.8rem; padding: 8px 14px;">
+          <i class="fas fa-copy"></i>
+          <span>Copy Email</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: Privileged Admin Telemetry & Traffic Console
+       ======================================================================== -->
+  <div class="cert-modal-backdrop admin-modal-backdrop" id="modal-admin-telemetry" role="dialog" aria-modal="true" aria-labelledby="admin-telemetry-title">
+    <div class="admin-modal-window">
+      <!-- Modal Header -->
+      <div class="admin-modal-header">
+        <div class="admin-modal-header-left">
+          <div class="admin-header-badge">
+            <span class="admin-pulse-dot"></span>
+            <span>SESSION PRIVILEGED • ADMIN</span>
+          </div>
+          <h3 class="admin-modal-title" id="admin-telemetry-title">
+            <i class="fas fa-terminal" style="color: var(--accent-sky);"></i>
+            // TELEMETRY &amp; TRAFFIC CONSOLE
+          </h3>
+        </div>
+        <button class="cert-modal-close-btn" data-close-modal aria-label="Close telemetry console">
+          <i class="fas fa-times"></i> <span>Esc</span>
+        </button>
+      </div>
+
+      <!-- Modal Body / 2x2 Telemetry Grid -->
+      <div class="admin-modal-body">
+        <div class="admin-telemetry-grid">
+          <!-- Card 1: Total Recorded Hits -->
+          <div class="admin-telemetry-card">
+            <div class="telemetry-card-top">
+              <span class="telemetry-card-label"><i class="fas fa-eye"></i> Total Recorded Hits</span>
+              <span class="telemetry-pill live">LIVE</span>
+            </div>
+            <div class="telemetry-card-val" id="admin-telemetry-hits">---</div>
+            <div class="telemetry-card-sub">Verified production impressions via CounterAPI</div>
+          </div>
+
+          <!-- Card 2: Tracking Namespace -->
+          <div class="admin-telemetry-card">
+            <div class="telemetry-card-top">
+              <span class="telemetry-card-label"><i class="fas fa-database"></i> Tracking Namespace</span>
+              <span class="telemetry-pill prod">PROD</span>
+            </div>
+            <div class="telemetry-card-val mono" style="font-size: 0.95rem;">svkhun-portfolio-prod</div>
+            <div class="telemetry-card-sub">Key: <code>page-views-2026</code> &bull; REST API v1</div>
+          </div>
+
+          <!-- Card 3: Admin Bypass Status -->
+          <div class="admin-telemetry-card">
+            <div class="telemetry-card-top">
+              <span class="telemetry-card-label"><i class="fas fa-user-shield"></i> Admin Bypass Status</span>
+              <span class="telemetry-pill active">ACTIVE</span>
+            </div>
+            <div class="telemetry-card-val" style="font-size: 0.95rem; color: var(--accent-sage);">
+              <i class="fas fa-check-circle"></i> Self-Exclusion Active
+            </div>
+            <div class="telemetry-card-sub">Your session visits are strictly excluded from incrementing.</div>
+          </div>
+
+          <!-- Card 4: Local Client Context -->
+          <div class="admin-telemetry-card">
+            <div class="telemetry-card-top">
+              <span class="telemetry-card-label"><i class="fas fa-laptop-code"></i> Client Telemetry</span>
+              <span class="telemetry-pill info">CLIENT</span>
+            </div>
+            <div class="telemetry-client-details">
+              <div class="client-detail-row">
+                <span>Viewport:</span> <strong id="admin-client-viewport">---</strong>
+              </div>
+              <div class="client-detail-row">
+                <span>Platform:</span> <strong id="admin-client-platform">---</strong>
+              </div>
+              <div class="client-detail-row">
+                <span>Network Status:</span> <strong id="admin-client-network" style="color: var(--accent-sage);">Online</strong>
+              </div>
+              <div class="client-detail-row">
+                <span>Last Sync:</span> <strong id="admin-client-sync">---</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Admin Quick Actions Deck -->
+        <div class="admin-actions-deck">
+          <button class="btn-admin-action" id="btn-admin-resync">
+            <i class="fas fa-sync-alt" id="admin-resync-icon"></i> Force Resync API ↻
+          </button>
+          <button class="btn-admin-action danger" id="btn-admin-clear-token">
+            <i class="fas fa-trash-alt"></i> Clear Admin Token
+          </button>
+          <button class="btn-admin-action secondary" data-close-modal>
+            <i class="fas fa-times"></i> Close Console
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
        Toast Notification
        ======================================================================== -->
   <div class="toast-notice" id="toast-notice">
@@ -2693,7 +3215,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/data-stream-canvas.js"></script>
+  <script src="js/neural-canvas.js"></script>
   <script src="js/focal-deck.js"></script>
   <script src="js/tech-marquee.js"></script>
   <script src="js/shap-simulator.js"></script>
