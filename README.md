@@ -30,7 +30,7 @@ In institutional banking and quantitative risk underwriting, black-box algorithm
 
 ---
 
-## 🏛️ Architectural Highlights & Engineering Philosophy
+##  Architectural Highlights & Engineering Philosophy
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
