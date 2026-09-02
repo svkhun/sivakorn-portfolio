@@ -1,0 +1,2548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Sivakorn Khundilokrattaya | Data Science & Machine Learning Portfolio</title>
+  <meta name="description" content="Portfolio of Sivakorn Khundilokrattaya (GitHub: svkhun) - Computer Engineering @ SWU. Building Explainable ML Pipelines & Financial Intelligence.">
+  <meta name="keywords" content="Sivakorn Khundilokrattaya, svkhun, Data Science, Machine Learning, Credit Risk, Explainable AI, SHAP, LightGBM, XGBoost, Aihack Thailand 2025, AIRA AIFUL, True Innovation Launchpad, GuardianAI, Geospatial Intelligence, LINE MAN Wongnai, SWU">
+  <meta name="author" content="Sivakorn Khundilokrattaya">
+  <link rel="canonical" href="https://svkhun.vercel.app">
+
+  <!-- Primary Modern SVG Favicon (Neural Graph / Data Science Icon) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230B0F17'/><rect x='1' y='1' width='30' height='30' rx='6' fill='none' stroke='%231E293B' stroke-width='1'/><g transform='translate(4,4)'><line x1='5' y1='7' x2='12' y2='5' stroke='%2338BDF8' stroke-width='1.2' stroke-opacity='0.6'/><line x1='5' y1='17' x2='12' y2='19' stroke='%2338BDF8' stroke-width='1.2' stroke-opacity='0.6'/><line x1='5' y1='7' x2='12' y2='12' stroke='%2338BDF8' stroke-width='1.2' stroke-opacity='0.45'/><line x1='5' y1='17' x2='12' y2='12' stroke='%2338BDF8' stroke-width='1.2' stroke-opacity='0.45'/><line x1='12' y1='5' x2='19' y2='12' stroke='%2338BDF8' stroke-width='1.2' stroke-opacity='0.6'/><line x1='12' y1='19' x2='19' y2='12' stroke='%2338BDF8' stroke-width='1.2' stroke-opacity='0.6'/><line x1='12' y1='12' x2='19' y2='12' stroke='%2334D399' stroke-width='1.4'/><circle cx='5' cy='7' r='2' fill='%230B0F17' stroke='%2338BDF8' stroke-width='1.5'/><circle cx='5' cy='17' r='2' fill='%230B0F17' stroke='%2338BDF8' stroke-width='1.5'/><circle cx='12' cy='5' r='2' fill='%230B0F17' stroke='%2338BDF8' stroke-width='1.5'/><circle cx='12' cy='12' r='2.3' fill='%2338BDF8' stroke='%2338BDF8' stroke-width='1'/><circle cx='12' cy='19' r='2' fill='%230B0F17' stroke='%2338BDF8' stroke-width='1.5'/><circle cx='19' cy='12' r='2.2' fill='%2334D399' stroke='%2334D399' stroke-width='1.5'/></g></svg>">
+
+  <!-- Fallback Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='36' fill='%230B0F17'/><rect x='4' y='4' width='172' height='172' rx='32' fill='none' stroke='%231E293B' stroke-width='4'/><g transform='translate(18,18) scale(6)'><line x1='5' y1='7' x2='12' y2='5' stroke='%2338BDF8' stroke-width='1.2' stroke-opacity='0.6'/><line x1='5' y1='17' x2='12' y2='19' stroke='%2338BDF8' stroke-width='1.2' stroke-opacity='0.6'/><line x1='5' y1='7' x2='12' y2='12' stroke='%2338BDF8' stroke-width='1.2' stroke-opacity='0.45'/><line x1='5' y1='17' x2='12' y2='12' stroke='%2338BDF8' stroke-width='1.2' stroke-opacity='0.45'/><line x1='12' y1='5' x2='19' y2='12' stroke='%2338BDF8' stroke-width='1.2' stroke-opacity='0.6'/><line x1='12' y1='19' x2='19' y2='12' stroke='%2338BDF8' stroke-width='1.2' stroke-opacity='0.6'/><line x1='12' y1='12' x2='19' y2='12' stroke='%2334D399' stroke-width='1.4'/><circle cx='5' cy='7' r='2' fill='%230B0F17' stroke='%2338BDF8' stroke-width='1.5'/><circle cx='5' cy='17' r='2' fill='%230B0F17' stroke='%2338BDF8' stroke-width='1.5'/><circle cx='12' cy='5' r='2' fill='%230B0F17' stroke='%2338BDF8' stroke-width='1.5'/><circle cx='12' cy='12' r='2.3' fill='%2338BDF8' stroke='%2338BDF8' stroke-width='1'/><circle cx='12' cy='19' r='2' fill='%230B0F17' stroke='%2338BDF8' stroke-width='1.5'/><circle cx='19' cy='12' r='2.2' fill='%2334D399' stroke='%2334D399' stroke-width='1.5'/></g></svg>">
+
+  <!-- Open Graph / Social SEO -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://svkhun.vercel.app">
+  <meta property="og:title" content="Sivakorn Khundilokrattaya | Data Science & Machine Learning Portfolio">
+  <meta property="og:description" content="Portfolio of Sivakorn Khundilokrattaya (GitHub: svkhun) - Computer Engineering @ SWU. Building Explainable ML Pipelines & Financial Intelligence.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sivakorn Khundilokrattaya | Data Science & Machine Learning Portfolio">
+  <meta name="twitter:description" content="Portfolio of Sivakorn Khundilokrattaya (GitHub: svkhun) - Computer Engineering @ SWU. Building Explainable ML Pipelines & Financial Intelligence.">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       Header & Minimal Navigation with i18n Segmented Switcher
+       ======================================================================== -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Home - svkhun.vercel.app">
+        <!-- Neural / Data Science Node Icon -->
+        <span class="brand-logo-icon">
+          <svg class="brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <!-- Synapse Lines -->
+            <line x1="5" y1="7" x2="12" y2="5" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.5"/>
+            <line x1="5" y1="17" x2="12" y2="19" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.5"/>
+            <line x1="5" y1="7" x2="12" y2="12" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.4"/>
+            <line x1="5" y1="17" x2="12" y2="12" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.4"/>
+            <line x1="12" y1="5" x2="19" y2="12" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.5"/>
+            <line x1="12" y1="19" x2="19" y2="12" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.5"/>
+            <line x1="12" y1="12" x2="19" y2="12" stroke="#34D399" stroke-width="1.4"/>
+            <!-- Input Nodes -->
+            <circle cx="5" cy="7" r="2" fill="#0B0F17" stroke="#38BDF8" stroke-width="1.5"/>
+            <circle cx="5" cy="17" r="2" fill="#0B0F17" stroke="#38BDF8" stroke-width="1.5"/>
+            <!-- Hidden / Processing Nodes -->
+            <circle cx="12" cy="5" r="2" fill="#0B0F17" stroke="#38BDF8" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="2.3" fill="#38BDF8" stroke="#38BDF8" stroke-width="1"/>
+            <circle cx="12" cy="19" r="2" fill="#0B0F17" stroke="#38BDF8" stroke-width="1.5"/>
+            <!-- Output Node -->
+            <circle cx="19" cy="12" r="2.2" fill="#34D399" stroke="#34D399" stroke-width="1.5"/>
+          </svg>
+        </span>
+        <span class="brand-text">svkhun<span class="brand-domain">.vercel.app</span></span>
+      </a>
+
+      <div class="nav-status">
+        <span class="status-dot"></span>
+        <span data-i18n="nav_status">Open to DS / ML Roles</span>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
+        <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a></li>
+        <li><a href="#competitions" class="nav-link" data-i18n="nav_competitions">Competitions</a></li>
+        <li><a href="#stack" class="nav-link" data-i18n="nav_stack">Stack</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Minimalist Segmented Pill Switcher [EN | TH] -->
+        <div class="lang-switcher-pill" aria-label="Language Selector">
+          <div class="lang-pill-highlight" id="lang-pill-highlight"></div>
+          <button class="lang-btn active" id="lang-btn-en" aria-label="Switch language to English">EN</button>
+          <button class="lang-btn" id="lang-btn-th" aria-label="เปลี่ยนภาษาเป็นไทย">TH</button>
+        </div>
+
+        <button class="btn-resume" data-open-drawer="drawer-resume" aria-label="Open Resume Preview">
+          <i class="fas fa-file-pdf"></i>
+          <span data-i18n="nav_resume">Resume</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       1. HERO SECTION (Sharp, Authoritative, Zero Clutter)
+       ======================================================================== -->
+  <section class="hero-section" id="hero">
+    <canvas id="data-stream-canvas"></canvas>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <div class="hero-meta-pill" id="hero-meta-pill">
+        <span class="meta-pulse-dot"></span>
+        <i class="fas fa-graduation-cap"></i>
+        <span data-i18n="hero_meta">Computer Engineering @ Srinakharinwirot University (SWU)</span>
+        <span class="meta-tooltip">🟢 Currently Enrolled (B.Eng.)</span>
+      </div>
+
+      <h1 class="hero-name">
+        Sivakorn <br>
+        <span class="highlight">Khundilokrattaya</span>
+      </h1>
+
+      <!-- Two-Part Punchy Sub-Headline (Zero Redundancy) -->
+      <div class="hero-subheadline-group">
+        <div class="hero-identity-line" data-i18n="hero_identity">
+          Aspiring Data Scientist &amp; Machine Learning Engineer
+        </div>
+        <p class="hero-specialty-line" data-i18n="hero_specialty">
+          Specializing in Explainable AI (XAI), Financial Risk Scoring, and Industrial Data Pipelines.
+        </p>
+      </div>
+
+      <!-- Unified Action & Social Bar (Single Clean Row) -->
+      <div class="hero-unified-bar">
+        <a href="#projects" class="btn-primary-pill">
+          <i class="fas fa-arrow-down"></i>
+          <span data-i18n="hero_cta_projects">Explore Featured Projects</span>
+        </a>
+        <button class="btn-secondary-pill btn-terminal-pill" id="btn-open-terminal">
+          <i class="fas fa-terminal"></i>
+          <span data-i18n="hero_cta_terminal">Quick Terminal</span>
+          <span class="terminal-shortcut-badge">⌘K</span>
+        </button>
+
+        <div class="hero-bar-divider"></div>
+
+        <div class="hero-social-icons">
+          <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="hero-icon-btn" title="GitHub: github.com/svkhun" aria-label="GitHub Profile">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer" class="hero-icon-btn" title="LinkedIn Profile" aria-label="LinkedIn Profile">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:sivakorn.khun@gmail.com" class="hero-icon-btn" title="Email: sivakorn.khun@gmail.com" aria-label="Send Direct Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <button class="hero-icon-btn" data-open-drawer="drawer-resume" title="View &amp; Print Resume PDF" aria-label="Resume PDF">
+            <i class="fas fa-file-pdf"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       1. METRICS STRIP (Refactored Capability Stats & 3D Tilt Micro-Interactions)
+       ======================================================================== -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <!-- Metric 1: Competitions -->
+        <div class="stat-item">
+          <div class="stat-number-wrapper">
+            <span class="stat-number" data-target="4" data-decimal="false">0</span>
+            <span class="stat-suffix">+</span>
+          </div>
+          <span class="stat-subtitle" data-i18n="metrics_comp_sub">Competitions &amp; Hackathons</span>
+          <span class="stat-subtext" data-i18n="metrics_comp_desc">Cross-Domain Modeling &amp; Strategy</span>
+          <span class="stat-tooltip-chip"><i class="fas fa-layer-group"></i> <span data-i18n="metrics_comp_chip">FinTech, HealthTech, Spatial &amp; Growth</span></span>
+        </div>
+
+        <!-- Metric 2: Financial Data Points -->
+        <div class="stat-item">
+          <div class="stat-number-wrapper">
+            <span class="stat-number" data-target="40000" data-decimal="false">0</span>
+            <span class="stat-suffix">+</span>
+          </div>
+          <span class="stat-subtitle" data-i18n="metrics_fin_sub">Financial Data Points</span>
+          <span class="stat-subtext" data-i18n="metrics_fin_desc">Real Enterprise Credit Records</span>
+          <span class="stat-tooltip-chip"><i class="fas fa-database"></i> <span data-i18n="metrics_fin_chip">Ingestion, Binning &amp; Blind AUC Splits</span></span>
+        </div>
+
+        <!-- Metric 3: Spatial Pipeline Resolution -->
+        <div class="stat-item">
+          <div class="stat-number-wrapper">
+            <span class="stat-number" data-target="30" data-decimal="false">0</span>
+            <span class="stat-suffix">m</span>
+          </div>
+          <span class="stat-subtitle" data-i18n="metrics_geo_sub">Spatial Pipeline Resolution</span>
+          <span class="stat-subtext" data-i18n="metrics_geo_desc">Multi-Source Remote Sensing</span>
+          <span class="stat-tooltip-chip"><i class="fas fa-satellite"></i> <span data-i18n="metrics_geo_chip">Sentinel-1 SAR &amp; Copernicus DEM</span></span>
+        </div>
+
+        <!-- Metric 4: API Inference Latency -->
+        <div class="stat-item">
+          <div class="stat-number-wrapper">
+            <span class="stat-prefix">Sub-</span>
+            <span class="stat-number" data-target="30" data-decimal="false">0</span>
+            <span class="stat-suffix">ms</span>
+          </div>
+          <span class="stat-subtitle" data-i18n="metrics_inf_sub">API Inference Latency</span>
+          <span class="stat-subtext" data-i18n="metrics_inf_desc">High-Throughput Model Serving</span>
+          <span class="stat-tooltip-chip"><i class="fas fa-tachometer-alt"></i> <span data-i18n="metrics_inf_chip">FastAPI, Docker &amp; Dashboards</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       About Me Section (Interactive Bento Showcase)
+       ======================================================================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-tag" data-i18n="about_tag">About Me</div>
+      <h2 class="section-title" data-i18n="about_title">Engineering Intelligence from Data</h2>
+      <p class="section-desc" data-i18n="about_desc">
+        Balancing software engineering discipline with statistical machine learning and financial regulatory compliance.
+      </p>
+
+      <div class="about-grid">
+        <!-- Left Main Bento Card -->
+        <div class="about-card" id="about-spotlight-card">
+          <p class="about-lead" data-i18n="about_lead">
+            I am a Computer Engineering student at Srinakharinwirot University (SWU) passionate about transforming transactional credit records into transparent predictive intelligence.
+          </p>
+          <p class="about-paragraph" data-i18n-html="about_p">
+            In credit risk underwriting, black-box models present severe regulatory hurdles. My work focuses on <strong>Probability of Default (PD) estimation, Weight of Evidence (WoE) binning, and Explainable AI (XAI)</strong> that delivers legally defensible adverse action notices alongside high ROC-AUC scores.
+          </p>
+
+          <div class="pillar-grid">
+            <!-- Pillar 1 -->
+            <div class="pillar-item">
+              <div class="pillar-header-row">
+                <div class="pillar-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="pillar-content">
+                  <h4 data-i18n="about_pillar1_title">Credit Risk &amp; Basel Alignment</h4>
+                  <p data-i18n="about_pillar1_desc">WoE/IV feature binning, probability of default (PD) estimation, and scorecard scaling.</p>
+                </div>
+              </div>
+              <div class="pillar-quick-tags">
+                <span class="quick-chip">WoE / IV</span>
+                <span class="quick-chip">PD Calibration</span>
+                <span class="quick-chip">Scorecards</span>
+                <span class="quick-chip">Basel II/III</span>
+              </div>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="pillar-item">
+              <div class="pillar-header-row">
+                <div class="pillar-icon"><i class="fas fa-brain"></i></div>
+                <div class="pillar-content">
+                  <h4 data-i18n="about_pillar2_title">Explainable AI (XAI) &amp; Compliance</h4>
+                  <p data-i18n="about_pillar2_desc">SHAP TreeExplainer waterfall plots and automated adverse action rejection reasons.</p>
+                </div>
+              </div>
+              <div class="pillar-quick-tags">
+                <span class="quick-chip">SHAP Waterfall</span>
+                <span class="quick-chip">TreeExplainer</span>
+                <span class="quick-chip">LIME</span>
+                <span class="quick-chip">Adverse Action</span>
+              </div>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="pillar-item">
+              <div class="pillar-header-row">
+                <div class="pillar-icon"><i class="fas fa-network-wired"></i></div>
+                <div class="pillar-content">
+                  <h4 data-i18n="about_pillar3_title">Scalable Data Pipelines &amp; Ops</h4>
+                  <p data-i18n="about_pillar3_desc">PostgreSQL, MySQL, Apache Spark, Airflow orchestration, and Dockerized microservices.</p>
+                </div>
+              </div>
+              <div class="pillar-quick-tags">
+                <span class="quick-chip">PostgreSQL</span>
+                <span class="quick-chip">Apache Spark</span>
+                <span class="quick-chip">Airflow DAGs</span>
+                <span class="quick-chip">Docker</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Methodology & Pipeline Lifecycle Widget -->
+          <div class="methodology-bento-card">
+            <div class="methodology-title">
+              <i class="fas fa-project-diagram"></i>
+              <span data-i18n="about_methodology_hdr">// END-TO-END METHODOLOGY &amp; PIPELINE DISCIPLINE</span>
+            </div>
+
+            <div class="pipeline-flow-grid">
+              <!-- Step 1 -->
+              <div class="pipeline-flow-node">
+                <div class="node-step-label">
+                  <span class="num">01.</span> Ingestion &amp; Audit
+                </div>
+                <p class="node-step-desc">Raw data validation, schema enforcement, leak-free temporal splitting.</p>
+                <span class="node-tech-badge"><i class="fas fa-check-double"></i> Pandas &amp; Pydantic</span>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="pipeline-flow-node">
+                <div class="node-step-label">
+                  <span class="num">02.</span> Feature Calibration
+                </div>
+                <p class="node-step-desc">WoE/IV transformation, outlier imputation, domain signal engineering.</p>
+                <span class="node-tech-badge"><i class="fas fa-sliders-h"></i> Scikit-Learn &amp; OptBinning</span>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="pipeline-flow-node">
+                <div class="node-step-label">
+                  <span class="num">03.</span> Calibrated Modeling
+                </div>
+                <p class="node-step-desc">LightGBM/XGBoost classification, asymmetric cost matrices, CV splits.</p>
+                <span class="node-tech-badge"><i class="fas fa-brain"></i> LightGBM &amp; XGBoost</span>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="pipeline-flow-node">
+                <div class="node-step-label">
+                  <span class="num">04.</span> Transparent Delivery
+                </div>
+                <p class="node-step-desc">SHAP tree-explainers, adverse action triggers, Dockerized FastAPI endpoints.</p>
+                <span class="node-tech-badge"><i class="fas fa-cube"></i> SHAP &amp; FastAPI</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Left Metrics & Engineering Principles Ribbon -->
+          <div class="about-principles-ribbon">
+            <div class="principle-pill">
+              <span class="principle-title"><i class="fas fa-code-branch"></i> Clean Architecture</span>
+              <p class="principle-desc">PEP-8, modular OOP pipelines, reproducible environments.</p>
+            </div>
+            <div class="principle-pill">
+              <span class="principle-title"><i class="fas fa-eye"></i> Model Accountability</span>
+              <p class="principle-desc">Zero black-box deployments without local attribution.</p>
+            </div>
+            <div class="principle-pill">
+              <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+                <span class="principle-title"><i class="fab fa-github"></i> GitHub Monorepo ↗</span>
+                <p class="principle-desc">Direct sync with svkhun repositories.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Bento Cards -->
+        <div class="about-side">
+          <!-- Academic Background Card -->
+          <div class="info-card edu-card">
+            <div class="info-header">
+              <i class="fas fa-graduation-cap"></i>
+              <span data-i18n="about_edu_hdr">Academic Credentials</span>
+            </div>
+            <h3 class="edu-title" data-i18n="about_edu_degree">B.Eng. in Computer Engineering</h3>
+            
+            <div class="edu-institution-row">
+              <span class="edu-institution">Srinakharinwirot University (SWU)</span>
+              <span class="edu-pulse-badge"><span class="edu-pulse-dot"></span> <span data-i18n="about_edu_status">Active Enrollment</span></span>
+            </div>
+
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); margin-top: 14px; margin-bottom: 6px;">
+              Core Technical Coursework:
+            </div>
+            <div class="coursework-chips-grid">
+              <span class="course-pill"><i class="fas fa-brain"></i> Machine Learning</span>
+              <span class="course-pill"><i class="fas fa-database"></i> Database Systems</span>
+              <span class="course-pill"><i class="fas fa-microchip"></i> Operating Systems</span>
+              <span class="course-pill"><i class="fas fa-chart-line"></i> Statistical Methods</span>
+              <span class="course-pill"><i class="fas fa-code"></i> Software Engineering</span>
+              <span class="course-pill"><i class="fas fa-project-diagram"></i> Data Structures</span>
+            </div>
+          </div>
+
+          <!-- Industry Assessments & Certifications Card (SKILLKAMP by KBTG) -->
+          <div class="info-card kbtg-cert-card">
+            <div class="info-header" style="color: #10B981;">
+              <i class="fas fa-award"></i>
+              <span data-i18n="about_kbtg_hdr">// INDUSTRY ASSESSMENTS &amp; CERTIFICATIONS</span>
+            </div>
+
+            <div class="kbtg-badges-container">
+              <!-- Badge 1: Data Analyst Assessment (STAMP) -->
+              <div class="kbtg-badge-item">
+                <div class="kbtg-badge-top">
+                  <div>
+                    <div class="kbtg-badge-issuer"><i class="fas fa-shield-alt"></i> SKILLKAMP by KBTG &bull; March 21, 2026</div>
+                    <h4 class="kbtg-badge-title">Data Analyst Assessment (STAMP)</h4>
+                  </div>
+                  <span class="kbtg-score-pill">
+                    <span class="kbtg-level">Intermediate</span>
+                    <span class="kbtg-score">97 / 150</span>
+                  </span>
+                </div>
+
+                <div class="kbtg-bench-note">
+                  <i class="fas fa-check-circle" style="color: #10B981;"></i> Above average benchmark of 90 &bull; 5-Domain Evaluation
+                </div>
+
+                <div class="kbtg-competency-chips">
+                  <span class="kbtg-chip">Data Cleaning: <strong>23/30</strong></span>
+                  <span class="kbtg-chip">EDA &amp; Viz: <strong>20/30</strong></span>
+                  <span class="kbtg-chip">ML for Analysts: <strong>18/30</strong></span>
+                </div>
+
+                <div class="kbtg-action-row">
+                  <button class="btn-kbtg-report" data-open-modal="modal-kbtg-da">
+                    <i class="fas fa-chart-bar"></i>
+                    <span data-i18n="kbtg_view_report">View KBTG Score Report ↗</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Badge 2: Digital & Performance Marketer Assessment (STAMP) -->
+              <div class="kbtg-badge-item">
+                <div class="kbtg-badge-top">
+                  <div>
+                    <div class="kbtg-badge-issuer"><i class="fas fa-shield-alt"></i> SKILLKAMP by KBTG &bull; March 21, 2026</div>
+                    <h4 class="kbtg-badge-title">Digital &amp; Performance Marketer (STAMP)</h4>
+                  </div>
+                  <span class="kbtg-score-pill">
+                    <span class="kbtg-level">Intermediate</span>
+                    <span class="kbtg-score">98 / 150</span>
+                  </span>
+                </div>
+
+                <div class="kbtg-bench-note">
+                  <i class="fas fa-check-circle" style="color: #10B981;"></i> Above average benchmark of 94 &bull; Top Tier Analytics
+                </div>
+
+                <div class="kbtg-competency-chips">
+                  <span class="kbtg-chip kbtg-chip-highlight">Marketing Analytics: <strong>26/30</strong> (Avg 17.94)</span>
+                  <span class="kbtg-chip">Data-Driven Mktg: <strong>21/30</strong></span>
+                  <span class="kbtg-chip">Content Mktg: <strong>19/30</strong></span>
+                </div>
+
+                <div class="kbtg-action-row">
+                  <button class="btn-kbtg-report" data-open-modal="modal-kbtg-marketer">
+                    <i class="fas fa-chart-bar"></i>
+                    <span data-i18n="kbtg_view_report">View KBTG Score Report ↗</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Languages Card with Visual Progress Bars & Tooltips -->
+          <div class="info-card lang-card">
+            <div class="info-header">
+              <i class="fas fa-language"></i>
+              <span data-i18n="about_lang_hdr">Languages</span>
+            </div>
+            <div class="language-list">
+              <!-- Thai -->
+              <div class="language-item">
+                <div class="lang-tooltip">Native Speaker (Full Professional)</div>
+                <div class="lang-header-row">
+                  <span class="lang-name">Thai</span>
+                  <span class="lang-level" data-i18n="about_lang_th">Native</span>
+                </div>
+                <div class="lang-progress-track">
+                  <div class="lang-progress-fill th"></div>
+                </div>
+              </div>
+
+              <!-- English -->
+              <div class="language-item">
+                <div class="lang-tooltip">AUA Placement Test: Score 51 (CEFR B1) &bull; Click to View Document</div>
+                <div class="lang-header-row">
+                  <span class="lang-name">
+                    English
+                    <button class="btn-cert-trigger" data-open-modal="modal-cert-english" title="View Oxford / AUA Score Document">
+                      <i class="fas fa-file-alt"></i> <span data-i18n="about_lang_en_btn">View Score PDF ↗</span>
+                    </button>
+                  </span>
+                  <span class="lang-level" data-i18n="about_lang_en">B1+ Professional</span>
+                </div>
+                <div class="lang-progress-track">
+                  <div class="lang-progress-fill en"></div>
+                </div>
+              </div>
+
+              <!-- Japanese -->
+              <div class="language-item">
+                <div class="lang-tooltip">Basic Conversational &amp; Reading</div>
+                <div class="lang-header-row">
+                  <span class="lang-name">Japanese</span>
+                  <span class="lang-level" data-i18n="about_lang_jp">Beginner</span>
+                </div>
+                <div class="lang-progress-track">
+                  <div class="lang-progress-fill jp"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION A: PRODUCTION ARCHITECTURES (2D Focal Showcase)
+       ======================================================================== -->
+  <section class="section focal-deck-section" id="projects">
+    <div class="container">
+      <div class="section-tag" data-i18n="projects_tag">// PRODUCTION ARCHITECTURES</div>
+      <h2 class="section-title" data-i18n="projects_title">Flagship Engineering &amp; Applied ML</h2>
+      <p class="section-desc" data-i18n="projects_desc">
+        End-to-end pipelines bridging regulatory credit risk scoring, clinical frailty diagnostics, and automated manufacturing telemetry.
+      </p>
+
+      <!-- 2D Layered Bento Deck Stage -->
+      <div class="focal-deck-stage" id="focal-deck-stage">
+        <div class="focal-deck-track">
+          
+          <!-- Slide 1: Long Overdue Debtor (LOD) Classification System -->
+          <div class="focal-deck-card active" data-open-drawer="drawer-lod-project">
+            <div class="focal-deck-card-top">
+              <span class="focal-deck-domain-badge" style="color: var(--accent-sage); border-color: rgba(52, 211, 153, 0.3);" data-i18n="proj1_domain">[ FinTech / Credit Risk Modeling ]</span>
+              <span class="focal-deck-metric-chip" data-i18n="proj1_chip">Aihack 2025 Finalist &bull; Top 8 &bull; 40k+ Records</span>
+            </div>
+
+            <h3 class="focal-deck-title" data-i18n="proj1_title">Long Overdue Debtor (LOD) Classification System</h3>
+            <p class="focal-deck-summary" data-i18n="proj1_summary">
+              Production machine learning pipeline predicting 90+ day default risks on real consumer loans. Optimized ROC-AUC on ProbSpace across Public and Private blind test splits under strict time constraints.
+            </p>
+
+            <div class="tech-badges-list">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">LightGBM</span>
+              <span class="tech-pill">Pandas</span>
+              <span class="tech-pill">Scikit-Learn</span>
+              <span class="tech-pill">ProbSpace API</span>
+              <span class="tech-pill">Docker</span>
+            </div>
+
+            <div class="focal-deck-card-action">
+              <button class="btn-deck-trigger" data-open-drawer="drawer-lod-project">
+                <span data-i18n="proj1_btn">Inspect Architecture</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+              <span style="font-size: 0.775rem; color: var(--text-dim);"><i class="fas fa-chart-line"></i> <span data-i18n="proj1_sandbox">ROC Sandbox</span></span>
+            </div>
+          </div>
+
+          <!-- Slide 2: GuardianAI – Clinical Frailty Risk Dashboard -->
+          <div class="focal-deck-card inactive" data-open-drawer="drawer-guardian-ai">
+            <div class="focal-deck-card-top">
+              <span class="focal-deck-domain-badge" style="color: var(--accent-purple); border-color: rgba(167, 139, 250, 0.3);" data-i18n="proj2_domain">[ HealthTech / Preventive Healthcare ]</span>
+              <span class="focal-deck-metric-chip" data-i18n="proj2_chip">True Innovation Launchpad 2026 &bull; AI &amp; Data Lead</span>
+            </div>
+
+            <h3 class="focal-deck-title" data-i18n="proj2_title">GuardianAI &ndash; Clinical Frailty Risk Dashboard</h3>
+            <p class="focal-deck-summary" data-i18n="proj2_summary">
+              Elderly frailty evaluation platform combining calibrated XGBoost models with Explainable AI (SHAP) for transparent clinical factor attribution, served via low-latency FastAPI.
+            </p>
+
+            <div class="tech-badges-list">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">XGBoost</span>
+              <span class="tech-pill">Scikit-Learn</span>
+              <span class="tech-pill">SHAP</span>
+              <span class="tech-pill">FastAPI</span>
+              <span class="tech-pill">React/Tailwind</span>
+              <span class="tech-pill">Docker</span>
+            </div>
+
+            <div class="focal-deck-card-action">
+              <button class="btn-deck-trigger" data-open-drawer="drawer-guardian-ai">
+                <span data-i18n="proj2_btn">Inspect Architecture</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+              <span style="font-size: 0.775rem; color: var(--text-dim);"><i class="fas fa-heartbeat"></i> <span data-i18n="proj2_sandbox">Clinical SHAP Demo</span></span>
+            </div>
+          </div>
+
+          <!-- Slide 3: Enterprise Credit Risk Scoring & Explainable AI (XAI) -->
+          <div class="focal-deck-card inactive" data-open-drawer="drawer-credit-risk">
+            <div class="focal-deck-card-top">
+              <span class="focal-deck-domain-badge" data-i18n="proj3_domain">[ Banking Intelligence / White-Box ML ]</span>
+              <span class="focal-deck-metric-chip" data-i18n="proj3_chip">Basel Framework Aligned &bull; Probability of Default</span>
+            </div>
+
+            <h3 class="focal-deck-title" data-i18n="proj3_title">Enterprise Credit Risk Scoring &amp; Explainable AI (XAI)</h3>
+            <p class="focal-deck-summary" data-i18n="proj3_summary">
+              End-to-end regulatory credit scorecard system utilizing Weight of Evidence (WoE) binning, LightGBM, and SHAP/LIME dual-layer interpretability.
+            </p>
+
+            <div class="tech-badges-list">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">LightGBM</span>
+              <span class="tech-pill">XGBoost</span>
+              <span class="tech-pill">Scikit-Learn</span>
+              <span class="tech-pill">SHAP</span>
+              <span class="tech-pill">LIME</span>
+              <span class="tech-pill">PostgreSQL</span>
+            </div>
+
+            <div class="focal-deck-card-action">
+              <button class="btn-deck-trigger" data-open-drawer="drawer-credit-risk">
+                <span data-i18n="proj3_btn">Inspect Architecture</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+              <span style="font-size: 0.775rem; color: var(--text-dim);"><i class="fas fa-sliders-h"></i> <span data-i18n="proj3_sandbox">Scorecard Matrix</span></span>
+            </div>
+          </div>
+
+          <!-- Slide 4: Manufacturing (MFG) Telemetry Pipeline & OEE Analytics -->
+          <div class="focal-deck-card inactive" data-open-drawer="drawer-mfg-pipeline">
+            <div class="focal-deck-card-top">
+              <span class="focal-deck-domain-badge" style="color: var(--accent-amber); border-color: rgba(251, 191, 36, 0.3);" data-i18n="proj4_domain">[ Industrial IoT / Data Engineering ]</span>
+              <span class="focal-deck-metric-chip" data-i18n="proj4_chip">Dockerized Pipeline &bull; Real-Time OEE &bull; Automated ETL</span>
+            </div>
+
+            <h3 class="focal-deck-title" data-i18n="proj4_title">Manufacturing (MFG) Telemetry Pipeline &amp; OEE Analytics</h3>
+            <p class="focal-deck-summary" data-i18n="proj4_summary">
+              End-to-end industrial data engineering architecture simulating IIoT sensor telemetry, executing automated batch ETL pipelines, and streaming real-time anomaly detection for Overall Equipment Effectiveness (OEE) tracking.
+            </p>
+
+            <div class="tech-badges-list">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">PostgreSQL</span>
+              <span class="tech-pill">Docker</span>
+              <span class="tech-pill">Streamlit</span>
+              <span class="tech-pill">Pandas</span>
+              <span class="tech-pill">SQLAlchemy</span>
+            </div>
+
+            <div class="focal-deck-card-action">
+              <button class="btn-deck-trigger" data-open-drawer="drawer-mfg-pipeline">
+                <span data-i18n="proj4_btn">Inspect Architecture</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+              <span style="font-size: 0.775rem; color: var(--text-dim);"><i class="fas fa-industry"></i> <span data-i18n="proj4_sandbox">OEE Live Logs</span></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Minimalist Control Bar -->
+      <div class="deck-controls">
+        <div class="deck-control-pill">
+          <button class="deck-nav-btn" id="deck-prev-btn" aria-label="Previous Project Slide"><i class="fas fa-chevron-left"></i></button>
+          <span class="deck-counter-text" id="deck-counter-text">01 / 04</span>
+          <div class="deck-progress-track">
+            <div class="deck-progress-fill" id="deck-progress-fill"></div>
+          </div>
+          <button class="deck-nav-btn" id="deck-next-btn" aria-label="Next Project Slide"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TECHNICAL ARSENAL: DUAL-TRACK SMOOTH INFINITE MARQUEE
+       ======================================================================== -->
+  <section class="section marquee-section" id="stack">
+    <div class="container">
+      <div class="section-tag" data-i18n="stack_tag">Technical Arsenal</div>
+      <h2 class="section-title" data-i18n="stack_title">Dual-Track Infinite Marquee</h2>
+      <p class="section-desc" data-i18n="stack_desc">
+        A continuous, smooth-flowing engineering stack. Hover over any technology badge to pause the stream and inspect its exact production usage across my projects.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="marquee-filters">
+        <button class="marquee-filter-tab active" data-filter="all" data-i18n="filter_all">All Stack</button>
+        <button class="marquee-filter-tab" data-filter="languages" data-i18n="filter_lang">Core Languages</button>
+        <button class="marquee-filter-tab" data-filter="ml" data-i18n="filter_ml">ML &amp; XAI</button>
+        <button class="marquee-filter-tab" data-filter="data-eng" data-i18n="filter_data">Data Engineering &amp; Cloud</button>
+        <button class="marquee-filter-tab" data-filter="tools" data-i18n="filter_tools">Analytics &amp; Tools</button>
+      </div>
+
+      <!-- Dual-Track Container with Soft Edge Gradient Masks -->
+      <div class="marquee-container" id="tech-marquee-container">
+        <!-- Track 1: Leftward Stream (45s cycle) -->
+        <div class="marquee-row">
+          <div class="marquee-track marquee-track-left">
+            <!-- Set 1 -->
+            <div class="marquee-card" data-category="languages">
+              <div class="marquee-card-icon"><i class="fab fa-python"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Python</span>
+                <span class="marquee-card-badge">Core Language</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="languages">
+              <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">SQL</span>
+                <span class="marquee-card-badge">Relational Querying</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="languages">
+              <div class="marquee-card-icon"><i class="fas fa-code"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">C++</span>
+                <span class="marquee-card-badge">Systems &amp; Memory</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="languages">
+              <div class="marquee-card-icon"><i class="fab fa-java"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Java</span>
+                <span class="marquee-card-badge">Enterprise Backend</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="languages">
+              <div class="marquee-card-icon"><i class="fas fa-chart-bar"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">R</span>
+                <span class="marquee-card-badge">Statistical Modeling</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="ml">
+              <div class="marquee-card-icon"><i class="fas fa-tree"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">XGBoost</span>
+                <span class="marquee-card-badge">Asymmetric Loss</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="ml">
+              <div class="marquee-card-icon"><i class="fas fa-bolt"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">LightGBM</span>
+                <span class="marquee-card-badge">Gradient Boosting</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="ml">
+              <div class="marquee-card-icon"><i class="fas fa-cogs"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Scikit-Learn</span>
+                <span class="marquee-card-badge">Pipelines &amp; CV</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="ml">
+              <div class="marquee-card-icon"><i class="fas fa-eye"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">SHAP</span>
+                <span class="marquee-card-badge">Explainable AI</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="ml">
+              <div class="marquee-card-icon"><i class="fas fa-search-plus"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">LIME</span>
+                <span class="marquee-card-badge">Surrogate Attribution</span>
+              </div>
+            </div>
+
+            <!-- Set 2 (Duplicate for Seamless Infinite Loop) -->
+            <div class="marquee-card" data-category="languages">
+              <div class="marquee-card-icon"><i class="fab fa-python"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Python</span>
+                <span class="marquee-card-badge">Core Language</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="languages">
+              <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">SQL</span>
+                <span class="marquee-card-badge">Relational Querying</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="languages">
+              <div class="marquee-card-icon"><i class="fas fa-code"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">C++</span>
+                <span class="marquee-card-badge">Systems &amp; Memory</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="languages">
+              <div class="marquee-card-icon"><i class="fab fa-java"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Java</span>
+                <span class="marquee-card-badge">Enterprise Backend</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="languages">
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">R</span>
+                <span class="marquee-card-badge">Statistical Modeling</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="ml">
+              <div class="marquee-card-icon"><i class="fas fa-tree"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">XGBoost</span>
+                <span class="marquee-card-badge">Asymmetric Loss</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="ml">
+              <div class="marquee-card-icon"><i class="fas fa-bolt"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">LightGBM</span>
+                <span class="marquee-card-badge">Gradient Boosting</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="ml">
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Scikit-Learn</span>
+                <span class="marquee-card-badge">Pipelines &amp; CV</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="ml">
+              <div class="marquee-card-icon"><i class="fas fa-eye"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">SHAP</span>
+                <span class="marquee-card-badge">Explainable AI</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="ml">
+              <div class="marquee-card-icon"><i class="fas fa-search-plus"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">LIME</span>
+                <span class="marquee-card-badge">Surrogate Attribution</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track 2: Rightward Stream (50s cycle) -->
+        <div class="marquee-row">
+          <div class="marquee-track marquee-track-right">
+            <!-- Set 1 -->
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fas fa-server"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">PostgreSQL</span>
+                <span class="marquee-card-badge">Data Warehousing</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">MySQL</span>
+                <span class="marquee-card-badge">RDBMS Architecture</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fas fa-fire"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Apache Spark</span>
+                <span class="marquee-card-badge">Distributed ETL</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fas fa-wind"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Apache Airflow</span>
+                <span class="marquee-card-badge">DAG Orchestration</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fab fa-docker"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Docker</span>
+                <span class="marquee-card-badge">Containerization</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fas fa-tachometer-alt"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">FastAPI</span>
+                <span class="marquee-card-badge">Sub-30ms Microservices</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="tools">
+              <div class="marquee-card-icon"><i class="fas fa-satellite"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">GISTDA Sphere</span>
+                <span class="marquee-card-badge">Geospatial APIs</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="tools">
+              <div class="marquee-card-icon"><i class="fas fa-globe-asia"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Sentinel-1 SAR</span>
+                <span class="marquee-card-badge">Remote Sensing</span>
+              </div>
+            </div>
+
+            <!-- Set 2 (Duplicate for Seamless Infinite Loop) -->
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fas fa-server"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">PostgreSQL</span>
+                <span class="marquee-card-badge">Data Warehousing</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">MySQL</span>
+                <span class="marquee-card-badge">RDBMS Architecture</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fas fa-fire"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Apache Spark</span>
+                <span class="marquee-card-badge">Distributed ETL</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fas fa-wind"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Apache Airflow</span>
+                <span class="marquee-card-badge">DAG Orchestration</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fab fa-docker"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Docker</span>
+                <span class="marquee-card-badge">Containerization</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="data-eng">
+              <div class="marquee-card-icon"><i class="fas fa-tachometer-alt"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">FastAPI</span>
+                <span class="marquee-card-badge">Sub-30ms Microservices</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="tools">
+              <div class="marquee-card-icon"><i class="fas fa-satellite"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">GISTDA Sphere</span>
+                <span class="marquee-card-badge">Geospatial APIs</span>
+              </div>
+            </div>
+
+            <div class="marquee-card" data-category="tools">
+              <div class="marquee-card-icon"><i class="fas fa-globe-asia"></i></div>
+              <div class="marquee-card-info">
+                <span class="marquee-card-name">Sentinel-1 SAR</span>
+                <span class="marquee-card-badge">Remote Sensing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Tooltip Box -->
+        <div class="marquee-tooltip" id="marquee-tooltip"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Competitions & Hackathons (Exact Factual Timeline - 4 Key Events)
+       ======================================================================== -->
+  <section class="section" id="competitions">
+    <div class="container">
+      <div class="section-tag" data-i18n="comp_tag">Competitions &amp; Hackathons</div>
+      <h2 class="section-title" data-i18n="comp_title">Hackathons &amp; Competitions</h2>
+      <p class="section-desc" data-i18n="comp_desc">
+        Demonstrated machine learning modeling on enterprise datasets, explainable healthcare architectures, geospatial risk pipelines, and data-driven business strategy.
+      </p>
+
+      <div class="timeline">
+        <!-- 1. Aihack Thailand 2025 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3 class="timeline-title" data-i18n="comp1_title">Aihack Thailand 2025 (Final Round Finalist)</h3>
+              <span class="timeline-tag" data-i18n="comp1_tag">National Finalist (Top 8)</span>
+            </div>
+            <div class="timeline-org">
+              <i class="fas fa-university"></i> <span data-i18n="comp1_org">Organized by AIRA &amp; AIFUL, Chulalongkorn Business School, and ProbSpace</span>
+            </div>
+            
+            <ul class="timeline-step-list">
+              <li>
+                <strong style="color: var(--accent-sky);" data-i18n="comp1_role_hdr">Role &amp; Contribution:</strong>
+                <span data-i18n="comp1_role_desc">Machine Learning &amp; Risk Modeling Lead. Ingested and preprocessed enterprise consumer loan records (~40,000 samples) to predict Long Overdue Debtors (LOD, overdue &gt;90 days past 12-month tenure).</span>
+              </li>
+              <li>
+                <strong style="color: var(--accent-sage);" data-i18n="comp1_tech_hdr">Technical Execution:</strong>
+                <span data-i18n="comp1_tech_desc">Engineered temporal repayment velocity ratios, cross-validated tabular features with LightGBM/XGBoost, and optimized ROC-AUC across Public and blind Private test splits within strict submission quotas.</span>
+              </li>
+              <li>
+                <strong style="color: var(--accent-amber);" data-i18n="comp1_biz_hdr">Business Impact:</strong>
+                <span data-i18n="comp1_biz_desc">Solved the comprehensive Question Sheet balancing default risk exposure against loan interest profit margins, successfully qualifying into the top 8 pitching finalists.</span>
+              </li>
+            </ul>
+
+            <div class="timeline-recognition">
+              <i class="fas fa-award" style="color: var(--accent-sage); margin-right: 6px;"></i>
+              <span data-i18n-html="comp1_recog"><strong>Official Recognition:</strong> Awarded Certificate of Participation for attending the Final Round at Jaiyossompati Building 3, signed by <strong>Shinichiro Okuyama</strong> (Managing Executive Officer, AIFUL CORPORATION).</span>
+            </div>
+
+            <div style="margin-top: 10px; margin-bottom: 12px;">
+              <button class="btn-cert-action" data-open-modal="modal-cert-aihack">
+                <i class="fas fa-award"></i>
+                <span data-i18n="comp1_cert_btn">View Official Certificate ↗</span>
+              </button>
+            </div>
+
+            <div class="timeline-highlights">
+              <span class="highlight-badge"><i class="fas fa-database"></i> ~40,000 Loan Samples</span>
+              <span class="highlight-badge"><i class="fas fa-chart-line"></i> ROC-AUC Optimization</span>
+              <span class="highlight-badge"><i class="fas fa-trophy"></i> Top 8 Pitch Finalist</span>
+              <span class="highlight-badge"><i class="fas fa-balance-scale"></i> Business P&amp;L Trade-offs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. True Innovation Launchpad 2026 – "GuardianAI" -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3 class="timeline-title" data-i18n="comp2_title">True Innovation Launchpad 2026 &ndash; "GuardianAI"</h3>
+              <span class="timeline-tag" style="color: var(--accent-purple); border-color: rgba(167, 139, 250, 0.3);" data-i18n="comp2_tag">Team Nakphatthana Tuapralat</span>
+            </div>
+            <div class="timeline-org">
+              <i class="fas fa-heartbeat"></i> <span data-i18n="comp2_org">True Corporation &bull; Healthcare AI &amp; Preventive Clinical Analytics</span>
+            </div>
+            
+            <ul class="timeline-step-list">
+              <li>
+                <strong style="color: var(--accent-sky);" data-i18n="comp2_role_hdr">Role &amp; Contribution:</strong>
+                <span data-i18n="comp2_role_desc">AI &amp; Data Science Lead. Headed the end-to-end predictive healthcare architecture for early elderly frailty risk intervention.</span>
+              </li>
+              <li>
+                <strong style="color: var(--accent-sage);" data-i18n="comp2_tech_hdr">Technical Execution:</strong>
+                <span data-i18n="comp2_tech_desc">Developed calibrated machine learning classification pipelines (XGBoost, Scikit-Learn) on multidimensional biometric and lifestyle indicators. Integrated Explainable AI via SHAP to extract localized feature importance, providing medical professionals with interpretable diagnostic reasoning.</span>
+              </li>
+              <li>
+                <strong style="color: var(--accent-purple);" data-i18n="comp2_sys_hdr">System Delivery:</strong>
+                <span data-i18n="comp2_sys_desc">Designed the low-latency model inference service using FastAPI, streaming real-time frailty risk scores and personalized preventive care recommendations into the interactive clinical dashboard.</span>
+              </li>
+            </ul>
+
+            <div class="timeline-highlights">
+              <span class="highlight-badge"><i class="fas fa-user-md"></i> Preventive Healthcare</span>
+              <span class="highlight-badge"><i class="fas fa-brain"></i> XGBoost &amp; SHAP XAI</span>
+              <span class="highlight-badge"><i class="fas fa-tachometer-alt"></i> FastAPI Low-Latency</span>
+              <span class="highlight-badge"><i class="fas fa-laptop-medical"></i> Interactive Clinical UI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Geospatial Intelligence for Resilience Hackathon 2026 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3 class="timeline-title" data-i18n="comp3_title">Geospatial Intelligence for Resilience Hackathon 2026</h3>
+              <span class="timeline-tag" style="color: var(--accent-sky); border-color: rgba(56, 189, 248, 0.3);" data-i18n="comp3_tag">Team Witsawa Tuapralat</span>
+            </div>
+            <div class="timeline-org">
+              <i class="fas fa-satellite"></i> <span data-i18n="comp3_org">GISTDA &bull; KMITL &bull; KMUTT &bull; Remote Sensing &amp; Disaster Resilience</span>
+            </div>
+            
+            <ul class="timeline-step-list">
+              <li>
+                <strong style="color: var(--accent-sky);" data-i18n="comp3_role_hdr">Role &amp; Contribution:</strong>
+                <span data-i18n="comp3_role_desc">Spatial Data Scientist &amp; Machine Learning Modeler (1st Member/Lead).</span>
+              </li>
+              <li>
+                <strong style="color: var(--accent-sage);" data-i18n="comp3_tech_hdr">Technical Execution:</strong>
+                <span data-i18n="comp3_tech_desc">Developed the mathematical framework and machine learning pipeline for the "Rain-to-Flood Probability Model", training on historical disaster inventories with Random Forest and Logistic Regression.</span>
+              </li>
+              <li>
+                <strong style="color: var(--accent-sky);" data-i18n="comp3_pipe_hdr">Spatial Pipeline:</strong>
+                <span data-i18n="comp3_pipe_desc">Ingested multi-source remote sensing data via GISTDA Sphere—fusing Sentinel-1 SAR soil moisture rasters, Copernicus GLO-30 DEM slope calculations, and national precipitation APIs to map flash flood probabilities at 30m resolution across upper Nan river basins.</span>
+              </li>
+            </ul>
+
+            <div class="timeline-highlights">
+              <span class="highlight-badge"><i class="fas fa-globe-asia"></i> Sentinel-1 SAR &amp; DEM</span>
+              <span class="highlight-badge"><i class="fas fa-cloud-rain"></i> GISTDA Sphere APIs</span>
+              <span class="highlight-badge"><i class="fas fa-map-marked-alt"></i> 30m Spatial Resolution</span>
+              <span class="highlight-badge"><i class="fas fa-exclamation-triangle"></i> Upper Nan River Basins</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. LINE MAN Wongnai Junior Case Competition -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3 class="timeline-title" data-i18n="comp4_title">LINE MAN Wongnai Junior Case Competition</h3>
+              <span class="timeline-tag" style="color: var(--accent-amber); border-color: rgba(251, 191, 36, 0.3);" data-i18n="comp4_tag">Team LC (Low Cortisol)</span>
+            </div>
+            <div class="timeline-org">
+              <i class="fas fa-utensils"></i> <span data-i18n="comp4_org">LINE MAN Wongnai &bull; Platform Economics &amp; Campus Growth</span>
+            </div>
+            
+            <ul class="timeline-step-list">
+              <li>
+                <strong style="color: var(--accent-sky);" data-i18n="comp4_role_hdr">Role &amp; Contribution:</strong>
+                <span data-i18n="comp4_role_desc">Strategic Growth &amp; Unit Economics Lead.</span>
+              </li>
+              <li>
+                <strong style="color: var(--accent-amber);" data-i18n="comp4_prob_hdr">Problem Solving:</strong>
+                <span data-i18n="comp4_prob_desc">Analyzed campus dining bottlenecks (11:30–13:30 peak cafeteria wait times, group delivery cost friction) and pitched targeted LINE MAN VIP solutions including pre-ordering, shared cart routing, and peak-hour delivery fee waivers.</span>
+              </li>
+              <li>
+                <strong style="color: var(--accent-sage);" data-i18n="comp4_fin_hdr">Campaign &amp; Financial Modeling:</strong>
+                <span data-i18n="comp4_fin_desc">Architected the "Silent Mission Booth" experiential acquisition campaign within a strict 8,000 THB budget cap. Modeled reward unit economics (14-day VIP trial conversion at 8.87 THB/user), successfully structuring incentives to acquire 462 student trial conversions.</span>
+              </li>
+            </ul>
+
+            <div class="timeline-highlights">
+              <span class="highlight-badge"><i class="fas fa-chart-pie"></i> 8.87 THB/User CAC</span>
+              <span class="highlight-badge"><i class="fas fa-users"></i> 462 VIP Conversions</span>
+              <span class="highlight-badge"><i class="fas fa-bullseye"></i> 8,000 THB Budget GTM</span>
+              <span class="highlight-badge"><i class="fas fa-store"></i> Shared Cart &amp; Pre-Ordering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. FOOTER & ENHANCED RESUME CTA (Symmetrical Flex, Zero Visitors)
+       ======================================================================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <h2 class="contact-title" data-i18n="footer_title">Let's Connect</h2>
+        <p class="contact-subtitle" data-i18n="footer_subtitle">
+          Seeking full-time Data Scientist, Machine Learning Engineer, and Data Engineering roles.
+        </p>
+
+        <!-- Balanced, Symmetrical Action Button Row -->
+        <div class="footer-button-row">
+          <!-- 1. Primary Button: Enhanced Resume / CV -->
+          <button class="btn-resume-cta" data-open-drawer="drawer-resume" aria-label="View Full Resume">
+            <i class="fas fa-file-alt"></i>
+            <span data-i18n="footer_resume_btn">View Full Resume / CV</span>
+            <i class="fas fa-arrow-down download-arrow"></i>
+            <span class="resume-tooltip-popout" data-i18n="footer_resume_tooltip">Opens PDF in new tab &bull; Updated 2026</span>
+          </button>
+
+          <!-- 2. Secondary Button: Send Direct Email -->
+          <a href="mailto:sivakorn.khun@gmail.com" class="btn-email-cta">
+            <i class="fas fa-paper-plane"></i>
+            <span data-i18n="footer_email_btn">Send Direct Email</span>
+          </a>
+
+          <!-- 3. Tertiary Button: Copy Email with Text-Flip -->
+          <button class="btn-copy-email-cta" id="btn-copy-email">
+            <i class="fas fa-copy"></i>
+            <span data-i18n="footer_copy_btn">Copy Email</span>
+          </button>
+        </div>
+
+        <!-- Distinct, Spaced Social Links Row -->
+        <div class="footer-links-row">
+          <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <i class="fab fa-github"></i>
+            <span>github.com/svkhun</span>
+          </a>
+          <span class="footer-link-divider">|</span>
+          <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <i class="fab fa-linkedin-in"></i>
+            <span>LinkedIn Profile</span>
+          </a>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            <span data-i18n="footer_copyright">&copy; 2026 Sivakorn Khundilokrattaya. Crafted with minimalist engineering standards.</span>
+          </div>
+          <div class="footer-socials">
+            <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" style="color: var(--text-dim); font-size: 0.9rem;" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer" style="color: var(--text-dim); font-size: 0.9rem;" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MODAL 1: Enterprise Credit Risk Scoring & Explainable AI (XAI)
+       ======================================================================== -->
+  <div class="drawer-backdrop" id="drawer-credit-risk" role="dialog" aria-modal="true" aria-labelledby="drawer-cr-title">
+    <div class="slide-drawer">
+      <div class="drawer-header">
+        <div class="drawer-header-left">
+          <span class="drawer-badge">System Deep-Dive</span>
+          <h2 class="drawer-title" id="drawer-cr-title">Enterprise Credit Risk Scoring &amp; Explainable AI (XAI)</h2>
+        </div>
+        <button class="drawer-close-btn" aria-label="Close modal"><i class="fas fa-times"></i> <span>Esc</span></button>
+      </div>
+
+      <div class="drawer-tabs">
+        <button class="drawer-tab-btn active" data-tab-target="tab-cr-context">1. Problem &amp; Context</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-cr-pipeline">2. WoE / IV Pipeline</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-cr-simulator">3. SHAP Sandbox</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-cr-metrics">4. Scorecard Calibration</button>
+      </div>
+
+      <div class="drawer-body">
+        <!-- Tab 1: Context -->
+        <div class="drawer-tab-content active" id="tab-cr-context">
+          <div class="bento-micro-grid">
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-balance-scale"></i></div>
+                <h4 class="bento-card-title">Regulatory Framework</h4>
+              </div>
+              <p class="bento-card-body">
+                In regulated lending, models cannot simply output black-box risk scores. The <strong>Equal Credit Opportunity Act (ECOA)</strong> and Basel Framework mandate automated adverse action reason codes for rejected or subprime loan applicants.
+              </p>
+            </div>
+
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-shield-alt"></i></div>
+                <h4 class="bento-card-title">Explainable AI (XAI) Solution</h4>
+              </div>
+              <p class="bento-card-body">
+                Bridges gradient boosted trees (LightGBM/XGBoost) with SHAP TreeExplainer and LIME local surrogate models to produce accurate Probability of Default (PD) scoring alongside instant, audit-ready explanations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Visual Node Flow -->
+          <div class="node-flow-container">
+            <div class="node-card"><i class="fas fa-file-invoice-dollar text-sky"></i> <span>Raw Loan Data</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-filter text-sky"></i> <span>WoE / IV Binning</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-brain text-sky"></i> <span>LightGBM Model</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-water text-emerald"></i> <span>SHAP Waterfall</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-bolt text-sky"></i> <span>FastAPI Serving</span></div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Pipeline -->
+        <div class="drawer-tab-content" id="tab-cr-pipeline">
+          <div class="bento-micro-grid">
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-layer-group"></i></div>
+                <h4 class="bento-card-title">Weight of Evidence (WoE)</h4>
+              </div>
+              <p class="bento-card-body">
+                Continuous features are discretized into monotonic risk bins. Ensures linear relationship with log-odds of default while naturally handling missing values and non-linear trends.
+              </p>
+            </div>
+
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-filter"></i></div>
+                <h4 class="bento-card-title">Information Value (IV) Filter</h4>
+              </div>
+              <p class="bento-card-body">
+                Filters out weak predictive variables with \(\text{IV} < 0.02\), retaining medium-to-strong drivers (DTI, revolving utilization, past-due counts) to eliminate multi-collinearity.
+              </p>
+            </div>
+
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-balance-scale-right"></i></div>
+                <h4 class="bento-card-title">SMOTE-Tomek Sampling</h4>
+              </div>
+              <p class="bento-card-body">
+                Addresses severe class imbalance (1:12 default ratio) using SMOTE synthetic minority oversampling paired with Tomek link cleaning to sharpen class decision boundaries.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Interactive SHAP Sandbox -->
+        <div class="drawer-tab-content" id="tab-cr-simulator">
+          <div class="drawer-sandbox-box">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+              <span style="font-size: 0.85rem; font-weight: 600; color: #F8FAFC;">Applicant Risk Profiles:</span>
+              <button class="social-badge" id="btn-reset-shap" style="padding: 2px 8px; font-size: 0.7rem;"><i class="fas fa-undo"></i> Reset</button>
+            </div>
+
+            <div style="display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap;">
+              <button class="social-badge" id="btn-preset-prime" style="padding: 5px 10px; font-size: 0.75rem; color: var(--accent-sage);">Prime Borrower (Tier A)</button>
+              <button class="social-badge" id="btn-preset-borderline" style="padding: 5px 10px; font-size: 0.75rem; color: var(--accent-amber);">Borderline (Tier B)</button>
+              <button class="social-badge" id="btn-preset-distressed" style="padding: 5px 10px; font-size: 0.75rem; color: var(--accent-coral);">High Risk (Tier C)</button>
+            </div>
+
+            <!-- Risk Sliders Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 16px;">
+              <div class="control-group">
+                <div class="control-label-row">
+                  <span class="control-name">Debt-to-Income (DTI)</span>
+                  <span class="control-value" id="shap-val-dti">28%</span>
+                </div>
+                <input type="range" class="range-slider" id="shap-slider-dti" min="10" max="65" value="28" step="1">
+              </div>
+
+              <div class="control-group">
+                <div class="control-label-row">
+                  <span class="control-name">Past Due Events (90d+)</span>
+                  <span class="control-value" id="shap-val-delinq">0x</span>
+                </div>
+                <input type="range" class="range-slider" id="shap-slider-delinq" min="0" max="4" value="0" step="1">
+              </div>
+
+              <div class="control-group">
+                <div class="control-label-row">
+                  <span class="control-name">Revolving Line Utilization</span>
+                  <span class="control-value" id="shap-val-util">35%</span>
+                </div>
+                <input type="range" class="range-slider" id="shap-slider-util" min="5" max="95" value="35" step="1">
+              </div>
+
+              <div class="control-group">
+                <div class="control-label-row">
+                  <span class="control-name">Annual Income</span>
+                  <span class="control-value" id="shap-val-income">$65k</span>
+                </div>
+                <input type="range" class="range-slider" id="shap-slider-income" min="20" max="160" value="65" step="5">
+              </div>
+            </div>
+
+            <!-- Output Score -->
+            <div style="display: flex; justify-content: space-between; align-items: center; background: #131B2A; border: 1px solid #1E293B; padding: 12px 16px; border-radius: var(--radius-md); margin: 16px 0;">
+              <div>
+                <span style="font-size: 0.8rem; color: #94A3B8;">Predicted Probability of Default:</span>
+              </div>
+              <div class="output-value-badge low-risk" id="shap-output-badge">
+                <span id="shap-output-pd">12.5%</span>
+                <span style="font-size: 0.725rem; opacity: 0.85;" id="shap-output-tier">Tier A (Prime)</span>
+              </div>
+            </div>
+
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94A3B8; margin-bottom: 8px;">
+              Marginal SHAP Waterfall Contributions:
+            </div>
+            <div id="shap-waterfall-rows"></div>
+
+            <div style="background: #0B0F17; border: 1px dashed #334155; padding: 12px; border-radius: var(--radius-md); font-size: 0.775rem; margin-top: 14px;" id="shap-adverse-reasons"></div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Metrics -->
+        <div class="drawer-tab-content" id="tab-cr-metrics">
+          <div class="tech-pill-grid">
+            <div class="tech-pill-item">
+              <i class="fas fa-chart-line tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">ROC-AUC: 0.892</div>
+                <div class="tech-pill-desc">Validated on out-of-time test partitions across 12-month loan tenure.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-percentage tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Gini Index: 0.784</div>
+                <div class="tech-pill-desc">Strong rank-ordering separation between default and non-default borrowers.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-sliders-h tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Scorecard PDO: 20 pts</div>
+                <div class="tech-pill-desc">20 points to double odds calibrated at 600 base credit score.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-tachometer-alt tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Sub-30ms Inference</div>
+                <div class="tech-pill-desc">Asynchronous FastAPI microservice with containerized batch serving.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 2: Long Overdue Debtor (LOD) Classification System
+       ======================================================================== -->
+  <div class="drawer-backdrop" id="drawer-lod-project" role="dialog" aria-modal="true" aria-labelledby="drawer-lod-title">
+    <div class="slide-drawer">
+      <div class="drawer-header">
+        <div class="drawer-header-left">
+          <span class="drawer-badge" style="color: var(--accent-sage);">Aihack Finalist Codebase</span>
+          <h2 class="drawer-title" id="drawer-lod-title">Long Overdue Debtor (LOD) Classification System</h2>
+        </div>
+        <button class="drawer-close-btn" aria-label="Close modal"><i class="fas fa-times"></i> <span>Esc</span></button>
+      </div>
+
+      <div class="drawer-tabs">
+        <button class="drawer-tab-btn active" data-tab-target="tab-lod-overview">1. Hackathon Context</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-lod-features">2. Temporal Feature Matrix</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-lod-roc">3. ROC Sandbox</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-lod-validation">4. 5-Fold Stratified Validation</button>
+      </div>
+
+      <div class="drawer-body">
+        <!-- Tab 1: Overview -->
+        <div class="drawer-tab-content active" id="tab-lod-overview">
+          <div class="bento-micro-grid">
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-trophy"></i></div>
+                <h4 class="bento-card-title">Aihack Thailand 2025</h4>
+              </div>
+              <p class="bento-card-body">
+                Organized by <strong>AIRA &amp; AIFUL Public Company Limited</strong> with <strong>Chulalongkorn Business School</strong> and <strong>ProbSpace</strong> at Jaiyossompati Building 3, Chulalongkorn University.
+              </p>
+            </div>
+
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-database"></i></div>
+                <h4 class="bento-card-title">~40,000 Loan Records</h4>
+              </div>
+              <p class="bento-card-body">
+                Predicted default (>90 days overdue after 12 months) across 32,524 train / 8,619 test samples. Ingested temporal repayment velocity ratios, crunched 2 sudden blind test splits, and pitched to senior executives.
+              </p>
+            </div>
+          </div>
+
+          <!-- Visual Node Flow -->
+          <div class="node-flow-container">
+            <div class="node-card"><i class="fas fa-database text-sky"></i> <span>~40k Loan Samples</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-history text-sky"></i> <span>Temporal Repayment Lag</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-tachometer-alt text-sky"></i> <span>Velocity Slope Ratios</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-layer-group text-emerald"></i> <span>5-Fold Stratified CV</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-award text-amber"></i> <span>Top 8 Finalist Pitch</span></div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Feature Matrix -->
+        <div class="drawer-tab-content" id="tab-lod-features">
+          <div class="tech-pill-grid">
+            <div class="tech-pill-item">
+              <i class="fas fa-percentage tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Payment Velocity Index</div>
+                <div class="tech-pill-desc">Ratio of early vs. scheduled installment repayments tracking debtor discipline.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-chart-line tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Limit Exhaustion Slope</div>
+                <div class="tech-pill-desc">Rate of credit balance consumption over the initial 90-day onboarding window.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-calendar-alt tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Temporal Delinquency Lag</div>
+                <div class="tech-pill-desc">Interaction between historical past-due cycles and payday monthly dates.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-code-branch tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Smoothed Target Encoding</div>
+                <div class="tech-pill-desc">Branch and occupational risk categorical encoding with cross-fold smoothing.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: ROC Sandbox -->
+        <div class="drawer-tab-content" id="tab-lod-roc">
+          <div class="drawer-sandbox-box">
+            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 12px;">
+              <canvas id="roc-canvas"></canvas>
+              <div style="display: flex; gap: 14px; font-family: var(--font-mono); font-size: 0.75rem; margin-top: 8px;">
+                <span style="color: var(--accent-sky);">&bull; Tuned LightGBM (AUC: 0.894)</span>
+                <span style="color: var(--accent-amber);">&bull; Baseline LogReg (AUC: 0.724)</span>
+              </div>
+            </div>
+
+            <!-- Threshold Slider -->
+            <div class="control-group" style="margin-top: 14px;">
+              <div class="control-label-row">
+                <span class="control-name">Classification Cutoff (\(\tau\))</span>
+                <span class="control-value" id="roc-val-threshold">0.35</span>
+              </div>
+              <input type="range" class="range-slider" id="roc-slider-threshold" min="0.10" max="0.90" value="0.35" step="0.01">
+            </div>
+
+            <!-- Live Confusion Matrix Counts -->
+            <div class="confusion-matrix-grid">
+              <div class="cm-cell">
+                <span class="cm-label">Sensitivity (Recall)</span>
+                <span class="cm-val" id="roc-val-sensitivity" style="color: var(--accent-sage);">84.2%</span>
+              </div>
+              <div class="cm-cell">
+                <span class="cm-label">Specificity</span>
+                <span class="cm-val" id="roc-val-specificity" style="color: var(--accent-sky);">88.6%</span>
+              </div>
+              <div class="cm-cell">
+                <span class="cm-label">Defaulters Caught (TP)</span>
+                <span class="cm-val" id="cm-tp" style="color: var(--accent-sage);">3,368</span>
+              </div>
+              <div class="cm-cell">
+                <span class="cm-label">Net Benefit Generated</span>
+                <span class="cm-val" id="roc-business-net-val" style="color: var(--accent-sky);">$6.98M</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Validation -->
+        <div class="drawer-tab-content" id="tab-lod-validation">
+          <div class="bento-micro-grid">
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-check-double"></i></div>
+                <h4 class="bento-card-title">Out-of-Fold (OOF) CV</h4>
+              </div>
+              <p class="bento-card-body">
+                <strong>Mean ROC-AUC: 0.8941 &plusmn; 0.0016</strong><br>
+                Evaluated with 5-Fold Stratified cross-validation, guaranteeing zero target leakage and resilient score stability across public and private ProbSpace splits.
+              </p>
+            </div>
+
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-chart-pie"></i></div>
+                <h4 class="bento-card-title">Business P&amp;L Trade-off</h4>
+              </div>
+              <p class="bento-card-body">
+                Solved the executive question sheet: optimized decision threshold to maximize cumulative loan interest margins while minimizing bad debt provision costs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 3: GuardianAI – Clinical Frailty Risk Dashboard
+       ======================================================================== -->
+  <div class="drawer-backdrop" id="drawer-guardian-ai" role="dialog" aria-modal="true" aria-labelledby="drawer-guardian-title">
+    <div class="slide-drawer">
+      <div class="drawer-header">
+        <div class="drawer-header-left">
+          <span class="drawer-badge" style="color: var(--accent-purple);">Clinical Analytics &amp; Healthcare AI</span>
+          <h2 class="drawer-title" id="drawer-guardian-title">GuardianAI &ndash; Clinical Frailty Risk Platform</h2>
+        </div>
+        <button class="drawer-close-btn" aria-label="Close modal"><i class="fas fa-times"></i> <span>Esc</span></button>
+      </div>
+
+      <div class="drawer-tabs">
+        <button class="drawer-tab-btn active" data-tab-target="tab-gai-overview">1. Problem Statement</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-gai-model">2. Calibrated XGBoost</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-gai-shap">3. Biometric SHAP Attribution</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-gai-fastapi">4. FastAPI Microservice</button>
+      </div>
+
+      <div class="drawer-body">
+        <!-- Tab 1: Overview -->
+        <div class="drawer-tab-content active" id="tab-gai-overview">
+          <div class="bento-micro-grid">
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-heartbeat"></i></div>
+                <h4 class="bento-card-title">Preventive Healthcare Mission</h4>
+              </div>
+              <p class="bento-card-body">
+                Developed under <strong>True Innovation Launchpad 2026</strong> (Team <em>Nakphatthana Tuapralat</em>). Evaluates multi-dimensional biometric telemetry to flag early-stage elderly frailty syndrome before acute deterioration occurs.
+              </p>
+            </div>
+
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-user-md"></i></div>
+                <h4 class="bento-card-title">Actionable Diagnostic Insights</h4>
+              </div>
+              <p class="bento-card-body">
+                Translates complex machine learning risk predictions into localized clinical explanations, providing attending physicians with transparent risk attribution factors.
+              </p>
+            </div>
+          </div>
+
+          <!-- Visual Node Flow -->
+          <div class="node-flow-container">
+            <div class="node-card"><i class="fas fa-user-nurse text-purple"></i> <span>Biometric Telemetry</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-sliders-h text-purple"></i> <span>Feature Calibration</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-brain text-sky"></i> <span>Calibrated XGBoost</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-eye text-emerald"></i> <span>SHAP TreeExplainer</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-laptop-medical text-sky"></i> <span>Doctor Dashboard</span></div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Calibrated XGBoost -->
+        <div class="drawer-tab-content" id="tab-gai-model">
+          <div class="tech-pill-grid">
+            <div class="tech-pill-item">
+              <i class="fas fa-walking tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Gait Velocity &amp; Grip Dynamics</div>
+                <div class="tech-pill-desc">Tracks physical deterioration rates through sensor-derived cadence and force data.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-exclamation-triangle tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Asymmetric Loss Penalty</div>
+                <div class="tech-pill-desc">Heavily penalizes false negatives to prevent missed opportunities for clinical intervention.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-chart-area tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Platt Probability Scaling</div>
+                <div class="tech-pill-desc">Calibrates XGBoost raw margin outputs into true clinical posterior risk probabilities.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Biometric SHAP Attribution -->
+        <div class="drawer-tab-content" id="tab-gai-shap">
+          <div class="bento-micro-card">
+            <div class="bento-card-header">
+              <div class="bento-card-icon"><i class="fas fa-microscope"></i></div>
+              <h4 class="bento-card-title">Localized Clinical Attribution</h4>
+            </div>
+            <p class="bento-card-body">
+              Integrates <strong>SHAP TreeExplainer</strong> to output granular clinical risk attributions (e.g. <em>+14% risk from sudden step asymmetry, -8% from balanced BMI</em>), empowering attending physicians with interpretable diagnostic reasoning.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tab 4: FastAPI Microservice -->
+        <div class="drawer-tab-content" id="tab-gai-fastapi">
+          <div class="bento-micro-card">
+            <div class="bento-card-header">
+              <div class="bento-card-icon"><i class="fas fa-tachometer-alt"></i></div>
+              <h4 class="bento-card-title">Low-Latency Medical API</h4>
+            </div>
+            <p class="bento-card-body">
+              Deployed with asynchronous FastAPI endpoints streaming real-time frailty risk scores and individualized recommendations into an interactive React/Tailwind clinical doctor dashboard.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 4: Manufacturing (MFG) Telemetry Pipeline & OEE Analytics
+       ======================================================================== -->
+  <div class="drawer-backdrop" id="drawer-mfg-pipeline" role="dialog" aria-modal="true" aria-labelledby="drawer-mfg-title">
+    <div class="slide-drawer">
+      <div class="drawer-header">
+        <div class="drawer-header-left">
+          <span class="drawer-badge" style="color: var(--accent-amber);">Industrial IoT &amp; Data Engineering</span>
+          <h2 class="drawer-title" id="drawer-mfg-title">Manufacturing (MFG) Telemetry Pipeline &amp; OEE Analytics</h2>
+        </div>
+        <button class="drawer-close-btn" aria-label="Close modal"><i class="fas fa-times"></i> <span>Esc</span></button>
+      </div>
+
+      <div class="drawer-tabs">
+        <button class="drawer-tab-btn active" data-tab-target="tab-mfg-arch">1. System &amp; Ingestion</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-mfg-etl">2. OEE Processing &amp; Anomaly</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-mfg-dashboard">3. Streamlit &amp; Live Logs</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-mfg-highlights">4. Technical Highlights</button>
+      </div>
+
+      <div class="drawer-body">
+        <!-- Tab 1: System & Ingestion -->
+        <div class="drawer-tab-content active" id="tab-mfg-arch">
+          <!-- Visual Node Flow -->
+          <div class="node-flow-container">
+            <div class="node-card"><i class="fas fa-microchip text-sky"></i> <span>IIoT Simulator</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-plug text-sky"></i> <span>SQLAlchemy Ingestion</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-database text-sky"></i> <span>Dockerized Postgres</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-cogs text-sky"></i> <span>Batch ETL Engine</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-shield-alt text-amber"></i> <span>Anomaly Logs</span></div>
+            <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="node-card"><i class="fas fa-chart-line text-emerald"></i> <span>Streamlit UI</span></div>
+          </div>
+
+          <!-- 3 Bento Micro-Cards -->
+          <div class="bento-micro-grid">
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-satellite-dish"></i></div>
+                <h4 class="bento-card-title">1. Data Generation &amp; Ingestion</h4>
+              </div>
+              <p class="bento-card-body">
+                Python-based multi-machine telemetry simulator generating high-frequency industrial machine metrics (temperature, vibration, cycle time, operational states, and fault codes).
+              </p>
+            </div>
+
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-server"></i></div>
+                <h4 class="bento-card-title">2. Infrastructure &amp; Storage</h4>
+              </div>
+              <p class="bento-card-body">
+                Containerized PostgreSQL database configured via Docker Compose with B-tree and composite indexing optimized for high-throughput time-series sensor logs and audit execution tables.
+              </p>
+            </div>
+
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-calculator"></i></div>
+                <h4 class="bento-card-title">3. Processing &amp; Analytics</h4>
+              </div>
+              <p class="bento-card-body">
+                Automated batch ETL jobs computing rolling machine availability, performance ratios, and quality rates to derive real-time Overall Equipment Effectiveness (OEE).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: OEE Processing & Anomaly -->
+        <div class="drawer-tab-content" id="tab-mfg-etl">
+          <div class="tech-pill-grid">
+            <div class="tech-pill-item">
+              <i class="fas fa-industry tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Overall Equipment Effectiveness (OEE)</div>
+                <div class="tech-pill-desc">Computed dynamically as \(\text{Availability} \times \text{Performance} \times \text{Quality}\) across rolling shift windows.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-sync-alt tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Rolling Metrics Aggregation</div>
+                <div class="tech-pill-desc">Computes continuous equipment availability ratios, micro-stoppage counts, and unit defect rates per production line.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-exclamation-circle tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Stateful Anomaly Detection</div>
+                <div class="tech-pill-desc">Automated monitor continuously evaluates thermal and vibration bounds, logging operational excursions into audit tables.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Streamlit & Live Logs -->
+        <div class="drawer-tab-content" id="tab-mfg-dashboard">
+          <div class="bento-micro-card" style="margin-bottom: 16px;">
+            <div class="bento-card-header">
+              <div class="bento-card-icon"><i class="fas fa-desktop"></i></div>
+              <h4 class="bento-card-title">Interactive Streamlit Web Dashboard</h4>
+            </div>
+            <p class="bento-card-body">
+              Provides drill-down visibility into live factory floor performance, downtime root causes, and pipeline health logs.
+            </p>
+          </div>
+
+          <div style="background: #0B0F17; border: 1px solid #1E293B; padding: 16px; border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.775rem; color: #94A3B8; line-height: 1.6;">
+            <div><span style="color: var(--accent-sage);">[INFO]</span> Ingested 1,200 telemetry rows from Machine_A, Machine_B, Machine_C</div>
+            <div><span style="color: var(--accent-sky);">[ETL]</span> Batch Job #482 completed in 18.4ms | OEE: 87.4% (Avail: 94.2%, Perf: 96.1%, Qual: 96.5%)</div>
+            <div><span style="color: var(--accent-amber);">[AUDIT]</span> Anomaly logged: Machine_B bearing temperature +12.3% above baseline (Threshold: 78°C)</div>
+            <div><span style="color: var(--accent-sage);">[STATUS]</span> PostgreSQL connection pool healthy (Active: 3, Idle: 7)</div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Technical Highlights -->
+        <div class="drawer-tab-content" id="tab-mfg-highlights">
+          <div class="tech-pill-grid">
+            <div class="tech-pill-item">
+              <i class="fas fa-link tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Resilient SQLAlchemy Pool</div>
+                <div class="tech-pill-desc">Resilient database transaction management, scoped sessions, and automatic reconnects.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-file-alt tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Automated Audit Logging</div>
+                <div class="tech-pill-desc">Tracks end-to-end job execution states, processed row counts, and latency benchmarks.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fab fa-docker tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Docker Compose Setup</div>
+                <div class="tech-pill-desc">Reproducible developer setup for instant multi-container deployment across environments.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-chart-bar tech-pill-icon"></i>
+              <div>
+                <div class="tech-pill-label">Streamlit &amp; Plotly</div>
+                <div class="tech-pill-desc">Interactive real-time factory telemetry analytics and downtime heatmaps.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       SLIDE-OVER DRAWER 5: Printable Resume Drawer
+       ======================================================================== -->
+  <div class="drawer-backdrop" id="drawer-resume" role="dialog" aria-modal="true" aria-labelledby="drawer-resume-title">
+    <div class="slide-drawer" style="max-width: 780px;">
+      <div class="drawer-header">
+        <div class="drawer-header-left">
+          <span class="drawer-badge">Curriculum Vitae</span>
+          <h2 class="drawer-title" id="drawer-resume-title">Sivakorn Khundilokrattaya</h2>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button class="btn-primary" id="btn-print-resume" style="padding: 5px 12px; font-size: 0.775rem;">
+            <i class="fas fa-print"></i>
+            <span>Print PDF</span>
+          </button>
+          <button class="drawer-close-btn" aria-label="Close modal"><i class="fas fa-times"></i> <span>Esc</span></button>
+        </div>
+      </div>
+
+      <div class="drawer-body" style="background: #e2e8f0; padding: 24px;">
+        <div class="resume-paper">
+          <div class="resume-header-row">
+            <h1 class="resume-name">SIVAKORN KHUNDILOKRATTAYA</h1>
+            <div class="resume-title-sub">Computer Engineering Student &bull; Aspiring Data Scientist &amp; ML Practitioner</div>
+            <div class="resume-contacts">
+              <span><i class="fas fa-envelope"></i> sivakorn.khun@gmail.com</span>
+              <span><i class="fab fa-github"></i> github.com/svkhun</span>
+              <span><i class="fab fa-linkedin"></i> LinkedIn: sivakorn-khundilokrattaya-5870b8429</span>
+            </div>
+          </div>
+
+          <div class="resume-section">
+            <h2 class="resume-section-title">Education</h2>
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <span>B.Eng. in Computer Engineering</span>
+                <span>Srinakharinwirot University (SWU)</span>
+              </div>
+              <div class="resume-item-sub">Bangkok, Thailand</div>
+              <ul>
+                <li>Specialization in Machine Learning, Statistical Inference, and Distributed Data Systems.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="resume-section">
+            <h2 class="resume-section-title">Featured Projects</h2>
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <span>Long Overdue Debtor (LOD) Classification System</span>
+                <span>AIRA &amp; AIFUL / Aihack 2025 Finalist</span>
+              </div>
+              <ul>
+                <li>Engineered delinquency velocity features on ~40,000 consumer credit records (32,524 train / 8,619 test), achieving 0.894 ROC-AUC in 5-Fold Stratified CV.</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <span>GuardianAI &ndash; Clinical Frailty Risk Platform</span>
+                <span>True Innovation Launchpad 2026 &bull; AI &amp; Data Lead</span>
+              </div>
+              <ul>
+                <li>Combined calibrated XGBoost with SHAP local biometric explainability and sub-30ms FastAPI clinical streaming endpoints.</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <span>Manufacturing (MFG) Telemetry Pipeline &amp; OEE Analytics</span>
+                <span>Python, PostgreSQL, Docker, Streamlit, SQLAlchemy</span>
+              </div>
+              <ul>
+                <li>Simulated multi-machine IIoT sensor telemetry, executing automated batch ETL and stateful anomaly detection for real-time Overall Equipment Effectiveness (OEE) tracking.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="resume-section">
+            <h2 class="resume-section-title">Hackathons &amp; Competitions</h2>
+            
+            <!-- 1. Aihack -->
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <span>Aihack Thailand 2025 (Final Round Finalist)</span>
+                <span>AIRA &amp; AIFUL x Chulalongkorn Business School x ProbSpace</span>
+              </div>
+              <ul>
+                <li><strong>Role &amp; Contribution:</strong> ML &amp; Risk Modeling Lead on ~40,000 samples predicting Long Overdue Debtors (LOD, overdue &gt;90 days past 12 months).</li>
+                <li><strong>Technical Execution:</strong> Repayment velocity features, LightGBM/XGBoost CV, and ROC-AUC optimization across Public/Private splits on ProbSpace.</li>
+                <li><strong>Business Impact:</strong> Solved Question Sheet balancing default risk vs. interest margins, qualifying into top 8 pitching finalists.</li>
+              </ul>
+            </div>
+
+            <!-- 2. True Innovation Launchpad -->
+            <div class="resume-item" style="margin-top: 6px;">
+              <div class="resume-item-header">
+                <span>True Innovation Launchpad 2026 &ndash; "GuardianAI"</span>
+                <span>Team Nakphatthana Tuapralat</span>
+              </div>
+              <ul>
+                <li><strong>Role &amp; Contribution:</strong> AI &amp; Data Science Lead for elderly frailty risk intervention platform.</li>
+                <li><strong>Technical Execution:</strong> Calibrated XGBoost and Scikit-Learn models with SHAP biometric explainability for medical professionals.</li>
+                <li><strong>System Delivery:</strong> Low-latency FastAPI microservice streaming frailty risk scores into clinical dashboards.</li>
+              </ul>
+            </div>
+
+            <!-- 3. Geospatial -->
+            <div class="resume-item" style="margin-top: 6px;">
+              <div class="resume-item-header">
+                <span>Geospatial Intelligence for Resilience Hackathon 2026</span>
+                <span>Team Witsawa Tuapralat (GISTDA, KMITL, KMUTT)</span>
+              </div>
+              <ul>
+                <li><strong>Role &amp; Contribution:</strong> Spatial Data Scientist &amp; Machine Learning Modeler (1st Member/Lead).</li>
+                <li><strong>Technical Execution:</strong> Built "Rain-to-Flood Probability Model" with Random Forest &amp; Logistic Regression.</li>
+                <li><strong>Spatial Pipeline:</strong> Fused Sentinel-1 SAR soil moisture, Copernicus GLO-30 DEM slope, and precipitation APIs for 30m flash flood mapping.</li>
+              </ul>
+            </div>
+
+            <!-- 4. LINE MAN -->
+            <div class="resume-item" style="margin-top: 6px;">
+              <div class="resume-item-header">
+                <span>LINE MAN Wongnai Junior Case Competition</span>
+                <span>Team LC (Low Cortisol)</span>
+              </div>
+              <ul>
+                <li><strong>Role &amp; Contribution:</strong> Strategic Growth &amp; Unit Economics Lead.</li>
+                <li><strong>Problem Solving:</strong> Formulated campus solutions (pre-ordering, shared cart routing, fee waivers) for cafeteria rush hours.</li>
+                <li><strong>Campaign &amp; Financial Modeling:</strong> "Silent Mission Booth" campaign with 8.87 THB/user CAC, acquiring 462 VIP student trial conversions.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="resume-section">
+            <h2 class="resume-section-title">Technical Skills</h2>
+            <p style="font-size: 0.8rem; color: #334155; line-height: 1.5;">
+              <strong>Languages:</strong> Python, SQL, C, C++, Java, R, Bash.<br>
+              <strong>ML &amp; Modeling:</strong> Scikit-Learn, XGBoost, LightGBM, SHAP, LIME, Pandas, NumPy.<br>
+              <strong>Data Engineering:</strong> PostgreSQL, MySQL, Apache Spark, Airflow, Docker, FastAPI, Git.<br>
+              <strong>Languages:</strong> Thai (Native), English (B1+), Japanese (Beginner).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 1: Oxford Placement Test / AUA Language Center Certificate Viewer
+       ======================================================================== -->
+  <div class="cert-modal-backdrop" id="modal-cert-english" role="dialog" aria-modal="true" aria-labelledby="modal-cert-english-title">
+    <div class="cert-modal-window">
+      <div class="cert-modal-header">
+        <div class="cert-modal-title-group">
+          <span class="cert-modal-badge"><i class="fas fa-certificate"></i> Official Test Result</span>
+          <h3 class="cert-modal-title" id="modal-cert-english-title">Oxford Placement Test &bull; AUA Language Center</h3>
+        </div>
+        <button class="terminal-close-btn" data-close-modal aria-label="Close Modal"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="cert-modal-body">
+        <div class="cert-paper-canvas oxford-theme">
+          <div class="oxford-header-row">
+            <div class="oxford-brand">
+              <i class="fas fa-certificate" style="color: #0284C7; font-size: 1.8rem;"></i>
+              <div>
+                <div class="oxford-brand-title">OXFORD</div>
+                <div class="oxford-brand-sub">PLACEMENT TEST &bull; UNIVERSITY PRESS</div>
+              </div>
+            </div>
+            <div class="aua-brand">
+              <div>
+                <div class="aua-brand-text">AUA</div>
+                <div style="font-size: 0.65rem; color: #64748B; font-weight: 700;">LANGUAGE CENTER</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oxford-info-grid">
+            <div class="oxford-info-item">
+              <span class="oxford-info-label">Test Taker Name:</span>
+              <span class="oxford-info-val">Sivakorn Khundilokrattaya</span>
+            </div>
+            <div class="oxford-info-item">
+              <span class="oxford-info-label">Organisation Name:</span>
+              <span class="oxford-info-val">AUA LANGUAGE CENTER</span>
+            </div>
+            <div class="oxford-info-item">
+              <span class="oxford-info-label">Date Taken:</span>
+              <span class="oxford-info-val">21st June 2026</span>
+            </div>
+          </div>
+
+          <table class="oxford-table">
+            <thead>
+              <tr>
+                <th>Results</th>
+                <th style="width: 75px;">Score</th>
+                <th style="width: 75px;">CEFR</th>
+                <th style="width: 95px;">Time Taken</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight-row">
+                <td><strong>Overall Result</strong></td>
+                <td><span class="oxford-score-badge">51</span></td>
+                <td><strong style="color: #0284C7;">B1</strong></td>
+                <td>53:28</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="oxford-table">
+            <thead>
+              <tr>
+                <th>Section</th>
+                <th style="width: 60px;">Score</th>
+                <th style="width: 60px;">CEFR</th>
+                <th style="width: 75px;">Time</th>
+                <th>Communicative Competencies</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Use of English</strong></td>
+                <td>54</td>
+                <td><strong style="color: #0284C7;">B1</strong></td>
+                <td>18:28</td>
+                <td>
+                  <ul style="margin: 0; padding-left: 16px; font-size: 0.775rem; line-height: 1.45;">
+                    <li>Uses sufficient range of language to explain main points in ideas or problems with reasonable precision.</li>
+                    <li>Demonstrates good vocabulary related to familiar topics and everyday situations.</li>
+                    <li>Demonstrates reasonable grammatical control with elementary vocabulary.</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Listening</strong></td>
+                <td>48</td>
+                <td><strong style="color: #0284C7;">B1</strong></td>
+                <td>35:00</td>
+                <td>
+                  <ul style="margin: 0; padding-left: 16px; font-size: 0.775rem; line-height: 1.45;">
+                    <li>Understands straightforward factual information about everyday and work-related topics.</li>
+                    <li>Follows conversation and discussion, including general themes and main points.</li>
+                    <li>Understands main points in various types of audio recordings delivered clearly.</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="margin-top: 14px; font-size: 0.75rem; color: #475569;">
+            <strong>CEFR Score Guide:</strong>
+            <div class="cefr-guide-track">
+              <div class="cefr-segment">Pre-A1</div>
+              <div class="cefr-segment">A1</div>
+              <div class="cefr-segment">A2</div>
+              <div class="cefr-segment active-b1">B1 (Score: 51)</div>
+              <div class="cefr-segment">B2</div>
+              <div class="cefr-segment">C1</div>
+              <div class="cefr-segment">C2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-modal-footer">
+        <a href="assets/20260621 Sivakorn Khundilokrattaya.pdf" target="_blank" class="btn-primary-pill" style="font-size: 0.8rem; padding: 7px 16px;">
+          <i class="fas fa-file-pdf"></i>
+          <span>Open Full Original PDF ↗</span>
+        </a>
+        <button class="btn-secondary-pill" data-close-modal style="font-size: 0.8rem; padding: 7px 14px;">
+          <i class="fas fa-times"></i>
+          <span>Close Document</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 2: Aihack Thailand 2025 Certificate of Participation Viewer
+       ======================================================================== -->
+  <div class="cert-modal-backdrop" id="modal-cert-aihack" role="dialog" aria-modal="true" aria-labelledby="modal-cert-aihack-title">
+    <div class="cert-modal-window">
+      <div class="cert-modal-header">
+        <div class="cert-modal-title-group">
+          <span class="cert-modal-badge" style="color: var(--accent-sage); border-color: rgba(52, 211, 153, 0.3); background: rgba(52, 211, 153, 0.1);"><i class="fas fa-trophy"></i> National Finalist</span>
+          <h3 class="cert-modal-title" id="modal-cert-aihack-title">Aihack Thailand 2025 &bull; Certificate of Participation</h3>
+        </div>
+        <button class="terminal-close-btn" data-close-modal aria-label="Close Modal"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="cert-modal-body">
+        <div class="cert-paper-canvas aihack-theme" id="aihack-cert-printable">
+          <div class="aihack-cert-header">
+            <div>
+              <div class="aihack-logo-title">aihack</div>
+              <div class="aihack-logo-sub">THAILAND 2025</div>
+            </div>
+            <div class="aihack-gold-medallion">
+              <i class="fas fa-award"></i>
+            </div>
+          </div>
+
+          <div class="aihack-main-heading">CERTIFICATE OF PARTICIPATION</div>
+          <div class="aihack-presented-to">This certificate is presented to</div>
+          <div class="aihack-recipient-name">Sivakorn Khundilokrattaya</div>
+
+          <div class="aihack-citation">
+            for attending <strong>Aihack Thailand 2025 Final Round</strong><br>
+            held <strong>10 December &ndash; 12 December 2025</strong><br>
+            <span style="font-size: 0.825rem; color: #64748B;">Faculty of Commerce and Accountancy, Chulalongkorn University</span>
+          </div>
+
+          <div class="aihack-signature-row">
+            <div class="aihack-sig-block">
+              <div class="aihack-sig-kanji">奥山 真一郎</div>
+              <div class="aihack-sig-name">Shinichiro Okuyama</div>
+              <div class="aihack-sig-title">Managing Executive Officer, AIFUL CORPORATION</div>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-size: 0.825rem; font-weight: 700; color: #0F172A; margin-bottom: 4px;">December 15, 2025</div>
+              <div class="aihack-partners">
+                <span>AIRA &amp; AIFUL</span> &bull; <span>COMMERCE CLUB</span> &bull; <span>cotomi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-modal-footer">
+        <a href="assets/03 - OEIA. - Sivakorn Khundilokrattaya.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary-pill" style="font-size: 0.8rem; padding: 7px 16px;">
+          <i class="fas fa-file-pdf"></i>
+          <span>View Original Certificate ↗</span>
+        </a>
+        <button class="btn-secondary-pill" data-close-modal style="font-size: 0.8rem; padding: 7px 14px;">
+          <i class="fas fa-times"></i>
+          <span>Close Certificate</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 3: SKILLKAMP by KBTG - Data Analyst Score Sheet Viewer
+       ======================================================================== -->
+  <div class="cert-modal-backdrop" id="modal-kbtg-da" role="dialog" aria-modal="true" aria-labelledby="modal-kbtg-da-title">
+    <div class="cert-modal-window">
+      <div class="cert-modal-header">
+        <div class="cert-modal-title-group">
+          <span class="cert-modal-badge" style="color: #10B981; border-color: rgba(16, 185, 129, 0.35); background: rgba(16, 185, 129, 0.1);"><i class="fas fa-chart-line"></i> KBTG Assessment</span>
+          <h3 class="cert-modal-title" id="modal-kbtg-da-title">STAMP Score Report &bull; Data Analyst</h3>
+        </div>
+        <button class="terminal-close-btn" data-close-modal aria-label="Close Modal"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="cert-modal-body">
+        <div class="cert-paper-canvas kbtg-theme" id="kbtg-da-printable">
+          <div class="kbtg-modal-top-bar">
+            <div class="kbtg-brand-logo">
+              <i class="fas fa-cube" style="color: #10B981; font-size: 1.8rem;"></i>
+              <div>
+                <div class="kbtg-logo-text">SKILLKAMP</div>
+                <div class="kbtg-logo-sub">BY KBTG (KASIKORN BUSINESS-TECHNOLOGY GROUP)</div>
+              </div>
+            </div>
+            <div class="kbtg-stamp-badge">
+              STAMP CERTIFIED
+            </div>
+          </div>
+
+          <div class="kbtg-candidate-banner">
+            <div class="kbtg-candidate-notice">รายงานผลคะแนนสอบฉบับนี้ให้ไว้เพื่อแสดงว่า</div>
+            <div class="kbtg-candidate-name">ศิวกร คุณดิลกรัตยา (Sivakorn Khundilokrattaya)</div>
+            <div class="kbtg-candidate-track">ได้เข้าร่วมวัดระดับทักษะด้าน: Data Analyst</div>
+            <div class="kbtg-candidate-subtext">ผ่านการสอบ STAMP (SKILLKAMP TALENT ASSESSMENT FOR MASTERY AND PROFICIENCY) &bull; สอบออนไลน์วันที่ 21 มีนาคม 2569</div>
+          </div>
+
+          <table class="kbtg-score-table">
+            <thead>
+              <tr>
+                <th>หมวดวิชา (Subject Domain)</th>
+                <th style="width: 130px; text-align: right;">คะแนน (Score)</th>
+                <th style="width: 140px; text-align: right;">คะแนนเฉลี่ย (Benchmark)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1. Foundations of Data Analysis</td>
+                <td style="text-align: right;"><span class="kbtg-score-val">20.00 / 30</span></td>
+                <td style="text-align: right;"><span class="kbtg-bench-val">18.87</span></td>
+              </tr>
+              <tr>
+                <td>2. Data Cleaning and Preprocessing</td>
+                <td style="text-align: right;"><span class="kbtg-score-val">23.00 / 30</span></td>
+                <td style="text-align: right;"><span class="kbtg-bench-val">22.52</span></td>
+              </tr>
+              <tr>
+                <td>3. Exploratory Data Analysis and Visualization</td>
+                <td style="text-align: right;"><span class="kbtg-score-val">20.00 / 30</span></td>
+                <td style="text-align: right;"><span class="kbtg-bench-val">16.23</span></td>
+              </tr>
+              <tr>
+                <td>4. Data Analysis Techniques and Statistical Methods</td>
+                <td style="text-align: right;"><span class="kbtg-score-val">16.00 / 30</span></td>
+                <td style="text-align: right;"><span class="kbtg-bench-val">17.83</span></td>
+              </tr>
+              <tr>
+                <td>5. Machine Learning for Data Analysts</td>
+                <td style="text-align: right;"><span class="kbtg-score-val">18.00 / 30</span></td>
+                <td style="text-align: right;"><span class="kbtg-bench-val">15.28</span></td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>รวมคะแนน (Total Score)</strong></td>
+                <td style="text-align: right;"><span class="kbtg-score-val-green">97 / 150</span></td>
+                <td style="text-align: right;"><span class="kbtg-bench-val" style="color: #F8FAFC; font-weight: 700;">90</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="font-family: var(--font-mono); font-size: 0.725rem; color: #94A3B8; margin-top: 14px;">
+            <strong>เกณฑ์ระดับทักษะ (Skill Level Evaluation Scheme):</strong>
+          </div>
+          <table class="kbtg-scale-table">
+            <thead>
+              <tr>
+                <th>ระดับทักษะ (Level)</th>
+                <th>ช่วงคะแนน</th>
+                <th>คำอธิบาย (Proficiency Standard)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Beginner (ระดับเริ่มต้น)</td>
+                <td>0&ndash;60</td>
+                <td>ควรปรับปรุง มีความเข้าใจแนวคิดพื้นฐาน แต่ยังขาดทักษะการประยุกต์ใช้</td>
+              </tr>
+              <tr class="active-level">
+                <td><strong>Intermediate (ระดับกลาง) &bull; [Current Level: 97]</strong></td>
+                <td>61&ndash;105</td>
+                <td>มีความเข้าใจพื้นฐานอย่างเพียงพอ และมีความสามารถประยุกต์ใช้ในระดับกลางบางส่วน</td>
+              </tr>
+              <tr>
+                <td>Proficient (เชี่ยวชาญระดับกลาง)</td>
+                <td>106&ndash;135</td>
+                <td>มีความเข้าใจในทักษะระดับกลาง สามารถประยุกต์ใช้ความรู้ได้อย่างมีประสิทธิภาพ</td>
+              </tr>
+              <tr>
+                <td>Expert (เชี่ยวชาญระดับสูง)</td>
+                <td>136&ndash;150</td>
+                <td>มีความเชี่ยวชาญระดับสูงในทุกทักษะ สามารถแก้ปัญหาที่ซับซ้อนและวิเคราะห์สถานการณ์ได้</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="cert-modal-footer">
+        <a href="assets/kbtg_stamp_data_analyst.png" target="_blank" class="btn-primary-pill" style="font-size: 0.8rem; padding: 7px 16px; background: #10B981; color: #0B0F17;">
+          <i class="fas fa-external-link-alt"></i>
+          <span>View Original Certificate Image ↗</span>
+        </a>
+        <button class="btn-secondary-pill" data-close-modal style="font-size: 0.8rem; padding: 7px 14px;">
+          <i class="fas fa-times"></i>
+          <span>Close Report</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 4: SKILLKAMP by KBTG - Digital & Performance Marketer Score Sheet Viewer
+       ======================================================================== -->
+  <div class="cert-modal-backdrop" id="modal-kbtg-marketer" role="dialog" aria-modal="true" aria-labelledby="modal-kbtg-marketer-title">
+    <div class="cert-modal-window">
+      <div class="cert-modal-header">
+        <div class="cert-modal-title-group">
+          <span class="cert-modal-badge" style="color: #10B981; border-color: rgba(16, 185, 129, 0.35); background: rgba(16, 185, 129, 0.1);"><i class="fas fa-bullseye"></i> KBTG Assessment</span>
+          <h3 class="cert-modal-title" id="modal-kbtg-marketer-title">STAMP Score Report &bull; Digital &amp; Performance Marketer</h3>
+        </div>
+        <button class="terminal-close-btn" data-close-modal aria-label="Close Modal"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="cert-modal-body">
+        <div class="cert-paper-canvas kbtg-theme" id="kbtg-marketer-printable">
+          <div class="kbtg-modal-top-bar">
+            <div class="kbtg-brand-logo">
+              <i class="fas fa-cube" style="color: #10B981; font-size: 1.8rem;"></i>
+              <div>
+                <div class="kbtg-logo-text">SKILLKAMP</div>
+                <div class="kbtg-logo-sub">BY KBTG (KASIKORN BUSINESS-TECHNOLOGY GROUP)</div>
+              </div>
+            </div>
+            <div class="kbtg-stamp-badge">
+              STAMP CERTIFIED
+            </div>
+          </div>
+
+          <div class="kbtg-candidate-banner">
+            <div class="kbtg-candidate-notice">รายงานผลคะแนนสอบฉบับนี้ให้ไว้เพื่อแสดงว่า</div>
+            <div class="kbtg-candidate-name">ศิวกร คุณดิลกรัตยา (Sivakorn Khundilokrattaya)</div>
+            <div class="kbtg-candidate-track">ได้เข้าร่วมวัดระดับทักษะด้าน: Digital and Performance Marketer</div>
+            <div class="kbtg-candidate-subtext">ผ่านการสอบ STAMP (SKILLKAMP TALENT ASSESSMENT FOR MASTERY AND PROFICIENCY) &bull; สอบออนไลน์วันที่ 21 มีนาคม 2569</div>
+          </div>
+
+          <table class="kbtg-score-table">
+            <thead>
+              <tr>
+                <th>หมวดวิชา (Subject Domain)</th>
+                <th style="width: 130px; text-align: right;">คะแนน (Score)</th>
+                <th style="width: 140px; text-align: right;">คะแนนเฉลี่ย (Benchmark)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1. Data-Driven Marketing</td>
+                <td style="text-align: right;"><span class="kbtg-score-val">21.00 / 30</span></td>
+                <td style="text-align: right;"><span class="kbtg-bench-val">20.93</span></td>
+              </tr>
+              <tr>
+                <td>2. Customer Segmentation and Targeting</td>
+                <td style="text-align: right;"><span class="kbtg-score-val">16.00 / 30</span></td>
+                <td style="text-align: right;"><span class="kbtg-bench-val">17.30</span></td>
+              </tr>
+              <tr style="background: rgba(16, 185, 129, 0.05);">
+                <td><strong>3. Digital Marketing Analytics</strong> <span style="font-size: 0.7rem; color: #10B981; margin-left: 6px;">[Top Performer]</span></td>
+                <td style="text-align: right;"><span class="kbtg-score-val-green">26.00 / 30</span></td>
+                <td style="text-align: right;"><span class="kbtg-bench-val">17.94</span></td>
+              </tr>
+              <tr>
+                <td>4. Data-Driven Content Marketing</td>
+                <td style="text-align: right;"><span class="kbtg-score-val">19.00 / 30</span></td>
+                <td style="text-align: right;"><span class="kbtg-bench-val">21.63</span></td>
+              </tr>
+              <tr>
+                <td>5. Marketing Strategy and Optimization</td>
+                <td style="text-align: right;"><span class="kbtg-score-val">16.00 / 30</span></td>
+                <td style="text-align: right;"><span class="kbtg-bench-val">16.82</span></td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>รวมคะแนน (Total Score)</strong></td>
+                <td style="text-align: right;"><span class="kbtg-score-val-green">98 / 150</span></td>
+                <td style="text-align: right;"><span class="kbtg-bench-val" style="color: #F8FAFC; font-weight: 700;">94</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="font-family: var(--font-mono); font-size: 0.725rem; color: #94A3B8; margin-top: 14px;">
+            <strong>เกณฑ์ระดับทักษะ (Skill Level Evaluation Scheme):</strong>
+          </div>
+          <table class="kbtg-scale-table">
+            <thead>
+              <tr>
+                <th>ระดับทักษะ (Level)</th>
+                <th>ช่วงคะแนน</th>
+                <th>คำอธิบาย (Proficiency Standard)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Beginner (ระดับเริ่มต้น)</td>
+                <td>0&ndash;60</td>
+                <td>ควรปรับปรุง มีความเข้าใจแนวคิดพื้นฐาน แต่ยังขาดทักษะการประยุกต์ใช้</td>
+              </tr>
+              <tr class="active-level">
+                <td><strong>Intermediate (ระดับกลาง) &bull; [Current Level: 98]</strong></td>
+                <td>61&ndash;105</td>
+                <td>มีความเข้าใจพื้นฐานอย่างเพียงพอ และมีความสามารถประยุกต์ใช้ในระดับกลางบางส่วน</td>
+              </tr>
+              <tr>
+                <td>Proficient (เชี่ยวชาญระดับกลาง)</td>
+                <td>106&ndash;135</td>
+                <td>มีความเข้าใจในทักษะระดับกลาง สามารถประยุกต์ใช้ความรู้ได้อย่างมีประสิทธิภาพ</td>
+              </tr>
+              <tr>
+                <td>Expert (เชี่ยวชาญระดับสูง)</td>
+                <td>136&ndash;150</td>
+                <td>มีความเชี่ยวชาญระดับสูงในทุกทักษะ สามารถแก้ปัญหาที่ซับซ้อนและวิเคราะห์สถานการณ์ได้</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="cert-modal-footer">
+        <a href="assets/kbtg_stamp_digital_marketer.png" target="_blank" class="btn-primary-pill" style="font-size: 0.8rem; padding: 7px 16px; background: #10B981; color: #0B0F17;">
+          <i class="fas fa-external-link-alt"></i>
+          <span>View Original Certificate Image ↗</span>
+        </a>
+        <button class="btn-secondary-pill" data-close-modal style="font-size: 0.8rem; padding: 7px 14px;">
+          <i class="fas fa-times"></i>
+          <span>Close Report</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: Quick Terminal & Interactive Recruiter CLI
+       ======================================================================== -->
+  <div class="terminal-modal-backdrop" id="modal-quick-terminal" role="dialog" aria-modal="true" aria-labelledby="terminal-title">
+    <div class="terminal-window">
+      <div class="terminal-title-bar">
+        <div class="traffic-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <span class="terminal-title" id="terminal-title">svkhun@swu-workstation: ~ (zsh)</span>
+        <button class="terminal-close-btn" id="btn-close-terminal" aria-label="Close Terminal"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="terminal-body">
+        <div class="terminal-log-row">
+          <span class="t-prompt">svkhun:~$</span> <span class="t-cmd">svkhun --profile</span>
+        </div>
+
+        <div class="terminal-output-block">
+          <div class="t-line"><span class="t-key">&gt; Name:</span> <span class="t-val-highlight">Sivakorn Khundilokrattaya</span></div>
+          <div class="t-line"><span class="t-key">&gt; Focus:</span> <span class="t-val">Credit Risk (PD) | Explainable AI (SHAP) | Industrial Data Pipelines</span></div>
+          <div class="t-line"><span class="t-key">&gt; Top Hackathon:</span> <span class="t-val-sage">Aihack Thailand 2025 Finalist (Top 8 / ~40k Samples)</span></div>
+          <div class="t-line"><span class="t-key">&gt; Education:</span> <span class="t-val">B.Eng. in Computer Engineering @ Srinakharinwirot University</span></div>
+          <div class="t-line"><span class="t-key">&gt; Status:</span> <span class="t-val-badge">🟢 Open for DS / MLE Roles &amp; Internships</span></div>
+        </div>
+
+        <div class="terminal-chips-row">
+          <span class="t-chip-label">Quick Commands:</span>
+          <button class="t-chip-btn" data-t-cmd="projects"><i class="fas fa-folder-open"></i> projects</button>
+          <button class="t-chip-btn" data-t-cmd="hackathons"><i class="fas fa-trophy"></i> hackathons</button>
+          <button class="t-chip-btn" data-t-cmd="stack"><i class="fas fa-layer-group"></i> stack</button>
+          <button class="t-chip-btn" data-t-cmd="contact"><i class="fas fa-envelope"></i> contact</button>
+          <button class="t-chip-btn" data-t-cmd="cv"><i class="fas fa-file-pdf"></i> cv</button>
+          <button class="t-chip-btn" data-t-cmd="clear"><i class="fas fa-eraser"></i> clear</button>
+        </div>
+
+        <div class="terminal-history" id="terminal-history"></div>
+
+        <div class="terminal-input-container">
+          <!-- Floating Autocomplete Recommendation Dropdown -->
+          <div class="terminal-autocomplete-dropdown" id="terminal-autocomplete-dropdown" role="listbox" aria-label="Command Suggestions"></div>
+
+          <div class="terminal-input-row">
+            <span class="t-prompt">svkhun:~$</span>
+            <div class="terminal-input-wrapper">
+              <div class="terminal-ghost-text" id="terminal-ghost-text" aria-hidden="true"></div>
+              <input type="text" id="terminal-cli-input" class="terminal-cli-input" placeholder="Type 'help', 'projects', 'stack'..." autocomplete="off" spellcheck="false" autocapitalize="off">
+            </div>
+            <span class="terminal-tab-hint" id="terminal-tab-hint" title="Press Tab to autocomplete">Tab ⇥</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Toast Notification
+       ======================================================================== -->
+  <div class="toast-notice" id="toast-notice">
+    <i class="fas fa-check-circle toast-icon"></i>
+    <span id="toast-text">Email copied to clipboard!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data-stream-canvas.js"></script>
+  <script src="js/focal-deck.js"></script>
+  <script src="js/tech-marquee.js"></script>
+  <script src="js/shap-simulator.js"></script>
+  <script src="js/roc-simulator.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
