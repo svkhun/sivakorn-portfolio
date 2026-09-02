@@ -1169,127 +1169,48 @@ code, pre, .font-mono {
   background: radial-gradient(circle 450px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(56, 189, 248, 0.08) 0%, transparent 70%), #0F172A;
   border: 1px solid #1E293B;
   border-radius: var(--radius-xl);
-  padding: 28px;
+  padding: 28px 30px;
   transition: border-color var(--transition-fast);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 20px;
+  height: 100%;
 }
 
 .about-card:hover {
   border-color: rgba(56, 189, 248, 0.35);
 }
 
+.about-intro-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .about-lead {
-  font-size: 1.05rem;
+  font-size: 1.025rem;
   color: #F8FAFC;
   font-weight: 500;
-  margin-bottom: 12px;
+  margin: 0;
   line-height: 1.6;
 }
 
 .about-paragraph {
   color: #94A3B8;
-  margin-bottom: 18px;
-  font-size: 0.9rem;
-  line-height: 1.65;
-}
-
-.pillar-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-
-.pillar-item {
-  display: flex;
-  flex-direction: column;
-  background: #131B2A;
-  border: 1px solid #1E293B;
-  border-radius: var(--radius-md);
-  padding: 14px;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: default;
-}
-
-.pillar-item:hover {
-  border-color: rgba(56, 189, 248, 0.45);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(56, 189, 248, 0.1);
-}
-
-.pillar-header-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.pillar-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-md);
-  background: rgba(56, 189, 248, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  color: var(--accent-sky);
-  font-size: 0.95rem;
-  flex-shrink: 0;
-}
-
-.pillar-content h4 {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 3px;
-  color: #F8FAFC;
-}
-
-.pillar-content p {
-  font-size: 0.8rem;
-  color: #94A3B8;
   margin: 0;
-  line-height: 1.45;
+  font-size: 0.875rem;
+  line-height: 1.62;
 }
 
-/* Pillar Mini-Tags Preview on Hover */
-.pillar-quick-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-top: 0;
-  padding-left: 44px;
-}
-
-.pillar-item:hover .pillar-quick-tags {
-  max-height: 60px;
-  opacity: 1;
-  margin-top: 8px;
-}
-
-.quick-chip {
-  font-family: var(--font-mono);
-  font-size: 0.675rem;
-  color: var(--accent-sky);
-  background: rgba(56, 189, 248, 0.08);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
-  white-space: nowrap;
-}
-
-/* Engineering Workflow & Pipeline Discipline Micro-Card */
+/* Unified End-to-End ML Pipeline & Disciplines Bento Container */
 .methodology-bento-card {
-  background: rgba(19, 27, 42, 0.75);
+  background: rgba(19, 27, 42, 0.65);
   border: 1px solid #1E293B;
   border-radius: var(--radius-lg);
-  padding: 18px;
-  margin-bottom: 16px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -1313,7 +1234,8 @@ code, pre, .font-mono {
 .pipeline-flow-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 12px;
+  flex: 1;
 }
 
 @media (max-width: 580px) {
@@ -1326,24 +1248,33 @@ code, pre, .font-mono {
   background: #0B0F17;
   border: 1px solid #1E293B;
   border-radius: var(--radius-md);
-  padding: 12px 14px;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  transition: all 0.2s ease;
+  justify-content: space-between;
+  min-height: 145px;
+  transition: all 0.22s ease;
   cursor: default;
 }
 
 .pipeline-flow-node:hover {
-  border-color: var(--accent-sky);
-  background: rgba(19, 27, 42, 0.9);
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(19, 27, 42, 0.95);
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 0 12px rgba(56, 189, 248, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45), 0 0 14px rgba(56, 189, 248, 0.1);
+}
+
+.node-step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
 }
 
 .node-step-label {
   font-family: var(--font-mono);
-  font-size: 0.725rem;
+  font-size: 0.775rem;
   font-weight: 700;
   color: #F8FAFC;
   display: flex;
@@ -1353,25 +1284,47 @@ code, pre, .font-mono {
 
 .node-step-label span.num {
   color: var(--accent-sky);
+  font-weight: 800;
+}
+
+.node-tech-indicator {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .node-step-desc {
-  font-size: 0.75rem;
+  font-size: 0.775rem;
   color: #94A3B8;
-  line-height: 1.45;
-  margin: 0;
+  line-height: 1.55;
+  margin: 0 0 8px;
+  flex: 1;
+}
+
+.node-chip-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: auto;
 }
 
 .node-tech-badge {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.675rem;
   color: var(--accent-sage);
   background: rgba(52, 211, 153, 0.08);
   border: 1px solid rgba(52, 211, 153, 0.25);
-  padding: 2px 7px;
+  padding: 2.5px 8px;
   border-radius: 3px;
-  align-self: flex-start;
-  margin-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 /* Quick Stats & Repo Highlight Strip */
@@ -1379,8 +1332,9 @@ code, pre, .font-mono {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border-muted);
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #1E293B;
 }
 
 @media (max-width: 680px) {
@@ -2828,13 +2782,13 @@ code, pre, .font-mono {
 }
 
 /* ==========================================================================
-   SKILLKAMP by KBTG Industry Certification Badges & Cards
+   SKILLKAMP by KBTG Industry Certification Badges & Cards (Segmented)
    ========================================================================== */
 .kbtg-cert-card {
   background: #0F172A;
   border: 1px solid #1E293B;
   border-radius: var(--radius-xl);
-  padding: 24px;
+  padding: 22px 24px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -2842,28 +2796,73 @@ code, pre, .font-mono {
   border-color: rgba(16, 185, 129, 0.45);
 }
 
-.kbtg-badges-container {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 12px;
+.kbtg-issuer-pill {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
-.kbtg-badge-item {
-  background: #131B2A;
+.kbtg-tab-switcher {
+  display: flex;
+  background: #0B0F17;
   border: 1px solid #1E293B;
   border-radius: var(--radius-md);
-  padding: 14px 16px;
-  transition: all 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  padding: 3px;
+  gap: 4px;
+  margin-top: 14px;
+  margin-bottom: 14px;
 }
 
-.kbtg-badge-item:hover {
+.kbtg-tab-btn {
+  flex: 1;
+  background: transparent;
+  border: 1px solid transparent;
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  font-weight: 600;
+  color: #94A3B8;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.kbtg-tab-btn:hover:not(.active) {
+  color: #F8FAFC;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.kbtg-tab-btn.active {
+  background: #1E293B;
+  color: #10B981;
   border-color: rgba(16, 185, 129, 0.35);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 16px rgba(16, 185, 129, 0.08);
-  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.kbtg-tab-pane {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeInPane 0.2s ease;
+}
+
+.kbtg-tab-pane.active {
+  display: flex;
+}
+
+@keyframes fadeInPane {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .kbtg-badge-top {
@@ -2874,23 +2873,11 @@ code, pre, .font-mono {
   flex-wrap: wrap;
 }
 
-.kbtg-badge-issuer {
-  font-family: var(--font-mono);
-  font-size: 0.675rem;
-  color: #10B981;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
 .kbtg-badge-title {
-  font-size: 0.925rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: #F8FAFC;
-  margin: 3px 0 0;
+  margin: 0 0 3px;
 }
 
 .kbtg-score-pill {
@@ -3666,89 +3653,459 @@ code, pre, .font-mono {
 }
 
 /* ==========================================================================
-   Resume Modal Paper
+   Discreet Visitor Counter Badge (Footer / Bottom Bar)
    ========================================================================== */
-.resume-paper {
-  background: #ffffff;
-  color: #1a1a1a;
-  padding: 36px;
-  border-radius: var(--radius-md);
-  font-family: var(--font-sans);
-  line-height: 1.5;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
-  max-width: 760px;
-  margin: 0 auto;
+.visitor-counter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  color: #94A3B8;
+  background: #131B2A;
+  border: 1px solid #1E293B;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  transition: all 0.2s ease;
+  user-select: none;
 }
 
-.resume-paper h1, .resume-paper h2, .resume-paper h3 {
-  color: #0b0f17;
+.visitor-counter-badge:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #CBD5E1;
+}
+
+.visitor-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-sage);
+  box-shadow: 0 0 6px var(--accent-sage);
+  animation: pulseGreenDot 2s infinite;
+}
+
+/* ==========================================================================
+   Authentic Two-Page A4 Curriculum Vitae / Resume Layout
+   ========================================================================== */
+.drawer-backdrop.resume-modal-active .slide-drawer {
+  max-width: 860px;
+}
+
+.resume-container-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.resume-sticky-toolbar {
+  padding: 12px 20px;
+  background: #0F172A;
+  border-bottom: 1px solid #1E293B;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  gap: 12px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.resume-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.resume-toolbar-badge {
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--accent-sky);
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.resume-nav-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.resume-page-pill {
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  font-weight: 600;
+  color: #94A3B8;
+  background: #131B2A;
+  border: 1px solid #1E293B;
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+}
+
+.btn-resume-jump {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #CBD5E1;
+  background: #131B2A;
+  border: 1px solid #1E293B;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-resume-jump:hover {
+  border-color: var(--accent-sky);
+  color: #F8FAFC;
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.resume-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resume-version-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #94A3B8;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+  padding: 4px 9px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.resume-version-badge i {
+  color: #64748B;
+  font-size: 0.65rem;
+}
+
+.resume-status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 4px 9px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.resume-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34D399;
+  box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  animation: pulseGreenDot 2s infinite;
+  flex-shrink: 0;
+}
+
+.btn-download-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  font-weight: 600;
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-download-resume:hover {
+  background: rgba(56, 189, 248, 0.25);
+  border-color: #38BDF8;
+  color: #F8FAFC;
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+}
+
+@media (max-width: 820px) {
+  .resume-version-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .resume-toolbar-name {
+    display: none;
+  }
+  .resume-status-text {
+    display: none;
+  }
+  .resume-status-chip {
+    padding: 6px;
+  }
+}
+
+.resume-scroll-container {
+  padding: 28px 20px 40px;
+  overflow-y: auto;
+  flex: 1;
+  background: #080C14;
+}
+
+.resume-a4-page {
+  background: #FFFFFF;
+  color: #0F172A;
+  max-width: 780px;
+  min-height: 1100px;
+  margin: 0 auto 28px;
+  padding: 38px 44px 28px;
+  border-radius: 4px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 1px rgba(0, 0, 0, 0.3);
+  font-family: var(--font-sans);
+  line-height: 1.48;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.resume-a4-page:last-child {
+  margin-bottom: 0;
 }
 
 .resume-header-row {
-  border-bottom: 2px solid #38bdf8;
+  border-bottom: 2px solid #0284C7;
   padding-bottom: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .resume-name {
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #0F172A;
   margin-bottom: 2px;
 }
 
 .resume-title-sub {
-  font-size: 0.95rem;
-  color: #475569;
+  font-size: 0.875rem;
+  color: #0369A1;
   font-weight: 600;
 }
 
 .resume-contacts {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   font-family: var(--font-mono);
-  font-size: 0.775rem;
+  font-size: 0.725rem;
   color: #475569;
   margin-top: 6px;
   flex-wrap: wrap;
 }
 
+.resume-contacts a {
+  color: #475569;
+  text-decoration: none;
+}
+
+.resume-contacts a:hover {
+  color: #0284C7;
+}
+
 .resume-section {
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .resume-section-title {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #0f172a;
-  border-bottom: 1px solid #e2e8f0;
+  color: #0F172A;
+  border-bottom: 1.5px solid #E2E8F0;
   padding-bottom: 3px;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.resume-section-title i {
+  color: #0284C7;
+  font-size: 0.8rem;
 }
 
 .resume-item {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+}
+
+.resume-item:last-child {
+  margin-bottom: 0;
 }
 
 .resume-item-header {
   display: flex;
   justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.825rem;
+  color: #0F172A;
+}
+
+.resume-item-header .inst {
   font-weight: 600;
-  font-size: 0.85rem;
-  color: #1e293b;
+  color: #0284C7;
 }
 
 .resume-item-sub {
-  font-size: 0.8rem;
-  color: #64748b;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.775rem;
+  color: #64748B;
   margin-bottom: 3px;
+  font-weight: 500;
 }
 
 .resume-item ul {
   padding-left: 16px;
-  font-size: 0.8rem;
+  margin: 0;
+  font-size: 0.775rem;
   color: #334155;
+  line-height: 1.45;
+}
+
+.resume-item ul li {
+  margin-bottom: 2px;
+}
+
+.resume-skills-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.775rem;
+}
+
+.resume-skills-table td {
+  padding: 2.5px 0;
+  vertical-align: top;
+}
+
+.resume-skills-table td.skill-cat {
+  width: 150px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.resume-skills-table td.skill-list {
+  color: #334155;
+}
+
+.resume-sheet-footer {
+  border-top: 1px solid #E2E8F0;
+  padding-top: 8px;
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.675rem;
+  color: #64748B;
+}
+
+/* ==========================================================================
+   Print Stylesheet for 2-Page A4 Precision Output
+   ========================================================================== */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #drawer-resume,
+  #drawer-resume * {
+    visibility: visible;
+  }
+
+  #drawer-resume {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF !important;
+    display: block !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .slide-drawer {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    background: #FFFFFF !important;
+    transform: none !important;
+    display: block !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .drawer-header,
+  .resume-sticky-toolbar,
+  .drawer-close-btn,
+  #btn-print-resume,
+  .terminal-modal-backdrop,
+  .cert-modal-backdrop,
+  .header,
+  .footer,
+  .toast-notice {
+    display: none !important;
+  }
+
+  .drawer-body,
+  .resume-scroll-container {
+    padding: 0 !important;
+    background: #FFFFFF !important;
+    overflow: visible !important;
+  }
+
+  .resume-a4-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    padding: 16mm 18mm !important;
+    box-shadow: none !important;
+    border: none !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    box-sizing: border-box !important;
+  }
+
+  .resume-a4-page:last-child {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
 }
 
 /* ==========================================================================
@@ -3810,8 +4167,8 @@ code, pre, .font-mono {
   .drawer-header, .drawer-body {
     padding: 20px;
   }
-  .resume-paper {
-    padding: 20px;
+  .resume-a4-page {
+    padding: 24px 20px;
   }
   .footer-button-row {
     flex-direction: column;

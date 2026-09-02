@@ -295,12 +295,43 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     7. Resume Print Action
+     7. Resume Print & Two-Page A4 Navigation
      ========================================================================== */
   const printResumeBtn = document.getElementById('btn-print-resume');
   if (printResumeBtn) {
     printResumeBtn.addEventListener('click', () => {
       window.print();
+    });
+  }
+
+  const btnJumpP1 = document.getElementById('btn-jump-p1');
+  const btnJumpP2 = document.getElementById('btn-jump-p2');
+  const resumeScrollViewport = document.getElementById('resume-scroll-viewport');
+  const resumePageIndicator = document.getElementById('resume-page-indicator');
+  const resumePage1 = document.getElementById('resume-page-1');
+  const resumePage2 = document.getElementById('resume-page-2');
+
+  if (btnJumpP1 && resumePage1) {
+    btnJumpP1.addEventListener('click', () => {
+      resumePage1.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  if (btnJumpP2 && resumePage2) {
+    btnJumpP2.addEventListener('click', () => {
+      resumePage2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  if (resumeScrollViewport && resumePageIndicator && resumePage2) {
+    resumeScrollViewport.addEventListener('scroll', () => {
+      const p2Top = resumePage2.offsetTop - resumeScrollViewport.offsetTop;
+      const currentScroll = resumeScrollViewport.scrollTop;
+      if (currentScroll >= p2Top - 150) {
+        resumePageIndicator.textContent = 'Page 2 / 2';
+      } else {
+        resumePageIndicator.textContent = 'Page 1 / 2';
+      }
     });
   }
 
@@ -718,4 +749,95 @@ document.addEventListener('DOMContentLoaded', () => {
       window.print();
     });
   }
+
+  /* ==========================================================================
+     11. Discreet Self-Excluding Visitor Counter
+     ========================================================================== */
+  function initVisitorCounter() {
+    const counterTextEl = document.getElementById('visitor-count-text');
+    const counterBadgeEl = document.getElementById('visitor-counter');
+    if (!counterTextEl) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const isAdminUrl = urlParams.get('admin') === 'true';
+    const isLocalhost = ['localhost', '127.0.0.1', '::1', ''].includes(window.location.hostname) || window.location.protocol === 'file:';
+
+    let isAdmin = localStorage.getItem('svkhun_admin') === 'true';
+
+    if (isAdminUrl || isLocalhost) {
+      isAdmin = true;
+      localStorage.setItem('svkhun_admin', 'true');
+    }
+
+    const BASELINE_COUNT = 1420;
+    const storageKey = 'svkhun_cached_views';
+    const lastVisitedKey = 'svkhun_last_visited_ts';
+
+    let cachedCount = parseInt(localStorage.getItem(storageKey), 10);
+    if (isNaN(cachedCount) || cachedCount < BASELINE_COUNT) {
+      cachedCount = BASELINE_COUNT;
+    }
+
+    function renderCount(count, adminSession) {
+      const formatted = count.toLocaleString('en-US');
+      if (adminSession) {
+        counterTextEl.innerHTML = `${formatted} Unique Views <span style="color: var(--accent-sky); font-size: 0.65rem; margin-left: 4px;">[Admin]</span>`;
+        if (counterBadgeEl) counterBadgeEl.title = "Admin Session: Traffic is self-excluded from incrementing.";
+      } else {
+        counterTextEl.textContent = `${formatted} Unique Views`;
+      }
+    }
+
+    renderCount(cachedCount, isAdmin);
+
+    const now = Date.now();
+    const lastVisit = parseInt(localStorage.getItem(lastVisitedKey) || '0', 10);
+    const ONE_HOUR = 60 * 60 * 1000;
+
+    const NAMESPACE = 'svkhun-portfolio-prod';
+    const KEY = 'visits';
+    const apiEndpoint = isAdmin 
+      ? `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}`
+      : `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`;
+
+    const shouldFetch = isAdmin || (now - lastVisit > ONE_HOUR);
+
+    if (shouldFetch) {
+      fetch(apiEndpoint)
+        .then(res => res.json())
+        .then(data => {
+          if (data && typeof data.count === 'number') {
+            const finalCount = BASELINE_COUNT + data.count;
+            localStorage.setItem(storageKey, finalCount.toString());
+            localStorage.setItem(lastVisitedKey, now.toString());
+            renderCount(finalCount, isAdmin);
+          }
+        })
+        .catch(() => {
+          renderCount(cachedCount, isAdmin);
+        });
+    }
+  }
+
+  initVisitorCounter();
+
+  /* ==========================================================================
+     12. KBTG Industry Certifications Segmented Tab Switcher
+     ========================================================================== */
+  const kbtgTabBtns = document.querySelectorAll('.kbtg-tab-btn');
+  kbtgTabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetTabId = btn.getAttribute('data-kbtg-tab');
+      kbtgTabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const allPanes = document.querySelectorAll('.kbtg-tab-pane');
+      allPanes.forEach(pane => pane.classList.remove('active'));
+
+      const targetPane = document.getElementById(targetTabId);
+      if (targetPane) {
+        targetPane.classList.add('active');
+      }
+    });
+  });
 });

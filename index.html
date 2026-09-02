@@ -230,110 +230,80 @@
       </p>
 
       <div class="about-grid">
-        <!-- Left Main Bento Card -->
+        <!-- Left Main Bento Card (Unified Pipeline & Principles) -->
         <div class="about-card" id="about-spotlight-card">
-          <p class="about-lead" data-i18n="about_lead">
-            I am a Computer Engineering student at Srinakharinwirot University (SWU) passionate about transforming transactional credit records into transparent predictive intelligence.
-          </p>
-          <p class="about-paragraph" data-i18n-html="about_p">
-            In credit risk underwriting, black-box models present severe regulatory hurdles. My work focuses on <strong>Probability of Default (PD) estimation, Weight of Evidence (WoE) binning, and Explainable AI (XAI)</strong> that delivers legally defensible adverse action notices alongside high ROC-AUC scores.
-          </p>
-
-          <div class="pillar-grid">
-            <!-- Pillar 1 -->
-            <div class="pillar-item">
-              <div class="pillar-header-row">
-                <div class="pillar-icon"><i class="fas fa-chart-line"></i></div>
-                <div class="pillar-content">
-                  <h4 data-i18n="about_pillar1_title">Credit Risk &amp; Basel Alignment</h4>
-                  <p data-i18n="about_pillar1_desc">WoE/IV feature binning, probability of default (PD) estimation, and scorecard scaling.</p>
-                </div>
-              </div>
-              <div class="pillar-quick-tags">
-                <span class="quick-chip">WoE / IV</span>
-                <span class="quick-chip">PD Calibration</span>
-                <span class="quick-chip">Scorecards</span>
-                <span class="quick-chip">Basel II/III</span>
-              </div>
-            </div>
-
-            <!-- Pillar 2 -->
-            <div class="pillar-item">
-              <div class="pillar-header-row">
-                <div class="pillar-icon"><i class="fas fa-brain"></i></div>
-                <div class="pillar-content">
-                  <h4 data-i18n="about_pillar2_title">Explainable AI (XAI) &amp; Compliance</h4>
-                  <p data-i18n="about_pillar2_desc">SHAP TreeExplainer waterfall plots and automated adverse action rejection reasons.</p>
-                </div>
-              </div>
-              <div class="pillar-quick-tags">
-                <span class="quick-chip">SHAP Waterfall</span>
-                <span class="quick-chip">TreeExplainer</span>
-                <span class="quick-chip">LIME</span>
-                <span class="quick-chip">Adverse Action</span>
-              </div>
-            </div>
-
-            <!-- Pillar 3 -->
-            <div class="pillar-item">
-              <div class="pillar-header-row">
-                <div class="pillar-icon"><i class="fas fa-network-wired"></i></div>
-                <div class="pillar-content">
-                  <h4 data-i18n="about_pillar3_title">Scalable Data Pipelines &amp; Ops</h4>
-                  <p data-i18n="about_pillar3_desc">PostgreSQL, MySQL, Apache Spark, Airflow orchestration, and Dockerized microservices.</p>
-                </div>
-              </div>
-              <div class="pillar-quick-tags">
-                <span class="quick-chip">PostgreSQL</span>
-                <span class="quick-chip">Apache Spark</span>
-                <span class="quick-chip">Airflow DAGs</span>
-                <span class="quick-chip">Docker</span>
-              </div>
-            </div>
+          <!-- Top Narrative Block -->
+          <div class="about-intro-group">
+            <p class="about-lead" data-i18n="about_lead">
+              I am a Computer Engineering student at Srinakharinwirot University (SWU) passionate about transforming transactional credit records into transparent predictive intelligence.
+            </p>
+            <p class="about-paragraph" data-i18n-html="about_p">
+              In credit risk underwriting, black-box models present severe regulatory hurdles. My work focuses on <strong>Probability of Default (PD) estimation, Weight of Evidence (WoE) binning, and Explainable AI (XAI)</strong> that delivers legally defensible adverse action notices alongside high ROC-AUC scores.
+            </p>
           </div>
 
-          <!-- Interactive Methodology & Pipeline Lifecycle Widget -->
+          <!-- Unified End-to-End ML Pipeline & Disciplines Interactive Track -->
           <div class="methodology-bento-card">
             <div class="methodology-title">
-              <i class="fas fa-project-diagram"></i>
-              <span data-i18n="about_methodology_hdr">// END-TO-END METHODOLOGY &amp; PIPELINE DISCIPLINE</span>
+              <i class="fas fa-network-wired"></i>
+              <span data-i18n="about_methodology_hdr">// END-TO-END ML PIPELINE &amp; DISCIPLINES</span>
             </div>
 
             <div class="pipeline-flow-grid">
               <!-- Step 1 -->
               <div class="pipeline-flow-node">
-                <div class="node-step-label">
-                  <span class="num">01.</span> Ingestion &amp; Audit
+                <div class="node-step-header">
+                  <div class="node-step-label">
+                    <span class="num">01.</span> Ingestion &amp; Audit
+                  </div>
+                  <span class="node-tech-indicator">Zero-Leakage</span>
                 </div>
-                <p class="node-step-desc">Raw data validation, schema enforcement, leak-free temporal splitting.</p>
-                <span class="node-tech-badge"><i class="fas fa-check-double"></i> Pandas &amp; Pydantic</span>
+                <p class="node-step-desc">Raw schema validation, missing data audit, leak-free temporal splitting.</p>
+                <div class="node-chip-row">
+                  <span class="node-tech-badge"><i class="fas fa-check-double"></i> Pandas &bull; Pydantic</span>
+                </div>
               </div>
 
               <!-- Step 2 -->
               <div class="pipeline-flow-node">
-                <div class="node-step-label">
-                  <span class="num">02.</span> Feature Calibration
+                <div class="node-step-header">
+                  <div class="node-step-label">
+                    <span class="num">02.</span> Feature Calibration
+                  </div>
+                  <span class="node-tech-indicator">Monotonic WoE</span>
                 </div>
-                <p class="node-step-desc">WoE/IV transformation, outlier imputation, domain signal engineering.</p>
-                <span class="node-tech-badge"><i class="fas fa-sliders-h"></i> Scikit-Learn &amp; OptBinning</span>
+                <p class="node-step-desc">WoE/IV transformation, monotonic risk binning, domain signal engineering.</p>
+                <div class="node-chip-row">
+                  <span class="node-tech-badge"><i class="fas fa-sliders-h"></i> Scikit-Learn &bull; OptBinning</span>
+                </div>
               </div>
 
               <!-- Step 3 -->
               <div class="pipeline-flow-node">
-                <div class="node-step-label">
-                  <span class="num">03.</span> Calibrated Modeling
+                <div class="node-step-header">
+                  <div class="node-step-label">
+                    <span class="num">03.</span> Calibrated Modeling
+                  </div>
+                  <span class="node-tech-indicator">Stratified 5-Fold</span>
                 </div>
-                <p class="node-step-desc">LightGBM/XGBoost classification, asymmetric cost matrices, CV splits.</p>
-                <span class="node-tech-badge"><i class="fas fa-brain"></i> LightGBM &amp; XGBoost</span>
+                <p class="node-step-desc">LightGBM/XGBoost classification, asymmetric loss matrices, 5-fold CV.</p>
+                <div class="node-chip-row">
+                  <span class="node-tech-badge"><i class="fas fa-brain"></i> LightGBM &bull; XGBoost</span>
+                </div>
               </div>
 
               <!-- Step 4 -->
               <div class="pipeline-flow-node">
-                <div class="node-step-label">
-                  <span class="num">04.</span> Transparent Delivery
+                <div class="node-step-header">
+                  <div class="node-step-label">
+                    <span class="num">04.</span> Regulated Delivery
+                  </div>
+                  <span class="node-tech-indicator">Sub-50ms Serving</span>
                 </div>
-                <p class="node-step-desc">SHAP tree-explainers, adverse action triggers, Dockerized FastAPI endpoints.</p>
-                <span class="node-tech-badge"><i class="fas fa-cube"></i> SHAP &amp; FastAPI</span>
+                <p class="node-step-desc">SHAP TreeExplainer waterfall attribution &amp; sub-50ms Dockerized FastAPI endpoints.</p>
+                <div class="node-chip-row">
+                  <span class="node-tech-badge"><i class="fas fa-cube"></i> SHAP &bull; FastAPI</span>
+                </div>
               </div>
             </div>
           </div>
@@ -385,29 +355,40 @@
             </div>
           </div>
 
-          <!-- Industry Assessments & Certifications Card (SKILLKAMP by KBTG) -->
+          <!-- Industry Assessments & Certifications Card (Segmented Switcher) -->
           <div class="info-card kbtg-cert-card">
-            <div class="info-header" style="color: #10B981;">
-              <i class="fas fa-award"></i>
-              <span data-i18n="about_kbtg_hdr">// INDUSTRY ASSESSMENTS &amp; CERTIFICATIONS</span>
+            <div class="info-header" style="color: #10B981; justify-content: space-between;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <i class="fas fa-award"></i>
+                <span data-i18n="about_kbtg_hdr">// INDUSTRY ASSESSMENTS</span>
+              </div>
+              <span class="kbtg-issuer-pill">SKILLKAMP by KBTG</span>
             </div>
 
-            <div class="kbtg-badges-container">
-              <!-- Badge 1: Data Analyst Assessment (STAMP) -->
-              <div class="kbtg-badge-item">
+            <!-- Segmented Tab Switcher -->
+            <div class="kbtg-tab-switcher">
+              <button class="kbtg-tab-btn active" data-kbtg-tab="kbtg-tab-da">
+                <i class="fas fa-chart-line"></i> Data Analyst (97)
+              </button>
+              <button class="kbtg-tab-btn" data-kbtg-tab="kbtg-tab-mkt">
+                <i class="fas fa-bullseye"></i> Marketer (98)
+              </button>
+            </div>
+
+            <div class="kbtg-tab-content-wrapper">
+              <!-- View A: Data Analyst -->
+              <div class="kbtg-tab-pane active" id="kbtg-tab-da">
                 <div class="kbtg-badge-top">
                   <div>
-                    <div class="kbtg-badge-issuer"><i class="fas fa-shield-alt"></i> SKILLKAMP by KBTG &bull; March 21, 2026</div>
                     <h4 class="kbtg-badge-title">Data Analyst Assessment (STAMP)</h4>
+                    <div class="kbtg-bench-note">
+                      <i class="fas fa-check-circle" style="color: #10B981;"></i> Above average benchmark of 90 &bull; 5-Domain Evaluation
+                    </div>
                   </div>
                   <span class="kbtg-score-pill">
                     <span class="kbtg-level">Intermediate</span>
                     <span class="kbtg-score">97 / 150</span>
                   </span>
-                </div>
-
-                <div class="kbtg-bench-note">
-                  <i class="fas fa-check-circle" style="color: #10B981;"></i> Above average benchmark of 90 &bull; 5-Domain Evaluation
                 </div>
 
                 <div class="kbtg-competency-chips">
@@ -424,21 +405,19 @@
                 </div>
               </div>
 
-              <!-- Badge 2: Digital & Performance Marketer Assessment (STAMP) -->
-              <div class="kbtg-badge-item">
+              <!-- View B: Digital & Performance Marketer -->
+              <div class="kbtg-tab-pane" id="kbtg-tab-mkt">
                 <div class="kbtg-badge-top">
                   <div>
-                    <div class="kbtg-badge-issuer"><i class="fas fa-shield-alt"></i> SKILLKAMP by KBTG &bull; March 21, 2026</div>
                     <h4 class="kbtg-badge-title">Digital &amp; Performance Marketer (STAMP)</h4>
+                    <div class="kbtg-bench-note">
+                      <i class="fas fa-check-circle" style="color: #10B981;"></i> Above average benchmark of 94 &bull; Top Tier Analytics
+                    </div>
                   </div>
                   <span class="kbtg-score-pill">
                     <span class="kbtg-level">Intermediate</span>
                     <span class="kbtg-score">98 / 150</span>
                   </span>
-                </div>
-
-                <div class="kbtg-bench-note">
-                  <i class="fas fa-check-circle" style="color: #10B981;"></i> Above average benchmark of 94 &bull; Top Tier Analytics
                 </div>
 
                 <div class="kbtg-competency-chips">
@@ -1215,6 +1194,13 @@
           <div>
             <span data-i18n="footer_copyright">&copy; 2026 Sivakorn Khundilokrattaya. Crafted with minimalist engineering standards.</span>
           </div>
+
+          <!-- Discreet Self-Excluding Visitor Counter -->
+          <div class="visitor-counter-badge" id="visitor-counter" title="Unique verified visitor hits (Self-excluding admin sessions)">
+            <span class="visitor-pulse-dot" id="visitor-status-dot"></span>
+            <span class="visitor-counter-text" id="visitor-count-text">1,420 Unique Views</span>
+          </div>
+
           <div class="footer-socials">
             <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" style="color: var(--text-dim); font-size: 0.9rem;" aria-label="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer" style="color: var(--text-dim); font-size: 0.9rem;" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -1873,147 +1859,317 @@
   </div>
 
   <!-- ========================================================================
-       SLIDE-OVER DRAWER 5: Printable Resume Drawer
+       SLIDE-OVER DRAWER 5: Two-Page A4 Curriculum Vitae / Resume Modal
        ======================================================================== -->
-  <div class="drawer-backdrop" id="drawer-resume" role="dialog" aria-modal="true" aria-labelledby="drawer-resume-title">
-    <div class="slide-drawer" style="max-width: 780px;">
-      <div class="drawer-header">
-        <div class="drawer-header-left">
-          <span class="drawer-badge">Curriculum Vitae</span>
-          <h2 class="drawer-title" id="drawer-resume-title">Sivakorn Khundilokrattaya</h2>
+  <div class="drawer-backdrop resume-modal-active" id="drawer-resume" role="dialog" aria-modal="true" aria-labelledby="drawer-resume-title">
+    <div class="slide-drawer" style="max-width: 860px;">
+      <div class="resume-sticky-toolbar">
+        <div class="resume-toolbar-left">
+          <span class="resume-toolbar-badge"><i class="fas fa-file-contract"></i> Curriculum Vitae</span>
+          <span class="resume-toolbar-name" style="font-size: 0.85rem; font-weight: 700; color: #F8FAFC;" id="drawer-resume-title">Sivakorn Khundilokrattaya</span>
         </div>
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <button class="btn-primary" id="btn-print-resume" style="padding: 5px 12px; font-size: 0.775rem;">
-            <i class="fas fa-print"></i>
-            <span>Print PDF</span>
-          </button>
+
+        <div class="resume-nav-group">
+          <span class="resume-page-pill" id="resume-page-indicator">Page 1 / 2</span>
+          <button class="btn-resume-jump" id="btn-jump-p1" title="Scroll to Page 1"><i class="fas fa-arrow-up"></i> Page 1</button>
+          <button class="btn-resume-jump" id="btn-jump-p2" title="Scroll to Page 2"><i class="fas fa-arrow-down"></i> Page 2</button>
+        </div>
+
+        <div class="resume-toolbar-actions">
+          <!-- Document Version & Verification Timestamp -->
+          <span class="resume-version-badge" title="Document Version & Verification Timestamp">
+            <i class="fas fa-code-commit"></i> v2.4 &bull; Sep 2026
+          </span>
+
+          <!-- Availability Status Indicator -->
+          <span class="resume-status-chip" title="Current Employment & Placement Status">
+            <span class="resume-status-dot"></span>
+            <span class="resume-status-text">Open for DS / ML Roles</span>
+          </span>
+
+          <!-- Direct Official PDF Download -->
+          <a href="assets/Sivakorn_Khundilokrattaya_Resume.pdf" download="Sivakorn_Khundilokrattaya_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-download-resume" title="Download Official High-Resolution PDF">
+            <i class="fas fa-download"></i>
+            <span>Download PDF</span>
+          </a>
+
+          <!-- Close Modal Button -->
           <button class="drawer-close-btn" aria-label="Close modal"><i class="fas fa-times"></i> <span>Esc</span></button>
         </div>
       </div>
 
-      <div class="drawer-body" style="background: #e2e8f0; padding: 24px;">
-        <div class="resume-paper">
-          <div class="resume-header-row">
-            <h1 class="resume-name">SIVAKORN KHUNDILOKRATTAYA</h1>
-            <div class="resume-title-sub">Computer Engineering Student &bull; Aspiring Data Scientist &amp; ML Practitioner</div>
-            <div class="resume-contacts">
-              <span><i class="fas fa-envelope"></i> sivakorn.khun@gmail.com</span>
-              <span><i class="fab fa-github"></i> github.com/svkhun</span>
-              <span><i class="fab fa-linkedin"></i> LinkedIn: sivakorn-khundilokrattaya-5870b8429</span>
+      <div class="resume-scroll-container" id="resume-scroll-viewport">
+        <!-- ==================== PAGE 1 ==================== -->
+        <div class="resume-a4-page" id="resume-page-1">
+          <div>
+            <!-- Header Row -->
+            <div class="resume-header-row">
+              <h1 class="resume-name">SIVAKORN KHUNDILOKRATTAYA</h1>
+              <div class="resume-title-sub">Computer Engineering Student &bull; Aspiring Data Scientist &amp; ML Engineer</div>
+              <div class="resume-contacts">
+                <span><i class="fas fa-envelope"></i> sivakorn.khun@gmail.com</span>
+                <span><i class="fab fa-github"></i> <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer">github.com/svkhun</a></span>
+                <span><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></span>
+                <span><i class="fas fa-globe"></i> <a href="https://svkhun.vercel.app" target="_blank" rel="noopener noreferrer">svkhun.vercel.app</a></span>
+              </div>
+            </div>
+
+            <!-- Section 1: Education -->
+            <div class="resume-section">
+              <h2 class="resume-section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+              <div class="resume-item">
+                <div class="resume-item-header">
+                  <span>Bachelor of Engineering in Computer Engineering</span>
+                  <span class="inst">Srinakharinwirot University (SWU)</span>
+                </div>
+                <div class="resume-item-sub">
+                  <span>Bangkok, Thailand</span>
+                  <span>2022 &ndash; Present (Currently Enrolled)</span>
+                </div>
+                <ul>
+                  <li>Specialization in Statistical Machine Learning, Financial Risk Modeling, and Distributed Data Engineering.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Section 2: Technical Skills -->
+            <div class="resume-section">
+              <h2 class="resume-section-title"><i class="fas fa-tools"></i> Technical Arsenal &amp; Core Competencies</h2>
+              <table class="resume-skills-table">
+                <tbody>
+                  <tr>
+                    <td class="skill-cat">Languages:</td>
+                    <td class="skill-list">Python (Expert), SQL (PostgreSQL, MySQL), C, C++, Java, R, Bash shell scripting.</td>
+                  </tr>
+                  <tr>
+                    <td class="skill-cat">ML &amp; Explainable AI:</td>
+                    <td class="skill-list">Scikit-Learn, LightGBM, XGBoost, SHAP (TreeExplainer), LIME, OptBinning, SMOTE-Tomek, Pandas, NumPy.</td>
+                  </tr>
+                  <tr>
+                    <td class="skill-cat">Data Engineering:</td>
+                    <td class="skill-list">PostgreSQL, MySQL, Apache Spark, Apache Airflow, Docker, Docker Compose, FastAPI, SQLAlchemy, Git.</td>
+                  </tr>
+                  <tr>
+                    <td class="skill-cat">Languages (Human):</td>
+                    <td class="skill-list">Thai (Native Speaker), English (B1+ Professional &bull; Score 51 AUA/Oxford), Japanese (Beginner).</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Section 3: Flagship Engineering Projects -->
+            <div class="resume-section">
+              <h2 class="resume-section-title"><i class="fas fa-code-branch"></i> Flagship Engineering Projects</h2>
+              
+              <!-- Project 1 -->
+              <div class="resume-item">
+                <div class="resume-item-header">
+                  <span>Enterprise Credit Risk Scoring &amp; Explainable AI (XAI)</span>
+                  <span class="inst">Python, LightGBM, SHAP, OptBinning, FastAPI</span>
+                </div>
+                <div class="resume-item-sub">
+                  <span>Production-Grade Basel II/III Credit Decisioning Engine</span>
+                  <span>2026</span>
+                </div>
+                <ul>
+                  <li>Engineered Weight of Evidence (WoE) and Information Value (IV) transformation pipeline to discretize continuous features into monotonic risk bins.</li>
+                  <li>Integrated SHAP TreeExplainer to compute exact local Shapley values, automatically generating legally defensible Adverse Action notices (ECOA/FCRA compliant).</li>
+                  <li>Deployed an asynchronous containerized FastAPI microservice delivering Probability of Default (PD) scoring with sub-50ms inference latency.</li>
+                </ul>
+              </div>
+
+              <!-- Project 2 -->
+              <div class="resume-item">
+                <div class="resume-item-header">
+                  <span>Long Overdue Debtor (LOD) Classification System</span>
+                  <span class="inst">AIRA &amp; AIFUL / Aihack 2025 Finalist</span>
+                </div>
+                <div class="resume-item-sub">
+                  <span>Large-Scale Delinquency Prediction on ~40,000 Consumer Credit Records</span>
+                  <span>Dec 2025</span>
+                </div>
+                <ul>
+                  <li>Formulated temporal delinquency velocity ratios and revolving limit exhaustion slopes across 32,524 train / 8,619 test blind split samples.</li>
+                  <li>Conducted 5-Fold Stratified Cross-Validation on tuned LightGBM and XGBoost ensembles, achieving 0.894 ROC-AUC and placing in the Top 8 national finalist tier.</li>
+                </ul>
+              </div>
+
+              <!-- Project 3 -->
+              <div class="resume-item">
+                <div class="resume-item-header">
+                  <span>Industrial IoT &amp; Manufacturing (MFG) Telemetry Pipeline</span>
+                  <span class="inst">PostgreSQL, Spark, Airflow, Docker, Streamlit</span>
+                </div>
+                <div class="resume-item-sub">
+                  <span>Automated Batch ETL &amp; Real-Time Overall Equipment Effectiveness (OEE)</span>
+                  <span>2026</span>
+                </div>
+                <ul>
+                  <li>Built multi-container telemetry pipeline ingesting high-frequency vibration, thermal, and cycle sensors across virtual factory lines.</li>
+                  <li>Automated scheduled batch ETL in Airflow with stateful anomaly thresholding, surfacing real-time OEE tracking in interactive dashboards.</li>
+                </ul>
+              </div>
+
+              <!-- Project 4 -->
+              <div class="resume-item">
+                <div class="resume-item-header">
+                  <span>GuardianAI &ndash; Clinical Frailty &amp; Fall Risk Intervention</span>
+                  <span class="inst">True Innovation Launchpad 2026 (AI &amp; Data Lead)</span>
+                </div>
+                <div class="resume-item-sub">
+                  <span>Dual-Layer Clinical Risk Prediction for Geriatric Patient Care</span>
+                  <span>Jan 2026</span>
+                </div>
+                <ul>
+                  <li>Trained calibrated XGBoost models coupled with SHAP local biometric explainability for medical professionals, streaming through FastAPI.</li>
+                </ul>
+              </div>
             </div>
           </div>
 
-          <div class="resume-section">
-            <h2 class="resume-section-title">Education</h2>
-            <div class="resume-item">
-              <div class="resume-item-header">
-                <span>B.Eng. in Computer Engineering</span>
-                <span>Srinakharinwirot University (SWU)</span>
+          <!-- Page 1 Sheet Footer -->
+          <div class="resume-sheet-footer">
+            <span>Sivakorn Khundilokrattaya &mdash; Curriculum Vitae</span>
+            <span>Page 1 of 2</span>
+          </div>
+        </div>
+
+        <!-- ==================== PAGE 2 ==================== -->
+        <div class="resume-a4-page" id="resume-page-2">
+          <div>
+            <!-- Section 4: Hackathons & Competitions -->
+            <div class="resume-section">
+              <h2 class="resume-section-title"><i class="fas fa-trophy"></i> Competitive Hackathons &amp; Industry Challenges</h2>
+
+              <!-- Aihack 2025 -->
+              <div class="resume-item">
+                <div class="resume-item-header">
+                  <span>Aihack Thailand 2025 &bull; Final Round Finalist (Top 8 of Nation)</span>
+                  <span class="inst">Dec 15, 2025</span>
+                </div>
+                <div class="resume-item-sub">
+                  <span>AIRA &amp; AIFUL Public Company Limited x Chulalongkorn Business School x ProbSpace</span>
+                  <span>Bangkok, Thailand</span>
+                </div>
+                <ul>
+                  <li><strong>Role &amp; Contribution:</strong> Machine Learning &amp; Financial Risk Modeling Lead on ~40,000 real-world consumer loan samples.</li>
+                  <li><strong>Technical Rigor:</strong> Built leak-free temporal feature matrices, handling class imbalance (1:12 default ratio) with SMOTE-Tomek and target encoding.</li>
+                  <li><strong>Executive Pitch:</strong> Solved Question Sheet balancing default risk reduction against interest margin profitability, pitching to C-level executives.</li>
+                </ul>
               </div>
-              <div class="resume-item-sub">Bangkok, Thailand</div>
-              <ul>
-                <li>Specialization in Machine Learning, Statistical Inference, and Distributed Data Systems.</li>
-              </ul>
+
+              <!-- True Innovation Launchpad -->
+              <div class="resume-item">
+                <div class="resume-item-header">
+                  <span>True Innovation Launchpad 2026 &bull; AI &amp; Data Science Lead</span>
+                  <span class="inst">Jan 2026</span>
+                </div>
+                <div class="resume-item-sub">
+                  <span>Team Nakphatthana Tuapralat &bull; Healthcare Innovation Track</span>
+                  <span>Bangkok, Thailand</span>
+                </div>
+                <ul>
+                  <li>Spearheaded data strategy and predictive modeling for elderly frailty prevention, developing sub-30ms clinical risk scoring APIs.</li>
+                </ul>
+              </div>
+
+              <!-- Geospatial Hackathon -->
+              <div class="resume-item">
+                <div class="resume-item-header">
+                  <span>Geospatial Intelligence for Resilience Hackathon 2026</span>
+                  <span class="inst">Jan 2026</span>
+                </div>
+                <div class="resume-item-sub">
+                  <span>GISTDA x KMITL x KMUTT &bull; Spatial Data Scientist &amp; ML Modeler (1st Member/Lead)</span>
+                  <span>Bangkok, Thailand</span>
+                </div>
+                <ul>
+                  <li>Built "Rain-to-Flood" spatial model fusing Sentinel-1 SAR soil backscatter, Copernicus GLO-30 DEM, and precipitation APIs for 30m flash flood mapping.</li>
+                </ul>
+              </div>
+
+              <!-- LINE MAN -->
+              <div class="resume-item">
+                <div class="resume-item-header">
+                  <span>LINE MAN Wongnai Junior Case Competition</span>
+                  <span class="inst">Nov 2024</span>
+                </div>
+                <div class="resume-item-sub">
+                  <span>Team LC (Low Cortisol) &bull; Strategic Growth &amp; Unit Economics Lead</span>
+                  <span>Bangkok, Thailand</span>
+                </div>
+                <ul>
+                  <li>Formulated campus delivery optimization and "Silent Mission" growth campaign with 8.87 THB/user CAC, acquiring 462 VIP trial conversions.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Section 5: Industry Certifications & Assessments -->
+            <div class="resume-section">
+              <h2 class="resume-section-title"><i class="fas fa-award"></i> Industry Certifications &amp; Standardized Assessments</h2>
+
+              <!-- KBTG Data Analyst -->
+              <div class="resume-item">
+                <div class="resume-item-header">
+                  <span>Data Analyst Assessment (STAMP) &bull; Score: 97 / 150 (Intermediate)</span>
+                  <span class="inst">March 21, 2026</span>
+                </div>
+                <div class="resume-item-sub">
+                  <span>SKILLKAMP by KBTG (Kasikorn Business-Technology Group)</span>
+                  <span>Above Benchmark Avg: 90</span>
+                </div>
+                <ul>
+                  <li><strong>Core Scores:</strong> Data Cleaning &amp; Preprocessing: <strong>23.00/30</strong> | EDA &amp; Viz: <strong>20.00/30</strong> | ML for Analysts: <strong>18.00/30</strong> | Foundations: <strong>20.00/30</strong>.</li>
+                </ul>
+              </div>
+
+              <!-- KBTG Digital Marketer -->
+              <div class="resume-item">
+                <div class="resume-item-header">
+                  <span>Digital and Performance Marketer Assessment (STAMP) &bull; Score: 98 / 150 (Intermediate)</span>
+                  <span class="inst">March 21, 2026</span>
+                </div>
+                <div class="resume-item-sub">
+                  <span>SKILLKAMP by KBTG</span>
+                  <span>Above Benchmark Avg: 94</span>
+                </div>
+                <ul>
+                  <li><strong>Top Performer:</strong> Digital Marketing Analytics: <strong>26.00/30</strong> (Benchmark: 17.94) | Data-Driven Marketing: <strong>21.00/30</strong> | Content: <strong>19.00/30</strong>.</li>
+                </ul>
+              </div>
+
+              <!-- Oxford / AUA -->
+              <div class="resume-item">
+                <div class="resume-item-header">
+                  <span>Oxford Placement Test &bull; Score: 51 / 120 (CEFR B1+ Professional)</span>
+                  <span class="inst">June 21, 2026</span>
+                </div>
+                <div class="resume-item-sub">
+                  <span>AUA Language Center / Oxford University Press</span>
+                  <span>Official Institutional Test</span>
+                </div>
+                <ul>
+                  <li>Grammar &amp; Use of English: 50.88 (B1) | Listening Proficiency: 51.12 (B1) &bull; Verified professional working proficiency in English.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Section 6: Selected Academic Coursework & Engineering Principles -->
+            <div class="resume-section">
+              <h2 class="resume-section-title"><i class="fas fa-book"></i> Coursework &amp; Software Engineering Discipline</h2>
+              <div class="resume-item">
+                <div style="font-size: 0.775rem; color: #334155; line-height: 1.5;">
+                  <strong>Core Coursework:</strong> Machine Learning, Database Systems, Operating Systems, Statistical Methods for Engineers, Software Engineering, Data Structures &amp; Algorithms, Computer Networks.<br>
+                  <strong>Engineering Discipline:</strong> Adheres to PEP-8 style standards, modular OOP pipeline design, reproducible containerized Docker environments, and zero black-box deployments without local feature attribution.
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="resume-section">
-            <h2 class="resume-section-title">Featured Projects</h2>
-            <div class="resume-item">
-              <div class="resume-item-header">
-                <span>Long Overdue Debtor (LOD) Classification System</span>
-                <span>AIRA &amp; AIFUL / Aihack 2025 Finalist</span>
-              </div>
-              <ul>
-                <li>Engineered delinquency velocity features on ~40,000 consumer credit records (32,524 train / 8,619 test), achieving 0.894 ROC-AUC in 5-Fold Stratified CV.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <div class="resume-item-header">
-                <span>GuardianAI &ndash; Clinical Frailty Risk Platform</span>
-                <span>True Innovation Launchpad 2026 &bull; AI &amp; Data Lead</span>
-              </div>
-              <ul>
-                <li>Combined calibrated XGBoost with SHAP local biometric explainability and sub-30ms FastAPI clinical streaming endpoints.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <div class="resume-item-header">
-                <span>Manufacturing (MFG) Telemetry Pipeline &amp; OEE Analytics</span>
-                <span>Python, PostgreSQL, Docker, Streamlit, SQLAlchemy</span>
-              </div>
-              <ul>
-                <li>Simulated multi-machine IIoT sensor telemetry, executing automated batch ETL and stateful anomaly detection for real-time Overall Equipment Effectiveness (OEE) tracking.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="resume-section">
-            <h2 class="resume-section-title">Hackathons &amp; Competitions</h2>
-            
-            <!-- 1. Aihack -->
-            <div class="resume-item">
-              <div class="resume-item-header">
-                <span>Aihack Thailand 2025 (Final Round Finalist)</span>
-                <span>AIRA &amp; AIFUL x Chulalongkorn Business School x ProbSpace</span>
-              </div>
-              <ul>
-                <li><strong>Role &amp; Contribution:</strong> ML &amp; Risk Modeling Lead on ~40,000 samples predicting Long Overdue Debtors (LOD, overdue &gt;90 days past 12 months).</li>
-                <li><strong>Technical Execution:</strong> Repayment velocity features, LightGBM/XGBoost CV, and ROC-AUC optimization across Public/Private splits on ProbSpace.</li>
-                <li><strong>Business Impact:</strong> Solved Question Sheet balancing default risk vs. interest margins, qualifying into top 8 pitching finalists.</li>
-              </ul>
-            </div>
-
-            <!-- 2. True Innovation Launchpad -->
-            <div class="resume-item" style="margin-top: 6px;">
-              <div class="resume-item-header">
-                <span>True Innovation Launchpad 2026 &ndash; "GuardianAI"</span>
-                <span>Team Nakphatthana Tuapralat</span>
-              </div>
-              <ul>
-                <li><strong>Role &amp; Contribution:</strong> AI &amp; Data Science Lead for elderly frailty risk intervention platform.</li>
-                <li><strong>Technical Execution:</strong> Calibrated XGBoost and Scikit-Learn models with SHAP biometric explainability for medical professionals.</li>
-                <li><strong>System Delivery:</strong> Low-latency FastAPI microservice streaming frailty risk scores into clinical dashboards.</li>
-              </ul>
-            </div>
-
-            <!-- 3. Geospatial -->
-            <div class="resume-item" style="margin-top: 6px;">
-              <div class="resume-item-header">
-                <span>Geospatial Intelligence for Resilience Hackathon 2026</span>
-                <span>Team Witsawa Tuapralat (GISTDA, KMITL, KMUTT)</span>
-              </div>
-              <ul>
-                <li><strong>Role &amp; Contribution:</strong> Spatial Data Scientist &amp; Machine Learning Modeler (1st Member/Lead).</li>
-                <li><strong>Technical Execution:</strong> Built "Rain-to-Flood Probability Model" with Random Forest &amp; Logistic Regression.</li>
-                <li><strong>Spatial Pipeline:</strong> Fused Sentinel-1 SAR soil moisture, Copernicus GLO-30 DEM slope, and precipitation APIs for 30m flash flood mapping.</li>
-              </ul>
-            </div>
-
-            <!-- 4. LINE MAN -->
-            <div class="resume-item" style="margin-top: 6px;">
-              <div class="resume-item-header">
-                <span>LINE MAN Wongnai Junior Case Competition</span>
-                <span>Team LC (Low Cortisol)</span>
-              </div>
-              <ul>
-                <li><strong>Role &amp; Contribution:</strong> Strategic Growth &amp; Unit Economics Lead.</li>
-                <li><strong>Problem Solving:</strong> Formulated campus solutions (pre-ordering, shared cart routing, fee waivers) for cafeteria rush hours.</li>
-                <li><strong>Campaign &amp; Financial Modeling:</strong> "Silent Mission Booth" campaign with 8.87 THB/user CAC, acquiring 462 VIP student trial conversions.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="resume-section">
-            <h2 class="resume-section-title">Technical Skills</h2>
-            <p style="font-size: 0.8rem; color: #334155; line-height: 1.5;">
-              <strong>Languages:</strong> Python, SQL, C, C++, Java, R, Bash.<br>
-              <strong>ML &amp; Modeling:</strong> Scikit-Learn, XGBoost, LightGBM, SHAP, LIME, Pandas, NumPy.<br>
-              <strong>Data Engineering:</strong> PostgreSQL, MySQL, Apache Spark, Airflow, Docker, FastAPI, Git.<br>
-              <strong>Languages:</strong> Thai (Native), English (B1+), Japanese (Beginner).
-            </p>
+          <!-- Page 2 Sheet Footer -->
+          <div class="resume-sheet-footer">
+            <span>Sivakorn Khundilokrattaya &mdash; Curriculum Vitae</span>
+            <span>Page 2 of 2</span>
           </div>
         </div>
       </div>
