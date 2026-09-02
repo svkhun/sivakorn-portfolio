@@ -18,7 +18,7 @@
 
 </div>
 
-## 📌 Executive Summary
+##  Executive Summary
 
 I am a **Computer Engineering student at Srinakharinwirot University (SWU, Class of 2026)** specializing in **statistical tabular machine learning, Basel II/III credit risk modeling, and regulatory-compliant Explainable AI (XAI)**.
 
@@ -52,7 +52,7 @@ In institutional banking and quantitative risk underwriting, black-box algorithm
 
 ---
 
-## 📊 Featured Case Studies & Quantitative Systems
+##  Featured Case Studies & Quantitative Systems
 
 ### 1. Enterprise Credit Risk Scoring & Explainable AI (XAI)
 * **Problem**: Regulatory compliance under ECOA / SR 11-7 forbids opaque underwriting. Required legally defensible risk scoring for consumer credit applications.
@@ -98,7 +98,7 @@ In institutional banking and quantitative risk underwriting, black-box algorithm
 
 ---
 
-## 🏆 Verified Industry Credentials & Academic Foundation
+##  Verified Industry Credentials & Academic Foundation
 
 ### SKILLKAMP by KBTG Industry Assessments
 Certified by **Kasikorn Business-Technology Group (KBTG)** across standardized quantitative benchmarks:
@@ -126,7 +126,7 @@ TOTAL VERIFIED SCORE:                                         97 / 150
 
 ---
 
-## 🛠️ Technical Arsenal
+##  Technical Arsenal
 
 ```
 ┌─────────────────┬───────────────────────────────────────────────────────────┐
@@ -143,7 +143,7 @@ TOTAL VERIFIED SCORE:                                         97 / 150
 
 ---
 
-## 🔒 Production Security Hardening & AppSec Controls
+##  Production Security Hardening & AppSec Controls
 
 This repository incorporates enterprise frontend application security standards:
 
@@ -158,7 +158,7 @@ This repository incorporates enterprise frontend application security standards:
 
 ---
 
-## 💻 Local Development & Deployment
+##  Local Development & Deployment
 
 ### Quickstart
 
@@ -190,7 +190,7 @@ All HTTP defense-in-depth security headers and cache-control parameters are defi
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 
 ```
 sivakorn-portfolio/
@@ -213,7 +213,7 @@ sivakorn-portfolio/
 
 ---
 
-## 📬 Contact & Connectivity
+##  Contact & Connectivity
 
 I am actively seeking **full-time Data Scientist, Machine Learning Engineer, and Quantitative Risk Analyst** roles.
 
