@@ -53,6 +53,7 @@
       }
     }
 
+    draw() {
       const isLight = document.documentElement.classList.contains('light');
       ctx.beginPath();
       ctx.moveTo(this.x, this.y);

@@ -138,6 +138,56 @@ code, pre, .font-mono {
   padding: 0 24px;
 }
 
+/* ==========================================================================
+   Scroll Entrance Animations (Weighted Cinematic Curve)
+   ========================================================================== */
+/* Initial hidden state: minimal vertical offset to prevent jarring pops */
+.reveal-smooth {
+  opacity: 0;
+  transform: translateY(14px);
+  /* 1.05s duration with Quintic Out easing for a gentle, luxurious deceleration */
+  transition: opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Revealed active state */
+.reveal-smooth.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Relaxed stagger delays for sequential elements */
+.stagger-1 { transition-delay: 90ms; }
+.stagger-2 { transition-delay: 180ms; }
+.stagger-3 { transition-delay: 270ms; }
+.stagger-4 { transition-delay: 360ms; }
+.stagger-5 { transition-delay: 450ms; }
+
+/* Legacy alias for backward compatibility */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accessibility: Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-smooth,
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* Section Header */
 .section {
   padding: 80px 0;
@@ -423,7 +473,7 @@ code, pre, .font-mono {
   border-radius: var(--radius-full);
   margin-bottom: 18px;
   cursor: default;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1), transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-meta-pill:hover {
@@ -1142,7 +1192,7 @@ code, pre, .font-mono {
   border: 1px solid #1E293B;
   border-radius: var(--radius-xl);
   padding: 28px 30px;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1), transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .about-tier-card:hover {
@@ -2760,7 +2810,7 @@ code, pre, .font-mono {
   position: relative;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.06);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1), transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-card:hover {
