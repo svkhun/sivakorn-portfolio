@@ -368,12 +368,200 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     7. Resume Print & Two-Page A4 Navigation
+     7. Resume Direct Isolated Iframe Print Pipeline
      ========================================================================== */
-  const printResumeBtn = document.getElementById('btn-print-resume');
-  if (printResumeBtn) {
-    printResumeBtn.addEventListener('click', () => {
-      window.print();
+  const downloadBtn = document.querySelector('#download-resume-btn, [data-action="download-pdf"], #btn-print-resume');
+
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const resumeSource = document.querySelector('#resume-sheet') || document.querySelector('.resume-paper');
+      if (!resumeSource) {
+        console.error('Target resume element not found');
+        return;
+      }
+
+      const originalText = downloadBtn.innerHTML;
+      downloadBtn.innerText = 'Preparing PDF...';
+      downloadBtn.disabled = true;
+
+      // 1. Create an isolated hidden iframe
+      const iframe = document.createElement('iframe');
+      iframe.style.position = 'fixed';
+      iframe.style.right = '0';
+      iframe.style.bottom = '0';
+      iframe.style.width = '0';
+      iframe.style.height = '0';
+      iframe.style.border = '0';
+      document.body.appendChild(iframe);
+
+      const doc = iframe.contentWindow.document;
+
+      // 2. Inject strict, publication-grade CSS + Resume HTML
+      doc.open();
+      doc.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Sivakorn_Khundilokrattaya_Resume</title>
+          <style>
+            @page {
+              size: A4 portrait;
+              margin: 12mm 15mm 12mm 15mm;
+            }
+            * {
+              box-sizing: border-box;
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+            }
+            body {
+              margin: 0;
+              padding: 0;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+              font-size: 9.5pt;
+              line-height: 1.45;
+              color: #0f172a;
+              background: #ffffff;
+            }
+            .resume-paper, .resume-a4-page {
+              box-shadow: none !important;
+              border: none !important;
+              border-radius: 0 !important;
+              margin: 0 !important;
+              padding: 0 !important;
+              background: transparent !important;
+              width: 100% !important;
+              max-width: 100% !important;
+            }
+            #resume-page-1 {
+              page-break-after: always !important;
+              break-after: page !important;
+            }
+            #resume-page-2 {
+              page-break-before: always !important;
+              break-before: page !important;
+              page-break-after: avoid !important;
+              break-after: avoid !important;
+            }
+            h1 {
+              font-size: 18pt;
+              font-weight: 700;
+              margin: 0 0 4pt 0;
+              color: #0f172a;
+              letter-spacing: -0.02em;
+            }
+            h2, .section-title {
+              font-size: 10pt;
+              font-weight: 700;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+              margin: 14pt 0 6pt 0;
+              padding-bottom: 2pt;
+              border-bottom: 1px solid #cbd5e1;
+              color: #0f172a;
+              break-after: avoid;
+              page-break-after: avoid;
+            }
+            .flex {
+              display: flex;
+            }
+            .justify-between {
+              justify-content: space-between;
+            }
+            .items-center {
+              align-items: center;
+            }
+            .items-baseline {
+              align-items: baseline;
+            }
+            .text-right {
+              text-align: right;
+            }
+            .whitespace-nowrap {
+              white-space: nowrap;
+            }
+            .shrink-0 {
+              flex-shrink: 0;
+            }
+            .font-mono {
+              font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+              font-size: 8.5pt;
+            }
+            .tech-tag {
+              background: #f1f5f9;
+              border: 1px solid #e2e8f0;
+              border-radius: 2px;
+              padding: 1px 5px;
+              font-size: 8pt;
+              font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+              display: inline-block;
+              color: #1e293b;
+            }
+            .text-slate-900 { color: #0f172a; }
+            .text-slate-700 { color: #334155; }
+            .text-slate-600 { color: #475569; }
+            .text-slate-500 { color: #64748b; }
+            .border-slate-300 { border-color: #cbd5e1; }
+            .border-b { border-bottom: 1px solid #cbd5e1; }
+            .font-bold { font-weight: 700; }
+            .font-semibold { font-weight: 600; }
+            .font-normal { font-weight: 400; }
+            .italic { font-style: italic; }
+            ul {
+              margin: 4pt 0 6pt 0;
+              padding-left: 14pt;
+            }
+            li {
+              margin-bottom: 2.5pt;
+              line-height: 1.4;
+              color: #334155;
+            }
+            .resume-entry, .project-item, .resume-item, li, .avoid-break {
+              break-inside: avoid;
+              page-break-inside: avoid;
+            }
+            .resume-sheet-footer {
+              display: flex;
+              justify-content: space-between;
+              border-top: 1px solid #cbd5e1;
+              margin-top: 10pt;
+              padding-top: 4pt;
+              font-size: 7.5pt;
+              color: #64748b;
+              font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            }
+            a {
+              color: #0284c7;
+              text-decoration: none;
+            }
+            /* Strip dark-mode and glowing badges */
+            span, div, p {
+              color: inherit;
+            }
+          </style>
+        </head>
+        <body>
+          ${resumeSource.innerHTML}
+        </body>
+        </html>
+      `);
+      doc.close();
+
+      // 3. Trigger printing cleanly after rendering
+      iframe.contentWindow.focus();
+      setTimeout(() => {
+        iframe.contentWindow.print();
+
+        // Cleanup after dialog closes
+        setTimeout(() => {
+          if (iframe.parentNode) {
+            document.body.removeChild(iframe);
+          }
+          downloadBtn.innerHTML = originalText;
+          downloadBtn.disabled = false;
+        }, 1000);
+      }, 250);
     });
   }
 
