@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      6. Copy Email with Inline Text-Flip & Toast
      ========================================================================== */
-  const copyEmailBtns = document.querySelectorAll('.btn-copy-email, #btn-copy-email');
+  const copyEmailBtns = document.querySelectorAll('.btn-copy-email, #btn-copy-email, .btn-copy-email-cta');
   const toastNotice = document.getElementById('toast-notice');
   const toastText = document.getElementById('toast-text');
 
@@ -292,11 +292,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = 'sivakorn.khun@gmail.com';
       const textSpan = btn.querySelector('span');
       const icon = btn.querySelector('i');
-      const isThai = typeof window.getCurrentLocale === 'function' && window.getCurrentLocale() === 'th';
-      const originalText = textSpan ? textSpan.textContent : (isThai ? 'คัดลอกอีเมล 📋' : 'Copy Email 📋');
+      const originalText = textSpan ? textSpan.textContent.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}📋✓]/gu, '').trim() : 'Copy Email';
       const originalIconClass = icon ? icon.className : 'fas fa-copy';
-      const successMsg = isThai ? 'คัดลอกแล้ว! ✓' : 'Copied! ✓';
-      const toastMsg = isThai ? 'คัดลอกอีเมลแล้ว (sivakorn.khun@gmail.com)' : 'Email copied to clipboard (sivakorn.khun@gmail.com)';
+      const successMsg = 'Copied!';
+      const toastMsg = 'Email copied to clipboard (sivakorn.khun@gmail.com)';
 
       function performFlip() {
         if (textSpan) textSpan.textContent = successMsg;
@@ -306,8 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showToast(toastMsg);
 
         setTimeout(() => {
-          const currentIsThai = typeof window.getCurrentLocale === 'function' && window.getCurrentLocale() === 'th';
-          if (textSpan) textSpan.textContent = currentIsThai ? 'คัดลอกอีเมล 📋' : 'Copy Email 📋';
+          if (textSpan) textSpan.textContent = originalText || 'Copy Email';
           if (icon) icon.className = originalIconClass;
           btn.classList.remove('copied-success');
         }, 2000);

@@ -256,20 +256,6 @@
     if (elements.sliderDelinq) elements.sliderDelinq.value = currentState.delinquency;
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    initElements();
-    setupListeners();
-    syncSliders();
-    render();
-  });
-})();
-    if (elements.sliderDti) elements.sliderDti.value = currentState.dti;
-    if (elements.sliderDelinq) elements.sliderDelinq.value = currentState.delinquency;
-    if (elements.sliderUtil) elements.sliderUtil.value = currentState.utilization;
-    if (elements.sliderIncome) elements.sliderIncome.value = currentState.income;
-    if (elements.sliderInq) elements.sliderInq.value = currentState.inquiries;
-  }
-
   window.initShapSimulator = function () {
     initElements();
     syncSliders();

@@ -110,8 +110,11 @@
     if (!filterTabs || !filterTabs.length) return;
 
     filterTabs.forEach((tab) => {
+      if (tab.id === 'btn-toggle-marquee-grid') return;
       tab.addEventListener('click', () => {
-        filterTabs.forEach((t) => t.classList.remove('active'));
+        filterTabs.forEach((t) => {
+          if (t.id !== 'btn-toggle-marquee-grid') t.classList.remove('active');
+        });
         tab.classList.add('active');
 
         const filter = tab.getAttribute('data-filter');
@@ -132,10 +135,29 @@
     });
   }
 
+  function setupViewToggle() {
+    const toggleBtn = document.getElementById('btn-toggle-marquee-grid');
+    if (!toggleBtn || !marqueeContainer) return;
+
+    toggleBtn.addEventListener('click', () => {
+      const isGrid = marqueeContainer.classList.toggle('grid-mode');
+      if (isGrid) {
+        toggleBtn.innerHTML = '<i class="fas fa-stream"></i> <span>Marquee View</span>';
+        toggleBtn.classList.add('active');
+        toggleBtn.setAttribute('aria-pressed', 'true');
+      } else {
+        toggleBtn.innerHTML = '<i class="fas fa-border-all"></i> <span>Grid View</span>';
+        toggleBtn.classList.remove('active');
+        toggleBtn.setAttribute('aria-pressed', 'false');
+      }
+    });
+  }
+
   window.initTechMarquee = function () {
     initElements();
     setupTooltips();
     setupFilters();
+    setupViewToggle();
   };
 
   if (document.readyState === 'loading') {
