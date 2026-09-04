@@ -12,7 +12,7 @@
   <strong>Architecting explainable credit risk engines, high-impact tabular ML, and production-grade financial data pipelines.</strong>
 </p>
 
-[Explore Projects](https://svkhun.vercel.app#projects) &bull; [Executive Brief](https://svkhun.vercel.app) &bull; [KBTG Certified](https://svkhun.vercel.app#about) &bull; [GitHub](https://github.com/svkhun) &bull; [LinkedIn](https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429)
+[Explore Projects](https://svkhun.vercel.app#projects) &bull; [Executive Brief](https://svkhun.vercel.app) &bull; [KBTG Certified](https://svkhun.vercel.app#about) &bull; [GitHub](https://github.com/svkhun) &bull; [LinkedIn](https://www.linkedin.com/in/sivakorn-khundilokrattaya-5870b8429/)
 
 ---
 
@@ -219,7 +219,7 @@ I am actively seeking **full-time Data Scientist, Machine Learning Engineer, and
 
 * **Portfolio Website**: [svkhun.vercel.app](https://svkhun.vercel.app)
 * **Direct Email**: [sivakorn.khun@gmail.com](mailto:sivakorn.khun@gmail.com)
-* **LinkedIn**: [linkedin.com/in/sivakorn-khundilokrattaya-5870b8429](https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429)
+* **LinkedIn**: [linkedin.com/in/sivakorn-khundilokrattaya-5870b8429](https://www.linkedin.com/in/sivakorn-khundilokrattaya-5870b8429/)
 * **GitHub**: [github.com/svkhun](https://github.com/svkhun)
 * **Location**: Bangkok, Thailand (Open to On-site, Hybrid & Remote opportunities)
 

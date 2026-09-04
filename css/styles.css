@@ -7387,9 +7387,11 @@ body::after {
 .justify-center { justify-content: center !important; }
 .shrink-0 { flex-shrink: 0 !important; }
 .gap-2 { gap: 0.5rem !important; }
+.gap-2\.5 { gap: 0.625rem !important; }
 .gap-3 { gap: 0.75rem !important; }
 .gap-4 { gap: 1rem !important; }
 .gap-6 { gap: 1.5rem !important; }
+.text-lg { font-size: 1.125rem !important; line-height: 1.75rem !important; }
 .text-base { font-size: 1rem !important; }
 .text-sm { font-size: 0.875rem !important; }
 .text-xs { font-size: 0.75rem !important; }
