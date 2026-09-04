@@ -6,43 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
-  /* ==========================================================================
-     0. Robust Dark / Light Mode Theme Controller
-     ========================================================================== */
-  function initThemeToggle() {
-    const themeToggleBtn = document.getElementById('theme-toggle-btn');
-    if (!themeToggleBtn) return;
 
-    function applyTheme(theme) {
-      if (theme === 'light') {
-        document.documentElement.classList.remove('dark');
-        document.documentElement.classList.add('light');
-        document.documentElement.setAttribute('data-theme', 'light');
-      } else {
-        document.documentElement.classList.add('dark');
-        document.documentElement.classList.remove('light');
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-      localStorage.setItem('svkhun_theme', theme);
-    }
-
-    themeToggleBtn.addEventListener('click', () => {
-      const isCurrentlyDark = document.documentElement.classList.contains('dark') || !document.documentElement.classList.contains('light');
-      const newTheme = isCurrentlyDark ? 'light' : 'dark';
-      applyTheme(newTheme);
-    });
-
-    // Listen to OS theme changes if user has not set a preference
-    if (window.matchMedia) {
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!localStorage.getItem('svkhun_theme')) {
-          applyTheme(e.matches ? 'dark' : 'light');
-        }
-      });
-    }
-  }
-
-  initThemeToggle();
 
   /* ==========================================================================
      1. Animated Number Counters (Scroll-triggered)
@@ -957,7 +921,7 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   const modalOpenTriggers = document.querySelectorAll('[data-open-modal]');
   const modalCloseTriggers = document.querySelectorAll('[data-close-modal]');
-  const allModals = document.querySelectorAll('.cert-modal-backdrop, .dossier-modal-backdrop, .exec-modal-backdrop, .admin-modal-backdrop');
+  const allModals = document.querySelectorAll('.cert-modal-backdrop, .dossier-modal-backdrop, .exec-modal-backdrop');
 
   modalOpenTriggers.forEach((trigger) => {
     trigger.addEventListener('click', (e) => {
@@ -974,7 +938,7 @@ document.addEventListener('DOMContentLoaded', () => {
   modalCloseTriggers.forEach((trigger) => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
-      const parentModal = trigger.closest('.cert-modal-backdrop, .dossier-modal-backdrop, .exec-modal-backdrop, .admin-modal-backdrop');
+      const parentModal = trigger.closest('.cert-modal-backdrop, .dossier-modal-backdrop, .exec-modal-backdrop');
       if (parentModal) {
         parentModal.classList.remove('active');
         document.body.style.overflow = '';
@@ -1011,203 +975,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ==========================================================================
-     11. Live Verified Visitor Counter & Cryptographically Hardened Admin Hub
-     ========================================================================== */
-  async function initVisitorCounter() {
-    const counterTextEl = document.getElementById('visitor-count-text');
-    const counterBadgeEl = document.getElementById('visitor-counter-badge') || document.getElementById('visitor-counter');
-    const adminModal = document.getElementById('modal-admin-telemetry');
-    const adminHitsEl = document.getElementById('admin-telemetry-hits');
-    const adminViewportEl = document.getElementById('admin-client-viewport');
-    const adminPlatformEl = document.getElementById('admin-client-platform');
-    const adminNetworkEl = document.getElementById('admin-client-network');
-    const adminSyncEl = document.getElementById('admin-client-sync');
-    const resyncBtn = document.getElementById('btn-admin-resync');
-    const resyncIcon = document.getElementById('admin-resync-icon');
-    const clearTokenBtn = document.getElementById('btn-admin-clear-token');
 
-    if (!counterTextEl) return;
-
-    // Pre-computed SHA-256 Hash Signatures (Zero plaintext passphrase in public source)
-    const AUTH_SIGNATURES = [
-      '63049239f237843df29dbac097c135d333d58fc97099a88a33cc9efbca726694', // svkhun-admin-2026
-      'de95f5a4727b4a2933d207ca9f7eb756f6564d134347e82043d77ef2a7035b9d'  // svkhun-quant-admin-2026
-    ];
-
-    async function computeSHA256(message) {
-      try {
-        if (!message || typeof message !== 'string') return '';
-        const msgBuffer = new TextEncoder().encode(message.trim());
-        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-        const hashArray = Array.from(new Uint8Array(hashBuffer));
-        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-      } catch {
-        return '';
-      }
-    }
-
-    // 1. Strict Cryptographic Signature Validation
-    const isLocalhost = ['localhost', '127.0.0.1', '::1', ''].includes(window.location.hostname) || window.location.protocol === 'file:';
-    const urlParams = new URLSearchParams(window.location.search);
-    const authKeyParam = urlParams.get('auth') || urlParams.get('key');
-
-    if (authKeyParam && window.crypto && window.crypto.subtle) {
-      const computedHash = await computeSHA256(authKeyParam);
-      if (AUTH_SIGNATURES.includes(computedHash)) {
-        sessionStorage.setItem('__sv_auth_sig', computedHash);
-        sessionStorage.setItem('__sv_session_scope', 'privileged');
-      }
-      // Scrub sensitive authentication query parameters immediately from address bar without page reload
-      try {
-        const cleanUrl = window.location.pathname + (window.location.hash || '');
-        window.history.replaceState({}, document.title, cleanUrl);
-      } catch {}
-    }
-
-    const sessionSig = sessionStorage.getItem('__sv_auth_sig');
-    let isAdmin = isLocalhost || (sessionSig && AUTH_SIGNATURES.includes(sessionSig));
-
-    // 2. CounterAPI Config (page-views-2026)
-    const NAMESPACE = 'svkhun-portfolio-prod';
-    const KEY = 'page-views-2026';
-    const incrementUrl = `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`;
-    const readOnlyUrl = `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/`;
-
-    function updateClientTelemetry() {
-      if (adminViewportEl) {
-        const dpr = (window.devicePixelRatio || 1).toFixed(2);
-        adminViewportEl.textContent = `${window.innerWidth}x${window.innerHeight} (${dpr}x DPR)`;
-      }
-      if (adminPlatformEl) {
-        const ua = navigator.userAgent;
-        let browser = 'Browser';
-        if (ua.includes('Chrome') && !ua.includes('Edg')) browser = 'Chrome';
-        else if (ua.includes('Edg')) browser = 'Edge';
-        else if (ua.includes('Safari') && !ua.includes('Chrome')) browser = 'Safari';
-        else if (ua.includes('Firefox')) browser = 'Firefox';
-        
-        const platform = navigator.userAgentData?.platform || navigator.platform || 'Desktop';
-        adminPlatformEl.textContent = `${platform} / ${browser}`;
-      }
-      if (adminNetworkEl) {
-        adminNetworkEl.textContent = navigator.onLine ? 'Connected (Low Latency)' : 'Offline';
-      }
-      if (adminSyncEl) {
-        const now = new Date();
-        adminSyncEl.textContent = now.toLocaleTimeString();
-      }
-    }
-
-    function renderVisitorState(countNum) {
-      if (typeof countNum === 'number') {
-        const countStr = countNum.toLocaleString('en-US');
-        if (isAdmin) {
-          counterTextEl.innerHTML = `${countStr} Views (Admin Mode) <i class="fas fa-cog" style="font-size: 0.725rem; margin-left: 3px; opacity: 0.85;"></i>`;
-          if (counterBadgeEl) {
-            counterBadgeEl.classList.add('is-admin');
-            counterBadgeEl.title = 'Privileged Admin Mode: Click to open Telemetry & Traffic Console';
-          }
-          if (adminHitsEl) {
-            adminHitsEl.textContent = `${countStr} Hits`;
-          }
-        } else {
-          counterTextEl.textContent = `${countStr} Unique Views | Visitor`;
-          if (counterBadgeEl) {
-            counterBadgeEl.classList.remove('is-admin');
-            counterBadgeEl.title = 'Live Verified Production Pageviews';
-          }
-        }
-      } else {
-        counterTextEl.innerHTML = isAdmin ? 'Online (Admin Mode) <i class="fas fa-cog" style="font-size: 0.725rem; margin-left: 3px;"></i>' : 'Online | Visitor';
-      }
-    }
-
-    function fetchCount(isManualResync = false) {
-      const targetUrl = isAdmin ? readOnlyUrl : incrementUrl;
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 4000);
-
-      if (isManualResync && resyncIcon) {
-        resyncIcon.classList.add('fa-spin');
-      }
-
-      fetch(targetUrl, { signal: controller.signal })
-        .then((res) => {
-          clearTimeout(timeoutId);
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          return res.json();
-        })
-        .then((data) => {
-          if (data && typeof data.count === 'number') {
-            renderVisitorState(data.count);
-          } else {
-            renderVisitorState(null);
-          }
-          updateClientTelemetry();
-        })
-        .catch(() => {
-          clearTimeout(timeoutId);
-          renderVisitorState(null);
-          updateClientTelemetry();
-        })
-        .finally(() => {
-          if (resyncIcon) resyncIcon.classList.remove('fa-spin');
-        });
-    }
-
-    // Attach click handler strictly if Admin
-    if (counterBadgeEl) {
-      counterBadgeEl.addEventListener('click', (e) => {
-        if (!isAdmin) return; // Guard against unauthorized trigger
-        e.preventDefault();
-        updateClientTelemetry();
-        if (adminModal) {
-          adminModal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-      });
-    }
-
-    // Resync Button handler
-    if (resyncBtn) {
-      resyncBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        fetchCount(true);
-      });
-    }
-
-    // Clear Admin Token Button handler
-    if (clearTokenBtn) {
-      clearTokenBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        sessionStorage.removeItem('__sv_auth_sig');
-        sessionStorage.removeItem('__sv_session_scope');
-        localStorage.removeItem('svkhun_is_admin');
-        isAdmin = false;
-        renderVisitorState(null);
-        if (adminModal) {
-          adminModal.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-        // Show Toast Notification
-        const toast = document.getElementById('toast-notice');
-        const toastText = document.getElementById('toast-text');
-        if (toast && toastText) {
-          toastText.textContent = 'Admin Token Cleared! Switched to Public Visitor mode.';
-          toast.classList.add('show');
-          setTimeout(() => toast.classList.remove('show'), 3500);
-        }
-        // Re-fetch in public mode
-        fetchCount();
-      });
-    }
-
-    // Initial fetch
-    fetchCount();
-  }
-
-  initVisitorCounter();
 
   /* ==========================================================================
      12. KBTG Industry Certifications Segmented Tab Switcher

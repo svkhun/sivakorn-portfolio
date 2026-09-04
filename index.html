@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,89 +37,71 @@
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Instant Theme Detection Script (Prevent Flash of Unstyled Theme - FOUT) -->
+  <!-- Lock Permanent Dark Theme -->
   <script>
-    (function () {
-      try {
-        const savedTheme = localStorage.getItem('svkhun_theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (savedTheme === 'light' || (!savedTheme && !prefersDark && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-          document.documentElement.classList.remove('dark');
-          document.documentElement.classList.add('light');
-          document.documentElement.setAttribute('data-theme', 'light');
-        } else {
-          document.documentElement.classList.add('dark');
-          document.documentElement.classList.remove('light');
-          document.documentElement.setAttribute('data-theme', 'dark');
-        }
-      } catch (e) {
-        document.documentElement.classList.add('dark');
-      }
-    })();
+    try {
+      localStorage.removeItem('svkhun_theme');
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } catch (e) {}
   </script>
 </head>
 <body class="transition-colors duration-200">
 
   <!-- ========================================================================
-       Header & Minimal Navigation with i18n Segmented Switcher & Theme Toggle
+       Minimalist Floating Navigation (Vercel / Linear Aesthetic)
        ======================================================================== -->
   <header class="header">
-    <div class="container nav-container">
-      <a href="#hero" class="brand-logo" aria-label="Home - svkhun.vercel.app">
-        <!-- Neural / Data Science Node Icon -->
-        <span class="brand-logo-icon">
-          <svg class="brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <!-- Synapse Lines -->
-            <line x1="5" y1="7" x2="12" y2="5" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.5"/>
-            <line x1="5" y1="17" x2="12" y2="19" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.5"/>
-            <line x1="5" y1="7" x2="12" y2="12" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.4"/>
-            <line x1="5" y1="17" x2="12" y2="12" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.4"/>
-            <line x1="12" y1="5" x2="19" y2="12" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.5"/>
-            <line x1="12" y1="19" x2="19" y2="12" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.5"/>
-            <line x1="12" y1="12" x2="19" y2="12" stroke="#34D399" stroke-width="1.4"/>
-            <!-- Input Nodes -->
-            <circle cx="5" cy="7" r="2" fill="#0B0F17" stroke="#38BDF8" stroke-width="1.5"/>
-            <circle cx="5" cy="17" r="2" fill="#0B0F17" stroke="#38BDF8" stroke-width="1.5"/>
-            <!-- Hidden / Processing Nodes -->
-            <circle cx="12" cy="5" r="2" fill="#0B0F17" stroke="#38BDF8" stroke-width="1.5"/>
-            <circle cx="12" cy="12" r="2.3" fill="#38BDF8" stroke="#38BDF8" stroke-width="1"/>
-            <circle cx="12" cy="19" r="2" fill="#0B0F17" stroke="#38BDF8" stroke-width="1.5"/>
-            <!-- Output Node -->
-            <circle cx="19" cy="12" r="2.2" fill="#34D399" stroke="#34D399" stroke-width="1.5"/>
-          </svg>
-        </span>
-        <span class="brand-text">svkhun<span class="brand-domain">.vercel.app</span></span>
-      </a>
+    <div class="nav-container w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Left section (Logo + Status): tight flex container -->
+      <div class="nav-left flex items-center gap-3 shrink-0">
+        <a href="#hero" class="brand-logo text-base font-bold text-white tracking-tight" aria-label="Sivakorn Khundilokrattaya">
+          <!-- Modern Minimalist Mark -->
+          <span class="brand-logo-icon">
+            <svg class="brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <line x1="5" y1="7" x2="12" y2="5" stroke="#00D2D3" stroke-width="1.2" stroke-opacity="0.6"/>
+              <line x1="5" y1="17" x2="12" y2="19" stroke="#00D2D3" stroke-width="1.2" stroke-opacity="0.6"/>
+              <line x1="5" y1="7" x2="12" y2="12" stroke="#00D2D3" stroke-width="1.2" stroke-opacity="0.5"/>
+              <line x1="5" y1="17" x2="12" y2="12" stroke="#00D2D3" stroke-width="1.2" stroke-opacity="0.5"/>
+              <line x1="12" y1="5" x2="19" y2="12" stroke="#0EA5E9" stroke-width="1.2" stroke-opacity="0.6"/>
+              <line x1="12" y1="19" x2="19" y2="12" stroke="#0EA5E9" stroke-width="1.2" stroke-opacity="0.6"/>
+              <line x1="12" y1="12" x2="19" y2="12" stroke="#00D2D3" stroke-width="1.5"/>
+              <circle cx="5" cy="7" r="2" fill="#0B0F17" stroke="#00D2D3" stroke-width="1.5"/>
+              <circle cx="5" cy="17" r="2" fill="#0B0F17" stroke="#00D2D3" stroke-width="1.5"/>
+              <circle cx="12" cy="5" r="2" fill="#0B0F17" stroke="#0EA5E9" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="2.3" fill="#00D2D3" stroke="#00D2D3" stroke-width="1"/>
+              <circle cx="12" cy="19" r="2" fill="#0B0F17" stroke="#0EA5E9" stroke-width="1.5"/>
+              <circle cx="19" cy="12" r="2.2" fill="#00D2D3" stroke="#00D2D3" stroke-width="1.5"/>
+            </svg>
+          </span>
+          <span class="brand-text">Sivakorn<span class="brand-domain">.dev</span></span>
+        </a>
 
-      <div class="nav-status">
-        <span class="status-dot"></span>
-        <span>Open to DS / ML Roles</span>
+        <div class="nav-status-badge text-xs px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 whitespace-nowrap">
+          <span class="status-pulse-dot"></span>
+          <span>Open to Work</span>
+        </div>
       </div>
 
-      <ul class="nav-links" id="nav-links">
+      <!-- Center section (Nav Links): hidden on mobile, show on desktop -->
+      <ul class="nav-links hidden md:flex items-center gap-6 text-sm text-slate-300 font-medium" id="nav-links">
         <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#competitions" class="nav-link">Competitions</a></li>
-        <li><a href="#stack" class="nav-link">Stack</a></li>
+        <li><a href="#certifications" class="nav-link">Certifications</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
 
-      <div class="nav-actions">
-        <!-- Sleek Dark / Light Mode Toggle Button -->
-        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Dark / Light Theme">
-          <span class="theme-icon-dark" aria-hidden="true"><i class="fas fa-moon"></i></span>
-          <span class="theme-icon-light" aria-hidden="true"><i class="fas fa-sun"></i></span>
-        </button>
-
-        <button class="btn-exec-brief" data-open-modal="modal-exec-brief" aria-label="30-Second Executive Brief for Recruiters">
-          <i class="fas fa-bolt"></i>
-          <span>30s Brief</span>
-        </button>
-
-        <button class="btn-resume" data-open-drawer="drawer-resume" aria-label="Open Resume Preview">
+      <!-- Right section (Actions): flex items-center gap-3 shrink-0 -->
+      <div class="nav-actions flex items-center gap-3 shrink-0">
+        <!-- Clean, non-wrapping View Resume Action Button -->
+        <button class="btn-resume-action whitespace-nowrap px-4 py-2 text-xs font-semibold rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500 hover:text-slate-900 transition-all" data-open-drawer="drawer-resume" aria-label="Open Resume Preview">
           <i class="fas fa-file-pdf"></i>
-          <span>Resume</span>
+          <span>View Resume (PDF)</span>
         </button>
+
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
           <i class="fas fa-bars"></i>
         </button>
@@ -128,63 +110,87 @@
   </header>
 
   <!-- ========================================================================
-       1. HERO SECTION (Sharp, Authoritative, Zero Clutter)
+       1. HERO SECTION (High-End Clean Slate Dark Aesthetic)
        ======================================================================== -->
   <section class="hero-section" id="hero">
     <canvas id="neural-canvas"></canvas>
     <div class="container hero-content">
       <div class="hero-meta-pill reveal-smooth stagger-1" id="hero-meta-pill">
         <span class="meta-pulse-dot"></span>
-        <i class="fas fa-graduation-cap"></i>
-        <span>B.Eng. Computer Engineering @ Srinakharinwirot University (SWU) &bull; Class of 2026</span>
-        <span class="meta-tooltip">Currently Enrolled (B.Eng.)</span>
+        <i class="fas fa-map-marker-alt" style="color: #00D2D3;"></i>
+        <span>Bangkok, Thailand</span>
+        <span style="opacity: 0.4; margin: 0 4px;">&bull;</span>
+        <i class="fas fa-graduation-cap" style="color: #0EA5E9;"></i>
+        <span>Computer Engineering @ SWU &bull; Class of 2026</span>
       </div>
 
       <h1 class="hero-name reveal-smooth stagger-2">
         Sivakorn <br>
-        <span class="highlight">Khundilokrattaya</span>
+        <span class="highlight gradient-text">Khundilokrattaya</span>
       </h1>
 
-      <!-- Two-Part Punchy Sub-Headline (Zero Redundancy) -->
+      <!-- Clean Punchy Sub-Headline -->
       <div class="hero-subheadline-group reveal-smooth stagger-3">
         <div class="hero-identity-line">
-          Data Scientist &amp; Machine Learning Engineer &bull; FinTech &amp; Quantitative Risk
+          Computer Engineering Student @ SWU &bull; Aspiring Data Scientist &amp; ML Engineer
         </div>
         <p class="hero-specialty-line">
-          Architecting explainable credit risk engines, high-impact tabular ML, and production-grade financial data pipelines.
+          Architecting explainable credit risk engines, Basel-compliant probability of default (PD) models, and scalable production data pipelines.
         </p>
       </div>
 
-      <!-- Unified Action & Social Bar (Single Clean Row) -->
-      <div class="hero-unified-bar reveal-smooth stagger-4">
-        <a href="#projects" class="btn-primary-pill">
-          <i class="fas fa-arrow-down"></i>
-          <span>Explore Projects</span>
-        </a>
-        <button class="btn-secondary-pill btn-exec-pill" data-open-modal="modal-exec-brief">
-          <i class="fas fa-bolt"></i>
-          <span>30s Brief</span>
-        </button>
-        <button class="btn-secondary-pill btn-terminal-pill" id="btn-open-terminal">
-          <i class="fas fa-terminal"></i>
-          <span>Terminal</span>
-          <span class="terminal-shortcut-badge">⌘K</span>
-        </button>
+      <!-- Quick Status Badges -->
+      <div class="hero-status-row reveal-smooth stagger-3" style="justify-content: center;">
+        <span class="hero-status-badge">
+          <span class="status-pulse-dot"></span>
+          <span>Active Inference &amp; Research</span>
+        </span>
+        <span class="hero-status-badge">
+          <i class="fas fa-shield-alt" style="color: #00D2D3;"></i>
+          <span>Basel II/III &amp; ECOA Governance</span>
+        </span>
+      </div>
 
-        <div class="hero-bar-divider"></div>
+      <!-- Refactored 2-Row Action & Social Area -->
+      <div class="hero-actions-container reveal-smooth stagger-4">
+        <!-- Row 1: Primary CTAs -->
+        <div class="hero-primary-ctas flex flex-wrap items-center gap-3 mt-6">
+          <a href="#projects" class="btn-hero-primary" style="background: #00D2D3; color: #0B0F17; font-weight: 600;">
+            <i class="fas fa-arrow-down"></i>
+            <span>Explore Projects</span>
+          </a>
+          <button class="btn-hero-secondary" data-open-drawer="drawer-resume">
+            <i class="fas fa-file-contract"></i>
+            <span>View Interactive CV</span>
+          </button>
+          <button class="btn-hero-pill" data-open-modal="modal-exec-brief">
+            <i class="fas fa-bolt"></i>
+            <span>30s Brief</span>
+          </button>
+          <button class="btn-hero-pill btn-terminal-pill" id="btn-open-terminal" title="Terminal Command Palette">
+            <i class="fas fa-terminal"></i>
+            <span>Terminal</span>
+            <span class="terminal-shortcut-badge">⌘K</span>
+          </button>
+        </div>
 
-        <div class="hero-social-icons">
-          <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="hero-icon-btn" title="GitHub Profile" aria-label="GitHub Profile">
+        <!-- Row 2: Social & Direct Connect -->
+        <div class="hero-social-row flex items-center gap-4 mt-4 pt-2 border-t border-slate-800/60">
+          <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="GitHub Profile (@svkhun)" aria-label="GitHub Profile">
             <i class="fab fa-github"></i>
+            <span>GitHub</span>
           </a>
-          <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer" class="hero-icon-btn" title="LinkedIn" aria-label="LinkedIn Profile">
+          <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="LinkedIn Profile" aria-label="LinkedIn Profile">
             <i class="fab fa-linkedin-in"></i>
+            <span>LinkedIn</span>
           </a>
-          <a href="mailto:sivakorn.khun@gmail.com" class="hero-icon-btn" title="Send Email" aria-label="Send Direct Email">
+          <a href="mailto:sivakorn.khun@gmail.com" class="hero-social-link" title="Send Direct Email" aria-label="Send Direct Email">
             <i class="fas fa-envelope"></i>
+            <span>Email</span>
           </a>
-          <button class="hero-icon-btn" data-open-drawer="drawer-resume" title="View Resume PDF" aria-label="View Resume PDF">
+          <button class="hero-social-link" data-open-drawer="drawer-resume" title="View Resume PDF" aria-label="View Resume PDF">
             <i class="fas fa-file-pdf"></i>
+            <span>Resume (PDF)</span>
           </button>
         </div>
       </div>
@@ -192,13 +198,13 @@
   </section>
 
   <!-- ========================================================================
-       1. METRICS STRIP (Refactored Capability Stats & 3D Tilt Micro-Interactions)
+       1. METRICS STRIP (Translucent Glass Cards & 3D Tilt Micro-Interactions)
        ======================================================================== -->
   <section class="stats-section">
     <div class="container">
       <div class="stats-grid reveal-smooth">
         <!-- Metric 1: Competitions -->
-        <div class="stat-item">
+        <div class="stat-item glass-card">
           <div class="stat-number-wrapper">
             <span class="stat-number" data-target="4" data-decimal="false">0</span>
             <span class="stat-suffix">+</span>
@@ -209,7 +215,7 @@
         </div>
 
         <!-- Metric 2: Financial Data Points -->
-        <div class="stat-item">
+        <div class="stat-item glass-card">
           <div class="stat-number-wrapper">
             <span class="stat-number" data-target="40000" data-decimal="false">0</span>
             <span class="stat-suffix">+</span>
@@ -220,7 +226,7 @@
         </div>
 
         <!-- Metric 3: Spatial Pipeline Resolution -->
-        <div class="stat-item">
+        <div class="stat-item glass-card">
           <div class="stat-number-wrapper">
             <span class="stat-number" data-target="30" data-decimal="false">0</span>
             <span class="stat-suffix">m</span>
@@ -231,7 +237,7 @@
         </div>
 
         <!-- Metric 4: API Inference Latency -->
-        <div class="stat-item">
+        <div class="stat-item glass-card">
           <div class="stat-number-wrapper">
             <span class="stat-prefix">Sub-</span>
             <span class="stat-number" data-target="30" data-decimal="false">0</span>
@@ -390,250 +396,59 @@
         </div>
 
         <!-- ================================================================
-             TIER 3: BALANCED 2-COLUMN LOWER DECK (Assessments & Governance)
+             TIER 3: ACADEMIC FOUNDATION & MODEL GOVERNANCE
              ================================================================ -->
-        <div class="about-tier-lower-grid">
-          <!-- Left Column: Industry Assessments & Certifications (KBTG) -->
-          <div class="about-tier-card kbtg-cert-card reveal-smooth stagger-1">
-            <div class="info-header" style="color: #10B981; justify-content: space-between;">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <i class="fas fa-award"></i>
-                <span>// INDUSTRY ASSESSMENTS</span>
-              </div>
-              <span class="kbtg-issuer-pill">SKILLKAMP by KBTG</span>
+        <div class="about-tier-card about-standards-card glass-card reveal-smooth stagger-2" style="width: 100%; margin-top: 18px;">
+          <div class="info-header" style="justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <i class="fas fa-layer-group" style="color: #00D2D3;"></i>
+              <span>// ACADEMIC FOUNDATION, COURSEWORK &amp; GOVERNANCE</span>
             </div>
+            <span class="hero-status-badge" style="padding: 3px 10px; font-size: 0.725rem;">
+              <span class="status-pulse-dot"></span> B.Eng. Class of 2026
+            </span>
+          </div>
 
-            <!-- Segmented Tab Switcher -->
-            <div class="kbtg-tab-switcher">
-              <button class="kbtg-tab-btn active" data-kbtg-tab="kbtg-tab-da">
-                <i class="fas fa-chart-line"></i> Data Analyst (97)
-              </button>
-              <button class="kbtg-tab-btn" data-kbtg-tab="kbtg-tab-mkt">
-                <i class="fas fa-bullseye"></i> Marketer (98)
-              </button>
-            </div>
-
-            <div class="kbtg-tab-content-wrapper">
-              <!-- View A: Data Analyst (97 / 150) -->
-              <div class="kbtg-tab-pane active" id="kbtg-tab-da">
-                <div class="kbtg-dashboard-header">
-                  <div class="kbtg-dashboard-left">
-                    <h4 class="kbtg-badge-title">Data Analyst Assessment (STAMP)</h4>
-                    <div class="kbtg-bench-note">
-                      <span class="status-indicator-dot"></span>
-                      <span>Above Benchmark (90) &bull; Verified Level: <strong class="text-emerald-400">Intermediate</strong></span>
-                    </div>
-                  </div>
-                  <div class="kbtg-score-callout">
-                    <span class="kbtg-score-num">97</span>
-                    <span class="kbtg-score-max">/ 150</span>
-                  </div>
-                </div>
-
-                <!-- 5-Domain Evaluation Micro-Grid -->
-                <div class="kbtg-domains-grid">
-                  <!-- Domain 1 -->
-                  <div class="kbtg-domain-card">
-                    <div class="kbtg-domain-top">
-                      <span class="kbtg-domain-name">Data Cleaning &amp; Preprocessing</span>
-                      <span class="kbtg-domain-val">23 <span class="kbtg-domain-max">/ 30</span></span>
-                    </div>
-                    <div class="kbtg-domain-bar-bg">
-                      <div class="kbtg-domain-bar-fill" style="width: 76.7%;"></div>
-                    </div>
-                  </div>
-
-                  <!-- Domain 2 -->
-                  <div class="kbtg-domain-card">
-                    <div class="kbtg-domain-top">
-                      <span class="kbtg-domain-name">EDA &amp; Visualization</span>
-                      <span class="kbtg-domain-val">20 <span class="kbtg-domain-max">/ 30</span></span>
-                    </div>
-                    <div class="kbtg-domain-bar-bg">
-                      <div class="kbtg-domain-bar-fill" style="width: 66.7%;"></div>
-                    </div>
-                  </div>
-
-                  <!-- Domain 3 -->
-                  <div class="kbtg-domain-card">
-                    <div class="kbtg-domain-top">
-                      <span class="kbtg-domain-name">ML for Analysts</span>
-                      <span class="kbtg-domain-val">18 <span class="kbtg-domain-max">/ 30</span></span>
-                    </div>
-                    <div class="kbtg-domain-bar-bg">
-                      <div class="kbtg-domain-bar-fill" style="width: 60%;"></div>
-                    </div>
-                  </div>
-
-                  <!-- Domain 4 -->
-                  <div class="kbtg-domain-card">
-                    <div class="kbtg-domain-top">
-                      <span class="kbtg-domain-name">Business Insight &amp; Framing</span>
-                      <span class="kbtg-domain-val">19 <span class="kbtg-domain-max">/ 30</span></span>
-                    </div>
-                    <div class="kbtg-domain-bar-bg">
-                      <div class="kbtg-domain-bar-fill" style="width: 63.3%;"></div>
-                    </div>
-                  </div>
-
-                  <!-- Domain 5 -->
-                  <div class="kbtg-domain-card kbtg-domain-card-full">
-                    <div class="kbtg-domain-top">
-                      <span class="kbtg-domain-name">SQL &amp; Quantitative Querying</span>
-                      <span class="kbtg-domain-val">17 <span class="kbtg-domain-max">/ 30</span></span>
-                    </div>
-                    <div class="kbtg-domain-bar-bg">
-                      <div class="kbtg-domain-bar-fill" style="width: 56.7%;"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Pinned Action Footer -->
-                <div class="kbtg-pinned-footer">
-                  <button class="btn-kbtg-report" data-open-modal="modal-kbtg-da">
-                    <i class="fas fa-chart-bar"></i>
-                    <span>View KBTG Score Report ↗</span>
-                  </button>
-                  <span class="kbtg-verified-tag">
-                    <i class="fas fa-shield-alt"></i> Issued by KBTG &bull; Verified Credential
-                  </span>
-                </div>
-              </div>
-
-              <!-- View B: Digital & Performance Marketer (98 / 150) -->
-              <div class="kbtg-tab-pane" id="kbtg-tab-mkt">
-                <div class="kbtg-dashboard-header">
-                  <div class="kbtg-dashboard-left">
-                    <h4 class="kbtg-badge-title">Digital &amp; Performance Marketer (STAMP)</h4>
-                    <div class="kbtg-bench-note">
-                      <span class="status-indicator-dot"></span>
-                      <span>Above Benchmark (94) &bull; Top Tier Analytics: <strong class="text-emerald-400">Intermediate</strong></span>
-                    </div>
-                  </div>
-                  <div class="kbtg-score-callout">
-                    <span class="kbtg-score-num">98</span>
-                    <span class="kbtg-score-max">/ 150</span>
-                  </div>
-                </div>
-
-                <!-- 5-Domain Evaluation Micro-Grid -->
-                <div class="kbtg-domains-grid">
-                  <!-- Domain 1 -->
-                  <div class="kbtg-domain-card highlight">
-                    <div class="kbtg-domain-top">
-                      <span class="kbtg-domain-name">Marketing Analytics</span>
-                      <span class="kbtg-domain-val text-emerald-400 font-bold">26 <span class="kbtg-domain-max">/ 30</span></span>
-                    </div>
-                    <div class="kbtg-domain-bar-bg">
-                      <div class="kbtg-domain-bar-fill bg-emerald" style="width: 86.7%;"></div>
-                    </div>
-                  </div>
-
-                  <!-- Domain 2 -->
-                  <div class="kbtg-domain-card">
-                    <div class="kbtg-domain-top">
-                      <span class="kbtg-domain-name">Data-Driven Strategy</span>
-                      <span class="kbtg-domain-val">21 <span class="kbtg-domain-max">/ 30</span></span>
-                    </div>
-                    <div class="kbtg-domain-bar-bg">
-                      <div class="kbtg-domain-bar-fill" style="width: 70%;"></div>
-                    </div>
-                  </div>
-
-                  <!-- Domain 3 -->
-                  <div class="kbtg-domain-card">
-                    <div class="kbtg-domain-top">
-                      <span class="kbtg-domain-name">Content &amp; Performance</span>
-                      <span class="kbtg-domain-val">19 <span class="kbtg-domain-max">/ 30</span></span>
-                    </div>
-                    <div class="kbtg-domain-bar-bg">
-                      <div class="kbtg-domain-bar-fill" style="width: 63.3%;"></div>
-                    </div>
-                  </div>
-
-                  <!-- Domain 4 -->
-                  <div class="kbtg-domain-card">
-                    <div class="kbtg-domain-top">
-                      <span class="kbtg-domain-name">Acquisition Funnel</span>
-                      <span class="kbtg-domain-val">18 <span class="kbtg-domain-max">/ 30</span></span>
-                    </div>
-                    <div class="kbtg-domain-bar-bg">
-                      <div class="kbtg-domain-bar-fill" style="width: 60%;"></div>
-                    </div>
-                  </div>
-
-                  <!-- Domain 5 -->
-                  <div class="kbtg-domain-card kbtg-domain-card-full">
-                    <div class="kbtg-domain-top">
-                      <span class="kbtg-domain-name">Growth Experimentation</span>
-                      <span class="kbtg-domain-val">14 <span class="kbtg-domain-max">/ 30</span></span>
-                    </div>
-                    <div class="kbtg-domain-bar-bg">
-                      <div class="kbtg-domain-bar-fill" style="width: 46.7%;"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Pinned Action Footer -->
-                <div class="kbtg-pinned-footer">
-                  <button class="btn-kbtg-report" data-open-modal="modal-kbtg-marketer">
-                    <i class="fas fa-chart-bar"></i>
-                    <span>View KBTG Score Report ↗</span>
-                  </button>
-                  <span class="kbtg-verified-tag">
-                    <i class="fas fa-shield-alt"></i> Issued by KBTG &bull; Verified Credential
-                  </span>
-                </div>
-              </div>
+          <!-- Core Coursework Chips -->
+          <div class="standards-coursework-block" style="margin-bottom: 24px;">
+            <div class="standards-sub-label">Core Technical Coursework (Srinakharinwirot University):</div>
+            <div class="coursework-chips-grid">
+              <span class="course-pill"><i class="fas fa-brain" style="color: #00D2D3;"></i> Machine Learning</span>
+              <span class="course-pill"><i class="fas fa-database" style="color: #0EA5E9;"></i> Database Systems</span>
+              <span class="course-pill"><i class="fas fa-microchip" style="color: #38BDF8;"></i> Operating Systems</span>
+              <span class="course-pill"><i class="fas fa-chart-line" style="color: #34D399;"></i> Statistical Methods for Engineers</span>
+              <span class="course-pill"><i class="fas fa-project-diagram" style="color: #A78BFA;"></i> Data Structures &amp; Algorithms</span>
+              <span class="course-pill"><i class="fas fa-network-wired" style="color: #FBBF24;"></i> Computer Networks</span>
+              <span class="course-pill"><i class="fas fa-code" style="color: #F87171;"></i> Software Engineering</span>
             </div>
           </div>
 
-          <!-- Right Column: Engineering Standards & Academic Foundation -->
-          <div class="about-tier-card about-standards-card reveal-smooth stagger-2">
-            <div class="info-header">
-              <i class="fas fa-layer-group"></i>
-              <span>// ACADEMIC FOUNDATION &amp; GOVERNANCE</span>
-            </div>
-
-            <!-- Core Coursework Chips -->
-            <div class="standards-coursework-block">
-              <div class="standards-sub-label">Core Technical Coursework:</div>
-              <div class="coursework-chips-grid">
-                <span class="course-pill"><i class="fas fa-brain"></i> Machine Learning</span>
-                <span class="course-pill"><i class="fas fa-database"></i> Database Systems</span>
-                <span class="course-pill"><i class="fas fa-microchip"></i> Operating Systems</span>
-                <span class="course-pill"><i class="fas fa-chart-line"></i> Statistical Methods</span>
-                <span class="course-pill"><i class="fas fa-project-diagram"></i> Data Structures</span>
+          <!-- 3 Foundation Anchors -->
+          <div class="standards-anchors-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+            <div class="standards-anchor-item glass-card" style="padding: 16px; border-radius: 12px;">
+              <div class="standards-anchor-icon" style="color: #00D2D3;"><i class="fas fa-cubes"></i></div>
+              <div class="standards-anchor-content">
+                <div class="standards-anchor-title">Clean Architecture &amp; OOP</div>
+                <div class="standards-anchor-desc">Adheres strictly to PEP-8 standards, modular object-oriented pipeline design, and reproducible containerized microservices.</div>
               </div>
             </div>
 
-            <!-- 3 Foundation Anchors -->
-            <div class="standards-anchors-list">
-              <div class="standards-anchor-item">
-                <div class="standards-anchor-icon"><i class="fas fa-cubes"></i></div>
-                <div class="standards-anchor-content">
-                  <div class="standards-anchor-title">Clean Architecture</div>
-                  <div class="standards-anchor-desc">Modular OOP, PEP-8 compliant data structures, and decoupled pipeline microservices.</div>
-                </div>
+            <div class="standards-anchor-item glass-card" style="padding: 16px; border-radius: 12px;">
+              <div class="standards-anchor-icon" style="color: #0EA5E9;"><i class="fas fa-eye"></i></div>
+              <div class="standards-anchor-content">
+                <div class="standards-anchor-title">Model Governance &amp; Ethics</div>
+                <div class="standards-anchor-desc">Zero black-box deployments without local feature attribution; full compliance with ECOA, FCRA, and SR 11-7 standards.</div>
               </div>
+            </div>
 
-              <div class="standards-anchor-item">
-                <div class="standards-anchor-icon"><i class="fas fa-eye"></i></div>
-                <div class="standards-anchor-content">
-                  <div class="standards-anchor-title">Model Governance</div>
-                  <div class="standards-anchor-desc">100% accountable, explainable local attribution with strict auditability.</div>
+            <div class="standards-anchor-item glass-card" style="padding: 16px; border-radius: 12px;">
+              <div class="standards-anchor-icon" style="color: #38BDF8;"><i class="fab fa-github"></i></div>
+              <div class="standards-anchor-content">
+                <div class="standards-anchor-title">
+                  Git Monorepo Sync
+                  <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="standards-github-link">github.com/svkhun ↗</a>
                 </div>
-              </div>
-
-              <div class="standards-anchor-item">
-                <div class="standards-anchor-icon"><i class="fab fa-github"></i></div>
-                <div class="standards-anchor-content">
-                  <div class="standards-anchor-title">
-                    Git Monorepo Sync
-                    <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="standards-github-link">github.com/svkhun ↗</a>
-                  </div>
-                  <div class="standards-anchor-desc">Continuous integration, automated linters, and versioned experiment tracking.</div>
-                </div>
+                <div class="standards-anchor-desc">Continuous integration, automated linters, versioned experiment tracking, and clean commit hygiene.</div>
               </div>
             </div>
           </div>
@@ -643,793 +458,977 @@
   </section>
 
   <!-- ========================================================================
-       SECTION A: PRODUCTION ARCHITECTURES (2D Focal Showcase)
+       2. SKILLS & TECHNOLOGIES (Modern Structured Card Grid + Interactive Stream)
        ======================================================================== -->
-  <section class="section focal-deck-section" id="projects">
+  <section class="section" id="skills">
     <div class="container">
-      <div class="section-tag reveal-smooth">// PRODUCTION ARCHITECTURES</div>
-      <h2 class="section-title reveal-smooth stagger-1">Flagship Engineering &amp; Applied ML</h2>
+      <div class="section-tag reveal-smooth">// TECHNICAL ARSENAL</div>
+      <h2 class="section-title reveal-smooth stagger-1">Skills &amp; Technologies</h2>
       <p class="section-desc reveal-smooth stagger-2">
-        End-to-end pipelines bridging regulatory credit risk scoring, clinical frailty diagnostics, and automated manufacturing telemetry.
+        A curated ecosystem of programming languages, statistical modeling frameworks, and scalable cloud data pipelines engineered for high reliability.
       </p>
 
-      <!-- 2D Layered Bento Deck Stage -->
-      <div class="focal-deck-stage reveal-smooth stagger-3" id="focal-deck-stage">
-        <div class="focal-deck-track">
-          
-          <!-- Slide 1: Long Overdue Debtor (LOD) Classification System -->
-          <div class="focal-deck-card active" data-open-drawer="drawer-lod-project">
-            <div class="focal-deck-card-top">
-              <span class="focal-deck-domain-badge" style="color: var(--accent-sage); border-color: rgba(52, 211, 153, 0.3);">[ FinTech / Credit Risk Modeling ]</span>
-              <span class="focal-deck-metric-chip">Aihack 2025 Finalist &bull; Top 8 &bull; 40k+ Records</span>
+      <!-- Structured Categorized Cards Grid -->
+      <div class="skills-bento-grid reveal-smooth stagger-2">
+        <!-- 1. Core Languages -->
+        <div class="skill-category-card glass-card">
+          <div class="skill-category-top">
+            <div class="skill-category-icon"><i class="fas fa-code"></i></div>
+            <div class="skill-category-name">Core / Languages</div>
+          </div>
+          <div class="skill-tag-pills-row">
+            <span class="skill-pill-item featured"><i class="fab fa-python"></i> Python (Expert)</span>
+            <span class="skill-pill-item"><i class="fas fa-chart-bar"></i> R</span>
+            <span class="skill-pill-item"><i class="fas fa-microchip"></i> C</span>
+            <span class="skill-pill-item"><i class="fas fa-code"></i> C++</span>
+            <span class="skill-pill-item"><i class="fab fa-java"></i> Java</span>
+            <span class="skill-pill-item featured"><i class="fas fa-database"></i> SQL (Postgres / MySQL)</span>
+            <span class="skill-pill-item"><i class="fas fa-terminal"></i> Bash Scripting</span>
+          </div>
+        </div>
+
+        <!-- 2. Data Science & ML -->
+        <div class="skill-category-card glass-card">
+          <div class="skill-category-top">
+            <div class="skill-category-icon"><i class="fas fa-brain"></i></div>
+            <div class="skill-category-name">Data Science &amp; ML</div>
+          </div>
+          <div class="skill-tag-pills-row">
+            <span class="skill-pill-item featured"><i class="fas fa-bolt"></i> LightGBM</span>
+            <span class="skill-pill-item featured"><i class="fas fa-tree"></i> XGBoost</span>
+            <span class="skill-pill-item"><i class="fas fa-cogs"></i> Scikit-Learn</span>
+            <span class="skill-pill-item featured"><i class="fas fa-eye"></i> SHAP (TreeExplainer)</span>
+            <span class="skill-pill-item"><i class="fas fa-search-plus"></i> LIME</span>
+            <span class="skill-pill-item featured"><i class="fas fa-sliders-h"></i> OptBinning (WoE)</span>
+            <span class="skill-pill-item"><i class="fas fa-table"></i> Pandas</span>
+            <span class="skill-pill-item"><i class="fas fa-calculator"></i> NumPy</span>
+            <span class="skill-pill-item"><i class="fas fa-balance-scale"></i> SMOTE-Tomek</span>
+          </div>
+        </div>
+
+        <!-- 3. Data Engineering & Cloud -->
+        <div class="skill-category-card glass-card">
+          <div class="skill-category-top">
+            <div class="skill-category-icon"><i class="fas fa-network-wired"></i></div>
+            <div class="skill-category-name">Data Engineering &amp; Cloud</div>
+          </div>
+          <div class="skill-tag-pills-row">
+            <span class="skill-pill-item featured"><i class="fas fa-server"></i> PostgreSQL</span>
+            <span class="skill-pill-item"><i class="fas fa-database"></i> MySQL</span>
+            <span class="skill-pill-item featured"><i class="fas fa-fire"></i> Apache Spark</span>
+            <span class="skill-pill-item featured"><i class="fas fa-wind"></i> Apache Airflow</span>
+            <span class="skill-pill-item featured"><i class="fab fa-docker"></i> Docker &bull; Compose</span>
+            <span class="skill-pill-item featured"><i class="fas fa-tachometer-alt"></i> FastAPI</span>
+            <span class="skill-pill-item"><i class="fas fa-link"></i> SQLAlchemy</span>
+          </div>
+        </div>
+
+        <!-- 4. Productivity & Analytics -->
+        <div class="skill-category-card glass-card">
+          <div class="skill-category-top">
+            <div class="skill-category-icon"><i class="fas fa-toolbox"></i></div>
+            <div class="skill-category-name">Productivity &amp; Analytics</div>
+          </div>
+          <div class="skill-tag-pills-row">
+            <span class="skill-pill-item"><i class="fab fa-git-alt"></i> Git</span>
+            <span class="skill-pill-item"><i class="fab fa-linux"></i> Linux Environment</span>
+            <span class="skill-pill-item"><i class="fas fa-book-open"></i> Jupyter Lab</span>
+            <span class="skill-pill-item"><i class="fas fa-chart-pie"></i> RStudio</span>
+            <span class="skill-pill-item"><i class="fas fa-file-excel"></i> Microsoft Excel</span>
+            <span class="skill-pill-item"><i class="fas fa-clipboard-list"></i> Notion</span>
+          </div>
+        </div>
+
+        <!-- 5. Spoken Languages -->
+        <div class="skill-category-card glass-card">
+          <div class="skill-category-top">
+            <div class="skill-category-icon"><i class="fas fa-language"></i></div>
+            <div class="skill-category-name">Spoken Languages</div>
+          </div>
+          <div class="skill-tag-pills-row">
+            <span class="skill-pill-item"><i class="fas fa-comment"></i> Thai (Native)</span>
+            <span class="skill-pill-item featured" data-open-modal="modal-cert-english" style="cursor: pointer;" title="View Verified Oxford Document">
+              <i class="fas fa-certificate"></i> English (B1+ Professional / Oxford Test) ↗
+            </span>
+            <span class="skill-pill-item"><i class="fas fa-globe-asia"></i> Japanese (Elementary)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Marquee Stream Strip -->
+      <div style="margin-top: 40px;">
+        <div class="marquee-filters reveal-smooth stagger-1">
+          <button class="marquee-filter-tab active" data-filter="all">All Stack</button>
+          <button class="marquee-filter-tab" data-filter="languages">Core Languages</button>
+          <button class="marquee-filter-tab" data-filter="ml">ML &amp; XAI</button>
+          <button class="marquee-filter-tab" data-filter="data-eng">Data Engineering &amp; Cloud</button>
+          <button class="marquee-filter-tab" data-filter="tools">Analytics &amp; Tools</button>
+        </div>
+
+        <div class="marquee-container reveal-smooth stagger-2" id="tech-marquee-container">
+          <!-- Track 1: Leftward Stream -->
+          <div class="marquee-row">
+            <div class="marquee-track marquee-track-left">
+              <!-- Set 1 -->
+              <div class="marquee-card" data-category="languages">
+                <div class="marquee-card-icon"><i class="fab fa-python"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Python</span>
+                  <span class="marquee-card-badge">Core Language</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="languages">
+                <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">SQL</span>
+                  <span class="marquee-card-badge">Relational Querying</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="languages">
+                <div class="marquee-card-icon"><i class="fas fa-code"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">C++</span>
+                  <span class="marquee-card-badge">Systems &amp; Memory</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="languages">
+                <div class="marquee-card-icon"><i class="fab fa-java"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Java</span>
+                  <span class="marquee-card-badge">Enterprise Backend</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="languages">
+                <div class="marquee-card-icon"><i class="fas fa-chart-bar"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">R</span>
+                  <span class="marquee-card-badge">Statistical Modeling</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="ml">
+                <div class="marquee-card-icon"><i class="fas fa-tree"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">XGBoost</span>
+                  <span class="marquee-card-badge">Asymmetric Loss</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="ml">
+                <div class="marquee-card-icon"><i class="fas fa-bolt"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">LightGBM</span>
+                  <span class="marquee-card-badge">Gradient Boosting</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="ml">
+                <div class="marquee-card-icon"><i class="fas fa-cogs"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Scikit-Learn</span>
+                  <span class="marquee-card-badge">Pipelines &amp; CV</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="ml">
+                <div class="marquee-card-icon"><i class="fas fa-eye"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">SHAP</span>
+                  <span class="marquee-card-badge">TreeExplainer XAI</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="ml">
+                <div class="marquee-card-icon"><i class="fas fa-sliders-h"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">OptBinning</span>
+                  <span class="marquee-card-badge">Monotonic WoE</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">PostgreSQL</span>
+                  <span class="marquee-card-badge">ACID Relational</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fab fa-docker"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Docker</span>
+                  <span class="marquee-card-badge">Containerization</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fas fa-bolt"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">FastAPI</span>
+                  <span class="marquee-card-badge">Low-Latency Serving</span>
+                </div>
+              </div>
+
+              <!-- Set 2 (Duplicate for Seamless Infinite Loop) -->
+              <div class="marquee-card marquee-duplicate" data-category="languages">
+                <div class="marquee-card-icon"><i class="fab fa-python"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Python</span>
+                  <span class="marquee-card-badge">Core Language</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="languages">
+                <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">SQL</span>
+                  <span class="marquee-card-badge">Relational Querying</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="languages">
+                <div class="marquee-card-icon"><i class="fas fa-code"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">C++</span>
+                  <span class="marquee-card-badge">Systems &amp; Memory</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="languages">
+                <div class="marquee-card-icon"><i class="fab fa-java"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Java</span>
+                  <span class="marquee-card-badge">Enterprise Backend</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="languages">
+                <div class="marquee-card-icon"><i class="fas fa-chart-bar"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">R</span>
+                  <span class="marquee-card-badge">Statistical Modeling</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="ml">
+                <div class="marquee-card-icon"><i class="fas fa-tree"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">XGBoost</span>
+                  <span class="marquee-card-badge">Asymmetric Loss</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="ml">
+                <div class="marquee-card-icon"><i class="fas fa-bolt"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">LightGBM</span>
+                  <span class="marquee-card-badge">Gradient Boosting</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="ml">
+                <div class="marquee-card-icon"><i class="fas fa-cogs"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Scikit-Learn</span>
+                  <span class="marquee-card-badge">Pipelines &amp; CV</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="ml">
+                <div class="marquee-card-icon"><i class="fas fa-eye"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">SHAP</span>
+                  <span class="marquee-card-badge">TreeExplainer XAI</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="ml">
+                <div class="marquee-card-icon"><i class="fas fa-sliders-h"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">OptBinning</span>
+                  <span class="marquee-card-badge">Monotonic WoE</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">PostgreSQL</span>
+                  <span class="marquee-card-badge">ACID Relational</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fab fa-docker"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Docker</span>
+                  <span class="marquee-card-badge">Containerization</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fas fa-bolt"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">FastAPI</span>
+                  <span class="marquee-card-badge">Low-Latency Serving</span>
+                </div>
+              </div>
             </div>
+          </div>
 
-            <h3 class="focal-deck-title">Long Overdue Debtor (LOD) Classification System</h3>
-            <p class="focal-deck-summary">
-              Production machine learning pipeline predicting 90+ day default risks on real consumer loans. Optimized ROC-AUC on ProbSpace across Public and Private blind test splits under strict time constraints.
-            </p>
+          <!-- Track 2: Rightward Stream -->
+          <div class="marquee-row">
+            <div class="marquee-track marquee-track-right">
+              <!-- Set 1 -->
+              <div class="marquee-card" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fas fa-server"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">PostgreSQL</span>
+                  <span class="marquee-card-badge">Data Warehousing</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">MySQL</span>
+                  <span class="marquee-card-badge">RDBMS Architecture</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fas fa-fire"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Apache Spark</span>
+                  <span class="marquee-card-badge">Distributed ETL</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fas fa-wind"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Apache Airflow</span>
+                  <span class="marquee-card-badge">DAG Orchestration</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fab fa-docker"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Docker</span>
+                  <span class="marquee-card-badge">Containerization</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">FastAPI</span>
+                  <span class="marquee-card-badge">Sub-30ms Microservices</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="tools">
+                <div class="marquee-card-icon"><i class="fas fa-satellite"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">GISTDA Sphere</span>
+                  <span class="marquee-card-badge">Geospatial APIs</span>
+                </div>
+              </div>
+              <div class="marquee-card" data-category="tools">
+                <div class="marquee-card-icon"><i class="fas fa-globe-asia"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Sentinel-1 SAR</span>
+                  <span class="marquee-card-badge">Remote Sensing</span>
+                </div>
+              </div>
 
-            <!-- Highlighted Financial & Regulatory Metrics Grid -->
-            <div class="deck-metrics-grid">
-              <div class="deck-metric-box">
-                <span class="m-val">0.894</span>
-                <span class="m-lbl">ROC-AUC (5-Fold CV)</span>
+              <!-- Set 2 (Duplicate for Seamless Infinite Loop) -->
+              <div class="marquee-card marquee-duplicate" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fas fa-server"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">PostgreSQL</span>
+                  <span class="marquee-card-badge">Data Warehousing</span>
+                </div>
               </div>
-              <div class="deck-metric-box">
-                <span class="m-val">PSI &lt; 0.10</span>
-                <span class="m-lbl">Zero Covariate Drift</span>
+              <div class="marquee-card marquee-duplicate" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">MySQL</span>
+                  <span class="marquee-card-badge">RDBMS Architecture</span>
+                </div>
               </div>
-              <div class="deck-metric-box">
-                <span class="m-val">42.6%</span>
-                <span class="m-lbl">KS Separation Stat</span>
+              <div class="marquee-card marquee-duplicate" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fas fa-fire"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Apache Spark</span>
+                  <span class="marquee-card-badge">Distributed ETL</span>
+                </div>
               </div>
-              <div class="deck-metric-box">
-                <span class="m-val">Basel II/III</span>
-                <span class="m-lbl">ECOA / FCRA Mapped</span>
+              <div class="marquee-card marquee-duplicate" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fas fa-wind"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Apache Airflow</span>
+                  <span class="marquee-card-badge">DAG Orchestration</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fab fa-docker"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Docker</span>
+                  <span class="marquee-card-badge">Containerization</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="data-eng">
+                <div class="marquee-card-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">FastAPI</span>
+                  <span class="marquee-card-badge">Sub-30ms Microservices</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="tools">
+                <div class="marquee-card-icon"><i class="fas fa-satellite"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">GISTDA Sphere</span>
+                  <span class="marquee-card-badge">Geospatial APIs</span>
+                </div>
+              </div>
+              <div class="marquee-card marquee-duplicate" data-category="tools">
+                <div class="marquee-card-icon"><i class="fas fa-globe-asia"></i></div>
+                <div class="marquee-card-info">
+                  <span class="marquee-card-name">Sentinel-1 SAR</span>
+                  <span class="marquee-card-badge">Remote Sensing</span>
+                </div>
               </div>
             </div>
+          </div>
 
-            <!-- Financial Trade-Off & P&L Impact Teaser -->
-            <div class="deck-pnl-callout">
-              <i class="fas fa-balance-scale"></i>
-              <span><strong>Cost-Matrix Optimization:</strong> Calibrated asymmetric cutoff threshold to minimize False Negatives (loan write-offs) while retaining an optimal 72% loan approval rate across prime borrower tiers.</span>
+          <div class="marquee-tooltip" id="marquee-tooltip"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. FEATURED ENGINEERING PROJECTS (Spacious Stacked Glass Cards)
+       ======================================================================== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-tag reveal-smooth">// PRODUCTION ARCHITECTURES</div>
+      <h2 class="section-title reveal-smooth stagger-1">Featured Engineering Projects</h2>
+      <p class="section-desc reveal-smooth stagger-2">
+        End-to-end production pipelines bridging regulatory credit risk scoring, clinical frailty diagnostics, and automated manufacturing telemetry.
+      </p>
+
+      <div class="projects-stacked-stack reveal-smooth stagger-3">
+        <!-- Project 1: Enterprise Credit Risk Scoring & Explainable AI (XAI) -->
+        <div class="project-stacked-card glass-card">
+          <div class="project-stacked-header">
+            <div>
+              <span class="project-domain-chip">[ FinTech / Risk Analytics ]</span>
             </div>
+            <span class="hero-status-badge" style="font-size: 0.75rem; padding: 4px 10px;">
+              <i class="fas fa-shield-alt" style="color: #00D2D3;"></i> Basel II/III &bull; ECOA / FCRA Mapped
+            </span>
+          </div>
 
+          <h3 class="project-stacked-title">Enterprise Credit Risk Scoring &amp; Explainable AI (XAI)</h3>
+          <p class="project-stacked-desc">
+            Production-grade banking intelligence platform designed to replace uninterpretable black-box ML with monotonic Weight of Evidence (WoE) scorecard calibration, gradient boosted trees, and legally defensible adverse action notices.
+          </p>
+
+          <!-- Key Impact Bullet Points -->
+          <ul class="project-stacked-bullets">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Monotonic Risk Binning:</strong> Discretized continuous financial metrics into monotonic risk bins using OptBinning and Information Value (IV) selection, ensuring linear relationship with log-odds of default.</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Local SHAP TreeExplainer:</strong> Computed instance-level Shapley values (\(f(x) = E[f(x)] + \sum \phi_j\)) to automatically generate legally required Adverse Action reason codes mandated by ECOA (12 C.F.R. § 1002.9) and FCRA.</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Sub-50ms Serving Microservice:</strong> Containerized FastAPI inference endpoint with Pydantic contract validation, streaming real-time Probability of Default (PD) scoring under rigorous latency SLAs.</span>
+            </li>
+          </ul>
+
+          <!-- Metrics Strip -->
+          <div class="project-metrics-strip">
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #00D2D3;">0.892</span>
+              <span class="project-metric-label">ROC-AUC (0.784 Gini)</span>
+            </div>
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #34D399;">PSI &lt; 0.10</span>
+              <span class="project-metric-label">Zero Covariate Drift</span>
+            </div>
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #38BDF8;">42.6%</span>
+              <span class="project-metric-label">KS Separation Stat</span>
+            </div>
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #A78BFA;">&lt; 50ms</span>
+              <span class="project-metric-label">Inference Latency</span>
+            </div>
+          </div>
+
+          <!-- P&L Cost-Matrix Callout -->
+          <div class="project-pnl-banner">
+            <i class="fas fa-balance-scale"></i>
+            <div>
+              <strong>Cost-Matrix Financial Optimization:</strong> Underwriting optimization where False Negatives (loan write-offs, \(C_{FN} \approx \$10,000\)) cost \(\approx 8\times\) False Positives (forgone interest, \(C_{FP} \approx \$1,200\)). Calibrated decision cutoff (\(\tau = 0.35\)) to retain a healthy 72% loan approval rate.
+            </div>
+          </div>
+
+          <!-- Stack Badges & Footer -->
+          <div class="project-stacked-footer">
             <div class="tech-badges-list">
               <span class="tech-pill">Python</span>
               <span class="tech-pill">LightGBM</span>
-              <span class="tech-pill">Pandas</span>
+              <span class="tech-pill">XGBoost</span>
+              <span class="tech-pill">SHAP</span>
+              <span class="tech-pill">OptBinning</span>
+              <span class="tech-pill">FastAPI</span>
+              <span class="tech-pill">Docker</span>
+              <span class="tech-pill">PostgreSQL</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <button class="btn-inspect-architecture" data-open-drawer="drawer-credit-risk">
+                <span>Inspect Architecture</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Long Overdue Debtor (LOD) Prediction System -->
+        <div class="project-stacked-card glass-card">
+          <div class="project-stacked-header">
+            <div>
+              <span class="project-domain-chip" style="color: #34D399; border-color: rgba(52, 211, 153, 0.3); background: rgba(52, 211, 153, 0.1);">[ Financial Default Forecasting ]</span>
+            </div>
+            <span class="hero-status-badge" style="font-size: 0.75rem; padding: 4px 10px;">
+              <i class="fas fa-trophy" style="color: #FBBF24;"></i> Aihack 2025 Finalist &bull; Top 8
+            </span>
+          </div>
+
+          <h3 class="project-stacked-title">Long Overdue Debtor (LOD) Prediction System</h3>
+          <p class="project-stacked-desc">
+            Enterprise predictive machine learning pipeline forecasting 90+ day default risks on real consumer loans. Developed under intense hackathon pressure and blind leaderboard testing for AIRA &amp; AIFUL and Chulalongkorn Business School.
+          </p>
+
+          <!-- Key Impact Bullet Points -->
+          <ul class="project-stacked-bullets">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Trained on ~40,000 Real Records:</strong> Conducted strict out-of-time evaluation across 32,524 train / 8,619 test blind samples, tackling a severe 1:12 default imbalance without target leakage.</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Temporal Delinquency Velocity Ratios:</strong> Engineered early vs. scheduled installment repayment acceleration indices, revolving limit exhaustion slopes, and cross-fold smoothed categorical encodings.</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>5-Fold Stratified Cross-Validation:</strong> Tuned LightGBM and XGBoost models via Bayesian Optuna search, yielding 0.894 ROC-AUC on public and private blind test splits to qualify for the National Top 8.</span>
+            </li>
+          </ul>
+
+          <!-- Metrics Strip -->
+          <div class="project-metrics-strip">
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #34D399;">0.894</span>
+              <span class="project-metric-label">ROC-AUC (5-Fold CV)</span>
+            </div>
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #F8FAFC;">~40,000</span>
+              <span class="project-metric-label">Consumer Records</span>
+            </div>
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #38BDF8;">PSI &lt; 0.10</span>
+              <span class="project-metric-label">Scorecard Stability</span>
+            </div>
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #FBBF24;">Top 8</span>
+              <span class="project-metric-label">National Finalist</span>
+            </div>
+          </div>
+
+          <!-- P&L Cost-Matrix Callout -->
+          <div class="project-pnl-banner">
+            <i class="fas fa-balance-scale"></i>
+            <div>
+              <strong>Executive Jury Defense:</strong> Solved the executive Question Sheet by deriving optimal operational cutoff balancing expected credit loss (ECL) reduction against interest revenue growth, presented directly to C-level banking executives.
+            </div>
+          </div>
+
+          <!-- Stack Badges & Footer -->
+          <div class="project-stacked-footer">
+            <div class="tech-badges-list">
+              <span class="tech-pill">LightGBM</span>
+              <span class="tech-pill">XGBoost</span>
               <span class="tech-pill">Scikit-Learn</span>
+              <span class="tech-pill">Pandas</span>
               <span class="tech-pill">ProbSpace API</span>
               <span class="tech-pill">Docker</span>
             </div>
 
-            <div class="focal-deck-card-action">
-              <button class="btn-deck-trigger" data-open-drawer="drawer-lod-project">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <button class="btn-inspect-architecture" data-open-drawer="drawer-lod-project">
                 <span>Inspect Architecture</span>
                 <i class="fas fa-arrow-right"></i>
               </button>
-              <span style="font-size: 0.775rem; color: var(--text-dim);"><i class="fas fa-chart-line"></i> <span>ROC Sandbox</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Manufacturing Telemetry & OEE Analytics Pipeline -->
+        <div class="project-stacked-card glass-card">
+          <div class="project-stacked-header">
+            <div>
+              <span class="project-domain-chip" style="color: #FBBF24; border-color: rgba(251, 191, 36, 0.3); background: rgba(251, 191, 36, 0.1);">[ Industrial IoT / Data Engineering ]</span>
+            </div>
+            <span class="hero-status-badge" style="font-size: 0.75rem; padding: 4px 10px;">
+              <i class="fas fa-server" style="color: #FBBF24;"></i> Automated Batch ETL &bull; Dockerized
+            </span>
+          </div>
+
+          <h3 class="project-stacked-title">Manufacturing (MFG) Telemetry Pipeline &amp; OEE Analytics</h3>
+          <p class="project-stacked-desc">
+            End-to-end industrial data engineering architecture simulating IIoT sensor telemetry, executing automated batch ETL pipelines, and streaming real-time anomaly detection for Overall Equipment Effectiveness (OEE) tracking.
+          </p>
+
+          <!-- Key Impact Bullet Points -->
+          <ul class="project-stacked-bullets">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>High-Frequency IIoT Simulation:</strong> Ingests concurrent multi-machine telemetry streams (temperature, vibration harmonics, cycle times, operational state flags) through resilient SQLAlchemy pools.</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Automated Batch ETL in Airflow:</strong> Orchestrated scheduled batch processing jobs calculating rolling availability ratios, performance speeds, and quality yields into indexed PostgreSQL tables.</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Real-Time OEE &amp; Anomaly Detection:</strong> Dynamically calculates \(\text{OEE} = A \times P \times Q\), logging operational excursions above safety baseline thresholds into automated audit trails.</span>
+            </li>
+          </ul>
+
+          <!-- Metrics Strip -->
+          <div class="project-metrics-strip">
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #FBBF24;">Real-Time</span>
+              <span class="project-metric-label">OEE Tracking</span>
+            </div>
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #38BDF8;">Dockerized</span>
+              <span class="project-metric-label">PostgreSQL Engine</span>
+            </div>
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #34D399;">&lt; 20ms</span>
+              <span class="project-metric-label">Batch ETL Runtime</span>
+            </div>
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #A78BFA;">Automated</span>
+              <span class="project-metric-label">Anomaly Audit Logs</span>
             </div>
           </div>
 
-          <!-- Slide 2: GuardianAI – Clinical Frailty Risk Dashboard -->
-          <div class="focal-deck-card inactive" data-open-drawer="drawer-guardian-ai">
-            <div class="focal-deck-card-top">
-              <span class="focal-deck-domain-badge" style="color: var(--accent-purple); border-color: rgba(167, 139, 250, 0.3);">[ HealthTech / Preventive Healthcare ]</span>
-              <span class="focal-deck-metric-chip">True Innovation Launchpad 2026 &bull; AI &amp; Data Lead</span>
-            </div>
-
-            <h3 class="focal-deck-title">GuardianAI &ndash; Clinical Frailty Risk Dashboard</h3>
-            <p class="focal-deck-summary">
-              Elderly frailty evaluation platform combining calibrated XGBoost models with Explainable AI (SHAP) for transparent clinical factor attribution, served via low-latency FastAPI.
-            </p>
-
+          <!-- Stack Badges & Footer -->
+          <div class="project-stacked-footer">
             <div class="tech-badges-list">
-              <span class="tech-pill">Python</span>
-              <span class="tech-pill">XGBoost</span>
-              <span class="tech-pill">Scikit-Learn</span>
-              <span class="tech-pill">SHAP</span>
-              <span class="tech-pill">FastAPI</span>
-              <span class="tech-pill">React/Tailwind</span>
               <span class="tech-pill">Docker</span>
-            </div>
-
-            <div class="focal-deck-card-action">
-              <button class="btn-deck-trigger" data-open-drawer="drawer-guardian-ai">
-                <span>Inspect Architecture</span>
-                <i class="fas fa-arrow-right"></i>
-              </button>
-              <span style="font-size: 0.775rem; color: var(--text-dim);"><i class="fas fa-heartbeat"></i> <span>Clinical SHAP Demo</span></span>
-            </div>
-          </div>
-
-          <!-- Slide 3: Enterprise Credit Risk Scoring & Explainable AI (XAI) -->
-          <div class="focal-deck-card inactive" data-open-drawer="drawer-credit-risk">
-            <div class="focal-deck-card-top">
-              <span class="focal-deck-domain-badge">[ Banking Intelligence / White-Box ML ]</span>
-              <span class="focal-deck-metric-chip">Basel Framework Aligned &bull; Probability of Default</span>
-            </div>
-
-            <h3 class="focal-deck-title">Enterprise Credit Risk Scoring &amp; Explainable AI (XAI)</h3>
-            <p class="focal-deck-summary">
-              End-to-end regulatory credit scorecard system utilizing Weight of Evidence (WoE) binning, LightGBM, and SHAP/LIME dual-layer interpretability.
-            </p>
-
-            <!-- Highlighted Financial & Regulatory Metrics Grid -->
-            <div class="deck-metrics-grid">
-              <div class="deck-metric-box">
-                <span class="m-val">0.892</span>
-                <span class="m-lbl">ROC-AUC &bull; 0.784 Gini</span>
-              </div>
-              <div class="deck-metric-box">
-                <span class="m-val">PSI &lt; 0.10</span>
-                <span class="m-lbl">Zero Covariate Drift</span>
-              </div>
-              <div class="deck-metric-box">
-                <span class="m-val">42.6%</span>
-                <span class="m-lbl">KS Separation Stat</span>
-              </div>
-              <div class="deck-metric-box">
-                <span class="m-val">Basel II/III</span>
-                <span class="m-lbl">ECOA / FCRA Mapped</span>
-              </div>
-            </div>
-
-            <!-- Financial Trade-Off & P&L Impact Teaser -->
-            <div class="deck-pnl-callout">
-              <i class="fas fa-balance-scale"></i>
-              <span><strong>Cost-Matrix Optimization:</strong> Calibrated asymmetric cutoff threshold to minimize False Negatives (loan write-offs) while retaining an optimal 72% loan approval rate across prime borrower tiers.</span>
-            </div>
-
-            <div class="tech-badges-list">
-              <span class="tech-pill">Python</span>
-              <span class="tech-pill">LightGBM</span>
-              <span class="tech-pill">XGBoost</span>
-              <span class="tech-pill">Scikit-Learn</span>
-              <span class="tech-pill">SHAP</span>
-              <span class="tech-pill">LIME</span>
               <span class="tech-pill">PostgreSQL</span>
-            </div>
-
-            <div class="focal-deck-card-action">
-              <button class="btn-deck-trigger" data-open-drawer="drawer-credit-risk">
-                <span>Inspect Architecture</span>
-                <i class="fas fa-arrow-right"></i>
-              </button>
-              <span style="font-size: 0.775rem; color: var(--text-dim);"><i class="fas fa-sliders-h"></i> <span>Scorecard Matrix</span></span>
-            </div>
-          </div>
-
-          <!-- Slide 4: Manufacturing (MFG) Telemetry Pipeline & OEE Analytics -->
-          <div class="focal-deck-card inactive" data-open-drawer="drawer-mfg-pipeline">
-            <div class="focal-deck-card-top">
-              <span class="focal-deck-domain-badge" style="color: var(--accent-amber); border-color: rgba(251, 191, 36, 0.3);">[ Industrial IoT / Data Engineering ]</span>
-              <span class="focal-deck-metric-chip">Dockerized Pipeline &bull; Real-Time OEE &bull; Automated ETL</span>
-            </div>
-
-            <h3 class="focal-deck-title">Manufacturing (MFG) Telemetry Pipeline &amp; OEE Analytics</h3>
-            <p class="focal-deck-summary">
-              End-to-end industrial data engineering architecture simulating IIoT sensor telemetry, executing automated batch ETL pipelines, and streaming real-time anomaly detection for Overall Equipment Effectiveness (OEE) tracking.
-            </p>
-
-            <div class="tech-badges-list">
-              <span class="tech-pill">Python</span>
-              <span class="tech-pill">PostgreSQL</span>
-              <span class="tech-pill">Docker</span>
+              <span class="tech-pill">Apache Spark</span>
+              <span class="tech-pill">Apache Airflow</span>
+              <span class="tech-pill">SQLAlchemy</span>
               <span class="tech-pill">Streamlit</span>
               <span class="tech-pill">Pandas</span>
-              <span class="tech-pill">SQLAlchemy</span>
             </div>
 
-            <div class="focal-deck-card-action">
-              <button class="btn-deck-trigger" data-open-drawer="drawer-mfg-pipeline">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <button class="btn-inspect-architecture" data-open-drawer="drawer-mfg-pipeline">
                 <span>Inspect Architecture</span>
                 <i class="fas fa-arrow-right"></i>
               </button>
-              <span style="font-size: 0.775rem; color: var(--text-dim);"><i class="fas fa-industry"></i> <span>OEE Live Logs</span></span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Minimalist Control Bar -->
-      <div class="deck-controls">
-        <div class="deck-control-pill">
-          <button class="deck-nav-btn" id="deck-prev-btn" aria-label="Previous Project Slide"><i class="fas fa-chevron-left"></i></button>
-          <span class="deck-counter-text" id="deck-counter-text">01 / 04</span>
-          <div class="deck-progress-track">
-            <div class="deck-progress-fill" id="deck-progress-fill"></div>
-          </div>
-          <button class="deck-nav-btn" id="deck-next-btn" aria-label="Next Project Slide"><i class="fas fa-chevron-right"></i></button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       TECHNICAL ARSENAL: PRODUCTION TECH STACK & TOOLING
-       ======================================================================== -->
-  <section class="section marquee-section" id="stack">
-    <div class="container">
-      <div class="section-tag reveal-smooth">Technical Arsenal</div>
-      <h2 class="section-title reveal-smooth stagger-1">Production Tech Stack &amp; Tooling</h2>
-      <p class="section-desc reveal-smooth stagger-2">
-        A curated ecosystem of languages, distributed computing frameworks, and machine learning libraries applied across production pipelines. Hover over any technology to inspect its implementation context.
-      </p>
-
-      <!-- Category Filter Tabs & View Toggle -->
-      <div class="marquee-filters reveal-smooth stagger-1">
-        <button class="marquee-filter-tab active" data-filter="all">All Stack</button>
-        <button class="marquee-filter-tab" data-filter="languages">Core Languages</button>
-        <button class="marquee-filter-tab" data-filter="ml">ML &amp; XAI</button>
-        <button class="marquee-filter-tab" data-filter="data-eng">Data Engineering &amp; Cloud</button>
-        <button class="marquee-filter-tab" data-filter="tools">Analytics &amp; Tools</button>
-        <button class="marquee-filter-tab marquee-mode-tab" id="btn-toggle-marquee-grid" aria-label="Toggle Responsive Grid View"><i class="fas fa-border-all"></i> <span>Grid View</span></button>
-      </div>
-
-      <!-- Dual-Track Container with Soft Edge Gradient Masks -->
-      <div class="marquee-container reveal-smooth stagger-2" id="tech-marquee-container">
-        <!-- Track 1: Leftward Stream (45s cycle) -->
-        <div class="marquee-row">
-          <div class="marquee-track marquee-track-left">
-            <!-- Set 1 -->
-            <div class="marquee-card" data-category="languages">
-              <div class="marquee-card-icon"><i class="fab fa-python"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Python</span>
-                <span class="marquee-card-badge">Core Language</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="languages">
-              <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">SQL</span>
-                <span class="marquee-card-badge">Relational Querying</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="languages">
-              <div class="marquee-card-icon"><i class="fas fa-code"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">C++</span>
-                <span class="marquee-card-badge">Systems &amp; Memory</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="languages">
-              <div class="marquee-card-icon"><i class="fab fa-java"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Java</span>
-                <span class="marquee-card-badge">Enterprise Backend</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="languages">
-              <div class="marquee-card-icon"><i class="fas fa-chart-bar"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">R</span>
-                <span class="marquee-card-badge">Statistical Modeling</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="ml">
-              <div class="marquee-card-icon"><i class="fas fa-tree"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">XGBoost</span>
-                <span class="marquee-card-badge">Asymmetric Loss</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="ml">
-              <div class="marquee-card-icon"><i class="fas fa-bolt"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">LightGBM</span>
-                <span class="marquee-card-badge">Gradient Boosting</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="ml">
-              <div class="marquee-card-icon"><i class="fas fa-cogs"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Scikit-Learn</span>
-                <span class="marquee-card-badge">Pipelines &amp; CV</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="ml">
-              <div class="marquee-card-icon"><i class="fas fa-eye"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">SHAP</span>
-                <span class="marquee-card-badge">TreeExplainer XAI</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="ml">
-              <div class="marquee-card-icon"><i class="fas fa-sliders-h"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">OptBinning</span>
-                <span class="marquee-card-badge">Monotonic WoE</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">PostgreSQL</span>
-                <span class="marquee-card-badge">ACID Relational</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fab fa-docker"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Docker</span>
-                <span class="marquee-card-badge">Containerization</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-bolt"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">FastAPI</span>
-                <span class="marquee-card-badge">Low-Latency Serving</span>
-              </div>
-            </div>
-
-            <!-- Set 2 (Duplicate for Seamless Infinite Loop) -->
-            <div class="marquee-card marquee-duplicate" data-category="languages">
-              <div class="marquee-card-icon"><i class="fab fa-python"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Python</span>
-                <span class="marquee-card-badge">Core Language</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="languages">
-              <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">SQL</span>
-                <span class="marquee-card-badge">Relational Querying</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="languages">
-              <div class="marquee-card-icon"><i class="fas fa-code"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">C++</span>
-                <span class="marquee-card-badge">Systems &amp; Memory</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="languages">
-              <div class="marquee-card-icon"><i class="fab fa-java"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Java</span>
-                <span class="marquee-card-badge">Enterprise Backend</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="languages">
-              <div class="marquee-card-icon"><i class="fas fa-chart-bar"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">R</span>
-                <span class="marquee-card-badge">Statistical Modeling</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="ml">
-              <div class="marquee-card-icon"><i class="fas fa-tree"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">XGBoost</span>
-                <span class="marquee-card-badge">Asymmetric Loss</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="ml">
-              <div class="marquee-card-icon"><i class="fas fa-bolt"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">LightGBM</span>
-                <span class="marquee-card-badge">Gradient Boosting</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="ml">
-              <div class="marquee-card-icon"><i class="fas fa-cogs"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Scikit-Learn</span>
-                <span class="marquee-card-badge">Pipelines &amp; CV</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="ml">
-              <div class="marquee-card-icon"><i class="fas fa-eye"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">SHAP</span>
-                <span class="marquee-card-badge">TreeExplainer XAI</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="ml">
-              <div class="marquee-card-icon"><i class="fas fa-sliders-h"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">OptBinning</span>
-                <span class="marquee-card-badge">Monotonic WoE</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">PostgreSQL</span>
-                <span class="marquee-card-badge">ACID Relational</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fab fa-docker"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Docker</span>
-                <span class="marquee-card-badge">Containerization</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-bolt"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">FastAPI</span>
-                <span class="marquee-card-badge">Low-Latency Serving</span>
-              </div>
             </div>
           </div>
         </div>
 
-        <!-- Track 2: Rightward Stream (50s cycle) -->
-        <div class="marquee-row">
-          <div class="marquee-track marquee-track-right">
-            <!-- Set 1 -->
-            <div class="marquee-card marquee-duplicate" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-server"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">PostgreSQL</span>
-                <span class="marquee-card-badge">Data Warehousing</span>
-              </div>
+        <!-- Project 4: GuardianAI - Clinical Frailty & Fall Risk Intervention -->
+        <div class="project-stacked-card glass-card">
+          <div class="project-stacked-header">
+            <div>
+              <span class="project-domain-chip" style="color: #A78BFA; border-color: rgba(167, 139, 250, 0.3); background: rgba(167, 139, 250, 0.1);">[ HealthTech / Preventive Clinical AI ]</span>
+            </div>
+            <span class="hero-status-badge" style="font-size: 0.75rem; padding: 4px 10px;">
+              <i class="fas fa-heartbeat" style="color: #A78BFA;"></i> True Innovation Launchpad 2026
+            </span>
+          </div>
+
+          <h3 class="project-stacked-title">GuardianAI &ndash; Clinical Frailty &amp; Fall Risk Intervention</h3>
+          <p class="project-stacked-desc">
+            Preventive healthcare diagnostic platform combining calibrated XGBoost models with Explainable AI (SHAP) for localized biometric factor attribution, serving sub-30ms medical predictions via FastAPI.
+          </p>
+
+          <!-- Key Impact Bullet Points -->
+          <ul class="project-stacked-bullets">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Multi-Biometric Frailty Risk Screening:</strong> Analyzes gait cadence dynamics, grip force attenuation, and posture telemetry to detect early geriatric frailty onset before acute falls occur.</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Local SHAP Biometric Attributions:</strong> Translates complex model features into physician-interpretable diagnostic reasons (e.g. +14% risk from step cadence asymmetry, -8% from balanced BMI).</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Streaming Clinical REST Endpoints:</strong> Asynchronous FastAPI microservice serving risk scores and personalized rehabilitation recommendations to interactive clinician dashboards.</span>
+            </li>
+          </ul>
+
+          <!-- Metrics Strip -->
+          <div class="project-metrics-strip">
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #A78BFA;">&lt; 30ms</span>
+              <span class="project-metric-label">FastAPI Latency</span>
+            </div>
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #38BDF8;">Calibrated</span>
+              <span class="project-metric-label">XGBoost Platt Scaling</span>
+            </div>
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #34D399;">Local SHAP</span>
+              <span class="project-metric-label">Clinical Attributions</span>
+            </div>
+            <div class="project-metric-cell">
+              <span class="project-metric-value" style="color: #F8FAFC;">Docker</span>
+              <span class="project-metric-label">Container Isolation</span>
+            </div>
+          </div>
+
+          <!-- Stack Badges & Footer -->
+          <div class="project-stacked-footer">
+            <div class="tech-badges-list">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">XGBoost</span>
+              <span class="tech-pill">FastAPI</span>
+              <span class="tech-pill">React</span>
+              <span class="tech-pill">SHAP</span>
+              <span class="tech-pill">Scikit-Learn</span>
+              <span class="tech-pill">Docker</span>
             </div>
 
-            <div class="marquee-card" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">MySQL</span>
-                <span class="marquee-card-badge">RDBMS Architecture</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-fire"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Apache Spark</span>
-                <span class="marquee-card-badge">Distributed ETL</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-wind"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Apache Airflow</span>
-                <span class="marquee-card-badge">DAG Orchestration</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fab fa-docker"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Docker</span>
-                <span class="marquee-card-badge">Containerization</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-tachometer-alt"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">FastAPI</span>
-                <span class="marquee-card-badge">Sub-30ms Microservices</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="tools">
-              <div class="marquee-card-icon"><i class="fas fa-satellite"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">GISTDA Sphere</span>
-                <span class="marquee-card-badge">Geospatial APIs</span>
-              </div>
-            </div>
-
-            <div class="marquee-card" data-category="tools">
-              <div class="marquee-card-icon"><i class="fas fa-globe-asia"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Sentinel-1 SAR</span>
-                <span class="marquee-card-badge">Remote Sensing</span>
-              </div>
-            </div>
-
-            <!-- Set 2 (Duplicate for Seamless Infinite Loop) -->
-            <div class="marquee-card marquee-duplicate" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-server"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">PostgreSQL</span>
-                <span class="marquee-card-badge">Data Warehousing</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-database"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">MySQL</span>
-                <span class="marquee-card-badge">RDBMS Architecture</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-fire"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Apache Spark</span>
-                <span class="marquee-card-badge">Distributed ETL</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-wind"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Apache Airflow</span>
-                <span class="marquee-card-badge">DAG Orchestration</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fab fa-docker"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Docker</span>
-                <span class="marquee-card-badge">Containerization</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="data-eng">
-              <div class="marquee-card-icon"><i class="fas fa-tachometer-alt"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">FastAPI</span>
-                <span class="marquee-card-badge">Sub-30ms Microservices</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="tools">
-              <div class="marquee-card-icon"><i class="fas fa-satellite"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">GISTDA Sphere</span>
-                <span class="marquee-card-badge">Geospatial APIs</span>
-              </div>
-            </div>
-
-            <div class="marquee-card marquee-duplicate" data-category="tools">
-              <div class="marquee-card-icon"><i class="fas fa-globe-asia"></i></div>
-              <div class="marquee-card-info">
-                <span class="marquee-card-name">Sentinel-1 SAR</span>
-                <span class="marquee-card-badge">Remote Sensing</span>
-              </div>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <button class="btn-inspect-architecture" data-open-drawer="drawer-guardian-ai">
+                <span>Inspect Architecture</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
             </div>
           </div>
         </div>
-
-        <!-- Floating Tooltip Box -->
-        <div class="marquee-tooltip" id="marquee-tooltip"></div>
       </div>
     </div>
   </section>
 
   <!-- ========================================================================
-       Competitions & Hackathons (Exact Factual Timeline - 4 Key Events)
+       4. HACKATHONS & COMPETITIONS (Clean Chronological Milestone Grid)
        ======================================================================== -->
   <section class="section" id="competitions">
     <div class="container">
-      <div class="section-tag reveal-smooth">Competitions &amp; Hackathons</div>
-      <h2 class="section-title reveal-smooth stagger-1">Hackathons &amp; Competitions</h2>
+      <div class="section-tag reveal-smooth">// HACKATHONS &amp; COMPETITIONS</div>
+      <h2 class="section-title reveal-smooth stagger-1">Competitions &amp; Industry Challenges</h2>
       <p class="section-desc reveal-smooth stagger-2">
-        Demonstrated machine learning modeling on enterprise datasets, explainable healthcare architectures, geospatial risk pipelines, and data-driven business strategy.
+        Demonstrated machine learning modeling on enterprise datasets, operational AI challenges, explainable healthcare architectures, geospatial risk pipelines, and data-driven business strategy.
       </p>
 
-      <div class="timeline">
-        <!-- 1. Aihack Thailand 2025 -->
-        <div class="timeline-item reveal-smooth stagger-1">
-          <div class="timeline-dot sage-dot"></div>
-          <div class="comp-card">
-            <div class="comp-header-row">
-              <div>
-                <h3 class="comp-title">Aihack Thailand 2025</h3>
-                <div class="comp-org">
-                  <i class="fas fa-university"></i> <span>AIRA &amp; AIFUL &bull; Chulalongkorn Business School &bull; ProbSpace</span>
-                </div>
+      <div class="competitions-modern-list reveal-smooth stagger-3">
+        <!-- 1. CDG Hackathon 2026 -->
+        <div class="comp-milestone-card glass-card">
+          <div class="comp-milestone-top">
+            <div>
+              <h3 class="comp-milestone-title">CDG Hackathon 2026</h3>
+              <div class="comp-milestone-org">
+                <i class="fas fa-laptop-code"></i> <span>CDG Group &bull; High-Impact Operational AI Challenge</span>
               </div>
-              <span class="comp-badge sage">
-                <i class="fas fa-trophy"></i> National Finalist &bull; Top 8
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="comp-badge sky">
+                <i class="fas fa-robot"></i> Team GrandGuardianAI
               </span>
+              <span class="comp-date-badge">Jul 2026</span>
             </div>
+          </div>
 
-            <!-- Impact Metric Ribbon (3 Highlight Stat Blocks) -->
-            <div class="comp-metrics-ribbon">
-              <div class="comp-metric-item">
-                <span class="comp-metric-val sage"><i class="fas fa-database"></i> ~40,000</span>
-                <span class="comp-metric-label">Real-World Consumer Credit Samples</span>
-              </div>
-              <div class="comp-metric-item">
-                <span class="comp-metric-val sky"><i class="fas fa-chart-line"></i> 0.894 ROC-AUC</span>
-                <span class="comp-metric-label">Top Tier Generalization on Blind Private Splits</span>
-              </div>
-              <div class="comp-metric-item">
-                <span class="comp-metric-val amber"><i class="fas fa-balance-scale"></i> Top 8 Pitch</span>
-                <span class="comp-metric-label">Strategic P&amp;L and Risk Trade-off Defense</span>
-              </div>
-            </div>
+          <p class="comp-teaser" style="margin: 12px 0 16px 0; color: #CBD5E1;">
+            Tackled advanced operational AI challenges focusing on high-stakes workflow automation, fault-tolerant decision pipelines, and edge system reliability under extreme operational constraints.
+          </p>
 
-            <!-- Core Contribution Teaser -->
-            <p class="comp-teaser">
-              Led ML and risk modeling to predict Long Overdue Debtors (&gt;90 days default) using LightGBM/XGBoost feature velocity and calibrated decision curves.
-            </p>
-
-            <!-- Action Buttons -->
-            <div class="comp-action-row">
-              <button class="btn-dossier-trigger" data-open-modal="modal-aihack-dossier">
-                <i class="fas fa-microchip"></i>
-                <span>View Technical Breakdown &amp; Architecture ↗</span>
-              </button>
-              <button class="btn-cert-secondary" data-open-modal="modal-cert-aihack">
-                <i class="fas fa-award"></i>
-                <span>Official Certificate ↗</span>
-              </button>
-            </div>
+          <div class="comp-tags-row">
+            <span class="comp-pill"><i class="fas fa-microchip"></i> Operational AI</span>
+            <span class="comp-pill"><i class="fas fa-shield-alt"></i> System Reliability</span>
+            <span class="comp-pill"><i class="fas fa-server"></i> Mission-Critical ML</span>
+            <span class="comp-pill"><i class="fas fa-network-wired"></i> Edge AI</span>
           </div>
         </div>
 
-        <!-- 2. True Innovation Launchpad 2026 – "GuardianAI" -->
-        <div class="timeline-item reveal-smooth stagger-2">
-          <div class="timeline-dot purple-dot"></div>
-          <div class="comp-card">
-            <div class="comp-header-row">
-              <div>
-                <h3 class="comp-title">True Innovation Launchpad 2026 &ndash; GuardianAI</h3>
-                <div class="comp-org">
-                  <i class="fas fa-heartbeat"></i> <span>True Corporation &bull; Healthcare AI &amp; Preventive Clinical Analytics</span>
-                </div>
-              </div>
-              <span class="comp-badge purple">
-                <i class="fas fa-user-md"></i> Team Nakphatthana Tuapralat &bull; AI Lead
-              </span>
-            </div>
-
-            <!-- Impact Metric Ribbon (3 Highlight Stat Blocks) -->
-            <div class="comp-metrics-ribbon">
-              <div class="comp-metric-item">
-                <span class="comp-metric-val purple"><i class="fas fa-bolt"></i> &lt; 30ms</span>
-                <span class="comp-metric-label">Low-Latency FastAPI Model Serving</span>
-              </div>
-              <div class="comp-metric-item">
-                <span class="comp-metric-val sky"><i class="fas fa-brain"></i> Calibrated XGBoost</span>
-                <span class="comp-metric-label">Multi-Biometric Frailty Risk Classification</span>
-              </div>
-              <div class="comp-metric-item">
-                <span class="comp-metric-val sage"><i class="fas fa-eye"></i> Local SHAP</span>
-                <span class="comp-metric-label">Clinical Interpretability &amp; Factor Attribution</span>
+        <!-- 2. Geospatial Intelligence for Resilience Hackathon 2026 -->
+        <div class="comp-milestone-card glass-card">
+          <div class="comp-milestone-top">
+            <div>
+              <h3 class="comp-milestone-title">Geospatial Intelligence for Resilience Hackathon 2026</h3>
+              <div class="comp-milestone-org">
+                <i class="fas fa-satellite"></i> <span>GISTDA &bull; KMITL &bull; KMUTT &bull; Remote Sensing &amp; Disaster Resilience</span>
               </div>
             </div>
-
-            <!-- Core Contribution Teaser -->
-            <p class="comp-teaser">
-              Architected end-to-end clinical risk prediction platform for early elderly frailty intervention, combining calibrated XGBoost with SHAP biometric explainability for medical professionals.
-            </p>
-
-            <!-- Action Buttons -->
-            <div class="comp-action-row">
-              <button class="btn-dossier-trigger" data-open-drawer="drawer-guardian-ai">
-                <i class="fas fa-laptop-medical"></i>
-                <span>View Clinical Architecture &amp; System Specs ↗</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. Geospatial Intelligence for Resilience Hackathon 2026 -->
-        <div class="timeline-item reveal-smooth stagger-3">
-          <div class="timeline-dot sky-dot"></div>
-          <div class="comp-card">
-            <div class="comp-header-row">
-              <div>
-                <h3 class="comp-title">Geospatial Intelligence for Resilience Hackathon 2026</h3>
-                <div class="comp-org">
-                  <i class="fas fa-satellite"></i> <span>GISTDA &bull; KMITL &bull; KMUTT &bull; Remote Sensing &amp; Disaster Resilience</span>
-                </div>
-              </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
               <span class="comp-badge sky">
                 <i class="fas fa-globe-asia"></i> Team Witsawa Tuapralat &bull; Spatial Lead
               </span>
+              <span class="comp-date-badge">Jan 2026</span>
             </div>
+          </div>
 
-            <!-- Impact Metric Ribbon (3 Highlight Stat Blocks) -->
-            <div class="comp-metrics-ribbon">
-              <div class="comp-metric-item">
-                <span class="comp-metric-val sky"><i class="fas fa-map-marked-alt"></i> 30m Grid</span>
-                <span class="comp-metric-label">High-Resolution Flash Flood Probability Mapping</span>
-              </div>
-              <div class="comp-metric-item">
-                <span class="comp-metric-val sage"><i class="fas fa-satellite-dish"></i> Sentinel-1 SAR</span>
-                <span class="comp-metric-label">Remote Sensing Radar Backscatter &amp; Soil Moisture</span>
-              </div>
-              <div class="comp-metric-item">
-                <span class="comp-metric-val amber"><i class="fas fa-mountain"></i> GLO-30 DEM</span>
-                <span class="comp-metric-label">Multi-Source Slope, Flow &amp; Precipitation Ingestion</span>
-              </div>
+          <!-- Impact Metric Ribbon -->
+          <div class="comp-metrics-ribbon">
+            <div class="comp-metric-item">
+              <span class="comp-metric-val sky"><i class="fas fa-map-marked-alt"></i> 30m Grid</span>
+              <span class="comp-metric-label">High-Resolution Flash Flood Probability Mapping</span>
             </div>
+            <div class="comp-metric-item">
+              <span class="comp-metric-val sage"><i class="fas fa-satellite-dish"></i> Sentinel-1 SAR</span>
+              <span class="comp-metric-label">Remote Sensing Radar Backscatter &amp; Soil Moisture</span>
+            </div>
+            <div class="comp-metric-item">
+              <span class="comp-metric-val amber"><i class="fas fa-mountain"></i> GLO-30 DEM</span>
+              <span class="comp-metric-label">Multi-Source Slope, Flow &amp; Precipitation Ingestion</span>
+            </div>
+          </div>
 
-            <!-- Core Contribution Teaser -->
-            <p class="comp-teaser">
-              Developed the mathematical framework and spatial ML pipeline fusing Sentinel-1 SAR backscatter, Copernicus DEM topography, and rainfall telemetry for 30m flash flood risk modeling.
-            </p>
+          <p class="comp-teaser" style="margin: 12px 0 16px 0; color: #CBD5E1;">
+            Developed the mathematical framework and spatial ML pipeline fusing Sentinel-1 SAR backscatter, Copernicus DEM topography, and rainfall telemetry for 30m flash flood risk modeling.
+          </p>
+
+          <div class="comp-tags-row">
+            <span class="comp-pill"><i class="fas fa-satellite"></i> Sentinel-1 SAR</span>
+            <span class="comp-pill"><i class="fas fa-mountain"></i> Copernicus DEM</span>
+            <span class="comp-pill"><i class="fas fa-map"></i> Spatial ML</span>
+            <span class="comp-pill"><i class="fas fa-water"></i> Flash Flood Prediction</span>
           </div>
         </div>
 
-        <!-- 4. LINE MAN Campus VIP Growth Campaign -->
-        <div class="timeline-item reveal-smooth stagger-4">
-          <div class="timeline-dot amber-dot"></div>
-          <div class="comp-card">
-            <div class="comp-category-tag">// GROWTH EXPERIMENTATION &amp; CONSUMER ANALYTICS</div>
-
-            <div class="comp-header-row">
-              <div>
-                <h3 class="comp-title">LINE MAN Campus VIP Growth Campaign</h3>
-                <div class="comp-org">
-                  <i class="fas fa-utensils"></i> <span>Campus Business Strategy &amp; Acquisition Analytics &bull; LINE MAN Wongnai</span>
-                </div>
+        <!-- 3. True Innovation Launchpad 2026 – "GuardianAI" -->
+        <div class="comp-milestone-card glass-card">
+          <div class="comp-milestone-top">
+            <div>
+              <h3 class="comp-milestone-title">True Innovation Launchpad 2026 &ndash; GuardianAI</h3>
+              <div class="comp-milestone-org">
+                <i class="fas fa-heartbeat"></i> <span>True Corporation &bull; Healthcare AI &amp; Preventive Clinical Analytics</span>
               </div>
-              <span class="comp-badge amber">
-                <i class="fas fa-chart-pie"></i> Team LC &bull; Unit Economics Lead
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="comp-badge purple">
+                <i class="fas fa-user-md"></i> Team Nakphatthana Tuapralat &bull; AI Lead
               </span>
+              <span class="comp-date-badge">Jan 2026</span>
             </div>
+          </div>
 
-            <!-- Impact Metric Ribbon (3 Highlight Stat Blocks) -->
-            <div class="comp-metrics-ribbon">
-              <div class="comp-metric-item">
-                <span class="comp-metric-val amber"><i class="fas fa-coins"></i> 8.87 THB</span>
-                <span class="comp-metric-label">Ultra-low Cost per Acquisition (CAC)</span>
+          <!-- Impact Metric Ribbon -->
+          <div class="comp-metrics-ribbon">
+            <div class="comp-metric-item">
+              <span class="comp-metric-val purple"><i class="fas fa-bolt"></i> &lt; 30ms</span>
+              <span class="comp-metric-label">Low-Latency FastAPI Model Serving</span>
+            </div>
+            <div class="comp-metric-item">
+              <span class="comp-metric-val sky"><i class="fas fa-brain"></i> Calibrated XGBoost</span>
+              <span class="comp-metric-label">Multi-Biometric Frailty Risk Classification</span>
+            </div>
+            <div class="comp-metric-item">
+              <span class="comp-metric-val sage"><i class="fas fa-eye"></i> Local SHAP</span>
+              <span class="comp-metric-label">Clinical Interpretability &amp; Factor Attribution</span>
+            </div>
+          </div>
+
+          <p class="comp-teaser" style="margin: 12px 0 16px 0; color: #CBD5E1;">
+            Architected end-to-end clinical risk prediction platform for early elderly frailty intervention, combining calibrated XGBoost with SHAP biometric explainability for medical professionals.
+          </p>
+
+          <div class="comp-action-row">
+            <button class="btn-dossier-trigger" data-open-drawer="drawer-guardian-ai">
+              <i class="fas fa-laptop-medical"></i>
+              <span>View Clinical Architecture &amp; System Specs ↗</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. Aihack Thailand 2025 (Final Round) -->
+        <div class="comp-milestone-card glass-card">
+          <div class="comp-milestone-top">
+            <div>
+              <h3 class="comp-milestone-title">Aihack Thailand 2025</h3>
+              <div class="comp-milestone-org">
+                <i class="fas fa-university"></i> <span>AIRA &amp; AIFUL &bull; Chulalongkorn Business School &bull; ProbSpace</span>
               </div>
-              <div class="comp-metric-item">
-                <span class="comp-metric-val sage"><i class="fas fa-user-check"></i> 462 Students</span>
-                <span class="comp-metric-label">Acquired within Campus Hub (14-Day Trial)</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="comp-badge sage">
+                <i class="fas fa-trophy"></i> National Finalist &bull; Top 8
+              </span>
+              <span class="comp-date-badge">Dec 2025</span>
+            </div>
+          </div>
+
+          <!-- Impact Metric Ribbon -->
+          <div class="comp-metrics-ribbon">
+            <div class="comp-metric-item">
+              <span class="comp-metric-val sage"><i class="fas fa-database"></i> ~40,000</span>
+              <span class="comp-metric-label">Real-World Consumer Credit Samples</span>
+            </div>
+            <div class="comp-metric-item">
+              <span class="comp-metric-val sky"><i class="fas fa-chart-line"></i> 0.894 ROC-AUC</span>
+              <span class="comp-metric-label">Top Tier Generalization on Blind Private Splits</span>
+            </div>
+            <div class="comp-metric-item">
+              <span class="comp-metric-val amber"><i class="fas fa-balance-scale"></i> Top 8 Pitch</span>
+              <span class="comp-metric-label">Strategic P&amp;L and Risk Trade-off Defense</span>
+            </div>
+          </div>
+
+          <p class="comp-teaser" style="margin: 12px 0 16px 0; color: #CBD5E1;">
+            Led ML and financial risk modeling to predict Long Overdue Debtors (&gt;90 days default) on ~40,000 credit records using LightGBM/XGBoost feature velocity and calibrated decision curves under blind private split constraints.
+          </p>
+
+          <div class="comp-action-row">
+            <button class="btn-dossier-trigger" data-open-modal="modal-aihack-dossier">
+              <i class="fas fa-microchip"></i>
+              <span>View Technical Breakdown &amp; Architecture ↗</span>
+            </button>
+            <button class="btn-cert-secondary" data-open-modal="modal-cert-aihack">
+              <i class="fas fa-award"></i>
+              <span>Official Certificate ↗</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. LINE MAN Campus VIP Growth Campaign -->
+        <div class="comp-milestone-card glass-card">
+          <div class="comp-milestone-top">
+            <div>
+              <h3 class="comp-milestone-title">LINE MAN Campus VIP Growth Campaign</h3>
+              <div class="comp-milestone-org">
+                <i class="fas fa-utensils"></i> <span>Campus Business Strategy &amp; Acquisition Analytics &bull; LINE MAN Wongnai</span>
               </div>
-              <div class="comp-metric-item">
-                <span class="comp-metric-val sky"><i class="fas fa-wallet"></i> 8,000 THB</span>
-                <span class="comp-metric-label">Budget Cap &bull; 100% On-Budget Execution</span>
-              </div>
             </div>
-
-            <!-- Core Contribution Teaser -->
-            <p class="comp-teaser">
-              Analyzed university dining bottlenecks and user ordering behavior to formulate a data-driven LINE MAN VIP acquisition strategy, achieving 462 student conversions within a strict 8,000 THB budget cap at an optimized CAC of 8.87 THB.
-            </p>
-
-            <!-- Tags Strip -->
-            <div class="comp-tags-row">
-              <span class="comp-pill"><i class="fas fa-chart-line"></i> Growth Analytics</span>
-              <span class="comp-pill"><i class="fas fa-percentage"></i> CAC Optimization</span>
-              <span class="comp-pill"><i class="fas fa-users"></i> Cohort Analysis</span>
-              <span class="comp-pill"><i class="fas fa-funnel-dollar"></i> Funnel Strategy</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="comp-badge amber">
+                <i class="fas fa-chart-pie"></i> Team Low Cortisol &bull; Unit Economics Lead
+              </span>
+              <span class="comp-date-badge">Nov 2024</span>
             </div>
+          </div>
 
-            <!-- Action Buttons -->
-            <div class="comp-action-row">
-              <button class="btn-dossier-trigger" data-open-drawer="drawer-lineman-campaign">
-                <i class="fas fa-bullseye"></i>
-                <span>View Campaign Architecture ↗</span>
-              </button>
+          <!-- Impact Metric Ribbon -->
+          <div class="comp-metrics-ribbon">
+            <div class="comp-metric-item">
+              <span class="comp-metric-val amber"><i class="fas fa-coins"></i> 8.87 THB</span>
+              <span class="comp-metric-label">Ultra-low Cost per Acquisition (CAC)</span>
             </div>
+            <div class="comp-metric-item">
+              <span class="comp-metric-val sage"><i class="fas fa-user-check"></i> 462 Students</span>
+              <span class="comp-metric-label">Acquired within Campus Hub (14-Day Trial)</span>
+            </div>
+            <div class="comp-metric-item">
+              <span class="comp-metric-val sky"><i class="fas fa-wallet"></i> 8,000 THB</span>
+              <span class="comp-metric-label">Budget Cap &bull; 100% On-Budget Execution</span>
+            </div>
+          </div>
+
+          <p class="comp-teaser" style="margin: 12px 0 16px 0; color: #CBD5E1;">
+            Analyzed university dining bottlenecks and user ordering behavior to formulate a data-driven LINE MAN VIP acquisition strategy, achieving 462 student conversions within a strict 8,000 THB budget cap at an optimized CAC of 8.87 THB.
+          </p>
+
+          <div class="comp-action-row">
+            <button class="btn-dossier-trigger" data-open-drawer="drawer-lineman-campaign">
+              <i class="fas fa-bullseye"></i>
+              <span>View Campaign Architecture ↗</span>
+            </button>
           </div>
         </div>
       </div>
@@ -1437,20 +1436,207 @@
   </section>
 
   <!-- ========================================================================
-       3. FOOTER & ENHANCED CONTACT HUB ("Let's Connect")
+       5. INDUSTRY CERTIFICATIONS & STANDARDIZED ASSESSMENTS
        ======================================================================== -->
-  <section class="section" id="contact">
+  <section class="section" id="certifications">
+    <div class="container">
+      <div class="section-tag reveal-smooth">// INDUSTRY CERTIFICATIONS</div>
+      <h2 class="section-title reveal-smooth stagger-1">Industry Certifications &amp; Assessments</h2>
+      <p class="section-desc reveal-smooth stagger-2">
+        Verified technical evaluations and standardized scores issued by leading technology organizations and international testing bodies.
+      </p>
+
+      <div class="certs-showcase-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch w-full max-w-7xl mx-auto reveal-smooth stagger-3">
+        <!-- 1. KBTG Data Analyst -->
+        <div class="cert-showcase-card glass-card flex flex-col justify-between h-full">
+          <div class="cert-card-body flex flex-col flex-1">
+            <div class="cert-showcase-header">
+              <div>
+                <span class="kbtg-issuer-pill">SKILLKAMP by KBTG</span>
+                <h3 class="comp-title" style="margin-top: 8px;">Data Analyst Assessment</h3>
+                <span style="font-size: 0.775rem; color: #64748B;">STAMP Certified &bull; March 21, 2026</span>
+              </div>
+              <div class="cert-score-callout-box">
+                <span class="cert-score-big">97</span>
+                <span class="cert-score-max">/ 150</span>
+              </div>
+            </div>
+
+            <div class="kbtg-bench-note" style="margin-bottom: 16px;">
+              <span class="status-indicator-dot"></span>
+              <span>Above Benchmark (90) &bull; Verified Level: <strong class="text-emerald-400">Intermediate</strong></span>
+            </div>
+
+            <!-- Single-Column Full-Width Score List -->
+            <div class="cert-scores-list flex flex-col gap-2 mt-4">
+              <div class="cert-score-row flex items-center justify-between px-3.5 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                <span class="cert-score-name text-slate-300 font-medium">Data Cleaning &amp; Preprocessing</span>
+                <span class="cert-score-points font-mono font-bold text-cyan-400 shrink-0">23 / 30</span>
+              </div>
+
+              <div class="cert-score-row flex items-center justify-between px-3.5 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                <span class="cert-score-name text-slate-300 font-medium">EDA &amp; Visualization</span>
+                <span class="cert-score-points font-mono font-bold text-cyan-400 shrink-0">20 / 30</span>
+              </div>
+
+              <div class="cert-score-row flex items-center justify-between px-3.5 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                <span class="cert-score-name text-slate-300 font-medium">Foundations of Data Analysis</span>
+                <span class="cert-score-points font-mono font-bold text-cyan-400 shrink-0">20 / 30</span>
+              </div>
+
+              <div class="cert-score-row flex items-center justify-between px-3.5 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                <span class="cert-score-name text-slate-300 font-medium">ML for Data Analysts</span>
+                <span class="cert-score-points font-mono font-bold text-cyan-400 shrink-0">18 / 30</span>
+              </div>
+
+              <div class="cert-score-row flex items-center justify-between px-3.5 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                <span class="cert-score-name text-slate-300 font-medium">SQL &amp; Quantitative Querying</span>
+                <span class="cert-score-points font-mono font-bold text-cyan-400 shrink-0">17 / 30</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card-footer flex justify-between items-center pt-3.5 mt-auto border-t border-slate-800/60 flex-wrap gap-2">
+            <button class="btn-kbtg-report" data-open-modal="modal-kbtg-da">
+              <i class="fas fa-chart-bar"></i>
+              <span>Score Report ↗</span>
+            </button>
+            <a href="assets/kbtg_stamp_data_analyst.png" target="_blank" class="btn-cert-secondary" style="font-size: 0.775rem; padding: 6px 12px;">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Certificate ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. KBTG Digital Marketer -->
+        <div class="cert-showcase-card glass-card flex flex-col justify-between h-full">
+          <div class="cert-card-body flex flex-col flex-1">
+            <div class="cert-showcase-header">
+              <div>
+                <span class="kbtg-issuer-pill">SKILLKAMP by KBTG</span>
+                <h3 class="comp-title" style="margin-top: 8px;">Digital &amp; Performance Marketer</h3>
+                <span style="font-size: 0.775rem; color: #64748B;">STAMP Certified &bull; March 21, 2026</span>
+              </div>
+              <div class="cert-score-callout-box">
+                <span class="cert-score-big">98</span>
+                <span class="cert-score-max">/ 150</span>
+              </div>
+            </div>
+
+            <div class="kbtg-bench-note" style="margin-bottom: 16px;">
+              <span class="status-indicator-dot"></span>
+              <span>Above Benchmark (94) &bull; Top Tier Analytics: <strong class="text-emerald-400">Intermediate</strong></span>
+            </div>
+
+            <!-- Single-Column Full-Width Score List -->
+            <div class="cert-scores-list flex flex-col gap-2 mt-4">
+              <div class="cert-score-row highlight flex items-center justify-between px-3.5 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                <span class="cert-score-name text-slate-300 font-medium">Digital Marketing Analytics</span>
+                <span class="cert-score-points highlight text-emerald-400 font-mono font-bold text-xs shrink-0">26 / 30</span>
+              </div>
+
+              <div class="cert-score-row flex items-center justify-between px-3.5 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                <span class="cert-score-name text-slate-300 font-medium">Data-Driven Marketing Strategy</span>
+                <span class="cert-score-points font-mono font-bold text-cyan-400 shrink-0">21 / 30</span>
+              </div>
+
+              <div class="cert-score-row flex items-center justify-between px-3.5 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                <span class="cert-score-name text-slate-300 font-medium">Data-Driven Content Marketing</span>
+                <span class="cert-score-points font-mono font-bold text-cyan-400 shrink-0">19 / 30</span>
+              </div>
+
+              <div class="cert-score-row flex items-center justify-between px-3.5 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                <span class="cert-score-name text-slate-300 font-medium">Acquisition Funnel &amp; Retargeting</span>
+                <span class="cert-score-points font-mono font-bold text-cyan-400 shrink-0">18 / 30</span>
+              </div>
+
+              <div class="cert-score-row flex items-center justify-between px-3.5 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                <span class="cert-score-name text-slate-300 font-medium">Marketing Strategy &amp; Optimization</span>
+                <span class="cert-score-points font-mono font-bold text-cyan-400 shrink-0">16 / 30</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card-footer flex justify-between items-center pt-3.5 mt-auto border-t border-slate-800/60 flex-wrap gap-2">
+            <button class="btn-kbtg-report" data-open-modal="modal-kbtg-marketer">
+              <i class="fas fa-chart-bar"></i>
+              <span>Score Report ↗</span>
+            </button>
+            <a href="assets/kbtg_stamp_digital_marketer.png" target="_blank" class="btn-cert-secondary" style="font-size: 0.775rem; padding: 6px 12px;">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Certificate ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Oxford Placement Test -->
+        <div class="cert-showcase-card glass-card flex flex-col justify-between h-full">
+          <div class="cert-card-body flex flex-col flex-1">
+            <div class="cert-showcase-header">
+              <div>
+                <span class="kbtg-issuer-pill" style="color: #0284C7; border-color: rgba(2, 132, 199, 0.35); background: rgba(2, 132, 199, 0.1);">AUA / Oxford University Press</span>
+                <h3 class="comp-title" style="margin-top: 8px;">Oxford Placement Test</h3>
+                <span style="font-size: 0.775rem; color: #64748B;">Standardized Assessment &bull; 21st June 2026</span>
+              </div>
+              <div class="cert-score-callout-box">
+                <span class="cert-score-big" style="color: #0284C7;">B1+</span>
+                <span class="cert-score-max">CEFR Level</span>
+              </div>
+            </div>
+
+            <div class="kbtg-bench-note" style="margin-bottom: 16px;">
+              <span class="status-indicator-dot" style="background: #0284C7;"></span>
+              <span>Total Score: <strong>51 / 120</strong> &bull; Verified Working English Proficiency</span>
+            </div>
+
+            <!-- Single-Column Full-Width Score List -->
+            <div class="cert-scores-list flex flex-col gap-2 mt-4">
+              <div class="cert-score-row flex items-center justify-between px-3.5 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                <span class="cert-score-name text-slate-300 font-medium">Use of English / Grammar</span>
+                <span class="cert-score-points font-mono font-bold shrink-0" style="color: #0284C7;">54 (B1)</span>
+              </div>
+
+              <div class="cert-score-row flex items-center justify-between px-3.5 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                <span class="cert-score-name text-slate-300 font-medium">Listening Comprehension</span>
+                <span class="cert-score-points font-mono font-bold shrink-0" style="color: #0284C7;">48 (B1)</span>
+              </div>
+            </div>
+
+            <p style="font-size: 0.8rem; color: #94A3B8; line-height: 1.5; margin-top: 14px; margin-bottom: 14px;">
+              Uses sufficient range of English to explain technical concepts with precision, understand workplace audio communication, and collaborate effectively across international engineering teams.
+            </p>
+          </div>
+
+          <div class="cert-card-footer flex justify-between items-center pt-3.5 mt-auto border-t border-slate-800/60 flex-wrap gap-2">
+            <button class="btn-kbtg-report" data-open-modal="modal-cert-english">
+              <i class="fas fa-file-contract"></i>
+              <span>Score Report ↗</span>
+            </button>
+            <a href="assets/20260621 Sivakorn Khundilokrattaya.pdf" target="_blank" class="btn-cert-secondary" style="font-size: 0.775rem; padding: 6px 12px;">
+              <i class="fas fa-file-pdf"></i>
+              <span>Original PDF ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. GET IN TOUCH / FOOTER (Minimalist Contact Deck)
+       ======================================================================== -->
+  <section class="section" id="contact" style="padding-bottom: 0;">
     <canvas id="footer-neural-canvas"></canvas>
     <div class="container">
-      <div class="contact-card reveal-smooth">
-        <!-- Status & Work Logistics Strip (Above Main Title) -->
+      <div class="contact-card glass-card reveal-smooth" style="border-radius: 20px;">
+        <!-- Status & Work Logistics Strip -->
         <div class="contact-status-strip">
           <span class="contact-status-badge">
-            <i class="fas fa-map-marker-alt" style="color: var(--accent-sky);"></i>
+            <i class="fas fa-map-marker-alt" style="color: #00D2D3;"></i>
             <span>Bangkok, Thailand</span>
           </span>
           <span class="contact-status-badge">
-            <i class="fas fa-building" style="color: var(--accent-purple);"></i>
+            <i class="fas fa-building" style="color: #0EA5E9;"></i>
             <span>On-site / Hybrid / Remote</span>
           </span>
           <span class="contact-status-badge available">
@@ -1464,53 +1650,78 @@
           Seeking full-time Data Scientist, Machine Learning Engineer, and Data Engineering roles.
         </p>
 
-        <!-- Balanced, Symmetrical Action Button Row (3 Centered CTAs) -->
-        <div class="footer-button-row">
-          <!-- 1. Primary Button: Enhanced Resume / CV -->
+        <!-- Symmetrical 4-Card Contact Grid (1 Col Mobile, 2 Col Tablet, 4 Col Desktop) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-6xl mx-auto mt-10">
+          <!-- Card 1: Direct Email -->
+          <a href="mailto:sivakorn.khun@gmail.com" class="flex items-center gap-3.5 p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/40 hover:bg-slate-800/50 transition-all group">
+            <div class="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div class="min-w-0">
+              <span class="block text-xs font-medium text-slate-400">Direct Email</span>
+              <span class="block text-sm font-semibold text-slate-200 truncate group-hover:text-cyan-300">sivakorn.khun@gmail.com</span>
+            </div>
+          </a>
+
+          <!-- Card 2: GitHub -->
+          <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3.5 p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/40 hover:bg-slate-800/50 transition-all group">
+            <div class="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors shrink-0">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </div>
+            <div class="min-w-0">
+              <span class="block text-xs font-medium text-slate-400">GitHub</span>
+              <span class="block text-sm font-semibold text-slate-200 truncate group-hover:text-cyan-300">github.com/svkhun</span>
+            </div>
+          </a>
+
+          <!-- Card 3: LinkedIn -->
+          <a href="https://www.linkedin.com/in/sivakorn-khundilokrattaya-5870b8429/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3.5 p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/40 hover:bg-slate-800/50 transition-all group">
+            <div class="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors shrink-0">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </div>
+            <div class="min-w-0">
+              <span class="block text-xs font-medium text-slate-400">LinkedIn</span>
+              <span class="block text-sm font-semibold text-slate-200 truncate group-hover:text-cyan-300">in/sivakorn-khun...</span>
+            </div>
+          </a>
+
+          <!-- Card 4: Location -->
+          <div class="flex items-center gap-3.5 p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
+            <div class="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div class="min-w-0">
+              <span class="block text-xs font-medium text-slate-400">Location</span>
+              <span class="block text-sm font-semibold text-slate-200 truncate">Bangkok, Thailand</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="footer-button-row mt-8">
           <button class="btn-resume-cta" data-open-drawer="drawer-resume" aria-label="View Full Resume / CV">
             <i class="fas fa-file-alt"></i>
             <span>View Full Resume / CV ↗</span>
           </button>
-
-          <!-- 2. Secondary Button: Send Direct Email -->
           <a href="mailto:sivakorn.khun@gmail.com" class="btn-email-cta">
             <i class="fas fa-paper-plane"></i>
             <span>Send Direct Email</span>
           </a>
-
-          <!-- 3. Tertiary Button: Copy Email with Text-Flip -->
           <button class="btn-copy-email-cta btn-copy-email" id="btn-copy-email">
             <i class="fas fa-copy"></i>
             <span>Copy Email</span>
           </button>
         </div>
 
-        <!-- Streamlined Centered Monospace Social Links Strip -->
-        <div class="footer-links-row">
-          <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="footer-social-link">
-            <i class="fab fa-github"></i>
-            <span>github.com/svkhun</span>
-          </a>
-          <span class="footer-link-divider">&bull;</span>
-          <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer" class="footer-social-link">
-            <i class="fab fa-linkedin-in"></i>
-            <span>in/sivakorn-khundilokrattaya</span>
-          </a>
-        </div>
-
-        <div class="footer-bottom">
-          <div class="footer-copyright">
-            <span>&copy; 2026 Sivakorn Khundilokrattaya. Crafted with minimalist engineering standards.</span>
-          </div>
-
-          <!-- Live Self-Excluding Visitor Counter -->
-          <span id="visitor-counter-badge" class="visitor-counter-badge" title="Live Verified Production Pageviews (Self-Excluding Admin)">
-            <span class="visitor-pulse-dot" id="visitor-status-dot"></span>
-            <span id="visitor-count-text">Syncing...</span>
-          </span>
-        </div>
       </div>
     </div>
+
+    <!-- Global Footer -->
+    <footer class="w-full border-t border-slate-800/80 bg-slate-950/60 mt-16 py-6 relative z-10">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-center text-xs text-slate-400 text-center">
+        &copy; 2026 Sivakorn Khundilokrattaya. Built with HTML5, Tailwind CSS &amp; JavaScript. Deployed on Vercel.
+      </div>
+    </footer>
   </section>
 
   <!-- ========================================================================
@@ -3314,101 +3525,6 @@
     </div>
   </div>
 
-  <!-- ========================================================================
-       MODAL: Privileged Admin Telemetry & Traffic Console
-       ======================================================================== -->
-  <div class="cert-modal-backdrop admin-modal-backdrop" id="modal-admin-telemetry" role="dialog" aria-modal="true" aria-labelledby="admin-telemetry-title">
-    <div class="admin-modal-window">
-      <!-- Modal Header -->
-      <div class="admin-modal-header">
-        <div class="admin-modal-header-left">
-          <div class="admin-header-badge">
-            <span class="admin-pulse-dot"></span>
-            <span>SESSION PRIVILEGED • ADMIN</span>
-          </div>
-          <h3 class="admin-modal-title" id="admin-telemetry-title">
-            <i class="fas fa-terminal" style="color: var(--accent-sky);"></i>
-            // TELEMETRY &amp; TRAFFIC CONSOLE
-          </h3>
-        </div>
-        <button class="cert-modal-close-btn" data-close-modal aria-label="Close telemetry console">
-          <i class="fas fa-times"></i> <span>Esc</span>
-        </button>
-      </div>
-
-      <!-- Modal Body / 2x2 Telemetry Grid -->
-      <div class="admin-modal-body">
-        <div class="admin-telemetry-grid">
-          <!-- Card 1: Total Recorded Hits -->
-          <div class="admin-telemetry-card">
-            <div class="telemetry-card-top">
-              <span class="telemetry-card-label"><i class="fas fa-eye"></i> Total Recorded Hits</span>
-              <span class="telemetry-pill live">LIVE</span>
-            </div>
-            <div class="telemetry-card-val" id="admin-telemetry-hits">---</div>
-            <div class="telemetry-card-sub">Verified production impressions via CounterAPI</div>
-          </div>
-
-          <!-- Card 2: Tracking Namespace -->
-          <div class="admin-telemetry-card">
-            <div class="telemetry-card-top">
-              <span class="telemetry-card-label"><i class="fas fa-database"></i> Tracking Namespace</span>
-              <span class="telemetry-pill prod">PROD</span>
-            </div>
-            <div class="telemetry-card-val mono" style="font-size: 0.95rem;">svkhun-portfolio-prod</div>
-            <div class="telemetry-card-sub">Key: <code>page-views-2026</code> &bull; REST API v1</div>
-          </div>
-
-          <!-- Card 3: Admin Bypass Status -->
-          <div class="admin-telemetry-card">
-            <div class="telemetry-card-top">
-              <span class="telemetry-card-label"><i class="fas fa-user-shield"></i> Admin Bypass Status</span>
-              <span class="telemetry-pill active">ACTIVE</span>
-            </div>
-            <div class="telemetry-card-val" style="font-size: 0.95rem; color: var(--accent-sage);">
-              <i class="fas fa-check-circle"></i> Self-Exclusion Active
-            </div>
-            <div class="telemetry-card-sub">Your session visits are strictly excluded from incrementing.</div>
-          </div>
-
-          <!-- Card 4: Local Client Context -->
-          <div class="admin-telemetry-card">
-            <div class="telemetry-card-top">
-              <span class="telemetry-card-label"><i class="fas fa-laptop-code"></i> Client Telemetry</span>
-              <span class="telemetry-pill info">CLIENT</span>
-            </div>
-            <div class="telemetry-client-details">
-              <div class="client-detail-row">
-                <span>Viewport:</span> <strong id="admin-client-viewport">---</strong>
-              </div>
-              <div class="client-detail-row">
-                <span>Platform:</span> <strong id="admin-client-platform">---</strong>
-              </div>
-              <div class="client-detail-row">
-                <span>Network Status:</span> <strong id="admin-client-network" style="color: var(--accent-sage);">Online</strong>
-              </div>
-              <div class="client-detail-row">
-                <span>Last Sync:</span> <strong id="admin-client-sync">---</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Admin Quick Actions Deck -->
-        <div class="admin-actions-deck">
-          <button class="btn-admin-action" id="btn-admin-resync">
-            <i class="fas fa-sync-alt" id="admin-resync-icon"></i> Force Resync API ↻
-          </button>
-          <button class="btn-admin-action danger" id="btn-admin-clear-token">
-            <i class="fas fa-trash-alt"></i> Clear Admin Token
-          </button>
-          <button class="btn-admin-action secondary" data-close-modal>
-            <i class="fas fa-times"></i> Close Console
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- ========================================================================
        Toast Notification
