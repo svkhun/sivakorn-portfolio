@@ -430,6 +430,21 @@ document.addEventListener('DOMContentLoaded', () => {
             .flex {
               display: flex;
             }
+            .flex-wrap {
+              flex-wrap: wrap;
+            }
+            .gap-x-2\.5 {
+              column-gap: 8px;
+            }
+            .gap-y-1\.5 {
+              row-gap: 4px;
+            }
+            .gap-x-2 {
+              column-gap: 8px;
+            }
+            .gap-y-1 {
+              row-gap: 4px;
+            }
             .justify-between {
               justify-content: space-between;
             }
@@ -466,6 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .text-slate-700 { color: #334155; }
             .text-slate-600 { color: #475569; }
             .text-slate-500 { color: #64748b; }
+            .text-slate-300 { color: #94a3b8; }
             .border-slate-300 { border-color: #cbd5e1; }
             .border-b { border-bottom: 1px solid #cbd5e1; }
             .font-bold { font-weight: 700; }

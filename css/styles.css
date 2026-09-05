@@ -4968,6 +4968,12 @@ html.light .resume-a4-page {
   color: #0284C7 !important;
 }
 
+#resume-sheet .text-slate-300,
+.resume-paper .text-slate-300,
+.resume-a4-page .text-slate-300 {
+  color: #94A3B8 !important;
+}
+
 /* ==========================================================================
    Resume Typography Tokens & Utilities (ATS-Compliant Ivy League / Big Tech)
    ========================================================================== */
