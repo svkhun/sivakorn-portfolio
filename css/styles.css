@@ -6908,6 +6908,17 @@ body::after {
   margin-top: 2px;
 }
 
+.project-pnl-banner strong {
+  color: #F8FAFC;
+}
+
+.pnl-math {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  color: #FDE68A;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .project-stacked-footer {
   display: flex;
   justify-content: space-between;

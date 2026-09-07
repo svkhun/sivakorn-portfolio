@@ -920,7 +920,7 @@
             </li>
             <li>
               <i class="fas fa-check-circle"></i>
-              <span><strong>Local SHAP TreeExplainer:</strong> Computed instance-level Shapley values (\(f(x) = E[f(x)] + \sum \phi_j\)) to automatically generate legally required Adverse Action reason codes mandated by ECOA (12 C.F.R. § 1002.9) and FCRA.</span>
+              <span><strong>Local SHAP TreeExplainer:</strong> Computed instance-level Shapley values (<em>f</em>(<em>x</em>) = <em>E</em>[<em>f</em>(<em>x</em>)] + &sum;&phi;<sub><em>j</em></sub>) to automatically generate legally required Adverse Action reason codes mandated by ECOA (12 C.F.R. § 1002.9) and FCRA.</span>
             </li>
             <li>
               <i class="fas fa-check-circle"></i>
@@ -952,7 +952,7 @@
           <div class="project-pnl-banner">
             <i class="fas fa-balance-scale"></i>
             <div>
-              <strong>Cost-Matrix Financial Optimization:</strong> Underwriting optimization where False Negatives (loan write-offs, \(C_{FN} \approx \$10,000\)) cost \(\approx 8\times\) False Positives (forgone interest, \(C_{FP} \approx \$1,200\)). Calibrated decision cutoff (\(\tau = 0.35\)) to retain a healthy 72% loan approval rate.
+              <strong>Cost-Matrix Financial Optimization:</strong> Underwriting optimization where False Negatives (loan write-offs, <span class="pnl-math">C<sub>FN</sub> &approx; $10,000</span>) cost <span class="pnl-math">&approx; 8&times;</span> that of False Positives (forgone interest, <span class="pnl-math">C<sub>FP</sub> &approx; $1,200</span>). Calibrated decision cutoff (<span class="pnl-math">&tau; = 0.35</span>) to retain a healthy 72% loan approval rate.
             </div>
           </div>
 
@@ -985,7 +985,7 @@
               <span class="project-domain-chip" style="color: #34D399; border-color: rgba(52, 211, 153, 0.3); background: rgba(52, 211, 153, 0.1);">[ Financial Default Forecasting ]</span>
             </div>
             <span class="hero-status-badge" style="font-size: 0.75rem; padding: 4px 10px;">
-              <i class="fas fa-trophy" style="color: #FBBF24;"></i> Aihack 2025 Finalist &bull; Top 8
+              <i class="fas fa-trophy" style="color: #FBBF24;"></i> Aihack 2025 National Finalist
             </span>
           </div>
 
@@ -1006,7 +1006,7 @@
             </li>
             <li>
               <i class="fas fa-check-circle"></i>
-              <span><strong>5-Fold Stratified Cross-Validation:</strong> Tuned LightGBM and XGBoost models via Bayesian Optuna search, yielding 0.894 ROC-AUC on public and private blind test splits to qualify for the National Top 8.</span>
+              <span><strong>5-Fold Stratified Cross-Validation:</strong> Tuned LightGBM and XGBoost models via Bayesian Optuna search, yielding 0.894 ROC-AUC on public and private blind test splits to qualify as a National Finalist.</span>
             </li>
           </ul>
 
@@ -1025,8 +1025,8 @@
               <span class="project-metric-label">Scorecard Stability</span>
             </div>
             <div class="project-metric-cell">
-              <span class="project-metric-value" style="color: #FBBF24;">Top 8</span>
-              <span class="project-metric-label">National Finalist</span>
+              <span class="project-metric-value" style="color: #FBBF24;">Finalist</span>
+              <span class="project-metric-label">National Tier</span>
             </div>
           </div>
 
@@ -1086,7 +1086,7 @@
             </li>
             <li>
               <i class="fas fa-check-circle"></i>
-              <span><strong>Real-Time OEE &amp; Anomaly Detection:</strong> Dynamically calculates \(\text{OEE} = A \times P \times Q\), logging operational excursions above safety baseline thresholds into automated audit trails.</span>
+              <span><strong>Real-Time OEE &amp; Anomaly Detection:</strong> Dynamically calculates OEE = <em>A</em> &times; <em>P</em> &times; <em>Q</em>, logging operational excursions above safety baseline thresholds into automated audit trails.</span>
             </li>
           </ul>
 
@@ -1349,7 +1349,7 @@
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
               <span class="comp-badge sage">
-                <i class="fas fa-trophy"></i> National Finalist &bull; Top 8
+                <i class="fas fa-trophy"></i> National Finalist
               </span>
               <span class="comp-date-badge">Dec 2025</span>
             </div>
@@ -1366,7 +1366,7 @@
               <span class="comp-metric-label">Top Tier Generalization on Blind Private Splits</span>
             </div>
             <div class="comp-metric-item">
-              <span class="comp-metric-val amber"><i class="fas fa-balance-scale"></i> Top 8 Pitch</span>
+              <span class="comp-metric-val amber"><i class="fas fa-balance-scale"></i> Finalist Pitch</span>
               <span class="comp-metric-label">Strategic P&amp;L and Risk Trade-off Defense</span>
             </div>
           </div>
@@ -1764,7 +1764,7 @@
                 <h4 class="bento-card-title">Local vs. Global Interpretability (XAI)</h4>
               </div>
               <p class="bento-card-body">
-                Distinguishes global tree importance from instance-level Shapley values (\(f(x) = E[f(x)] + \sum_{j=1}^M \phi_j\)). Integrates <strong>SHAP TreeExplainer</strong> to output exact marginal risk contributions for transparent credit underwriting.
+                Distinguishes global tree importance from instance-level Shapley values (<em>f</em>(<em>x</em>) = <em>E</em>[<em>f</em>(<em>x</em>)] + &sum;<sub><em>j</em>=1</sub><sup><em>M</em></sup> &phi;<sub><em>j</em></sub>). Integrates <strong>SHAP TreeExplainer</strong> to output exact marginal risk contributions for transparent credit underwriting.
               </p>
             </div>
           </div>
@@ -1792,7 +1792,7 @@
                 <h4 class="bento-card-title">Weight of Evidence (WoE) &amp; IV</h4>
               </div>
               <p class="bento-card-body">
-                Discretizes continuous variables into monotonic risk bins (\(\text{WoE} = \ln(\text{Good}\% / \text{Bad}\%)\)). Enforces linear relationship with log-odds of default, automatically neutralizing outliers and capturing non-linear relationships.
+                Discretizes continuous variables into monotonic risk bins (WoE = ln(Good% / Bad%)). Enforces linear relationship with log-odds of default, automatically neutralizing outliers and capturing non-linear relationships.
               </p>
             </div>
 
@@ -1802,7 +1802,7 @@
                 <h4 class="bento-card-title">Population Stability Index (PSI)</h4>
               </div>
               <p class="bento-card-body">
-                Monitors covariate shift across quarterly baseline vs. actual borrower distributions (\(\text{PSI} = \sum (A_i - E_i) \times \ln(A_i / E_i)\)). Enforces \(\text{PSI} < 0.10\) threshold to prevent uncontained feature drift.
+                Monitors covariate shift across quarterly baseline vs. actual borrower distributions (PSI = &sum; (<em>A<sub>i</sub></em> - <em>E<sub>i</sub></em>) &times; ln(<em>A<sub>i</sub></em> / <em>E<sub>i</sub></em>)). Enforces PSI &lt; 0.10 threshold to prevent uncontained feature drift.
               </p>
             </div>
 
@@ -1812,7 +1812,7 @@
                 <h4 class="bento-card-title">Asymmetric Cost Utility Matrix</h4>
               </div>
               <p class="bento-card-body">
-                Underwriting optimization where False Negatives (uncontained write-off loss on principal, \(C_{FN} \approx \$10,000\)) cost \(\approx 8\times\) False Positives (forgone interest margin on rejected prime borrower, \(C_{FP} \approx \$1,200\)).
+                Underwriting optimization where False Negatives (uncontained write-off loss on principal, <span class="pnl-math">C<sub>FN</sub> &approx; $10,000</span>) cost <span class="pnl-math">&approx; 8&times;</span> that of False Positives (forgone interest margin on rejected prime borrower, <span class="pnl-math">C<sub>FP</sub> &approx; $1,200</span>).
               </p>
             </div>
           </div>
@@ -1894,7 +1894,7 @@
               <i class="fas fa-percentage tech-pill-icon"></i>
               <div>
                 <div class="tech-pill-label">Separation Metric: KS Statistic 42.6%</div>
-                <div class="tech-pill-desc">Clear separation between solvent and defaulting distributions at optimal cutoff \(\tau = 0.35\).</div>
+                <div class="tech-pill-desc">Clear separation between solvent and defaulting distributions at optimal cutoff &tau; = 0.35.</div>
               </div>
             </div>
 
@@ -1974,7 +1974,7 @@
             <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
             <div class="node-card"><i class="fas fa-layer-group text-emerald"></i> <span>5-Fold Stratified CV</span></div>
             <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
-            <div class="node-card"><i class="fas fa-award text-amber"></i> <span>Top 8 Finalist Pitch</span></div>
+            <div class="node-card"><i class="fas fa-award text-amber"></i> <span>National Finalist Pitch</span></div>
           </div>
         </div>
 
@@ -2029,7 +2029,7 @@
             <!-- Threshold Slider -->
             <div class="control-group" style="margin-top: 14px;">
               <div class="control-label-row">
-                <span class="control-name">Classification Cutoff (\(\tau\))</span>
+                <span class="control-name">Classification Cutoff (&tau;)</span>
                 <span class="control-value" id="roc-val-threshold">0.35</span>
               </div>
               <input type="range" class="range-slider" id="roc-slider-threshold" min="0.10" max="0.90" value="0.35" step="0.01">
@@ -2282,7 +2282,7 @@
               <i class="fas fa-industry tech-pill-icon"></i>
               <div>
                 <div class="tech-pill-label">Overall Equipment Effectiveness (OEE)</div>
-                <div class="tech-pill-desc">Computed dynamically as \(\text{Availability} \times \text{Performance} \times \text{Quality}\) across rolling shift windows.</div>
+                <div class="tech-pill-desc">Computed dynamically as Availability &times; Performance &times; Quality across rolling shift windows.</div>
               </div>
             </div>
 
@@ -3035,7 +3035,7 @@
     <div class="dossier-modal-window">
       <div class="dossier-modal-header">
         <div class="dossier-header-left">
-          <span class="dossier-badge"><i class="fas fa-trophy"></i> National Finalist &bull; Top 8</span>
+          <span class="dossier-badge"><i class="fas fa-trophy"></i> National Finalist</span>
           <h3 class="dossier-title" id="modal-aihack-dossier-title">Aihack Thailand 2025: Technical Dossier &amp; Architecture</h3>
         </div>
         <button class="terminal-close-btn" data-close-modal aria-label="Close Modal"><i class="fas fa-times"></i></button>
