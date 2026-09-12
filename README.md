@@ -3,105 +3,138 @@
 # Sivakorn Khundilokrattaya
 ### Data Scientist & Machine Learning Engineer &bull; FinTech & Quantitative Risk
 
-[![Live Portfolio](https://img.shields.io/badge/Live_Demo-svkhun.vercel.app-0284C7?style=for-the-badge&logo=vercel&logoColor=white)](https://svkhun.vercel.app)
+[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-svkhun.vercel.app-0284C7?style=for-the-badge&logo=vercel&logoColor=white)](https://svkhun.vercel.app)
+[![Education](https://img.shields.io/badge/Education-B.Eng._Computer_Engineering_@_SWU-38BDF8?style=for-the-badge&logo=google-scholar&logoColor=white)](https://swu.ac.th)
+[![Design System](https://img.shields.io/badge/Design-Keynote_Slide_Deck_%7C_Dark_Slate-6366F1?style=for-the-badge)](https://svkhun.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-059669?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![WCAG Accessibility](https://img.shields.io/badge/Accessibility-WCAG_AAA-6D28D9?style=for-the-badge&logo=w3c&logoColor=white)](https://www.w3.org/WAI/standards-guidelines/wcag/)
-[![Code Architecture](https://img.shields.io/badge/Stack-Vanilla_JS_%7C_Tailwind_CSS-0F172A?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 <p align="center">
-  <strong>Architecting explainable credit risk engines, high-impact tabular ML, and production-grade financial data pipelines.</strong>
+  <strong>Architecting explainable credit risk engines, Basel-compliant probability of default (PD) models, and scalable production data pipelines.</strong>
 </p>
 
-[Explore Projects](https://svkhun.vercel.app#projects) &bull; [Executive Brief](https://svkhun.vercel.app) &bull; [KBTG Certified](https://svkhun.vercel.app#about) &bull; [GitHub](https://github.com/svkhun) &bull; [LinkedIn](https://www.linkedin.com/in/sivakorn-khundilokrattaya-5870b8429/)
+[Explore Projects](#-featured-engineering-case-studies) &bull; [Competitions & Hackathons](#-competitions--industry-challenges) &bull; [KBTG Certifications](#-verified-industry-credentials--assessments) &bull; [Architecture & Design](#-architectural-highlights--keynote-presentation) &bull; [GitHub](https://github.com/svkhun) &bull; [LinkedIn](https://www.linkedin.com/in/sivakorn-khundilokrattaya-5870b8429/)
 
 ---
 
 </div>
 
-##  Executive Summary
+## 📌 Executive Summary
 
-I am a **Computer Engineering student at Srinakharinwirot University (SWU, Class of 2026)** specializing in **statistical tabular machine learning, Basel II/III credit risk modeling, and regulatory-compliant Explainable AI (XAI)**.
+I am a **Computer Engineering student at Srinakharinwirot University (SWU, Class of 2026)** specializing in **statistical tabular machine learning, Basel II/III credit risk modeling, regulatory-compliant Explainable AI (XAI), and production data pipelines**.
 
-In institutional banking and quantitative risk underwriting, black-box algorithms introduce significant regulatory and financial liabilities. My engineering focus bridges rigorous statistical modeling with software discipline:
-* **Calibrated Default Prediction**: Estimating Probability of Default (PD) via Weight of Evidence (WoE) monotonic binning, Information Value (IV) screening, and asymmetric loss matrix optimization.
-* **Model Stability & Governance**: Tracking Population Stability Index (PSI < 0.10) and Kolmogorov-Smirnov separation (KS > 40%) across temporal cohorts.
-* **Audit-Defensible Explainability**: Integrating instance-level **TreeSHAP** marginal attributions to generate legally compliant Adverse Action notices (ECOA 12 C.F.R. § 1002.9 / FCRA).
-* **Low-Latency Serving**: Deploying containerized FastAPI endpoints with sub-30ms inference times.
+In institutional finance and quantitative underwriting, black-box machine learning models introduce unacceptable regulatory and solvency liabilities. My engineering discipline unites rigorous statistical risk modeling with modern software reliability:
+* **Calibrated Default Prediction**: Estimating Probability of Default (PD) via monotonic Weight of Evidence (WoE) binning, Information Value (IV) screening, and asymmetric cost matrix threshold optimization.
+* **Regulatory Compliance & Explainability**: Decomposing complex non-linear models with **TreeSHAP** to deliver auditable, legally defensible Adverse Action notices under **ECOA (12 C.F.R. § 1002.9) / FCRA**.
+* **Risk Governance & Stability**: Monitoring continuous model drift, Population Stability Index (PSI < 0.10), and Kolmogorov-Smirnov separation (KS > 40%) across temporal cohorts.
+* **Production Data Engineering**: Implementing Hybrid Lambda data platforms, sub-second PLC telemetry streaming via WebSockets, idempotent hourly OEE Data Marts in PostgreSQL 15, and low-latency FastAPI inference microservices (< 30ms).
 
 ---
 
-##  Architectural Highlights & Engineering Philosophy
+## 🎨 Architectural Highlights & Keynote Presentation
+
+The portfolio interface is engineered as an executive **Keynote-Style Slide Deck** infused with an authentic **Dark Slate & Quantitative Terminal** aesthetic:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                          SVKHUN CLIENT ARCHITECTURE                         │
+│                          SVKHUN PORTFOLIO PLATFORM                          │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  [ Canvas Layer ] ──> Interactive Synaptic Particle Physics (Dual Engine)  │
-│  [ UI Framework ] ──> Zero-Dependency Modular Vanilla JS + Tailwind Tokens  │
-│  [ Theme Engine ] ──> WCAG AAA Slate-50 Light Mode / Obsidian Dark Mode     │
-│  [ Security ]    ──> Client-Side Web Crypto SHA-256 Admin Telemetry Audit   │
-│  [ Defense ]     ──> Strict CSP, Frame Protection (DENY), nosniff Headers  │
+│  [ Visual Theme ] ──> Deep Obsidian Canvas (#0B0F17) + Midnight Slate Glass  │
+│  [ Cards & Deck ] ──> Glassmorphism (bg-slate-900/65) + Hairline Borders    │
+│  [ Micro-Interact]──> Dynamic Radial Spotlight Tracking (--mouse-x, --mouse-y)│
+│  [ Canvas Layer ] ──> Calibrated 60 FPS Synaptic Particle Physics Engine    │
+│  [ Typography ]   ──> Inter (Headings/Body) + JetBrains Mono (Metrics/Code) │
+│  [ Security ]     ──> Client-Side Web Crypto SHA-256 Telemetry Verification │
+│  [ Defense ]      ──> Strict CSP, Frame Ancestors DENY, nosniff Headers     │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-* **Sequential Bento Storytelling**: Single vertical flow with horizontal tiers that eliminate split-column cognitive overload.
-* **Dual-Instance Synaptic Canvas Engine**: 60 FPS vector field and particle network responding dynamically to cursor physics on both Hero and Footer views (`js/neural-canvas.js`).
-* **High-Contrast Theme Inversion (WCAG AAA)**: Slate-50 (`#F8FAFC`) canvas paired with elevated pure-white Bento containers and high-contrast typography tokens.
-* **Client-Side Cryptographic Hardening**: Zero hardcoded plaintext admin tokens; uses client-side SHA-256 digest validation with instant URL query scrubbing (`history.replaceState`).
-* **Zero-Bloat Performance**: Built with high-performance vanilla JavaScript modules, achieving sub-second first contentful paint (FCP).
+* **Executive Slide Cadence**: High-contrast, spacious slide-like sections (`clamp(80px, 8.5vw, 120px) 0`) optimized for hiring managers and technical leadership to digest complex engineering achievements without cognitive overload.
+* **Interactive Radial Spotlight Hover**: Custom mouse tracking dynamically illuminates card borders and surfaces with an Electric Indigo/Cyan glow as the user hovers, mirroring developer-centric platforms like Linear, Vercel, and Raycast.
+* **Ambient Quantitative Grid**: Ultra-fine hairline background grid (`52px 52px`) layered under a soft radial mask (`mask-image: radial-gradient(...)`) delivering depth without visual distraction.
+* **Calibrated Synaptic Canvas Engine**: A high-efficiency HTML5 canvas simulation running at 60 FPS with subtle particle velocity and restrained cyan/indigo color tokens (`js/neural-canvas.js`).
+* **Strict Monospace Data Pairing**: Monospace font (`JetBrains Mono` with `font-variant-numeric: tabular-nums`) strictly applied to all metrics, score rows, status badges, tech pills, and parameter values.
+* **Zero-Dependency Vanilla Performance**: Built on clean modular vanilla ES6+ JavaScript, achieving sub-second First Contentful Paint (FCP) and zero bundle overhead.
 
 ---
 
-##  Featured Case Studies & Quantitative Systems
+## 🔬 Featured Engineering Case Studies
 
 ### 1. Enterprise Credit Risk Scoring & Explainable AI (XAI)
-* **Problem**: Regulatory compliance under ECOA / SR 11-7 forbids opaque underwriting. Required legally defensible risk scoring for consumer credit applications.
+* **Domain**: Quantitative Credit Risk, Basel II/III Compliance, Consumer Lending Intelligence.
+* **Problem**: Standard deep learning and complex ensemble models operate as black boxes, exposing financial institutions to severe legal penalties under ECOA / SR 11-7 model risk governance.
 * **Architecture**:
   * Continuous feature discretization using **Monotonic Weight of Evidence (WoE)** and **Information Value (IV)** filtering.
-  * Calibrated **LightGBM / Logistic Regression** dual-scorecard engine.
-  * Exact instance-level Shapley value decomposition ($f(x) = \mathbb{E}[f(x)] + \sum_{j=1}^M \phi_j$) via **TreeSHAP**.
+  * Dual-scorecard engine combining calibrated **Logistic Regression** baseline with tuned **LightGBM**.
+  * Exact instance-level Shapley value decomposition ($f(x) = \mathbb{E}[f(x)] + \sum_{j=1}^M \phi_j$) via **TreeSHAP** to generate automated, legally defensible Adverse Action notices.
 * **Key Metrics**:
   * **0.894 ROC-AUC** on 5-Fold Stratified Cross-Validation.
-  * **42.6% KS Separation Statistic** (Clean default discrimination).
-  * **PSI < 0.08** (Strict temporal population stability).
-  * **< 30ms** FastAPI inference latency with automated Adverse Action notice generation.
+  * **42.6% KS Separation Statistic** demonstrating high discriminatory power between good and bad loan applicants.
+  * **PSI < 0.08** indicating robust temporal population stability.
+  * **< 30ms** FastAPI inference latency delivering real-time underwriting decisions.
 
 ---
 
-### 2. Long Overdue Debtor (LOD) Prediction & Threshold Optimizer
-* **Problem**: Mitigating non-performing loans (NPLs) by classifying 90+ day default trajectories under asymmetric cost matrices (Cost of False Negative >> Cost of False Positive).
+### 2. Long Overdue Debtor (LOD) Prediction System
+* **Domain**: Non-Performing Loan (NPL) Prevention, Asymmetric Loss Optimization.
+* **Context**: **Aihack Thailand 2025 National Finalist** (Organized by AIRA & AIFUL, Chulalongkorn Business School, and ProbSpace).
+* **Problem**: Default classification on ~40,000 real-world consumer loans under extreme 1:12 default imbalance and blind private leaderboard evaluation.
 * **Architecture**:
-  * High-dimensional tabular preprocessing across transactional payment delinquency history.
-  * Cost-matrix threshold optimization balancing charge-off loss vs. customer acquisition cost (CAC).
-  * Live client-side ROC curve & Decision Matrix threshold simulator.
+  * Formulated temporal delinquency velocity ratios, credit exhaustion slopes, and payment behavior vectors.
+  * Handled severe target imbalance using **SMOTE-Tomek** resampling on training folds.
+  * Asymmetric cost-matrix optimization: mathematically balancing the catastrophic cost of False Negatives (unrecovered principal default) against False Positives (lost customer margin).
+  * Interactive client-side ROC curve & Decision Matrix threshold simulator.
 * **Key Metrics**:
-  * **0.887 ROC-AUC** across out-of-time test partitions.
-  * **14.2% Estimated P&L Improvement** over static 0.50 cutoff thresholds.
+  * **0.894 ROC-AUC** across out-of-time test partitions.
+  * **14.2% Estimated P&L Cost Reduction** compared to conventional 0.50 cutoff thresholds.
 
 ---
 
-### 3. Spatial ML Pipeline & Flood Telemetry (Japan-ASEAN AI Hackathon Finalist)
-* **Problem**: 30-meter high-resolution flash flood inundation risk modeling across complex topography in Southeast Asia.
+### 3. Industrial IoT & OEE Manufacturing Data Platform
+* **Domain**: Hybrid Lambda Data Engineering, Industrial Telemetry & Predictive Quality.
+* **Problem**: Factory automation requires simultaneous sub-second edge anomaly detection and compute-intensive hourly batch aggregations for Overall Equipment Effectiveness (OEE) tracking.
 * **Architecture**:
-  * Geo-spatial ETL fusing **Sentinel-1 SAR** microwave backscatter, **Copernicus DEM** terrain indices, and rainfall telemetry.
-  * Automated cloud-masking, speckle filtering, and gradient-boosted spatial segmentation.
-* **Outcome**: **Top 5 Finalist** representing Srinakharinwirot University at the Japan-ASEAN AI Hackathon 2024.
+  * **Hybrid / Lambda Pipeline**: Decoupled sub-second edge event streaming from idempotent batch Data Mart processing.
+  * **Physical Data Quality Gate**: Multi-machine PLC simulator (automotive manufacturing baseline) streaming cycle times, vibration RMS/Kurtosis harmonics, temperatures, and press loads; automatically filters non-positive ($t \le 0$) cycle times.
+  * **Idempotent Batch OEE Data Mart**: PostgreSQL 15 dimensional store computing $OEE = \text{Availability} \times \text{Performance} \times \text{Quality}$ with `ON CONFLICT DO UPDATE` deterministic upserts and structured audit trails.
+  * **Dual ML & TreeSHAP XAI**: Unsupervised Isolation Forest (0–100% continuous health scores) paired with cost-sensitive LightGBM Virtual Metrology predicting defect escape risk; TreeSHAP decomposes machine sensor anomalies into actionable root causes for line operators.
+  * **Observability & Serving**: High-concurrency FastAPI service with asynchronous WebSockets (`/api/ws/telemetry`) and responsive live dashboard.
+* **Key Metrics**:
+  * **< 1.0s** WebSocket push latency from edge PLC event to live UI.
+  * **100%** Idempotent upsert execution guarantee across hourly aggregation windows.
+  * **0.35** Tuned decision cutoff maximizing defect recall in Virtual Metrology.
 
 ---
 
-### 4. Manufacturing (MFG) Telemetry & Anomaly Detection Pipeline
-* **Problem**: Continuous Overall Equipment Effectiveness (OEE) optimization and anomalous vibration detection on industrial assembly lines.
+### 4. GuardianAI – Clinical Frailty & Fall Risk Intervention
+* **Domain**: Healthcare AI, Preventive Geriatric Analytics.
+* **Context**: **True Innovation Launchpad 2026** (AI & Data Science Lead &bull; Team Nakphatthana Tuapralat).
+* **Problem**: Early identification of elderly frailty and acute fall risk before irreversible physical decline occurs.
 * **Architecture**:
-  * High-throughput microservice pipeline ingesting streaming sensor signals.
-  * Isolation Forest and rolling Z-score anomaly classifiers.
-  * Dockerized container deployment with Prometheus metric endpoints.
+  * Calibrated **XGBoost** risk engine trained on multi-biometric physical markers, gait parameters, and health records.
+  * Integrated localized **SHAP** attribution to explain individual patient risk drivers directly to clinical practitioners.
+  * Asynchronous containerized **FastAPI** medical scoring endpoint with sub-30ms response times.
+* **Key Metrics**:
+  * **< 30ms** API latency for real-time clinical assessment.
+  * **High-confidence calibrated probabilities** providing interpretable risk stratifications (Low / Moderate / Severe).
 
 ---
 
-##  Verified Industry Credentials & Academic Foundation
+## 🏆 Competitions & Industry Challenges
 
-### SKILLKAMP by KBTG Industry Assessments
-Certified by **Kasikorn Business-Technology Group (KBTG)** across standardized quantitative benchmarks:
+| Competition / Hackathon | Organization / Hosts | Role & Focus | Timeline |
+| :--- | :--- | :--- | :--- |
+| **CDG Hackathon 2026** | CDG Group | Operational AI & System Reliability (Team GrandGuardianAI) | Jul 2026 |
+| **Geospatial Intelligence for Resilience Hackathon 2026** | GISTDA &bull; KMITL &bull; KMUTT | Spatial Lead &bull; 30m Grid Flash Flood Mapping via Sentinel-1 SAR & Copernicus DEM | Jan 2026 |
+| **True Innovation Launchpad 2026** | True Corporation | AI & Data Science Lead &bull; Preventive Healthcare & Clinical Frailty Scoring (GuardianAI) | Jan 2026 |
+| **Aihack Thailand 2025** | AIRA & AIFUL &bull; Chulalongkorn Business School &bull; ProbSpace | **National Finalist** &bull; Long Overdue Debtor (LOD) Prediction (~40,000 credit records, 0.894 ROC-AUC) | Dec 2025 |
+| **LINE MAN Campus VIP Growth Campaign** | LINE MAN Wongnai | Unit Economics Lead &bull; 8.87 THB CAC, 462 student conversions within 8,000 THB budget | Nov 2024 |
+
+---
+
+## 📜 Verified Industry Credentials & Assessments
+
+### SKILLKAMP by KBTG Industry Benchmarks
+Certified by **Kasikorn Business-Technology Group (KBTG)** across standardized quantitative technical assessments:
 
 | Assessment Track | Score | Benchmark | Status |
 | :--- | :---: | :---: | :---: |
@@ -111,117 +144,117 @@ Certified by **Kasikorn Business-Technology Group (KBTG)** across standardized q
 #### 5-Domain Competency Breakdown (Data Analyst Track):
 ```
 1. Data Cleaning & Preprocessing      [████████████████░░░░]  23 / 30  (76.7%)
-2. Exploratory Data Analysis & Viz    [██████████████░░░░░░]  20 / 30  (66.7%)
-3. Machine Learning for Analysts      [█████████████░░░░░░░]  18 / 30  (60.0%)
-4. Business Insight & Problem Framing [██████████████░░░░░░]  19 / 30  (63.3%)
+2. EDA & Visualization                [██████████████░░░░░░]  20 / 30  (66.7%)
+3. Foundations of Data Analysis       [██████████████░░░░░░]  20 / 30  (66.7%)
+4. Machine Learning for Analysts      [█████████████░░░░░░░]  18 / 30  (60.0%)
 5. SQL & Quantitative Querying        [████████████░░░░░░░░]  17 / 30  (56.7%)
 ─────────────────────────────────────────────────────────────────────────────
 TOTAL VERIFIED SCORE:                                         97 / 150
 ```
 
-### Academic Credentials
-* **B.Eng. in Computer Engineering** &bull; Srinakharinwirot University (SWU)
+### Standardized International Assessments
+* **Oxford Placement Test (AUA / Oxford University Press)**:
+  * **CEFR Level: B1+** (Working Professional English Proficiency)
+  * **Total Score: 51 / 120** (Grammar & Use of English: 54 / B1, Listening: 48 / B1)
+
+### Academic Degree
+* **B.Eng. in Computer Engineering** &bull; Srinakharinwirot University (SWU, Bangkok, Thailand)
 * **Expected Graduation**: Class of 2026
-* **Core Coursework**: Machine Learning, Database Systems (RDBMS & NoSQL), Operating Systems, Statistical Methods & Probability, Data Structures & Algorithms, Clean Software Architecture.
+* **Curriculum Focus**: Statistical Machine Learning, Advanced Database Systems (RDBMS & Distributed Data), Operating Systems, Probability & Mathematical Statistics, Data Structures & Algorithms, Distributed Systems.
 
 ---
 
-##  Technical Arsenal
+## 🛠 Technical Arsenal
 
 ```
-┌─────────────────┬───────────────────────────────────────────────────────────┐
-│ CATEGORY        │ TECHNOLOGIES & TOOLS                                      │
-├─────────────────┼───────────────────────────────────────────────────────────┤
-│ Tabular ML / DS │ Python, LightGBM, XGBoost, CatBoost, Scikit-Learn, Pandas │
-│ Risk Analytics  │ OptBinning (WoE/IV), TreeSHAP, Statsmodels, SciPy         │
-│ Backend & API   │ FastAPI, Flask, Docker, RESTful Microservices, Pydantic   │
-│ Data Eng / DB   │ PostgreSQL, MySQL, SQLite, Apache Parquet, Polars         │
-│ Frontend & UI   │ JavaScript (ES6+), Tailwind CSS, Canvas API, HTML5        │
-│ Tooling & DevOps│ Git, GitHub Actions, Vercel Edge, Linux/Bash, VS Code     │
-└─────────────────┴───────────────────────────────────────────────────────────┘
+┌──────────────────┬───────────────────────────────────────────────────────────┐
+│ CATEGORY         │ TECHNOLOGIES & TOOLS                                      │
+├──────────────────┼───────────────────────────────────────────────────────────┤
+│ Tabular ML / DS  │ Python, LightGBM, XGBoost, CatBoost, Scikit-Learn, Pandas │
+│ Risk & XAI       │ OptBinning (WoE/IV), TreeSHAP, Statsmodels, SciPy         │
+│ Data Eng & DB    │ PostgreSQL 15, MySQL, SQLite, Apache Spark, Polars        │
+│ Backend & API    │ FastAPI, WebSockets, Flask, Docker, RESTful Microservices │
+│ Frontend & UI    │ Vanilla JS (ES6+), Modern CSS3 Glassmorphism, Tailwind CSS│
+│ Tooling & DevOps │ Docker Compose, Git, GitHub Actions, Vercel, Linux / Bash │
+└──────────────────┴───────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-##  Production Security Hardening & AppSec Controls
+## 🛡 Production Security Hardening & AppSec Controls
 
-This repository incorporates enterprise frontend application security standards:
-
-* **Web Crypto Authentication**: Admin dashboard access is protected via client-side SHA-256 hash digests (`window.crypto.subtle.digest`). Plaintext keys are never stored in source code.
-* **URL Parameter Scrubbing**: Transient authentication parameters (`?auth=...`) are sanitized in-memory using `window.history.replaceState` immediately upon verification.
+* **Web Crypto Administrative Authentication**: Interactive telemetry and administrative drawers are authenticated via client-side SHA-256 hash digests (`window.crypto.subtle.digest`). Plaintext credentials are never committed or exposed in client bundles.
+* **Transient URL Sanitization**: Query parameter authentication tokens (`?auth=...`) are scrubbed from browser history in-memory using `window.history.replaceState` immediately upon verification.
 * **HTTP Defense-in-Depth (`vercel.json`)**:
-  * `Content-Security-Policy`: Restricts scripts, styles, and font endpoints to trusted CDNs (`cdnjs.cloudflare.com`, `fonts.googleapis.com`).
-  * `X-Frame-Options: DENY`: Mitigates clickjacking attacks.
-  * `X-Content-Type-Options: nosniff`: Prevents MIME-sniffing exploits.
+  * `Content-Security-Policy`: Strictly restricts script execution and style origins to authorized domains and CDNs.
+  * `X-Frame-Options: DENY`: Full protection against clickjacking and UI redressing attacks.
+  * `X-Content-Type-Options: nosniff`: Enforces strict MIME-type sniffing defense.
   * `Referrer-Policy: strict-origin-when-cross-origin`.
-  * `Permissions-Policy`: Restricts unauthorized hardware API access (camera, microphone, geolocation).
+  * `Permissions-Policy`: Restricts browser hardware access (camera, microphone, geolocation).
 
 ---
 
-##  Local Development & Deployment
+## 💻 Local Development & Deployment
 
 ### Quickstart
 
 ```bash
-# 1. Clone the repository
+# 1. Clone repository
 git clone https://github.com/svkhun/sivakorn-portfolio.git
 
-# 2. Navigate to project root
+# 2. Change directory
 cd sivakorn-portfolio
 
-# 3. Serve via local static HTTP server (Node / Python)
-npx serve .
-# or
+# 3. Launch local static server
 python -m http.server 8080
+# or
+npx serve .
 ```
 
-Open `http://localhost:3000` (or `http://localhost:8080`) in your browser.
+Open `http://localhost:8080` (or `http://localhost:3000`) in any modern web browser.
 
 ### Production Deployment
 
-This project is configured for continuous zero-config deployment on **Vercel**:
+The project is configured for automated, zero-config continuous deployment on **Vercel**:
 
 ```bash
-# Deploy to Vercel production
+# Deploy to production
 vercel --prod
 ```
 
-All HTTP defense-in-depth security headers and cache-control parameters are defined in [`vercel.json`](vercel.json).
-
 ---
 
-##  Repository Structure
+## 📂 Repository Structure
 
 ```
 sivakorn-portfolio/
-├── index.html                  # Core single-page application & semantic layout
-├── vercel.json                 # Vercel security headers (CSP, HSTS, XFO)
-├── .gitignore                  # Production Git ignore rules (DS/ML artifacts)
-├── README.md                   # Technical documentation & system overview
+├── index.html                  # Executive Keynote slide layout & semantic sections
+├── vercel.json                 # HTTP security headers (CSP, HSTS, XFO, nosniff)
+├── .gitignore                  # Git ignore rules for ML/DS artifacts and temporary files
+├── README.md                   # Comprehensive technical documentation & portfolio overview
 ├── css/
-│   └── styles.css              # Custom styling, dark/light design tokens & animations
+│   └── styles.css              # Dark Slate tokens, glassmorphic styling, spotlight hover
 ├── js/
-│   ├── main.js                 # App controller, drawer management & AppSec hash auth
-│   ├── neural-canvas.js        # Dual-instance interactive synaptic canvas physics
-│   ├── focal-deck.js           # Project showcase carousel & interactive deck
-│   ├── tech-marquee.js         # Infinite continuous technical arsenal marquee
-│   ├── shap-simulator.js       # Real-time SHAP waterfall contribution engine
-│   ├── roc-simulator.js        # Interactive ROC curve & decision threshold visualizer
-│   └── i18n.js                 # English / Thai localization engine with state persistence
-└── assets/                     # Optimized certificates, documentation & profile media
+│   ├── main.js                 # App controller, spotlight cursor tracking, drawer mgmt
+│   ├── neural-canvas.js        # Calibrated 60 FPS synaptic particle physics simulation
+│   ├── focal-deck.js           # Interactive showcase card interactions & deck transitions
+│   ├── tech-marquee.js         # Infinite continuous technical arsenal ticker
+│   ├── shap-simulator.js       # Real-time SHAP waterfall contribution simulator
+│   └── roc-simulator.js        # Dynamic ROC curve & decision threshold simulator
+└── assets/                     # Resume, CV, certified transcripts & optimized media
 ```
 
 ---
 
-##  Contact & Connectivity
+## 📬 Contact & Connectivity
 
-I am actively seeking **full-time Data Scientist, Machine Learning Engineer, and Quantitative Risk Analyst** roles.
+I am actively seeking **full-time Data Scientist, Machine Learning Engineer, and Quantitative Risk Analyst** opportunities.
 
 * **Portfolio Website**: [svkhun.vercel.app](https://svkhun.vercel.app)
 * **Direct Email**: [sivakorn.khun@gmail.com](mailto:sivakorn.khun@gmail.com)
 * **LinkedIn**: [linkedin.com/in/sivakorn-khundilokrattaya-5870b8429](https://www.linkedin.com/in/sivakorn-khundilokrattaya-5870b8429/)
 * **GitHub**: [github.com/svkhun](https://github.com/svkhun)
-* **Location**: Bangkok, Thailand (Open to On-site, Hybrid & Remote opportunities)
+* **Location**: Bangkok, Thailand (Available for On-site, Hybrid & Remote roles)
 
 ---
 

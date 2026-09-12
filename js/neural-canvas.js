@@ -22,15 +22,15 @@
       active: false
     };
 
-    // Configuration
+    // Configuration (Subtle Non-Distracting Aesthetic Accent)
     const CONFIG = {
-      particleDensity: customConfig.particleDensity || 24,
-      streamCount: customConfig.streamCount !== undefined ? customConfig.streamCount : 8,
-      maxDistance: customConfig.maxDistance || 135,
-      mouseDistance: customConfig.mouseDistance || 170,
-      speed: customConfig.speed || 0.45,
-      darkColors: ['#38bdf8', '#34d399', '#7dd3fc', '#a78bfa', '#ffffff'],
-      lightColors: ['#0284c7', '#059669', '#0369a1', '#6d28d9', '#1e293b'],
+      particleDensity: customConfig.particleDensity || 32,
+      streamCount: customConfig.streamCount !== undefined ? customConfig.streamCount : 3,
+      maxDistance: customConfig.maxDistance || 120,
+      mouseDistance: customConfig.mouseDistance || 150,
+      speed: customConfig.speed || 0.22,
+      darkColors: ['#38bdf8', '#6366f1', '#818cf8', '#34d399', '#94a3b8'],
+      lightColors: ['#0284c7', '#4f46e5', '#0369a1', '#059669', '#1e293b'],
       ...customConfig
     };
 

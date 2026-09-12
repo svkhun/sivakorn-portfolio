@@ -132,7 +132,7 @@
       <!-- Clean Punchy Sub-Headline -->
       <div class="hero-subheadline-group reveal-smooth stagger-3">
         <div class="hero-identity-line">
-          Computer Engineering Student @ SWU &bull; Aspiring Data Scientist &amp; ML Engineer
+          <span class="whitespace-nowrap">Computer Engineering Student @ SWU</span> &bull; <span class="whitespace-nowrap">Aspiring Data Scientist &amp; ML Engineer</span>
         </div>
         <p class="hero-specialty-line">
           Architecting explainable credit risk engines, Basel-compliant probability of default (PD) models, and scalable production data pipelines.
@@ -1058,68 +1058,72 @@
           </div>
         </div>
 
-        <!-- Project 3: Manufacturing Telemetry & OEE Analytics Pipeline -->
+        <!-- Project 3: Industrial IoT & OEE Manufacturing Data Platform -->
         <div class="project-stacked-card glass-card">
           <div class="project-stacked-header">
             <div>
-              <span class="project-domain-chip" style="color: #FBBF24; border-color: rgba(251, 191, 36, 0.3); background: rgba(251, 191, 36, 0.1);">[ Industrial IoT / Data Engineering ]</span>
+              <span class="project-domain-chip" style="color: #FBBF24; border-color: rgba(251, 191, 36, 0.3); background: rgba(251, 191, 36, 0.1);">[ Industrial IoT / Lambda Data Engineering &amp; Predictive Quality ]</span>
             </div>
             <span class="hero-status-badge" style="font-size: 0.75rem; padding: 4px 10px;">
-              <i class="fas fa-server" style="color: #FBBF24;"></i> Automated Batch ETL &bull; Dockerized
+              <i class="fas fa-network-wired" style="color: #FBBF24;"></i> Hybrid Lambda Architecture &bull; WebSockets &bull; XAI
             </span>
           </div>
 
-          <h3 class="project-stacked-title">Manufacturing (MFG) Telemetry Pipeline &amp; OEE Analytics</h3>
+          <h3 class="project-stacked-title">Industrial IoT &amp; OEE Manufacturing Data Platform</h3>
           <p class="project-stacked-desc">
-            End-to-end industrial data engineering architecture simulating IIoT sensor telemetry, executing automated batch ETL pipelines, and streaming real-time anomaly detection for Overall Equipment Effectiveness (OEE) tracking.
+            Enterprise-grade Hybrid Lambda data engineering architecture for discrete manufacturing lines. Integrates sub-second PLC edge telemetry streaming, physical Data Quality Gates, automated idempotent hourly OEE Data Mart aggregations, and TreeSHAP root-cause explainability for factory operators.
           </p>
 
           <!-- Key Impact Bullet Points -->
           <ul class="project-stacked-bullets">
             <li>
               <i class="fas fa-check-circle"></i>
-              <span><strong>High-Frequency IIoT Simulation:</strong> Ingests concurrent multi-machine telemetry streams (temperature, vibration harmonics, cycle times, operational state flags) through resilient SQLAlchemy pools.</span>
+              <span><strong>Edge Ingestion &amp; Physical Quality Gate:</strong> Ingests concurrent multi-machine PLC sensor streams (cycle times, vibration RMS/Kurtosis harmonics, bearing temp, press force, motor current) with physical boundary gates rejecting \(t \le 0\) signals and sub-second WebSocket broadcasting.</span>
             </li>
             <li>
               <i class="fas fa-check-circle"></i>
-              <span><strong>Automated Batch ETL in Airflow:</strong> Orchestrated scheduled batch processing jobs calculating rolling availability ratios, performance speeds, and quality yields into indexed PostgreSQL tables.</span>
+              <span><strong>Idempotent Batch OEE Data Mart:</strong> Computes hourly Overall Equipment Effectiveness (\(\text{OEE} = A \times P \times Q\)) via CTEs with <code>ON CONFLICT DO UPDATE</code> deterministic upserts, full execution runtime auditing, and error telemetry in PostgreSQL 15.</span>
             </li>
             <li>
               <i class="fas fa-check-circle"></i>
-              <span><strong>Real-Time OEE &amp; Anomaly Detection:</strong> Dynamically calculates OEE = <em>A</em> &times; <em>P</em> &times; <em>Q</em>, logging operational excursions above safety baseline thresholds into automated audit trails.</span>
+              <span><strong>Virtual Metrology &amp; TreeSHAP XAI:</strong> Combines unsupervised Isolation Forest for continuous machine health scoring (0&ndash;100%) with cost-sensitive LightGBM for defect prediction, translating high-dimensional sensor spikes into actionable shopfloor root-cause attributions.</span>
             </li>
           </ul>
 
           <!-- Metrics Strip -->
           <div class="project-metrics-strip">
             <div class="project-metric-cell">
-              <span class="project-metric-value" style="color: #FBBF24;">Real-Time</span>
-              <span class="project-metric-label">OEE Tracking</span>
+              <span class="project-metric-value" style="color: #FBBF24;">&lt; 1.0s</span>
+              <span class="project-metric-label">WebSocket Stream</span>
             </div>
             <div class="project-metric-cell">
-              <span class="project-metric-value" style="color: #38BDF8;">Dockerized</span>
-              <span class="project-metric-label">PostgreSQL Engine</span>
+              <span class="project-metric-value" style="color: #38BDF8;">100%</span>
+              <span class="project-metric-label">Idempotent Upsert</span>
             </div>
             <div class="project-metric-cell">
-              <span class="project-metric-value" style="color: #34D399;">&lt; 20ms</span>
-              <span class="project-metric-label">Batch ETL Runtime</span>
+              <span class="project-metric-value" style="color: #34D399;">OEE = A&times;P&times;Q</span>
+              <span class="project-metric-label">Hourly Data Mart</span>
             </div>
             <div class="project-metric-cell">
-              <span class="project-metric-value" style="color: #A78BFA;">Automated</span>
-              <span class="project-metric-label">Anomaly Audit Logs</span>
+              <span class="project-metric-value" style="color: #A78BFA;">TreeSHAP</span>
+              <span class="project-metric-label">Root Cause XAI</span>
             </div>
           </div>
 
           <!-- Stack Badges & Footer -->
           <div class="project-stacked-footer">
             <div class="tech-badges-list">
-              <span class="tech-pill">Docker</span>
-              <span class="tech-pill">PostgreSQL</span>
-              <span class="tech-pill">Apache Spark</span>
-              <span class="tech-pill">Apache Airflow</span>
-              <span class="tech-pill">SQLAlchemy</span>
+              <span class="tech-pill">Python 3.11+</span>
+              <span class="tech-pill">PostgreSQL 15</span>
+              <span class="tech-pill">FastAPI</span>
+              <span class="tech-pill">WebSockets</span>
+              <span class="tech-pill">React + Vite</span>
+              <span class="tech-pill">TypeScript</span>
+              <span class="tech-pill">Tailwind CSS</span>
+              <span class="tech-pill">LightGBM</span>
+              <span class="tech-pill">TreeSHAP</span>
+              <span class="tech-pill">Docker Compose</span>
               <span class="tech-pill">Streamlit</span>
-              <span class="tech-pill">Pandas</span>
             </div>
 
             <div style="display: flex; align-items: center; gap: 14px;">
@@ -2204,23 +2208,23 @@
   </div>
 
   <!-- ========================================================================
-       MODAL 4: Manufacturing (MFG) Telemetry Pipeline & OEE Analytics
+       MODAL 4: Industrial IoT & OEE Manufacturing Data Platform
        ======================================================================== -->
   <div class="drawer-backdrop" id="drawer-mfg-pipeline" role="dialog" aria-modal="true" aria-labelledby="drawer-mfg-title">
     <div class="slide-drawer">
       <div class="drawer-header">
         <div class="drawer-header-left">
-          <span class="drawer-badge" style="color: var(--accent-amber);">Industrial IoT &amp; Data Engineering</span>
-          <h2 class="drawer-title" id="drawer-mfg-title">Manufacturing (MFG) Telemetry Pipeline &amp; OEE Analytics</h2>
+          <span class="drawer-badge" style="color: var(--accent-amber);">Industrial IoT &amp; Lambda Architecture</span>
+          <h2 class="drawer-title" id="drawer-mfg-title">Industrial IoT &amp; OEE Manufacturing Data Platform</h2>
         </div>
         <button class="drawer-close-btn" aria-label="Close modal"><i class="fas fa-times"></i> <span>Esc</span></button>
       </div>
 
       <div class="drawer-tabs">
-        <button class="drawer-tab-btn active" data-tab-target="tab-mfg-arch">1. System &amp; Ingestion</button>
-        <button class="drawer-tab-btn" data-tab-target="tab-mfg-etl">2. OEE Processing &amp; Anomaly</button>
-        <button class="drawer-tab-btn" data-tab-target="tab-mfg-dashboard">3. Streamlit &amp; Live Logs</button>
-        <button class="drawer-tab-btn" data-tab-target="tab-mfg-highlights">4. Technical Highlights</button>
+        <button class="drawer-tab-btn active" data-tab-target="tab-mfg-arch">1. Lambda System &amp; Ingestion</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-mfg-etl">2. OEE Formulation &amp; Idempotent ETL</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-mfg-ml">3. Virtual Metrology &amp; TreeSHAP XAI</button>
+        <button class="drawer-tab-btn" data-tab-target="tab-mfg-dashboard">4. Full-Stack Serving &amp; Observability</button>
       </div>
 
       <div class="drawer-body">
@@ -2228,136 +2232,195 @@
         <div class="drawer-tab-content active" id="tab-mfg-arch">
           <!-- Visual Node Flow -->
           <div class="node-flow-container">
-            <div class="node-card"><i class="fas fa-microchip text-sky"></i> <span>IIoT Simulator</span></div>
+            <div class="node-card"><i class="fas fa-microchip text-sky"></i> <span>IIoT PLC Simulator</span></div>
             <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
-            <div class="node-card"><i class="fas fa-plug text-sky"></i> <span>SQLAlchemy Ingestion</span></div>
+            <div class="node-card"><i class="fas fa-filter text-amber"></i> <span>Physical DQ Gate</span></div>
             <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
-            <div class="node-card"><i class="fas fa-database text-sky"></i> <span>Dockerized Postgres</span></div>
+            <div class="node-card"><i class="fas fa-database text-sky"></i> <span>PostgreSQL 15 Time-Series</span></div>
             <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
-            <div class="node-card"><i class="fas fa-cogs text-sky"></i> <span>Batch ETL Engine</span></div>
+            <div class="node-card"><i class="fas fa-layer-group text-purple"></i> <span>Speed &amp; Batch Split</span></div>
             <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
-            <div class="node-card"><i class="fas fa-shield-alt text-amber"></i> <span>Anomaly Logs</span></div>
+            <div class="node-card"><i class="fas fa-bolt text-emerald"></i> <span>FastAPI WebSockets</span></div>
             <div class="node-arrow"><i class="fas fa-arrow-right"></i></div>
-            <div class="node-card"><i class="fas fa-chart-line text-emerald"></i> <span>Streamlit UI</span></div>
+            <div class="node-card"><i class="fas fa-desktop text-sky"></i> <span>React &amp; Streamlit UI</span></div>
           </div>
 
           <!-- 3 Bento Micro-Cards -->
           <div class="bento-micro-grid">
             <div class="bento-micro-card">
               <div class="bento-card-header">
-                <div class="bento-card-icon"><i class="fas fa-satellite-dish"></i></div>
-                <h4 class="bento-card-title">1. Data Generation &amp; Ingestion</h4>
+                <div class="bento-card-icon"><i class="fas fa-microchip"></i></div>
+                <h4 class="bento-card-title">1. Edge Simulator &amp; Degradation Physics</h4>
               </div>
               <p class="bento-card-body">
-                Python-based multi-machine telemetry simulator generating high-frequency industrial machine metrics (temperature, vibration, cycle time, operational states, and fault codes).
+                Python simulator (<code>simulator.py</code>) emulating multi-machine PLC outputs across lines (<code>LINE_01</code>, <code>LINE_02</code>) and machine profiles (<code>CNC_A</code>, <code>CNC_B</code>, <code>ROBOT_ARM</code>). Calibrated to automotive parts manufacturing baselines (NHK Spring standard). Simulates cumulative tool wear (0.0 to 1.0), micro-cracks via vibration kurtosis (3.0 up to 14.0), bearing temperatures, press forces, and realistic fault transitions.
               </p>
             </div>
 
             <div class="bento-micro-card">
               <div class="bento-card-header">
-                <div class="bento-card-icon"><i class="fas fa-server"></i></div>
-                <h4 class="bento-card-title">2. Infrastructure &amp; Storage</h4>
+                <div class="bento-card-icon"><i class="fas fa-database"></i></div>
+                <h4 class="bento-card-title">2. Relational Store &amp; Dimensional Data Mart</h4>
               </div>
               <p class="bento-card-body">
-                Containerized PostgreSQL database configured via Docker Compose with B-tree and composite indexing optimized for high-throughput time-series sensor logs and audit execution tables.
+                PostgreSQL 15 relational store (<code>mfg_postgres</code>) configured with composite B-Tree indexes on <code>(timestamp)</code> and <code>(line_id, machine_id)</code>. Houses raw telemetry (<code>machine_telemetry</code>), master downtime classification (<code>downtime_reasons</code>), aggregated hourly OEE Data Mart (<code>hourly_production_summary</code>), and operational audit logs (<code>pipeline_execution_logs</code>).
               </p>
             </div>
 
             <div class="bento-micro-card">
               <div class="bento-card-header">
-                <div class="bento-card-icon"><i class="fas fa-calculator"></i></div>
-                <h4 class="bento-card-title">3. Processing &amp; Analytics</h4>
+                <div class="bento-card-icon"><i class="fas fa-shield-alt"></i></div>
+                <h4 class="bento-card-title">3. Speed Layer &amp; Physical Quality Gate</h4>
               </div>
               <p class="bento-card-body">
-                Automated batch ETL jobs computing rolling machine availability, performance ratios, and quality rates to derive real-time Overall Equipment Effectiveness (OEE).
+                Low-latency stream engine (<code>stream_monitor.py</code>) executing incremental watermark polling (<code>MAX(event_id)</code>). Enforces physical boundary checks intercepting non-positive cycle times (\(t \le 0\)) or corrupted sensor feeds, and tracks stateful consecutive defect streaks in-memory via <code>collections.defaultdict(int)</code> with compound keys to detect quality degradation spikes with zero database overhead.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Tab 2: OEE Processing & Anomaly -->
+        <!-- Tab 2: OEE Processing & Idempotent ETL -->
         <div class="drawer-tab-content" id="tab-mfg-etl">
-          <div class="tech-pill-grid">
-            <div class="tech-pill-item">
-              <i class="fas fa-industry tech-pill-icon"></i>
-              <div>
-                <div class="tech-pill-label">Overall Equipment Effectiveness (OEE)</div>
-                <div class="tech-pill-desc">Computed dynamically as Availability &times; Performance &times; Quality across rolling shift windows.</div>
-              </div>
-            </div>
-
-            <div class="tech-pill-item">
-              <i class="fas fa-sync-alt tech-pill-icon"></i>
-              <div>
-                <div class="tech-pill-label">Rolling Metrics Aggregation</div>
-                <div class="tech-pill-desc">Computes continuous equipment availability ratios, micro-stoppage counts, and unit defect rates per production line.</div>
-              </div>
-            </div>
-
-            <div class="tech-pill-item">
-              <i class="fas fa-exclamation-circle tech-pill-icon"></i>
-              <div>
-                <div class="tech-pill-label">Stateful Anomaly Detection</div>
-                <div class="tech-pill-desc">Automated monitor continuously evaluates thermal and vibration bounds, logging operational excursions into audit tables.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tab 3: Streamlit & Live Logs -->
-        <div class="drawer-tab-content" id="tab-mfg-dashboard">
           <div class="bento-micro-card" style="margin-bottom: 16px;">
             <div class="bento-card-header">
-              <div class="bento-card-icon"><i class="fas fa-desktop"></i></div>
-              <h4 class="bento-card-title">Interactive Streamlit Web Dashboard</h4>
+              <div class="bento-card-icon"><i class="fas fa-calculator"></i></div>
+              <h4 class="bento-card-title">OEE Mathematical Formulation (\(\text{OEE} = A \times P \times Q\))</h4>
             </div>
             <p class="bento-card-body">
-              Provides drill-down visibility into live factory floor performance, downtime root causes, and pipeline health logs.
+              Overall Equipment Effectiveness (OEE) is the international discrete manufacturing benchmark evaluating productivity across three pillars: Availability (\(A\)), Performance (\(P\)), and Quality (\(Q\)). Computed dynamically in SQL CTEs over hourly time-slice windows.
             </p>
           </div>
 
-          <div style="background: #0B0F17; border: 1px solid #1E293B; padding: 16px; border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.775rem; color: #94A3B8; line-height: 1.6;">
-            <div><span style="color: var(--accent-sage);">[INFO]</span> Ingested 1,200 telemetry rows from Machine_A, Machine_B, Machine_C</div>
-            <div><span style="color: var(--accent-sky);">[ETL]</span> Batch Job #482 completed in 18.4ms | OEE: 87.4% (Avail: 94.2%, Perf: 96.1%, Qual: 96.5%)</div>
-            <div><span style="color: var(--accent-amber);">[AUDIT]</span> Anomaly logged: Machine_B bearing temperature +12.3% above baseline (Threshold: 78°C)</div>
-            <div><span style="color: var(--accent-sage);">[STATUS]</span> PostgreSQL connection pool healthy (Active: 3, Idle: 7)</div>
+          <div class="tech-pill-grid">
+            <div class="tech-pill-item">
+              <i class="fas fa-clock tech-pill-icon" style="color: #38BDF8;"></i>
+              <div>
+                <div class="tech-pill-label">Availability (\(A\))</div>
+                <div class="tech-pill-desc">\(\text{Run Time} / (\text{Run Time} + \text{Unplanned Downtime})\). Separates scheduled maintenance (Tool Change) from unscheduled breakdowns (Mechanical Jams, Sensor Faults).</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-tachometer-alt tech-pill-icon" style="color: #FBBF24;"></i>
+              <div>
+                <div class="tech-pill-label">Performance (\(P\))</div>
+                <div class="tech-pill-desc">\(\min(100.0, (\text{Ideal Cycle Time} \times \text{Produced Units}) / \text{Operating Time})\). Benchmarked against engineered machine limits: CNC_A (12s), CNC_B (15s), ROBOT_ARM (8s).</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-check-double tech-pill-icon" style="color: #34D399;"></i>
+              <div>
+                <div class="tech-pill-label">Quality (\(Q\))</div>
+                <div class="tech-pill-desc">\(\text{Good Units} / \text{Total Produced Units}\). Computes first-pass manufacturing yield per production cell and machine work center.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-redo-alt tech-pill-icon" style="color: #A78BFA;"></i>
+              <div>
+                <div class="tech-pill-label">Idempotent Batch Upsert (PostgreSQL CTE)</div>
+                <div class="tech-pill-desc">Implements <code>ON CONFLICT (hour_bucket, line_id, machine_id) DO UPDATE SET ...</code> ensuring deterministic pipeline runs, historical backfills, and zero duplicate rows.</div>
+              </div>
+            </div>
+
+            <div class="tech-pill-item">
+              <i class="fas fa-clipboard-list tech-pill-icon" style="color: #F472B6;"></i>
+              <div>
+                <div class="tech-pill-label">Pipeline Execution Audit Observability</div>
+                <div class="tech-pill-desc">Every batch job logs execution metadata (timestamps, duration, row counts, status, error stack traces) into <code>pipeline_execution_logs</code> for instant triage.</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Tab 4: Technical Highlights -->
-        <div class="drawer-tab-content" id="tab-mfg-highlights">
-          <div class="tech-pill-grid">
-            <div class="tech-pill-item">
-              <i class="fas fa-link tech-pill-icon"></i>
-              <div>
-                <div class="tech-pill-label">Resilient SQLAlchemy Pool</div>
-                <div class="tech-pill-desc">Resilient database transaction management, scoped sessions, and automatic reconnects.</div>
+        <!-- Tab 3: Virtual Metrology & TreeSHAP XAI -->
+        <div class="drawer-tab-content" id="tab-mfg-ml">
+          <div class="bento-micro-grid">
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-heartbeat"></i></div>
+                <h4 class="bento-card-title">1. Unsupervised Machine Health Index</h4>
               </div>
+              <p class="bento-card-body">
+                <strong>Isolation Forest</strong> model trained on normal operating baseline distributions without relying on historical defect labels. Converts decision function scores into an intuitive 0&ndash;100% Machine Health Index across 3 operational risk tiers: <strong>NORMAL</strong> (\(\ge 75\%\)), <strong>WARNING</strong> (\(50-74\%\)), and <strong>CRITICAL</strong> (\(&lt; 50\%\)) to trigger proactive condition-based maintenance before catastrophic breakdown.
+              </p>
             </div>
 
-            <div class="tech-pill-item">
-              <i class="fas fa-file-alt tech-pill-icon"></i>
-              <div>
-                <div class="tech-pill-label">Automated Audit Logging</div>
-                <div class="tech-pill-desc">Tracks end-to-end job execution states, processed row counts, and latency benchmarks.</div>
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-search-plus"></i></div>
+                <h4 class="bento-card-title">2. Virtual Metrology &amp; Predictive Quality</h4>
               </div>
+              <p class="bento-card-body">
+                Supervised <strong>LightGBM</strong> classifier predicting part defect probability before post-production quality assurance. Solves severe factory class imbalance via dynamic cost-sensitive loss weighting (<code>scale_pos_weight = N_neg / N_pos</code>) and calibrated decision threshold (0.35) prioritizing defect recall to prevent non-conforming parts from escaping to downstream assembly.
+              </p>
             </div>
 
-            <div class="tech-pill-item">
-              <i class="fab fa-docker tech-pill-icon"></i>
-              <div>
-                <div class="tech-pill-label">Docker Compose Setup</div>
-                <div class="tech-pill-desc">Reproducible developer setup for instant multi-container deployment across environments.</div>
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-eye"></i></div>
+                <h4 class="bento-card-title">3. TreeSHAP Root Cause Attribution (XAI)</h4>
               </div>
+              <p class="bento-card-body">
+                Instance-level Shapley value decomposition (\(f(x) = \mathbb{E}[f(x)] + \sum_{j=1}^M \phi_j\)) via <strong>TreeSHAP</strong>. Maps multi-sensor deviations (Vibration RMS, Kurtosis, Bearing Temp, Press Force, Motor Current, Crest Factor, Energy Proxy) into actionable Thai engineering descriptions (e.g. &ldquo;อัตราเร่งแรงสั่นเทียบรอบก่อน&rdquo;, &ldquo;ดัชนี Crest Factor&rdquo;) for shopfloor operators.
+              </p>
             </div>
 
-            <div class="tech-pill-item">
-              <i class="fas fa-chart-bar tech-pill-icon"></i>
-              <div>
-                <div class="tech-pill-label">Streamlit &amp; Plotly</div>
-                <div class="tech-pill-desc">Interactive real-time factory telemetry analytics and downtime heatmaps.</div>
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-stream"></i></div>
+                <h4 class="bento-card-title">4. In-Memory Rolling Feature Extraction</h4>
               </div>
+              <p class="bento-card-body">
+                Per-machine 10-cycle in-memory buffer (<code>collections.deque(maxlen=10)</code>) extracting 5-cycle rolling means, standard deviations, and lagged deltas (\(\Delta t - \Delta t_{-1}\)). Ensures zero train-serving skew by mirroring batch training transformations directly on streaming events with sub-millisecond latency.
+              </p>
             </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Full-Stack Serving & Observability -->
+        <div class="drawer-tab-content" id="tab-mfg-dashboard">
+          <div class="bento-micro-grid" style="margin-bottom: 16px;">
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fas fa-bolt"></i></div>
+                <h4 class="bento-card-title">FastAPI &amp; Async WebSockets</h4>
+              </div>
+              <p class="bento-card-body">
+                High-concurrency backend (<code>backend/</code>) running on Uvicorn with connection pooling. Features a background broadcaster pushing real-time telemetry, machine health, and KPI updates to connected clients over <code>/api/ws/telemetry</code>.
+              </p>
+            </div>
+
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fab fa-react"></i></div>
+                <h4 class="bento-card-title">React 18 + Vite Production UI</h4>
+              </div>
+              <p class="bento-card-body">
+                Modern responsive frontend (<code>frontend/</code>) with Tailwind CSS dark theme, glowing machine status beacons, animated WebSocket table feeds, Recharts OEE trends, and Web Audio API alarm sirens.
+              </p>
+            </div>
+
+            <div class="bento-micro-card">
+              <div class="bento-card-header">
+                <div class="bento-card-icon"><i class="fab fa-docker"></i></div>
+                <h4 class="bento-card-title">Containerized Microservices</h4>
+              </div>
+              <p class="bento-card-body">
+                Multi-service deployment orchestrated via Docker Compose: PostgreSQL 15, FastAPI backend, Nginx-proxied React UI, and legacy Streamlit BI dashboard (<code>dashboard.py</code>) with Plotly Express.
+              </p>
+            </div>
+          </div>
+
+          <!-- Live Log Console Box -->
+          <div style="background: #0B0F17; border: 1px solid #1E293B; padding: 16px; border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.775rem; color: #94A3B8; line-height: 1.6;">
+            <div><span style="color: var(--accent-sage);">[SPEED]</span> 2026-09-09 17:30:00 | Watermark @ event_id #14,892 | Ingested: 6 events across LINE_01, LINE_02</div>
+            <div><span style="color: var(--accent-sky);">[DQG-PASS]</span> Physical Quality Gate: 6/6 signals nominal (cycle_time &gt; 0s, vibration RMS &lt; 4.5mm/s)</div>
+            <div><span style="color: var(--accent-amber);">[ML-HEALTH]</span> Machine CNC_A | Health Index: 93.2% (NORMAL) | Defect Prob: 0.012 | Top Factor: Vibration RMS (+0.002)</div>
+            <div><span style="color: var(--accent-purple);">[ETL-BATCH]</span> Pipeline 'hourly_oee_batch_aggregation' executed in 14.8ms | Upserted 6 records into Data Mart</div>
+            <div><span style="color: var(--accent-sage);">[OEE-SUMMARY]</span> LINE_01 OEE: 89.4% (Avail: 94.8%, Perf: 97.2%, Qual: 97.0%) | Target: &gt;= 85.0% [TARGET ACHIEVED]</div>
+            <div><span style="color: var(--accent-sky);">[WEBSOCKET]</span> Broadcasted telemetry &amp; ML health snapshot to active client sessions</div>
           </div>
         </div>
       </div>
@@ -2516,11 +2579,18 @@
     <div class="slide-drawer" id="resume-modal" style="max-width: 860px;">
       <div class="resume-toolbar resume-sticky-toolbar">
         <div class="resume-toolbar-left">
-          <span class="resume-toolbar-badge"><i class="fas fa-file-contract"></i> Curriculum Vitae</span>
-          <span class="resume-toolbar-name" style="font-size: 0.85rem; font-weight: 700; color: #F8FAFC;" id="drawer-resume-title">Sivakorn Khundilokrattaya</span>
+          <!-- Document Switcher Toggle (CV vs Resume) -->
+          <div class="resume-doc-switcher" role="tablist" aria-label="Select Document Type">
+            <button type="button" class="doc-switch-btn active" id="btn-switch-cv" role="tab" aria-selected="true" data-doc-target="cv" title="Curriculum Vitae (Comprehensive 2 Pages)">
+              <i class="fas fa-file-contract"></i> <span>CV (2 Pages)</span>
+            </button>
+            <button type="button" class="doc-switch-btn" id="btn-switch-resume" role="tab" aria-selected="false" data-doc-target="resume" title="Resume (Concise 1 Page Industry format)">
+              <i class="fas fa-file-alt"></i> <span>Resume (1 Page)</span>
+            </button>
+          </div>
         </div>
 
-        <div class="resume-nav-group">
+        <div class="resume-nav-group" id="resume-nav-group">
           <span class="resume-page-pill" id="resume-page-indicator">Page 1 / 2</span>
           <button class="btn-resume-jump" id="btn-jump-p1" title="Scroll to Page 1"><i class="fas fa-arrow-up"></i> Page 1</button>
           <button class="btn-resume-jump" id="btn-jump-p2" title="Scroll to Page 2"><i class="fas fa-arrow-down"></i> Page 2</button>
@@ -2539,9 +2609,9 @@
           </span>
 
           <!-- Direct Document Print / Export PDF -->
-          <button type="button" class="btn-download-resume" id="download-resume-btn" data-action="download-pdf" title="Print / Save exact rendered Curriculum Vitae as PDF">
+          <button type="button" class="btn-download-resume" id="download-resume-btn" data-action="download-pdf" title="Print / Save exact rendered document as PDF">
             <i class="fas fa-download"></i>
-            <span>Download PDF</span>
+            <span id="download-btn-label">Download CV (PDF)</span>
           </button>
 
           <!-- Close Modal Button -->
@@ -2550,80 +2620,90 @@
       </div>
 
       <div class="resume-scroll-container" id="resume-scroll-viewport">
-        <div id="resume-sheet" class="resume-page-container">
+        <!-- ========================================================================
+             CV VIEW (2-PAGE ACADEMIC CURRICULUM VITAE)
+             ======================================================================== -->
+        <div id="cv-view" class="resume-page-container active-doc-view" data-doc-type="cv">
           <!-- ==================== PAGE 1 ==================== -->
-          <div class="resume-paper resume-a4-page resume-paper-sheet bg-white text-slate-900 shadow-2xl rounded-sm border border-slate-200/80 max-w-4xl mx-auto my-8 p-8 sm:p-12 transition-all" id="resume-page-1">
-            <div>
+          <div class="resume-paper resume-a4-page resume-paper-sheet bg-white text-slate-900 shadow-2xl rounded-sm border border-slate-200/80 mx-auto my-8 transition-all" id="resume-page-1">
+            <div class="resume-content-wrap">
+              <!-- Print Header (Top Right Date & Time) -->
+              <div class="resume-print-header">
+                <span class="resume-print-datetime"></span>
+              </div>
+
               <!-- Header Row -->
-              <div class="resume-header-row border-b border-slate-300 pb-3 mb-4">
-                <h1 class="text-2xl font-bold tracking-tight text-slate-900">SIVAKORN KHUNDILOKRATTAYA</h1>
-                <div class="text-sm font-normal text-slate-600 mt-1">Computer Engineering Student &bull; Aspiring Data Scientist &amp; ML Engineer</div>
-                <div class="text-xs text-slate-600 font-normal mt-2 flex flex-wrap items-center gap-x-2.5 gap-y-1.5">
-                  <a href="mailto:sivakorn.khun@gmail.com" class="hover:text-cyan-600">sivakorn.khun@gmail.com</a>
-                  <span class="text-slate-300">&bull;</span>
-                  <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-600">github.com/svkhun</a>
-                  <span class="text-slate-300">&bull;</span>
-                  <a href="https://www.linkedin.com/in/sivakorn-khundilokrattaya-5870b8429/" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-600">linkedin.com/in/sivakorn-khundilokrattaya-5870b8429</a>
-                  <span class="text-slate-300">&bull;</span>
-                  <a href="https://svkhun.vercel.app" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-600">svkhun.vercel.app</a>
-                  <span class="text-slate-300">&bull;</span>
+              <div class="resume-header text-center mb-5">
+                <h1 class="resume-name text-2xl font-bold tracking-tight text-slate-900 uppercase">SIVAKORN KHUNDILOKRATTAYA</h1>
+                <div class="resume-headline text-sm font-normal text-slate-800 mt-1">Computer Engineering Student &bull; Aspiring Data Scientist &amp; ML Engineer</div>
+                <div class="resume-contact text-xs text-slate-700 font-normal mt-2 flex flex-wrap justify-center items-center">
                   <span>Bangkok, Thailand</span>
+                  <span class="pipe-sep">|</span>
+                  <a href="mailto:sivakorn.khun@gmail.com" class="hover:underline">sivakorn.khun@gmail.com</a>
+                  <span class="pipe-sep">|</span>
+                  <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="hover:underline">github.com/svkhun</a>
+                  <span class="pipe-sep">|</span>
+                  <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer" class="hover:underline">linkedin.com/in/sivakorn-khundilokrattaya-5870b8429</a>
+                  <span class="pipe-sep">|</span>
+                  <a href="https://svkhun.vercel.app" target="_blank" rel="noopener noreferrer" class="hover:underline">svkhun.vercel.app</a>
                 </div>
               </div>
 
               <!-- Section 1: Education -->
               <div class="resume-section">
-                <h2 class="section-title text-xs font-bold tracking-tight text-slate-900 uppercase border-b border-slate-300 pb-1 mb-3 mt-7 leading-normal">EDUCATION</h2>
-                <div class="resume-item resume-entry project-item">
-                  <div class="flex items-baseline justify-between mb-1">
-                    <span class="font-semibold text-sm text-slate-900 mr-3">Srinakharinwirot University (SWU)</span>
-                    <span class="font-normal text-xs text-slate-600 shrink-0 text-right whitespace-nowrap">Bangkok, Thailand</span>
+                <h2 class="section-title text-xs font-bold tracking-wide text-slate-900 uppercase border-b border-black pb-0.5 mb-2 mt-4">EDUCATION</h2>
+                <div class="resume-entry">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <span class="font-bold text-sm text-slate-900">Srinakharinwirot University (SWU)</span>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap">2024 &ndash; Present (Expected 2026)</span>
                   </div>
-                  <div class="flex items-baseline justify-between mb-2">
-                    <span class="text-xs text-slate-600 font-normal mr-3">Bachelor of Engineering in Computer Engineering</span>
-                    <span class="font-mono text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">2024 &ndash; Present (Expected 2026)</span>
+                  <div class="flex items-baseline justify-between mb-1.5">
+                    <span class="italic text-xs text-slate-800">Bachelor of Engineering in Computer Engineering</span>
+                    <span class="italic text-xs text-slate-700 text-right whitespace-nowrap">Bangkok, Thailand</span>
                   </div>
-                  <ul class="text-[13px] text-slate-700 leading-relaxed list-disc pl-5">
-                    <li class="leading-relaxed">Specialization in Statistical Machine Learning, Financial Risk Modeling, and Distributed Data Engineering.</li>
+                  <ul class="resume-list text-xs text-slate-800 list-disc pl-5">
+                    <li>Specialization in Statistical Machine Learning, Financial Risk Modeling, and Distributed Data Engineering.</li>
                   </ul>
                 </div>
               </div>
 
               <!-- Section 2: Technical Skills & Competencies -->
               <div class="resume-section">
-                <h2 class="section-title text-xs font-bold tracking-tight text-slate-900 uppercase border-b border-slate-300 pb-1 mb-3 mt-7 leading-normal">TECHNICAL SKILLS &amp; COMPETENCIES</h2>
-                <div class="resume-skills-block space-y-2">
-                  <div class="text-[13px] leading-relaxed text-slate-700">
-                    <strong class="font-semibold text-slate-900 min-w-[145px] inline-block">Languages:</strong> <span class="text-slate-700">Python (Expert), SQL (PostgreSQL, MySQL), C, C++, Java, R, Bash scripting.</span>
+                <h2 class="section-title text-xs font-bold tracking-wide text-slate-900 uppercase border-b border-black pb-0.5 mb-2.5 mt-4">TECHNICAL SKILLS &amp; COMPETENCIES</h2>
+                <div class="resume-skills-block space-y-1.5 text-xs text-slate-800">
+                  <div>
+                    <strong class="font-bold text-slate-900">Languages:</strong> <span>Python (Expert), SQL (PostgreSQL, MySQL), C, C++, Java, R, Bash scripting.</span>
                   </div>
-                  <div class="text-[13px] leading-relaxed text-slate-700">
-                    <strong class="font-semibold text-slate-900 min-w-[145px] inline-block">ML &amp; Explainable AI:</strong> <span class="text-slate-700">Scikit-Learn, LightGBM, XGBoost, SHAP (TreeExplainer), LIME, OptBinning, SMOTE-Tomek, Pandas, NumPy.</span>
+                  <div>
+                    <strong class="font-bold text-slate-900">ML &amp; Explainable AI:</strong> <span>Scikit-Learn, LightGBM, XGBoost, SHAP (TreeExplainer), LIME, OptBinning, SMOTE-Tomek, Pandas, NumPy.</span>
                   </div>
-                  <div class="text-[13px] leading-relaxed text-slate-700">
-                    <strong class="font-semibold text-slate-900 min-w-[145px] inline-block">Data Engineering &amp; Tools:</strong> <span class="text-slate-700">PostgreSQL, MySQL, Apache Spark, Apache Airflow, Docker, FastAPI, Git.</span>
+                  <div>
+                    <strong class="font-bold text-slate-900">Data Engineering &amp; Tools:</strong> <span>PostgreSQL, MySQL, Apache Spark, Apache Airflow, Docker, FastAPI, Git.</span>
                   </div>
-                  <div class="text-[13px] leading-relaxed text-slate-700">
-                    <strong class="font-semibold text-slate-900 min-w-[145px] inline-block">Spoken Languages:</strong> <span class="text-slate-700">Thai (Native), English (B1+ Professional), Japanese (Elementary).</span>
+                  <div>
+                    <strong class="font-bold text-slate-900">Spoken Languages:</strong> <span>Thai (Native), English (B1+ Professional), Japanese (Elementary).</span>
                   </div>
                 </div>
               </div>
 
               <!-- Section 3: Featured Engineering Projects -->
               <div class="resume-section">
-                <h2 class="section-title text-xs font-bold tracking-tight text-slate-900 uppercase border-b border-slate-300 pb-1 mb-3 mt-7 leading-normal">FEATURED ENGINEERING PROJECTS</h2>
+                <h2 class="section-title text-xs font-bold tracking-wide text-slate-900 uppercase border-b border-black pb-0.5 mb-3 mt-4">FEATURED ENGINEERING PROJECTS</h2>
 
                 <!-- Project 1 -->
-                <div class="resume-item resume-entry project-item mb-5">
-                  <div class="flex items-baseline justify-between mb-1">
-                    <div class="mr-3">
-                      <span class="font-semibold text-sm text-slate-900">Enterprise Credit Risk Scoring &amp; Explainable AI (XAI)</span> <span class="font-normal text-xs text-slate-400">|</span> <span class="tech-tag bg-slate-100 text-slate-800 border border-slate-200 text-xs px-2 py-0.5 rounded-sm font-mono inline-block">Python, LightGBM, SHAP, FastAPI</span>
+                <div class="resume-entry mb-3.5">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <div>
+                      <strong class="font-bold text-sm text-slate-900">Enterprise Credit Risk Scoring &amp; Explainable AI (XAI)</strong>
+                      <span class="text-slate-600 mx-1">|</span>
+                      <span class="italic text-xs text-slate-800">Python, LightGBM, SHAP, FastAPI</span>
                     </div>
-                    <span class="font-mono text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">2026</span>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">2026</span>
                   </div>
-                  <div class="mb-2">
-                    <span class="italic text-xs text-slate-600 font-normal">Production-Grade Basel II/III Credit Decisioning Engine</span>
+                  <div class="mb-1">
+                    <span class="italic text-xs text-slate-800">Production-Grade Basel II/III Credit Decisioning Engine</span>
                   </div>
-                  <ul class="text-[13px] text-slate-700 leading-relaxed space-y-2 list-disc pl-5">
+                  <ul class="resume-list text-xs text-slate-800 space-y-1 list-disc pl-5">
                     <li>Engineered Weight of Evidence (WoE) and Information Value (IV) transformation pipeline to discretize continuous features into monotonic risk bins.</li>
                     <li>Integrated SHAP TreeExplainer to compute exact local Shapley values, automatically generating legally defensible Adverse Action notices (ECOA/FCRA compliant).</li>
                     <li>Deployed an asynchronous containerized FastAPI microservice delivering Probability of Default (PD) scoring with sub-50ms inference latency.</li>
@@ -2631,51 +2711,57 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="resume-item resume-entry project-item mb-5">
-                  <div class="flex items-baseline justify-between mb-1">
-                    <div class="mr-3">
-                      <span class="font-semibold text-sm text-slate-900">Long Overdue Debtor (LOD) Classification System</span> <span class="font-normal text-xs text-slate-400">|</span> <span class="tech-tag bg-slate-100 text-slate-800 border border-slate-200 text-xs px-2 py-0.5 rounded-sm font-mono inline-block">LightGBM, XGBoost, Scikit-Learn</span>
+                <div class="resume-entry mb-3.5">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <div>
+                      <strong class="font-bold text-sm text-slate-900">Long Overdue Debtor (LOD) Classification System</strong>
+                      <span class="text-slate-600 mx-1">|</span>
+                      <span class="italic text-xs text-slate-800">LightGBM, XGBoost, Scikit-Learn</span>
                     </div>
-                    <span class="font-mono text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">Dec 2025</span>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">Dec 2025</span>
                   </div>
-                  <div class="mb-2">
-                    <span class="italic text-xs text-slate-600 font-normal">Large-Scale Delinquency Prediction on ~40,000 Consumer Credit Records &bull; Aihack 2025 Finalist</span>
+                  <div class="mb-1">
+                    <span class="italic text-xs text-slate-800">Large-Scale Delinquency Prediction on ~40,000 Consumer Credit Records &bull; Aihack 2025 Finalist</span>
                   </div>
-                  <ul class="text-[13px] text-slate-700 leading-relaxed space-y-2 list-disc pl-5">
+                  <ul class="resume-list text-xs text-slate-800 space-y-1 list-disc pl-5">
                     <li>Formulated temporal delinquency velocity ratios and revolving limit exhaustion slopes across 32,524 train / 8,619 test blind split samples.</li>
                     <li>Conducted 5-Fold Stratified Cross-Validation on tuned LightGBM and XGBoost ensembles, achieving 0.894 ROC-AUC and placing in the National Finalist tier.</li>
                   </ul>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="resume-item resume-entry project-item mb-5">
-                  <div class="flex items-baseline justify-between mb-1">
-                    <div class="mr-3">
-                      <span class="font-semibold text-sm text-slate-900">Industrial IoT &amp; Manufacturing (MFG) Telemetry Pipeline</span> <span class="font-normal text-xs text-slate-400">|</span> <span class="tech-tag bg-slate-100 text-slate-800 border border-slate-200 text-xs px-2 py-0.5 rounded-sm font-mono inline-block">PostgreSQL, Spark, Airflow, Docker</span>
+                <div class="resume-entry mb-3.5">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <div>
+                      <strong class="font-bold text-sm text-slate-900">Industrial IoT &amp; Manufacturing (MFG) Telemetry Pipeline</strong>
+                      <span class="text-slate-600 mx-1">|</span>
+                      <span class="italic text-xs text-slate-800">PostgreSQL, Spark, Airflow, Docker</span>
                     </div>
-                    <span class="font-mono text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">2026</span>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">2026</span>
                   </div>
-                  <div class="mb-2">
-                    <span class="italic text-xs text-slate-600 font-normal">Automated Batch ETL &amp; Real-Time Overall Equipment Effectiveness (OEE)</span>
+                  <div class="mb-1">
+                    <span class="italic text-xs text-slate-800">Automated Batch ETL &amp; Real-Time Overall Equipment Effectiveness (OEE)</span>
                   </div>
-                  <ul class="text-[13px] text-slate-700 leading-relaxed space-y-2 list-disc pl-5">
+                  <ul class="resume-list text-xs text-slate-800 space-y-1 list-disc pl-5">
                     <li>Built multi-container telemetry pipeline ingesting high-frequency vibration, thermal, and cycle sensors across virtual factory lines.</li>
                     <li>Automated scheduled batch ETL in Airflow with stateful anomaly thresholding, surfacing real-time OEE tracking in interactive dashboards.</li>
                   </ul>
                 </div>
 
                 <!-- Project 4 -->
-                <div class="resume-item resume-entry project-item">
-                  <div class="flex items-baseline justify-between mb-1">
-                    <div class="mr-3">
-                      <span class="font-semibold text-sm text-slate-900">GuardianAI &ndash; Clinical Frailty &amp; Fall Risk Intervention</span> <span class="font-normal text-xs text-slate-400">|</span> <span class="tech-tag bg-slate-100 text-slate-800 border border-slate-200 text-xs px-2 py-0.5 rounded-sm font-mono inline-block">XGBoost, SHAP, FastAPI</span>
+                <div class="resume-entry">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <div>
+                      <strong class="font-bold text-sm text-slate-900">GuardianAI &ndash; Clinical Frailty &amp; Fall Risk Intervention</strong>
+                      <span class="text-slate-600 mx-1">|</span>
+                      <span class="italic text-xs text-slate-800">XGBoost, SHAP, FastAPI</span>
                     </div>
-                    <span class="font-mono text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">Jan 2026</span>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">Jan 2026</span>
                   </div>
-                  <div class="mb-2">
-                    <span class="italic text-xs text-slate-600 font-normal">Dual-Layer Clinical Risk Prediction for Geriatric Patient Care &bull; True Innovation Launchpad</span>
+                  <div class="mb-1">
+                    <span class="italic text-xs text-slate-800">Dual-Layer Clinical Risk Prediction for Geriatric Patient Care &bull; True Innovation Launchpad</span>
                   </div>
-                  <ul class="text-[13px] text-slate-700 leading-relaxed space-y-2 list-disc pl-5">
+                  <ul class="resume-list text-xs text-slate-800 space-y-1 list-disc pl-5">
                     <li>Trained calibrated XGBoost models coupled with SHAP local biometric explainability for medical professionals, streaming through FastAPI.</li>
                   </ul>
                 </div>
@@ -2684,137 +2770,142 @@
 
             <!-- Page 1 Sheet Footer -->
             <div class="resume-sheet-footer">
-              <span>Sivakorn Khundilokrattaya &mdash; Curriculum Vitae</span>
-              <span>Page 1 of 2</span>
+              <span></span>
+              <span class="page-number">1 / 2</span>
             </div>
           </div>
 
           <!-- ==================== PAGE 2 ==================== -->
-          <div class="resume-paper resume-a4-page resume-paper-sheet bg-white text-slate-900 shadow-2xl rounded-sm border border-slate-200/80 max-w-4xl mx-auto my-8 p-8 sm:p-12 transition-all" id="resume-page-2">
-            <div>
+          <div class="resume-paper resume-a4-page resume-paper-sheet bg-white text-slate-900 shadow-2xl rounded-sm border border-slate-200/80 mx-auto my-8 transition-all" id="resume-page-2">
+            <div class="resume-content-wrap">
+              <!-- Print Header (Top Right Date & Time) -->
+              <div class="resume-print-header">
+                <span class="resume-print-datetime"></span>
+              </div>
+
               <!-- Section 4: Hackathons & Competitions -->
               <div class="resume-section">
-                <h2 class="section-title text-xs font-bold tracking-tight text-slate-900 uppercase border-b border-slate-300 pb-1 mb-3 mt-7 leading-normal">COMPETITIVE HACKATHONS &amp; INDUSTRY CHALLENGES</h2>
+                <h2 class="section-title text-xs font-bold tracking-wide text-slate-900 uppercase border-b border-black pb-0.5 mb-3">COMPETITIVE HACKATHONS &amp; INDUSTRY CHALLENGES</h2>
 
-                <!-- Aihack 2025 -->
-                <div class="resume-item resume-entry project-item mb-5">
+                <!-- AIRA & AIFUL -->
+                <div class="resume-entry mb-3.5">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <strong class="font-bold text-sm text-slate-900">AIRA &amp; AIFUL / Aihack Thailand 2025 National Finalist</strong>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">Dec 2025</span>
+                  </div>
                   <div class="flex items-baseline justify-between mb-1">
-                    <span class="font-semibold text-sm text-slate-900 mr-3">AIRA &amp; AIFUL / Aihack Thailand 2025 &bull; National Finalist</span>
-                    <span class="font-mono text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">Dec 2025</span>
+                    <span class="italic text-xs text-slate-800">Chulalongkorn Business School &times; ProbSpace</span>
+                    <span class="italic text-xs text-slate-700 text-right whitespace-nowrap">Bangkok, Thailand</span>
                   </div>
-                  <div class="flex items-baseline justify-between mb-2">
-                    <span class="italic text-xs text-slate-600 font-normal mr-3">Chulalongkorn Business School x ProbSpace</span>
-                    <span class="text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">Bangkok, Thailand</span>
-                  </div>
-                  <ul class="text-[13px] text-slate-700 leading-relaxed space-y-2 list-disc pl-5">
-                    <li><strong class="font-semibold text-slate-900">Role &amp; Contribution:</strong> Machine Learning &amp; Financial Risk Modeling Lead on ~40,000 real-world consumer loan samples.</li>
-                    <li><strong class="font-semibold text-slate-900">Technical Rigor:</strong> Built leak-free temporal feature matrices, handling class imbalance (1:12 default ratio) with SMOTE-Tomek and target encoding.</li>
-                    <li><strong class="font-semibold text-slate-900">Executive Pitch:</strong> Solved Question Sheet balancing default risk reduction against interest margin profitability, pitching to C-level executives.</li>
+                  <ul class="resume-list text-xs text-slate-800 space-y-1 list-disc pl-5">
+                    <li><strong class="font-bold text-slate-900">Role &amp; Contribution:</strong> Machine Learning &amp; Financial Risk Modeling Lead on ~40,000 real-world consumer loan samples.</li>
+                    <li><strong class="font-bold text-slate-900">Technical Rigor:</strong> Built leak-free temporal feature matrices, handling class imbalance (1:12 default ratio) with SMOTE-Tomek and target encoding.</li>
+                    <li><strong class="font-bold text-slate-900">Executive Pitch:</strong> Solved Question Sheet balancing default risk reduction against interest margin profitability, pitching to C-level executives.</li>
                   </ul>
                 </div>
 
                 <!-- True Innovation Launchpad -->
-                <div class="resume-item resume-entry project-item mb-5">
+                <div class="resume-entry mb-3.5">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <strong class="font-bold text-sm text-slate-900">True Innovation Launchpad 2026 &ndash; AI &amp; Data Science Lead</strong>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">Jan 2026</span>
+                  </div>
                   <div class="flex items-baseline justify-between mb-1">
-                    <span class="font-semibold text-sm text-slate-900 mr-3">True Innovation Launchpad 2026 &bull; AI &amp; Data Science Lead</span>
-                    <span class="font-mono text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">Jan 2026</span>
+                    <span class="italic text-xs text-slate-800">True Corporation Healthcare Innovation Track (Team Nakphatthana Tuapralat)</span>
+                    <span class="italic text-xs text-slate-700 text-right whitespace-nowrap">Bangkok, Thailand</span>
                   </div>
-                  <div class="flex items-baseline justify-between mb-2">
-                    <span class="italic text-xs text-slate-600 font-normal mr-3">True Corporation &bull; Healthcare Innovation Track (Team Nakphatthana Tuapralat)</span>
-                    <span class="text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">Bangkok, Thailand</span>
-                  </div>
-                  <ul class="text-[13px] text-slate-700 leading-relaxed space-y-2 list-disc pl-5">
+                  <ul class="resume-list text-xs text-slate-800 space-y-1 list-disc pl-5">
                     <li>Spearheaded data strategy and predictive modeling for elderly frailty prevention, developing sub-30ms clinical risk scoring APIs.</li>
                   </ul>
                 </div>
 
                 <!-- Geospatial Hackathon -->
-                <div class="resume-item resume-entry project-item mb-5">
+                <div class="resume-entry mb-3.5">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <strong class="font-bold text-sm text-slate-900">Geospatial Intelligence for Resilience Hackathon 2026 &ndash; Spatial Lead</strong>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">Jan 2026</span>
+                  </div>
                   <div class="flex items-baseline justify-between mb-1">
-                    <span class="font-semibold text-sm text-slate-900 mr-3">Geospatial Intelligence for Resilience Hackathon 2026 &bull; Spatial Lead</span>
-                    <span class="font-mono text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">Jan 2026</span>
+                    <span class="italic text-xs text-slate-800">GISTDA &times; KMITL &times; KMUTT Spatial Data Scientist &amp; ML Modeler</span>
+                    <span class="italic text-xs text-slate-700 text-right whitespace-nowrap">Bangkok, Thailand</span>
                   </div>
-                  <div class="flex items-baseline justify-between mb-2">
-                    <span class="italic text-xs text-slate-600 font-normal mr-3">GISTDA x KMITL x KMUTT &bull; Spatial Data Scientist &amp; ML Modeler</span>
-                    <span class="text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">Bangkok, Thailand</span>
-                  </div>
-                  <ul class="text-[13px] text-slate-700 leading-relaxed space-y-2 list-disc pl-5">
-                    <li>Built "Rain-to-Flood" spatial model fusing Sentinel-1 SAR soil backscatter, Copernicus GLO-30 DEM, and precipitation APIs for 30m flash flood mapping.</li>
+                  <ul class="resume-list text-xs text-slate-800 space-y-1 list-disc pl-5">
+                    <li>Built &ldquo;Rain-to-Flood&rdquo; spatial model fusing Sentinel-1 SAR soil backscatter, Copernicus GLO-30 DEM, and precipitation APIs for 30m flash flood mapping.</li>
                   </ul>
                 </div>
 
                 <!-- LINE MAN -->
-                <div class="resume-item resume-entry project-item">
+                <div class="resume-entry mb-3.5">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <strong class="font-bold text-sm text-slate-900">LINE MAN Wongnai Junior Case Competition &ndash; Strategic Growth Lead</strong>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">Nov 2024</span>
+                  </div>
                   <div class="flex items-baseline justify-between mb-1">
-                    <span class="font-semibold text-sm text-slate-900 mr-3">LINE MAN Wongnai Junior Case Competition &bull; Strategic Growth Lead</span>
-                    <span class="font-mono text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">Nov 2024</span>
+                    <span class="italic text-xs text-slate-800">LINE MAN Wongnai Strategic Growth &amp; Unit Economics Track (Team LC)</span>
+                    <span class="italic text-xs text-slate-700 text-right whitespace-nowrap">Bangkok, Thailand</span>
                   </div>
-                  <div class="flex items-baseline justify-between mb-2">
-                    <span class="italic text-xs text-slate-600 font-normal mr-3">LINE MAN Wongnai &bull; Strategic Growth &amp; Unit Economics Track (Team LC)</span>
-                    <span class="text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">Bangkok, Thailand</span>
-                  </div>
-                  <ul class="text-[13px] text-slate-700 leading-relaxed space-y-2 list-disc pl-5">
-                    <li>Formulated campus delivery optimization and "Silent Mission" growth campaign with 8.87 THB/user CAC, acquiring 462 VIP trial conversions.</li>
+                  <ul class="resume-list text-xs text-slate-800 space-y-1 list-disc pl-5">
+                    <li>Formulated campus delivery optimization and &ldquo;Silent Mission&rdquo; growth campaign with 8.87 THB/user CAC, acquiring 462 VIP trial conversions.</li>
                   </ul>
                 </div>
               </div>
 
               <!-- Section 5: Industry Certifications & Assessments -->
               <div class="resume-section">
-                <h2 class="section-title text-xs font-bold tracking-tight text-slate-900 uppercase border-b border-slate-300 pb-1 mb-3 mt-7 leading-normal">INDUSTRY CERTIFICATIONS &amp; STANDARDIZED ASSESSMENTS</h2>
+                <h2 class="section-title text-xs font-bold tracking-wide text-slate-900 uppercase border-b border-black pb-0.5 mb-3 mt-4">INDUSTRY CERTIFICATIONS &amp; STANDARDIZED ASSESSMENTS</h2>
 
                 <!-- KBTG Data Analyst -->
-                <div class="resume-item resume-entry project-item mb-5">
-                  <div class="flex items-baseline justify-between mb-1">
-                    <span class="font-semibold text-sm text-slate-900 mr-3">Data Analyst Assessment (STAMP) &bull; Score: 97/150 (Intermediate)</span>
-                    <span class="font-mono text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">March 2026</span>
+                <div class="resume-entry mb-3.5">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <strong class="font-bold text-sm text-slate-900">Data Analyst Assessment (STAMP) &ndash; Score: 97/150 (Intermediate)</strong>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">March 2026</span>
                   </div>
-                  <div class="mb-2">
-                    <span class="italic text-xs text-slate-600 font-normal">SKILLKAMP by KBTG (Kasikorn Business-Technology Group) &bull; Benchmark: 90</span>
+                  <div class="mb-1">
+                    <span class="italic text-xs text-slate-800">SKILLKAMP by KBTG (Kasikorn Business-Technology Group) &bull; Benchmark: 90</span>
                   </div>
-                  <ul class="text-[13px] text-slate-700 leading-relaxed space-y-2 list-disc pl-5">
-                    <li><strong class="font-semibold text-slate-900">Core Scores:</strong> Data Cleaning &amp; Preprocessing: <strong>23.00/30</strong> | EDA &amp; Viz: <strong>20.00/30</strong> | ML for Analysts: <strong>18.00/30</strong> | Foundations: <strong>20.00/30</strong>.</li>
+                  <ul class="resume-list text-xs text-slate-800 space-y-1 list-disc pl-5">
+                    <li><strong class="font-bold text-slate-900">Core Scores:</strong> Data Cleaning &amp; Preprocessing: 23.00/30 | EDA &amp; Viz: 20.00/30 | ML for Analysts: 18.00/30 | Foundations: 20.00/30</li>
                   </ul>
                 </div>
 
                 <!-- KBTG Digital Marketer -->
-                <div class="resume-item resume-entry project-item mb-5">
-                  <div class="flex items-baseline justify-between mb-1">
-                    <span class="font-semibold text-sm text-slate-900 mr-3">Digital and Performance Marketer Assessment (STAMP) &bull; Score: 98/150 (Intermediate)</span>
-                    <span class="font-mono text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">March 2026</span>
+                <div class="resume-entry mb-3.5">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <strong class="font-bold text-sm text-slate-900">Digital and Performance Marketer Assessment (STAMP) &ndash; Score: 98/150 (Intermediate)</strong>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">March 2026</span>
                   </div>
-                  <div class="mb-2">
-                    <span class="italic text-xs text-slate-600 font-normal">SKILLKAMP by KBTG &bull; Benchmark: 94</span>
+                  <div class="mb-1">
+                    <span class="italic text-xs text-slate-800">SKILLKAMP by KBTG &bull; Benchmark: 94</span>
                   </div>
-                  <ul class="text-[13px] text-slate-700 leading-relaxed space-y-2 list-disc pl-5">
-                    <li><strong class="font-semibold text-slate-900">Top Performer:</strong> Digital Marketing Analytics: <strong>26.00/30</strong> (Benchmark: 17.94) | Data-Driven Marketing: <strong>21.00/30</strong> | Content: <strong>19.00/30</strong>.</li>
+                  <ul class="resume-list text-xs text-slate-800 space-y-1 list-disc pl-5">
+                    <li><strong class="font-bold text-slate-900">Top Performer:</strong> Digital Marketing Analytics: 26.00/30 (Benchmark: 17.94) | Data-Driven Marketing: 21.00/30 | Content: 19.00/30.</li>
                   </ul>
                 </div>
 
                 <!-- Oxford / AUA -->
-                <div class="resume-item resume-entry project-item">
-                  <div class="flex items-baseline justify-between mb-1">
-                    <span class="font-semibold text-sm text-slate-900 mr-3">Oxford Placement Test &bull; Score: 51/120 (CEFR B1+ Professional)</span>
-                    <span class="font-mono text-xs text-slate-600 font-normal shrink-0 text-right whitespace-nowrap">June 2026</span>
+                <div class="resume-entry mb-3.5">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <strong class="font-bold text-sm text-slate-900">Oxford Placement Test &ndash; Score: 51/120 (CEFR B1+ Professional)</strong>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">June 2026</span>
                   </div>
-                  <div class="mb-2">
-                    <span class="italic text-xs text-slate-600 font-normal">AUA Language Center / Oxford University Press</span>
+                  <div class="mb-1">
+                    <span class="italic text-xs text-slate-800">AUA Language Center / Oxford University Press</span>
                   </div>
-                  <ul class="text-[13px] text-slate-700 leading-relaxed space-y-2 list-disc pl-5">
-                    <li>Grammar &amp; Use of English: 50.88 (B1) | Listening Proficiency: 51.12 (B1) &bull; Verified professional working proficiency in English.</li>
+                  <ul class="resume-list text-xs text-slate-800 space-y-1 list-disc pl-5">
+                    <li>Grammar &amp; Use of English: 50.88 (B1) | Listening Proficiency: 51.12 (B1) &ndash; Verified professional working proficiency in English.</li>
                   </ul>
                 </div>
               </div>
 
               <!-- Section 6: Coursework & Software Engineering Discipline -->
               <div class="resume-section">
-                <h2 class="section-title text-xs font-bold tracking-tight text-slate-900 uppercase border-b border-slate-300 pb-1 mb-3 mt-7 leading-normal">COURSEWORK &amp; SOFTWARE ENGINEERING DISCIPLINE</h2>
-                <div class="resume-item resume-entry project-item">
-                  <div class="text-[13px] leading-relaxed text-slate-700 mb-2.5">
-                    <strong class="font-semibold text-slate-900 min-w-[155px] inline-block">Core Coursework:</strong> <span class="text-slate-700">Machine Learning, Database Systems, Operating Systems, Statistical Methods for Engineers, Software Engineering, Data Structures &amp; Algorithms, Computer Networks.</span>
+                <h2 class="section-title text-xs font-bold tracking-wide text-slate-900 uppercase border-b border-black pb-0.5 mb-2 mt-4">COURSEWORK &amp; SOFTWARE ENGINEERING DISCIPLINE</h2>
+                <div class="resume-entry space-y-1.5 text-xs text-slate-800">
+                  <div>
+                    <strong class="font-bold text-slate-900">Core Coursework:</strong> <span>Machine Learning, Database Systems, Operating Systems, Statistical Methods for Engineers, Software Engineering, Data Structures &amp; Algorithms, Computer Networks.</span>
                   </div>
-                  <div class="text-[13px] leading-relaxed text-slate-700">
-                    <strong class="font-semibold text-slate-900 min-w-[155px] inline-block">Engineering Discipline:</strong> <span class="text-slate-700">Adheres to PEP-8 style standards, modular OOP pipeline design, reproducible containerized Docker environments, and zero black-box deployments without local feature attribution.</span>
+                  <div>
+                    <strong class="font-bold text-slate-900">Engineering Discipline:</strong> <span>Adheres to PEP-8 style standards, modular OOP pipeline design, reproducible containerized Docker environments, and zero black-box deployments without local feature attribution.</span>
                   </div>
                 </div>
               </div>
@@ -2822,8 +2913,204 @@
 
             <!-- Page 2 Sheet Footer -->
             <div class="resume-sheet-footer">
-              <span>Sivakorn Khundilokrattaya &mdash; Curriculum Vitae</span>
-              <span>Page 2 of 2</span>
+              <span></span>
+              <span class="page-number">2 / 2</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================================================
+             RESUME VIEW (1-PAGE INDUSTRY FORMAT)
+             ======================================================================== -->
+        <div id="resume-view" class="resume-page-container" data-doc-type="resume" style="display: none;">
+          <div class="resume-paper resume-a4-page resume-single-page bg-white text-slate-900 shadow-2xl rounded-sm border border-slate-200/80 mx-auto my-8 transition-all" id="resume-page-single">
+            <div class="resume-content-wrap">
+              <!-- Print Header (Top Right Date & Time) -->
+              <div class="resume-print-header">
+                <span class="resume-print-datetime"></span>
+              </div>
+
+              <!-- Header Row -->
+              <div class="resume-header text-center mb-3">
+                <h1 class="resume-name text-2xl font-bold tracking-tight text-slate-900">Sivakorn Khundilokrattaya</h1>
+                <div class="resume-headline text-xs sm:text-sm font-medium text-slate-800 mt-0.5">Computer Engineering Student &bull; Aspiring Data Scientist &amp; ML Engineer</div>
+                <div class="resume-contact text-[11px] text-slate-700 font-normal mt-1 flex flex-wrap justify-center items-center">
+                  <span>Bangkok, Thailand</span>
+                  <span class="pipe-sep">|</span>
+                  <a href="mailto:sivakorn.khun@gmail.com" class="hover:underline">sivakorn.khun@gmail.com</a>
+                  <span class="pipe-sep">|</span>
+                  <a href="https://svkhun.vercel.app" target="_blank" rel="noopener noreferrer" class="hover:underline">svkhun.vercel.app</a>
+                </div>
+                <div class="resume-contact text-[11px] text-slate-700 font-normal mt-0.5 flex flex-wrap justify-center items-center">
+                  <span>GitHub: <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="hover:underline">svkhun</a></span>
+                  <span class="pipe-sep">|</span>
+                  <span>LinkedIn: <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer" class="hover:underline">sivakorn-khundilokrattaya</a></span>
+                </div>
+              </div>
+
+              <!-- Section 1: EDUCATION -->
+              <div class="resume-section">
+                <h2 class="section-title text-xs font-bold tracking-wide text-slate-900 uppercase border-b border-black pb-0.5 mb-1.5 mt-2.5">EDUCATION</h2>
+                <div class="resume-entry mb-2">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <span class="font-bold text-[13px] text-slate-900">Srinakharinwirot University (SWU)</span>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap">2024 &ndash; Present (Expected 2026)</span>
+                  </div>
+                  <div class="flex items-baseline justify-between mb-1">
+                    <span class="italic text-xs text-slate-800">Bachelor of Engineering in Computer Engineering</span>
+                    <span class="italic text-xs text-slate-700 text-right whitespace-nowrap">Bangkok, Thailand</span>
+                  </div>
+                  <ul class="resume-list text-xs text-slate-800 list-disc pl-5 space-y-0.5">
+                    <li>Specialization: Statistical Machine Learning, Financial Risk Modeling, and Distributed Data Engineering.</li>
+                    <li>Relevant Coursework: Machine Learning, Database Systems, Operating Systems, Algorithms, Software Engineering.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Section 2: TECHNICAL SKILLS & COMPETENCIES -->
+              <div class="resume-section">
+                <h2 class="section-title text-xs font-bold tracking-wide text-slate-900 uppercase border-b border-black pb-0.5 mb-1.5 mt-2.5">TECHNICAL SKILLS &amp; COMPETENCIES</h2>
+                <div class="resume-skills-block text-xs text-slate-800 space-y-1">
+                  <div class="grid-skill-row">
+                    <strong class="font-bold text-slate-900 inline-block min-w-[155px]">Programming:</strong>
+                    <span>Python (Expert), SQL (PostgreSQL, MySQL), C, C++, Java, R, Bash scripting</span>
+                  </div>
+                  <div class="grid-skill-row">
+                    <strong class="font-bold text-slate-900 inline-block min-w-[155px]">Machine Learning &amp; XAI:</strong>
+                    <span>LightGBM, XGBoost, Scikit-Learn, SHAP, LIME, OptBinning, SMOTE-Tomek, Pandas, NumPy</span>
+                  </div>
+                  <div class="grid-skill-row">
+                    <strong class="font-bold text-slate-900 inline-block min-w-[155px]">Data Eng &amp; DevOps:</strong>
+                    <span>Apache Spark, Apache Airflow, Docker, FastAPI, PostgreSQL, Git, CI/CD pipelines</span>
+                  </div>
+                  <div class="grid-skill-row">
+                    <strong class="font-bold text-slate-900 inline-block min-w-[155px]">Languages &amp; Ethics:</strong>
+                    <span>Thai (Native), English (B1+ Professional), Japanese (Elementary) &bull; Clean OOP, PEP-8</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 3: FEATURED ENGINEERING PROJECTS -->
+              <div class="resume-section">
+                <h2 class="section-title text-xs font-bold tracking-wide text-slate-900 uppercase border-b border-black pb-0.5 mb-2 mt-2.5">FEATURED ENGINEERING PROJECTS</h2>
+
+                <!-- Project 1 -->
+                <div class="resume-entry mb-2">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <strong class="font-bold text-[13px] text-slate-900">Enterprise Credit Risk Scoring &amp; Explainable AI (XAI)</strong>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">2026</span>
+                  </div>
+                  <div class="mb-1">
+                    <span class="italic text-xs text-slate-800">Python, LightGBM, SHAP, FastAPI, Docker &bull; Basel II/III Credit Decisioning Engine</span>
+                  </div>
+                  <ul class="resume-list text-xs text-slate-800 space-y-0.5 list-disc pl-5">
+                    <li>Constructed WoE and Information Value (IV) pipelines to discretize financial attributes into monotonic risk bins.</li>
+                    <li>Integrated SHAP TreeExplainer to produce legally defensible Adverse Action notices (ECOA/FCRA compliant).</li>
+                    <li>Deployed asynchronous containerized FastAPI service delivering Probability of Default (PD) scoring in &lt;50ms.</li>
+                  </ul>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="resume-entry mb-2">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <strong class="font-bold text-[13px] text-slate-900">Long Overdue Debtor (LOD) Classification System</strong>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">Dec 2025</span>
+                  </div>
+                  <div class="mb-1">
+                    <span class="italic text-xs text-slate-800">LightGBM, XGBoost, Scikit-Learn &bull; Aihack Thailand 2025 National Finalist</span>
+                  </div>
+                  <ul class="resume-list text-xs text-slate-800 space-y-0.5 list-disc pl-5">
+                    <li>Formulated temporal delinquency velocity ratios and credit exhaustion slopes across ~40,000 blind split records.</li>
+                    <li>Trained tuned LightGBM and XGBoost ensembles via 5-Fold Stratified CV, achieving 0.894 ROC-AUC.</li>
+                  </ul>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="resume-entry mb-2">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <strong class="font-bold text-[13px] text-slate-900">Industrial IoT &amp; Telemetry Pipeline</strong>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">2026</span>
+                  </div>
+                  <div class="mb-1">
+                    <span class="italic text-xs text-slate-800">PostgreSQL, Apache Spark, Apache Airflow, Docker &bull; Automated Batch ETL</span>
+                  </div>
+                  <ul class="resume-list text-xs text-slate-800 space-y-0.5 list-disc pl-5">
+                    <li>Engineered multi-container pipeline ingesting high-frequency vibration and thermal telemetry across factory lines.</li>
+                    <li>Automated scheduled Airflow ETL with stateful anomaly thresholding, surfacing real-time OEE on dashboards.</li>
+                  </ul>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="resume-entry mb-2">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <strong class="font-bold text-[13px] text-slate-900">GuardianAI &ndash; Clinical Frailty &amp; Fall Risk Intervention</strong>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">Jan 2026</span>
+                  </div>
+                  <div class="mb-1">
+                    <span class="italic text-xs text-slate-800">XGBoost, SHAP, FastAPI &bull; True Innovation Launchpad Track</span>
+                  </div>
+                  <ul class="resume-list text-xs text-slate-800 space-y-0.5 list-disc pl-5">
+                    <li>Trained calibrated XGBoost models coupled with SHAP biometric explainability for real-time geriatric care.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Section 4: COMPETITIVE HACKATHONS & INDUSTRY CHALLENGES -->
+              <div class="resume-section">
+                <h2 class="section-title text-xs font-bold tracking-wide text-slate-900 uppercase border-b border-black pb-0.5 mb-2 mt-2.5">COMPETITIVE HACKATHONS &amp; INDUSTRY CHALLENGES</h2>
+
+                <!-- AIRA & AIFUL -->
+                <div class="resume-entry mb-2">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <strong class="font-bold text-[13px] text-slate-900">AIRA &amp; AIFUL / Aihack Thailand 2025 &ndash; National Finalist</strong>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">Dec 2025</span>
+                  </div>
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <span class="italic text-xs text-slate-800">Machine Learning &amp; Financial Risk Modeling Lead &bull; Chulalongkorn Business School &times; ProbSpace</span>
+                    <span class="italic text-xs text-slate-700 text-right whitespace-nowrap">Bangkok, Thailand</span>
+                  </div>
+                  <ul class="resume-list text-xs text-slate-800 space-y-0.5 list-disc pl-5">
+                    <li>Handled severe 1:12 default imbalance using SMOTE-Tomek; pitched risk reduction vs. interest margins to C-executives.</li>
+                  </ul>
+                </div>
+
+                <!-- True Innovation Launchpad -->
+                <div class="resume-entry mb-2">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <strong class="font-bold text-[13px] text-slate-900">True Innovation Launchpad 2026 &ndash; AI &amp; Data Science Lead</strong>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">Jan 2026</span>
+                  </div>
+                  <div class="flex items-baseline justify-between">
+                    <span class="italic text-xs text-slate-800">Healthcare Track (Team Nakphatthana Tuapralat) &bull; Sub-30ms clinical risk scoring APIs</span>
+                    <span class="italic text-xs text-slate-700 text-right whitespace-nowrap">Bangkok, Thailand</span>
+                  </div>
+                </div>
+
+                <!-- GISTDA & LINE MAN Combined -->
+                <div class="resume-entry mb-2">
+                  <div class="flex items-baseline justify-between mb-0.5">
+                    <strong class="font-bold text-[13px] text-slate-900">GISTDA Spatial Resilience Hackathon &amp; LINE MAN Case Competition</strong>
+                    <span class="text-xs text-slate-700 text-right whitespace-nowrap ml-2">2024 &ndash; 2026</span>
+                  </div>
+                  <div class="flex items-baseline justify-between">
+                    <span class="italic text-xs text-slate-800">Spatial Lead (GISTDA Rain-to-Flood Mapping) &bull; Growth Lead (LINE MAN Wongnai 8.87 THB CAC)</span>
+                    <span class="italic text-xs text-slate-700 text-right whitespace-nowrap">Bangkok, Thailand</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 5: CERTIFICATIONS & STANDARDIZED ASSESSMENTS -->
+              <div class="resume-section">
+                <h2 class="section-title text-xs font-bold tracking-wide text-slate-900 uppercase border-b border-black pb-0.5 mb-1.5 mt-2.5">CERTIFICATIONS &amp; STANDARDIZED ASSESSMENTS</h2>
+                <div class="resume-entry text-xs text-slate-800 space-y-1">
+                  <div>
+                    <strong class="font-bold text-slate-900">SKILLKAMP by KBTG:</strong> Data Analyst (STAMP) Score: <strong class="font-bold text-slate-900">97/150</strong> (Benchmark: 90) &bull; Digital Marketer Score: <strong class="font-bold text-slate-900">98/150</strong> (Benchmark: 94)
+                  </div>
+                  <div>
+                    <strong class="font-bold text-slate-900">Oxford Placement Test:</strong> CEFR B1+ Professional (Score: <strong class="font-bold text-slate-900">51/120</strong> &ndash; Listening: 51.12, Grammar: 50.88; AUA / Oxford)
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -5,51 +5,53 @@
    ========================================================================== */
 
 :root {
-  /* World-Class Developer Portfolio Palette (Vercel / Linear / Raycast Aesthetic) */
-  --bg-primary: #0B0F17;          /* Deep Obsidian Base */
-  --bg-secondary: #0F172A;        /* Midnight Slate Secondary */
-  --bg-tertiary: #131B2E;         /* Elevated Charcoal Surface */
-  --bg-card: rgba(18, 24, 38, 0.7); /* Translucent Charcoal Glass */
-  --bg-card-hover: rgba(26, 35, 54, 0.85);
-  --bg-drawer: #0e1522;
-  --bg-code: #070b12;
+  /* Dark Slate & Quantitative Terminal Design Tokens */
+  --bg-primary: #0B0F17;            /* Deep Obsidian Slate Base */
+  --bg-secondary: #0F172A;          /* Midnight Slate Secondary */
+  --bg-tertiary: #131B2E;           /* Elevated Charcoal Surface */
+  --bg-card: rgba(15, 23, 42, 0.65); /* Glassmorphic Dark Slate Container */
+  --bg-card-hover: rgba(22, 31, 52, 0.82);
+  --bg-drawer: #0B0F17;
+  --bg-code: #070B12;
 
-  --border-color: rgba(255, 255, 255, 0.08); /* Delicate Glass Border */
+  --border-color: rgba(255, 255, 255, 0.08); /* Hairline Glass Border */
   --border-muted: rgba(255, 255, 255, 0.05);
-  --border-hover: #00d2d3;        /* Cyan Hover */
-  --border-accent: rgba(0, 210, 211, 0.35);
+  --border-hover: rgba(56, 189, 248, 0.38);  /* Sky Cyan Border Hover */
+  --border-accent: rgba(99, 102, 241, 0.35); /* Electric Indigo Border */
 
-  /* Accents - High-End Cyan / Teal Gradient */
-  --accent-cyan: #00d2d3;
-  --accent-teal: #0ea5e9;
-  --accent-sky: #38bdf8;          /* Muted Sky Blue */
-  --accent-sage: #34d399;         /* Soft Sage Emerald */
-  --accent-purple: #a78bfa;       /* Soft Lavender */
-  --accent-amber: #fbbf24;        /* Warm Amber */
-  --accent-coral: #f87171;        /* Muted Coral Red */
+  /* Accents - Electric Indigo & Sky Cyan */
+  --accent-cyan: #38bdf8;            /* Sky Cyan Primary Accent */
+  --accent-indigo: #6366f1;          /* Electric Indigo Primary Accent */
+  --accent-teal: #0ea5e9;            /* Cool Cyan Midpoint */
+  --accent-sky: #38bdf8;             /* Sky Blue Accent */
+  --accent-sage: #34d399;            /* Soft Sage Emerald */
+  --accent-purple: #a78bfa;          /* Soft Lavender */
+  --accent-amber: #fbbf24;           /* Warm Amber */
+  --accent-coral: #f87171;           /* Muted Coral Red */
 
-  --accent-gradient: linear-gradient(135deg, #00D2D3 0%, #0EA5E9 100%);
-  --cyan-glow: rgba(0, 210, 211, 0.18);
+  --accent-gradient: linear-gradient(135deg, #38BDF8 0%, #6366F1 100%);
+  --cyan-glow: rgba(56, 189, 248, 0.16);
+  --indigo-glow: rgba(99, 102, 241, 0.16);
   --sky-glow: rgba(56, 189, 248, 0.12);
   --sage-glow: rgba(52, 211, 153, 0.12);
 
   /* Typography Colors */
-  --text-primary: #f8fafc;        /* High-Contrast White for Headings */
-  --text-secondary: #cbd5e1;      /* Slate-300 Crisp Subtitle */
-  --text-muted: #94a3b8;          /* Slate-400 for Descriptions */
-  --text-dim: #64748b;            /* Slate-500 for Code/Meta Comments */
+  --text-primary: #F8FAFC;          /* High-Contrast Off-White for Headings */
+  --text-secondary: #CBD5E1;        /* Slate-300 Crisp Subtitle */
+  --text-muted: #94A3B8;            /* Slate-400 for Body Descriptions */
+  --text-dim: #64748B;              /* Slate-500 for Code/Meta Comments */
 
   /* Badge Colors */
-  --badge-bg: rgba(14, 165, 233, 0.1);
+  --badge-bg: rgba(56, 189, 248, 0.08);
   --badge-text: #38bdf8;
   --badge-border: rgba(56, 189, 248, 0.25);
 
   /* Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', SFMono-Regular, Consolas, monospace;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Consolas, monospace;
 
   /* Layout & Dimensions */
-  --container-max: 1180px;
+  --container-max: 1200px;
   --header-height: 70px;
   --drawer-width: 680px;
   --radius-sm: 6px;
@@ -65,9 +67,9 @@
   --transition-drawer: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-coverflow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 
-  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.35);
-  --shadow-elevated: 0 12px 40px rgba(0, 0, 0, 0.55);
-  --shadow-drawer: -10px 0 50px rgba(0, 0, 0, 0.65);
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.45);
+  --shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.65);
+  --shadow-drawer: -12px 0 60px rgba(0, 0, 0, 0.75);
 }
 
 /* Reset & Base Styles */
@@ -85,6 +87,11 @@ html {
 
 body {
   background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.08), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 90% 40%, rgba(56, 189, 248, 0.04), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 10% 75%, rgba(99, 102, 241, 0.04), transparent 60%);
+  background-attachment: fixed;
   color: var(--text-muted);
   font-family: var(--font-sans);
   font-size: 15px;
@@ -93,6 +100,24 @@ body {
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ambient Quantitative Grid/Mesh Background with Soft Radial Fade Mask */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background-size: 52px 52px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 30%, #000 25%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 30%, #000 25%, transparent 85%);
 }
 
 ::selection {
@@ -108,7 +133,7 @@ body {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border-color);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -192,9 +217,9 @@ code, pre, .font-mono {
   }
 }
 
-/* Section Header */
+/* Section Header (Keynote Slide Deck Cadence) */
 .section {
-  padding: 80px 0;
+  padding: clamp(80px, 8.5vw, 120px) 0;
   position: relative;
 }
 
@@ -203,16 +228,16 @@ code, pre, .font-mono {
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 0.775rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--accent-sky);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   background: rgba(56, 189, 248, 0.08);
   border: 1px solid rgba(56, 189, 248, 0.2);
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: var(--radius-full);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .section-tag::before {
@@ -221,22 +246,22 @@ code, pre, .font-mono {
 }
 
 .section-title {
-  font-size: clamp(1.85rem, 3.2vw, 2.45rem);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-  padding-top: 10px;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  padding-top: 6px;
   padding-bottom: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: #F8FAFC;
 }
 
 .section-desc {
   color: var(--text-muted);
-  font-size: 1rem;
-  max-width: 660px;
-  margin-bottom: 40px;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  max-width: 700px;
+  margin-bottom: 48px;
+  line-height: 1.65;
 }
 
 /* ==========================================================================
@@ -426,7 +451,8 @@ code, pre, .font-mono {
   left: 0;
   width: 0;
   height: 2px;
-  background: #00D2D3;
+  background: linear-gradient(90deg, #38BDF8, #6366F1);
+  border-radius: 2px;
   transition: width var(--transition-normal);
 }
 
@@ -466,26 +492,26 @@ code, pre, .font-mono {
 .btn-resume {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   white-space: nowrap;
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
+  padding: 0.5rem 1.125rem;
+  font-size: 0.775rem;
   font-weight: 600;
   border-radius: 0.5rem;
-  background: rgba(6, 182, 212, 0.1);
-  color: #22D3EE;
-  border: 1px solid rgba(6, 182, 212, 0.3);
+  background: rgba(56, 189, 248, 0.08);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.25);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
 }
 
 .btn-resume-action:hover,
 .btn-resume:hover {
-  background: #06B6D4;
-  color: #0F172A;
-  border-color: #06B6D4;
-  box-shadow: 0 0 16px rgba(6, 182, 212, 0.4);
+  background: linear-gradient(135deg, #38BDF8 0%, #6366F1 100%);
+  color: #0B0F17;
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
   transform: translateY(-1px);
 }
 
@@ -547,7 +573,9 @@ code, pre, .font-mono {
 .hero-content {
   position: relative;
   z-index: 3;
-  max-width: 860px;
+  max-width: 1240px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .hero-meta-pill {
@@ -628,16 +656,23 @@ code, pre, .font-mono {
 }
 
 /* Two-Part Hero Subheadline Group */
+.whitespace-nowrap {
+  white-space: nowrap !important;
+}
+
 .hero-subheadline-group {
   margin-bottom: 28px;
-  max-width: 760px;
+  max-width: 1200px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-identity-line {
-  font-size: clamp(1.1rem, 2.2vw, 1.28rem);
+  font-size: clamp(0.975rem, 1.65vw, 1.22rem);
   font-weight: 600;
   color: #E2E8F0;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   letter-spacing: -0.01em;
   background: linear-gradient(120deg, #F8FAFC 0%, #38BDF8 50%, #F8FAFC 100%);
   background-size: 200% auto;
@@ -645,6 +680,13 @@ code, pre, .font-mono {
   -webkit-text-fill-color: transparent;
   animation: shineText 7s linear infinite;
   display: inline-block;
+  line-height: 1.45;
+}
+
+@media (min-width: 768px) {
+  .hero-identity-line {
+    white-space: nowrap;
+  }
 }
 
 @keyframes shineText {
@@ -652,11 +694,19 @@ code, pre, .font-mono {
 }
 
 .hero-specialty-line {
-  font-size: clamp(0.925rem, 1.6vw, 1.025rem);
+  font-size: clamp(0.835rem, 1.15vw, 0.965rem);
   color: #94A3B8;
   font-weight: 400;
-  line-height: 1.65;
-  margin: 0;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 1200px;
+  text-wrap: balance;
+}
+
+@media (min-width: 840px) {
+  .hero-specialty-line {
+    white-space: nowrap;
+  }
 }
 
 /* Unified Action & Social Bar */
@@ -4625,6 +4675,56 @@ code, pre, .font-mono {
   border-radius: var(--radius-sm);
 }
 
+.resume-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.resume-doc-switcher {
+  display: inline-flex;
+  align-items: center;
+  background: #0D1524;
+  border: 1px solid #1E293B;
+  border-radius: var(--radius-sm, 6px);
+  padding: 3px;
+  gap: 3px;
+}
+
+.doc-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #94A3B8;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.725rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.doc-switch-btn:hover {
+  color: #F1F5F9;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.doc-switch-btn.active {
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.14);
+  border-color: rgba(56, 189, 248, 0.35);
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.18);
+}
+
+.doc-switch-btn i {
+  font-size: 0.75rem;
+}
+
 .resume-nav-group {
   display: flex;
   align-items: center;
@@ -4766,7 +4866,7 @@ html.light .resume-scroll-container {
 }
 
 /* ==========================================================================
-   AUTHENTIC CRISP WHITE PAPER CANVAS (WYSIWYG Paper Sheet)
+   AUTHENTIC A4 CRISP WHITE PAPER CANVAS (Modern Sans-serif ATS Resume)
    ========================================================================== */
 .resume-paper,
 .resume-a4-page,
@@ -4776,34 +4876,39 @@ html.dark .resume-a4-page,
 html.light .resume-paper,
 html.light .resume-a4-page {
   background-color: #FFFFFF !important;
-  color: #0F172A !important;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45), 0 0 1px rgba(0, 0, 0, 0.15) !important;
-  border-radius: 2px !important;
+  color: #000000 !important;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.45), 0 0 1px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 1px !important;
   border: 1px solid rgba(226, 232, 240, 0.8) !important;
-  max-width: 56rem !important;
+  width: 210mm !important;
+  max-width: 100% !important;
+  min-height: 297mm !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  margin-top: 2rem !important;
+  margin-top: 1.5rem !important;
   margin-bottom: 2rem !important;
-  padding: 2rem !important;
+  padding: 13mm 15mm 12mm 15mm !important;
   transition: all 0.2s ease;
-  font-family: var(--font-sans);
-  line-height: 1.625;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  line-height: 1.36 !important;
+  letter-spacing: normal !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  position: relative !important;
 }
 
-@media (min-width: 640px) {
+@media (max-width: 768px) {
   .resume-paper,
   .resume-a4-page,
   html.dark .resume-paper,
   html.dark .resume-a4-page,
   html.light .resume-paper,
   html.light .resume-a4-page {
-    padding: 3rem !important;
+    padding: 18px 16px !important;
+    min-height: auto !important;
+    width: 100% !important;
   }
 }
 
@@ -4812,36 +4917,66 @@ html.light .resume-a4-page {
   margin-bottom: 0 !important;
 }
 
-/* Document Sheet Canvas Utility Classes */
-.bg-white { background-color: #FFFFFF !important; }
-.text-slate-900 { color: #0F172A !important; }
-.text-slate-800 { color: #1E293B !important; }
-.text-slate-700 { color: #334155 !important; }
-.text-slate-600 { color: #475569 !important; }
-.text-slate-500 { color: #64748B !important; }
-.bg-slate-100 { background-color: #F1F5F9 !important; }
-.border-slate-200 { border-color: #E2E8F0 !important; }
-.border-slate-200\/80 { border-color: rgba(226, 232, 240, 0.8) !important; }
-.border-slate-300 { border-color: #CBD5E1 !important; }
-.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45), 0 0 1px rgba(0, 0, 0, 0.15) !important; }
-.rounded-sm { border-radius: 0.125rem !important; }
-.max-w-4xl { max-width: 56rem !important; }
-.mx-auto { margin-left: auto !important; margin-right: auto !important; }
-.my-8 { margin-top: 2rem !important; margin-bottom: 2rem !important; }
-.p-8 { padding: 2rem !important; }
-.transition-all { transition: all 0.2s ease !important; }
-
-@media (min-width: 640px) {
-  .sm\:p-12 { padding: 3rem !important; }
+.resume-content-wrap {
+  width: 100%;
 }
 
-/* Headings (H1, Section titles): text-slate-900 font-bold tracking-tight */
+/* Print header timestamp container (hidden in showcase, shown in download/print) */
+.resume-print-header {
+  display: none;
+  text-align: right;
+  font-size: 8pt;
+  color: #475569;
+  margin-bottom: 2mm;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Headings (Name H1, Section titles) */
 #resume-sheet h1,
 .resume-paper h1,
-.resume-a4-page h1 {
-  color: #0F172A !important;
+.resume-a4-page h1,
+.resume-name {
+  color: #000000 !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 20pt !important;
   font-weight: 700 !important;
-  letter-spacing: -0.025em !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.01em !important;
+  text-align: center !important;
+  margin: 0 0 3pt 0 !important;
+}
+
+.resume-headline {
+  color: #111111 !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 9.5pt !important;
+  font-weight: 400 !important;
+  text-align: center !important;
+  margin: 0 0 3.5pt 0 !important;
+}
+
+.resume-contact {
+  color: #222222 !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 8.5pt !important;
+  line-height: 1.4 !important;
+  text-align: center !important;
+  margin: 0 0 10pt 0 !important;
+}
+
+.resume-contact a {
+  color: #222222 !important;
+  text-decoration: none !important;
+}
+
+.resume-contact a:hover {
+  text-decoration: underline !important;
+  color: #000000 !important;
+}
+
+.resume-contact .pipe-sep {
+  color: #666666 !important;
+  margin: 0 5px !important;
 }
 
 #resume-sheet h2,
@@ -4850,85 +4985,91 @@ html.light .resume-a4-page {
 .resume-paper .section-title,
 .resume-a4-page h2,
 .resume-a4-page .section-title {
-  color: #0F172A !important;
+  color: #000000 !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 10pt !important;
   font-weight: 700 !important;
-  letter-spacing: -0.025em !important;
-  border-bottom: 1px solid #CBD5E1 !important;
-  padding-bottom: 0.25rem !important;
-  margin-bottom: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  border-bottom: 1px solid #000000 !important;
+  padding-bottom: 1.5pt !important;
+  margin-top: 11pt !important;
+  margin-bottom: 5pt !important;
 }
 
-/* Subtitles & Dates: text-slate-600 font-normal */
-#resume-sheet .text-slate-600,
-#resume-sheet .italic,
-.resume-paper .text-slate-600,
-.resume-paper .italic,
-.resume-a4-page .text-slate-600,
-.resume-a4-page .italic {
-  color: #475569 !important;
-  font-weight: 400 !important;
+#resume-page-2 .resume-section:first-child .section-title {
+  margin-top: 0 !important;
 }
 
-#resume-sheet .font-mono,
-.resume-paper .font-mono,
-.resume-a4-page .font-mono {
-  color: #475569 !important;
+/* Entries and items */
+.resume-entry {
+  margin-bottom: 8.5pt;
+  font-size: 8.75pt;
+  line-height: 1.38;
+  color: #111111;
 }
 
-/* Body Text & Bullet Points: text-slate-700 leading-relaxed */
-#resume-sheet p,
-#resume-sheet ul,
-#resume-sheet li,
-#resume-sheet .text-slate-700,
+.resume-entry:last-child {
+  margin-bottom: 0;
+}
+
+.resume-skills-block > div {
+  margin-bottom: 2.5pt;
+  line-height: 1.38;
+}
+
+.resume-skills-block > div:last-child {
+  margin-bottom: 0;
+}
+
+.grid-skill-row {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 2.5pt;
+  line-height: 1.36;
+}
+
+.grid-skill-row strong {
+  min-width: 148px;
+  flex-shrink: 0;
+}
+
 .resume-paper p,
 .resume-paper ul,
 .resume-paper li,
-.resume-paper .text-slate-700,
 .resume-a4-page p,
 .resume-a4-page ul,
-.resume-a4-page li,
-.resume-a4-page .text-slate-700 {
-  color: #334155 !important;
-  line-height: 1.625 !important;
+.resume-a4-page li {
+  color: #111111 !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 8.75pt !important;
+  line-height: 1.38 !important;
 }
 
-#resume-sheet strong,
+.resume-list {
+  margin: 2pt 0 0 0 !important;
+  padding-left: 14pt !important;
+  list-style-type: disc !important;
+}
+
+.resume-list li {
+  margin-bottom: 1.5pt !important;
+  line-height: 1.38 !important;
+}
+
+.resume-list li:last-child {
+  margin-bottom: 0 !important;
+}
+
 .resume-paper strong,
 .resume-a4-page strong {
-  color: #0F172A !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
 }
 
-/* Section Dividers: border-b border-slate-300 pb-1 mb-3 */
-#resume-sheet .border-slate-300,
-#resume-sheet .border-b,
-.resume-paper .border-slate-300,
-.resume-paper .border-b,
-.resume-a4-page .border-slate-300,
-.resume-a4-page .border-b {
-  border-color: #CBD5E1 !important;
-}
-
-/* Tech Tags / Pills: Subtle neutral badges bg-slate-100 text-slate-800 border border-slate-200 */
-.tech-tag,
-.tech-pill,
-.tech-badge,
-#resume-sheet .tech-tag,
-#resume-sheet .tech-pill,
-#resume-sheet .tech-badge,
-.resume-paper .tech-tag,
-.resume-paper .tech-pill,
-.resume-paper .tech-badge {
-  background-color: #F1F5F9 !important;
-  color: #1E293B !important;
-  border: 1px solid #E2E8F0 !important;
-  border-radius: 2px !important;
-  padding: 2px 8px !important;
-  font-size: 0.75rem !important;
-  font-family: var(--font-mono);
-  font-weight: 500 !important;
-  box-shadow: none !important;
-  display: inline-block;
-  vertical-align: middle;
+.resume-paper .italic,
+.resume-a4-page .italic {
+  font-style: italic !important;
 }
 
 /* Sheet Footer */
@@ -4936,42 +5077,115 @@ html.light .resume-a4-page {
 #resume-sheet .resume-sheet-footer,
 .resume-paper .resume-sheet-footer,
 .resume-a4-page .resume-sheet-footer {
-  border-top: 1px solid #CBD5E1 !important;
-  padding-top: 0.75rem !important;
-  margin-top: 1.25rem !important;
+  border-top: none !important;
+  padding-top: 4pt !important;
+  margin-top: 6pt !important;
   display: flex !important;
-  justify-content: space-between !important;
-  font-family: var(--font-mono) !important;
-  font-size: 0.7rem !important;
-  color: #64748B !important;
+  justify-content: flex-end !important;
+  align-items: flex-end !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 8.5pt !important;
+  color: #222222 !important;
 }
 
-/* Bullet list marker dots */
-#resume-sheet li::marker,
-.resume-paper li::marker,
-.resume-a4-page li::marker {
-  color: #64748B !important;
+.resume-sheet-footer .page-number {
+  font-size: 8.5pt !important;
+  color: #222222 !important;
 }
 
-/* Links inside resume paper sheet */
-#resume-sheet a,
+/* ==========================================================================
+   1-Page Industry Resume Dedicated Layout Rules
+   ========================================================================== */
+.resume-single-page {
+  min-height: 297mm !important;
+  max-height: 297mm !important;
+  padding: 10mm 15mm 9mm 15mm !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+.resume-single-page .resume-entry {
+  margin-bottom: 6pt !important;
+}
+
+.resume-single-page .resume-entry:last-child {
+  margin-bottom: 0 !important;
+}
+
+.resume-single-page .section-title {
+  margin-top: 7pt !important;
+  margin-bottom: 3.5pt !important;
+  font-size: 9.5pt !important;
+}
+
+.resume-single-page .resume-list {
+  margin-top: 1.5pt !important;
+}
+
+.resume-single-page .resume-list li {
+  margin-bottom: 1.5pt !important;
+  line-height: 1.34 !important;
+}
+
+.resume-single-page .resume-contact {
+  margin-bottom: 5pt !important;
+}
+
+/* Ensure dark theme website styles NEVER invert colors on crisp white resume paper */
+html.dark .resume-paper,
+html.dark .resume-a4-page,
+.resume-paper,
+.resume-a4-page {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+}
+
+html.dark .resume-paper .text-slate-900,
+html.dark .resume-paper .text-slate-800,
+html.dark .resume-a4-page .text-slate-900,
+html.dark .resume-a4-page .text-slate-800,
+.resume-paper .text-slate-900,
+.resume-paper .text-slate-800,
+.resume-a4-page .text-slate-900,
+.resume-a4-page .text-slate-800 {
+  color: #000000 !important;
+}
+
+html.dark .resume-paper .text-slate-700,
+html.dark .resume-paper .text-slate-600,
+html.dark .resume-a4-page .text-slate-700,
+html.dark .resume-a4-page .text-slate-600,
+.resume-paper .text-slate-700,
+.resume-paper .text-slate-600,
+.resume-a4-page .text-slate-700,
+.resume-a4-page .text-slate-600 {
+  color: #222222 !important;
+}
+
+html.dark .resume-paper .text-slate-500,
+html.dark .resume-paper .text-slate-400,
+html.dark .resume-a4-page .text-slate-500,
+html.dark .resume-a4-page .text-slate-400,
+.resume-paper .text-slate-500,
+.resume-paper .text-slate-400,
+.resume-a4-page .text-slate-500,
+.resume-a4-page .text-slate-400 {
+  color: #444444 !important;
+}
+
+html.dark .resume-paper a,
+html.dark .resume-a4-page a,
 .resume-paper a,
 .resume-a4-page a {
-  color: #334155 !important;
-  text-decoration: none !important;
-  transition: color 0.15s ease;
+  color: #111111 !important;
 }
 
-#resume-sheet a:hover,
-.resume-paper a:hover,
-.resume-a4-page a:hover {
-  color: #0284C7 !important;
-}
-
-#resume-sheet .text-slate-300,
-.resume-paper .text-slate-300,
-.resume-a4-page .text-slate-300 {
-  color: #94A3B8 !important;
+html.dark .resume-paper .border-black,
+html.dark .resume-a4-page .border-black,
+.resume-paper .border-black,
+.resume-a4-page .border-black {
+  border-color: #000000 !important;
 }
 
 /* ==========================================================================
@@ -5172,22 +5386,24 @@ html.light .resume-sheet-footer {
    2. STRICT PRINT ENGINE & A4 STYLING (@media print)
    ========================================================================== */
 @media print {
-  /* Enforce A4 standard portrait dimensions */
+  /* Enforce A4 standard portrait dimensions with zero margin to strip browser URL and title */
   @page {
     size: A4 portrait;
-    margin: 12mm 15mm 12mm 15mm;
+    margin: 0;
   }
 
   /* Global print resets */
   html, body {
-    width: 100% !important;
+    width: 210mm !important;
     height: auto !important;
     min-height: auto !important;
     margin: 0 !important;
     padding: 0 !important;
     background: #ffffff !important;
-    color: #0f172a !important;
-    font-size: 10.5pt !important;
+    color: #000000 !important;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 8.75pt !important;
+    line-height: 1.36 !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
@@ -5212,8 +5428,8 @@ html.light .resume-sheet-footer {
   .slide-drawer {
     position: static !important;
     display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    width: 210mm !important;
+    max-width: 210mm !important;
     margin: 0 !important;
     padding: 0 !important;
     background: transparent !important;
@@ -5221,31 +5437,124 @@ html.light .resume-sheet-footer {
     overflow: visible !important;
   }
 
-  /* Paper sheet print container */
-  #resume-sheet,
-  .resume-page-container,
-  .resume-paper,
-  .resume-a4-page {
-    position: static !important;
-    width: 100% !important;
-    max-width: 100% !important;
+  /* Document visibility filtering for print */
+  .resume-page-container:not(.active-doc-view) {
+    display: none !important;
+  }
+
+  .resume-page-container.active-doc-view {
+    display: block !important;
     margin: 0 !important;
     padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Paper sheet print container */
+  #resume-sheet {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .resume-paper,
+  .resume-a4-page {
+    position: relative !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    max-width: 210mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    margin: 0 !important;
+    padding: 10mm 15mm 10mm 15mm !important;
     background: #ffffff !important;
-    color: #0f172a !important;
+    color: #000000 !important;
     box-shadow: none !important;
     border: none !important;
     transform: none !important;
-    overflow: visible !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  }
+
+  /* 1-Page Resume specific print adjustments */
+  #resume-page-single {
+    page-break-before: avoid !important;
+    break-before: avoid !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    height: 297mm !important;
+    max-height: 297mm !important;
+    padding: 9.5mm 14.5mm 9mm 14.5mm !important;
+    justify-content: flex-start !important;
+  }
+
+  #resume-page-single .section-title {
+    margin-top: 6.5pt !important;
+    margin-bottom: 3pt !important;
+    font-size: 9.5pt !important;
+  }
+
+  #resume-page-single .resume-entry {
+    margin-bottom: 5pt !important;
+    font-size: 8.5pt !important;
+    line-height: 1.34 !important;
+  }
+
+  #resume-page-single .resume-contact {
+    margin-bottom: 5pt !important;
+  }
+
+  #resume-page-single .resume-list li {
+    margin-bottom: 1.2pt !important;
+    line-height: 1.32 !important;
+  }
+
+  /* Top Right Date & Time printed in page header */
+  .resume-print-header {
+    display: block !important;
+    text-align: right !important;
+    font-size: 7.5pt !important;
+    color: #334155 !important;
+    margin-bottom: 1.5mm !important;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
   }
 
   /* Typography scale for crisp physical print */
   #resume-sheet h1,
   .resume-paper h1,
-  .resume-a4-page h1 {
-    font-size: 18pt !important;
-    line-height: 1.2 !important;
-    color: #0f172a !important;
+  .resume-a4-page h1,
+  .resume-name {
+    font-size: 20pt !important;
+    line-height: 1.15 !important;
+    color: #000000 !important;
+    margin-bottom: 2.5pt !important;
+    text-align: center !important;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+  }
+
+  .resume-headline {
+    font-size: 9pt !important;
+    color: #111111 !important;
+    margin-bottom: 2.5pt !important;
+    text-align: center !important;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+  }
+
+  .resume-contact {
+    font-size: 8.25pt !important;
+    color: #222222 !important;
+    margin-bottom: 8pt !important;
+    text-align: center !important;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
   }
 
   #resume-sheet h2,
@@ -5254,12 +5563,18 @@ html.light .resume-sheet-footer {
   .resume-paper .section-title,
   .resume-a4-page h2,
   .resume-a4-page .section-title {
-    font-size: 11pt !important;
-    margin-top: 14pt !important;
-    margin-bottom: 6pt !important;
-    border-bottom: 1px solid #cbd5e1 !important;
+    font-size: 9.75pt !important;
+    margin-top: 9pt !important;
+    margin-bottom: 4pt !important;
+    border-bottom: 1px solid #000000 !important;
     page-break-after: avoid !important;
     break-after: avoid !important;
+    color: #000000 !important;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+  }
+
+  #resume-page-2 .resume-section:first-child .section-title {
+    margin-top: 0 !important;
   }
 
   #resume-sheet p,
@@ -5271,28 +5586,47 @@ html.light .resume-sheet-footer {
   .resume-a4-page p,
   .resume-a4-page li,
   .resume-a4-page div {
-    font-size: 9.5pt !important;
-    line-height: 1.45 !important;
-    color: #1e293b !important;
+    font-size: 8.75pt !important;
+    line-height: 1.36 !important;
+    color: #111111 !important;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
   }
 
-  /* Avoid awkward page break splits inside individual project blocks */
-  .resume-entry,
-  .project-item,
-  .resume-item,
-  li {
+  .resume-entry {
+    margin-bottom: 6.5pt !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
 
-  .resume-paper:first-child,
-  #resume-page-1 {
+  .resume-entry:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .resume-list {
+    margin: 1.5pt 0 0 0 !important;
+    padding-left: 14pt !important;
+  }
+
+  .resume-list li {
+    margin-bottom: 1.5pt !important;
+    line-height: 1.34 !important;
+  }
+
+  .resume-list li:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* 2-Page CV Pagination */
+  #cv-view #resume-page-1,
+  .resume-paper:first-child {
     page-break-after: always !important;
     break-after: page !important;
   }
 
-  .resume-paper:last-child,
-  #resume-page-2 {
+  #cv-view #resume-page-2,
+  .resume-paper:last-child {
+    page-break-before: always !important;
+    break-before: page !important;
     page-break-after: avoid !important;
     break-after: avoid !important;
   }
@@ -5307,12 +5641,14 @@ html.light .resume-sheet-footer {
   .resume-paper .resume-sheet-footer,
   .resume-a4-page .resume-sheet-footer {
     display: flex !important;
-    justify-content: space-between !important;
-    border-top: 1px solid #cbd5e1 !important;
-    margin-top: 10pt !important;
-    padding-top: 5pt !important;
-    font-size: 8pt !important;
-    color: #64748b !important;
+    justify-content: flex-end !important;
+    align-items: flex-end !important;
+    border-top: none !important;
+    margin-top: 6pt !important;
+    padding-top: 4pt !important;
+    font-size: 8.5pt !important;
+    color: #222222 !important;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
   }
 }
 
@@ -6608,142 +6944,164 @@ html.light .kbtg-verified-tag {
 
 /* Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, #00D2D3 0%, #0EA5E9 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: linear-gradient(135deg, #F8FAFC 25%, #38BDF8 75%, #6366F1 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
   display: inline-block;
 }
 
-/* Ambient Radial Mesh Background */
-body::before {
-  content: '';
-  position: fixed;
-  top: -10vw;
-  left: 20vw;
-  width: 50vw;
-  height: 40vw;
-  background: radial-gradient(circle, rgba(0, 210, 211, 0.05) 0%, rgba(14, 165, 233, 0.03) 40%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  bottom: 5vw;
-  right: 15vw;
-  width: 45vw;
-  height: 35vw;
-  background: radial-gradient(circle, rgba(14, 165, 233, 0.04) 0%, rgba(52, 211, 153, 0.02) 50%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Translucent Charcoal Glass Card Standard */
-.glass-card {
-  background: rgba(18, 24, 38, 0.7) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
+/* ==========================================================================
+   GLASSMORPHIC SLATE CONTAINERS & RADIAL SPOTLIGHT HOVER ILLUMINATION
+   ========================================================================== */
+.glass-card,
+.project-stacked-card,
+.stat-item,
+.skill-category-card,
+.comp-milestone-card,
+.cert-showcase-card,
+.about-tier-card,
+.contact-card {
+  background: rgba(15, 23, 42, 0.65) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 16px !important;
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  position: relative;
-  overflow: hidden;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.glass-card:hover {
-  background: rgba(22, 30, 48, 0.82) !important;
-  border-color: rgba(0, 210, 211, 0.35) !important;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 24px rgba(0, 210, 211, 0.12) !important;
+/* Radial spotlight following cursor on hover */
+.glass-card::before,
+.project-stacked-card::before,
+.stat-item::before,
+.skill-category-card::before,
+.comp-milestone-card::before,
+.cert-showcase-card::before,
+.about-tier-card::before,
+.contact-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    680px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+    rgba(56, 189, 248, 0.09),
+    rgba(99, 102, 241, 0.05) 45%,
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass-card:hover::before,
+.project-stacked-card:hover::before,
+.stat-item:hover::before,
+.skill-category-card:hover::before,
+.comp-milestone-card:hover::before,
+.cert-showcase-card:hover::before,
+.about-tier-card:hover::before,
+.contact-card:hover::before {
+  opacity: 1;
+}
+
+.glass-card:hover,
+.project-stacked-card:hover,
+.stat-item:hover,
+.skill-category-card:hover,
+.comp-milestone-card:hover,
+.cert-showcase-card:hover,
+.about-tier-card:hover {
+  border-color: rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 18px 44px -8px rgba(0, 0, 0, 0.65),
+              0 0 24px -2px rgba(56, 189, 248, 0.12),
+              0 0 16px -2px rgba(99, 102, 241, 0.1) !important;
   transform: translateY(-2px);
 }
 
-/* Hero Section Enhancements */
+/* Hero Section Presentation Layout (Keynote Centered Framing) */
 .hero-status-row {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
-  margin: 18px 0 28px 0;
+  margin: 20px 0 28px 0;
 }
 
 .hero-status-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(18, 24, 38, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 9999px;
-  padding: 6px 14px;
+  padding: 6px 15px;
   font-size: 0.8rem;
   font-weight: 500;
   color: #CBD5E1;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: all 0.2s ease;
+}
+
+.hero-status-badge:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #F8FAFC;
 }
 
 /* Skills Categorized Cards Grid */
 .skills-bento-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px;
-  margin-top: 32px;
+  gap: 22px;
+  margin-top: 36px;
 }
 
 .skill-category-card {
-  background: rgba(18, 24, 38, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 24px;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  flex-direction: column;
-}
-
-.skill-category-card:hover {
-  background: rgba(22, 30, 48, 0.82);
-  border-color: rgba(0, 210, 211, 0.3);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 210, 211, 0.08);
-  transform: translateY(-2px);
+  padding: 28px !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .skill-category-top {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-  padding-bottom: 14px;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .skill-category-icon {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
-  background: rgba(0, 210, 211, 0.1);
-  border: 1px solid rgba(0, 210, 211, 0.25);
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #00D2D3;
-  font-size: 0.95rem;
+  color: #38BDF8;
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
 .skill-category-name {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #F8FAFC;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 .skill-tag-pills-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 9px;
 }
 
 .skill-pill-item {
@@ -6754,47 +7112,36 @@ body::after {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   padding: 6px 12px;
-  font-size: 0.825rem;
+  font-size: 0.8rem;
   color: #CBD5E1;
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   transition: all 0.2s ease;
 }
 
 .skill-pill-item:hover {
-  background: rgba(0, 210, 211, 0.1);
-  border-color: rgba(0, 210, 211, 0.35);
+  background: rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.35);
   color: #F8FAFC;
   transform: translateY(-1px);
 }
 
 .skill-pill-item.featured {
-  border-color: rgba(0, 210, 211, 0.3);
+  border-color: rgba(56, 189, 248, 0.3);
   color: #38BDF8;
+  background: rgba(56, 189, 248, 0.06);
 }
 
-/* Featured Stacked Engineering Projects */
+/* Featured Stacked Engineering Projects (Keynote Showcase Deck) */
 .projects-stacked-stack {
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  margin-top: 36px;
+  gap: 36px;
+  margin-top: 40px;
 }
 
 .project-stacked-card {
-  background: rgba(18, 24, 38, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 32px;
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-}
-
-.project-stacked-card:hover {
-  background: rgba(22, 30, 48, 0.82);
-  border-color: rgba(0, 210, 211, 0.35);
-  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45), 0 0 28px rgba(0, 210, 211, 0.12);
+  padding: clamp(28px, 4vw, 40px) !important;
+  border-radius: 20px !important;
 }
 
 .project-stacked-header {
@@ -6802,7 +7149,7 @@ body::after {
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
 }
 
@@ -6810,65 +7157,66 @@ body::after {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: 9999px;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
-  background: rgba(0, 210, 211, 0.1);
-  border: 1px solid rgba(0, 210, 211, 0.25);
-  color: #00D2D3;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #38BDF8;
 }
 
 .project-stacked-title {
-  font-size: 1.45rem;
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
   font-weight: 700;
   color: #F8FAFC;
-  letter-spacing: -0.02em;
-  margin-bottom: 12px;
+  letter-spacing: -0.025em;
+  margin-bottom: 14px;
+  line-height: 1.3;
 }
 
 .project-stacked-desc {
-  font-size: 0.95rem;
+  font-size: 0.975rem;
   color: #94A3B8;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  line-height: 1.65;
+  margin-bottom: 24px;
 }
 
 .project-stacked-bullets {
   list-style: none;
   padding: 0;
-  margin: 0 0 24px 0;
+  margin: 0 0 26px 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .project-stacked-bullets li {
-  font-size: 0.875rem;
+  font-size: 0.885rem;
   color: #CBD5E1;
-  line-height: 1.55;
+  line-height: 1.6;
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 12px;
 }
 
 .project-stacked-bullets li i {
-  color: #00D2D3;
-  font-size: 0.8rem;
+  color: #38BDF8;
+  font-size: 0.85rem;
   margin-top: 4px;
   flex-shrink: 0;
 }
 
 .project-metrics-strip {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-  background: rgba(11, 15, 23, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 14px 18px;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  background: rgba(11, 15, 23, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 16px 22px;
+  margin-bottom: 24px;
 }
 
 .project-metric-cell {
@@ -6878,34 +7226,39 @@ body::after {
 
 .project-metric-value {
   font-family: var(--font-mono);
-  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #F8FAFC;
 }
 
 .project-metric-label {
-  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
   color: #64748B;
-  margin-top: 2px;
+  margin-top: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .project-pnl-banner {
-  background: rgba(251, 191, 36, 0.06);
-  border: 1px dashed rgba(251, 191, 36, 0.25);
-  border-radius: 10px;
-  padding: 12px 16px;
-  font-size: 0.825rem;
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px dashed rgba(99, 102, 241, 0.28);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 0.84rem;
   color: #CBD5E1;
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 22px;
-  line-height: 1.5;
+  gap: 12px;
+  margin-bottom: 24px;
+  line-height: 1.55;
 }
 
 .project-pnl-banner i {
-  color: #FBBF24;
+  color: #A5B4FC;
   margin-top: 2px;
+  font-size: 0.95rem;
 }
 
 .project-pnl-banner strong {
@@ -6914,7 +7267,7 @@ body::after {
 
 .pnl-math {
   font-family: var(--font-mono, ui-monospace, monospace);
-  color: #FDE68A;
+  color: #A5B4FC;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -6925,65 +7278,84 @@ body::after {
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-  padding-top: 20px;
+  padding-top: 22px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tech-badges-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-pill {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #CBD5E1;
+  padding: 4px 11px;
+  border-radius: 7px;
+  transition: all 0.15s ease;
+}
+
+.tech-pill:hover {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #F8FAFC;
 }
 
 .btn-inspect-architecture {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(0, 210, 211, 0.12);
-  border: 1px solid rgba(0, 210, 211, 0.35);
-  color: #00D2D3;
-  padding: 8px 18px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  color: #38BDF8;
+  padding: 9px 20px;
   border-radius: 9999px;
   font-size: 0.825rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-inspect-architecture:hover {
-  background: #00D2D3;
+  background: linear-gradient(135deg, #38BDF8 0%, #6366F1 100%);
   color: #0B0F17;
-  border-color: #00D2D3;
-  box-shadow: 0 0 16px rgba(0, 210, 211, 0.4);
+  border-color: transparent;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.35);
   transform: translateY(-1px);
 }
 
-/* Hackathons & Competitions Timeline Grid */
+.btn-inspect-architecture i {
+  transition: transform 0.2s ease;
+}
+
+.btn-inspect-architecture:hover i {
+  transform: translateX(3px);
+}
+
+/* Hackathons & Competitions Modern Milestone Deck */
 .competitions-modern-list {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 26px;
   margin-top: 36px;
   position: relative;
 }
 
 .comp-milestone-card {
-  background: rgba(18, 24, 38, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 28px;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-}
-
-.comp-milestone-card:hover {
-  background: rgba(22, 30, 48, 0.82);
-  border-color: rgba(0, 210, 211, 0.3);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  padding: 30px 32px !important;
+  border-radius: 18px !important;
 }
 
 .comp-milestone-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 14px;
-  margin-bottom: 12px;
+  gap: 16px;
+  margin-bottom: 14px;
   flex-wrap: wrap;
 }
 
@@ -6994,80 +7366,155 @@ body::after {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: #94A3B8;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 6px;
 }
 
 .comp-milestone-title {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: #F8FAFC;
-  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+  margin-bottom: 5px;
 }
 
 .comp-milestone-org {
-  font-size: 0.85rem;
+  font-size: 0.865rem;
   color: #64748B;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+.comp-badge.sky {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #38BDF8;
+  font-size: 0.775rem;
+  font-weight: 600;
+  padding: 4px 11px;
+  border-radius: 9999px;
+}
+
+.comp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #CBD5E1;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.comp-metrics-ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 16px 0;
+  padding: 12px 18px;
+  background: rgba(11, 15, 23, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+}
+
+.comp-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.comp-metric-val {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.comp-metric-val.sky { color: #38BDF8; }
+.comp-metric-val.sage { color: #34D399; }
+.comp-metric-val.gold { color: #FBBF24; }
+
+.comp-metric-label {
+  font-size: 0.725rem;
+  color: #64748B;
+  margin-top: 2px;
+}
+
 /* ==========================================================================
-   2. HERO ACTION BAR & SOCIAL ICONS (IMAGE 4 FIX)
+   HERO ACTION BAR & SOCIAL ICONS (Keynote Framing)
    ========================================================================== */
 .hero-actions-container {
   display: flex;
   flex-direction: column;
-  margin-top: 1.5rem;
+  align-items: center;
+  margin-top: 1.75rem;
+  width: 100%;
 }
 
 .hero-primary-ctas {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
+  gap: 0.85rem;
   margin-top: 1.5rem;
 }
 
-.btn-hero-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #00D2D3;
-  color: #0B0F17;
-  font-size: 0.875rem;
-  font-weight: 600;
-  padding: 10px 22px;
-  border-radius: 9999px;
-  text-decoration: none;
-  box-shadow: 0 4px 16px rgba(0, 210, 211, 0.35);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  border: none;
-  cursor: pointer;
+.btn-hero-primary,
+a.btn-hero-primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: linear-gradient(135deg, #38BDF8 0%, #818CF8 100%) !important;
+  color: #0B0F17 !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  padding: 10px 24px !important;
+  border-radius: 9999px !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.35) !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border: none !important;
+  cursor: pointer !important;
 }
 
-.btn-hero-primary:hover {
-  background: #22D3EE;
-  color: #0B0F17;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 210, 211, 0.5);
+.btn-hero-primary *,
+a.btn-hero-primary * {
+  color: #0B0F17 !important;
+  font-weight: 700 !important;
+}
+
+.btn-hero-primary:hover,
+a.btn-hero-primary:hover {
+  background: linear-gradient(135deg, #7DD3FC 0%, #A5B4FC 100%) !important;
+  color: #0B0F17 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 28px rgba(56, 189, 248, 0.5) !important;
+}
+
+.btn-hero-primary:hover *,
+a.btn-hero-primary:hover * {
+  color: #0B0F17 !important;
 }
 
 .btn-hero-secondary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(18, 24, 38, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #F8FAFC;
   font-size: 0.875rem;
   font-weight: 500;
-  padding: 10px 20px;
+  padding: 10px 22px;
   border-radius: 9999px;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -7075,7 +7522,7 @@ body::after {
 
 .btn-hero-secondary:hover {
   background: rgba(30, 41, 59, 0.85);
-  border-color: rgba(0, 210, 211, 0.4);
+  border-color: rgba(56, 189, 248, 0.35);
   color: #38BDF8;
   transform: translateY(-2px);
 }
@@ -7089,7 +7536,7 @@ body::after {
   color: #94A3B8;
   font-size: 0.825rem;
   font-weight: 500;
-  padding: 8px 16px;
+  padding: 9px 18px;
   border-radius: 9999px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -7098,17 +7545,31 @@ body::after {
 .btn-hero-pill:hover {
   background: rgba(30, 41, 59, 0.8);
   color: #F8FAFC;
-  border-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.terminal-shortcut-badge {
+  font-family: var(--font-mono);
+  font-size: 0.675rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: #CBD5E1;
+  margin-left: 2px;
 }
 
 .hero-social-row {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid rgba(30, 41, 59, 0.6);
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   flex-wrap: wrap;
+  width: 100%;
+  max-width: 520px;
 }
 
 .hero-social-link {
@@ -7117,7 +7578,7 @@ body::after {
   gap: 8px;
   padding: 6px 14px;
   border-radius: 8px;
-  background: rgba(18, 24, 38, 0.5);
+  background: rgba(15, 23, 42, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.06);
   color: #94A3B8;
   font-size: 0.8rem;
@@ -7128,9 +7589,9 @@ body::after {
 }
 
 .hero-social-link:hover {
-  background: rgba(0, 210, 211, 0.1);
-  border-color: rgba(0, 210, 211, 0.3);
-  color: #00D2D3;
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.28);
+  color: #38BDF8;
   transform: translateY(-1px);
 }
 
@@ -7139,7 +7600,7 @@ body::after {
 }
 
 /* ==========================================================================
-   3. CERTIFICATION CARDS (NON-TRUNCATING RESPONSIVE GRID - IMAGE 1 FIX)
+   CERTIFICATION CARDS (Clean Single-Column Responsive Deck)
    ========================================================================== */
 .certs-showcase-grid {
   display: grid !important;
@@ -7166,25 +7627,12 @@ body::after {
 }
 
 .cert-showcase-card {
-  background: rgba(18, 24, 38, 0.7) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 16px !important;
   padding: 28px !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
   height: 100% !important;
   min-height: 100% !important;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.cert-showcase-card:hover {
-  background: rgba(22, 30, 48, 0.82) !important;
-  border-color: rgba(16, 185, 129, 0.35) !important;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45), 0 0 20px rgba(16, 185, 129, 0.08) !important;
-  transform: translateY(-2px);
 }
 
 .cert-card-body {
@@ -7208,18 +7656,19 @@ body::after {
 
 .cert-score-big {
   font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
   font-size: 2rem;
   font-weight: 800;
-  color: #10B981;
+  color: #34D399;
   line-height: 1;
 }
 
 .cert-score-max {
+  font-family: var(--font-mono);
   font-size: 0.8rem;
   color: #64748B;
 }
 
-/* Clean, Single-Column Full-Width Score List (No cramped wrapping) */
 .cert-scores-list {
   display: flex !important;
   flex-direction: column !important;
@@ -7234,8 +7683,8 @@ body::after {
   justify-content: space-between !important;
   padding: 0.5rem 0.875rem !important;
   border-radius: 0.5rem !important;
-  background: rgba(15, 23, 42, 0.6) !important;
-  border: 1px solid rgba(30, 41, 59, 0.8) !important;
+  background: rgba(11, 15, 23, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
   font-size: 0.75rem !important;
   color: #CBD5E1 !important;
   width: 100% !important;
@@ -7245,11 +7694,6 @@ body::after {
 .cert-score-row:hover {
   background: rgba(15, 23, 42, 0.9) !important;
   border-color: rgba(56, 189, 248, 0.35) !important;
-}
-
-.cert-score-row.highlight {
-  background: rgba(16, 185, 129, 0.08) !important;
-  border-color: rgba(16, 185, 129, 0.35) !important;
 }
 
 .cert-score-name {
@@ -7269,8 +7713,9 @@ body::after {
 }
 
 .cert-score-points {
-  color: #00D2D3 !important;
+  color: #38BDF8 !important;
   font-family: var(--font-mono) !important;
+  font-variant-numeric: tabular-nums !important;
   font-weight: 700 !important;
   font-size: 0.75rem !important;
   margin-left: 0.5rem !important;
@@ -7286,7 +7731,7 @@ body::after {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  padding-top: 14px !important;
+  padding-top: 16px !important;
   margin-top: auto !important;
   border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
   flex-wrap: wrap !important;
@@ -7295,8 +7740,13 @@ body::after {
 }
 
 /* ==========================================================================
-   4. CONTACT DECK & EMAIL ORPHAN WRAP (IMAGE 2 FIX)
+   CONTACT DECK & EXECUTIVE CLOSING SLIDE
    ========================================================================== */
+.contact-card {
+  border-radius: 22px !important;
+  padding: clamp(32px, 5vw, 56px) !important;
+}
+
 .contact-cards-deck {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -7305,9 +7755,9 @@ body::after {
 }
 
 .contact-micro-card {
-  background: rgba(18, 24, 38, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   padding: 20px;
@@ -7321,23 +7771,23 @@ body::after {
 }
 
 .contact-micro-card:hover {
-  background: rgba(22, 30, 48, 0.85);
-  border-color: rgba(0, 210, 211, 0.35);
+  background: rgba(22, 31, 52, 0.85);
+  border-color: rgba(56, 189, 248, 0.35);
   color: #F8FAFC;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 
 .contact-micro-icon {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(0, 210, 211, 0.08);
-  border: 1px solid rgba(0, 210, 211, 0.2);
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #00D2D3;
+  color: #38BDF8;
   font-size: 1.15rem;
   flex-shrink: 0;
 }
@@ -7368,7 +7818,7 @@ body::after {
 }
 
 .contact-micro-card:hover .contact-micro-val {
-  color: #00D2D3;
+  color: #38BDF8;
 }
 
 @media (max-width: 480px) {
@@ -7471,16 +7921,30 @@ body::after {
 .stroke-current { stroke: currentColor !important; }
 .fill-current { fill: currentColor !important; }
 
-.hover\:border-cyan-500\/40:hover { border-color: rgba(6, 182, 212, 0.4) !important; }
+.hover\:border-cyan-500\/40:hover { border-color: rgba(56, 189, 248, 0.4) !important; }
 .hover\:bg-slate-800\/50:hover { background-color: rgba(30, 41, 59, 0.5) !important; }
-.hover\:bg-cyan-500:hover { background-color: #06B6D4 !important; }
+.hover\:bg-cyan-500:hover { background-color: #38BDF8 !important; }
 .hover\:text-slate-900:hover { color: #0F172A !important; }
-.hover\:text-cyan-400:hover { color: #22D3EE !important; }
+.hover\:text-cyan-400:hover { color: #38BDF8 !important; }
 
 .group { position: relative; }
-.group:hover .group-hover\:bg-cyan-500 { background-color: #06B6D4 !important; }
+.group:hover .group-hover\:bg-cyan-500 { background-color: #38BDF8 !important; }
 .group:hover .group-hover\:text-slate-950 { color: #020617 !important; }
-.group:hover .group-hover\:text-cyan-300 { color: #67E8F9 !important; }
+.group:hover .group-hover\:text-cyan-300 { color: #7DD3FC !important; }
+
+/* Color Harmonization Mappings for Legacy Tokens (excludes buttons with dark text) */
+i[style*="#00D2D3"],
+div[style*="#00D2D3"],
+span[style*="#00D2D3"]:not(.btn-hero-primary *),
+p[style*="#00D2D3"] {
+  color: var(--accent-cyan) !important;
+}
+svg line[stroke="#00D2D3"], svg circle[stroke="#00D2D3"] {
+  stroke: var(--accent-cyan) !important;
+}
+svg circle[fill="#00D2D3"] {
+  fill: var(--accent-cyan) !important;
+}
 
 @media (min-width: 640px) {
   .sm\:px-6 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }

@@ -97,7 +97,32 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
 
   /* ==========================================================================
-     2. Metric Strip 3D Tilt Micro-Interaction
+     2. Radial Spotlight & Cursor Illumination Controller
+     ========================================================================== */
+  function initCardSpotlights() {
+    const spotlightCards = document.querySelectorAll(
+      '.glass-card, .project-stacked-card, .stat-item, .skill-category-card, .comp-milestone-card, .cert-showcase-card, .about-tier-card, .contact-card, .contact-micro-card, .marquee-card'
+    );
+    spotlightCards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.removeProperty('--mouse-x');
+        card.style.removeProperty('--mouse-y');
+      });
+    });
+  }
+
+  initCardSpotlights();
+
+  /* ==========================================================================
+     2.1. Metric Strip 3D Tilt Micro-Interaction
      ========================================================================== */
   const statItems = document.querySelectorAll('.stat-item');
   statItems.forEach((card) => {
@@ -334,223 +359,92 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      7. Resume Direct Isolated Iframe Print Pipeline
      ========================================================================== */
+  const btnSwitchCv = document.getElementById('btn-switch-cv');
+  const btnSwitchResume = document.getElementById('btn-switch-resume');
+  const cvView = document.getElementById('cv-view');
+  const resumeView = document.getElementById('resume-view');
   const downloadBtn = document.querySelector('#download-resume-btn, [data-action="download-pdf"], #btn-print-resume');
-
-  if (downloadBtn) {
-    downloadBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      const resumeSource = document.querySelector('#resume-sheet') || document.querySelector('.resume-paper');
-      if (!resumeSource) {
-        console.error('Target resume element not found');
-        return;
-      }
-
-      const originalText = downloadBtn.innerHTML;
-      downloadBtn.innerText = 'Preparing PDF...';
-      downloadBtn.disabled = true;
-
-      // 1. Create an isolated hidden iframe
-      const iframe = document.createElement('iframe');
-      iframe.style.position = 'fixed';
-      iframe.style.right = '0';
-      iframe.style.bottom = '0';
-      iframe.style.width = '0';
-      iframe.style.height = '0';
-      iframe.style.border = '0';
-      document.body.appendChild(iframe);
-
-      const doc = iframe.contentWindow.document;
-
-      // 2. Inject strict, publication-grade CSS + Resume HTML
-      doc.open();
-      doc.write(`
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <title>Sivakorn_Khundilokrattaya_Resume</title>
-          <style>
-            @page {
-              size: A4 portrait;
-              margin: 12mm 15mm 12mm 15mm;
-            }
-            * {
-              box-sizing: border-box;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            body {
-              margin: 0;
-              padding: 0;
-              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-              font-size: 9.5pt;
-              line-height: 1.45;
-              color: #0f172a;
-              background: #ffffff;
-            }
-            .resume-paper, .resume-a4-page {
-              box-shadow: none !important;
-              border: none !important;
-              border-radius: 0 !important;
-              margin: 0 !important;
-              padding: 0 !important;
-              background: transparent !important;
-              width: 100% !important;
-              max-width: 100% !important;
-            }
-            #resume-page-1 {
-              page-break-after: always !important;
-              break-after: page !important;
-            }
-            #resume-page-2 {
-              page-break-before: always !important;
-              break-before: page !important;
-              page-break-after: avoid !important;
-              break-after: avoid !important;
-            }
-            h1 {
-              font-size: 18pt;
-              font-weight: 700;
-              margin: 0 0 4pt 0;
-              color: #0f172a;
-              letter-spacing: -0.02em;
-            }
-            h2, .section-title {
-              font-size: 10pt;
-              font-weight: 700;
-              text-transform: uppercase;
-              letter-spacing: 0.05em;
-              margin: 14pt 0 6pt 0;
-              padding-bottom: 2pt;
-              border-bottom: 1px solid #cbd5e1;
-              color: #0f172a;
-              break-after: avoid;
-              page-break-after: avoid;
-            }
-            .flex {
-              display: flex;
-            }
-            .flex-wrap {
-              flex-wrap: wrap;
-            }
-            .gap-x-2\.5 {
-              column-gap: 8px;
-            }
-            .gap-y-1\.5 {
-              row-gap: 4px;
-            }
-            .gap-x-2 {
-              column-gap: 8px;
-            }
-            .gap-y-1 {
-              row-gap: 4px;
-            }
-            .justify-between {
-              justify-content: space-between;
-            }
-            .items-center {
-              align-items: center;
-            }
-            .items-baseline {
-              align-items: baseline;
-            }
-            .text-right {
-              text-align: right;
-            }
-            .whitespace-nowrap {
-              white-space: nowrap;
-            }
-            .shrink-0 {
-              flex-shrink: 0;
-            }
-            .font-mono {
-              font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-              font-size: 8.5pt;
-            }
-            .tech-tag {
-              background: #f1f5f9;
-              border: 1px solid #e2e8f0;
-              border-radius: 2px;
-              padding: 1px 5px;
-              font-size: 8pt;
-              font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-              display: inline-block;
-              color: #1e293b;
-            }
-            .text-slate-900 { color: #0f172a; }
-            .text-slate-700 { color: #334155; }
-            .text-slate-600 { color: #475569; }
-            .text-slate-500 { color: #64748b; }
-            .text-slate-300 { color: #94a3b8; }
-            .border-slate-300 { border-color: #cbd5e1; }
-            .border-b { border-bottom: 1px solid #cbd5e1; }
-            .font-bold { font-weight: 700; }
-            .font-semibold { font-weight: 600; }
-            .font-normal { font-weight: 400; }
-            .italic { font-style: italic; }
-            ul {
-              margin: 4pt 0 6pt 0;
-              padding-left: 14pt;
-            }
-            li {
-              margin-bottom: 2.5pt;
-              line-height: 1.4;
-              color: #334155;
-            }
-            .resume-entry, .project-item, .resume-item, li, .avoid-break {
-              break-inside: avoid;
-              page-break-inside: avoid;
-            }
-            .resume-sheet-footer {
-              display: flex;
-              justify-content: space-between;
-              border-top: 1px solid #cbd5e1;
-              margin-top: 10pt;
-              padding-top: 4pt;
-              font-size: 7.5pt;
-              color: #64748b;
-              font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            }
-            a {
-              color: #0284c7;
-              text-decoration: none;
-            }
-            /* Strip dark-mode and glowing badges */
-            span, div, p {
-              color: inherit;
-            }
-          </style>
-        </head>
-        <body>
-          ${resumeSource.innerHTML}
-        </body>
-        </html>
-      `);
-      doc.close();
-
-      // 3. Trigger printing cleanly after rendering
-      iframe.contentWindow.focus();
-      setTimeout(() => {
-        iframe.contentWindow.print();
-
-        // Cleanup after dialog closes
-        setTimeout(() => {
-          if (iframe.parentNode) {
-            document.body.removeChild(iframe);
-          }
-          downloadBtn.innerHTML = originalText;
-          downloadBtn.disabled = false;
-        }, 1000);
-      }, 250);
-    });
-  }
-
+  const downloadBtnLabel = document.getElementById('download-btn-label');
+  const resumePageIndicator = document.getElementById('resume-page-indicator');
   const btnJumpP1 = document.getElementById('btn-jump-p1');
   const btnJumpP2 = document.getElementById('btn-jump-p2');
   const resumeScrollViewport = document.getElementById('resume-scroll-viewport');
-  const resumePageIndicator = document.getElementById('resume-page-indicator');
   const resumePage1 = document.getElementById('resume-page-1');
   const resumePage2 = document.getElementById('resume-page-2');
+
+  let currentDocType = 'cv';
+
+  function setDocumentView(docType) {
+    currentDocType = docType;
+    if (docType === 'resume') {
+      if (btnSwitchResume) {
+        btnSwitchResume.classList.add('active');
+        btnSwitchResume.setAttribute('aria-selected', 'true');
+      }
+      if (btnSwitchCv) {
+        btnSwitchCv.classList.remove('active');
+        btnSwitchCv.setAttribute('aria-selected', 'false');
+      }
+      if (cvView) {
+        cvView.style.display = 'none';
+        cvView.classList.remove('active-doc-view');
+      }
+      if (resumeView) {
+        resumeView.style.display = 'block';
+        resumeView.classList.add('active-doc-view');
+      }
+      if (resumePageIndicator) resumePageIndicator.textContent = 'Page 1 / 1';
+      if (btnJumpP1) btnJumpP1.style.display = 'none';
+      if (btnJumpP2) btnJumpP2.style.display = 'none';
+      if (downloadBtnLabel) downloadBtnLabel.textContent = 'Download Resume (PDF)';
+      if (resumeScrollViewport) resumeScrollViewport.scrollTop = 0;
+    } else {
+      if (btnSwitchCv) {
+        btnSwitchCv.classList.add('active');
+        btnSwitchCv.setAttribute('aria-selected', 'true');
+      }
+      if (btnSwitchResume) {
+        btnSwitchResume.classList.remove('active');
+        btnSwitchResume.setAttribute('aria-selected', 'false');
+      }
+      if (resumeView) {
+        resumeView.style.display = 'none';
+        resumeView.classList.remove('active-doc-view');
+      }
+      if (cvView) {
+        cvView.style.display = 'block';
+        cvView.classList.add('active-doc-view');
+      }
+      if (resumePageIndicator) resumePageIndicator.textContent = 'Page 1 / 2';
+      if (btnJumpP1) btnJumpP1.style.display = 'inline-flex';
+      if (btnJumpP2) btnJumpP2.style.display = 'inline-flex';
+      if (downloadBtnLabel) downloadBtnLabel.textContent = 'Download CV (PDF)';
+      if (resumeScrollViewport) resumeScrollViewport.scrollTop = 0;
+    }
+  }
+
+  if (btnSwitchCv) {
+    btnSwitchCv.addEventListener('click', () => setDocumentView('cv'));
+  }
+  if (btnSwitchResume) {
+    btnSwitchResume.addEventListener('click', () => setDocumentView('resume'));
+  }
+
+  if (resumeScrollViewport && resumePageIndicator && resumePage2) {
+    resumeScrollViewport.addEventListener('scroll', () => {
+      if (currentDocType === 'resume') {
+        resumePageIndicator.textContent = 'Page 1 / 1';
+        return;
+      }
+      const p2Top = resumePage2.offsetTop - resumeScrollViewport.offsetTop;
+      const currentScroll = resumeScrollViewport.scrollTop;
+      if (currentScroll >= p2Top - 150) {
+        resumePageIndicator.textContent = 'Page 2 / 2';
+      } else {
+        resumePageIndicator.textContent = 'Page 1 / 2';
+      }
+    });
+  }
 
   if (btnJumpP1 && resumePage1) {
     btnJumpP1.addEventListener('click', () => {
@@ -564,15 +458,260 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (resumeScrollViewport && resumePageIndicator && resumePage2) {
-    resumeScrollViewport.addEventListener('scroll', () => {
-      const p2Top = resumePage2.offsetTop - resumeScrollViewport.offsetTop;
-      const currentScroll = resumeScrollViewport.scrollTop;
-      if (currentScroll >= p2Top - 150) {
-        resumePageIndicator.textContent = 'Page 2 / 2';
-      } else {
-        resumePageIndicator.textContent = 'Page 1 / 2';
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const activeView = (currentDocType === 'resume') ? resumeView : cvView;
+      if (!activeView) {
+        console.error('Target document element not found');
+        return;
       }
+
+      // Format current Date & Time stamp for print header
+      const now = new Date();
+      const formattedDate = now.toLocaleDateString('en-US');
+      const formattedTime = now.toLocaleTimeString('en-US');
+      const dateTimeStr = `${formattedDate}, ${formattedTime}`;
+
+      const dateTimeElements = activeView.querySelectorAll('.resume-print-datetime');
+      dateTimeElements.forEach((el) => {
+        el.textContent = dateTimeStr;
+      });
+
+      const originalHtml = downloadBtn.innerHTML;
+      downloadBtn.innerText = 'Preparing PDF...';
+      downloadBtn.disabled = true;
+
+      // 1. Create isolated hidden iframe
+      const iframe = document.createElement('iframe');
+      iframe.style.position = 'fixed';
+      iframe.style.right = '0';
+      iframe.style.bottom = '0';
+      iframe.style.width = '0';
+      iframe.style.height = '0';
+      iframe.style.border = '0';
+      document.body.appendChild(iframe);
+
+      const doc = iframe.contentWindow.document;
+      const isResume = (currentDocType === 'resume');
+
+      const printStyles = `
+        @page {
+          size: A4 portrait;
+          margin: 0;
+        }
+        * {
+          box-sizing: border-box;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        html, body {
+          margin: 0;
+          padding: 0;
+          width: 210mm;
+          background: #ffffff;
+          font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+          font-size: ${isResume ? '8.5pt' : '8.75pt'};
+          line-height: ${isResume ? '1.34' : '1.36'};
+          color: #000000;
+        }
+        .resume-paper, .resume-a4-page {
+          position: relative !important;
+          width: 210mm !important;
+          height: 297mm !important;
+          max-width: 210mm !important;
+          min-height: 297mm !important;
+          max-height: 297mm !important;
+          margin: 0 !important;
+          padding: ${isResume ? '9.5mm 14.5mm 9mm 14.5mm' : '10mm 15mm 10mm 15mm'} !important;
+          box-sizing: border-box !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: ${isResume ? 'flex-start' : 'space-between'} !important;
+          box-shadow: none !important;
+          border: none !important;
+          border-radius: 0 !important;
+          background: #ffffff !important;
+          overflow: hidden !important;
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+        }
+        ${isResume ? `
+        #resume-page-single {
+          page-break-before: avoid !important;
+          break-before: avoid !important;
+          page-break-after: avoid !important;
+          break-after: avoid !important;
+        }
+        ` : `
+        #resume-page-1 {
+          page-break-after: always !important;
+          break-after: page !important;
+        }
+        #resume-page-2 {
+          page-break-before: always !important;
+          break-before: page !important;
+          page-break-after: avoid !important;
+          break-after: avoid !important;
+        }
+        `}
+        .resume-content-wrap {
+          width: 100%;
+        }
+        .resume-print-header {
+          display: block !important;
+          text-align: right !important;
+          font-size: 7.5pt !important;
+          color: #334155 !important;
+          margin-bottom: 1.5mm !important;
+          font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+        }
+        h1, .resume-name {
+          font-size: 20pt !important;
+          font-weight: 700 !important;
+          line-height: 1.15 !important;
+          letter-spacing: -0.01em !important;
+          text-align: center !important;
+          margin: 0 0 ${isResume ? '2pt' : '3pt'} 0 !important;
+          color: #000000 !important;
+        }
+        .resume-headline {
+          font-size: ${isResume ? '8.75pt' : '9pt'} !important;
+          font-weight: 400 !important;
+          text-align: center !important;
+          margin: 0 0 2.5pt 0 !important;
+          color: #111111 !important;
+        }
+        .resume-contact {
+          font-size: 8pt !important;
+          line-height: 1.38 !important;
+          text-align: center !important;
+          margin: 0 0 ${isResume ? '5pt' : '8pt'} 0 !important;
+          color: #222222 !important;
+        }
+        .resume-contact a {
+          color: #222222 !important;
+          text-decoration: none !important;
+        }
+        .resume-contact .pipe-sep {
+          color: #666666 !important;
+          margin: 0 5px !important;
+        }
+        h2, .section-title {
+          font-size: ${isResume ? '9.5pt' : '9.75pt'} !important;
+          font-weight: 700 !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.04em !important;
+          margin-top: ${isResume ? '6.5pt' : '9pt'} !important;
+          margin-bottom: ${isResume ? '3pt' : '4pt'} !important;
+          padding-bottom: 1.5pt !important;
+          border-bottom: 1px solid #000000 !important;
+          color: #000000 !important;
+          break-after: avoid !important;
+          page-break-after: avoid !important;
+        }
+        #resume-page-2 .resume-section:first-child .section-title {
+          margin-top: 0 !important;
+        }
+        .resume-entry {
+          margin-bottom: ${isResume ? '5pt' : '6.5pt'} !important;
+          font-size: ${isResume ? '8.5pt' : '8.75pt'} !important;
+          line-height: ${isResume ? '1.34' : '1.36'} !important;
+          color: #111111 !important;
+          break-inside: avoid !important;
+          page-break-inside: avoid !important;
+        }
+        .resume-entry:last-child {
+          margin-bottom: 0 !important;
+        }
+        .resume-skills-block > div {
+          margin-bottom: 2pt !important;
+          line-height: ${isResume ? '1.34' : '1.36'} !important;
+        }
+        .resume-skills-block > div:last-child {
+          margin-bottom: 0 !important;
+        }
+        .grid-skill-row {
+          display: flex;
+          align-items: baseline;
+          margin-bottom: 2pt;
+          line-height: ${isResume ? '1.34' : '1.36'};
+        }
+        .grid-skill-row strong {
+          min-width: 145px;
+          flex-shrink: 0;
+        }
+        .flex { display: flex; }
+        .flex-wrap { flex-wrap: wrap; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .items-center { align-items: center; }
+        .items-baseline { align-items: baseline; }
+        .text-right { text-align: right; }
+        .whitespace-nowrap { white-space: nowrap; }
+        .font-bold { font-weight: 700 !important; }
+        .font-semibold { font-weight: 600 !important; }
+        .font-normal { font-weight: 400 !important; }
+        .italic { font-style: italic !important; }
+        ul, .resume-list {
+          margin: 1.5pt 0 0 0 !important;
+          padding-left: 14pt !important;
+          list-style-type: disc !important;
+        }
+        li {
+          margin-bottom: ${isResume ? '1.2pt' : '1.5pt'} !important;
+          line-height: ${isResume ? '1.32' : '1.34'} !important;
+          color: #111111 !important;
+          break-inside: avoid !important;
+          page-break-inside: avoid !important;
+        }
+        li:last-child {
+          margin-bottom: 0 !important;
+        }
+        .resume-sheet-footer {
+          display: flex !important;
+          justify-content: flex-end !important;
+          align-items: flex-end !important;
+          border-top: none !important;
+          margin-top: 6pt !important;
+          padding-top: 4pt !important;
+          font-size: 8.5pt !important;
+          color: #222222 !important;
+        }
+        .resume-sheet-footer .page-number {
+          font-size: 8.5pt !important;
+          color: #222222 !important;
+        }
+      `;
+
+      doc.open();
+      doc.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title></title>
+          <style>${printStyles}</style>
+        </head>
+        <body>
+          ${activeView.innerHTML}
+        </body>
+        </html>
+      `);
+      doc.close();
+
+      iframe.contentWindow.focus();
+      setTimeout(() => {
+        iframe.contentWindow.print();
+
+        setTimeout(() => {
+          if (iframe.parentNode) {
+            document.body.removeChild(iframe);
+          }
+          downloadBtn.innerHTML = originalHtml;
+          downloadBtn.disabled = false;
+        }, 1000);
+      }, 250);
     });
   }
 
