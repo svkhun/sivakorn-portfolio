@@ -7336,6 +7336,42 @@ html.light .kbtg-verified-tag {
   transform: translateX(3px);
 }
 
+.btn-inspect-architecture.btn-repo-link {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #E2E8F0;
+}
+
+.btn-inspect-architecture.btn-repo-link:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.38) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.09) !important;
+  transform: translateY(-1px);
+}
+
+.btn-inspect-architecture.btn-repo-link:hover i {
+  transform: scale(1.1);
+}
+
+.btn-inspect-architecture.btn-live-link {
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.38);
+  color: #34D399;
+}
+
+.btn-inspect-architecture.btn-live-link:hover {
+  background: #34D399 !important;
+  border-color: #34D399 !important;
+  color: #0B0F17 !important;
+  box-shadow: 0 4px 20px rgba(52, 211, 153, 0.35) !important;
+  transform: translateY(-1px);
+}
+
+.btn-inspect-architecture.btn-live-link:hover i {
+  transform: scale(1.1);
+}
+
 /* Hackathons & Competitions Modern Milestone Deck */
 .competitions-modern-list {
   display: flex;

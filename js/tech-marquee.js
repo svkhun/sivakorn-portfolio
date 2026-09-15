@@ -25,7 +25,13 @@
     'Docker': { desc: 'Containerized microservices ensuring isolated and reproducible ML deployment.', category: 'data-eng' },
     'FastAPI': { desc: 'Sub-30ms low-latency asynchronous REST APIs for point-of-sale risk inference.', category: 'data-eng' },
     'GISTDA Sphere': { desc: 'Spatial API ingestion for Sentinel-1 & Copernicus elevation DEM integration.', category: 'tools' },
-    'Sentinel-1 SAR': { desc: 'Synthetic Aperture Radar soil moisture remote sensing at 30m resolution.', category: 'tools' }
+    'Sentinel-1 SAR': { desc: 'Synthetic Aperture Radar soil moisture remote sensing at 30m resolution.', category: 'tools' },
+    'React 18': { desc: 'Component-driven frontend architecture with React Router v6 and Vite HMR.', category: 'languages' },
+    'PyG (RGCN)': { desc: 'Heterogeneous Relational GCN projecting 16D node embeddings across mule transaction rings.', category: 'ml' },
+    'ONNX Runtime': { desc: 'High-performance inference engine delivering P99 = 11.62ms and 0.27ms core model execution.', category: 'ml' },
+    'Counterfactual XAI': { desc: 'Actionable recourse optimization recommending minimal-distance fraud risk mitigation.', category: 'ml' },
+    'Redis Store': { desc: 'In-memory feature store caching 16D GNN graph embeddings for instant transfer evaluation.', category: 'data-eng' },
+    'WebRTC Liveness': { desc: 'Real-time browser camera face liveness verification disrupting psychological scam coercion.', category: 'tools' }
   };
 
   let marqueeContainer, tooltipBox, filterTabs, marqueeCards;
