@@ -64,7 +64,7 @@ The portfolio interface is engineered as an executive **Keynote-Style Slide Deck
 ### 1. K-Sentinel & WealthPilot (K PLUS for First Jobbers)
 * **Domain**: Real-Time Relational Graph Fraud Defense, Autonomous Cashflow Engineering, Mobile Banking Intelligence.
 * **Context**: **KBTG Kampus Hackathon 2026 — Track 2: Data Science & Intelligence**.
-* **Live Demo**: [https://k-sentinel-wealthpilot.onrender.com/](https://k-sentinel-wealthpilot.onrender.com/) &bull; **Repository**: [https://github.com/svkhun/k-sentinel-wealthpilot.git](https://github.com/svkhun/k-sentinel-wealthpilot.git)
+* **Live Demo**: [https://k-sentinel-wealthpilot.onrender.com/](https://k-sentinel-wealthpilot.onrender.com/) &bull; **Repository**: [https://github.com/svkhun/k-sentinel-wealthpilot](https://github.com/svkhun/k-sentinel-wealthpilot)
 * **Problem**: 3.2M First Jobbers on K PLUS suffer from discretionary cashflow volatility (60–68% lack 3-month emergency buffers) and are prime targets for cyber scams (>45% victims aged 20–30, >2.0B THB annual losses).
 * **Architecture**:
   * **Two-Tier Graph Inference**: Offline/Nearline **PyTorch Geometric (PyG) Relational GCN** extracting 16D continuous node embeddings over mule account transaction topologies, cached in an in-memory O(1) Redis feature store.
@@ -80,7 +80,7 @@ The portfolio interface is engineered as an executive **Keynote-Style Slide Deck
 
 ### 2. Enterprise Credit Risk Scoring & Explainable AI (XAI)
 * **Domain**: Quantitative Credit Risk, Basel II/III Compliance, Consumer Lending Intelligence.
-* **Repository**: [https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI.git](https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI.git)
+* **Repository**: [https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI](https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI)
 * **Problem**: Standard deep learning and complex ensemble models operate as black boxes, exposing financial institutions to severe legal penalties under ECOA / SR 11-7 model risk governance.
 * **Architecture**:
   * Continuous feature discretization using **Monotonic Weight of Evidence (WoE)** and **Information Value (IV)** filtering.
@@ -98,7 +98,7 @@ The portfolio interface is engineered as an executive **Keynote-Style Slide Deck
 ### 3. Long Overdue Debtor (LOD) Prediction System
 * **Domain**: Non-Performing Loan (NPL) Prevention, Asymmetric Loss Optimization.
 * **Context**: **Aihack Thailand 2025 National Finalist** (Organized by AIRA & AIFUL, Chulalongkorn Business School, and ProbSpace).
-* **Repository**: [https://github.com/svkhun/aiful-credit-risk-modeling.git](https://github.com/svkhun/aiful-credit-risk-modeling.git)
+* **Repository**: [https://github.com/svkhun/aiful-credit-risk-modeling](https://github.com/svkhun/aiful-credit-risk-modeling)
 * **Problem**: Default classification on ~40,000 real-world consumer loans under extreme 1:12 default imbalance and blind private leaderboard evaluation.
 * **Architecture**:
   * Formulated temporal delinquency velocity ratios, credit exhaustion slopes, and payment behavior vectors.
@@ -116,7 +116,7 @@ The portfolio interface is engineered as an executive **Keynote-Style Slide Deck
 
 ### 4. Industrial IoT & OEE Manufacturing Data Platform
 * **Domain**: Hybrid Lambda Data Engineering, Industrial Telemetry & Predictive Quality.
-* **Repository**: [https://github.com/svkhun/mfg-data-pipeline.git](https://github.com/svkhun/mfg-data-pipeline.git)
+* **Repository**: [https://github.com/svkhun/mfg-data-pipeline](https://github.com/svkhun/mfg-data-pipeline)
 * **Problem**: Factory automation requires simultaneous sub-second edge anomaly detection and compute-intensive hourly batch aggregations for Overall Equipment Effectiveness (OEE) tracking.
 * **Architecture**:
   * **Hybrid / Lambda Pipeline**: Decoupled sub-second edge event streaming from idempotent batch Data Mart processing.
@@ -135,7 +135,7 @@ The portfolio interface is engineered as an executive **Keynote-Style Slide Deck
 ### 5. GuardianAI – Clinical Frailty & Fall Risk Intervention
 * **Domain**: Healthcare AI, Preventive Geriatric Analytics.
 * **Context**: **True Innovation Launchpad 2026** (AI & Data Science Lead &bull; Team Nakphatthana Tuapralat).
-* **Repository**: [https://github.com/svkhun/GuardianAI.git](https://github.com/svkhun/GuardianAI.git)
+* **Repository**: [https://github.com/svkhun/guardianai-clinical-ops-dashboard](https://github.com/svkhun/guardianai-clinical-ops-dashboard)
 * **Problem**: Early identification of elderly frailty and acute fall risk before irreversible physical decline occurs.
 * **Architecture**:
   * Calibrated **XGBoost** risk engine trained on multi-biometric physical markers, gait parameters, and health records.
