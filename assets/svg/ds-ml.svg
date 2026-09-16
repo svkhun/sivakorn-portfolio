@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mlCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <filter id="shadowDS" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Background Soft Bubble -->
+  <circle cx="250" cy="200" r="160" fill="#EBF3FC" opacity="0.6"/>
+
+  <!-- Main Chart Canvas Board -->
+  <g filter="url(#shadowDS)">
+    <rect x="70" y="60" width="360" height="260" rx="14" fill="url(#mlCardGrad)" stroke="#CBD5E1" stroke-width="2"/>
+    <!-- Header -->
+    <rect x="70" y="60" width="360" height="36" rx="14" fill="#F1F5F9"/>
+    <circle cx="95" cy="78" r="4" fill="#EF4444"/>
+    <circle cx="107" cy="78" r="4" fill="#F59E0B"/>
+    <circle cx="119" cy="78" r="4" fill="#10B981"/>
+    <text x="145" y="82" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748B" font-weight="600">Model Calibration &amp; ROC-AUC: 0.894</text>
+
+    <!-- Grid Lines -->
+    <line x1="110" y1="120" x2="390" y2="120" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="110" y1="160" x2="390" y2="160" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="110" y1="200" x2="390" y2="200" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="110" y1="240" x2="390" y2="240" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="110" y1="270" x2="390" y2="270" stroke="#94A3B8" stroke-width="1.5"/>
+    <line x1="110" y1="110" x2="110" y2="270" stroke="#94A3B8" stroke-width="1.5"/>
+
+    <!-- ROC Curve (Steep High Discrimination) -->
+    <path d="M110,270 Q130,130 390,120" fill="none" stroke="#0056B3" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Baseline Random Diagonal -->
+    <line x1="110" y1="270" x2="390" y2="120" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+    <!-- Data Points -->
+    <circle cx="150" cy="180" r="5" fill="#0070F3"/>
+    <circle cx="210" cy="142" r="5" fill="#00A950"/>
+    <circle cx="290" cy="126" r="5" fill="#0056B3"/>
+
+    <!-- Legend Tag -->
+    <rect x="250" y="220" width="130" height="32" rx="6" fill="#1E293B"/>
+    <circle cx="265" cy="236" r="4" fill="#00A950"/>
+    <text x="276" y="240" font-family="'JetBrains Mono', monospace" font-size="10" fill="#FFFFFF" font-weight="600">Optuna Ensemble</text>
+  </g>
+
+  <!-- Floating Metric Pill 1 -->
+  <g filter="url(#shadowDS)">
+    <rect x="40" y="270" width="140" height="50" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+    <circle cx="65" cy="295" r="14" fill="#E8F5E9"/>
+    <path d="M60,295 L64,299 L71,291" fill="none" stroke="#00A950" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="88" y="289" font-family="'Inter', sans-serif" font-size="10" fill="#64748B" font-weight="600">P99 Latency</text>
+    <text x="88" y="306" font-family="'JetBrains Mono', monospace" font-size="13" fill="#1E293B" font-weight="700">11.62 ms</text>
+  </g>
+
+  <!-- Floating Metric Pill 2 -->
+  <g filter="url(#shadowDS)">
+    <rect x="320" y="40" width="140" height="50" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+    <circle cx="345" cy="65" r="14" fill="#EBF3FC"/>
+    <text x="340" y="70" font-family="'JetBrains Mono', monospace" font-size="14" fill="#0056B3" font-weight="700">G</text>
+    <text x="368" y="59" font-family="'Inter', sans-serif" font-size="10" fill="#64748B" font-weight="600">Graph GCN</text>
+    <text x="368" y="76" font-family="'JetBrains Mono', monospace" font-size="13" fill="#0056B3" font-weight="700">16D Embed</text>
+  </g>
+</svg>

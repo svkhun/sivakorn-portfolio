@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Engineering Case Studies &amp; Projects | Sivakorn Khundilokrattaya</title>
+  <meta name="description" content="Production machine learning pipelines, credit risk engines, and graph intelligence architectures engineered by Sivakorn Khundilokrattaya (svkhun).">
+  <link rel="canonical" href="https://svkhun.vercel.app/projects">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230056B3'/><text x='50%25' y='67%25' font-family='monospace' font-size='15' font-weight='bold' fill='white' text-anchor='middle'>&lt;/&gt;</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Devicon 2.x Official Tech Brand Icons -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       Top Navigation Bar
+       ======================================================================== -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Sivakorn Portfolio Home">
+        <span class="logo-bracket">&lt;</span> Sivakorn <span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-menu" id="nav-menu">
+          <div class="nav-item"><a href="index.html">Home</a></div>
+          <div class="nav-item"><a href="education.html">Education</a></div>
+          <div class="nav-item"><a href="experience.html">Experience</a></div>
+          <div class="nav-item"><a href="projects.html" class="active">Projects</a></div>
+          <div class="nav-item"><a href="contact.html">Contact Me</a></div>
+        </nav>
+
+        <!-- Theme Switch -->
+        <button class="theme-switch-btn" id="theme-toggle-btn" aria-label="Toggle theme" title="Toggle Theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+
+        <!-- Mobile Navigation Toggle -->
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========================================================================
+         Projects Header Section
+         ======================================================================== -->
+    <section class="scroll-mt-20 py-12 lg:py-16" id="projects-header">
+      <!-- 1. Hero Section: 2-Column Banner -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-6xl lg:max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20">
+        <div class="lg:col-span-7">
+          <div class="section-eyebrow tracking-widest font-semibold uppercase">PRODUCTION ARCHITECTURES &bull; OPEN SOURCE SYSTEMS</div>
+          <h1 class="text-4xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-4">Engineering Case Studies</h1>
+          <p class="text-base lg:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed mb-6 max-w-2xl">
+            From sub-12ms graph fraud scoring engines and Basel-compliant credit risk models to hybrid Lambda streaming architectures and geriatric clinical analytics.
+          </p>
+
+          <div>
+            <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="btn btn-outline inline-flex items-center gap-2">
+              <i class="fab fa-github"></i>
+              <span>Explore All Repositories on GitHub (@svkhun)</span>
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-5 flex justify-center items-center w-full">
+          <img src="assets/svg/projects.svg" alt="Production Engineering Case Studies" class="w-full max-w-md lg:max-w-lg h-auto object-contain">
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           Expansive Case Study Panels (Stacked with space-y-16)
+           ==================================================================== -->
+      <div class="max-w-6xl lg:max-w-7xl mx-auto px-6 lg:px-12 pb-24 space-y-16">
+
+        <!-- Case Study 1: K-Sentinel & WealthPilot -->
+        <div class="full-width-panel">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <!-- Left Side: Engineering Depth (lg:col-span-7) -->
+            <div class="lg:col-span-7">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">KBTG KAMPUS 2026 // TRACK 2 LEAD</span>
+              </div>
+
+              <h2 class="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug mb-3">
+                K-Sentinel &amp; WealthPilot &bull; Two-Tier Financial Intelligence
+              </h2>
+
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-500 text-emerald-700 dark:text-emerald-400 font-bold text-sm font-mono mb-4">
+                <i class="fas fa-bolt"></i>
+                <span>11.62ms P99 SLA &bull; 1.2&ndash;2.0B THB CASA Mobilization</span>
+              </div>
+
+              <div class="space-y-3 text-slate-600 dark:text-zinc-300 text-base leading-relaxed mb-6">
+                <p>
+                  <strong class="text-slate-900 dark:text-white">Architectural Challenge:</strong> 3.2M young K PLUS mobile banking users require autonomous micro-sweeping into savings vaults while shielding accounts against fraud and mule syndicates. Monolithic graph neural networks exceed mobile transaction latency budgets (&gt;80ms).
+                </p>
+                <p>
+                  <strong class="text-slate-900 dark:text-white">Two-Tier Solution:</strong> Architected a decoupled inference pipeline. Offline <strong class="text-slate-900 dark:text-white">PyTorch Geometric Relational GCN</strong> generates 16-dimensional node embeddings capturing multi-hop transaction topologies. An online <strong class="text-slate-900 dark:text-white">ONNX Runtime v1.30</strong> serving engine delivers sub-12ms scoring at point of payment.
+                </p>
+                <p>
+                  <strong class="text-slate-900 dark:text-white">Regulatory Recourse:</strong> Integrated TreeSHAP Shapley decompositions and DiCE counterfactual recourse to explain risk flags to customers, paired with dynamic 6% cashflow micro-sweeping into high-yield vaults.
+                </p>
+              </div>
+
+              <!-- Tech Stack Pills -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="tech-pill-lg"><i class="devicon-pytorch-original colored"></i> PyTorch Geometric</span>
+                <span class="tech-pill-lg"><i class="fas fa-network-wired text-indigo-500"></i> Relational GCN</span>
+                <span class="tech-pill-lg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#005CED" stroke-width="2.5"/><path d="M8 12h8M12 8v8" stroke="#005CED" stroke-width="2.5" stroke-linecap="round"/></svg> ONNX Runtime</span>
+                <span class="tech-pill-lg"><i class="devicon-fastapi-plain colored"></i> FastAPI</span>
+                <span class="tech-pill-lg"><i class="devicon-redis-plain colored"></i> Redis</span>
+                <span class="tech-pill-lg"><i class="devicon-react-original colored"></i> React 18</span>
+                <span class="tech-pill-lg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h10M4 18h6" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/><circle cx="18" cy="15" r="3" fill="#10B981"/></svg> TreeSHAP</span>
+              </div>
+
+              <!-- Action Links -->
+              <div class="flex flex-wrap gap-3">
+                <a href="https://github.com/svkhun/k-sentinel-wealthpilot" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm inline-flex items-center gap-2">
+                  <i class="fab fa-github"></i>
+                  <span>GitHub Repository</span>
+                </a>
+                <a href="https://k-sentinel-wealthpilot.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm inline-flex items-center gap-2">
+                  <i class="fas fa-external-link-alt"></i>
+                  <span>Interactive Live Demo</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Side: Architecture & Latency SLA Preview Box (lg:col-span-5) -->
+            <div class="lg:col-span-5">
+              <div class="p-6 rounded-xl bg-slate-50 dark:bg-zinc-800/80 border border-slate-200 dark:border-zinc-700/80 shadow-xs font-mono text-xs space-y-4">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-zinc-700">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="font-bold text-slate-800 dark:text-zinc-200 uppercase tracking-wider">K-Sentinel Pipeline</span>
+                  </div>
+                  <span class="px-2 py-0.5 rounded text-[11px] bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-400 font-bold">11.62ms P99 SLA</span>
+                </div>
+
+                <div class="space-y-3 font-mono text-slate-600 dark:text-zinc-300">
+                  <div class="p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
+                    <div class="text-slate-400 dark:text-zinc-500 text-[10px] uppercase font-bold">Tier 1: Offline Graph Engine</div>
+                    <div class="text-slate-800 dark:text-zinc-200 font-semibold mt-0.5">PyG Relational GCN &bull; 16D Embeddings</div>
+                    <div class="text-emerald-600 dark:text-emerald-400 text-[11px] mt-0.5">Captures 3-hop mule account topologies</div>
+                  </div>
+
+                  <div class="p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
+                    <div class="text-slate-400 dark:text-zinc-500 text-[10px] uppercase font-bold">Tier 2: Real-Time Scoring</div>
+                    <div class="text-slate-800 dark:text-zinc-200 font-semibold mt-0.5">ONNX Runtime v1.30 C++ Core</div>
+                    <div class="text-blue-600 dark:text-blue-400 text-[11px] mt-0.5">Core Eval: 0.27ms &bull; Redis State Sync</div>
+                  </div>
+
+                  <div class="p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
+                    <div class="text-slate-400 dark:text-zinc-500 text-[10px] uppercase font-bold">CASA Mobilization Impact</div>
+                    <div class="text-slate-800 dark:text-zinc-200 font-semibold mt-0.5">Dynamic Micro-Sweeping (+6%)</div>
+                    <div class="text-emerald-600 dark:text-emerald-400 text-[11px] mt-0.5">Projected: 1.2B &ndash; 2.0B THB Retail Liquidity</div>
+                  </div>
+                </div>
+
+                <div class="pt-2 text-[11px] text-slate-400 dark:text-zinc-500 flex justify-between">
+                  <span>Target SLA: &lt; 80.0ms</span>
+                  <span class="text-emerald-600 dark:text-emerald-400 font-bold">&check; Passed by 7.0x margin</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 2: Enterprise Credit Risk Scoring & XAI -->
+        <div class="full-width-panel">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <!-- Left Side: Engineering Depth (lg:col-span-7) -->
+            <div class="lg:col-span-7">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 dark:bg-blue-950/50 dark:text-blue-400 border border-blue-200 dark:border-blue-800">QUANTITATIVE RISK // BASEL II/III &bull; ECOA</span>
+              </div>
+
+              <h2 class="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug mb-3">
+                Enterprise Credit Risk Scoring &amp; Explainable AI Engine
+              </h2>
+
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-950/50 border border-blue-500 text-blue-700 dark:text-blue-400 font-bold text-sm font-mono mb-4">
+                <i class="fas fa-scale-balanced"></i>
+                <span>0.892 ROC-AUC &bull; 42.6% KS Separation &bull; PSI &lt; 0.10</span>
+              </div>
+
+              <div class="space-y-3 text-slate-600 dark:text-zinc-300 text-base leading-relaxed mb-6">
+                <p>
+                  <strong class="text-slate-900 dark:text-white">Regulatory Mandate:</strong> Commercial credit underwriting models must fulfill Basel II/III internal rating requirements and the Equal Credit Opportunity Act (ECOA/FCRA), demanding strict monotonic behavior, population stability (PSI), and legally defensible adverse action notices.
+                </p>
+                <p>
+                  <strong class="text-slate-900 dark:text-white">Dual-Scorecard Pipeline:</strong> Screened high-dimensional financial features using monotonic Weight of Evidence (WoE) and Information Value (IV) optimization via OptBinning. Trained a calibrated LightGBM model producing exact instance-level TreeSHAP Shapley decompositions.
+                </p>
+                <p>
+                  <strong class="text-slate-900 dark:text-white">Counterfactual Recourse:</strong> Engineered an algorithmic DiCE recourse module that provides declined applicants with mathematically valid, minimal actionable steps (e.g. reduce revolving utilization below 28%) to transition into credit approval.
+                </p>
+              </div>
+
+              <!-- Tech Stack Pills -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="tech-pill-lg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#0078D4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> LightGBM</span>
+                <span class="tech-pill-lg"><i class="fas fa-chart-column text-blue-600"></i> OptBinning (WoE/IV)</span>
+                <span class="tech-pill-lg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h10M4 18h6" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/><circle cx="18" cy="15" r="3" fill="#10B981"/></svg> TreeSHAP</span>
+                <span class="tech-pill-lg"><i class="fas fa-dice text-purple-600"></i> DiCE Recourse</span>
+                <span class="tech-pill-lg"><i class="devicon-fastapi-plain colored"></i> FastAPI</span>
+                <span class="tech-pill-lg"><i class="fas fa-square-root-variable text-blue-500"></i> SciPy</span>
+              </div>
+
+              <!-- Action Links -->
+              <div class="flex flex-wrap gap-3">
+                <a href="https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm inline-flex items-center gap-2">
+                  <i class="fab fa-github"></i>
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Side: Risk Scorecard Audit & SHAP Waterfall (lg:col-span-5) -->
+            <div class="lg:col-span-5">
+              <div class="p-6 rounded-xl bg-slate-50 dark:bg-zinc-800/80 border border-slate-200 dark:border-zinc-700/80 shadow-xs font-mono text-xs space-y-4">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-zinc-700">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+                    <span class="font-bold text-slate-800 dark:text-zinc-200 uppercase tracking-wider">Scorecard Audit</span>
+                  </div>
+                  <span class="px-2 py-0.5 rounded text-[11px] bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-400 font-bold">BASEL COMPLIANT</span>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2 text-center">
+                  <div class="p-2 rounded bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
+                    <div class="text-slate-400 dark:text-zinc-500 text-[10px]">ROC-AUC</div>
+                    <div class="font-bold text-slate-800 dark:text-zinc-100 text-sm">0.892</div>
+                  </div>
+                  <div class="p-2 rounded bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
+                    <div class="text-slate-400 dark:text-zinc-500 text-[10px]">KS STAT</div>
+                    <div class="font-bold text-slate-800 dark:text-zinc-100 text-sm">42.6%</div>
+                  </div>
+                  <div class="p-2 rounded bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
+                    <div class="text-slate-400 dark:text-zinc-500 text-[10px]">PSI STABILITY</div>
+                    <div class="font-bold text-emerald-600 dark:text-emerald-400 text-sm">0.04 &lt; 0.10</div>
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="text-slate-400 dark:text-zinc-500 text-[10px] uppercase font-bold">Instance TreeSHAP Attribution:</div>
+                  <div class="p-2.5 rounded bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-1.5 text-[11px]">
+                    <div class="flex justify-between">
+                      <span class="text-slate-600 dark:text-zinc-300">Revolving Line Utilization &gt; 80%</span>
+                      <span class="text-rose-500 font-bold">+0.32 log-odds</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-600 dark:text-zinc-300">Debt-to-Income (DTI) &gt; 42%</span>
+                      <span class="text-rose-500 font-bold">+0.21 log-odds</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-600 dark:text-zinc-300">Clean 36-Mo Payment Bureau</span>
+                      <span class="text-emerald-600 dark:text-emerald-400 font-bold">-0.38 log-odds</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-lg bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-800 text-[11px] text-emerald-800 dark:text-emerald-300">
+                  <strong class="font-bold">Counterfactual Recourse:</strong> Reduce credit utilization to &lt; 28% to gain +45 scorecard points and qualify for Prime Tier.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 3: Long Overdue Debtor (LOD) Prediction -->
+        <div class="full-width-panel">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <!-- Left Side: Engineering Depth (lg:col-span-7) -->
+            <div class="lg:col-span-7">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">AIHACK THAILAND 2025 // FINALIST</span>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 dark:bg-blue-950/50 dark:text-blue-400 border border-blue-200 dark:border-blue-800">AIRA &amp; AIFUL</span>
+              </div>
+
+              <h2 class="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug mb-3">
+                Long Overdue Debtor (LOD) Prediction &bull; Asymmetric Risk
+              </h2>
+
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-500 text-emerald-700 dark:text-emerald-400 font-bold text-sm font-mono mb-4">
+                <i class="fas fa-trophy text-amber-500"></i>
+                <span>0.894 ROC-AUC &bull; ~40,000 Records &bull; National Finalist</span>
+              </div>
+
+              <div class="space-y-3 text-slate-600 dark:text-zinc-300 text-base leading-relaxed mb-6">
+                <p>
+                  <strong class="text-slate-900 dark:text-white">National Challenge Context:</strong> Organized by AIRA &amp; AIFUL and Chulalongkorn Business School on ProbSpace. Evaluated default probabilities on ~40,000 consumer loan contracts under extreme 1:12 class imbalance.
+                </p>
+                <p>
+                  <strong class="text-slate-900 dark:text-white">Feature Engineering &amp; Blending:</strong> Extracted temporal delinquency velocity ratios, credit exhaustion slopes, and non-linear debt interaction features. Optimized hyperparameters over 5-Fold Stratified CV with Optuna Bayesian search, creating an out-of-fold rank blend of CatBoost, LightGBM, and XGBoost.
+                </p>
+                <p>
+                  <strong class="text-slate-900 dark:text-white">Asymmetric Decision Threshold:</strong> Replaced naive 0.5 classification thresholds with an asymmetric cost-matrix model that explicitly minimizes total net financial loss by penalizing unrecovered default principal 5x heavier than lost interest margin.
+                </p>
+              </div>
+
+              <!-- Tech Stack Pills -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="tech-pill-lg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#0078D4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> LightGBM</span>
+                <span class="tech-pill-lg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 4l16 16M20 4L4 20" stroke="#FF5A36" stroke-width="3" stroke-linecap="round"/></svg> XGBoost</span>
+                <span class="tech-pill-lg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#FFCC00"/><path d="M9 12l2 2 4-4" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg> CatBoost</span>
+                <span class="tech-pill-lg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zm0 4a5 5 0 110 10 5 5 0 010-10z" fill="#4B32C3"/></svg> Optuna</span>
+                <span class="tech-pill-lg"><i class="devicon-scikitlearn-plain colored"></i> Scikit-Learn</span>
+                <span class="tech-pill-lg"><i class="fas fa-coins text-emerald-600"></i> Asymmetric Cost Matrix</span>
+              </div>
+
+              <!-- Action Links -->
+              <div class="flex flex-wrap gap-3">
+                <a href="https://github.com/svkhun/aiful-credit-risk-modeling" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm inline-flex items-center gap-2">
+                  <i class="fab fa-github"></i>
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Side: Leaderboard & Model Blend Box (lg:col-span-5) -->
+            <div class="lg:col-span-5">
+              <div class="p-6 rounded-xl bg-slate-50 dark:bg-zinc-800/80 border border-slate-200 dark:border-zinc-700/80 shadow-xs font-mono text-xs space-y-4">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-zinc-700">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                    <span class="font-bold text-slate-800 dark:text-zinc-200 uppercase tracking-wider">Aihack Benchmark</span>
+                  </div>
+                  <span class="px-2 py-0.5 rounded text-[11px] bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-400 font-bold">FINALIST RANK</span>
+                </div>
+
+                <div class="p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
+                  <div class="text-slate-400 dark:text-zinc-500 text-[10px] uppercase font-bold">Ensemble Validation Score</div>
+                  <div class="text-2xl font-extrabold text-slate-900 dark:text-white font-mono mt-1">0.894 ROC-AUC</div>
+                  <div class="text-emerald-600 dark:text-emerald-400 text-[11px] mt-0.5">Top-tier national benchmark tier</div>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="text-slate-400 dark:text-zinc-500 text-[10px] uppercase font-bold">Model Blending Weights:</div>
+                  <div class="p-2.5 rounded bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-1.5 text-[11px]">
+                    <div class="flex justify-between">
+                      <span class="text-slate-600 dark:text-zinc-300">CatBoost (Symmetric Trees)</span>
+                      <span class="font-bold text-slate-800 dark:text-zinc-100">40% Weight</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-600 dark:text-zinc-300">LightGBM (Leaf-Wise GBDT)</span>
+                      <span class="font-bold text-slate-800 dark:text-zinc-100">40% Weight</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-600 dark:text-zinc-300">XGBoost (Depth-Wise)</span>
+                      <span class="font-bold text-slate-800 dark:text-zinc-100">20% Weight</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-lg bg-blue-50/70 dark:bg-blue-950/40 border border-blue-300 dark:border-blue-800 text-[11px] text-blue-800 dark:text-blue-300">
+                  <strong class="font-bold">Threshold Tuning:</strong> Optimal cutoff shifted to 0.312 via custom asymmetric cost matrix, preventing 18.4% additional unrecovered loss.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 4: Industrial IoT & OEE Data Platform -->
+        <div class="full-width-panel">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <!-- Left Side: Engineering Depth (lg:col-span-7) -->
+            <div class="lg:col-span-7">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">DATA ENGINEERING // HYBRID LAMBDA</span>
+              </div>
+
+              <h2 class="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug mb-3">
+                Industrial IoT &amp; OEE Data Platform &bull; Stream &amp; Batch
+              </h2>
+
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-500 text-emerald-700 dark:text-emerald-400 font-bold text-sm font-mono mb-4">
+                <i class="fas fa-plug"></i>
+                <span>&lt; 1.0s WebSocket Push &bull; 100% Idempotent Upserts &bull; 99.9% Uptime</span>
+              </div>
+
+              <div class="space-y-3 text-slate-600 dark:text-zinc-300 text-base leading-relaxed mb-6">
+                <p>
+                  <strong class="text-slate-900 dark:text-white">Manufacturing Scale Challenge:</strong> Modern production lines generate continuous high-frequency PLC sensor signals. Plant engineers require instantaneous visual telemetry alongside auditable, immutable hourly OEE (Availability &times; Performance &times; Quality) analytics.
+                </p>
+                <p>
+                  <strong class="text-slate-900 dark:text-white">Hybrid Lambda Architecture:</strong> The Speed Layer broadcasts sub-second sensor readings over WebSockets directly to shop-floor visualization consoles. Concurrently, the Batch Layer persists and summarizes time-series metrics into PostgreSQL 15 Data Mart partitions using idempotent <code class="text-xs bg-slate-100 dark:bg-zinc-800 px-1 py-0.5 rounded">ON CONFLICT DO UPDATE</code> upserts.
+                </p>
+                <p>
+                  <strong class="text-slate-900 dark:text-white">Predictive Maintenance:</strong> Deployed unsupervised Isolation Forests for early equipment sensor drift and LightGBM models with TreeSHAP to diagnose the exact root causes of mechanical degradation.
+                </p>
+              </div>
+
+              <!-- Tech Stack Pills -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="tech-pill-lg"><i class="devicon-postgresql-plain colored"></i> PostgreSQL 15</span>
+                <span class="tech-pill-lg"><i class="devicon-fastapi-plain colored"></i> FastAPI</span>
+                <span class="tech-pill-lg"><i class="fas fa-wave-square text-teal-500"></i> WebSockets</span>
+                <span class="tech-pill-lg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#0078D4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> LightGBM</span>
+                <span class="tech-pill-lg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h10M4 18h6" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/><circle cx="18" cy="15" r="3" fill="#10B981"/></svg> TreeSHAP</span>
+                <span class="tech-pill-lg"><i class="devicon-docker-plain colored"></i> Docker</span>
+                <span class="tech-pill-lg"><i class="devicon-react-original colored"></i> React 18</span>
+              </div>
+
+              <!-- Action Links -->
+              <div class="flex flex-wrap gap-3">
+                <a href="https://github.com/svkhun/mfg-data-pipeline" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm inline-flex items-center gap-2">
+                  <i class="fab fa-github"></i>
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Side: Telemetry Box (lg:col-span-5) -->
+            <div class="lg:col-span-5">
+              <div class="p-6 rounded-xl bg-slate-50 dark:bg-zinc-800/80 border border-slate-200 dark:border-zinc-700/80 shadow-xs font-mono text-xs space-y-4">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-zinc-700">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-teal-500 animate-ping"></span>
+                    <span class="font-bold text-slate-800 dark:text-zinc-200 uppercase tracking-wider">Telemetry Stream</span>
+                  </div>
+                  <span class="px-2 py-0.5 rounded text-[11px] bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-400 font-bold">&lt; 1.0s PUSH</span>
+                </div>
+
+                <div class="space-y-3 font-mono text-slate-600 dark:text-zinc-300">
+                  <div class="p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
+                    <div class="text-slate-400 dark:text-zinc-500 text-[10px] uppercase font-bold">Speed Layer: WebSockets</div>
+                    <div class="text-slate-800 dark:text-zinc-200 font-semibold mt-0.5">Real-time PLC Sensor Broadcast</div>
+                    <div class="text-teal-600 dark:text-teal-400 text-[11px] mt-0.5">Sub-second telemetry to edge operator dashboards</div>
+                  </div>
+
+                  <div class="p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
+                    <div class="text-slate-400 dark:text-zinc-500 text-[10px] uppercase font-bold">Batch Layer: PostgreSQL 15 Data Mart</div>
+                    <div class="text-slate-800 dark:text-zinc-200 font-semibold mt-0.5">Deterministic OEE Aggregations</div>
+                    <div class="text-blue-600 dark:text-blue-400 text-[11px] mt-0.5">Availability 94.2% &bull; Performance 88.5% &bull; Quality 99.1%</div>
+                  </div>
+
+                  <div class="p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
+                    <div class="text-slate-400 dark:text-zinc-500 text-[10px] uppercase font-bold">Sensor Anomaly Engine</div>
+                    <div class="text-slate-800 dark:text-zinc-200 font-semibold mt-0.5">Isolation Forest + TreeSHAP</div>
+                    <div class="text-emerald-600 dark:text-emerald-400 text-[11px] mt-0.5">Automated root-cause drill-down on machine stops</div>
+                  </div>
+                </div>
+
+                <div class="pt-2 text-[11px] text-slate-400 dark:text-zinc-500 flex justify-between">
+                  <span>Data Ingestion Protocol:</span>
+                  <span class="text-emerald-600 dark:text-emerald-400 font-bold">100% Idempotent Upsert</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 5: GuardianAI -->
+        <div class="full-width-panel">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <!-- Left Side: Engineering Depth (lg:col-span-7) -->
+            <div class="lg:col-span-7">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 dark:bg-rose-950/50 dark:text-rose-400 border border-rose-200 dark:border-rose-800">HEALTHCARE AI // TRUE INNOVATION LAUNCHPAD</span>
+              </div>
+
+              <h2 class="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug mb-3">
+                GuardianAI &bull; Clinical Frailty &amp; Acute Fall Prediction Engine
+              </h2>
+
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-rose-50 dark:bg-rose-950/50 border border-rose-500 text-rose-700 dark:text-rose-400 font-bold text-sm font-mono mb-4">
+                <i class="fas fa-stethoscope"></i>
+                <span>&lt; 30ms Latency &bull; Platt Calibrated &bull; Localized SHAP Attributions</span>
+              </div>
+
+              <div class="space-y-3 text-slate-600 dark:text-zinc-300 text-base leading-relaxed mb-6">
+                <p>
+                  <strong class="text-slate-900 dark:text-white">Clinical Motivation:</strong> Acute patient falls in hospital and eldercare settings cause high morbidity and substantial institutional liabilities. Clinical staff require high-speed, probabilistic fall risk stratification integrated into existing bedside rounds.
+                </p>
+                <p>
+                  <strong class="text-slate-900 dark:text-white">Statistical Calibration:</strong> Trained an XGBoost model over multi-biometric physical gait indicators and historic mobility logs. Applied Platt scaling sigmoid calibration to convert raw decision margins into true well-calibrated posterior probabilities of acute fall risk.
+                </p>
+                <p>
+                  <strong class="text-slate-900 dark:text-white">Physician-Facing Attributions:</strong> Deployed asynchronous containerized FastAPI scoring endpoints executing in under 30ms, accompanied by localized SHAP feature attribution waterfall decompositions that show nursing staff exactly why a patient is categorized into high risk.
+                </p>
+              </div>
+
+              <!-- Tech Stack Pills -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="tech-pill-lg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 4l16 16M20 4L4 20" stroke="#FF5A36" stroke-width="3" stroke-linecap="round"/></svg> XGBoost</span>
+                <span class="tech-pill-lg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h10M4 18h6" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/><circle cx="18" cy="15" r="3" fill="#10B981"/></svg> TreeSHAP</span>
+                <span class="tech-pill-lg"><i class="devicon-fastapi-plain colored"></i> FastAPI</span>
+                <span class="tech-pill-lg"><i class="devicon-docker-plain colored"></i> Docker</span>
+                <span class="tech-pill-lg"><i class="devicon-tailwindcss-plain colored"></i> Tailwind CSS</span>
+                <span class="tech-pill-lg"><i class="devicon-react-original colored"></i> React</span>
+              </div>
+
+              <!-- Action Links -->
+              <div class="flex flex-wrap gap-3">
+                <a href="https://github.com/svkhun/guardianai-clinical-ops-dashboard" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm inline-flex items-center gap-2">
+                  <i class="fab fa-github"></i>
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Side: Clinical Queue & SHAP Preview Box (lg:col-span-5) -->
+            <div class="lg:col-span-5">
+              <div class="p-6 rounded-xl bg-slate-50 dark:bg-zinc-800/80 border border-slate-200 dark:border-zinc-700/80 shadow-xs font-mono text-xs space-y-4">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-zinc-700">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
+                    <span class="font-bold text-slate-800 dark:text-zinc-200 uppercase tracking-wider">Clinical Triage Queue</span>
+                  </div>
+                  <span class="px-2 py-0.5 rounded text-[11px] bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-400 font-bold">&lt; 30ms INFERENCE</span>
+                </div>
+
+                <div class="p-3 rounded-lg bg-rose-50/70 dark:bg-rose-950/40 border border-rose-300 dark:border-rose-800">
+                  <div class="text-rose-700 dark:text-rose-400 text-[10px] uppercase font-bold">Patient Stratification Status</div>
+                  <div class="text-xl font-bold text-rose-900 dark:text-rose-200 font-mono mt-0.5">High Frailty Risk (86.4%)</div>
+                  <div class="text-rose-600 dark:text-rose-400 text-[11px] mt-0.5">Platt-calibrated probability of acute inpatient fall</div>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="text-slate-400 dark:text-zinc-500 text-[10px] uppercase font-bold">Localized SHAP Clinical Drivers:</div>
+                  <div class="p-2.5 rounded bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-1.5 text-[11px]">
+                    <div class="flex justify-between">
+                      <span class="text-slate-600 dark:text-zinc-300">Gait Stride Asymmetry (&gt; 18%)</span>
+                      <span class="text-rose-500 font-bold">+0.31 SHAP</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-600 dark:text-zinc-300">Orthostatic Blood Pressure Drop</span>
+                      <span class="text-rose-500 font-bold">+0.24 SHAP</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-600 dark:text-zinc-300">Prior 90-Day Fall History</span>
+                      <span class="text-rose-500 font-bold">+0.18 SHAP</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-[11px] text-slate-700 dark:text-zinc-300">
+                  <strong class="font-bold text-slate-900 dark:text-white">Recommended Clinical Recourse:</strong> Deploy sensor-equipped bed alarm and schedule immediate physical therapy mobility assessment.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <p>Designed &amp; Engineered by <strong>Sivakorn Khundilokrattaya</strong> &bull; &copy; 2026 All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toast-notification">Notification</div>
+
+  <!-- Scripts -->
+  <script src="js/portfolio-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

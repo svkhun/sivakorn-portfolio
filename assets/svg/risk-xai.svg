@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="100%" height="100%">
+  <defs>
+    <filter id="shadowRisk" x="-6%" y="-6%" width="112%" height="112%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0F172A" flood-opacity="0.08"/>
+    </filter>
+    <linearGradient id="riskBarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F43F5E"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <linearGradient id="safeBarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Backdrop Glow -->
+  <circle cx="250" cy="200" r="165" fill="#F0FDF4" opacity="0.75"/>
+
+  <!-- SHAP Waterfall Card -->
+  <g filter="url(#shadowRisk)">
+    <!-- Card Frame -->
+    <rect x="30" y="45" width="440" height="295" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+    <!-- Card Window Header -->
+    <rect x="30" y="45" width="440" height="38" rx="14" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <circle cx="52" cy="64" r="4.5" fill="#EF4444"/>
+    <circle cx="66" cy="64" r="4.5" fill="#F59E0B"/>
+    <circle cx="80" cy="64" r="4.5" fill="#10B981"/>
+    <text x="104" y="68" font-family="'JetBrains Mono', monospace" font-size="11" fill="#475569" font-weight="600">TreeSHAP Attribution &#8226; ECOA Compliant</text>
+
+    <!-- Base Value Baseline E[f(x)] = 0.08 -->
+    <line x1="235" y1="92" x2="235" y2="265" stroke="#2563EB" stroke-width="1.75" stroke-dasharray="4 4" stroke-opacity="0.8"/>
+    <rect x="193" y="265" width="84" height="22" rx="4" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <text x="235" y="280" font-family="'JetBrains Mono', monospace" font-size="10" fill="#2563EB" font-weight="700" text-anchor="middle">E[f(x)]=0.08</text>
+
+    <!-- Stepper Connector Lines (Dotted Vertical Drops between Bars) -->
+    <line x1="321" y1="129" x2="321" y2="147" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="2 2"/>
+    <line x1="379" y1="169" x2="379" y2="187" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="2 2"/>
+    <line x1="275" y1="209" x2="275" y2="227" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="2 2"/>
+
+    <!-- Feature 1: Delinquency Velocity (+0.24 Risk Push) -->
+    <text x="46" y="122" font-family="'Inter', sans-serif" font-size="11" fill="#1E293B" font-weight="600">Delinquency Velocity</text>
+    <rect x="235" y="107" width="86" height="22" rx="4" fill="url(#riskBarGrad)"/>
+    <text x="329" y="122" font-family="'JetBrains Mono', monospace" font-size="11" fill="#EF4444" font-weight="700">+0.24</text>
+
+    <!-- Feature 2: Credit Exhaustion (+0.16 Risk Push) -->
+    <text x="46" y="162" font-family="'Inter', sans-serif" font-size="11" fill="#1E293B" font-weight="600">Credit Exhaustion</text>
+    <rect x="321" y="147" width="58" height="22" rx="4" fill="url(#riskBarGrad)"/>
+    <text x="387" y="162" font-family="'JetBrains Mono', monospace" font-size="11" fill="#EF4444" font-weight="700">+0.16</text>
+
+    <!-- Feature 3: 3-Mo CASA Buffer (-0.29 Protective Pull) -->
+    <text x="46" y="202" font-family="'Inter', sans-serif" font-size="11" fill="#1E293B" font-weight="600">3-Mo CASA Buffer</text>
+    <rect x="275" y="187" width="104" height="22" rx="4" fill="url(#safeBarGrad)"/>
+    <text x="267" y="202" font-family="'JetBrains Mono', monospace" font-size="11" fill="#059669" font-weight="700" text-anchor="end">-0.29</text>
+
+    <!-- Feature 4: Employment Tenure (-0.14 Protective Pull) -->
+    <text x="46" y="242" font-family="'Inter', sans-serif" font-size="11" fill="#1E293B" font-weight="600">Employment Tenure</text>
+    <rect x="225" y="227" width="50" height="22" rx="4" fill="url(#safeBarGrad)"/>
+    <text x="217" y="242" font-family="'JetBrains Mono', monospace" font-size="11" fill="#059669" font-weight="700" text-anchor="end">-0.14</text>
+  </g>
+
+  <!-- Floating Governance Badge (Bottom Right) -->
+  <g filter="url(#shadowRisk)">
+    <rect x="290" y="280" width="180" height="56" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <circle cx="318" cy="308" r="16" fill="#EFF6FF"/>
+    <path d="M318,298 L328,303 L328,310 C328,316 323,319 318,321 C313,319 308,316 308,310 L308,303 Z" fill="#2563EB"/>
+    <text x="344" y="301" font-family="'Inter', sans-serif" font-size="10" fill="#64748B" font-weight="600">Basel II/III PD Score</text>
+    <text x="344" y="319" font-family="'JetBrains Mono', monospace" font-size="13" fill="#2563EB" font-weight="800">KS = 42.6%</text>
+  </g>
+</svg>

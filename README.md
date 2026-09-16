@@ -32,30 +32,29 @@ In institutional finance and quantitative underwriting, black-box machine learni
 
 ---
 
-## 🎨 Architectural Highlights & Keynote Presentation
+## 🎨 Architectural Highlights & masterPortfolio Design System
 
-The portfolio interface is engineered as an executive **Keynote-Style Slide Deck** infused with an authentic **Dark Slate & Quantitative Terminal** aesthetic:
+The portfolio is architected following the clean, structured, and developer-focused **masterPortfolio aesthetic** (inspired by Ashutosh Hathidara):
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                          SVKHUN PORTFOLIO PLATFORM                          │
+│                       SIVAKORN PORTFOLIO PLATFORM                           │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  [ Visual Theme ] ──> Deep Obsidian Canvas (#0B0F17) + Midnight Slate Glass  │
-│  [ Cards & Deck ] ──> Glassmorphism (bg-slate-900/65) + Hairline Borders    │
-│  [ Micro-Interact]──> Dynamic Radial Spotlight Tracking (--mouse-x, --mouse-y)│
-│  [ Canvas Layer ] ──> Calibrated 60 FPS Synaptic Particle Physics Engine    │
-│  [ Typography ]   ──> Inter (Headings/Body) + JetBrains Mono (Metrics/Code) │
-│  [ Security ]     ──> Client-Side Web Crypto SHA-256 Telemetry Verification │
-│  [ Defense ]      ──> Strict CSP, Frame Ancestors DENY, nosniff Headers     │
+│  [ Visual Theme ] ──> Neutral Light Mode (#FFFFFF) / Slate Dark (#171C28)   │
+│  [ Brand Accent ] ──> Solid Professional Deep Blue (#0056B3)                │
+│  [ Architecture ] ──> Modular Multi-Page Structure (Home, Edu, Exp, Proj)  │
+│  [ Data Store   ] ──> Centralized Data Dictionary (js/portfolio-data.js)    │
+│  [ Typography   ] ──> Inter (Headings/Body) + JetBrains Mono (Metrics/Code) │
+│  [ Performance  ] ──> Lightweight Zero-Dependency Vanilla ES6+ (< 25KB CSS) │
+│  [ Graphics     ] ──> 100% Vector Flat SVG Tech & Developer Illustrations   │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-* **Executive Slide Cadence**: High-contrast, spacious slide-like sections (`clamp(80px, 8.5vw, 120px) 0`) optimized for hiring managers and technical leadership to digest complex engineering achievements without cognitive overload.
-* **Interactive Radial Spotlight Hover**: Custom mouse tracking dynamically illuminates card borders and surfaces with an Electric Indigo/Cyan glow as the user hovers, mirroring developer-centric platforms like Linear, Vercel, and Raycast.
-* **Ambient Quantitative Grid**: Ultra-fine hairline background grid (`52px 52px`) layered under a soft radial mask (`mask-image: radial-gradient(...)`) delivering depth without visual distraction.
-* **Calibrated Synaptic Canvas Engine**: A high-efficiency HTML5 canvas simulation running at 60 FPS with subtle particle velocity and restrained cyan/indigo color tokens (`js/neural-canvas.js`).
-* **Strict Monospace Data Pairing**: Monospace font (`JetBrains Mono` with `font-variant-numeric: tabular-nums`) strictly applied to all metrics, score rows, status badges, tech pills, and parameter values.
-* **Zero-Dependency Vanilla Performance**: Built on clean modular vanilla ES6+ JavaScript, achieving sub-second First Contentful Paint (FCP) and zero bundle overhead.
+* **Content-Driven Layout**: Generous whitespace (`clamp(60px, 7vw, 90px) 0`), clear typography hierarchy, and structured cards optimized for hiring managers and technical leadership to digest complex engineering achievements without cognitive overload.
+* **Dual Theme Engine**: Seamless toggle between crisp, clean light mode and dark slate theme with persistent preference storage in `localStorage`.
+* **Zero Anti-Patterns**: Free of purple-to-blue neon gradients, heavy drop-shadows, glassmorphism blur, and distracting particle physics animations.
+* **Separation of Data & Layout**: All portfolio items, credentials, metrics, and case studies are managed within `js/portfolio-data.js`.
+* **Crisp Vector Illustrations**: Custom SVG illustrations for Hero, What I Do categories, Education, Experience, Projects, and Contact sections.
 
 ---
 
@@ -262,20 +261,22 @@ vercel --prod
 
 ```
 sivakorn-portfolio/
-├── index.html                  # Executive Keynote slide layout & semantic sections
-├── vercel.json                 # HTTP security headers (CSP, HSTS, XFO, nosniff)
+├── index.html                  # Home page (Hero + Categorized What I Do tech stacks)
+├── education.html              # Education page (Degrees, KBTG Certifications, Badges)
+├── experience.html             # Experience page (Hackathons & Leadership timeline)
+├── projects.html               # Projects page (Featured Case Studies & Key Metrics)
+├── contact.html                # Contact page (Direct reach, Location, Resume downloads)
+├── vercel.json                 # Clean URL routing (/education, /projects) & security headers
 ├── .gitignore                  # Git ignore rules for ML/DS artifacts and temporary files
 ├── README.md                   # Comprehensive technical documentation & portfolio overview
 ├── css/
-│   └── styles.css              # Dark Slate tokens, glassmorphic styling, spotlight hover
+│   └── styles.css              # MasterPortfolio design tokens, Light/Dark themes, responsive grids
 ├── js/
-│   ├── main.js                 # App controller, spotlight cursor tracking, drawer mgmt
-│   ├── neural-canvas.js        # Calibrated 60 FPS synaptic particle physics simulation
-│   ├── focal-deck.js           # Interactive showcase card interactions & deck transitions
-│   ├── tech-marquee.js         # Infinite continuous technical arsenal ticker
-│   ├── shap-simulator.js       # Real-time SHAP waterfall contribution simulator
-│   └── roc-simulator.js        # Dynamic ROC curve & decision threshold simulator
-└── assets/                     # Resume, CV, certified transcripts & optimized media
+│   ├── main.js                 # App controller, Theme switcher, Modal previews, Toast feedback
+│   └── portfolio-data.js       # Centralized structured data dictionary (masterPortfolio data store)
+└── assets/
+    ├── svg/                    # Custom flat SVG developer and section illustrations
+    └── ...                     # Resumes, CVs, certified scorecards & media
 ```
 
 ---
