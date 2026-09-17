@@ -54,9 +54,12 @@
   --preloader-glow: rgba(0, 102, 255, 0.25);
   --preloader-flourish: #2563EB;
   --preloader-nib: #0052CC;
-  --preloader-text: #64748B;
-  --preloader-dot: #059669;
+  --preloader-text: #0F172A;
+  --preloader-role: #2563EB;
   --preloader-border: rgba(148, 163, 184, 0.25);
+  --preloader-badge-bg: rgba(248, 250, 252, 0.92);
+  --preloader-badge-border: rgba(37, 99, 235, 0.32);
+  --preloader-line-accent: rgba(37, 99, 235, 0.45);
 }
 
 [data-theme="dark"],
@@ -99,9 +102,12 @@ html.dark {
   --preloader-glow: rgba(56, 189, 248, 0.45);
   --preloader-flourish: #60A5FA;
   --preloader-nib: #FFFFFF;
-  --preloader-text: #94A3B8;
-  --preloader-dot: #10B981;
+  --preloader-text: #F8FAFC;
+  --preloader-role: #38BDF8;
   --preloader-border: rgba(148, 163, 184, 0.2);
+  --preloader-badge-bg: rgba(15, 23, 42, 0.75);
+  --preloader-badge-border: rgba(56, 189, 248, 0.35);
+  --preloader-line-accent: rgba(56, 189, 248, 0.5);
 }
 
 /* --------------------------------------------------------------------------
@@ -3342,7 +3348,7 @@ html.dark .telemetry-terminal-card {
   transform: rotate(180deg);
 }
 .assessment-accordion .accordion-content {
-  animation: accordionOpen 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: accordionOpen 380ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 @keyframes accordionOpen {
   from {
@@ -3649,9 +3655,9 @@ html.dark .telemetry-terminal-card {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              visibility 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
   user-select: none;
   cursor: pointer;
 }
@@ -3719,8 +3725,8 @@ html.dark .telemetry-terminal-card {
   stroke-linejoin: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: drawChar var(--duration, 0.3s) cubic-bezier(0.4, 0, 0.2, 1) var(--delay, 0s) forwards,
-             fillChar 0.45s cubic-bezier(0.4, 0, 0.2, 1) 1.5s forwards;
+  animation: drawChar var(--duration, 0.5s) cubic-bezier(0.35, 0, 0.25, 1) var(--delay, 0s) forwards,
+             fillChar 0.85s cubic-bezier(0.35, 0, 0.25, 1) 3.35s forwards;
 }
 
 /* Flourish underline */
@@ -3732,7 +3738,7 @@ html.dark .telemetry-terminal-card {
   stroke-linejoin: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: drawFlourish 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) 1.45s forwards;
+  animation: drawFlourish 0.95s cubic-bezier(0.22, 1, 0.36, 1) 3.35s forwards;
 }
 
 /* Glowing Pen Nib at the Flourish Tip */
@@ -3740,32 +3746,107 @@ html.dark .telemetry-terminal-card {
   opacity: 0;
   fill: var(--preloader-nib);
   filter: drop-shadow(0 0 6px #FFFFFF) drop-shadow(0 0 12px var(--preloader-stroke));
-  animation: revealNib 0.3s cubic-bezier(0.16, 1, 0.3, 1) 1.95s forwards;
+  animation: revealNib 0.5s cubic-bezier(0.22, 1, 0.36, 1) 4.2s forwards;
 }
 
-/* Subtitle Tagline */
+/* Decorated Executive Nameplate ("Sivakorn Khundilokrattaya") */
+.signature-nameplate,
 .signature-sub {
-  margin-top: 14px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--preloader-text);
+  margin-top: 18px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  width: 100%;
+  max-width: 540px;
   opacity: 0;
   transform: translateY(10px);
-  animation: revealSub 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.65s forwards;
+  animation: revealSub 0.95s cubic-bezier(0.22, 1, 0.36, 1) 3.6s forwards;
 }
 
-.signature-sub-dot {
+.signature-nameplate-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 16px;
+}
+
+.signature-nameplate-line {
+  flex: 1;
+  height: 1px;
+  max-width: 90px;
+}
+
+.signature-nameplate-line.line-left {
+  background: linear-gradient(90deg, transparent 0%, var(--preloader-line-accent) 100%);
+}
+
+.signature-nameplate-line.line-right {
+  background: linear-gradient(90deg, var(--preloader-line-accent) 0%, transparent 100%);
+}
+
+.signature-nameplate-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 20px;
+  background: var(--preloader-badge-bg);
+  border: 1px solid var(--preloader-badge-border);
+  border-radius: 0px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: relative;
+}
+
+/* Technical Corner Accents (Crosshair / Blueprint Square Corner Guides) */
+.signature-nameplate-badge::before,
+.signature-nameplate-badge::after {
+  content: '';
+  position: absolute;
   width: 6px;
   height: 6px;
-  border-radius: 50%;
-  background-color: var(--preloader-dot);
-  box-shadow: 0 0 10px var(--preloader-dot);
-  animation: pulseDot 2s infinite;
+  pointer-events: none;
+}
+
+.signature-nameplate-badge::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--preloader-stroke);
+  border-left: 2px solid var(--preloader-stroke);
+}
+
+.signature-nameplate-badge::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--preloader-stroke);
+  border-right: 2px solid var(--preloader-stroke);
+}
+
+.signature-nameplate-name {
+  font-family: var(--font-mono);
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--preloader-text);
+  letter-spacing: 0.26em;
+  white-space: nowrap;
+}
+
+.signature-nameplate-role {
+  margin-top: 9px;
+  font-family: var(--font-mono);
+  font-size: 0.675rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--preloader-role);
+  font-weight: 500;
+  opacity: 0.92;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 /* Keyframes */
@@ -3833,9 +3914,28 @@ html.dark .telemetry-terminal-card {
   .signature-card {
     width: 90vw;
   }
+  .signature-nameplate,
   .signature-sub {
-    font-size: 0.65rem;
+    margin-top: 14px;
+    max-width: 92vw;
+  }
+  .signature-nameplate-row {
+    gap: 8px;
+  }
+  .signature-nameplate-line {
+    max-width: 28px;
+  }
+  .signature-nameplate-badge {
+    padding: 5px 12px;
+  }
+  .signature-nameplate-name {
+    font-size: 0.68rem;
     letter-spacing: 0.16em;
+  }
+  .signature-nameplate-role {
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    margin-top: 6px;
   }
   .signature-skip-btn {
     top: 16px;
@@ -5018,8 +5118,8 @@ html.dark #back-to-top .btt-ring-circle {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition: grid-template-rows 220ms cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 200ms ease-out;
+  transition: grid-template-rows 480ms cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 420ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .work-project-row:hover .work-project-details,
@@ -5435,8 +5535,8 @@ html.dark #back-to-top .btt-ring-circle {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition: grid-template-rows 220ms cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 200ms ease;
+  transition: grid-template-rows 480ms cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 420ms cubic-bezier(0.22, 1, 0.36, 1);
   margin-top: 0;
 }
 
@@ -5472,7 +5572,7 @@ html.dark #back-to-top .btt-ring-circle {
 }
 
 .tech-stack-card.is-filtering {
-  animation: techFadeIn 0.28s ease forwards;
+  animation: techFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes techFadeIn {
@@ -5496,8 +5596,8 @@ html.dark #back-to-top .btt-ring-circle {
   opacity: 0;
   will-change: transform, opacity;
   transition-property: opacity, transform, box-shadow, border-color;
-  transition-duration: 0.65s;
-  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 1.1s;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--anim-delay, 0s);
 }
 
@@ -5514,6 +5614,7 @@ html.dark #back-to-top .btt-ring-circle {
 /* Capabilities Left Card (Primary Console) - Slides from left */
 .anim-split-left {
   transform: translate3d(-32px, 0, 0);
+  transition-duration: 1.15s;
 }
 [data-scroll-dir="up"] .anim-split-left:not(.is-in-view) {
   transform: translate3d(-24px, -16px, 0);
@@ -5522,6 +5623,7 @@ html.dark #back-to-top .btt-ring-circle {
 /* Capabilities Right Card (Telemetry & Specs) - Slides from right */
 .anim-split-right {
   transform: translate3d(32px, 0, 0);
+  transition-duration: 1.15s;
 }
 [data-scroll-dir="up"] .anim-split-right:not(.is-in-view) {
   transform: translate3d(24px, -16px, 0);
@@ -5530,25 +5632,25 @@ html.dark #back-to-top .btt-ring-circle {
 /* Hero Architecture Card - Scale and subtle lift */
 .anim-hero-console {
   transform: translate3d(0, 28px, 0) scale(0.97);
-  transition-duration: 0.75s;
+  transition-duration: 1.25s;
 }
 
 /* Hero & Work Metric Stats Boxes */
 .anim-metric-pop {
   transform: translate3d(0, 20px, 0) scale(0.95);
-  transition-duration: 0.55s;
+  transition-duration: 1.05s;
 }
 
 /* Tech Stack Grid Cards - Cascade Wave */
 .anim-stagger-wave {
   transform: translate3d(0, 24px, 0) scale(0.96);
-  transition-duration: 0.5s;
+  transition-duration: 0.95s;
 }
 
 /* Bottom CTA Banner */
 .anim-banner-lift {
   transform: translate3d(0, 32px, 0);
-  transition-duration: 0.7s;
+  transition-duration: 1.2s;
 }
 
 /* --------------------------------------------------------------------------
@@ -5558,14 +5660,14 @@ html.dark #back-to-top .btt-ring-circle {
 /* Degrees Full-Width Panel */
 .anim-academic-panel {
   transform: translate3d(0, 28px, 0);
-  transition-duration: 0.7s;
+  transition-duration: 1.2s;
 }
 
 /* Accent Bar Expansion (Expands horizontally from left to right) */
 .anim-accent-expand {
   transform-origin: left center;
   transform: scaleX(0);
-  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+  transition: transform 1.25s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
 }
 .is-in-view .anim-accent-expand,
 .is-in-view.anim-accent-expand {
@@ -5579,7 +5681,7 @@ html.dark #back-to-top .btt-ring-circle {
 }
 .anim-bar-sweep-fill {
   width: 0% !important;
-  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1) var(--bar-delay, 0.2s);
+  transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1) var(--bar-delay, 0.25s);
 }
 .is-in-view .anim-bar-sweep-fill,
 .is-in-view.anim-bar-sweep-fill {
@@ -5589,7 +5691,7 @@ html.dark #back-to-top .btt-ring-circle {
 /* Certification Cards Grid (4-column cascade) */
 .anim-cert-cascade {
   transform: translate3d(0, 26px, 0) scale(0.96);
-  transition-duration: 0.55s;
+  transition-duration: 1.05s;
 }
 
 /* --------------------------------------------------------------------------
@@ -5599,7 +5701,7 @@ html.dark #back-to-top .btt-ring-circle {
 /* Expansive Milestone Panels */
 .anim-milestone-rise {
   transform: translate3d(0, 36px, 0);
-  transition-duration: 0.75s;
+  transition-duration: 1.25s;
 }
 [data-scroll-dir="up"] .anim-milestone-rise:not(.is-in-view) {
   transform: translate3d(0, -28px, 0);
@@ -5608,15 +5710,15 @@ html.dark #back-to-top .btt-ring-circle {
 /* KPI Metric Strip Glow & Expand */
 .anim-kpi-glow {
   transform: translate3d(0, 14px, 0);
-  transition-duration: 0.6s;
-  transition-delay: 0.15s;
+  transition-duration: 1.1s;
+  transition-delay: 0.2s;
 }
 
 /* Impact Bullet Items (Staggered rows) */
 .anim-impact-step {
   opacity: 0;
   transform: translate3d(0, 16px, 0);
-  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--bullet-delay, 0s);
 }
 .is-in-view .anim-impact-step,
@@ -5633,7 +5735,7 @@ html.dark #back-to-top .btt-ring-circle {
 .anim-timeline-node {
   opacity: 0.2;
   transform: scale(0.5);
-  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+  transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.85s ease;
 }
 .anim-timeline-node.is-in-view {
   opacity: 1 !important;
@@ -5644,13 +5746,13 @@ html.dark #back-to-top .btt-ring-circle {
 /* Organization Context Card */
 .anim-org-card {
   transform: translate3d(-20px, 0, 0);
-  transition-duration: 0.6s;
+  transition-duration: 1.15s;
 }
 
 /* Blueprint Accordion Rows - Rack Slot-in */
 .anim-blueprint-row {
   transform: translate3d(0, 20px, 0);
-  transition-duration: 0.55s;
+  transition-duration: 1.1s;
 }
 
 /* --------------------------------------------------------------------------
@@ -5660,13 +5762,13 @@ html.dark #back-to-top .btt-ring-circle {
 /* Left Pillar (Direct Reach) */
 .anim-pillar-left {
   transform: translate3d(-32px, 16px, 0);
-  transition-duration: 0.7s;
+  transition-duration: 1.25s;
 }
 
 /* Right Pillar (Contact Form) */
 .anim-pillar-right {
   transform: translate3d(32px, 16px, 0);
-  transition-duration: 0.7s;
+  transition-duration: 1.25s;
 }
 
 /* --------------------------------------------------------------------------

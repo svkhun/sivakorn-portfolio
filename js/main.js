@@ -235,11 +235,11 @@
       preloader.classList.add('fade-out');
       setTimeout(() => {
         preloader.style.display = 'none';
-      }, 600);
+      }, 850);
     }
 
-    // Auto-dismiss after animation completes (~2.5s)
-    const timer = setTimeout(dismiss, 2500);
+    // Auto-dismiss after animation completes (~5.2s for slow, luxury handwriting)
+    const timer = setTimeout(dismiss, 5200);
 
     // Skip Button Handler
     if (skipBtn) {
@@ -431,7 +431,7 @@
       if (group.length > 1) {
         group.forEach((el, idx) => {
           if (!el.style.getPropertyValue('--anim-delay')) {
-            el.style.setProperty('--anim-delay', `${Math.min(idx * 70, 420)}ms`);
+            el.style.setProperty('--anim-delay', `${Math.min(idx * 130, 650)}ms`);
           }
         });
       }
