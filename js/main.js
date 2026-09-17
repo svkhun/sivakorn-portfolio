@@ -235,11 +235,11 @@
       preloader.classList.add('fade-out');
       setTimeout(() => {
         preloader.style.display = 'none';
-      }, 850);
+      }, 600);
     }
 
-    // Auto-dismiss after animation completes (~5.2s for slow, luxury handwriting)
-    const timer = setTimeout(dismiss, 5200);
+    // Auto-dismiss after animation completes (~2.5s)
+    const timer = setTimeout(dismiss, 2500);
 
     // Skip Button Handler
     if (skipBtn) {
