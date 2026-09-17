@@ -14,10 +14,10 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230056B3'/><text x='50%25' y='67%25' font-family='monospace' font-size='15' font-weight='bold' fill='white' text-anchor='middle'>&lt;/&gt;</text></svg>">
 
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Google Fonts: Slender Geist & Geist Mono (Unified System) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
 
   <!-- Devicon 2.x Official Tech Brand Icons -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
@@ -31,12 +31,61 @@
 <body>
 
   <!-- ========================================================================
+       Executive Handwritten Signature Intro Preloader ("Sivakorn")
+       ======================================================================== -->
+  <div class="signature-preloader" id="signature-preloader" role="dialog" aria-modal="true" aria-label="Signature intro animation">
+    <button class="signature-skip-btn" id="sig-skip-btn" type="button" aria-label="Skip animation" title="Skip Intro (ESC)">
+      <span>SKIP</span>
+      <span aria-hidden="true">&rsaquo;</span>
+    </button>
+
+    <div class="signature-card">
+      <svg class="signature-svg" viewBox="20 15 565 170" xmlns="http://www.w3.org/2000/svg" aria-label="Sivakorn Signature">
+        <!-- SVG Gradient Defs -->
+        <defs>
+          <linearGradient id="sigLinearGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#38BDF8" />
+            <stop offset="60%" stop-color="#60A5FA" />
+            <stop offset="100%" stop-color="#818CF8" />
+          </linearGradient>
+        </defs>
+
+        <!-- Dynamic Handwritten Letter Strokes -->
+        <path class="sig-char" char="S" pathLength="1" style="--delay: 0.08s; --duration: 0.38s;" d="M 85.9 145.6 Q 79.2 145.6 69.1 137.6 Q 62.1 136.4 57.0 134.5 Q 52.0 132.6 48.7 130.0 Q 44.1 126.0 40.7 119.5 Q 37.2 112.9 37.2 106.8 Q 37.2 102.2 39.3 98.6 Q 44.3 89.8 51.9 89.8 Q 57.6 89.8 58.6 99.5 Q 59.8 108.6 60.5 114.0 Q 61.2 119.3 61.7 120.9 Q 64.2 129.0 70.1 134.6 Q 77.0 136.1 85.1 136.1 Q 102.9 136.1 119.2 129.3 Q 126.1 126.4 132.7 121.6 Q 139.3 116.8 143.5 111.1 Q 147.8 105.3 147.8 99.9 Q 147.8 92.1 134.2 87.9 L 105.2 81.3 Q 96.3 79.3 90.9 74.3 Q 85.6 69.3 85.6 62.8 Q 85.6 53.0 97.9 43.1 Q 104.2 38.0 112.6 34.4 Q 121.0 30.9 130.3 29.0 Q 139.6 27.1 148.1 27.1 Q 160.3 27.1 169.0 30.9 Q 177.6 34.7 179.8 41.9 Q 180.2 43.6 180.2 45.6 Q 180.2 55.6 170.2 59.5 Q 164.1 62.0 159.8 62.0 Q 157.2 62.0 155.7 61.0 Q 155.4 60.7 155.4 60.2 Q 155.4 59.1 160.0 58.9 Q 162.8 58.7 164.6 58.4 Q 166.4 58.1 167.2 57.7 Q 173.5 54.4 173.5 48.0 Q 173.5 44.7 171.7 41.1 Q 166.6 31.7 146.2 31.7 Q 138.8 31.7 130.9 33.3 Q 123.0 34.9 115.9 37.9 Q 108.8 40.9 103.9 45.6 Q 95.3 53.5 95.3 59.7 Q 95.3 64.5 100.0 68.2 Q 104.7 71.9 114.2 73.7 L 133.7 77.3 Q 144.9 79.5 151.8 83.7 Q 158.7 87.9 158.7 96.4 Q 158.7 104.0 154.9 110.6 Q 151.1 117.2 144.8 122.3 Q 138.4 127.5 130.4 131.0 Q 112.1 139.1 87.2 139.1 Q 84.1 139.1 81.0 138.9 Q 77.9 138.7 74.9 138.4 Q 77.2 139.7 80.7 141.0 Q 84.3 142.3 88.9 143.5 Q 89.4 143.7 89.4 144.2 Q 89.4 145.6 85.9 145.6 Z M 64.2 133.0 Q 59.8 128.0 57.3 122.8 Q 53.7 114.5 51.9 102.5 Q 50.5 93.8 49.1 93.8 Q 47.7 93.8 45.5 95.8 Q 43.3 97.7 43.3 104.2 Q 43.3 116.7 52.2 125.9 Q 56.6 130.5 64.2 133.0 Z" />
+        <path class="sig-char" char="i" pathLength="1" style="--delay: 0.38s; --duration: 0.18s;" d="M 199.5 73.4 Q 196.7 73.4 194.7 71.6 Q 192.6 69.8 192.6 67.4 Q 192.6 62.8 198.8 62.8 Q 201.2 62.8 203.5 64.4 Q 205.8 66.0 205.8 68.3 Q 205.8 70.2 203.6 71.8 Q 201.5 73.4 199.5 73.4 Z M 169.1 131.8 Q 165.4 131.8 163.0 129.4 Q 160.7 127.0 160.7 120.9 Q 160.7 117.5 162.2 113.0 Q 163.8 108.4 166.2 103.8 Q 168.6 99.2 170.9 95.6 Q 180.1 80.6 186.0 80.5 Q 187.5 80.5 189.6 81.7 Q 191.8 82.9 191.8 84.4 Q 191.8 84.4 179.3 100.5 Q 166.9 116.5 166.9 123.3 Q 166.9 128.5 171.0 128.5 Q 173.7 128.5 177.9 126.3 Q 182.1 124.1 186.7 120.6 Q 191.3 117.2 195.5 113.2 Q 199.7 109.3 202.3 106.0 Q 204.0 103.8 205.2 103.0 Q 206.4 102.2 206.7 102.2 Q 207.4 102.2 207.4 103.2 Q 207.4 104.0 205.5 106.5 Q 203.6 108.9 200.3 112.2 Q 196.4 116.2 191.6 120.8 Q 186.8 125.4 181.2 128.6 Q 175.6 131.8 169.1 131.8 Z" />
+        <path class="sig-char" char="v" pathLength="1" style="--delay: 0.50s; --duration: 0.22s;" d="M 205.8 130.5 Q 204.8 130.5 203.0 129.6 Q 201.2 128.7 199.7 127.4 Q 198.2 126.2 198.0 125.2 Q 197.9 123.9 199.8 117.7 Q 201.6 111.6 205.8 100.9 Q 209.9 90.0 212.7 84.1 Q 215.5 78.1 216.8 77.0 Q 217.4 76.3 218.6 76.3 Q 220.4 76.3 222.1 77.9 Q 223.7 79.5 223.9 81.6 Q 223.9 81.8 215.6 101.0 Q 207.6 119.6 208.1 123.3 Q 215.3 120.9 232.3 107.0 Q 242.5 98.4 247.0 91.4 Q 251.5 84.4 251.5 78.8 Q 251.5 75.5 250.0 72.8 Q 248.4 70.1 244.3 68.3 Q 243.1 67.8 243.1 66.8 Q 243.1 65.3 244.9 65.3 Q 249.7 65.3 253.3 68.4 Q 256.8 71.6 256.8 77.8 Q 256.8 84.4 251.2 92.7 Q 245.6 101.0 235.2 110.4 Q 226.2 118.5 218.8 123.6 Q 211.5 128.7 205.8 130.5 Z" />
+        <path class="sig-char" char="a" pathLength="1" style="--delay: 0.66s; --duration: 0.22s;" d="M 260.9 130.8 Q 257.0 130.8 253.0 128.0 Q 249.1 125.2 248.6 121.4 Q 246.9 108.8 264.5 91.3 Q 282.0 73.9 296.0 73.9 Q 299.8 73.9 301.9 75.7 Q 303.0 76.8 303.6 78.8 Q 304.2 80.8 304.5 80.8 Q 305.2 80.8 305.7 80.5 Q 306.2 80.3 306.8 80.3 Q 308.8 80.3 310.3 81.8 Q 311.8 83.3 311.9 84.4 Q 312.1 84.7 301.4 100.7 Q 290.7 116.3 291.7 121.9 Q 292.5 125.7 295.3 125.7 Q 303.9 125.7 326.6 97.4 Q 327.1 96.7 327.6 96.7 Q 328.4 96.7 328.4 97.9 Q 328.4 99.2 326.9 101.2 Q 306.0 129.3 294.8 129.3 Q 293.3 129.3 292.0 128.8 Q 284.8 126.0 284.8 118.0 Q 284.8 115.2 285.4 112.4 L 275.2 122.3 Q 270.6 126.9 266.9 128.8 Q 263.2 130.8 260.9 130.8 Z M 259.4 127.2 Q 269.0 127.2 285.4 106.3 L 302.9 82.3 Q 301.6 80.0 298.6 80.0 Q 288.6 80.0 271.4 96.1 Q 253.7 112.6 255.5 123.3 Q 256.3 127.2 259.4 127.2 Z" />
+        <path class="sig-char" char="k" pathLength="1" style="--delay: 0.82s; --duration: 0.28s;" d="M 351.4 132.0 Q 346.0 132.0 341.8 128.8 Q 337.6 125.7 334.6 120.9 Q 331.5 116.2 329.4 111.4 Q 328.2 112.9 327.0 115.2 Q 325.8 117.5 324.1 120.6 L 319.0 130.8 Q 313.1 128.5 313.1 124.6 Q 313.1 117.5 334.7 85.2 Q 355.6 54.0 363.5 48.4 Q 364.3 47.9 366.1 47.9 Q 371.2 47.9 371.2 50.5 Q 371.2 51.0 368.9 54.0 Q 366.6 57.1 363.1 61.4 Q 359.7 65.6 356.1 70.0 Q 352.6 74.4 350.0 77.6 Q 347.3 80.8 347.0 81.6 Q 362.0 73.9 370.9 73.9 Q 374.3 73.9 377.2 75.8 Q 380.1 77.8 381.7 80.6 Q 383.4 83.4 383.0 86.0 Q 381.7 95.4 369.9 101.5 Q 360.3 106.6 352.4 106.6 Q 343.9 106.6 340.6 104.5 Q 339.6 104.3 339.0 104.9 Q 338.4 105.5 338.8 106.6 Q 343.4 127.0 354.1 127.0 Q 359.3 127.0 368.1 120.9 Q 377.0 114.9 386.8 103.2 Q 388.0 102.0 389.0 102.0 Q 389.8 102.0 389.8 103.0 Q 389.8 103.8 388.6 105.5 Q 383.9 111.2 377.5 117.4 Q 371.2 123.6 364.4 127.8 Q 357.7 132.0 351.4 132.0 Z M 341.9 102.3 Q 349.3 102.3 361.3 96.3 Q 375.1 89.3 375.1 81.6 Q 375.1 80.3 373.7 79.0 Q 372.2 77.7 370.5 77.7 Q 361.6 77.7 349.8 84.6 Q 336.8 92.5 334.0 101.9 Q 335.8 101.9 338.7 102.1 Q 341.6 102.3 341.9 102.3 Z" />
+        <path class="sig-char" char="o" pathLength="1" style="--delay: 1.02s; --duration: 0.18s;" d="M 389.6 130.3 Q 385.5 130.3 383.2 126.5 Q 380.9 122.6 380.9 119.0 Q 380.9 109.1 395.2 91.3 Q 409.7 73.4 418.6 73.4 Q 427.0 73.4 427.0 82.3 Q 427.0 83.6 426.7 85.1 Q 426.5 86.5 426.2 88.2 Q 426.5 88.7 427.8 88.7 Q 432.3 88.7 438.4 85.6 Q 438.2 88.4 425.3 93.6 Q 427.2 99.1 414.5 114.4 Q 401.5 130.3 392.3 130.3 Z M 392.6 125.4 Q 399.7 125.4 410.7 112.4 Q 421.4 99.7 421.4 94.1 Q 418.8 92.6 414.8 86.5 Q 409.2 86.5 398.7 100.0 Q 388.3 113.2 388.6 120.3 Q 388.8 125.4 392.6 125.4 Z" />
+        <path class="sig-char" char="r" pathLength="1" style="--delay: 1.14s; --duration: 0.20s;" d="M 462.4 130.8 Q 455.3 130.8 452.7 127.1 Q 450.0 123.4 450.0 117.2 Q 450.0 110.2 454.3 100.7 Q 456.0 96.9 457.8 93.9 Q 459.6 90.8 461.6 88.2 Q 460.9 88.4 460.4 88.4 Q 459.9 88.4 459.4 88.4 Q 455.5 88.4 452.8 82.8 L 440.7 98.6 Q 430.9 111.2 428.8 111.2 Q 428.0 111.2 428.0 110.6 Q 428.0 109.8 428.8 108.4 Q 429.3 107.4 430.8 105.8 Q 437.0 98.6 442.3 91.5 Q 447.6 84.4 451.0 77.7 Q 454.8 63.3 460.6 63.3 Q 464.4 63.3 464.4 66.8 Q 464.4 69.9 460.2 75.0 Q 456.3 80.1 456.3 80.3 Q 456.3 83.7 461.4 83.7 Q 464.4 83.7 468.0 81.6 L 472.3 79.0 Q 472.6 78.8 473.3 78.8 Q 475.2 78.8 476.7 80.5 Q 478.2 82.1 477.7 83.4 L 466.3 97.7 Q 455.8 111.2 455.8 119.5 Q 455.8 126.9 463.0 126.9 Q 468.0 126.9 473.7 123.9 Q 479.3 120.9 484.7 116.6 Q 490.0 112.2 493.7 108.1 L 497.6 103.5 Q 497.9 103.2 498.4 102.7 Q 498.9 102.2 499.3 102.2 Q 500.4 102.2 500.4 103.3 Q 500.4 103.7 500.1 104.5 Q 499.8 105.3 498.9 106.3 L 493.7 112.2 Q 489.9 116.5 484.4 120.9 Q 478.8 125.2 473.0 128.0 Q 467.2 130.8 462.4 130.8 Z" />
+        <path class="sig-char" char="n" pathLength="1" style="--delay: 1.28s; --duration: 0.24s;" d="M 535.6 130.3 Q 531.2 130.3 529.4 127.8 Q 527.6 125.2 527.6 121.4 Q 527.6 111.9 534.2 101.0 L 544.7 83.9 Q 533.5 92.1 522.5 104.5 Q 519.5 107.8 515.8 112.2 Q 512.1 116.7 507.7 122.4 Q 501.7 130.2 500.6 130.2 Q 498.3 130.2 496.8 128.1 Q 495.3 126.0 495.3 124.4 Q 495.3 123.1 496.1 119.5 Q 497.0 116.0 498.1 113.4 Q 499.3 110.6 500.5 107.9 Q 501.7 105.1 502.9 102.5 L 493.0 112.9 Q 492.7 113.2 491.0 114.9 Q 489.4 116.5 488.4 116.5 Q 487.6 116.5 487.6 115.3 Q 487.6 115.0 487.8 114.4 Q 488.1 113.9 488.9 113.0 Q 491.4 110.6 494.0 107.8 Q 496.6 105.0 499.4 101.4 Q 500.9 99.5 503.9 95.8 Q 506.8 92.1 510.4 87.9 Q 513.9 83.6 517.0 80.0 Q 517.9 78.8 518.8 78.4 Q 519.8 78.0 520.2 78.0 Q 524.6 78.0 524.6 81.4 Q 524.6 82.4 524.1 83.4 Q 509.3 103.8 506.3 114.5 Q 525.4 95.4 537.0 85.8 Q 548.6 76.2 553.6 76.2 Q 556.2 76.2 557.6 77.0 Q 559.0 77.8 559.0 80.1 Q 559.0 80.9 558.8 81.4 Q 558.4 82.6 552.1 90.7 Q 548.3 95.3 545.4 99.1 Q 542.6 102.8 540.7 105.6 Q 537.8 110.2 536.3 114.3 Q 534.8 118.3 534.8 121.1 Q 534.8 122.3 535.1 123.9 Q 535.5 125.6 537.1 125.6 Q 540.9 125.6 549.0 119.0 Q 552.8 115.7 556.0 112.3 Q 559.3 108.9 562.3 105.6 Q 563.0 105.0 564.4 103.1 Q 565.9 101.2 566.3 101.2 Q 566.9 101.2 566.9 102.5 Q 566.9 103.2 566.2 104.7 Q 565.4 106.3 564.6 107.1 Q 562.8 109.3 559.3 113.0 Q 555.7 116.8 551.4 120.8 Q 547.0 124.7 542.9 127.5 Q 538.8 130.3 535.6 130.3 Z" />
+
+        <!-- Signature Flourish Underline -->
+        <path class="sig-flourish" pathLength="1" d="M 65 145 C 48 162, 54 182, 85 178 C 165 168, 320 164, 460 168 C 505 169, 545 165, 575 150" />
+
+        <!-- Glowing Pen Nib -->
+        <circle class="flourish-nib" cx="575" cy="150" r="3.5" />
+      </svg>
+
+      <!-- Subtitle Tagline with Status Indicator -->
+      <div class="signature-sub">
+        <span class="signature-sub-dot"></span>
+        <span>Sivakorn Khundilokrattaya</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
        Top Navigation Bar
        ======================================================================== -->
   <header class="header">
     <div class="container nav-container">
-      <a href="index.html" class="brand-logo" aria-label="Sivakorn Portfolio Home">
-        <span class="logo-bracket">&lt;</span> Sivakorn <span class="logo-bracket">/&gt;</span>
+      <a href="index.html" class="brand-logo" aria-label="Sivakorn Portfolio Home" title="Sivakorn Portfolio">
+        <svg class="brand-signature-svg" viewBox="20 15 565 170" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M 85.9 145.6 Q 79.2 145.6 69.1 137.6 Q 62.1 136.4 57.0 134.5 Q 52.0 132.6 48.7 130.0 Q 44.1 126.0 40.7 119.5 Q 37.2 112.9 37.2 106.8 Q 37.2 102.2 39.3 98.6 Q 44.3 89.8 51.9 89.8 Q 57.6 89.8 58.6 99.5 Q 59.8 108.6 60.5 114.0 Q 61.2 119.3 61.7 120.9 Q 64.2 129.0 70.1 134.6 Q 77.0 136.1 85.1 136.1 Q 102.9 136.1 119.2 129.3 Q 126.1 126.4 132.7 121.6 Q 139.3 116.8 143.5 111.1 Q 147.8 105.3 147.8 99.9 Q 147.8 92.1 134.2 87.9 L 105.2 81.3 Q 96.3 79.3 90.9 74.3 Q 85.6 69.3 85.6 62.8 Q 85.6 53.0 97.9 43.1 Q 104.2 38.0 112.6 34.4 Q 121.0 30.9 130.3 29.0 Q 139.6 27.1 148.1 27.1 Q 160.3 27.1 169.0 30.9 Q 177.6 34.7 179.8 41.9 Q 180.2 43.6 180.2 45.6 Q 180.2 55.6 170.2 59.5 Q 164.1 62.0 159.8 62.0 Q 157.2 62.0 155.7 61.0 Q 155.4 60.7 155.4 60.2 Q 155.4 59.1 160.0 58.9 Q 162.8 58.7 164.6 58.4 Q 166.4 58.1 167.2 57.7 Q 173.5 54.4 173.5 48.0 Q 173.5 44.7 171.7 41.1 Q 166.6 31.7 146.2 31.7 Q 138.8 31.7 130.9 33.3 Q 123.0 34.9 115.9 37.9 Q 108.8 40.9 103.9 45.6 Q 95.3 53.5 95.3 59.7 Q 95.3 64.5 100.0 68.2 Q 104.7 71.9 114.2 73.7 L 133.7 77.3 Q 144.9 79.5 151.8 83.7 Q 158.7 87.9 158.7 96.4 Q 158.7 104.0 154.9 110.6 Q 151.1 117.2 144.8 122.3 Q 138.4 127.5 130.4 131.0 Q 112.1 139.1 87.2 139.1 Q 84.1 139.1 81.0 138.9 Q 77.9 138.7 74.9 138.4 Q 77.2 139.7 80.7 141.0 Q 84.3 142.3 88.9 143.5 Q 89.4 143.7 89.4 144.2 Q 89.4 145.6 85.9 145.6 Z M 64.2 133.0 Q 59.8 128.0 57.3 122.8 Q 53.7 114.5 51.9 102.5 Q 50.5 93.8 49.1 93.8 Q 47.7 93.8 45.5 95.8 Q 43.3 97.7 43.3 104.2 Q 43.3 116.7 52.2 125.9 Q 56.6 130.5 64.2 133.0 Z M 199.5 73.4 Q 196.7 73.4 194.7 71.6 Q 192.6 69.8 192.6 67.4 Q 192.6 62.8 198.8 62.8 Q 201.2 62.8 203.5 64.4 Q 205.8 66.0 205.8 68.3 Q 205.8 70.2 203.6 71.8 Q 201.5 73.4 199.5 73.4 Z M 169.1 131.8 Q 165.4 131.8 163.0 129.4 Q 160.7 127.0 160.7 120.9 Q 160.7 117.5 162.2 113.0 Q 163.8 108.4 166.2 103.8 Q 168.6 99.2 170.9 95.6 Q 180.1 80.6 186.0 80.5 Q 187.5 80.5 189.6 81.7 Q 191.8 82.9 191.8 84.4 Q 191.8 84.4 179.3 100.5 Q 166.9 116.5 166.9 123.3 Q 166.9 128.5 171.0 128.5 Q 173.7 128.5 177.9 126.3 Q 182.1 124.1 186.7 120.6 Q 191.3 117.2 195.5 113.2 Q 199.7 109.3 202.3 106.0 Q 204.0 103.8 205.2 103.0 Q 206.4 102.2 206.7 102.2 Q 207.4 102.2 207.4 103.2 Q 207.4 104.0 205.5 106.5 Q 203.6 108.9 200.3 112.2 Q 196.4 116.2 191.6 120.8 Q 186.8 125.4 181.2 128.6 Q 175.6 131.8 169.1 131.8 Z M 205.8 130.5 Q 204.8 130.5 203.0 129.6 Q 201.2 128.7 199.7 127.4 Q 198.2 126.2 198.0 125.2 Q 197.9 123.9 199.8 117.7 Q 201.6 111.6 205.8 100.9 Q 209.9 90.0 212.7 84.1 Q 215.5 78.1 216.8 77.0 Q 217.4 76.3 218.6 76.3 Q 220.4 76.3 222.1 77.9 Q 223.7 79.5 223.9 81.6 Q 223.9 81.8 215.6 101.0 Q 207.6 119.6 208.1 123.3 Q 215.3 120.9 232.3 107.0 Q 242.5 98.4 247.0 91.4 Q 251.5 84.4 251.5 78.8 Q 251.5 75.5 250.0 72.8 Q 248.4 70.1 244.3 68.3 Q 243.1 67.8 243.1 66.8 Q 243.1 65.3 244.9 65.3 Q 249.7 65.3 253.3 68.4 Q 256.8 71.6 256.8 77.8 Q 256.8 84.4 251.2 92.7 Q 245.6 101.0 235.2 110.4 Q 226.2 118.5 218.8 123.6 Q 211.5 128.7 205.8 130.5 Z M 260.9 130.8 Q 257.0 130.8 253.0 128.0 Q 249.1 125.2 248.6 121.4 Q 246.9 108.8 264.5 91.3 Q 282.0 73.9 296.0 73.9 Q 299.8 73.9 301.9 75.7 Q 303.0 76.8 303.6 78.8 Q 304.2 80.8 304.5 80.8 Q 305.2 80.8 305.7 80.5 Q 306.2 80.3 306.8 80.3 Q 308.8 80.3 310.3 81.8 Q 311.8 83.3 311.9 84.4 Q 312.1 84.7 301.4 100.7 Q 290.7 116.3 291.7 121.9 Q 292.5 125.7 295.3 125.7 Q 303.9 125.7 326.6 97.4 Q 327.1 96.7 327.6 96.7 Q 328.4 96.7 328.4 97.9 Q 328.4 99.2 326.9 101.2 Q 306.0 129.3 294.8 129.3 Q 293.3 129.3 292.0 128.8 Q 284.8 126.0 284.8 118.0 Q 284.8 115.2 285.4 112.4 L 275.2 122.3 Q 270.6 126.9 266.9 128.8 Q 263.2 130.8 260.9 130.8 Z M 259.4 127.2 Q 269.0 127.2 285.4 106.3 L 302.9 82.3 Q 301.6 80.0 298.6 80.0 Q 288.6 80.0 271.4 96.1 Q 253.7 112.6 255.5 123.3 Q 256.3 127.2 259.4 127.2 Z M 351.4 132.0 Q 346.0 132.0 341.8 128.8 Q 337.6 125.7 334.6 120.9 Q 331.5 116.2 329.4 111.4 Q 328.2 112.9 327.0 115.2 Q 325.8 117.5 324.1 120.6 L 319.0 130.8 Q 313.1 128.5 313.1 124.6 Q 313.1 117.5 334.7 85.2 Q 355.6 54.0 363.5 48.4 Q 364.3 47.9 366.1 47.9 Q 371.2 47.9 371.2 50.5 Q 371.2 51.0 368.9 54.0 Q 366.6 57.1 363.1 61.4 Q 359.7 65.6 356.1 70.0 Q 352.6 74.4 350.0 77.6 Q 347.3 80.8 347.0 81.6 Q 362.0 73.9 370.9 73.9 Q 374.3 73.9 377.2 75.8 Q 380.1 77.8 381.7 80.6 Q 383.4 83.4 383.0 86.0 Q 381.7 95.4 369.9 101.5 Q 360.3 106.6 352.4 106.6 Q 343.9 106.6 340.6 104.5 Q 339.6 104.3 339.0 104.9 Q 338.4 105.5 338.8 106.6 Q 343.4 127.0 354.1 127.0 Q 359.3 127.0 368.1 120.9 Q 377.0 114.9 386.8 103.2 Q 388.0 102.0 389.0 102.0 Q 389.8 102.0 389.8 103.0 Q 389.8 103.8 388.6 105.5 Q 383.9 111.2 377.5 117.4 Q 371.2 123.6 364.4 127.8 Q 357.7 132.0 351.4 132.0 Z M 341.9 102.3 Q 349.3 102.3 361.3 96.3 Q 375.1 89.3 375.1 81.6 Q 375.1 80.3 373.7 79.0 Q 372.2 77.7 370.5 77.7 Q 361.6 77.7 349.8 84.6 Q 336.8 92.5 334.0 101.9 Q 335.8 101.9 338.7 102.1 Q 341.6 102.3 341.9 102.3 Z M 389.6 130.3 Q 385.5 130.3 383.2 126.5 Q 380.9 122.6 380.9 119.0 Q 380.9 109.1 395.2 91.3 Q 409.7 73.4 418.6 73.4 Q 427.0 73.4 427.0 82.3 Q 427.0 83.6 426.7 85.1 Q 426.5 86.5 426.2 88.2 Q 426.5 88.7 427.8 88.7 Q 432.3 88.7 438.4 85.6 Q 438.2 88.4 425.3 93.6 Q 427.2 99.1 414.5 114.4 Q 401.5 130.3 392.3 130.3 Z M 392.6 125.4 Q 399.7 125.4 410.7 112.4 Q 421.4 99.7 421.4 94.1 Q 418.8 92.6 414.8 86.5 Q 409.2 86.5 398.7 100.0 Q 388.3 113.2 388.6 120.3 Q 388.8 125.4 392.6 125.4 Z M 462.4 130.8 Q 455.3 130.8 452.7 127.1 Q 450.0 123.4 450.0 117.2 Q 450.0 110.2 454.3 100.7 Q 456.0 96.9 457.8 93.9 Q 459.6 90.8 461.6 88.2 Q 460.9 88.4 460.4 88.4 Q 459.9 88.4 459.4 88.4 Q 455.5 88.4 452.8 82.8 L 440.7 98.6 Q 430.9 111.2 428.8 111.2 Q 428.0 111.2 428.0 110.6 Q 428.0 109.8 428.8 108.4 Q 429.3 107.4 430.8 105.8 Q 437.0 98.6 442.3 91.5 Q 447.6 84.4 451.0 77.7 Q 454.8 63.3 460.6 63.3 Q 464.4 63.3 464.4 66.8 Q 464.4 69.9 460.2 75.0 Q 456.3 80.1 456.3 80.3 Q 456.3 83.7 461.4 83.7 Q 464.4 83.7 468.0 81.6 L 472.3 79.0 Q 472.6 78.8 473.3 78.8 Q 475.2 78.8 476.7 80.5 Q 478.2 82.1 477.7 83.4 L 466.3 97.7 Q 455.8 111.2 455.8 119.5 Q 455.8 126.9 463.0 126.9 Q 468.0 126.9 473.7 123.9 Q 479.3 120.9 484.7 116.6 Q 490.0 112.2 493.7 108.1 L 497.6 103.5 Q 497.9 103.2 498.4 102.7 Q 498.9 102.2 499.3 102.2 Q 500.4 102.2 500.4 103.3 Q 500.4 103.7 500.1 104.5 Q 499.8 105.3 498.9 106.3 L 493.7 112.2 Q 489.9 116.5 484.4 120.9 Q 478.8 125.2 473.0 128.0 Q 467.2 130.8 462.4 130.8 Z M 535.6 130.3 Q 531.2 130.3 529.4 127.8 Q 527.6 125.2 527.6 121.4 Q 527.6 111.9 534.2 101.0 L 544.7 83.9 Q 533.5 92.1 522.5 104.5 Q 519.5 107.8 515.8 112.2 Q 512.1 116.7 507.7 122.4 Q 501.7 130.2 500.6 130.2 Q 498.3 130.2 496.8 128.1 Q 495.3 126.0 495.3 124.4 Q 495.3 123.1 496.1 119.5 Q 497.0 116.0 498.1 113.4 Q 499.3 110.6 500.5 107.9 Q 501.7 105.1 502.9 102.5 L 493.0 112.9 Q 492.7 113.2 491.0 114.9 Q 489.4 116.5 488.4 116.5 Q 487.6 116.5 487.6 115.3 Q 487.6 115.0 487.8 114.4 Q 488.1 113.9 488.9 113.0 Q 491.4 110.6 494.0 107.8 Q 496.6 105.0 499.4 101.4 Q 500.9 99.5 503.9 95.8 Q 506.8 92.1 510.4 87.9 Q 513.9 83.6 517.0 80.0 Q 517.9 78.8 518.8 78.4 Q 519.8 78.0 520.2 78.0 Q 524.6 78.0 524.6 81.4 Q 524.6 82.4 524.1 83.4 Q 509.3 103.8 506.3 114.5 Q 525.4 95.4 537.0 85.8 Q 548.6 76.2 553.6 76.2 Q 556.2 76.2 557.6 77.0 Q 559.0 77.8 559.0 80.1 Q 559.0 80.9 558.8 81.4 Q 558.4 82.6 552.1 90.7 Q 548.3 95.3 545.4 99.1 Q 542.6 102.8 540.7 105.6 Q 537.8 110.2 536.3 114.3 Q 534.8 118.3 534.8 121.1 Q 534.8 122.3 535.1 123.9 Q 535.5 125.6 537.1 125.6 Q 540.9 125.6 549.0 119.0 Q 552.8 115.7 556.0 112.3 Q 559.3 108.9 562.3 105.6 Q 563.0 105.0 564.4 103.1 Q 565.9 101.2 566.3 101.2 Q 566.9 101.2 566.9 102.5 Q 566.9 103.2 566.2 104.7 Q 565.4 106.3 564.6 107.1 Q 562.8 109.3 559.3 113.0 Q 555.7 116.8 551.4 120.8 Q 547.0 124.7 542.9 127.5 Q 538.8 130.3 535.6 130.3 Z" />
+          <path d="M 65 145 C 48 162, 54 182, 85 178 C 165 168, 320 164, 460 168 C 505 169, 545 165, 575 150" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+          <circle cx="575" cy="150" r="3.8" />
+        </svg>
       </a>
 
       <div class="nav-right">
@@ -63,36 +112,50 @@
 
   <main>
     <!-- ========================================================================
-         Executive Quantitative Hero Section (2-Column Desktop Grid)
+    <!-- ========================================================================
+         Executive Quantitative Hero Section (aanandmadhav.com Editorial Aesthetic)
          ======================================================================== -->
     <section class="section hero-wrapper py-12 lg:py-20 scroll-mt-20" id="home-hero">
       <div class="max-w-6xl lg:max-w-7xl mx-auto px-6 lg:px-12 container hero-2col-container">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center hero-2col-grid">
-          <!-- Left Column: Executive Identity & Call to Action (lg:col-span-7) -->
+          <!-- Left Column: Executive Identity & Editorial Content (lg:col-span-7) -->
           <div class="lg:col-span-7 hero-text-col">
-            <!-- Eyebrow badge -->
-            <div class="live-status-pill tracking-[0.15em]">
-              <span class="status-dot"></span>
-              <span>AVAILABLE FOR ROLES &bull; BANGKOK &amp; REMOTE</span>
+            <!-- Subtle role status kicker -->
+            <div class="mb-5">
+              <span class="font-mono text-[11px] tracking-[0.08em] uppercase text-muted inline-flex items-center">
+                Computer Engineering @ SWU &bull; Data Science &amp; Quantitative ML
+              </span>
             </div>
 
-            <!-- Name (ONE single line on desktop) -->
-            <h1 class="hero-name text-3xl sm:text-4xl md:text-[44px] lg:text-[50px] font-extrabold text-slate-900 tracking-[0.015em] leading-tight whitespace-nowrap">
-              Sivakorn Khundilokrattaya
+            <!-- Grand Slender Heading (aanandmadhav.com Editorial Style) -->
+            <h1 class="hero-display">
+              <span>Sivakorn.<br/></span>
+              <span class="text-accent-brand">Khundilokrattaya.</span>
             </h1>
 
-            <!-- Role -->
-            <div class="hero-role-title tracking-[0.02em] leading-relaxed">
-              Data Scientist &amp; Machine Learning Engineer
-            </div>
-
-            <!-- Bio -->
-            <p class="hero-bio tracking-[0.01em] leading-[1.8]">
-              Computer Engineering student at Srinakharinwirot University (SWU, Class of 2026). Specialized in architecting <strong>Basel-compliant credit risk engines</strong>, regulatory <strong>Explainable AI (TreeSHAP)</strong>, relational <strong>Graph Neural Networks</strong>, and high-throughput production ML systems.
+            <!-- Subtitle -->
+            <p class="hero-role-title">
+              Architecting High-Precision Risk &amp; Low-Latency Inference Engines.
             </p>
 
+            <!-- Bio: Concise, sharp, high-impact -->
+            <p class="hero-lead">
+              Computer Engineering student at Srinakharinwirot University (SWU, Class of 2026). Specializing in <strong>Basel-compliant credit risk scorecards</strong>, regulatory <strong>Explainable AI (TreeSHAP)</strong>, relational <strong>Graph Neural Networks</strong>, and sub-12ms production inference systems.
+            </p>
+
+            <!-- Action Buttons: Primary CTA + Inline Link -->
+            <div class="flex flex-wrap items-center gap-4 mb-8">
+              <a href="projects.html" class="primary-cta">
+                <span>Explore Case Studies &rarr;</span>
+              </a>
+              <a href="assets/Sivakorn_Khundilokrattaya_Resume.pdf" target="_blank" rel="noopener noreferrer" class="inline-link">
+                <span>Download Resume (PDF)</span>
+                <span aria-hidden="true">&nearr;</span>
+              </a>
+            </div>
+
             <!-- Social Links Row with Brand Color Hovers -->
-            <div class="social-icons-row">
+            <div class="social-icons-row mb-0">
               <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer" class="social-icon-circle github" aria-label="GitHub Profile" title="GitHub (@svkhun)">
                 <i class="fab fa-github"></i>
               </a>
@@ -106,24 +169,12 @@
                 <i class="fab fa-kaggle"></i>
               </a>
             </div>
-
-            <!-- Action Buttons -->
-            <div class="hero-cta-group">
-              <a href="projects.html" class="btn btn-primary">
-                <i class="fas fa-layer-group"></i>
-                <span>View Engineering Case Studies</span>
-              </a>
-              <a href="assets/Sivakorn_Khundilokrattaya_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                <i class="fas fa-file-pdf"></i>
-                <span>Download Resume (PDF)</span>
-              </a>
-            </div>
           </div>
 
-          <!-- Right Column: Interactive/Mockup Architecture Card (lg:col-span-5) -->
-          <div class="lg:col-span-5 hero-mockup-col flex justify-center items-center">
-            <div class="hero-architecture-card w-full max-w-md mx-auto lg:max-w-none">
-              <img src="assets/svg/hero-ml-neural.svg" alt="Inference Engine :: relational_gcn_v2.onnx Architecture" width="600" height="460" class="w-full h-auto">
+          <!-- Right Column: Developer Illustration (lg:col-span-5) -->
+          <div class="lg:col-span-5 flex justify-center items-center w-full hero-mockup-col">
+            <div class="hero-illustration-wrapper scroll-anim anim-hero-console w-full max-w-md lg:max-w-lg p-3 sm:p-5 rounded-none bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xl shadow-slate-200/50 dark:shadow-none transition-all duration-300 hover:shadow-2xl">
+              <img src="assets/svg/hero-developer.svg" alt="Sivakorn - Data Scientist &amp; ML Engineer" class="w-full h-auto object-contain select-none" />
             </div>
           </div>
         </div>
@@ -131,371 +182,865 @@
     </section>
 
     <!-- ========================================================================
-         Dedicated Quantitative Proof Points Band (Full-Width 4-Card Grid with Top Accent Bars)
+         Core Engineering Domains & Focus Ticker
+         ======================================================================== -->
+    <div class="activity-ticker-wrap" aria-hidden="true">
+      <div class="activity-ticker-track">
+        <span>
+          <span class="activity-ticker-item"><span class="activity-ticker-tag">Focus</span><span>&gt; Quantitative Risk Modeling</span><span class="activity-ticker-divider">/</span></span>
+          <span class="activity-ticker-item"><span class="activity-ticker-tag">Focus</span><span>&gt; Real-Time Fraud Defense</span><span class="activity-ticker-divider">/</span></span>
+          <span class="activity-ticker-item"><span class="activity-ticker-tag">Focus</span><span>&gt; Graph Neural Networks (GNN)</span><span class="activity-ticker-divider">/</span></span>
+          <span class="activity-ticker-item"><span class="activity-ticker-tag">Focus</span><span>&gt; Sub-Millisecond Inference SLAs</span><span class="activity-ticker-divider">/</span></span>
+          <span class="activity-ticker-item"><span class="activity-ticker-tag">Focus</span><span>&gt; Distributed Machine Learning</span><span class="activity-ticker-divider">/</span></span>
+          <span class="activity-ticker-item"><span class="activity-ticker-tag">Focus</span><span>&gt; MLOps &amp; Production Telemetry</span><span class="activity-ticker-divider">/</span></span>
+          <span class="activity-ticker-item"><span class="activity-ticker-tag">Focus</span><span>&gt; Explainable AI &amp; Credit Scoring</span><span class="activity-ticker-divider">/</span></span>
+        </span>
+        <span>
+          <span class="activity-ticker-item"><span class="activity-ticker-tag">Focus</span><span>&gt; Quantitative Risk Modeling</span><span class="activity-ticker-divider">/</span></span>
+          <span class="activity-ticker-item"><span class="activity-ticker-tag">Focus</span><span>&gt; Real-Time Fraud Defense</span><span class="activity-ticker-divider">/</span></span>
+          <span class="activity-ticker-item"><span class="activity-ticker-tag">Focus</span><span>&gt; Graph Neural Networks (GNN)</span><span class="activity-ticker-divider">/</span></span>
+          <span class="activity-ticker-item"><span class="activity-ticker-tag">Focus</span><span>&gt; Sub-Millisecond Inference SLAs</span><span class="activity-ticker-divider">/</span></span>
+          <span class="activity-ticker-item"><span class="activity-ticker-tag">Focus</span><span>&gt; Distributed Machine Learning</span><span class="activity-ticker-divider">/</span></span>
+          <span class="activity-ticker-item"><span class="activity-ticker-tag">Focus</span><span>&gt; MLOps &amp; Production Telemetry</span><span class="activity-ticker-divider">/</span></span>
+          <span class="activity-ticker-item"><span class="activity-ticker-tag">Focus</span><span>&gt; Explainable AI &amp; Credit Scoring</span><span class="activity-ticker-divider">/</span></span>
+        </span>
+      </div>
+    </div>
+
+    <!-- ========================================================================
+         Dedicated Quantitative Proof Points Band
          ======================================================================== -->
     <section class="stats-band" id="stats-band">
       <div class="max-w-6xl lg:max-w-7xl mx-auto px-6 lg:px-12">
         <div class="stats-band-grid">
-          <!-- Card 1: Amber Accent Bar (Low Latency Inference SLA) -->
-          <div class="stat-box theme-amber border-t-amber">
-            <div class="stat-box-tag">
+          <!-- Card 1: Low Latency Inference SLA -->
+          <div class="stat-box scroll-anim anim-metric-pop theme-amber border-t-amber">
+            <div class="stat-box-tag font-mono">
               <i class="fas fa-bolt"></i>
               <span>Inference SLA</span>
             </div>
-            <div class="stat-number accent-amber">11.62 ms</div>
-            <div class="stat-caption">P99 Fraud Inference SLA (7x Bank Benchmark &lt; 80ms)</div>
+            <div class="stat-number accent-amber">11.62 <span class="stat-unit">ms</span></div>
+            <div class="stat-caption font-mono uppercase text-[11px] tracking-[0.06em]">P99 Fraud SLA (7x Bank Requirement &lt; 80ms)</div>
           </div>
 
-          <!-- Card 2: Royal Blue Accent Bar (Credit Risk Benchmark) -->
-          <div class="stat-box theme-blue border-t-blue">
-            <div class="stat-box-tag">
+          <!-- Card 2: Model Discrimination -->
+          <div class="stat-box scroll-anim anim-metric-pop theme-blue border-t-blue">
+            <div class="stat-box-tag font-mono">
               <i class="fas fa-chart-line"></i>
               <span>Model Discrimination</span>
             </div>
             <div class="stat-number accent-blue">0.894</div>
-            <div class="stat-caption">ROC-AUC Score on ~40K Real Blind Consumer Debtor Records</div>
+            <div class="stat-caption font-mono uppercase text-[11px] tracking-[0.06em]">ROC-AUC on 40K Real Consumer Debtor Records</div>
           </div>
 
-          <!-- Card 3: Indigo Accent Bar (Standardized Assessment) -->
-          <div class="stat-box theme-indigo border-t-indigo">
-            <div class="stat-box-tag">
+          <!-- Card 3: Standardized Assessment -->
+          <div class="stat-box scroll-anim anim-metric-pop theme-indigo border-t-indigo">
+            <div class="stat-box-tag font-mono">
               <i class="fas fa-award"></i>
               <span>Verified Benchmark</span>
             </div>
-            <div class="stat-number accent-indigo">97 / 150</div>
-            <div class="stat-caption">KBTG STAMP Score (Above Thai Banking Industry Benchmark)</div>
+            <div class="stat-number accent-indigo">97<span class="stat-denom"> / 150</span></div>
+            <div class="stat-caption font-mono uppercase text-[11px] tracking-[0.06em]">KBTG STAMP Score (+7.8% Above Industry Benchmark)</div>
           </div>
 
-          <!-- Card 4: FinTech Emerald Green Accent Bar (Business Impact) -->
-          <div class="stat-box theme-emerald border-t-emerald">
-            <div class="stat-box-tag">
+          <!-- Card 4: Business Impact -->
+          <div class="stat-box scroll-anim anim-metric-pop theme-emerald border-t-emerald">
+            <div class="stat-box-tag font-mono">
               <i class="fas fa-wallet"></i>
               <span>Business Impact</span>
             </div>
-            <div class="stat-number accent-emerald">2.0B THB</div>
-            <div class="stat-caption">Projected Low-Cost CASA Mobilization (K-Sentinel Vaults)</div>
+            <div class="stat-number accent-emerald">2.0B <span class="stat-unit">THB</span></div>
+            <div class="stat-caption font-mono uppercase text-[11px] tracking-[0.06em]">Projected Low-Cost CASA Deposit Mobilization</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ========================================================================
-         Alternating Domain Showcases: "What I Do"
+         Section: 01 / Capabilities & Technical Architecture
          ======================================================================== -->
-    <!-- ========================================================================
-         Section: "What I Do" Technical Summary Intro
-         ======================================================================== -->
-    <section class="section scroll-mt-20 py-16 lg:py-20" id="what-i-do">
+    <section class="section scroll-mt-20 py-16 lg:py-24" id="what-i-do">
       <div class="max-w-6xl lg:max-w-7xl mx-auto px-6 lg:px-12">
-        <div class="section-header center mx-auto text-center" style="max-width: 840px; margin-bottom: 0;">
-          <div class="section-eyebrow tracking-[0.15em]">Technical Capabilities &bull; Core Disciplines</div>
-          <h2 class="section-title text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-[0.02em] leading-relaxed mb-4">What I Do</h2>
-          <p class="section-subtitle tracking-[0.01em] leading-[1.8]">
-            Uniting rigorous statistical risk modeling, state-of-the-art tree ensembles, relational graph intelligence, and production software reliability.
+        <div class="mb-12 lg:mb-16">
+          <div class="editorial-number-tag">
+            <span class="editorial-num">01 / Capabilities</span>
+            <span class="editorial-cat">Core Specialization</span>
+          </div>
+          <h2 class="editorial-h2 max-w-2xl">
+            Precision quantitative modeling and production-scale machine learning systems.
+          </h2>
+          <p class="text-base text-slate-600 dark:text-zinc-400 leading-relaxed max-w-xl">
+            Combining rigorous statistical theory with high-performance low-latency execution.
           </p>
         </div>
+
+        <!-- High-Precision Engineering Architecture: 3 Alternating Vertical Rows -->
+        <div class="cap-alternating-stack">
+
+          <!-- Row 1: Machine Learning & Graph Intelligence (Left: Primary, Right: Telemetry) -->
+          <div class="cap-alternating-row card-domain-ml group" data-domain="ml">
+            <!-- Left: Primary Console Card -->
+            <div class="cap-primary-card scroll-anim anim-split-left lg:col-span-6 lg:order-1 order-1" tabindex="0" role="region" aria-label="Machine Learning Capabilities Console">
+              <div class="cap-header-meta">
+                <span class="cap-domain-code">01 // Tabular &amp; Graph ML</span>
+                <span class="cap-metric-tag">[ SLA &lt; 12MS ]</span>
+              </div>
+
+              <div class="capability-icon-box bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400">
+                <i class="fas fa-brain text-2xl"></i>
+              </div>
+
+              <h3 class="editorial-h3 mb-2">
+                Data Science &amp; Machine Learning
+              </h3>
+              <p class="text-slate-600 dark:text-zinc-300 text-sm leading-relaxed mb-4">
+                Calibrated tabular modeling with gradient boosted trees (LightGBM, XGBoost, CatBoost) and Relational Graph Convolutional Networks (PyG RGCN) for multi-hop banking fraud detection.
+              </p>
+
+              <!-- Tech Pills with 100% Complete Color Logos -->
+              <div class="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-100 dark:border-zinc-800/80">
+                <span class="tech-pill-sm"><i class="devicon-python-plain colored"></i> Python</span>
+                <span class="tech-pill-sm"><i class="devicon-pytorch-original colored"></i> PyTorch</span>
+                <span class="tech-pill-sm"><i class="fas fa-network-wired" style="color: #0284C7;"></i> LightGBM</span>
+                <span class="tech-pill-sm"><i class="fas fa-bolt" style="color: #FF9900;"></i> XGBoost</span>
+                <span class="tech-pill-sm"><i class="fas fa-microchip" style="color: #005CED;"></i> ONNX</span>
+              </div>
+            </div>
+
+            <!-- Right: Telemetry & Architecture Specifications -->
+            <div class="cap-opposite-panel scroll-anim anim-split-right lg:col-span-6 lg:order-2 order-2">
+              <div>
+                <div class="cap-header-meta mb-3">
+                  <span class="cap-domain-code">System Telemetry // ML_Core</span>
+                  <span class="cap-metric-tag">[ P99 BENCHMARK ]</span>
+                </div>
+
+                <!-- Micro-Telemetry Console Box -->
+                <div class="cap-telemetry-console">
+                  <div class="cap-telemetry-row">
+                    <span class="cap-telemetry-label">INFERENCE SLA (P99)</span>
+                    <span class="cap-telemetry-val">11.4 ms <span class="cap-telemetry-sub">(ONNX C++)</span></span>
+                  </div>
+                  <div class="cap-bench-track">
+                    <div class="cap-bench-fill" style="width: 86%;"></div>
+                  </div>
+                  <div class="cap-telemetry-grid">
+                    <div>
+                      <span class="cap-meta-k">ROC-AUC</span>
+                      <span class="cap-meta-v">0.892</span>
+                    </div>
+                    <div>
+                      <span class="cap-meta-k">GINI</span>
+                      <span class="cap-meta-v">0.784</span>
+                    </div>
+                    <div>
+                      <span class="cap-meta-k">CALIBRATION</span>
+                      <span class="cap-meta-v">ISOTONIC</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cap-spec-title">
+                  <span>Core Deliverables</span>
+                  <i class="fas fa-terminal text-[10px]"></i>
+                </div>
+                <ul class="cap-spec-list">
+                  <li>
+                    <span class="cap-spec-marker">↳</span>
+                    <span><strong>Model Calibration:</strong> Platt &amp; Isotonic scaling reducing Brier score by 18%.</span>
+                  </li>
+                  <li>
+                    <span class="cap-spec-marker">↳</span>
+                    <span><strong>Graph Embeddings:</strong> 2-hop RGCN across 40K+ debtor and co-guarantor nodes.</span>
+                  </li>
+                  <li>
+                    <span class="cap-spec-marker">↳</span>
+                    <span><strong>Zero-Copy Core:</strong> Multithreaded ONNX Runtime C++ engine for low-latency scoring.</span>
+                  </li>
+                </ul>
+              </div>
+              <a href="projects.html#graph-fraud-detection" class="cap-case-link">
+                <span>Explore Fraud Engine Case Study</span>
+                <i class="fas fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Row 2: Credit Risk & Explainable AI (Left: Primary, Right: Telemetry) -->
+          <div class="cap-alternating-row card-domain-risk group" data-domain="risk">
+            <!-- Left: Primary Console Card -->
+            <div class="cap-primary-card scroll-anim anim-split-left lg:col-span-6 lg:order-1 order-1" tabindex="0" role="region" aria-label="Credit Risk Capabilities Console">
+              <div class="cap-header-meta">
+                <span class="cap-domain-code">02 // Regulatory XAI &amp; Risk</span>
+                <span class="cap-metric-tag">[ BASEL III / IV ]</span>
+              </div>
+
+              <div class="capability-icon-box bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400">
+                <i class="fas fa-shield-halved text-2xl"></i>
+              </div>
+
+              <h3 class="editorial-h3 mb-2">
+                Credit Risk &amp; Explainable AI
+              </h3>
+              <p class="text-slate-600 dark:text-zinc-300 text-sm leading-relaxed mb-4">
+                Basel III/IV compliant Probability of Default (PD) scorecards, strict monotonic trend binning, localized TreeSHAP waterfall attributions, and DiCE actionable counterfactual recourse.
+              </p>
+
+              <!-- Tech Pills with 100% Complete Color Logos -->
+              <div class="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-100 dark:border-zinc-800/80">
+                <span class="tech-pill-sm"><i class="fas fa-sitemap" style="color: #2563EB;"></i> TreeSHAP</span>
+                <span class="tech-pill-sm"><i class="fas fa-chart-line" style="color: #10B981;"></i> OptBinning</span>
+                <span class="tech-pill-sm"><i class="fas fa-shuffle" style="color: #8B5CF6;"></i> DiCE</span>
+                <span class="tech-pill-sm"><i class="fas fa-shield-halved" style="color: #3B82F6;"></i> Basel Risk</span>
+                <span class="tech-pill-sm"><i class="devicon-scikitlearn-plain colored"></i> Scikit-learn</span>
+              </div>
+            </div>
+
+            <!-- Right: Telemetry & Regulatory Specifications -->
+            <div class="cap-opposite-panel scroll-anim anim-split-right lg:col-span-6 lg:order-2 order-2">
+              <div>
+                <div class="cap-header-meta mb-3">
+                  <span class="cap-domain-code">Regulatory Telemetry // Risk_XAI</span>
+                  <span class="cap-metric-tag">[ AUDIT VERIFIED ]</span>
+                </div>
+
+                <!-- Micro-Telemetry Console Box -->
+                <div class="cap-telemetry-console">
+                  <div class="cap-telemetry-row">
+                    <span class="cap-telemetry-label">POPULATION STABILITY</span>
+                    <span class="cap-telemetry-val text-blue-600 dark:text-blue-400">PSI 0.038 <span class="cap-telemetry-sub">(STABLE)</span></span>
+                  </div>
+                  <div class="cap-shap-bars">
+                    <div class="cap-shap-row">
+                      <span class="cap-shap-feat">Debt-to-Income</span>
+                      <div class="cap-shap-track"><div class="cap-shap-fill-pos" style="width: 68%;"></div></div>
+                      <span class="cap-shap-num text-amber-600 dark:text-amber-400">+0.24</span>
+                    </div>
+                    <div class="cap-shap-row">
+                      <span class="cap-shap-feat">Liquidity Ratio</span>
+                      <div class="cap-shap-track"><div class="cap-shap-fill-neg" style="width: 54%;"></div></div>
+                      <span class="cap-shap-num text-emerald-600 dark:text-emerald-400">-0.19</span>
+                    </div>
+                  </div>
+                  <div class="cap-telemetry-grid">
+                    <div>
+                      <span class="cap-meta-k">FRAMEWORK</span>
+                      <span class="cap-meta-v">TREESHAP</span>
+                    </div>
+                    <div>
+                      <span class="cap-meta-k">AUDIT</span>
+                      <span class="cap-meta-v">BOT COMPLIANT</span>
+                    </div>
+                    <div>
+                      <span class="cap-meta-k">RECOURSE</span>
+                      <span class="cap-meta-v">DICE OPTIM</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cap-spec-title">
+                  <span>Core Deliverables</span>
+                  <i class="fas fa-terminal text-[10px]"></i>
+                </div>
+                <ul class="cap-spec-list">
+                  <li>
+                    <span class="cap-spec-marker">↳</span>
+                    <span><strong>Monotonic Binning:</strong> OptBinning trend enforcement satisfying Bank of Thailand audit.</span>
+                  </li>
+                  <li>
+                    <span class="cap-spec-marker">↳</span>
+                    <span><strong>Local Attribution:</strong> Localized TreeSHAP waterfalls for transparent adverse action notices.</span>
+                  </li>
+                  <li>
+                    <span class="cap-spec-marker">↳</span>
+                    <span><strong>Counterfactual Recourse:</strong> DiCE optimization generating actionable recovery guidance.</span>
+                  </li>
+                </ul>
+              </div>
+              <a href="projects.html#credit-risk-engine" class="cap-case-link">
+                <span>Explore Risk Scorecard Case Study</span>
+                <i class="fas fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Row 3: Data Engineering & Pipelines (Left: Primary, Right: Telemetry) -->
+          <div class="cap-alternating-row card-domain-data group" data-domain="data">
+            <!-- Left: Primary Console Card -->
+            <div class="cap-primary-card scroll-anim anim-split-left lg:col-span-6 lg:order-1 order-1" tabindex="0" role="region" aria-label="Data Engineering Capabilities Console">
+              <div class="cap-header-meta">
+                <span class="cap-domain-code">03 // Streaming Infrastructure</span>
+                <span class="cap-metric-tag">[ 12.5K EV/S ]</span>
+              </div>
+
+              <div class="capability-icon-box bg-teal-50 text-teal-600 dark:bg-teal-950/40 dark:text-teal-400">
+                <i class="fas fa-network-wired text-2xl"></i>
+              </div>
+
+              <h3 class="editorial-h3 mb-2">
+                Data Engineering &amp; Pipelines
+              </h3>
+              <p class="text-slate-600 dark:text-zinc-300 text-sm leading-relaxed mb-4">
+                Hybrid Lambda data architecture with Apache Kafka streaming ingestion, distributed Apache Spark transformations, and sub-second analytical aggregations in ClickHouse columnar storage.
+              </p>
+
+              <!-- Tech Pills with 100% Complete Color Logos -->
+              <div class="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-100 dark:border-zinc-800/80">
+                <span class="tech-pill-sm"><i class="devicon-apachekafka-original colored"></i> Kafka</span>
+                <span class="tech-pill-sm"><i class="devicon-apachespark-original colored"></i> Spark</span>
+                <span class="tech-pill-sm"><i class="fas fa-chart-column" style="color: #EAB308;"></i> ClickHouse</span>
+                <span class="tech-pill-sm"><i class="devicon-docker-plain colored"></i> Docker</span>
+                <span class="tech-pill-sm"><i class="devicon-fastapi-plain colored"></i> FastAPI</span>
+              </div>
+            </div>
+
+            <!-- Right: Telemetry & Pipeline Specifications -->
+            <div class="cap-opposite-panel scroll-anim anim-split-right lg:col-span-6 lg:order-2 order-2">
+              <div>
+                <div class="cap-header-meta mb-3">
+                  <span class="cap-domain-code">Streaming Telemetry // Pipeline</span>
+                  <span class="cap-metric-tag">[ 12,500 EV/S ]</span>
+                </div>
+
+                <!-- Micro-Telemetry Console Box -->
+                <div class="cap-telemetry-console">
+                  <div class="cap-telemetry-row">
+                    <span class="cap-telemetry-label">PIPELINE TOPOLOGY</span>
+                    <span class="cap-telemetry-val text-cyan-600 dark:text-cyan-400">12,500 ev/s</span>
+                  </div>
+                  <div class="cap-topology-flow">
+                    <span class="cap-topo-node">Kafka</span>
+                    <span class="cap-topo-arr">➔</span>
+                    <span class="cap-topo-node">Spark Stream</span>
+                    <span class="cap-topo-arr">➔</span>
+                    <span class="cap-topo-node">ClickHouse</span>
+                  </div>
+                  <div class="cap-telemetry-grid">
+                    <div>
+                      <span class="cap-meta-k">INGESTION P99</span>
+                      <span class="cap-meta-v">&lt; 250ms</span>
+                    </div>
+                    <div>
+                      <span class="cap-meta-k">RUNTIME</span>
+                      <span class="cap-meta-v">FASTAPI / DOCKER</span>
+                    </div>
+                    <div>
+                      <span class="cap-meta-k">STORAGE</span>
+                      <span class="cap-meta-v">COLUMNAR OLAP</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cap-spec-title">
+                  <span>Core Deliverables</span>
+                  <i class="fas fa-terminal text-[10px]"></i>
+                </div>
+                <ul class="cap-spec-list">
+                  <li>
+                    <span class="cap-spec-marker">↳</span>
+                    <span><strong>High-Throughput Buffering:</strong> Partitioned Kafka topics with idempotent consumer groups.</span>
+                  </li>
+                  <li>
+                    <span class="cap-spec-marker">↳</span>
+                    <span><strong>Columnar Analytics:</strong> ClickHouse partitioning delivering 10x faster aggregation.</span>
+                  </li>
+                  <li>
+                    <span class="cap-spec-marker">↳</span>
+                    <span><strong>Containerized Services:</strong> Microservices orchestrated via FastAPI with deterministic Docker builds.</span>
+                  </li>
+                </ul>
+              </div>
+              <a href="projects.html" class="cap-case-link">
+                <span>Explore Data Pipeline Architecture</span>
+                <i class="fas fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
     <!-- ========================================================================
-         Capability 1: Data Science & Machine Learning (Visual Left, Content Right)
+         Section: 02 / Interactive Technical Stack & Tooling
          ======================================================================== -->
-    <section id="data-science" class="section scroll-mt-20 mt-20 pt-12 py-20 lg:py-28">
+    <section class="section tech-stack-section scroll-mt-20 py-16 lg:py-24 border-t border-border" id="tech-stack">
       <div class="max-w-6xl lg:max-w-7xl mx-auto px-6 lg:px-12">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center domain-row">
-          <div class="lg:col-span-6 w-full flex justify-center items-center domain-visual">
-            <img src="assets/svg/ds-ml.svg" alt="Model Calibration &amp; ROC-AUC Topology" width="500" height="400" class="w-full h-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+          <div>
+            <div class="editorial-number-tag">
+              <span class="editorial-num">02 / Tech Stack</span>
+              <span class="editorial-cat">Production Tooling &amp; Frameworks</span>
+            </div>
+            <h2 class="editorial-h2 max-w-2xl">
+              Engineered with proven, high-performance technologies.
+            </h2>
+            <p class="text-base text-slate-600 dark:text-zinc-400 leading-relaxed max-w-xl mb-0">
+              Hover over any framework or tool to inspect its exact role in production pipelines and live systems.
+            </p>
           </div>
-          <div class="lg:col-span-6 w-full domain-content">
-            <div class="domain-eyebrow tracking-[0.15em]">Deep Learning &bull; Graph Intelligence</div>
-            <h3 class="domain-title text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-[0.02em] leading-relaxed mb-4">Data Science &amp; Machine Learning</h3>
-              
-              <!-- Official Full-Color Tech Badges -->
-              <div class="tech-logo-row">
-                <!-- Python: Real 2-color blue & yellow Python snake SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 128 128" fill="none">
-                    <defs>
-                      <linearGradient id="py-blue" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#387EB8"/>
-                        <stop offset="100%" stop-color="#366994"/>
-                      </linearGradient>
-                      <linearGradient id="py-yellow" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#FFE873"/>
-                        <stop offset="100%" stop-color="#FFD43B"/>
-                      </linearGradient>
-                    </defs>
-                    <path fill="url(#py-blue)" d="M63.39 12.25c-4.22.02-8.25.38-11.8 1.01-10.45 1.84-12.35 5.7-12.35 12.83v9.41h24.7v3.14H29.98c-7.18 0-13.46 4.31-15.43 12.52-2.27 9.4-2.37 15.27 0 25.1 1.76 7.3 5.95 12.51 13.12 12.51h8.49V77.5c0-8.16 7.05-15.34 15.43-15.34h24.66c6.87 0 12.35-5.66 12.35-12.55V26.1c0-6.7-5.65-11.72-12.35-12.84-4.24-.7-8.64-1.02-12.86-1zM50.04 19.82a4.69 4.69 0 110 9.38 4.69 4.69 0 010-9.38z"/>
-                    <path fill="url(#py-yellow)" d="M91.68 38.64v10.97c0 8.5-7.2 15.65-15.42 15.65H51.6c-6.76 0-12.35 5.79-12.35 12.55v23.52c0 6.69 5.82 10.63 12.35 12.55 7.81 2.3 15.31 2.71 24.66 0 6.22-1.8 12.35-5.42 12.35-12.55v-9.41H63.94v-3.14h37.01c7.18 0 9.85-5 12.35-12.52 2.58-7.73 2.47-15.17 0-25.1-1.77-7.14-5.16-12.52-12.35-12.52h-9.27zM77.8 98.19a4.69 4.69 0 110 9.38 4.69 4.69 0 010-9.38z"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">Python</span>
-                </span>
+        </div>
 
-                <!-- PyTorch: Real PyTorch red flame + dot SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 128 128" fill="none">
-                    <path fill="#EE4C2C" d="M100.1 38.3l-9.2 9.2c15.1 15.1 15.1 39.4 0 54.3-15.1 15.1-39.4 15.1-54.3 0-15.1-15.1-15.1-39.4 0-54.3l24-24 3.4-3.4V2L27.8 38.2C7.7 58.3 7.7 90.8 27.8 111s52.6 20.1 72.4 0c20.1-20.2 20.1-52.5-.1-72.7z"/>
-                    <circle fill="#EE4C2C" cx="82.1" cy="29.4" r="6.7"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">PyTorch</span>
-                </span>
+        <!-- Category Filter Tabs (Swiss Sharp Design) -->
+        <div class="tech-category-tabs" role="tablist" aria-label="Tech Stack Categories">
+          <button type="button" class="tech-filter-tab is-active" data-filter="all" role="tab" aria-selected="true">
+            <span>All Technologies</span>
+            <span class="tech-tab-count">(23)</span>
+          </button>
+          <button type="button" class="tech-filter-tab" data-filter="cat-ml" role="tab" aria-selected="false">
+            <span>Machine Learning &amp; AI</span>
+            <span class="tech-tab-count">(7)</span>
+          </button>
+          <button type="button" class="tech-filter-tab" data-filter="cat-data" role="tab" aria-selected="false">
+            <span>Data &amp; Graph Systems</span>
+            <span class="tech-tab-count">(6)</span>
+          </button>
+          <button type="button" class="tech-filter-tab" data-filter="cat-backend" role="tab" aria-selected="false">
+            <span>Backend &amp; Cloud</span>
+            <span class="tech-tab-count">(5)</span>
+          </button>
+          <button type="button" class="tech-filter-tab" data-filter="cat-risk" role="tab" aria-selected="false">
+            <span>Risk &amp; Explainability</span>
+            <span class="tech-tab-count">(5)</span>
+          </button>
+        </div>
 
-                <!-- LightGBM: Official Microsoft / LightGBM 4-color tree-chart logo -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 630 1050" fill="none">
-                    <polygon fill="#EF4927" points="630,0 0,0 0,403"/>
-                    <polygon fill="#76B644" points="262,431 630,193 630,503"/>
-                    <polygon fill="#1B9AD7" points="368,619 0,857 0,547"/>
-                    <polygon fill="#FCB518" points="0,1048 630,1048 630,645"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">LightGBM</span>
-                </span>
-
-                <!-- ONNX Runtime: Official ONNX silver/blue cube SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path fill="#005CED" d="M23.03 11.3c-.05 0-.1 0-.15.01l-4.02-7.44c.08-.14.11-.29.11-.45 0-.54-.44-.97-.97-.97-.27 0-.52.11-.7.3L9.29 1.16C9.24.68 8.82.3 8.32.3c-.53 0-.97.44-.97.97 0 .16.04.31.11.45L1.22 10.68c-.08-.03-.17-.04-.26-.04-.54 0-.97.44-.97.97 0 .54.44.97.97.97h.04l3.37 8.33c-.05.13-.09.26-.09.4 0 .54.44.97.97.97.28 0 .53-.11.7-.3l10.12.99c.1.43.49.73.94.73.54 0 .97-.44.97-.97 0-.24-.09-.47-.23-.63l5.11-8.87c.05.01.1.01.16.01.54 0 .97-.44.97-.97 0-.54-.43-.98-.97-.98zM17.23 4.02c.11.15.27.26.45.33l-1.53 11.57c-.1.03-.19.05-.28.1L7.45 8.71c.03-.08.04-.16.04-.25 0-.06-.01-.13-.01-.19zm4.88 8.51l-5.18 3.55a1.1 1.1 0 00-.13-.07L18.35 4.33h.01l3.95 7.29c-.15.18-.24.39-.24.64 0 .1.01.19.04.26zM6.38 7.5c-.46.08-.83.48-.83.96v.06L2.1 10.57 7.47 2.87zm.35 1.91c.13-.02.26-.09.36-.16l8.35 7.26c-.03.11-.06.23-.06.35v.05l-9.31 3.85c-.14-.2-.35-.35-.6-.4zm8.9 8.12c.13.14.3.25.5.29l.47 4.05c-.2.1-.36.26-.46.45l-9.81-.96zm1.14.21c.33-.16.54-.49.54-.87 0-.09-.01-.16-.04-.25l4.74-3.25-4.8 8.33zm.25-14.35l-9.89 4.31-.11-.08 1.25-5.39h.04c.34 0 .64-.17.82-.44l7.89 1.57zM1.94 11.61c0-.06-.02-.13-.02-.19l3.91-2.3c.08.08.17.15.27.2L4.83 20.24l-3.2-7.9c.18-.17.31-.44.31-.73z"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">ONNX Runtime</span>
-                </span>
-
-                <!-- Optuna: Official blue gear/target logo -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path fill="#00A3E0" d="M11.93 10.02c-1.33.32-2.29 1.5-2.09 2.56.28 1.54 2.73 1.89 4.09.59.49-.47.7-.89.7-1.43.02-1.25-1.27-2.06-2.7-1.72zm.84 1.29c.5.43.06 1.45-.62 1.45-.47 0-.71-.24-.71-.72 0-.72.83-1.2 1.33-.73zm-2.32-4.5a6.41 6.41 0 00-4.37 3.84 4.7 4.7 0 00.17 3.32 6.87 6.87 0 002.21 2.47 7.74 7.74 0 003.15 1.1c3.79.35 7.08-3.08 6.35-6.61a5.47 5.47 0 00-4.08-4.13c-.79-.2-2.63-.2-3.43.01zm3.49 1.77a3.5 3.5 0 012.2 2.15c.08.26.12.74.09 1.26a3.06 3.06 0 01-.42 1.52 4.75 4.75 0 01-2.05 1.96c-.57.27-.74.3-1.83.3-1.07 0-1.27-.03-1.83-.3-1.88-.87-2.7-2.78-1.92-4.48a4.8 4.8 0 015.76-2.41zm-3.64-4.84a9.66 9.66 0 00-2.91 1.05c-1.86.96-3.34 2.41-4.17 4.1a6.17 6.17 0 00-.73 3.5c.1 2.06.79 3.51 2.48 5.19 1.43 1.4 2.83 2.19 4.92 2.76 1.2.33 3.44.32 4.67-.01a9.35 9.35 0 006.68-6.58c.25-.96.26-2.87.01-3.83a8.6 8.6 0 00-6.04-5.97 8.19 8.19 0 00-2.57-.33c-1.08-.02-1.83.01-2.34.12zm4.07 1.21a6.67 6.67 0 013.25 1.96 6.02 6.02 0 012.03 4.77c.04 4.28-3.32 7.54-7.77 7.56-1.86 0-3.29-.45-4.66-1.46A6.53 6.53 0 015.1 9.59c1.7-3.61 5.63-5.58 9.27-4.64zM11.38.57c-3.41.5-6.02 1.8-8.15 4.05A11.74 11.74 0 00.3 9.8a8.58 8.58 0 00-.29 2.69c0 1.37.04 1.8.24 2.57a12.5 12.5 0 002.14 4.16 12.47 12.47 0 0011.3 4.1 12.21 12.21 0 009.09-6.9 10.97 10.97 0 001.2-4.91c.05-1.26.02-1.72-.16-2.58a9.33 9.33 0 00-2.75-5.15A10.72 10.72 0 0015.67.83c-.88-.22-3.49-.38-4.29-.26zm3.86 1.84a9.85 9.85 0 017.32 6.85 12.25 12.25 0 010 4.46 11.3 11.3 0 01-8.06 7.88 8.38 8.38 0 01-2.74.27 8.42 8.42 0 01-2.54-.23 10.9 10.9 0 01-7.48-7.3 7 7 0 01-.3-2.46c-.02-1.24.03-1.62.23-2.34 1.07-3.66 4.14-6.3 8.4-7.19a17.07 17.07 0 015.17.06z"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">Optuna</span>
-                </span>
-
-                <!-- Redis: Official stacked red cube SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 128 128" fill="none">
-                    <path fill="#A41E11" d="M121.8 93.1c-6.7 3.5-41.4 17.7-48.8 21.6-7.4 3.9-11.5 3.8-17.3 1S13 98.1 6.3 94.9c-3.3-1.6-5-2.9-5-4.2V78s48-10.5 55.8-13.2c7.8-2.8 10.4-2.9 17-.5s46.1 9.5 52.6 11.9v12.5c0 1.3-1.5 2.7-4.9 4.4z"/>
-                    <path fill="#D82C20" d="M121.8 80.5C115.1 84 80.4 98.2 73 102.1c-7.4 3.9-11.5 3.8-17.3 1-5.8-2.8-42.7-17.7-49.4-20.9C-.3 79-.5 76.8 6 74.3c6.5-2.6 43.2-17 51-19.7 7.8-2.8 10.4-2.9 17-.5s41.1 16.1 47.6 18.5c6.7 2.4 6.9 4.4.2 7.9z"/>
-                    <path fill="#A41E11" d="M121.8 72.5C115.1 76 80.4 90.2 73 94.1c-7.4 3.8-11.5 3.8-17.3 1-5.8-2.8-42.7-17.7-49.4-20.9C-.3 71-.5 68.8 6 66.3c6.5-2.6 43.2-17 51-19.7 7.8-2.8 10.4-2.9 17-.5s41.1 16.1 47.6 18.5c6.7 2.4 6.9 4.4.2 7.9z"/>
-                    <path fill="#D82C20" d="M121.8 59.9c-6.7 3.5-41.4 17.7-48.8 21.6-7.4 3.9-11.5 3.8-17.3 1S13 64.9 6.3 61.7c-7-3.4-7.2-5.6-.7-8.1 6.5-2.6 43.2-17 51-19.7 7.8-2.8 10.4-2.9 17-.5s41.1 16.1 47.6 18.5c6.7 2.4 6.9 4.5.2 8z"/>
-                    <path fill="#A41E11" d="M121.8 51.9c-6.7 3.5-41.4 17.7-48.8 21.6-7.4 3.9-11.5 3.8-17.3 1S13 56.9 6.3 53.7c-7-3.4-7.2-5.6-.7-8.1 6.5-2.6 43.2-17 51-19.7 7.8-2.8 10.4-2.9 17-.5s41.1 16.1 47.6 18.5c6.7 2.4 6.9 4.5.2 8z"/>
-                    <path fill="#D82C20" d="M121.8 39.3c-6.7 3.5-41.4 17.7-48.8 21.6-7.4 3.9-11.5 3.8-17.3 1S13 44.3 6.3 41.1c-7-3.4-7.2-5.6-.7-8.1 6.5-2.6 43.2-17 51-19.7 7.8-2.8 10.4-2.9 17-.5s41.1 16.1 47.6 18.5c6.7 2.4 6.9 4.5.2 8z"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">Redis</span>
-                </span>
+        <!-- Tech Cards Grid -->
+        <div class="tech-stack-grid" id="tech-stack-grid">
+          <!-- ML Category -->
+          <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #3776AB; --brand-glow: rgba(55, 118, 171, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-python-plain colored"></i>
               </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Python</span>
+                <span class="tech-card-tag">Core Language</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Primary language for statistical modeling, PyTorch graph neural networks, and asynchronous microservices.</p>
+              </div>
+            </div>
+          </div>
 
-              <ul class="domain-bullets">
-                <li class="domain-bullet-item">
-                  <span class="bullet-dot"></span>
-                  <p>Architecting <strong>Relational Graph Neural Networks (PyTorch Geometric)</strong> to encode multi-hop mule account topologies and detect coordinated fraud patterns in real-time.</p>
-                </li>
-                <li class="domain-bullet-item">
-                  <span class="bullet-dot"></span>
-                  <p>Developing calibrated tabular models with <strong>LightGBM, XGBoost, and CatBoost</strong> ensembles tuned through 5-Fold Stratified Bayesian search.</p>
-                </li>
-                <li class="domain-bullet-item">
-                  <span class="bullet-dot"></span>
-                  <p>Optimizing ultra-low latency model serving via <strong>ONNX Runtime v1.30</strong>, consistently achieving an <strong>11.62ms P99 inference SLA</strong> under high-concurrency loads.</p>
-                </li>
-              </ul>
+          <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #EE4C2C; --brand-glow: rgba(238, 76, 44, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-pytorch-original colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">PyTorch</span>
+                <span class="tech-card-tag">Deep Learning</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Constructs Two-Tier Relational Graph Convolutional Networks (RGCN) for multi-hop banking fraud detection.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #0284C7; --brand-glow: rgba(2, 132, 199, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-tree" style="color: #0284C7;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">LightGBM</span>
+                <span class="tech-card-tag">Gradient Boosting</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Primary gradient boosting engine for calibrated debtor default risk scorecards achieving 0.894 ROC-AUC.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #FF9900; --brand-glow: rgba(255, 153, 0, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-bolt" style="color: #FF9900;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">XGBoost</span>
+                <span class="tech-card-tag">Tree Ensembles</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Scalable tree boosting for complex non-linear classification and multi-class transaction risk scoring.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #F7931E; --brand-glow: rgba(247, 147, 30, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-scikitlearn-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Scikit-Learn</span>
+                <span class="tech-card-tag">Classical ML</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Foundational toolkit for monotonic feature transformations, pipeline orchestration, and cross-validation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #005CED; --brand-glow: rgba(0, 92, 237, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-microchip" style="color: #005CED;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">ONNX Runtime</span>
+                <span class="tech-card-tag">Inference Engine</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Hardware-optimized C++ execution graph delivering sub-11.62ms P99 fraud scoring under banking SLA requirements.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #150458; --brand-glow: rgba(59, 130, 246, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-pandas-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Pandas &amp; NumPy</span>
+                <span class="tech-card-tag">Tensor Computing</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">High-throughput vectorized operations, memory-efficient dataframes, and quantitative cohort calculations.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data & Graph Category -->
+          <div class="tech-stack-card" data-category="cat-data" style="--brand-color: #008CC1; --brand-glow: rgba(0, 140, 193, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-neo4j-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Neo4j</span>
+                <span class="tech-card-tag">Graph Database</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Native graph database indexing 40K+ debtor and co-guarantor relationships for real-time risk contagion analysis.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-data" style="--brand-color: #E0234E; --brand-glow: rgba(224, 35, 78, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-apachekafka-original colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Apache Kafka</span>
+                <span class="tech-card-tag">Event Streaming</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Distributed commit log streaming 12,000+ sensor and transaction events per second with zero data loss.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-data" style="--brand-color: #E25A1C; --brand-glow: rgba(226, 90, 28, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-apachespark-original colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Apache Spark</span>
+                <span class="tech-card-tag">Distributed Compute</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Distributed cluster framework for large-scale debtor feature extraction and batch temporal aggregation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-data" style="--brand-color: #336791; --brand-glow: rgba(51, 103, 145, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-postgresql-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">PostgreSQL</span>
+                <span class="tech-card-tag">Relational Database</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">ACID relational database executing idempotent upserts and immutable audit trails for financial transactions.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-data" style="--brand-color: #EAB308; --brand-glow: rgba(234, 179, 8, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-chart-column" style="color: #EAB308;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">ClickHouse</span>
+                <span class="tech-card-tag">Columnar OLAP</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Ultra-fast columnar analytics powering real-time historical queries across millions of sensor telemetry logs.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-data" style="--brand-color: #DC382D; --brand-glow: rgba(220, 56, 45, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-redis-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Redis</span>
+                <span class="tech-card-tag">In-Memory Cache</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Low-latency memory store for O(1) graph embedding lookups, rate-limiting, and distributed state caching.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend & Cloud Category -->
+          <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #009688; --brand-glow: rgba(0, 150, 136, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-fastapi-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">FastAPI</span>
+                <span class="tech-card-tag">Async Microservice</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Modern asynchronous Python REST framework delivering sub-11.62ms inference SLAs with automated OpenAPI contracts.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #0DB7ED; --brand-glow: rgba(13, 183, 237, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-docker-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Docker</span>
+                <span class="tech-card-tag">Containerization</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Containerized production microservices ensuring deterministic runtime, process isolation, and smooth CI/CD rollout.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #F59E0B; --brand-glow: rgba(245, 158, 11, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-linux-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Linux &amp; Bash</span>
+                <span class="tech-card-tag">POSIX Environment</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Production server administration, shell automation scripts, systemd daemons, and system telemetry profiling.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #F05032; --brand-glow: rgba(240, 80, 50, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-git-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Git &amp; GitHub</span>
+                <span class="tech-card-tag">Version Control</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Git-flow branching conventions, automated GitHub Actions CI/CD pipelines, and multi-environment deployments.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #00599C; --brand-glow: rgba(0, 89, 156, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-cplusplus-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">C++</span>
+                <span class="tech-card-tag">Systems &amp; Math</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Performance-critical computational kernels and embedded firmware architectures designed for zero latency overhead.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Risk & Explainability Category -->
+          <div class="tech-stack-card" data-category="cat-risk" style="--brand-color: #2563EB; --brand-glow: rgba(37, 99, 235, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-sitemap" style="color: #2563EB;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">TreeSHAP</span>
+                <span class="tech-card-tag">Model Attribution</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Exact Shapley feature attributions satisfying Basel III/IV transparency and regulatory adverse action mandates.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-risk" style="--brand-color: #10B981; --brand-glow: rgba(16, 185, 129, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-chart-line" style="color: #10B981;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">OptBinning</span>
+                <span class="tech-card-tag">Scorecard Binning</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Monotonic Weight of Evidence (WoE) transformation and Information Value (IV) optimization for credit scoring.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-risk" style="--brand-color: #8B5CF6; --brand-glow: rgba(139, 92, 246, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-shuffle" style="color: #8B5CF6;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">DiCE Recourse</span>
+                <span class="tech-card-tag">Counterfactual XAI</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Generates minimum-cost actionable recourse paths showing rejected debtors exact steps required to obtain approval.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-risk" style="--brand-color: #0284C7; --brand-glow: rgba(2, 132, 199, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-sliders" style="color: #0284C7;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Optuna</span>
+                <span class="tech-card-tag">Bayesian Tuning</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Bayesian hyperparameter optimization with median pruning across 5-fold stratified financial debtor splits.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-risk" style="--brand-color: #0194E2; --brand-glow: rgba(1, 148, 226, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-diagram-project" style="color: #0194E2;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">MLflow</span>
+                <span class="tech-card-tag">Model Registry</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Experiment metric tracking, artifact versioning, and unified model registry powering production staging.</p>
+              </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- ========================================================================
-           Capability 2: Quantitative Credit Risk & Explainable AI (Content Left, Visual Right)
-           ======================================================================== -->
-      <section id="credit-risk" class="section scroll-mt-20 py-20 lg:py-28">
-        <div class="max-w-6xl lg:max-w-7xl mx-auto px-6 lg:px-12">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center domain-row reverse">
-            <!-- Left Column (Text & Badges): lg:col-span-6 w-full -->
-            <div class="lg:col-span-6 w-full domain-content">
-              <div class="domain-eyebrow tracking-[0.15em]">Basel II/III &bull; Regulatory Governance</div>
-              <h3 class="domain-title text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-[0.02em] leading-relaxed mb-4">Quantitative Credit Risk &amp; Explainable AI</h3>
-
-              <!-- Official Full-Color Tech Badges -->
-              <div class="tech-logo-row">
-                <!-- TreeSHAP: Official TreeSHAP Attribution SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M4 6h16M4 12h10M4 18h6" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>
-                    <circle cx="18" cy="15" r="3.5" fill="#10B981"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">TreeSHAP</span>
-                </span>
-
-                <!-- OptBinning: Monotonic WoE Binning Chart SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <rect x="3" y="4" width="18" height="16" rx="3" stroke="#4F46E5" stroke-width="2.2"/>
-                    <path d="M7 14l3-3 4 4 4-5" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">OptBinning</span>
-                </span>
-
-                <!-- DiCE Recourse: Counterfactual Action SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5" stroke="#F43F5E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">DiCE Recourse</span>
-                </span>
-
-                <!-- Scikit-Learn: Official Venn Circles SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 128 128" fill="none">
-                    <path fill="#F89939" d="M48.5 24C28.9 24 13 39.9 13 59.5s15.9 35.5 35.5 35.5 35.5-15.9 35.5-35.5S68.1 24 48.5 24z"/>
-                    <path fill="#3499CD" d="M79.5 33C60 33 44 48.9 44 68.5s16 35.5 35.5 35.5 35.5-15.9 35.5-35.5S99 33 79.5 33z"/>
-                    <path fill="#18679A" d="M64 47.3c-4.8 5.7-7.7 13-7.7 21.2 0 8.1 2.9 15.4 7.7 21.2 4.8-5.7 7.7-13 7.7-21.2 0-8.1-2.9-15.4-7.7-21.2z"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">Scikit-Learn</span>
-                </span>
-
-                <!-- Basel II/III: Official Regulatory Governance Shield SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 3l8 4.5v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10v-5L12 3z" fill="#2563EB" opacity="0.15"/>
-                    <path d="M12 3l8 4.5v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10v-5L12 3z" stroke="#2563EB" stroke-width="2.2" stroke-linejoin="round"/>
-                    <path d="M9 12l2 2 4-4" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">Basel II/III</span>
-                </span>
-
-                <!-- FastAPI: Official teal square with white lightning bolt SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path fill="#05998B" d="M12 .04C5.37.04 0 5.39 0 12s5.37 11.96 12 11.96 12-5.35 12-11.96S18.63.04 12 .04zm-.83 5.42h7.55l-7.58 5.32h5.18L5.28 18.54q2.95-6.54 5.89-13.08z"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">FastAPI</span>
-                </span>
-              </div>
-
-              <ul class="domain-bullets">
-                <li class="domain-bullet-item">
-                  <span class="bullet-dot"></span>
-                  <p>Constructing <strong>Basel-compliant Probability of Default (PD)</strong> scorecards using monotonic Weight of Evidence (WoE) and Information Value (IV) screening.</p>
-                </li>
-                <li class="domain-bullet-item">
-                  <span class="bullet-dot"></span>
-                  <p>Decomposing non-linear decision boundaries with exact instance-level <strong>TreeSHAP Shapley values</strong> to generate auditable, legally defensible ECOA/FCRA Adverse Action notices.</p>
-                </li>
-                <li class="domain-bullet-item">
-                  <span class="bullet-dot"></span>
-                  <p>Formulating <strong>asymmetric cost-matrix threshold optimization</strong> balancing unrecovered default principal losses against lost customer margins under severe 1:12 class imbalance.</p>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Right Column (TreeSHAP Mockup): lg:col-span-6 w-full flex justify-center items-center -->
-            <div class="lg:col-span-6 w-full flex justify-center items-center domain-visual">
-              <img src="assets/svg/risk-xai.svg" alt="TreeSHAP Waterfall Attribution &amp; Basel II/III Risk Recourse" width="500" height="400" class="w-full h-auto">
-            </div>
+        <!-- Sleek High-Contrast Bottom CTA Banner -->
+        <div class="bottom-cta-banner scroll-anim anim-banner-lift mt-20">
+          <div class="bottom-cta-content">
+            <div class="font-mono text-[11px] tracking-[0.08em] uppercase text-emerald-400 mb-2">Verified Architectures</div>
+            <h3 class="bottom-cta-title text-2xl lg:text-3xl font-medium tracking-[-0.03em] leading-snug">Ready to inspect end-to-end architectures?</h3>
+            <p class="bottom-cta-desc text-sm leading-[1.7] opacity-80 mt-2">
+              Explore source code, latency benchmarks, and mathematical specifications across all 5 production-grade engineering case studies.
+            </p>
           </div>
+          <a href="projects.html" class="primary-cta">
+            <span>Explore Case Studies &rarr;</span>
+          </a>
         </div>
-      </section>
-
-      <!-- ========================================================================
-           Capability 3: Production ML Systems & Streaming Telemetry (Visual Left, Content Right)
-           ======================================================================== -->
-      <section id="engineering" class="section scroll-mt-20 py-20 lg:py-28">
-        <div class="max-w-6xl lg:max-w-7xl mx-auto px-6 lg:px-12">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center domain-row">
-            <!-- Left Column: Data Engineering Mockup Card (lg:col-span-6) -->
-            <div class="lg:col-span-6 w-full flex justify-center items-center domain-visual">
-              <img src="assets/svg/data-eng.svg" alt="Edge Telemetry &amp; PostgreSQL 15 Data Mart Architecture" width="500" height="400" class="w-full h-auto">
-            </div>
-
-            <!-- Right Column: Text & Badges (lg:col-span-6) -->
-            <div class="lg:col-span-6 w-full domain-content">
-              <div class="domain-eyebrow tracking-[0.15em]">Hybrid Lambda &bull; Containerized Infrastructure</div>
-              <h3 class="domain-title text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-[0.02em] leading-relaxed mb-4">Production ML Systems &amp; Data Engineering</h3>
-
-              <!-- Official Full-Color Tech Badges -->
-              <div class="tech-logo-row">
-                <!-- PostgreSQL: Official blue elephant (Slonik) SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path fill="#336791" d="M23.56 14.72a.53.53 0 00-.06-.12c-.14-.26-.47-.34-1-.23-1.66.34-2.3.13-2.53-.02 1.34-2.05 2.44-4.52 3.04-6.83.27-1.05.8-3.52.12-4.73a1.56 1.56 0 00-.15-.24C21.69.91 19.8.02 17.51 0c-1.5-.02-2.77.35-3.12.48a9.45 9.45 0 00-.51-.08 8.04 8.04 0 00-1.31-.13c-1.19-.02-2.2.26-3.05.84-.86-.32-4.79-1.64-7.23.08C.94 2.15.31 3.87.43 6.3c.04.82.5 3.34 1.24 5.75.46 1.5.94 2.7 1.43 3.58.56 1 1.13 1.6 1.72 1.79.44.15 1.13.14 1.85-.73.8-.96 1.6-1.82 1.95-2.2.43.23.9.36 1.39.37l.0-.0a11.03 11.03 0 00-.25.3c-.34.44-.4.53-1.5.75-.31.06-1.13.23-1.15.81 0 .12.04.23.1.33.22.42.92.61 1.01.63 1.33.33 2.5.1 3.37-.68-.02 2.23.08 4.42.35 5.09.22.55.76 1.9 2.47 1.9.25 0 .52-.03.83-.09 1.78-.38 2.55-1.17 2.85-2.9.15-.88.4-2.88.54-4.11.02-.07.04-.12.06-.13l.43.03.04.01.26.02h.01c.85.04 1.91-.14 2.53-.43.65-.3 1.8-1.03 1.6-1.67zM2.37 11.88c-.74-2.44-1.18-4.89-1.21-5.57-.11-2.17.42-3.69 1.56-4.5 1.84-1.29 4.84-.54 6.11-.12v.01c-2.02 2.04-1.98 5.53-1.97 5.75 0 .08 0 .2.02.36.03.58.1 1.68-.08 2.92-.16 1.15.2 2.27.98 3.09.08.08.16.16.25.23-.35.38-1.1 1.2-1.9 2.16-.57.68-.96.55-1.09.51-.4-.13-.82-.59-1.24-1.32-.48-.84-.96-2.03-1.42-3.52z"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">PostgreSQL 15</span>
-                </span>
-
-                <!-- FastAPI: Official teal square with white lightning bolt SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path fill="#05998B" d="M12 .04C5.37.04 0 5.39 0 12s5.37 11.96 12 11.96 12-5.35 12-11.96S18.63.04 12 .04zm-.83 5.42h7.55l-7.58 5.32h5.18L5.28 18.54q2.95-6.54 5.89-13.08z"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">FastAPI</span>
-                </span>
-
-                <!-- WebSockets: Streaming telemetry lightning bolt SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="#10B981"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">WebSockets</span>
-                </span>
-
-                <!-- Docker: Official blue whale with containers SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path fill="#2496ED" d="M13.98 11.08h2.12a.19.19 0 00.19-.19V9.01a.19.19 0 00-.19-.19h-2.12a.19.19 0 00-.19.19v1.89c0 .1.08.18.19.18zm-2.95-5.43h2.12a.19.19 0 00.18-.19V3.57a.19.19 0 00-.18-.18h-2.12a.19.19 0 00-.19.18v1.89c0 .1.08.19.19.19zm0 2.72h2.12a.19.19 0 00.18-.19V6.29a.19.19 0 00-.18-.18h-2.12a.19.19 0 00-.19.18v1.89c0 .1.08.19.19.19zm-2.93 0h2.12a.19.19 0 00.18-.19V6.29a.19.19 0 00-.18-.18H8.1a.19.19 0 00-.19.18v1.89c0 .1.09.19.19.19zm-2.97 0h2.12a.19.19 0 00.19-.19V6.29a.19.19 0 00-.19-.18H5.14a.19.19 0 00-.19.18v1.89c0 .1.09.19.19.19zm5.9 2.71h2.11a.19.19 0 00.19-.18V9.01a.19.19 0 00-.19-.19h-2.12a.19.19 0 00-.18.19v1.89c0 .1.08.18.19.18zm-2.93 0h2.12a.19.19 0 00.18-.18V9.01a.19.19 0 00-.18-.19h-2.12a.19.19 0 00-.19.19v1.89c0 .1.09.18.19.18zm-2.97 0h2.12a.19.19 0 00.19-.18V9.01a.19.19 0 00-.19-.19H5.14a.19.19 0 00-.19.19v1.89c0 .1.09.18.19.18zm-2.92 0h2.12a.19.19 0 00.18-.18V9.01a.19.19 0 00-.18-.19H2.22a.19.19 0 00-.19.19v1.89c0 .1.08.18.19.18zM23.76 9.89c-.06-.05-.67-.51-1.95-.51-.34 0-.68.03-1.01.09-.25-1.7-1.65-2.53-1.72-2.57l-.34-.2-.23.33a3.57 3.57 0 00-.61 1.43c-.23.97-.09 1.88.4 2.66-.6.33-1.55.41-1.74.42H.75a.75.75 0 00-.75.75c0 1.4.24 2.8.69 4.06.55 1.43 1.36 2.48 2.41 3.12 1.18.73 3.1 1.14 5.28 1.14.98 0 1.96-.09 2.93-.27a12.25 12.25 0 003.82-1.39c.98-.56 1.86-1.28 2.61-2.13 1.25-1.42 2-3 2.55-4.4h.22c1.37 0 2.22-.55 2.68-1.01.31-.3.55-.65.71-1.05l.1-.29z"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">Docker</span>
-                </span>
-
-                <!-- Redis: Official stacked red cube SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 128 128" fill="none">
-                    <path fill="#A41E11" d="M121.8 93.1c-6.7 3.5-41.4 17.7-48.8 21.6-7.4 3.9-11.5 3.8-17.3 1S13 98.1 6.3 94.9c-3.3-1.6-5-2.9-5-4.2V78s48-10.5 55.8-13.2c7.8-2.8 10.4-2.9 17-.5s46.1 9.5 52.6 11.9v12.5c0 1.3-1.5 2.7-4.9 4.4z"/>
-                    <path fill="#D82C20" d="M121.8 80.5C115.1 84 80.4 98.2 73 102.1c-7.4 3.9-11.5 3.8-17.3 1-5.8-2.8-42.7-17.7-49.4-20.9C-.3 79-.5 76.8 6 74.3c6.5-2.6 43.2-17 51-19.7 7.8-2.8 10.4-2.9 17-.5s41.1 16.1 47.6 18.5c6.7 2.4 6.9 4.4.2 7.9z"/>
-                    <path fill="#A41E11" d="M121.8 72.5C115.1 76 80.4 90.2 73 94.1c-7.4 3.8-11.5 3.8-17.3 1-5.8-2.8-42.7-17.7-49.4-20.9C-.3 71-.5 68.8 6 66.3c6.5-2.6 43.2-17 51-19.7 7.8-2.8 10.4-2.9 17-.5s41.1 16.1 47.6 18.5c6.7 2.4 6.9 4.4.2 7.9z"/>
-                    <path fill="#D82C20" d="M121.8 59.9c-6.7 3.5-41.4 17.7-48.8 21.6-7.4 3.9-11.5 3.8-17.3 1S13 64.9 6.3 61.7c-7-3.4-7.2-5.6-.7-8.1 6.5-2.6 43.2-17 51-19.7 7.8-2.8 10.4-2.9 17-.5s41.1 16.1 47.6 18.5c6.7 2.4 6.9 4.5.2 8z"/>
-                    <path fill="#A41E11" d="M121.8 51.9c-6.7 3.5-41.4 17.7-48.8 21.6-7.4 3.9-11.5 3.8-17.3 1S13 56.9 6.3 53.7c-7-3.4-7.2-5.6-.7-8.1 6.5-2.6 43.2-17 51-19.7 7.8-2.8 10.4-2.9 17-.5s41.1 16.1 47.6 18.5c6.7 2.4 6.9 4.5.2 8z"/>
-                    <path fill="#D82C20" d="M121.8 39.3c-6.7 3.5-41.4 17.7-48.8 21.6-7.4 3.9-11.5 3.8-17.3 1S13 44.3 6.3 41.1c-7-3.4-7.2-5.6-.7-8.1 6.5-2.6 43.2-17 51-19.7 7.8-2.8 10.4-2.9 17-.5s41.1 16.1 47.6 18.5c6.7 2.4 6.9 4.5.2 8z"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">Redis</span>
-                </span>
-
-                <!-- Git: Official Git orange diamond branch SVG -->
-                <span class="tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-slate-400 transition-colors">
-                  <svg class="tech-icon w-5 h-5 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path fill="#F05032" d="M23.54 11.23L12.77.46a1.54 1.54 0 00-2.18 0L8.41 2.64l3.16 3.16a1.83 1.83 0 012.3 2.3l3.05 3.06a1.83 1.83 0 011.83 3.1 1.84 1.84 0 01-2.45-.63L13.5 10.8v4.95a1.84 1.84 0 11-1.54 0V9.4a1.84 1.84 0 01-.98-2.42L7.79 3.79.46 11.23a1.54 1.54 0 000 2.18l10.77 10.77c.6.6 1.58.6 2.18 0l10.13-10.13c.6-.6.6-1.58 0-2.18z"/>
-                  </svg>
-                  <span class="text-sm font-semibold text-slate-800">Git</span>
-                </span>
-              </div>
-
-              <ul class="domain-bullets">
-                <li class="domain-bullet-item">
-                  <span class="bullet-dot"></span>
-                  <p>Implementing <strong>Hybrid Lambda pipelines</strong> streaming sub-second PLC/IoT telemetry via asynchronous WebSockets paired with deterministic hourly aggregations.</p>
-                </li>
-                <li class="domain-bullet-item">
-                  <span class="bullet-dot"></span>
-                  <p>Designing analytical Data Marts in <strong>PostgreSQL 15</strong> with 100% idempotent upserts (<code>ON CONFLICT DO UPDATE</code>) tracking OEE (Availability &times; Performance &times; Quality).</p>
-                </li>
-                <li class="domain-bullet-item">
-                  <span class="bullet-dot"></span>
-                  <p>Deploying containerized <strong>FastAPI microservices</strong> with Docker, structured telemetry logging, health monitoring endpoints, and zero-downtime operational runbooks.</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Sleek High-Contrast Bottom CTA Banner -->
-          <div class="bottom-cta-banner">
-            <div class="bottom-cta-content">
-              <h3 class="bottom-cta-title tracking-[0.02em] leading-relaxed">Ready to inspect end-to-end architectures?</h3>
-              <p class="bottom-cta-desc tracking-[0.01em] leading-[1.8]">
-                Explore source code, latency benchmarks, and mathematical specifications across all 5 production-grade engineering case studies.
-              </p>
-            </div>
-            <a href="projects.html" class="btn-cta-emerald">
-              <span>Explore Engineering Case Studies</span>
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
   </main>
 
   <!-- ========================================================================
