@@ -89,80 +89,188 @@
       const href = link.getAttribute('href');
       if (href === page || (page === '' && href === 'index.html') || (page === 'index.html' && href === 'index.html')) {
         link.classList.add('active');
-      } else if (href.includes(page) && page !== '') {
+      } else if (page !== '' && page !== 'index.html' && href && href.includes(page)) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
       }
     });
+
+    if (updateGliderGlobal) {
+      const activeLink = document.querySelector('.nav-item a.active');
+      updateGliderGlobal(activeLink, true);
+    }
+  }
+
+  // 3.1 Dynamic Hardware-Accelerated Nav Glider (Sliding Underline / Pill)
+  let updateGliderGlobal = null;
+
+  function initNavGlider() {
+    const navMenu = document.getElementById('nav-menu');
+    if (!navMenu) return null;
+
+    let glider = navMenu.querySelector('.nav-active-glider');
+    if (!glider) {
+      glider = document.createElement('div');
+      glider.className = 'nav-active-glider';
+      glider.setAttribute('aria-hidden', 'true');
+      navMenu.appendChild(glider);
+    }
+
+    navMenu.classList.add('has-glider');
+
+    function getLinkElement(el) {
+      if (!el) return null;
+      return el.tagName === 'A' ? el : el.querySelector('a');
+    }
+
+    function updateGlider(targetEl, animate = true) {
+      const link = getLinkElement(targetEl);
+      if (!link || navMenu.classList.contains('active')) {
+        glider.style.opacity = '0';
+        return;
+      }
+
+      const menuRect = navMenu.getBoundingClientRect();
+      const linkRect = link.getBoundingClientRect();
+
+      if (linkRect.width === 0 || linkRect.height === 0) {
+        glider.style.opacity = '0';
+        return;
+      }
+
+      const left = linkRect.left - menuRect.left;
+      const width = linkRect.width;
+
+      if (!animate) {
+        glider.style.transition = 'none';
+      } else {
+        glider.style.transition = 'transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), width 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease';
+      }
+
+      glider.style.transform = `translate3d(${left}px, 0, 0)`;
+      glider.style.width = `${width}px`;
+      glider.style.opacity = '1';
+    }
+
+    updateGliderGlobal = updateGlider;
+
+    const currentActive = navMenu.querySelector('.nav-item a.active');
+    updateGlider(currentActive, false);
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        const cur = navMenu.querySelector('.nav-item a.active');
+        updateGlider(cur, false);
+      });
+    }
+
+    navMenu.querySelectorAll('.nav-item a').forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        updateGlider(link, true);
+      });
+    });
+
+    navMenu.addEventListener('mouseleave', () => {
+      const cur = navMenu.querySelector('.nav-item a.active');
+      updateGlider(cur, true);
+    });
+
+    window.addEventListener('resize', () => {
+      const cur = navMenu.querySelector('.nav-item a.active');
+      updateGlider(cur, false);
+    }, { passive: true });
+
+    return updateGlider;
   }
 
   // 4. Certificate Modal Viewer
-  const certModal = document.getElementById('cert-modal');
-  const certModalTitle = document.getElementById('cert-modal-title');
-  const certModalImg = document.getElementById('cert-modal-img');
-  const certModalClose = document.getElementById('cert-modal-close');
+  function bindCertModalEvents(modal) {
+    if (!modal || modal.dataset.eventsBound === 'true') return;
+    modal.dataset.eventsBound = 'true';
+    const closeBtn = modal.querySelector('#cert-modal-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeCertModal);
+    }
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        closeCertModal();
+      }
+    });
+  }
 
   function openCertModal(title, imgSrc) {
-    if (!certModal) return;
-    if (certModalTitle) certModalTitle.textContent = title;
-    if (certModalImg) certModalImg.src = imgSrc;
-    certModal.classList.add('active');
+    let modal = document.getElementById('cert-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.className = 'modal-backdrop';
+      modal.id = 'cert-modal';
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
+      modal.setAttribute('aria-labelledby', 'cert-modal-title');
+      modal.innerHTML = `
+        <div class="modal-card">
+          <div class="modal-header">
+            <h3 class="modal-title" id="cert-modal-title">Certificate Verification</h3>
+            <button class="modal-close-btn" id="cert-modal-close" aria-label="Close modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="" alt="Verified Certificate Report" id="cert-modal-img" class="modal-image">
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
+    bindCertModalEvents(modal);
+
+    const titleEl = modal.querySelector('#cert-modal-title');
+    const imgEl = modal.querySelector('#cert-modal-img');
+    if (titleEl) titleEl.textContent = title;
+    if (imgEl) imgEl.src = imgSrc;
+    modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
   function closeCertModal() {
-    if (!certModal) return;
-    certModal.classList.remove('active');
+    const modal = document.getElementById('cert-modal');
+    if (!modal) return;
+    modal.classList.remove('active');
     document.body.style.overflow = '';
   }
 
-  if (certModalClose) {
-    certModalClose.addEventListener('click', closeCertModal);
+  const initialCertModal = document.getElementById('cert-modal');
+  if (initialCertModal) {
+    bindCertModalEvents(initialCertModal);
   }
 
-  if (certModal) {
-    certModal.addEventListener('click', function (e) {
-      if (e.target === certModal) {
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('cert-modal');
+      if (modal && modal.classList.contains('active')) {
         closeCertModal();
       }
-    });
+    }
+  });
 
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && certModal.classList.contains('active')) {
-        closeCertModal();
-      }
-    });
-  }
-
-  // Bind all certificate preview buttons
-  document.querySelectorAll('[data-open-cert]').forEach(btn => {
-    btn.addEventListener('click', function (e) {
+  // Global Delegated Click Handler for Certificate preview & Email copy
+  document.addEventListener('click', function (e) {
+    const certBtn = e.target.closest('[data-open-cert]');
+    if (certBtn) {
       e.preventDefault();
-      const title = this.getAttribute('data-cert-title') || 'Certificate Verification';
-      const imgSrc = this.getAttribute('data-cert-img');
+      const title = certBtn.getAttribute('data-cert-title') || 'Certificate Verification';
+      const imgSrc = certBtn.getAttribute('data-cert-img');
       if (imgSrc) {
         openCertModal(title, imgSrc);
       }
-    });
-  });
+      return;
+    }
 
-  // 5. Toast Feedback & Copy to Clipboard
-  const toast = document.getElementById('toast-notification');
-
-  function showToast(message) {
-    if (!toast) return;
-    toast.textContent = message;
-    toast.classList.add('active');
-    setTimeout(() => {
-      toast.classList.remove('active');
-    }, 2800);
-  }
-
-  document.querySelectorAll('[data-copy-email]').forEach(btn => {
-    btn.addEventListener('click', function (e) {
+    const emailBtn = e.target.closest('[data-copy-email]');
+    if (emailBtn) {
       e.preventDefault();
-      const email = this.getAttribute('data-copy-email') || 'sivakorn.khun@gmail.com';
+      const email = emailBtn.getAttribute('data-copy-email') || 'sivakorn.khun@gmail.com';
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(email).then(() => {
           showToast('✓ Email copied to clipboard: ' + email);
@@ -172,28 +280,69 @@
       } else {
         showToast('Email: ' + email);
       }
-    });
+      return;
+    }
   });
+
+  // 5. Toast Feedback
+  function showToast(message) {
+    let toast = document.getElementById('toast-notification');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'toast-notification';
+      toast.id = 'toast-notification';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.add('active');
+    setTimeout(() => {
+      toast.classList.remove('active');
+    }, 2800);
+  }
 
   // 6. Assessment Accordion Interactive Label Sync
-  document.querySelectorAll('.assessment-accordion').forEach(accordion => {
-    accordion.addEventListener('toggle', function () {
-      const triggerText = this.querySelector('.accordion-trigger-text');
-      if (triggerText) {
-        triggerText.textContent = this.open 
-          ? 'Hide Score Breakdown & Details' 
-          : 'View Score Breakdown & Details';
-      }
+  function initAssessmentAccordion() {
+    document.querySelectorAll('.assessment-accordion').forEach(accordion => {
+      if (accordion.dataset.accordionInit === 'true') return;
+      accordion.dataset.accordionInit = 'true';
+      accordion.addEventListener('toggle', function () {
+        const triggerText = this.querySelector('.accordion-trigger-text');
+        if (triggerText) {
+          triggerText.textContent = this.open 
+            ? 'Hide Score Breakdown & Details' 
+            : 'View Score Breakdown & Details';
+        }
+      });
     });
-  });
+  }
 
-  // 7. Signature Intro Preloader Controller ("Sivakorn")
+  // 7. Signature Intro Preloader Controller ("Sivakorn") & Home Entrance Orchestrator
   const preloader = document.getElementById('signature-preloader');
   const skipBtn = document.getElementById('sig-skip-btn');
   const INTRO_SESSION_KEY = 'svkhun_intro_played';
 
+  function triggerHeroEntrance() {
+    const hero = document.getElementById('home-hero');
+    if (!hero) return;
+
+    requestAnimationFrame(() => {
+      hero.classList.remove('hero-intro-ready');
+      hero.classList.add('hero-intro-animate');
+
+      const portraitWrap = hero.querySelector('.hero-illustration-wrapper');
+      if (portraitWrap) {
+        setTimeout(() => {
+          portraitWrap.classList.add('is-floating');
+        }, 1100);
+      }
+    });
+  }
+
   function initSignaturePreloader() {
-    if (!preloader) return;
+    if (!preloader) {
+      triggerHeroEntrance();
+      return;
+    }
 
     // Check if user reloaded the page (F5/refresh) or if it's first visit in session
     let isReload = false;
@@ -215,10 +364,11 @@
       hasPlayedThisSession = false;
     }
 
-    // If already played in this session and NOT a hard refresh, dismiss immediately
+    // If already played in this session and NOT a hard refresh, dismiss immediately and start hero
     if (hasPlayedThisSession && !isReload) {
       preloader.style.display = 'none';
       preloader.classList.add('fade-out');
+      triggerHeroEntrance();
       return;
     }
 
@@ -227,12 +377,19 @@
       sessionStorage.setItem(INTRO_SESSION_KEY, 'true');
     } catch (e) {}
 
+    // Put Home hero in ready state while preloader runs
+    const homeHero = document.getElementById('home-hero');
+    if (homeHero) {
+      homeHero.classList.add('hero-intro-ready');
+    }
+
     // Dismiss function
     let dismissed = false;
     function dismiss() {
       if (dismissed) return;
       dismissed = true;
       preloader.classList.add('fade-out');
+      triggerHeroEntrance();
       setTimeout(() => {
         preloader.style.display = 'none';
       }, 480);
@@ -367,8 +524,12 @@
   }
 
   // 10. Bi-Directional Scroll Animation Engine with Page-Format Choreography
-  function initScrollReveal() {
-    // 10.1 Track scroll direction (Scroll Up vs Scroll Down)
+  let scrollDirTrackerBound = false;
+
+  function initScrollDirectionTracker() {
+    if (scrollDirTrackerBound) return;
+    scrollDirTrackerBound = true;
+
     let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
     let scrollTicking = false;
 
@@ -389,6 +550,10 @@
       }
     }, { passive: true });
     updateScrollDirection();
+  }
+
+  function initScrollReveal() {
+    initScrollDirectionTracker();
 
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.querySelectorAll('.scroll-anim').forEach(el => el.classList.add('is-in-view'));
@@ -655,11 +820,233 @@
     }
   }
 
+  // 17. Seamless Fluid Page & Section Transition Engine (Linear / Stripe Grade)
+  function initPageTransitions() {
+    let loader = document.getElementById('page-nav-loader');
+    if (!loader) {
+      loader = document.createElement('div');
+      loader.id = 'page-nav-loader';
+      loader.setAttribute('aria-hidden', 'true');
+      document.body.prepend(loader);
+    }
+
+    let isNavigating = false;
+
+    function isInternalLink(link) {
+      if (!link || !link.href) return false;
+      if (link.target && link.target !== '_self' && link.target !== '') return false;
+      if (link.hasAttribute('download') || link.getAttribute('rel') === 'external') return false;
+      if (link.hasAttribute('data-open-cert') || link.hasAttribute('data-copy-email')) return false;
+
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) {
+        return false;
+      }
+
+      try {
+        const dest = new URL(link.href, window.location.href);
+        return dest.origin === window.location.origin;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    async function navigateTo(targetHref, pushState = true) {
+      if (isNavigating) return;
+
+      const currentUrl = new URL(window.location.href);
+      const destUrl = new URL(targetHref, window.location.href);
+
+      // Same page anchor or exact same URL
+      if (currentUrl.pathname === destUrl.pathname && currentUrl.search === destUrl.search) {
+        if (destUrl.hash) {
+          const el = document.querySelector(destUrl.hash);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+            return;
+          }
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      isNavigating = true;
+
+      // Start progress bar sweep
+      loader.classList.remove('is-complete');
+      loader.classList.add('is-loading');
+
+      // Instant active nav feedback & glider transition
+      const navMenu = document.getElementById('nav-menu');
+      if (navMenu) {
+        const targetPage = destUrl.pathname.split('/').pop() || 'index.html';
+        const targetNav = Array.from(navMenu.querySelectorAll('.nav-item a')).find(a => {
+          const h = a.getAttribute('href');
+          return h === targetPage || (targetPage === 'index.html' && h === 'index.html');
+        });
+        if (targetNav) {
+          navMenu.querySelectorAll('.nav-item a').forEach(a => a.classList.remove('active'));
+          targetNav.classList.add('active');
+          if (updateGliderGlobal) updateGliderGlobal(targetNav, true);
+        }
+      }
+
+      // Close mobile nav drawer if open
+      if (navMenu && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        const mobileToggle = document.getElementById('mobile-nav-toggle');
+        if (mobileToggle) {
+          const icon = mobileToggle.querySelector('i');
+          if (icon) icon.className = 'fas fa-bars';
+        }
+      }
+
+      // Smooth Exit Phase for current main content
+      const currentMain = document.querySelector('main');
+      if (currentMain) {
+        currentMain.classList.remove('page-entered', 'page-entering');
+        currentMain.classList.add('page-exiting');
+      }
+
+      const minExitDuration = 220; // ms
+      const startTime = performance.now();
+
+      try {
+        const response = await fetch(destUrl.href);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const html = await response.text();
+
+        const parser = new DOMParser();
+        const newDoc = parser.parseFromString(html, 'text/html');
+        const newMain = newDoc.querySelector('main');
+        const newTitle = newDoc.querySelector('title')?.textContent || document.title;
+
+        if (!newMain) {
+          window.location.href = destUrl.href;
+          return;
+        }
+
+        // Wait for exit animation to complete smoothly
+        const elapsed = performance.now() - startTime;
+        if (elapsed < minExitDuration) {
+          await new Promise(r => setTimeout(r, minExitDuration - elapsed));
+        }
+
+        // Complete progress bar
+        loader.classList.remove('is-loading');
+        loader.classList.add('is-complete');
+
+        // Update Document Title and URL
+        document.title = newTitle;
+        if (pushState) {
+          window.history.pushState({ path: destUrl.href }, newTitle, destUrl.href);
+        }
+
+        // Scroll instantly to top before rendering new page
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+        // Swap Main Content & Trigger Enter Phase
+        if (currentMain) {
+          currentMain.innerHTML = newMain.innerHTML;
+          currentMain.className = newMain.className;
+          currentMain.classList.remove('page-exiting');
+          currentMain.classList.add('page-entering');
+
+          // Force reflow
+          void currentMain.offsetWidth;
+
+          currentMain.classList.remove('page-entering');
+          currentMain.classList.add('page-entered');
+
+          setTimeout(() => {
+            currentMain.classList.remove('page-entered');
+          }, 480);
+        }
+
+        setTimeout(() => {
+          loader.classList.remove('is-complete');
+        }, 320);
+
+        // Highlight Active Nav & sync glider
+        highlightActiveNav();
+
+        // Re-initialize interactive modules on new page
+        reinitPageModules(newDoc);
+
+      } catch (err) {
+        console.warn('Page transition fallback to default navigation:', err);
+        const elapsed = performance.now() - startTime;
+        const remaining = Math.max(0, minExitDuration - elapsed);
+        setTimeout(() => {
+          window.location.href = destUrl.href;
+        }, remaining);
+      } finally {
+        isNavigating = false;
+      }
+    }
+
+    // Intercept internal link clicks
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (!link) return;
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
+        return;
+      }
+      if (isInternalLink(link)) {
+        e.preventDefault();
+        navigateTo(link.href, true);
+      }
+    });
+
+    // Browser navigation (Back / Forward)
+    window.addEventListener('popstate', function () {
+      navigateTo(window.location.href, false);
+    });
+  }
+
+  function reinitPageModules(newDoc) {
+    initScrollReveal();
+    initSpotlightCards();
+    initStatCounters();
+    initHeroTilt();
+    initWorkAccordion();
+    initTechStackFilter();
+    initAssessmentAccordion();
+
+    // Trigger Home hero cascade entrance if on Home page
+    const homeHero = document.getElementById('home-hero');
+    if (homeHero) {
+      triggerHeroEntrance();
+    }
+
+    // Execute any page-specific inline scripts (e.g. interactive case studies)
+    if (newDoc) {
+      const inlineScripts = newDoc.querySelectorAll('script:not([src])');
+      inlineScripts.forEach(script => {
+        try {
+          const fn = new Function(script.textContent);
+          fn();
+        } catch (e) {
+          console.warn('Inline script execution error:', e);
+        }
+      });
+    }
+  }
+
   // Initialize on load
   function initApp() {
     initTheme();
     highlightActiveNav();
+    initNavGlider();
     initSignaturePreloader();
+
+    // If on Home page and preloader is not present or already dismissed, trigger hero entrance
+    const homeHero = document.getElementById('home-hero');
+    const preloaderEl = document.getElementById('signature-preloader');
+    if (homeHero && (!preloaderEl || preloaderEl.style.display === 'none' || preloaderEl.classList.contains('fade-out'))) {
+      triggerHeroEntrance();
+    }
+
     initScrollProgress();
     initBackToTop();
     initScrollReveal();
@@ -668,6 +1055,8 @@
     initStatCounters();
     initWorkAccordion();
     initTechStackFilter();
+    initAssessmentAccordion();
+    initPageTransitions();
   }
 
   // 15. Work Page Hover & Click Accordion Toggle
