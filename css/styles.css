@@ -1416,17 +1416,42 @@ section[id] {
   flex-shrink: 0;
 }
 
-/* Hero Scientific Plot Visual */
+/* Hero Scientific Plot Visual & Authentic Hand-Drawn Line Boil (Squigglevision) */
+@keyframes heroLineBoil {
+  0%, 100% {
+    filter: url(#line-boil-0);
+  }
+  25% {
+    filter: url(#line-boil-1);
+  }
+  50% {
+    filter: url(#line-boil-2);
+  }
+  75% {
+    filter: url(#line-boil-3);
+  }
+}
+
 .hero-plot-img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 0px;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: heroLineBoil 0.38s steps(1) infinite;
+  will-change: filter, transform;
+  transform: translateZ(0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-illustration-wrapper:hover .hero-plot-img {
-  transform: scale(1.01);
+  transform: scale(1.02) translateZ(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-plot-img {
+    animation: none !important;
+    filter: none !important;
+  }
 }
 
 .hero-plot-light {

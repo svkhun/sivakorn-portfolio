@@ -182,6 +182,28 @@
           <!-- Right Column: Pure Line Portrait (lg:col-span-5) -->
           <div class="lg:col-span-5 flex justify-center items-center w-full hero-mockup-col">
             <div class="hero-illustration-wrapper scroll-anim w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[400px] flex justify-center items-center">
+              <!-- SVG Filter Definitions for Hand-Drawn Line Boil Animation (10 FPS Organic Wiggle) -->
+              <svg class="line-boil-filter-defs" width="0" height="0" style="position: absolute; width: 0; height: 0; pointer-events: none; overflow: hidden;" aria-hidden="true">
+                <defs>
+                  <filter id="line-boil-0" x="-10%" y="-10%" width="120%" height="120%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" result="noise" seed="2" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+                  </filter>
+                  <filter id="line-boil-1" x="-10%" y="-10%" width="120%" height="120%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" result="noise" seed="17" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+                  </filter>
+                  <filter id="line-boil-2" x="-10%" y="-10%" width="120%" height="120%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" result="noise" seed="35" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+                  </filter>
+                  <filter id="line-boil-3" x="-10%" y="-10%" width="120%" height="120%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" result="noise" seed="58" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+                  </filter>
+                </defs>
+              </svg>
+
               <!-- Light Theme Line Portrait -->
               <img src="assets/sivakorn-portrait-line-light.png" alt="Sivakorn Khundilokrattaya - Line Portrait" class="hero-plot-img hero-plot-light w-full h-auto object-contain select-none" width="400" height="500" />
               <!-- Dark Theme Line Portrait -->
