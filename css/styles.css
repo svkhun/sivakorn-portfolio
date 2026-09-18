@@ -1417,6 +1417,37 @@ section[id] {
   flex-shrink: 0;
 }
 
+/* Hero Scientific Plot Visual */
+.hero-plot-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-illustration-wrapper:hover .hero-plot-img {
+  transform: scale(1.01);
+}
+
+.hero-plot-light {
+  display: block;
+}
+
+.hero-plot-dark {
+  display: none;
+}
+
+[data-theme="dark"] .hero-plot-light,
+html.dark .hero-plot-light {
+  display: none !important;
+}
+
+[data-theme="dark"] .hero-plot-dark,
+html.dark .hero-plot-dark {
+  display: block !important;
+}
+
 /* --------------------------------------------------------------------------
    8. Education & Interactive Competency Visualizer
    -------------------------------------------------------------------------- */
