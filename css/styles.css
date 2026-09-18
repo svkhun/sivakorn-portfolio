@@ -687,6 +687,18 @@ section[id] {
   }
 }
 
+.hero-nowrap {
+  display: inline-block;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 639px) {
+  .hero-nowrap {
+    white-space: normal !important;
+    display: inline;
+  }
+}
+
 .hero-text-col .hero-role-title {
   font-size: clamp(1.25rem, 2.2vw, 1.75rem);
   font-weight: 400; /* Slender */
@@ -4405,17 +4417,6 @@ html.dark #back-to-top .btt-ring-circle {
 #projects-header h1 + p,
 #experience-header h1 + p,
 #contact-header h1 + p {
-}
-
-/* Education Hero Title: Keep 'Verified Benchmarks' unified on one line */
-#education-header .hero-display {
-  font-size: clamp(2.35rem, 4.2vw, 4.35rem);
-}
-
-@media (min-width: 768px) {
-  #education-header .hero-display .text-accent-brand {
-    white-space: nowrap !important;
-  }
 }
 
 /* ==========================================================================
