@@ -151,7 +151,6 @@ html.dark {
 .full-width-panel,
 .assessment-card-panel,
 .clean-capability-card,
-.hero-illustration-wrapper,
 .hero-visual-frame,
 .work-card,
 .work-org-card,
@@ -4360,32 +4359,32 @@ html.dark #back-to-top .btt-ring-circle {
    Clean & Elegant Portfolio Styles ("ธรรมดาและสวย")
    ========================================================================== */
 
-/* Hero Illustration Container */
+/* Hero Illustration Container (Pure Frameless Floating Visual) */
 .hero-illustration-wrapper {
   position: relative;
-  overflow: hidden;
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
+  overflow: visible;
+  background: transparent !important;
+  border: none !important;
   border-radius: 0px;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: none !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-illustration-wrapper:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
-  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: none !important;
+  border: none !important;
 }
 
 [data-theme="dark"] .hero-illustration-wrapper {
-  background: #18181B;
-  border-color: #27272A;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 [data-theme="dark"] .hero-illustration-wrapper:hover {
-  border-color: #3F3F46;
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+  box-shadow: none !important;
+  border: none !important;
 }
 
 /* ==========================================================================
