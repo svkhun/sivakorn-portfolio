@@ -165,7 +165,6 @@ html.dark {
 .domain-visual,
 .domain-bullet-icon,
 .degree-executive-card,
-.swu-seal-box,
 .degree-dates-pill,
 .course-badge,
 .cert-precision-card,
@@ -216,7 +215,6 @@ html.dark {
 .assessment-accordion,
 .score-badge-highlight,
 .signature-skip-btn,
-#back-to-top,
 .capability-icon-box,
 input,
 textarea,
@@ -241,7 +239,8 @@ select,
 .work-row-dot,
 .domain-bullet-dot,
 .timeline-marker,
-.signature-sub-dot {
+.signature-sub-dot,
+#back-to-top {
   border-radius: 50% !important;
 }
 
@@ -1446,34 +1445,32 @@ section[id] {
 }
 
 .swu-seal-box {
-  width: 96px;
-  height: 96px;
-  border-radius: 0px;
-  background-color: var(--bg-surface-elevated);
-  border: 1px solid var(--border);
+  width: clamp(115px, 14vw, 138px);
+  height: clamp(115px, 14vw, 138px);
+  background: transparent;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
-  box-shadow: var(--shadow-xs);
+  padding: 0;
+  box-shadow: none;
   flex-shrink: 0;
-  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+  transition: transform var(--transition);
 }
 
 .swu-seal-box:hover {
-  border-color: #E31B23;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(227, 27, 35, 0.12);
+  transform: scale(1.05);
 }
 
 [data-theme="dark"] .swu-seal-box {
-  background-color: var(--bg-surface-elevated, #18181B);
-  border-color: var(--border);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 [data-theme="dark"] .swu-seal-box:hover {
-  border-color: #E31B23;
-  box-shadow: 0 4px 12px rgba(227, 27, 35, 0.25);
+  transform: scale(1.05);
+  box-shadow: none;
 }
 
 .swu-seal-img {
@@ -1481,6 +1478,11 @@ section[id] {
   height: 100%;
   object-fit: contain;
   display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+}
+
+[data-theme="dark"] .swu-seal-img {
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.45));
 }
 
 .degree-meta-bar {
@@ -4183,9 +4185,9 @@ html.dark .spotlight-card::before {
   right: 28px;
   width: 48px;
   height: 48px;
-  border-radius: 0px;
+  border-radius: 50% !important;
   background: var(--bg-surface-elevated);
-  border: 1px solid var(--border);
+  border: none;
   color: var(--text-primary);
   display: flex;
   align-items: center;
@@ -4197,15 +4199,15 @@ html.dark .spotlight-card::before {
   pointer-events: none;
   transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.2s ease,
-              background-color 0.2s ease;
+              background-color 0.2s ease,
+              color 0.2s ease;
   z-index: 9999;
 }
 
 [data-theme="dark"] #back-to-top,
 html.dark #back-to-top {
   background: #18181B;
-  border-color: #27272A;
+  border: none;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -4217,14 +4219,12 @@ html.dark #back-to-top {
 
 #back-to-top:hover {
   transform: translateY(-4px) scale(1.06);
-  border-color: var(--accent);
   color: var(--accent);
   box-shadow: 0 8px 24px rgba(0, 102, 255, 0.18);
 }
 
 [data-theme="dark"] #back-to-top:hover,
 html.dark #back-to-top:hover {
-  border-color: #38BDF8;
   color: #38BDF8;
   box-shadow: 0 8px 24px rgba(56, 189, 248, 0.25);
 }
@@ -4235,11 +4235,24 @@ html.dark #back-to-top:hover {
 
 #back-to-top .btt-ring-svg {
   position: absolute;
-  inset: -1px;
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   transform: rotate(-90deg);
   pointer-events: none;
+}
+
+#back-to-top .btt-ring-bg {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 2.5;
+  opacity: 0.7;
+}
+
+[data-theme="dark"] #back-to-top .btt-ring-bg,
+html.dark #back-to-top .btt-ring-bg {
+  stroke: var(--border);
+  opacity: 0.5;
 }
 
 #back-to-top .btt-ring-circle {

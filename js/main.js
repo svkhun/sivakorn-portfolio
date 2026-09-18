@@ -319,6 +319,7 @@
       btt.setAttribute('title', 'Back to top');
       btt.innerHTML = `
         <svg class="btt-ring-svg" viewBox="0 0 48 48" aria-hidden="true">
+          <circle class="btt-ring-bg" cx="24" cy="24" r="23"></circle>
           <circle class="btt-ring-circle" cx="24" cy="24" r="23"></circle>
         </svg>
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
