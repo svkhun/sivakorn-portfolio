@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>GuardianAI Clinical Fall Risk Engine Case Study | Sivakorn Khundilokrattaya</title>
+  <meta name="description" content="Inpatient clinical fall risk prediction engine providing 4.2-hour advance early warning and bedside SHAP triage cards, cutting alarm fatigue by 34%.">
+  <link rel="canonical" href="https://svkhun.vercel.app/project-guardian-ai">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230056B3'/><text x='50%25' y='67%25' font-family='monospace' font-size='15' font-weight='bold' fill='white' text-anchor='middle'>&lt;/&gt;</text></svg>">
+
+  <!-- Google Fonts: Slender Geist & Geist Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Devicon & FontAwesome -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Sivakorn Portfolio Home" title="Sivakorn Portfolio">
+        <svg class="brand-signature-svg" viewBox="20 15 565 170" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M 85.9 145.6 Q 79.2 145.6 69.1 137.6 Q 62.1 136.4 57.0 134.5 Q 52.0 132.6 48.7 130.0 Q 44.1 126.0 40.7 119.5 Q 37.2 112.9 37.2 106.8 Q 37.2 102.2 39.3 98.6 Q 44.3 89.8 51.9 89.8 Q 57.6 89.8 58.6 99.5 Q 59.8 108.6 60.5 114.0 Q 61.2 119.3 61.7 120.9 Q 64.2 129.0 70.1 134.6 Q 77.0 136.1 85.1 136.1 Q 102.9 136.1 119.2 129.3 Q 126.1 126.4 132.7 121.6 Q 139.3 116.8 143.5 111.1 Q 147.8 105.3 147.8 99.9 Q 147.8 92.1 134.2 87.9 L 105.2 81.3 Q 96.3 79.3 90.9 74.3 Q 85.6 69.3 85.6 62.8 Q 85.6 53.0 97.9 43.1 Q 104.2 38.0 112.6 34.4 Q 121.0 30.9 130.3 29.0 Q 139.6 27.1 148.1 27.1 Q 160.3 27.1 169.0 30.9 Q 177.6 34.7 179.8 41.9 Q 180.2 43.6 180.2 45.6 Q 180.2 55.6 170.2 59.5 Q 164.1 62.0 159.8 62.0 Q 157.2 62.0 155.7 61.0 Q 155.4 60.7 155.4 60.2 Q 155.4 59.1 160.0 58.9 Q 162.8 58.7 164.6 58.4 Q 166.4 58.1 167.2 57.7 Q 173.5 54.4 173.5 48.0 Q 173.5 44.7 171.7 41.1 Q 166.6 31.7 146.2 31.7 Q 138.8 31.7 130.9 33.3 Q 123.0 34.9 115.9 37.9 Q 108.8 40.9 103.9 45.6 Q 95.3 53.5 95.3 59.7 Q 95.3 64.5 100.0 68.2 Q 104.7 71.9 114.2 73.7 L 133.7 77.3 Q 144.9 79.5 151.8 83.7 Q 158.7 87.9 158.7 96.4 Q 158.7 104.0 154.9 110.6 Q 151.1 117.2 144.8 122.3 Q 138.4 127.5 130.4 131.0 Q 112.1 139.1 87.2 139.1 Q 84.1 139.1 81.0 138.9 Q 77.9 138.7 74.9 138.4 Q 77.2 139.7 80.7 141.0 Q 84.3 142.3 88.9 143.5 Q 89.4 143.7 89.4 144.2 Q 89.4 145.6 85.9 145.6 Z M 64.2 133.0 Q 59.8 128.0 57.3 122.8 Q 53.7 114.5 51.9 102.5 Q 50.5 93.8 49.1 93.8 Q 47.7 93.8 45.5 95.8 Q 43.3 97.7 43.3 104.2 Q 43.3 116.7 52.2 125.9 Q 56.6 130.5 64.2 133.0 Z" />
+          <path d="M 199.5 73.4 Q 196.7 73.4 194.7 71.6 Q 192.6 69.8 192.6 67.4 Q 192.6 62.8 198.8 62.8 Q 201.2 62.8 203.5 64.4 Q 205.8 66.0 205.8 68.3 Q 205.8 70.2 203.6 71.8 Q 201.5 73.4 199.5 73.4 Z M 169.1 131.8 Q 165.4 131.8 163.0 129.4 Q 160.7 127.0 160.7 120.9 Q 160.7 117.5 162.2 113.0 Q 163.8 108.4 166.2 103.8 Q 168.6 99.2 170.9 95.6 Q 180.1 80.6 186.0 80.5 Q 187.5 80.5 189.6 81.7 Q 191.8 82.9 191.8 84.4 Q 191.8 84.4 179.3 100.5 Q 166.9 116.5 166.9 123.3 Q 166.9 128.5 171.0 128.5 Q 173.7 128.5 177.9 126.3 Q 182.1 124.1 186.7 120.6 Q 191.3 117.2 195.5 113.2 Q 199.7 109.3 202.3 106.0 Q 204.0 103.8 205.2 103.0 Q 206.4 102.2 206.7 102.2 Q 207.4 102.2 207.4 103.2 Q 207.4 104.0 205.5 106.5 Q 203.6 108.9 200.3 112.2 Q 196.4 116.2 191.6 120.8 Q 186.8 125.4 181.2 128.6 Q 175.6 131.8 169.1 131.8 Z" />
+          <path d="M 205.8 130.5 Q 204.8 130.5 203.0 129.6 Q 201.2 128.7 199.7 127.4 Q 198.2 126.2 198.0 125.2 Q 197.9 123.9 199.8 117.7 Q 201.6 111.6 205.8 100.9 Q 209.9 90.0 212.7 84.1 Q 215.5 78.1 216.8 77.0 Q 217.4 76.3 218.6 76.3 Q 220.4 76.3 222.1 77.9 Q 223.7 79.5 223.9 81.6 Q 223.9 81.8 215.6 101.0 Q 207.6 119.6 208.1 123.3 Q 215.3 120.9 232.3 107.0 Q 242.5 98.4 247.0 91.4 Q 251.5 84.4 251.5 78.8 Q 251.5 75.5 250.0 72.8 Q 248.4 70.1 244.3 68.3 Q 243.1 67.8 243.1 66.8 Q 243.1 65.3 244.9 65.3 Q 249.7 65.3 253.3 68.4 Q 256.8 71.6 256.8 77.8 Q 256.8 84.4 251.2 92.7 Q 245.6 101.0 235.2 110.4 Q 226.2 118.5 218.8 123.6 Q 211.5 128.7 205.8 130.5 Z" />
+          <path d="M 260.9 130.8 Q 257.0 130.8 253.0 128.0 Q 249.1 125.2 248.6 121.4 Q 246.9 108.8 264.5 91.3 Q 282.0 73.9 296.0 73.9 Q 299.8 73.9 301.9 75.7 Q 303.0 76.8 303.6 78.8 Q 304.2 80.8 304.5 80.8 Q 305.2 80.8 305.7 80.5 Q 306.2 80.3 306.8 80.3 Q 308.8 80.3 310.3 81.8 Q 311.8 83.3 311.9 84.4 Q 312.1 84.7 301.4 100.7 Q 290.7 116.3 291.7 121.9 Q 292.5 125.7 295.3 125.7 Q 303.9 125.7 326.6 97.4 Q 327.1 96.7 327.6 96.7 Q 328.4 96.7 328.4 97.9 Q 328.4 99.2 326.9 101.2 Q 306.0 129.3 294.8 129.3 Q 293.3 129.3 292.0 128.8 Q 284.8 126.0 284.8 118.0 Q 284.8 115.2 285.4 112.4 L 275.2 122.3 Q 270.6 126.9 266.9 128.8 Q 263.2 130.8 260.9 130.8 Z M 259.4 127.2 Q 269.0 127.2 285.4 106.3 L 302.9 82.3 Q 301.6 80.0 298.6 80.0 Q 288.6 80.0 271.4 96.1 Q 253.7 112.6 255.5 123.3 Q 256.3 127.2 259.4 127.2 Z" />
+          <path d="M 351.4 132.0 Q 346.0 132.0 341.8 128.8 Q 337.6 125.7 334.6 120.9 Q 331.5 116.2 329.4 111.4 Q 328.2 112.9 327.0 115.2 Q 325.8 117.5 324.1 120.6 L 319.0 130.8 Q 313.1 128.5 313.1 124.6 Q 313.1 117.5 334.7 85.2 Q 355.6 54.0 363.5 48.4 Q 364.3 47.9 366.1 47.9 Q 371.2 47.9 371.2 50.5 Q 371.2 51.0 368.9 54.0 Q 366.6 57.1 363.1 61.4 Q 359.7 65.6 356.1 70.0 Q 352.6 74.4 350.0 77.6 Q 347.3 80.8 347.0 81.6 Q 362.0 73.9 370.9 73.9 Q 374.3 73.9 377.2 75.8 Q 380.1 77.8 381.7 80.6 Q 383.4 83.4 383.0 86.0 Q 381.7 95.4 369.9 101.5 Q 360.3 106.6 352.4 106.6 Q 343.9 106.6 340.6 104.5 Q 339.6 104.3 339.0 104.9 Q 338.4 105.5 338.8 106.6 Q 343.4 127.0 354.1 127.0 Q 359.3 127.0 368.1 120.9 Q 377.0 114.9 386.8 103.2 Q 388.0 102.0 389.0 102.0 Q 389.8 102.0 389.8 103.0 Q 389.8 103.8 388.6 105.5 Q 383.9 111.2 377.5 117.4 Q 371.2 123.6 364.4 127.8 Q 357.7 132.0 351.4 132.0 Z M 341.9 102.3 Q 349.3 102.3 361.3 96.3 Q 375.1 89.3 375.1 81.6 Q 375.1 80.3 373.7 79.0 Q 372.2 77.7 370.5 77.7 Q 361.6 77.7 349.8 84.6 Q 336.8 92.5 334.0 101.9 Q 335.8 101.9 338.7 102.1 Q 341.6 102.3 341.9 102.3 Z" />
+          <path d="M 389.6 130.3 Q 385.5 130.3 383.2 126.5 Q 380.9 122.6 380.9 119.0 Q 380.9 109.1 395.2 91.3 Q 409.7 73.4 418.6 73.4 Q 427.0 73.4 427.0 82.3 Q 427.0 83.6 426.7 85.1 Q 426.5 86.5 426.2 88.2 Q 426.5 88.7 427.8 88.7 Q 432.3 88.7 438.4 85.6 Q 438.2 88.4 425.3 93.6 Q 427.2 99.1 414.5 114.4 Q 401.5 130.3 392.3 130.3 Z M 392.6 125.4 Q 399.7 125.4 410.7 112.4 Q 421.4 99.7 421.4 94.1 Q 418.8 92.6 414.8 86.5 Q 409.2 86.5 398.7 100.0 Q 388.3 113.2 388.6 120.3 Q 388.8 125.4 392.6 125.4 Z" />
+          <path d="M 462.4 130.8 Q 455.3 130.8 452.7 127.1 Q 450.0 123.4 450.0 117.2 Q 450.0 110.2 454.3 100.7 Q 456.0 96.9 457.8 93.9 Q 459.6 90.8 461.6 88.2 Q 460.9 88.4 460.4 88.4 Q 459.9 88.4 459.4 88.4 Q 455.5 88.4 452.8 82.8 L 440.7 98.6 Q 430.9 111.2 428.8 111.2 Q 428.0 111.2 428.0 110.6 Q 428.0 109.8 428.8 108.4 Q 429.3 107.4 430.8 105.8 Q 437.0 98.6 442.3 91.5 Q 447.6 84.4 451.0 77.7 Q 454.8 63.3 460.6 63.3 Q 464.4 63.3 464.4 66.8 Q 464.4 69.9 460.2 75.0 Q 456.3 80.1 456.3 80.3 Q 456.3 83.7 461.4 83.7 Q 464.4 83.7 468.0 81.6 L 472.3 79.0 Q 472.6 78.8 473.3 78.8 Q 475.2 78.8 476.7 80.5 Q 478.2 82.1 477.7 83.4 L 466.3 97.7 Q 455.8 111.2 455.8 119.5 Q 455.8 126.9 463.0 126.9 Q 468.0 126.9 473.7 123.9 Q 479.3 120.9 484.7 116.6 Q 490.0 112.2 493.7 108.1 L 497.6 103.5 Q 497.9 103.2 498.4 102.7 Q 498.9 102.2 499.3 102.2 Q 500.4 102.2 500.4 103.3 Q 500.4 103.7 500.1 104.5 Q 499.8 105.3 498.9 106.3 L 493.7 112.2 Q 489.9 116.5 484.4 120.9 Q 478.8 125.2 473.0 128.0 Q 467.2 130.8 462.4 130.8 Z" />
+          <path d="M 535.6 130.3 Q 531.2 130.3 529.4 127.8 Q 527.6 125.2 527.6 121.4 Q 527.6 111.9 534.2 101.0 L 544.7 83.9 Q 533.5 92.1 522.5 104.5 Q 519.5 107.8 515.8 112.2 Q 512.1 116.7 507.7 122.4 Q 501.7 130.2 500.6 130.2 Q 498.3 130.2 496.8 128.1 Q 495.3 126.0 495.3 124.4 Q 495.3 123.1 496.1 119.5 Q 497.0 116.0 498.1 113.4 Q 499.3 110.6 500.5 107.9 Q 501.7 105.1 502.9 102.5 L 493.0 112.9 Q 492.7 113.2 491.0 114.9 Q 489.4 116.5 488.4 116.5 Q 487.6 116.5 487.6 115.3 Q 487.6 115.0 487.8 114.4 Q 488.1 113.9 488.9 113.0 Q 491.4 110.6 494.0 107.8 Q 496.6 105.0 499.4 101.4 Q 500.9 99.5 503.9 95.8 Q 506.8 92.1 510.4 87.9 Q 513.9 83.6 517.0 80.0 Q 517.9 78.8 518.8 78.4 Q 519.8 78.0 520.2 78.0 Q 524.6 78.0 524.6 81.4 Q 524.6 82.4 524.1 83.4 Q 509.3 103.8 506.3 114.5 Q 525.4 95.4 537.0 85.8 Q 548.6 76.2 553.6 76.2 Q 556.2 76.2 557.6 77.0 Q 559.0 77.8 559.0 80.1 Q 559.0 80.9 558.8 81.4 Q 558.4 82.6 552.1 90.7 Q 548.3 95.3 545.4 99.1 Q 542.6 102.8 540.7 105.6 Q 537.8 110.2 536.3 114.3 Q 534.8 118.3 534.8 121.1 Q 534.8 122.3 535.1 123.9 Q 535.5 125.6 537.1 125.6 Q 540.9 125.6 549.0 119.0 Q 552.8 115.7 556.0 112.3 Q 559.3 108.9 562.3 105.6 Q 563.0 105.0 564.4 103.1 Q 565.9 101.2 566.3 101.2 Q 566.9 101.2 566.9 102.5 Q 566.9 103.2 566.2 104.7 Q 565.4 106.3 564.6 107.1 Q 562.8 109.3 559.3 113.0 Q 555.7 116.8 551.4 120.8 Q 547.0 124.7 542.9 127.5 Q 538.8 130.3 535.6 130.3 Z" />
+          <path d="M 65 145 C 48 162, 54 182, 85 178 C 165 168, 320 164, 460 168 C 505 169, 545 165, 575 150" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+          <circle cx="575" cy="150" r="3.8" />
+        </svg>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-menu" id="nav-menu">
+          <div class="nav-item"><a href="index.html">Home</a></div>
+          <div class="nav-item"><a href="education.html">Education</a></div>
+          <div class="nav-item"><a href="experience.html">Experience</a></div>
+          <div class="nav-item"><a href="projects.html" class="active">Projects</a></div>
+          <div class="nav-item"><a href="contact.html">Contact Me</a></div>
+        </nav>
+
+        <button class="theme-switch-btn" id="theme-toggle-btn" aria-label="Toggle theme" title="Toggle Theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="case-airy-wrap">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+        <!-- Breadcrumb -->
+        <nav class="case-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="case-breadcrumb-sep">/</span>
+          <a href="projects.html">Projects</a>
+          <span class="case-breadcrumb-sep">/</span>
+          <span class="case-breadcrumb-current">GuardianAI Clinical Fall Risk</span>
+        </nav>
+
+        <!-- Airy Hero Header -->
+        <header class="case-hero-airy">
+          <span class="case-section-num-tag">Clinical Decision Support &bull; Patient Safety Informatics</span>
+          
+          <h1 class="hero-display mb-6">
+            <span>GuardianAI: Clinical</span>
+            <span class="text-accent-brand">Fall Risk Engine</span>
+          </h1>
+
+          <p class="case-lead-airy">
+            A bedside inpatient clinical risk surveillance engine predicting geriatric fall hazards 4.2 hours in advance with 91.2% sensitivity, cutting nursing alarm fatigue by 34% through transparent SHAP attribution cards.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="https://github.com/svkhun/guardian-clinical-ai" target="_blank" rel="noopener noreferrer" class="primary-cta inline-flex items-center gap-2">
+              <i class="fab fa-github"></i>
+              <span>View Source Code</span>
+            </a>
+            <a href="projects.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-none text-xs font-mono border border-border bg-subtle hover:bg-surface text-secondary transition-colors">
+              <i class="fas fa-arrow-left text-[10px]"></i>
+              <span>Back to Directory</span>
+            </a>
+          </div>
+        </header>
+
+        <!-- Thesis Quote -->
+        <div class="case-thesis-quote">
+          &ldquo;In hospital wards, an alarm that rings constantly is worse than no alarm at all. GuardianAI achieved clinical adoption not by sounding more sirens, but by giving nursing teams a 4.2-hour silent advance window and three concrete bedside actions.&rdquo;
+        </div>
+
+        <!-- Section 1: The Clinical Reality -->
+        <section class="case-section-airy">
+          <span class="case-section-num-tag">01 // The Clinical Reality</span>
+          <h2 class="case-section-heading">Alarm Fatigue &amp; Reactive Hospital Care</h2>
+
+          <div class="case-body-airy">
+            <p>
+              Inpatient falls represent the leading cause of non-operative trauma and extended length-of-stay in geriatric hospital wards. Traditional risk assessment relies on paper-based Morse Fall Scales conducted once every 24 hours.
+            </p>
+            <p>
+              Meanwhile, commercial bed pressure sensors generate up to 200 false alerts per ward per night. Overwhelmed nursing staff suffer from <strong>severe alarm fatigue</strong>, turning off monitors or reacting only after the patient is already on the floor with a fractured femoral neck.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: SIGNATURE CENTERPIECE 1 - 4.2-Hour Early Warning Clinical Horizon Timeline -->
+        <section class="case-section-airy">
+          <span class="case-section-num-tag">02 // Signature Showcase &bull; Patient Horizon</span>
+          <h2 class="case-section-heading">4.2-Hour Advance Early Warning Trajectory</h2>
+          <p class="case-lead-airy">
+            How subtle physiological drifts across EHR records, sedative dosages, and nocturnal vitals synthesize into a timely preventive intervention:
+          </p>
+
+          <!-- Bespoke Clinical Horizon Timeline -->
+          <div class="clinical-horizon-wrap">
+            
+            <!-- Step 1 -->
+            <div class="clinical-horizon-step">
+              <span class="clinical-step-bullet"></span>
+              <div class="clinical-step-content">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="clinical-step-time">T - 6.0 Hours &bull; Evening Round</span>
+                  <span class="clinical-telemetry-tag">Morse: 25 (Low Risk)</span>
+                </div>
+                <h4 class="clinical-step-title">Baseline Stable Inpatient Status</h4>
+                <p class="clinical-step-desc">Patient (Age 78, Post-Op Day 2). Morse Score 25. Stable hemodynamics and steady gait observed during evening ambulation round.</p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="clinical-horizon-step">
+              <span class="clinical-step-bullet"></span>
+              <div class="clinical-step-content">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="clinical-step-time">T - 5.1 Hours &bull; Medication Administration</span>
+                  <span class="clinical-telemetry-tag">Rx: Sedative + Diuretic</span>
+                </div>
+                <h4 class="clinical-step-title">Zolpidem &amp; Loop Diuretic Administered</h4>
+                <p class="clinical-step-desc">Physician order dispensed for sleep aid + diuretic. Dual pharmacological interaction creates acute nocturnal voiding urge compounded by motor ataxia.</p>
+              </div>
+            </div>
+
+            <!-- Step 3: THE GUARDIANAI ALERT (Highlight) -->
+            <div class="clinical-horizon-step step-alert">
+              <span class="clinical-step-bullet"></span>
+              <div class="clinical-step-content">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="clinical-step-time text-red-500 font-bold">T - 4.2 Hours &bull; GuardianAI Early Flag</span>
+                  <span class="clinical-telemetry-tag tag-alert">CRITICAL ALERT &bull; 82% RISK</span>
+                </div>
+                <h4 class="clinical-step-title text-red-500">Hazard Probability Escalation: 0.18 &rarr; 0.82</h4>
+                <p class="clinical-step-desc text-primary font-medium">Temporal LightGBM flags synergistic hazard: patient age (78) + sedative-diuretic timing + nocturnal postural blood pressure dip (102/64). Push alert dispatched to charge nurse tablet.</p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="clinical-horizon-step">
+              <span class="clinical-step-bullet"></span>
+              <div class="clinical-step-content">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="clinical-step-time">T - 2.5 Hours &bull; Preventive Nursing Triage</span>
+                  <span class="clinical-telemetry-tag">Protocol: Fall-Zero Active</span>
+                </div>
+                <h4 class="clinical-step-title">Bedside Non-Restrictive Intervention</h4>
+                <p class="clinical-step-desc">Nurse executes targeted safety protocol: electric bed lowered to floor level, high-traction non-slip socks verified, bedside commode placed within arms-reach.</p>
+              </div>
+            </div>
+
+            <!-- Step 5: Incident Prevented -->
+            <div class="clinical-horizon-step step-prevented">
+              <span class="clinical-step-bullet"></span>
+              <div class="clinical-step-content">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="clinical-step-time text-emerald-500 font-bold">T - 0.0 Hours &bull; 02:45 AM Nocturnal Transit</span>
+                  <span class="clinical-telemetry-tag tag-success">INCIDENT PREVENTED &bull; 0 FALL</span>
+                </div>
+                <h4 class="clinical-step-title text-emerald-500">Zero-Fall Incident Successfully Prevented</h4>
+                <p class="clinical-step-desc">Patient attempted unassisted nocturnal bathroom transit. Commode proximity and floor-level bed allowed safe, unassisted transfer. Zero injury recorded.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Section 3: SIGNATURE CENTERPIECE 2 - Bedside Nurse Triage Card -->
+        <section class="case-section-airy">
+          <span class="case-section-num-tag">03 // Signature Showcase &bull; Bedside Usability</span>
+          <h2 class="case-section-heading">The 10-Second Bedside Triage Card</h2>
+          <p class="case-lead-airy">
+            Nurses do not have time to interpret complex gradient boosting charts. GuardianAI summarizes local TreeSHAP feature attributions into an actionable bedside triage card:
+          </p>
+
+          <!-- Bespoke Bedside Card Mockup -->
+          <div class="bedside-card-mockup">
+            <div class="bedside-patient-strip">
+              <div class="bedside-patient-cell">
+                <span class="bedside-patient-label">Patient Identity</span>
+                <span class="bedside-patient-val">Somchai P. &bull; Room 412-B</span>
+              </div>
+              <div class="bedside-patient-cell">
+                <span class="bedside-patient-label">Monitoring Protocol</span>
+                <span class="bedside-patient-val">Geriatric Post-Op Surveillance</span>
+              </div>
+              <div class="bedside-patient-cell">
+                <span class="bedside-patient-label">Shift Status</span>
+                <span class="bedside-patient-val text-accent">Active Ward 4 &bull; High Risk</span>
+              </div>
+            </div>
+
+            <!-- Triage Risk Alert Banner -->
+            <div class="triage-risk-banner">
+              <span>CRITICAL FALL RISK &bull; 82% PROBABILITY</span>
+              <span class="font-normal text-xs uppercase tracking-wider">Advance Early Warning: 4.2 Hours</span>
+            </div>
+
+            <!-- Visual TreeSHAP Attributions List -->
+            <div class="bedside-shap-list">
+              <span class="bedside-sub-heading">Key Driving Attributions &bull; Local TreeSHAP &Phi;</span>
+
+              <div class="shap-item">
+                <div class="shap-info">
+                  <span class="shap-feat-name">1. Sedative &amp; Diuretic Interaction (Zolpidem + Furosemide)</span>
+                  <span class="shap-impact-val">+0.38 Impact</span>
+                </div>
+                <div class="shap-bar-track">
+                  <div class="shap-bar-fill" style="width: 76%;"></div>
+                </div>
+              </div>
+
+              <div class="shap-item">
+                <div class="shap-info">
+                  <span class="shap-feat-name">2. Nocturnal Postural Blood Pressure Dip (&lt; 105 mmHg)</span>
+                  <span class="shap-impact-val">+0.24 Impact</span>
+                </div>
+                <div class="shap-bar-track">
+                  <div class="shap-bar-fill" style="width: 48%;"></div>
+                </div>
+              </div>
+
+              <div class="shap-item">
+                <div class="shap-info">
+                  <span class="shap-feat-name">3. Unassisted Bed Exit History in Last 48h</span>
+                  <span class="shap-impact-val">+0.16 Impact</span>
+                </div>
+                <div class="shap-bar-track">
+                  <div class="shap-bar-fill" style="width: 32%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mandatory Nurse Actions 3-Column Grid -->
+            <div class="bedside-actions-section">
+              <span class="bedside-sub-heading">Mandatory Nursing Safety Protocol Executed</span>
+              <div class="bedside-actions-grid">
+                <div class="nurse-action-chip">
+                  <span class="nurse-chip-check">&check;</span>
+                  <div class="nurse-chip-text">
+                    <span class="nurse-chip-title">Low-Bed Setting</span>
+                    <span class="nurse-chip-sub">Lowered to floor level</span>
+                  </div>
+                </div>
+                <div class="nurse-action-chip">
+                  <span class="nurse-chip-check">&check;</span>
+                  <div class="nurse-chip-text">
+                    <span class="nurse-chip-title">Bedside Commode</span>
+                    <span class="nurse-chip-sub">Placed within arms-reach</span>
+                  </div>
+                </div>
+                <div class="nurse-action-chip">
+                  <span class="nurse-chip-check">&check;</span>
+                  <div class="nurse-chip-text">
+                    <span class="nurse-chip-title">Non-Slip Footwear</span>
+                    <span class="nurse-chip-sub">High-traction verified</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Clinical Impact & Validation -->
+        <section class="case-section-airy">
+          <span class="case-section-num-tag">04 // Clinical Outcome Telemetry</span>
+          <h2 class="case-section-heading">Clinical Trial Validation Results</h2>
+
+          <div class="case-table-wrap">
+            <table class="case-benchmark-table">
+              <thead>
+                <tr>
+                  <th>Surveillance System</th>
+                  <th>Clinical Sensitivity</th>
+                  <th>False Alarm Rate</th>
+                  <th>Advance Warning</th>
+                  <th>Nurse Adoption</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Static Morse Scale (Every 24h)</td>
+                  <td>58.4%</td>
+                  <td>High (Outdated)</td>
+                  <td>0.0 Hours (Reactive)</td>
+                  <td>Routine Form Only</td>
+                </tr>
+                <tr>
+                  <td>Bed Pressure Mat Sensor</td>
+                  <td>74.2%</td>
+                  <td>68.0% (Severe Fatigue)</td>
+                  <td>&lt; 5 Seconds</td>
+                  <td>Frequent Silencing</td>
+                </tr>
+                <tr>
+                  <td><strong>GuardianAI Temporal Engine</strong></td>
+                  <td><strong>91.2%</strong></td>
+                  <td><strong>-34% Alarm Fatigue</strong></td>
+                  <td><strong>4.2 Hours Advance</strong></td>
+                  <td><span class="case-badge-good">94% Shift Protocol Compliance</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Next / Previous Navigation -->
+        <div class="case-nav-footer">
+          <a href="project-industrial-iot.html" class="case-nav-btn">
+            <span class="case-nav-sub">&larr; Previous Case Study</span>
+            <span class="case-nav-title">Industrial IoT &amp; OEE Data Platform</span>
+          </a>
+          <a href="project-k-sentinel.html" class="case-nav-btn text-right">
+            <span class="case-nav-sub">Next Case Study &rarr;</span>
+            <span class="case-nav-title">K-Sentinel &amp; WealthPilot</span>
+          </a>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Designed &amp; Engineered by <strong>Sivakorn Khundilokrattaya</strong> &bull; &copy; 2026 All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/portfolio-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

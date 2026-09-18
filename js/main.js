@@ -235,11 +235,11 @@
       preloader.classList.add('fade-out');
       setTimeout(() => {
         preloader.style.display = 'none';
-      }, 600);
+      }, 480);
     }
 
-    // Auto-dismiss after animation completes (~2.5s)
-    const timer = setTimeout(dismiss, 2500);
+    // Auto-dismiss after animation completes (~2.3s)
+    const timer = setTimeout(dismiss, 2300);
 
     // Skip Button Handler
     if (skipBtn) {
@@ -404,7 +404,21 @@
       '.work-project-row',
       '.assessment-card-panel',
       '.cert-card',
-      '.tech-stack-card'
+      '.tech-stack-card',
+      // Format 6: Case Study Components
+      '.case-section-airy',
+      '.case-thesis-quote',
+      '.graph-preview-canvas-box',
+      '.wealth-sim-card',
+      '.waterfall-tier-card',
+      '.ev-monograph',
+      '.scorecard-interactive-box',
+      '.woe-bar-container',
+      '.iot-console-box',
+      '.oee-pill-card',
+      '.clinical-horizon-wrap',
+      '.clinical-horizon-step',
+      '.bedside-card-mockup'
     ];
 
     const elements = document.querySelectorAll(targetSelectors.join(', '));
@@ -431,7 +445,7 @@
       if (group.length > 1) {
         group.forEach((el, idx) => {
           if (!el.style.getPropertyValue('--anim-delay')) {
-            el.style.setProperty('--anim-delay', `${Math.min(idx * 130, 650)}ms`);
+            el.style.setProperty('--anim-delay', `${Math.min(idx * 65, 300)}ms`);
           }
         });
       }
@@ -445,10 +459,10 @@
           if (entry.isIntersecting) {
             el.classList.add('is-in-view');
 
-            // Trigger score bar sweeps if applicable
-            const fills = el.querySelectorAll('.anim-bar-sweep-fill');
+            // Trigger score and WoE bar sweeps if applicable
+            const fills = el.querySelectorAll('.anim-bar-sweep-fill, .woe-fill');
             fills.forEach(fill => {
-              const target = fill.getAttribute('data-target-width');
+              const target = fill.getAttribute('data-target-width') || fill.style.getPropertyValue('--target-width');
               if (target) {
                 fill.style.setProperty('--target-width', target);
               }
@@ -463,7 +477,7 @@
         });
       }, {
         threshold: [0, 0.12],
-        rootMargin: '0px 0px -40px 0px'
+        rootMargin: '0px 0px -20px 0px'
       });
 
       elements.forEach(el => observer.observe(el));
@@ -486,7 +500,12 @@
       '.work-history-card',
       '.cert-card',
       '.rounded-2xl.border',
-      '[class*="rounded-2xl"][class*="border"]'
+      '[class*="rounded-2xl"][class*="border"]',
+      '.waterfall-tier-card',
+      '.ev-monograph',
+      '.scorecard-interactive-box',
+      '.oee-pill-card',
+      '.bedside-card-mockup'
     ];
 
     const cards = document.querySelectorAll(cardSelectors.join(', '));
@@ -547,6 +566,7 @@
     const statsData = [];
 
     statElements.forEach(el => {
+      if (el.hasAttribute('data-no-counter')) return;
       const originalHTML = el.innerHTML;
       const originalText = el.textContent.trim();
       // Match pattern like "11.62 ms", "0.894", "97 / 150", "2.0B THB"
@@ -577,14 +597,14 @@
       if (item.animated) return;
       item.animated = true;
 
-      const duration = 1600; // ms
+      const duration = 1150; // ms
       const startTime = performance.now();
 
       function step(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        // easeOutExpo
-        const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        // Silky smooth cubic ease-out
+        const ease = 1 - Math.pow(1 - progress, 3);
         const currentVal = item.targetVal * ease;
 
         let formattedVal;

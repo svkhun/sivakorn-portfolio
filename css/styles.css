@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap');
+
+/* ==========================================================================
+   Slender Geist Universal Numeric Engine
+   Renders all numbers (0-9) and numeric punctuation across the entire site
+   in elegant Slender Geist typography with Swiss tabular alignment.
+   ========================================================================== */
+@font-face {
+  font-family: 'SlenderGeistDigits';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local('Geist'),
+       url('https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwcGFU.woff2') format('woff2');
+  unicode-range: U+0030-0039, U+0025, U+002B, U+002D, U+002E, U+002C, U+002F, U+003A, U+0024, U+003C, U+003E, U+007E;
+}
+
 /* ==========================================================================
    PRODUCTION DESIGN SYSTEM (Linear / Stripe Aesthetic)
    Sivakorn Khundilokrattaya - Data Scientist & ML Engineer
@@ -20,10 +37,11 @@
   --border-focus: #9CA3AF;
 
   /* Unified Slender Geist Typography System (Same font family across entire website) */
-  --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'Geist Mono', 'Geist', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
-  --font-serif: 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-digits: 'SlenderGeistDigits', 'Geist', sans-serif;
+  --font-sans: 'SlenderGeistDigits', 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'SlenderGeistDigits', 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SlenderGeistDigits', 'Geist Mono', 'Geist', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  --font-serif: 'SlenderGeistDigits', 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --text-primary: #111827;
   --text-secondary: #4B5563;
   --text-muted: #6B7280;
@@ -44,8 +62,11 @@
   --nav-bg: rgba(255, 255, 255, 0.95);
   --nav-border: #E5E7EB;
 
-  /* Snappy Subtle Transitions */
-  --transition: 150ms ease;
+  /* Silky Fluid Transitions (Linear / Stripe / Apple Easing) */
+  --transition: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 340ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring: 420ms cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Signature Preloader Tokens (Light) */
   --preloader-bg: #FFFFFF;
@@ -285,7 +306,38 @@ a:hover {
 
 .code-font, code, pre, .stat-value {
   font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+/* ==========================================================================
+   Universal Slender Numeric System
+   Applies tabular lining numbers and slender Geist numerals site-wide
+   ========================================================================== */
+:root, html, body {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1, "cv01" 1;
+}
+
+.tabular-nums,
+[data-numeric],
+.stat-number,
+.stat-number-sm,
+.stat-value,
+.work-metric-stat,
+.work-metric-val,
+.work-metric-subval,
+.terminal-kpi-val,
+.cap-telemetry-val,
+.cap-meta-v,
+.cert-score-chip,
+.degree-dates-pill,
+.card-date-badge,
+.timeline-date-chip,
+.score-badge-highlight {
+  font-family: var(--font-digits), var(--font-sans);
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
 }
 
 /* --------------------------------------------------------------------------
@@ -1006,13 +1058,13 @@ section[id] {
   box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   position: relative;
   overflow: hidden;
-  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.22s ease, box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .stat-box:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   border-color: var(--border-hover);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
 }
 
 /* Subtle Colored Accent Bars on Top of Each Card (border-t-4) */
@@ -1049,17 +1101,32 @@ section[id] {
 }
 
 .stat-number {
-  font-family: var(--font-display), var(--font-sans);
+  font-family: var(--font-digits), var(--font-display), var(--font-sans);
   font-size: clamp(2.35rem, 3.8vw, 3.35rem);
   font-weight: 300; /* Ultra-slender, tall Swiss figures */
   line-height: 1.05;
   letter-spacing: -0.04em;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
   margin-bottom: 0.65rem;
   display: flex;
   align-items: baseline;
   gap: 0.35rem;
   flex-wrap: wrap;
+}
+
+.stat-number-sm,
+.work-metric-stat {
+  font-family: var(--font-digits), var(--font-display), var(--font-sans);
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: 300; /* Slender Geist figure */
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
 }
 
 .stat-number .stat-unit {
@@ -2414,9 +2481,9 @@ a.text-slate-700:hover { color: #0F172A; }
   padding: 1.75rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02), 0 8px 24px -4px rgba(15, 23, 42, 0.04);
   overflow: hidden;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.25s ease,
-              box-shadow 0.25s ease;
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (min-width: 768px) {
@@ -2435,7 +2502,7 @@ a.text-slate-700:hover { color: #0F172A; }
 
 .full-width-panel:hover,
 .assessment-card-panel:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   border-color: rgba(203, 213, 225, 0.95);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 20px 36px -6px rgba(15, 23, 42, 0.08);
 }
@@ -2484,10 +2551,11 @@ html.dark .assessment-card-panel:hover {
   gap: 0.625rem;
   padding: 0.45rem 0.95rem;
   border-radius: 0px;
-  font-family: var(--font-mono);
+  font-family: var(--font-digits), var(--font-sans);
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums lining-nums;
   margin: 1.125rem 0 1.25rem 0;
   transition: all 0.2s ease;
   max-width: 100%;
@@ -3201,10 +3269,12 @@ html.dark .telemetry-terminal-card {
 
 .terminal-kpi-val {
   font-size: 0.9375rem;
-  font-weight: 800;
+  font-weight: 400; /* Slender Geist figure */
   color: #F8FAFC;
   margin-top: 0.15rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-digits), var(--font-sans);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums lining-nums;
 }
 
 /* Recourse Prompt Box */
@@ -3641,7 +3711,12 @@ html.dark .telemetry-terminal-card {
 .bg-slate-100 { background-color: #F1F5F9; }
 [data-theme="dark"] .bg-slate-100 { background-color: #27272A; }
 .font-\[\'JetBrains_Mono\'\],
-.font-\[\'JetBrains\\_Mono\'\] { font-family: var(--font-mono); }
+.font-\[\'JetBrains\\_Mono\'\] {
+  font-family: var(--font-digits), var(--font-sans);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums lining-nums;
+}
 
 /* ==========================================================================
    Signature Intro Preloader ("Sivakorn")
@@ -3655,9 +3730,9 @@ html.dark .telemetry-terminal-card {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
   cursor: pointer;
 }
@@ -3665,7 +3740,7 @@ html.dark .telemetry-terminal-card {
 .signature-preloader.fade-out {
   opacity: 0;
   visibility: hidden;
-  transform: scale(1.025);
+  transform: scale(1.015);
   pointer-events: none;
 }
 
@@ -3684,7 +3759,7 @@ html.dark .telemetry-terminal-card {
   border-radius: 0px;
   cursor: pointer;
   opacity: 0.75;
-  transition: all 0.2s ease;
+  transition: opacity 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -3725,8 +3800,8 @@ html.dark .telemetry-terminal-card {
   stroke-linejoin: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: drawChar var(--duration, 0.3s) cubic-bezier(0.4, 0, 0.2, 1) var(--delay, 0s) forwards,
-             fillChar 0.45s cubic-bezier(0.4, 0, 0.2, 1) 1.5s forwards;
+  animation: drawChar var(--duration, 0.26s) cubic-bezier(0.4, 0, 0.2, 1) var(--delay, 0s) forwards,
+             fillChar 0.35s cubic-bezier(0.16, 1, 0.3, 1) 1.35s forwards;
 }
 
 /* Flourish underline */
@@ -3738,7 +3813,7 @@ html.dark .telemetry-terminal-card {
   stroke-linejoin: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: drawFlourish 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) 1.45s forwards;
+  animation: drawFlourish 0.42s cubic-bezier(0.16, 1, 0.3, 1) 1.35s forwards;
 }
 
 /* Glowing Pen Nib at the Flourish Tip */
@@ -3746,7 +3821,7 @@ html.dark .telemetry-terminal-card {
   opacity: 0;
   fill: var(--preloader-nib);
   filter: drop-shadow(0 0 6px #FFFFFF) drop-shadow(0 0 12px var(--preloader-stroke));
-  animation: revealNib 0.3s cubic-bezier(0.16, 1, 0.3, 1) 1.95s forwards;
+  animation: revealNib 0.25s cubic-bezier(0.16, 1, 0.3, 1) 1.72s forwards;
 }
 
 /* Decorated Executive Nameplate ("Sivakorn Khundilokrattaya") */
@@ -3760,8 +3835,8 @@ html.dark .telemetry-terminal-card {
   width: 100%;
   max-width: 540px;
   opacity: 0;
-  transform: translateY(10px);
-  animation: revealSub 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.65s forwards;
+  transform: translateY(8px);
+  animation: revealSub 0.45s cubic-bezier(0.16, 1, 0.3, 1) 1.45s forwards;
 }
 
 .signature-nameplate-row {
@@ -5118,8 +5193,8 @@ html.dark #back-to-top .btt-ring-circle {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition: grid-template-rows 480ms cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: grid-template-rows 360ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 280ms ease;
 }
 
 .work-project-row:hover .work-project-details,
@@ -5535,8 +5610,8 @@ html.dark #back-to-top .btt-ring-circle {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition: grid-template-rows 480ms cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: grid-template-rows 360ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 280ms ease;
   margin-top: 0;
 }
 
@@ -5596,8 +5671,8 @@ html.dark #back-to-top .btt-ring-circle {
   opacity: 0;
   will-change: transform, opacity;
   transition-property: opacity, transform, box-shadow, border-color;
-  transition-duration: 1.1s;
-  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-duration: 0.72s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: var(--anim-delay, 0s);
 }
 
@@ -5611,46 +5686,46 @@ html.dark #back-to-top .btt-ring-circle {
    Format 1: Home Page Animations (Split Slide & Matrix Wave)
    -------------------------------------------------------------------------- */
 
-/* Capabilities Left Card (Primary Console) - Slides from left */
+/* Capabilities Left Card (Primary Console) - Slides smoothly from left */
 .anim-split-left {
-  transform: translate3d(-32px, 0, 0);
-  transition-duration: 1.15s;
+  transform: translate3d(-20px, 0, 0);
+  transition-duration: 0.72s;
 }
 [data-scroll-dir="up"] .anim-split-left:not(.is-in-view) {
-  transform: translate3d(-24px, -16px, 0);
+  transform: translate3d(-14px, -10px, 0);
 }
 
-/* Capabilities Right Card (Telemetry & Specs) - Slides from right */
+/* Capabilities Right Card (Telemetry & Specs) - Slides smoothly from right */
 .anim-split-right {
-  transform: translate3d(32px, 0, 0);
-  transition-duration: 1.15s;
+  transform: translate3d(20px, 0, 0);
+  transition-duration: 0.72s;
 }
 [data-scroll-dir="up"] .anim-split-right:not(.is-in-view) {
-  transform: translate3d(24px, -16px, 0);
+  transform: translate3d(14px, -10px, 0);
 }
 
 /* Hero Architecture Card - Scale and subtle lift */
 .anim-hero-console {
-  transform: translate3d(0, 28px, 0) scale(0.97);
-  transition-duration: 1.25s;
+  transform: translate3d(0, 18px, 0) scale(0.985);
+  transition-duration: 0.78s;
 }
 
 /* Hero & Work Metric Stats Boxes */
 .anim-metric-pop {
-  transform: translate3d(0, 20px, 0) scale(0.95);
-  transition-duration: 1.05s;
+  transform: translate3d(0, 16px, 0) scale(0.98);
+  transition-duration: 0.68s;
 }
 
 /* Tech Stack Grid Cards - Cascade Wave */
 .anim-stagger-wave {
-  transform: translate3d(0, 24px, 0) scale(0.96);
-  transition-duration: 0.95s;
+  transform: translate3d(0, 16px, 0) scale(0.985);
+  transition-duration: 0.68s;
 }
 
 /* Bottom CTA Banner */
 .anim-banner-lift {
-  transform: translate3d(0, 32px, 0);
-  transition-duration: 1.2s;
+  transform: translate3d(0, 20px, 0);
+  transition-duration: 0.75s;
 }
 
 /* --------------------------------------------------------------------------
@@ -5659,15 +5734,15 @@ html.dark #back-to-top .btt-ring-circle {
 
 /* Degrees Full-Width Panel */
 .anim-academic-panel {
-  transform: translate3d(0, 28px, 0);
-  transition-duration: 1.2s;
+  transform: translate3d(0, 18px, 0);
+  transition-duration: 0.75s;
 }
 
 /* Accent Bar Expansion (Expands horizontally from left to right) */
 .anim-accent-expand {
   transform-origin: left center;
   transform: scaleX(0);
-  transition: transform 1.25s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
 }
 .is-in-view .anim-accent-expand,
 .is-in-view.anim-accent-expand {
@@ -5681,7 +5756,7 @@ html.dark #back-to-top .btt-ring-circle {
 }
 .anim-bar-sweep-fill {
   width: 0% !important;
-  transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1) var(--bar-delay, 0.25s);
+  transition: width 0.95s cubic-bezier(0.16, 1, 0.3, 1) var(--bar-delay, 0.15s);
 }
 .is-in-view .anim-bar-sweep-fill,
 .is-in-view.anim-bar-sweep-fill {
@@ -5690,8 +5765,8 @@ html.dark #back-to-top .btt-ring-circle {
 
 /* Certification Cards Grid (4-column cascade) */
 .anim-cert-cascade {
-  transform: translate3d(0, 26px, 0) scale(0.96);
-  transition-duration: 1.05s;
+  transform: translate3d(0, 18px, 0) scale(0.985);
+  transition-duration: 0.68s;
 }
 
 /* --------------------------------------------------------------------------
@@ -5700,25 +5775,25 @@ html.dark #back-to-top .btt-ring-circle {
 
 /* Expansive Milestone Panels */
 .anim-milestone-rise {
-  transform: translate3d(0, 36px, 0);
-  transition-duration: 1.25s;
+  transform: translate3d(0, 22px, 0);
+  transition-duration: 0.75s;
 }
 [data-scroll-dir="up"] .anim-milestone-rise:not(.is-in-view) {
-  transform: translate3d(0, -28px, 0);
+  transform: translate3d(0, -16px, 0);
 }
 
 /* KPI Metric Strip Glow & Expand */
 .anim-kpi-glow {
-  transform: translate3d(0, 14px, 0);
-  transition-duration: 1.1s;
-  transition-delay: 0.2s;
+  transform: translate3d(0, 10px, 0);
+  transition-duration: 0.68s;
+  transition-delay: 0.12s;
 }
 
 /* Impact Bullet Items (Staggered rows) */
 .anim-impact-step {
   opacity: 0;
-  transform: translate3d(0, 16px, 0);
-  transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translate3d(0, 12px, 0);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: var(--bullet-delay, 0s);
 }
 .is-in-view .anim-impact-step,
@@ -5734,8 +5809,8 @@ html.dark #back-to-top .btt-ring-circle {
 /* Timeline Dots - Nodes light up and scale into position */
 .anim-timeline-node {
   opacity: 0.2;
-  transform: scale(0.5);
-  transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.85s ease;
+  transform: scale(0.6);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.55s ease;
 }
 .anim-timeline-node.is-in-view {
   opacity: 1 !important;
@@ -5745,14 +5820,14 @@ html.dark #back-to-top .btt-ring-circle {
 
 /* Organization Context Card */
 .anim-org-card {
-  transform: translate3d(-20px, 0, 0);
-  transition-duration: 1.15s;
+  transform: translate3d(-16px, 0, 0);
+  transition-duration: 0.72s;
 }
 
 /* Blueprint Accordion Rows - Rack Slot-in */
 .anim-blueprint-row {
-  transform: translate3d(0, 20px, 0);
-  transition-duration: 1.1s;
+  transform: translate3d(0, 14px, 0);
+  transition-duration: 0.68s;
 }
 
 /* --------------------------------------------------------------------------
@@ -5761,14 +5836,14 @@ html.dark #back-to-top .btt-ring-circle {
 
 /* Left Pillar (Direct Reach) */
 .anim-pillar-left {
-  transform: translate3d(-32px, 16px, 0);
-  transition-duration: 1.25s;
+  transform: translate3d(-20px, 10px, 0);
+  transition-duration: 0.75s;
 }
 
 /* Right Pillar (Contact Form) */
 .anim-pillar-right {
-  transform: translate3d(32px, 16px, 0);
-  transition-duration: 1.25s;
+  transform: translate3d(20px, 10px, 0);
+  transition-duration: 0.75s;
 }
 
 /* --------------------------------------------------------------------------
@@ -5800,6 +5875,1550 @@ html.dark #back-to-top .btt-ring-circle {
     animation: none !important;
   }
 }
+
+/* ==========================================================================
+   Project Deep Dive Case Study Pages Styling
+   ========================================================================== */
+.case-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.case-breadcrumb a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.case-breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.case-breadcrumb-sep {
+  opacity: 0.4;
+  user-select: none;
+}
+
+.case-breadcrumb-current {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Case Study Architecture Diagram Box */
+.case-architecture-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: clamp(20px, 3vw, 32px);
+  margin: 24px 0 32px 0;
+  border-radius: 0px !important;
+}
+
+[data-theme="dark"] .case-architecture-box {
+  background: #141417;
+  border-color: #27272A;
+}
+
+.case-pipeline-flow {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .case-pipeline-flow {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+
+.case-pipeline-step {
+  border: 1px solid var(--border);
+  background: var(--bg-canvas);
+  padding: 16px;
+  border-top: 2px solid var(--accent);
+  border-radius: 0px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+[data-theme="dark"] .case-pipeline-step {
+  background: #18181B;
+  border-color: #27272A;
+}
+
+.case-pipeline-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.case-pipeline-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.case-pipeline-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Benchmark Comparison Table */
+.case-table-wrap {
+  overflow-x: auto;
+  margin: 20px 0 28px;
+  border: 1px solid var(--border);
+}
+
+.case-benchmark-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  text-align: left;
+}
+
+.case-benchmark-table th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 18px;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.case-benchmark-table td {
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.case-benchmark-table tr:last-child td {
+  border-bottom: none;
+}
+
+.case-benchmark-table tr:hover td {
+  background: var(--bg-surface-elevated);
+}
+
+/* Highlight badge inside table */
+.case-badge-good {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 2px 8px;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+[data-theme="dark"] .case-badge-good {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34D399;
+}
+
+/* Callout Box */
+.case-callout {
+  padding: 20px 24px;
+  border-left: 3px solid var(--accent);
+  background: var(--bg-subtle);
+  margin: 24px 0;
+}
+
+.case-callout-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.case-callout-text {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Case Study Previous / Next Navigation */
+.case-nav-footer {
+  display: flex;
+  flex-direction: column;
+  sm:flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+@media (min-width: 640px) {
+  .case-nav-footer {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.case-nav-btn {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  flex: 1;
+}
+
+.case-nav-btn:hover {
+  border-color: var(--accent);
+  background: var(--bg-canvas);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.case-nav-sub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.case-nav-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   AIRY VERTICAL EDITORIAL CASE STUDY SYSTEM ("ดูโล่งๆ แนวยาวลงไป")
+   ========================================================================== */
+
+.case-airy-wrap {
+  padding-top: clamp(2.5rem, 5vw, 4.5rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.case-hero-airy {
+  margin-bottom: clamp(3rem, 6vw, 5.5rem);
+}
+
+.case-section-airy {
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.case-section-airy:last-of-type {
+  border-bottom: none;
+}
+
+.case-section-num-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.85rem;
+  font-weight: 600;
+}
+
+.case-section-heading {
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+}
+
+.case-thesis-quote {
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: clamp(2.5rem, 4vw, 3.5rem) 0;
+}
+
+.case-lead-airy {
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.case-body-airy {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+}
+
+.case-body-airy p {
+  margin-bottom: 1.35rem;
+}
+
+/* ==========================================================================
+   PROJECT 1: K-SENTINEL BESPOKE SIGNATURE COMPONENTS
+   ========================================================================== */
+
+/* Graph Ring Visualizer */
+.graph-preview-canvas-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  position: relative;
+  overflow: hidden;
+  margin: 2.5rem 0;
+}
+
+.graph-telemetry-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.graph-telemetry-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #10B981;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+.graph-svg-network {
+  width: 100%;
+  height: auto;
+  min-height: 280px;
+  display: block;
+}
+
+/* WealthPilot CASA Simulator */
+.wealth-sim-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  margin: 2.5rem 0;
+}
+
+.wealth-slider-wrap {
+  margin: 2rem 0;
+}
+
+.wealth-slider-input {
+  width: 100%;
+  height: 6px;
+  border-radius: 0;
+  background: var(--border);
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.wealth-slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border: 2px solid var(--bg-canvas);
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.sim-output-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.sim-output-card {
+  padding: 1rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+}
+
+.sim-output-val {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: block;
+  margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   PROJECT 2: LOD ENGINE BESPOKE SIGNATURE COMPONENTS
+   ========================================================================== */
+
+.waterfall-vertical-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.waterfall-tier-card {
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  padding: 1.5rem 1.75rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.waterfall-tier-card:hover {
+  border-color: var(--accent);
+  transform: translateX(4px);
+}
+
+.waterfall-tier-card.tier-highlight {
+  border-left: 4px solid var(--accent);
+  background: var(--bg-subtle);
+}
+
+.tier-code-tag {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 48px;
+}
+
+.tier-details-block h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.tier-details-block p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.tier-metric-badge {
+  text-align: right;
+  font-family: var(--font-mono);
+}
+
+.tier-metric-val {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: block;
+}
+
+.tier-metric-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.tier-highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  line-height: 1.4;
+  vertical-align: middle;
+}
+
+.tier-highlight-badge::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .waterfall-tier-card {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .tier-metric-badge {
+    text-align: left;
+  }
+}
+
+/* ==========================================================================
+   EXPECTED VALUE FORMULA & VISUAL COMPARISON SYSTEM
+   ========================================================================== */
+.ev-monograph {
+  margin: 2.5rem 0;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+}
+
+.ev-monograph-header {
+  padding: 1.15rem 1.75rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.ev-monograph-formula {
+  padding: 1.75rem 1.75rem 1.35rem;
+  background: var(--bg-canvas);
+  border-bottom: 1px solid var(--border);
+}
+
+.ev-formula-math {
+  font-family: var(--font-mono);
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.ev-formula-lead {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.45rem;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.ev-compare-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .ev-compare-columns {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ev-col-item {
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ev-col-item:first-child {
+  border-bottom: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+  .ev-col-item:first-child {
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+  }
+}
+
+.ev-col-item.is-highlighted {
+  background: var(--bg-subtle);
+}
+
+.ev-col-tag {
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ev-col-amount {
+  font-family: var(--font-mono);
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.ev-col-item.is-highlighted .ev-col-amount {
+  color: var(--accent);
+}
+
+.ev-col-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.ev-lift-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  background: var(--bg-canvas);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 0;
+}
+
+/* ==========================================================================
+   PROJECT 3: CREDIT RISK BESPOKE SIGNATURE COMPONENTS
+   ========================================================================== */
+
+.scorecard-interactive-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  margin: 2.5rem 0;
+}
+
+.scorecard-toggle-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.scorecard-tab-btn {
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: 0;
+  transition: all 0.2s ease;
+}
+
+.scorecard-tab-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.scorecard-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+.scorecard-data-table th,
+.scorecard-data-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.scorecard-data-table th {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.score-diff-highlight {
+  color: #10B981;
+  font-weight: 700;
+}
+
+/* Monotonic WoE bars */
+.woe-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.woe-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 70px;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.woe-track {
+  height: 10px;
+  background: var(--border);
+  position: relative;
+}
+
+.woe-fill {
+  height: 100%;
+  background: var(--accent);
+}
+
+/* ==========================================================================
+   PROJECT 4: INDUSTRIAL IOT BESPOKE SIGNATURE COMPONENTS
+   ========================================================================== */
+
+.iot-console-box {
+  background: var(--bg-canvas);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  font-family: var(--font-mono);
+  margin: 2.5rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .iot-console-box {
+  background: var(--bg-surface);
+  border-color: var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.iot-console-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 1.15rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.iot-stream-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 4px 10px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #059669;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+[data-theme="dark"] .iot-stream-badge {
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.15);
+}
+
+.iot-waveform-svg {
+  width: 100%;
+  height: auto;
+  min-height: 140px;
+  display: block;
+}
+
+.iot-console-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+.oee-trio-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.oee-pill-card {
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  padding: 1.25rem;
+  position: relative;
+}
+
+.oee-pct-large {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: block;
+}
+
+/* ==========================================================================
+   PROJECT 5: GUARDIANAI BESPOKE SIGNATURE COMPONENTS
+   ========================================================================== */
+
+.clinical-horizon-wrap {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 3.5rem 0;
+  padding-left: 2.25rem;
+  border-left: 2px solid var(--border);
+}
+
+.clinical-horizon-step {
+  position: relative;
+  padding-bottom: 2.75rem;
+}
+
+.clinical-horizon-step:last-child {
+  padding-bottom: 0.5rem;
+}
+
+/* Mathematically centered bullet on the 2px border line */
+.clinical-step-bullet {
+  position: absolute;
+  left: -2.25rem;
+  top: 0.35rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg-canvas);
+  border: 2px solid var(--border-focus);
+  transform: translateX(calc(-50% - 1px));
+  z-index: 2;
+  transition: border-color 0.2s ease;
+}
+
+.clinical-horizon-step:hover .clinical-step-bullet {
+  border-color: var(--accent);
+}
+
+.clinical-horizon-step.step-alert .clinical-step-bullet {
+  border-color: #EF4444;
+  background: #EF4444;
+  box-shadow: none;
+}
+
+.clinical-horizon-step.step-prevented .clinical-step-bullet {
+  border-color: #10B981;
+  background: #10B981;
+  box-shadow: none;
+}
+
+.clinical-step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-left: 0.5rem;
+}
+
+.clinical-step-time {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  line-height: 1.4;
+}
+
+.clinical-telemetry-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  font-family: var(--font-mono);
+  font-size: 0.675rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  border-radius: 0px;
+}
+
+.clinical-telemetry-tag.tag-alert {
+  border-color: rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.08);
+  color: #DC2626;
+}
+
+[data-theme="dark"] .clinical-telemetry-tag.tag-alert {
+  color: #EF4444;
+}
+
+.clinical-telemetry-tag.tag-success {
+  border-color: rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.08);
+  color: #059669;
+}
+
+[data-theme="dark"] .clinical-telemetry-tag.tag-success {
+  color: #34D399;
+}
+
+.clinical-step-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.clinical-step-desc {
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 48rem;
+}
+
+/* Bedside Triage Card Mockup */
+.bedside-card-mockup {
+  border: 1px solid var(--border);
+  background: var(--bg-canvas);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  margin: 2.5rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .bedside-card-mockup {
+  background: var(--bg-surface);
+}
+
+.bedside-patient-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1.25rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+}
+
+.bedside-patient-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.bedside-patient-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.bedside-patient-val {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.triage-risk-banner {
+  padding: 0.9rem 1.25rem;
+  background: rgba(239, 68, 68, 0.06);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-left: 4px solid #EF4444;
+  color: #DC2626;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 700;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme="dark"] .triage-risk-banner {
+  color: #EF4444;
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.bedside-sub-heading {
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+/* SHAP Attributions with Visual Impact Bars */
+.bedside-shap-list {
+  margin-bottom: 1.5rem;
+}
+
+.shap-item {
+  padding: 0.75rem 1rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  margin-bottom: 0.65rem;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.shap-item:hover {
+  border-color: var(--accent);
+  background: var(--bg-canvas);
+}
+
+.shap-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.shap-feat-name {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.shap-impact-val {
+  color: #DC2626;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .shap-impact-val {
+  color: #EF4444;
+}
+
+.shap-bar-track {
+  height: 5px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.shap-bar-fill {
+  height: 100%;
+  background: #EF4444;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Mandatory Nurse Actions 3-Column Grid */
+.bedside-actions-section {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.bedside-actions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .bedside-actions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.nurse-action-chip {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.nurse-action-chip:hover {
+  border-color: #10B981;
+  background: var(--bg-canvas);
+  transform: translateY(-2px);
+}
+
+.nurse-chip-check {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .nurse-chip-check {
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.2);
+}
+
+.nurse-chip-text {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-mono);
+}
+
+.nurse-chip-title {
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.nurse-chip-sub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   FORMAT 6: BESPOKE CASE STUDY ANIMATION SUITE
+   Apple / Linear / Stripe Silky Fluid Motion (Cubic-Bezier Easing)
+   Zero Cartoonish/Stiff Physics, Domain-Specific Dynamics
+   ========================================================================== */
+
+/* Base scroll-reveal for airy case sections and monographs */
+.case-section-airy,
+.case-thesis-quote,
+.graph-preview-canvas-box,
+.wealth-sim-card,
+.ev-monograph,
+.scorecard-interactive-box,
+.woe-bar-container,
+.iot-console-box,
+.bedside-card-mockup {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.72s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+  will-change: opacity, transform;
+}
+
+.case-section-airy.is-in-view,
+.case-thesis-quote.is-in-view,
+.graph-preview-canvas-box.is-in-view,
+.wealth-sim-card.is-in-view,
+.ev-monograph.is-in-view,
+.scorecard-interactive-box.is-in-view,
+.woe-bar-container.is-in-view,
+.iot-console-box.is-in-view,
+.bedside-card-mockup.is-in-view {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Case 1: K-Sentinel (Banking Graph AML & Wealth Co-Pilot)
+   -------------------------------------------------------------------------- */
+
+/* Graph Network Edge Flow Animation */
+.graph-flow-edge {
+  stroke-dasharray: 6 5;
+  animation: graphFlowAnim 1.6s linear infinite;
+}
+
+.graph-edge-fanin {
+  animation-duration: 1.25s;
+}
+
+.graph-edge-clean {
+  stroke-dasharray: 4 4;
+  animation: graphFlowAnim 2.8s linear infinite;
+}
+
+.graph-edge-blocked {
+  stroke-dasharray: 5 4;
+  animation: graphBlockedPulse 2s ease-in-out infinite;
+}
+
+@keyframes graphFlowAnim {
+  from { stroke-dashoffset: 22; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes graphBlockedPulse {
+  0%, 100% { stroke-opacity: 0.35; stroke-width: 2.2; }
+  50% { stroke-opacity: 0.95; stroke-width: 2.8; }
+}
+
+/* Hub Ring Radar Pulse */
+.hub-pulse-ring {
+  transform-origin: 570px 136px;
+  animation: hubRadarPulse 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes hubRadarPulse {
+  0% { transform: scale(0.96); stroke-opacity: 0.85; }
+  50% { transform: scale(1.18); stroke-opacity: 0.15; }
+  100% { transform: scale(0.96); stroke-opacity: 0.85; }
+}
+
+/* Quarantine Interception Shield Badge Pulse */
+.quarantine-shield-badge {
+  transition: transform 0.3s ease;
+  animation: quarantineShieldGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes quarantineShieldGlow {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.25)); }
+  50% { filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.7)); }
+}
+
+/* WealthPilot Interactive Simulator Smooth Feedback */
+.wealth-slider-input {
+  transition: background-color 0.2s ease;
+}
+.wealth-slider-input::-webkit-slider-thumb {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease;
+}
+.wealth-slider-input::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 10px rgba(0, 102, 255, 0.4);
+}
+.wealth-slider-input:active::-webkit-slider-thumb {
+  transform: scale(1.22);
+}
+
+.sim-output-card {
+  transition: border-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+}
+.sim-output-card:hover {
+  border-color: var(--accent);
+  transform: translate3d(0, -3px, 0);
+  background: var(--bg-surface);
+}
+
+.sim-output-val {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Case 2: LOD Engine (Delinquent Debt Waterfall & Platt Calibration)
+   -------------------------------------------------------------------------- */
+
+/* Waterfall Tier Cards Staggered Entry */
+.waterfall-tier-card {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              background-color 0.2s ease,
+              box-shadow 0.2s ease;
+  will-change: opacity, transform;
+}
+
+.waterfall-tier-card.is-in-view {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+.waterfall-tier-card:hover {
+  border-color: var(--accent);
+  transform: translate3d(6px, 0, 0) !important;
+  box-shadow: -4px 0 0 0 var(--accent);
+}
+
+/* Tier B (Hotspot) Luminous Accent Shimmer */
+.waterfall-tier-card.tier-highlight {
+  position: relative;
+}
+
+.waterfall-tier-card.tier-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+  animation: tierBShimmer 2.8s ease-in-out infinite;
+}
+
+@keyframes tierBShimmer {
+  0%, 100% { opacity: 0.4; box-shadow: 0 0 6px var(--accent); }
+  50% { opacity: 1; box-shadow: 0 0 18px var(--accent); }
+}
+
+/* Expected Value Monograph Hover & Lift Badge */
+.ev-col-item {
+  transition: background-color 0.25s ease;
+}
+.ev-col-item.is-highlighted {
+  position: relative;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+.ev-lift-badge {
+  animation: liftBadgeGlow 3s ease-in-out infinite;
+}
+@keyframes liftBadgeGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(0, 102, 255, 0); border-color: var(--border); }
+  50% { box-shadow: 0 0 8px rgba(0, 102, 255, 0.35); border-color: var(--accent); }
+}
+
+/* --------------------------------------------------------------------------
+   Case 3: Credit Risk (DiCE Counterfactual & Monotonic WoE)
+   -------------------------------------------------------------------------- */
+
+/* DiCE Recourse Interactive Scorecard Transition */
+#score-status-box {
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scorecard-tab-btn {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scorecard-tab-btn:hover:not(.active) {
+  border-color: var(--border-hover);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.score-diff-highlight {
+  display: inline-block;
+  color: #10B981;
+  font-weight: 700;
+  animation: recoursePopIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes recoursePopIn {
+  0% { opacity: 0; transform: translate3d(0, 6px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* Monotonic WoE Bar Sweep */
+.woe-track {
+  height: 12px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.woe-fill {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: width 1.1s cubic-bezier(0.16, 1, 0.3, 1) var(--fill-delay, 0.15s);
+  will-change: width;
+}
+
+.woe-bar-container.is-in-view .woe-fill,
+.is-in-view .woe-fill {
+  width: var(--target-width, 100%) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Case 4: Industrial IoT (Live Waveform Oscilloscope & OEE Trio)
+   -------------------------------------------------------------------------- */
+
+/* Live Oscilloscope Oscillating Beam & Waveform Path */
+.iot-waveform-svg {
+  filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.2));
+}
+
+.iot-waveform-path {
+  filter: drop-shadow(0 0 3px rgba(16, 185, 129, 0.6));
+  animation: waveformPulse 3s ease-in-out infinite;
+}
+
+@keyframes waveformPulse {
+  0%, 100% { stroke-opacity: 0.85; stroke-width: 2; }
+  50% { stroke-opacity: 1; stroke-width: 2.3; filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.8)); }
+}
+
+.iot-scanline {
+  animation: iotScanlineSweep 4.2s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes iotScanlineSweep {
+  0% { transform: translate3d(0px, 0, 0); opacity: 0; }
+  4% { opacity: 0.85; }
+  92% { opacity: 0.85; }
+  100% { transform: translate3d(760px, 0, 0); opacity: 0; }
+}
+
+.iot-anomaly-box {
+  animation: anomalyStrobe 2.2s ease-in-out infinite;
+}
+
+@keyframes anomalyStrobe {
+  0%, 100% {
+    fill-opacity: 0.08;
+    stroke-opacity: 0.4;
+  }
+  50% {
+    fill-opacity: 0.24;
+    stroke-opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
+  }
+}
+
+/* OEE Trio Cards Staggered Reveal & Micro-Lift */
+.oee-pill-card {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 0.68s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.68s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+  will-change: opacity, transform;
+}
+
+.oee-pill-card.is-in-view {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+.oee-pill-card:hover {
+  transform: translate3d(0, -4px, 0) !important;
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .oee-pill-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   Case 5: GuardianAI (Clinical Horizon Timeline & Bedside Triage)
+   -------------------------------------------------------------------------- */
+
+/* Clinical Horizon Timeline Scroll Reveal */
+.clinical-horizon-wrap {
+  position: relative;
+}
+
+.clinical-horizon-step {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--anim-delay, 0s);
+  will-change: opacity, transform;
+}
+
+.clinical-horizon-step.is-in-view {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+/* Bedside Triage Card Micro-Interactions */
+.bedside-card-mockup {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.bedside-card-mockup:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+[data-theme="dark"] .bedside-card-mockup:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility: Strict Reduced Motion Compliance
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .case-section-airy,
+  .case-thesis-quote,
+  .graph-preview-canvas-box,
+  .wealth-sim-card,
+  .waterfall-tier-card,
+  .ev-monograph,
+  .scorecard-interactive-box,
+  .woe-bar-container,
+  .iot-console-box,
+  .oee-pill-card,
+  .clinical-horizon-wrap,
+  .clinical-horizon-step,
+  .bedside-card-mockup,
+  .woe-fill {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  .graph-flow-edge,
+  .hub-pulse-ring,
+  .quarantine-shield-badge,
+  .waterfall-tier-card.tier-highlight::before,
+  .ev-lift-badge,
+  .score-diff-highlight,
+  .iot-waveform-path,
+  .iot-scanline,
+  .iot-anomaly-box {
+    animation: none !important;
+    transform: none !important;
+  }
+  .woe-fill {
+    width: var(--target-width, 100%) !important;
+  }
+}
+
+
 
 
 
