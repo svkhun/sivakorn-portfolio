@@ -51,6 +51,8 @@ The portfolio is architected following the clean, structured, and developer-focu
 ```
 
 * **Content-Driven Layout**: Generous whitespace (`clamp(60px, 7vw, 90px) 0`), clear typography hierarchy, and structured cards optimized for hiring managers and technical leadership to digest complex engineering achievements without cognitive overload.
+* **Dedicated Deep-Dive Case Study Pages**: 5 standalone editorial case studies (`project-*.html`) featuring custom interactive architectural centerpieces: Mule-Ring Graph Inspector, DiCE Counterfactual Recourse Explorer, 4-Tier Recovery Waterfall, Live Oscilloscope Telemetry Monitor, and Clinical Horizon Patient Safety Timeline.
+* **Bespoke Apple/Linear Fluid Animation Suite**: Custom physics-based cubic-bezier easing (`cubic-bezier(0.16, 1, 0.3, 1)`), staggered scroll cascades, real-time SVG packet flows, and strict `prefers-reduced-motion` compliance.
 * **Dual Theme Engine**: Seamless toggle between crisp, clean light mode and dark slate theme with persistent preference storage in `localStorage`.
 * **Zero Anti-Patterns**: Free of purple-to-blue neon gradients, heavy drop-shadows, glassmorphism blur, and distracting particle physics animations.
 * **Separation of Data & Layout**: All portfolio items, credentials, metrics, and case studies are managed within `js/portfolio-data.js`.
@@ -63,7 +65,7 @@ The portfolio is architected following the clean, structured, and developer-focu
 ### 1. K-Sentinel & WealthPilot (K PLUS for First Jobbers)
 * **Domain**: Real-Time Relational Graph Fraud Defense, Autonomous Cashflow Engineering, Mobile Banking Intelligence.
 * **Context**: **KBTG Kampus Hackathon 2026 — Track 2: Data Science & Intelligence**.
-* **Live Demo**: [https://k-sentinel-wealthpilot.onrender.com/](https://k-sentinel-wealthpilot.onrender.com/) &bull; **Repository**: [https://github.com/svkhun/k-sentinel-wealthpilot](https://github.com/svkhun/k-sentinel-wealthpilot)
+* **Case Study**: [Interactive Deep-Dive](https://svkhun.vercel.app/project-k-sentinel) &bull; **Live Demo**: [https://k-sentinel-wealthpilot.onrender.com/](https://k-sentinel-wealthpilot.onrender.com/) &bull; **Repository**: [https://github.com/svkhun/k-sentinel-wealthpilot](https://github.com/svkhun/k-sentinel-wealthpilot)
 * **Problem**: 3.2M First Jobbers on K PLUS suffer from discretionary cashflow volatility (60–68% lack 3-month emergency buffers) and are prime targets for cyber scams (>45% victims aged 20–30, >2.0B THB annual losses).
 * **Architecture**:
   * **Two-Tier Graph Inference**: Offline/Nearline **PyTorch Geometric (PyG) Relational GCN** extracting 16D continuous node embeddings over mule account transaction topologies, cached in an in-memory O(1) Redis feature store.
@@ -79,7 +81,7 @@ The portfolio is architected following the clean, structured, and developer-focu
 
 ### 2. Enterprise Credit Risk Scoring & Explainable AI (XAI)
 * **Domain**: Quantitative Credit Risk, Basel II/III Compliance, Consumer Lending Intelligence.
-* **Repository**: [https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI](https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI)
+* **Case Study**: [Interactive Deep-Dive](https://svkhun.vercel.app/project-credit-risk) &bull; **Repository**: [https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI](https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI)
 * **Problem**: Standard deep learning and complex ensemble models operate as black boxes, exposing financial institutions to severe legal penalties under ECOA / SR 11-7 model risk governance.
 * **Architecture**:
   * Continuous feature discretization using **Monotonic Weight of Evidence (WoE)** and **Information Value (IV)** filtering.
@@ -97,7 +99,7 @@ The portfolio is architected following the clean, structured, and developer-focu
 ### 3. Long Overdue Debtor (LOD) Prediction System
 * **Domain**: Non-Performing Loan (NPL) Prevention, Asymmetric Loss Optimization.
 * **Context**: **Aihack Thailand 2025 National Finalist** (Organized by AIRA & AIFUL, Chulalongkorn Business School, and ProbSpace).
-* **Repository**: [https://github.com/svkhun/aiful-credit-risk-modeling](https://github.com/svkhun/aiful-credit-risk-modeling)
+* **Case Study**: [Interactive Deep-Dive](https://svkhun.vercel.app/project-lod-engine) &bull; **Repository**: [https://github.com/svkhun/aiful-credit-risk-modeling](https://github.com/svkhun/aiful-credit-risk-modeling)
 * **Problem**: Default classification on ~40,000 real-world consumer loans under extreme 1:12 default imbalance and blind private leaderboard evaluation.
 * **Architecture**:
   * Formulated temporal delinquency velocity ratios, credit exhaustion slopes, and payment behavior vectors.
@@ -115,7 +117,7 @@ The portfolio is architected following the clean, structured, and developer-focu
 
 ### 4. Industrial IoT & OEE Manufacturing Data Platform
 * **Domain**: Hybrid Lambda Data Engineering, Industrial Telemetry & Predictive Quality.
-* **Repository**: [https://github.com/svkhun/mfg-data-pipeline](https://github.com/svkhun/mfg-data-pipeline)
+* **Case Study**: [Interactive Deep-Dive](https://svkhun.vercel.app/project-industrial-iot) &bull; **Repository**: [https://github.com/svkhun/mfg-data-pipeline](https://github.com/svkhun/mfg-data-pipeline)
 * **Problem**: Factory automation requires simultaneous sub-second edge anomaly detection and compute-intensive hourly batch aggregations for Overall Equipment Effectiveness (OEE) tracking.
 * **Architecture**:
   * **Hybrid / Lambda Pipeline**: Decoupled sub-second edge event streaming from idempotent batch Data Mart processing.
@@ -134,7 +136,7 @@ The portfolio is architected following the clean, structured, and developer-focu
 ### 5. GuardianAI – Clinical Frailty & Fall Risk Intervention
 * **Domain**: Healthcare AI, Preventive Geriatric Analytics.
 * **Context**: **True Innovation Launchpad 2026** (AI & Data Science Lead &bull; Team Nakphatthana Tuapralat).
-* **Repository**: [https://github.com/svkhun/guardianai-clinical-ops-dashboard](https://github.com/svkhun/guardianai-clinical-ops-dashboard)
+* **Case Study**: [Interactive Deep-Dive](https://svkhun.vercel.app/project-guardian-ai) &bull; **Repository**: [https://github.com/svkhun/guardianai-clinical-ops-dashboard](https://github.com/svkhun/guardianai-clinical-ops-dashboard)
 * **Problem**: Early identification of elderly frailty and acute fall risk before irreversible physical decline occurs.
 * **Architecture**:
   * Calibrated **XGBoost** risk engine trained on multi-biometric physical markers, gait parameters, and health records.
@@ -264,15 +266,20 @@ sivakorn-portfolio/
 ├── index.html                  # Home page (Hero + Categorized What I Do tech stacks)
 ├── education.html              # Education page (Degrees, KBTG Certifications, Badges)
 ├── experience.html             # Experience page (Hackathons & Leadership timeline)
-├── projects.html               # Projects page (Featured Case Studies & Key Metrics)
+├── projects.html               # Projects page (Curated Interactive Engineering Timeline)
+├── project-k-sentinel.html     # Case Study: K-Sentinel Mule Graph & WealthPilot Engine
+├── project-credit-risk.html    # Case Study: Basel II/III Credit Risk & DiCE Counterfactual Recourse
+├── project-lod-engine.html     # Case Study: Long Overdue Debtor (LOD) & 4-Tier Recovery Waterfall
+├── project-industrial-iot.html # Case Study: Industrial IoT Telemetry & OEE Manufacturing Data Mart
+├── project-guardian-ai.html    # Case Study: GuardianAI Clinical Horizon & Bedside Triage Engine
 ├── contact.html                # Contact page (Direct reach, Location, Resume downloads)
-├── vercel.json                 # Clean URL routing (/education, /projects) & security headers
+├── vercel.json                 # Clean URL routing & HTTP defense-in-depth headers
 ├── .gitignore                  # Git ignore rules for ML/DS artifacts and temporary files
 ├── README.md                   # Comprehensive technical documentation & portfolio overview
 ├── css/
-│   └── styles.css              # MasterPortfolio design tokens, Light/Dark themes, responsive grids
+│   └── styles.css              # MasterPortfolio tokens, Light/Dark themes, bespoke animation suite
 ├── js/
-│   ├── main.js                 # App controller, Theme switcher, Modal previews, Toast feedback
+│   ├── main.js                 # App controller, Theme switcher, Bidirectional scroll reveals
 │   └── portfolio-data.js       # Centralized structured data dictionary (masterPortfolio data store)
 └── assets/
     ├── svg/                    # Custom flat SVG developer and section illustrations

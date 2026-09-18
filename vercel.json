@@ -4,6 +4,11 @@
     { "source": "/education", "destination": "/education.html" },
     { "source": "/experience", "destination": "/experience.html" },
     { "source": "/projects", "destination": "/projects.html" },
+    { "source": "/project-k-sentinel", "destination": "/project-k-sentinel.html" },
+    { "source": "/project-credit-risk", "destination": "/project-credit-risk.html" },
+    { "source": "/project-lod-engine", "destination": "/project-lod-engine.html" },
+    { "source": "/project-industrial-iot", "destination": "/project-industrial-iot.html" },
+    { "source": "/project-guardian-ai", "destination": "/project-guardian-ai.html" },
     { "source": "/contact", "destination": "/contact.html" }
   ],
   "headers": [
