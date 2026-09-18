@@ -4359,12 +4359,39 @@ html.dark #back-to-top .btt-ring-circle {
    Guarantee that frames, cards, and headings always have generous breathing room
    ========================================================================== */
 
+/* ==========================================================================
+   Full Viewport Hero Banner (Subpages: Experience & Education)
+   Occupies 100vh minus sticky navbar (72px), vertically centered, keeping
+   the initial fold clean and distraction-free without bottom headers peeking.
+   ========================================================================== */
+.page-hero-fullscreen {
+  min-height: calc(100vh - 72px);
+  min-height: calc(100dvh - 72px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.page-hero-fullscreen > .max-w-6xl,
+.page-hero-fullscreen > .max-w-5xl,
+.page-hero-fullscreen > .grid {
+  margin-bottom: 0 !important;
+}
+
+.page-hero-fullscreen .work-summary-stats-bar {
+  margin-bottom: 0;
+}
+
 /* Subpage Main Content Blocks */
-#education-header > .max-w-6xl {
+#education-content > .max-w-6xl,
+#education-header > .max-w-6xl:not(.w-full) {
   margin-bottom: clamp(4.5rem, 8vw, 7.5rem) !important;
 }
 
-#education-header > .max-w-6xl:last-child {
+#education-content > .max-w-6xl:last-child,
+#education-header > .max-w-6xl:last-child:not(.w-full) {
   margin-bottom: clamp(6rem, 10vw, 9rem) !important;
 }
 
