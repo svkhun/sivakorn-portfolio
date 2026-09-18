@@ -4407,6 +4407,17 @@ html.dark #back-to-top .btt-ring-circle {
 #contact-header h1 + p {
 }
 
+/* Education Hero Title: Keep 'Verified Benchmarks' unified on one line */
+#education-header .hero-display {
+  font-size: clamp(2.35rem, 4.2vw, 4.35rem);
+}
+
+@media (min-width: 768px) {
+  #education-header .hero-display .text-accent-brand {
+    white-space: nowrap !important;
+  }
+}
+
 /* ==========================================================================
    Clean & Elegant Portfolio Styles ("ธรรมดาและสวย")
    ========================================================================== */
