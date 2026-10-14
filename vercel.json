@@ -14,6 +14,10 @@
       "destination": "/projects.html"
     },
     {
+      "source": "/project-shopee-smart-cod",
+      "destination": "/project-shopee-smart-cod.html"
+    },
+    {
       "source": "/project-flowsense-trustgraph",
       "destination": "/project-flowsense-trustgraph.html"
     },

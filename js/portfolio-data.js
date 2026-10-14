@@ -202,6 +202,20 @@ const portfolioData = {
   // Experience & Competitions (Timeline & Cards)
   experience: [
     {
+      role: "Lead Data Scientist & Product Architect",
+      company: "Shopee Ultimate Case Challenge 2026",
+      status: "Case competition project",
+      organization: "Shopee",
+      duration: "2026",
+      description: [
+        "Developed Smart COD Reliability, a prototype connecting calibrated delivery failure predictions to adaptive checkout safeguards.",
+        "Built a Random Forest pipeline with sigmoid calibration; recorded 0.8400 ROC-AUC and 0.3056 average precision on 3,500 synthetic holdout COD orders.",
+        "Implemented four reliability grades, 20%/30% deposit policies, delivery-feedback scoring, and rule-based EasySell checks.",
+        "Built FastAPI inference, a smartphone shopping simulator, and analytics views over 50,000 synthetic orders and 12,000 buyer profiles."
+      ],
+      techStack: ["Python", "scikit-learn", "Random Forest", "FastAPI", "Pandas", "JavaScript"]
+    },
+    {
       role: "Track 2 Lead: Data Science & Intelligence",
       company: "KBTG Kampus Hackathon 2026",
       status: "Advanced to the next round; not yet in the Final round",
@@ -287,6 +301,18 @@ const portfolioData = {
 
   // Featured Engineering Projects
   projects: [
+    {
+      id: "shopee-smart-cod",
+      title: "Shopee Smart COD Reliability",
+      domain: "E-Commerce Delivery Risk & Adaptive Checkout",
+      context: "Shopee Ultimate Case Challenge 2026 — Case competition project",
+      caseStudyLink: "project-shopee-smart-cod.html",
+      description: "Calibrated Random Forest failure prediction, four reliability grades, adaptive deposit policies, delivery-feedback scoring, and a FastAPI-powered shopping simulator evaluated on synthetic order data.",
+      keyMetric: "0.8400 ROC-AUC on Synthetic Holdout &bull; 50,000 Synthetic Orders &bull; 4 Risk Grades",
+      techStack: ["Python", "scikit-learn", "Random Forest", "FastAPI", "Pandas", "JavaScript"],
+      githubLink: "https://github.com/svkhun/Shopee-Ultimate-Case-Challenge",
+      liveDemoLink: null
+    },
     {
       id: "k-flowsense-trustgraph",
       title: "FlowSense & TrustGraph (K PLUS for First Jobbers)",

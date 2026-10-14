@@ -51,7 +51,7 @@ The portfolio is architected following the clean, structured, and developer-focu
 ```
 
 * **Content-Driven Layout**: Generous whitespace (`clamp(60px, 7vw, 90px) 0`), clear typography hierarchy, and structured cards optimized for hiring managers and technical leadership to digest complex engineering achievements without cognitive overload.
-* **Dedicated Deep-Dive Case Study Pages**: 5 standalone editorial case studies (`project-*.html`) featuring custom interactive architectural centerpieces: Mule-Ring Graph Inspector, DiCE Counterfactual Recourse Explorer, 4-Tier Recovery Waterfall, Live Oscilloscope Telemetry Monitor, and Clinical Horizon Patient Safety Timeline.
+* **Dedicated Deep-Dive Case Study Pages**: 6 standalone editorial case studies (`project-*.html`) covering graph screening, COD reliability, credit risk, debt recovery, industrial telemetry, and clinical operations.
 * **Bespoke Apple/Linear Fluid Animation Suite**: Custom physics-based cubic-bezier easing (`cubic-bezier(0.16, 1, 0.3, 1)`), staggered scroll cascades, real-time SVG packet flows, and strict `prefers-reduced-motion` compliance.
 * **Dual Theme Engine**: Seamless toggle between crisp, clean light mode and dark slate theme with persistent preference storage in `localStorage`.
 * **Zero Anti-Patterns**: Free of purple-to-blue neon gradients, heavy drop-shadows, glassmorphism blur, and distracting particle physics animations.
@@ -146,10 +146,23 @@ The portfolio is architected following the clean, structured, and developer-focu
 
 ---
 
+### 6. Shopee Smart COD Reliability
+* **Context**: Shopee Ultimate Case Challenge (SUCC) 2026 — case competition project.
+* **My Role**: Lead Data Scientist & Product Architect.
+* **Case Study**: [Deep Dive](https://svkhun.vercel.app/project-shopee-smart-cod) &bull; **Repository**: [Source Code](https://github.com/svkhun/Shopee-Ultimate-Case-Challenge)
+* **Implementation**: A calibrated, class-balanced Random Forest with 9 numeric and 2 categorical inputs, FastAPI inference, a vanilla JavaScript smartphone simulator, EDA dashboard, and dataset explorer.
+* **Decision Policy**: Four reliability grades with reminders, 20%/30% deposits, prepaid options, delivery-feedback score updates, and rule-based EasySell checks.
+* **Recorded Evaluation**: 0.8400 ROC-AUC, 0.3056 average precision, and 0.02112 Brier score on 3,500 synthetic holdout COD orders. The dataset contains 50,000 synthetic orders and 12,000 buyer profiles.
+* **Business Scenario**: Approximately 3.58M THB potential monthly savings under the project's volume, return-cost, and 58% failure-reduction assumptions; no realized operational savings are claimed.
+* **Source of Truth**: Local SUCC model metrics, scoring implementation, risk policy, and EDA artifacts; these supersede older figures in that repository's README.
+
+---
+
 ## 🏆 Competitions & Industry Challenges
 
 | Competition / Hackathon | Organization / Hosts | Role & Focus | Timeline |
 | :--- | :--- | :--- | :--- |
+| **Shopee Ultimate Case Challenge 2026** | Shopee | **Lead Data Scientist & Product Architect** &bull; Smart COD Reliability prototype | 2026 |
 | **KBTG Kampus Hackathon 2026** | Kasikorn Business-Technology Group (KBTG) | **Track 2: Data Science & Intelligence Lead** &bull; FlowSense & TrustGraph &bull; **Advanced to the next round; not yet in the Final round** | 2026 |
 | **CDG Hackathon 2026** | CDG Group | Operational AI & System Reliability (Team GrandGuardianAI) | Jul 2026 |
 | **Geospatial Intelligence for Resilience Hackathon 2026** | GISTDA &bull; KMITL &bull; KMUTT | Spatial Lead &bull; 30m Grid Flash Flood Mapping via Sentinel-1 SAR & Copernicus DEM | Jan 2026 |
@@ -262,6 +275,7 @@ sivakorn-portfolio/
 ├── education.html              # Education page (Degrees, KBTG Certifications, Badges)
 ├── experience.html             # Experience page (Hackathons & Leadership timeline)
 ├── projects.html               # Projects page (Curated Interactive Engineering Timeline)
+├── project-shopee-smart-cod.html # Case Study: Calibrated COD risk & adaptive checkout
 ├── project-flowsense-trustgraph.html     # Case Study: FlowSense cashflow & TrustGraph transfer screening
 ├── project-credit-risk.html    # Case Study: Basel II/III Credit Risk & DiCE Counterfactual Recourse
 ├── project-lod-engine.html     # Case Study: Long Overdue Debtor (LOD) & 4-Tier Recovery Waterfall
