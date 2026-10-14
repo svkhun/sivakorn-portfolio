@@ -6086,6 +6086,10 @@ html.dark #back-to-top .btt-ring-circle {
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
   }
+
+  .case-pipeline-flow.case-pipeline-three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .case-pipeline-step {
@@ -6276,6 +6280,11 @@ html.dark #back-to-top .btt-ring-circle {
   margin-bottom: clamp(3rem, 6vw, 5.5rem);
 }
 
+.case-progress-text {
+  flex: 1;
+  min-width: 0;
+}
+
 .case-section-airy {
   padding: clamp(3.5rem, 6vw, 5.5rem) 0;
   border-bottom: 1px solid var(--border);
@@ -6335,7 +6344,7 @@ html.dark #back-to-top .btt-ring-circle {
 }
 
 /* ==========================================================================
-   PROJECT 1: K-SENTINEL BESPOKE SIGNATURE COMPONENTS
+   Legacy graph visualizer and savings simulator components
    ========================================================================== */
 
 /* Graph Ring Visualizer */
@@ -6390,7 +6399,7 @@ html.dark #back-to-top .btt-ring-circle {
   display: block;
 }
 
-/* WealthPilot CASA Simulator */
+/* Legacy CASA simulator */
 .wealth-sim-card {
   background: var(--bg-surface);
   border: 1px solid var(--border);
@@ -7218,7 +7227,7 @@ html.dark #back-to-top .btt-ring-circle {
 }
 
 /* --------------------------------------------------------------------------
-   Case 1: K-Sentinel (Banking Graph AML & Wealth Co-Pilot)
+   Legacy banking graph animation
    -------------------------------------------------------------------------- */
 
 /* Graph Network Edge Flow Animation */
@@ -7274,7 +7283,7 @@ html.dark #back-to-top .btt-ring-circle {
   50% { filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.7)); }
 }
 
-/* WealthPilot Interactive Simulator Smooth Feedback */
+/* Legacy interactive simulator feedback */
 .wealth-slider-input {
   transition: background-color 0.2s ease;
 }

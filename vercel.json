@@ -1,24 +1,67 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/education", "destination": "/education.html" },
-    { "source": "/experience", "destination": "/experience.html" },
-    { "source": "/projects", "destination": "/projects.html" },
-    { "source": "/project-k-sentinel", "destination": "/project-k-sentinel.html" },
-    { "source": "/project-credit-risk", "destination": "/project-credit-risk.html" },
-    { "source": "/project-lod-engine", "destination": "/project-lod-engine.html" },
-    { "source": "/project-industrial-iot", "destination": "/project-industrial-iot.html" },
-    { "source": "/project-guardian-ai", "destination": "/project-guardian-ai.html" },
-    { "source": "/contact", "destination": "/contact.html" }
+    {
+      "source": "/education",
+      "destination": "/education.html"
+    },
+    {
+      "source": "/experience",
+      "destination": "/experience.html"
+    },
+    {
+      "source": "/projects",
+      "destination": "/projects.html"
+    },
+    {
+      "source": "/project-flowsense-trustgraph",
+      "destination": "/project-flowsense-trustgraph.html"
+    },
+    {
+      "source": "/project-credit-risk",
+      "destination": "/project-credit-risk.html"
+    },
+    {
+      "source": "/project-lod-engine",
+      "destination": "/project-lod-engine.html"
+    },
+    {
+      "source": "/project-industrial-iot",
+      "destination": "/project-industrial-iot.html"
+    },
+    {
+      "source": "/project-guardian-ai",
+      "destination": "/project-guardian-ai.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/project-k-sentinel",
+      "destination": "/project-flowsense-trustgraph",
+      "permanent": true
     }
   ]
 }

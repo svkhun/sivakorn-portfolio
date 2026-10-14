@@ -4,7 +4,7 @@
 ### Data Scientist & Machine Learning Engineer &bull; FinTech & Quantitative Risk
 
 [![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-svkhun.vercel.app-0284C7?style=for-the-badge&logo=vercel&logoColor=white)](https://svkhun.vercel.app)
-[![K-Sentinel & WealthPilot](https://img.shields.io/badge/Flagship-K--Sentinel_%26_WealthPilot-00A950?style=for-the-badge&logo=fastapi&logoColor=white)](https://k-sentinel-wealthpilot.onrender.com/)
+[![FlowSense & TrustGraph](https://img.shields.io/badge/Flagship-FlowSense_%26_TrustGraph-00A950?style=for-the-badge&logo=fastapi&logoColor=white)](https://k-flowsense-trustgraph.onrender.com/)
 [![Education](https://img.shields.io/badge/Education-B.Eng._Computer_Engineering_@_SWU-38BDF8?style=for-the-badge&logo=google-scholar&logoColor=white)](https://swu.ac.th)
 [![Design System](https://img.shields.io/badge/Design-Keynote_Slide_Deck_%7C_Dark_Slate-6366F1?style=for-the-badge)](https://svkhun.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-059669?style=for-the-badge)](https://opensource.org/licenses/MIT)
@@ -62,20 +62,15 @@ The portfolio is architected following the clean, structured, and developer-focu
 
 ## 🔬 Featured Engineering Case Studies
 
-### 1. K-Sentinel & WealthPilot (K PLUS for First Jobbers)
-* **Domain**: Real-Time Relational Graph Fraud Defense, Autonomous Cashflow Engineering, Mobile Banking Intelligence.
+### 1. FlowSense & TrustGraph (K PLUS for First Jobbers)
 * **Context**: **KBTG Kampus Hackathon 2026 — Track 2: Data Science & Intelligence**.
-* **Case Study**: [Interactive Deep-Dive](https://svkhun.vercel.app/project-k-sentinel) &bull; **Live Demo**: [https://k-sentinel-wealthpilot.onrender.com/](https://k-sentinel-wealthpilot.onrender.com/) &bull; **Repository**: [https://github.com/svkhun/k-sentinel-wealthpilot](https://github.com/svkhun/k-sentinel-wealthpilot)
-* **Problem**: 3.2M First Jobbers on K PLUS suffer from discretionary cashflow volatility (60–68% lack 3-month emergency buffers) and are prime targets for cyber scams (>45% victims aged 20–30, >2.0B THB annual losses).
-* **Architecture**:
-  * **Two-Tier Graph Inference**: Offline/Nearline **PyTorch Geometric (PyG) Relational GCN** extracting 16D continuous node embeddings over mule account transaction topologies, cached in an in-memory O(1) Redis feature store.
-  * **Ultra-Low Latency ONNX Serving**: High-concurrency **FastAPI** gateway evaluating fraud risk via **ONNX Runtime v1.30** combining graph embeddings with real-time transaction telemetry.
-  * **Counterfactual Explainable AI (XAI)**: Generates minimal-distance what-if recourse advice (WebRTC Face Liveness validation or micro-transfer limit &le; 500 THB) paired with a 15-minute dynamic cool-off window.
-  * **WealthPilot Autonomous Cashflow**: Automated payroll detection, daily Safe-to-Spend allocation, 6% dynamic micro-sweeping into K-eSavings (1.50% APY) Protected Vault, and 30-day ONNX liquidity forecasting.
-* **Key Metrics**:
-  * **11.62 ms P99 Latency SLA** (P50 = 3.85 ms, P95 = 5.11 ms, beating the &lt; 80.0 ms bank SLA by 7x–20x; core ONNX model eval = 0.27 ms).
-  * **16D Graph Embeddings** capturing complex multi-hop mule rings.
-  * **1.2 – 2.0 Billion THB** projected low-cost CASA retail deposit mobilization across 3.2M young workers.
+* **Progress**: **Advanced to the next round; not yet in the Final round**.
+* **Case Study**: [Deep Dive](https://svkhun.vercel.app/project-flowsense-trustgraph) &bull; **Live Demo**: [FlowSense & TrustGraph](https://k-flowsense-trustgraph.onrender.com/) &bull; **Repository**: [Source Code](https://github.com/svkhun/k-flowsense-trustgraph)
+* **FlowSense**: LightGBM 30-day liquidity forecasting, Status Horizon, warnings for at-risk commitments, and micro-sweeps with 1-Tap Undo.
+* **TrustGraph**: Precomputed 16D R-GCN embeddings, LightGBM/ONNX transfer scoring, direct recipient-risk explanations, and a targeted Micro-Auth flow.
+* **Implementation**: FastAPI, ONNX Runtime, PyTorch Geometric, React 18, React Router, Vite, and Tailwind CSS. Synthetic datasets and a mobile banking simulator support the prototype. Kafka, Feast, and Triton appear in the scaling blueprint; distributed streaming and feature storage are simulated.
+* **Reported Prototype Benchmarks**: P50 3.85ms, P95 5.11ms, P99 11.62ms over 200 consecutive evaluation cycles; ONNX core 0.27ms; FlowSense forecast 10.29ms. These are project-reported timings against an 80ms design target.
+* **Projected Business Scenario**: 1.2–2.0B THB potential CASA mobilization through flexible micro-savings; this is an estimate, not a realized result.
 
 ---
 
@@ -155,7 +150,7 @@ The portfolio is architected following the clean, structured, and developer-focu
 
 | Competition / Hackathon | Organization / Hosts | Role & Focus | Timeline |
 | :--- | :--- | :--- | :--- |
-| **KBTG Kampus Hackathon 2026** | Kasikorn Business-Technology Group (KBTG) | **Track 2: Data Science & Intelligence Lead** &bull; K-Sentinel & WealthPilot (11.62ms P99 SLA, 1.2–2.0B THB CASA) | 2026 |
+| **KBTG Kampus Hackathon 2026** | Kasikorn Business-Technology Group (KBTG) | **Track 2: Data Science & Intelligence Lead** &bull; FlowSense & TrustGraph &bull; **Advanced to the next round; not yet in the Final round** | 2026 |
 | **CDG Hackathon 2026** | CDG Group | Operational AI & System Reliability (Team GrandGuardianAI) | Jul 2026 |
 | **Geospatial Intelligence for Resilience Hackathon 2026** | GISTDA &bull; KMITL &bull; KMUTT | Spatial Lead &bull; 30m Grid Flash Flood Mapping via Sentinel-1 SAR & Copernicus DEM | Jan 2026 |
 | **True Innovation Launchpad 2026** | True Corporation | AI & Data Science Lead &bull; Preventive Healthcare & Clinical Frailty Scoring (GuardianAI) | Jan 2026 |
@@ -267,7 +262,7 @@ sivakorn-portfolio/
 ├── education.html              # Education page (Degrees, KBTG Certifications, Badges)
 ├── experience.html             # Experience page (Hackathons & Leadership timeline)
 ├── projects.html               # Projects page (Curated Interactive Engineering Timeline)
-├── project-k-sentinel.html     # Case Study: K-Sentinel Mule Graph & WealthPilot Engine
+├── project-flowsense-trustgraph.html     # Case Study: FlowSense cashflow & TrustGraph transfer screening
 ├── project-credit-risk.html    # Case Study: Basel II/III Credit Risk & DiCE Counterfactual Recourse
 ├── project-lod-engine.html     # Case Study: Long Overdue Debtor (LOD) & 4-Tier Recovery Waterfall
 ├── project-industrial-iot.html # Case Study: Industrial IoT Telemetry & OEE Manufacturing Data Mart

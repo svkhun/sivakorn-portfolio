@@ -204,16 +204,17 @@ const portfolioData = {
     {
       role: "Track 2 Lead: Data Science & Intelligence",
       company: "KBTG Kampus Hackathon 2026",
+      status: "Advanced to the next round; not yet in the Final round",
       organization: "Kasikorn Business-Technology Group (KBTG)",
       duration: "2026",
       location: "Bangkok, Thailand",
       description: [
-        "Led engineering on K-Sentinel & WealthPilot, an autonomous cashflow and real-time fraud defense system for 3.2M young K PLUS mobile banking users.",
-        "Architected Two-Tier Graph Inference combining offline PyTorch Geometric Relational GCN 16D node embeddings with ultra-low latency ONNX Runtime v1.30 serving.",
-        "Achieved 11.62ms P99 inference latency SLA (beating the bank's < 80.0ms requirement by 7x; core model evaluation = 0.27ms).",
-        "Projected 1.2 to 2.0 Billion THB in low-cost CASA deposit mobilization through automated 6% dynamic micro-sweeping into K-eSavings vaults."
+        "Led engineering on FlowSense & TrustGraph, a K PLUS concept prototype for cashflow forecasting, flexible micro-savings, and graph-based transfer screening.",
+        "Combined precomputed PyTorch Geometric R-GCN 16D embeddings with LightGBM and ONNX Runtime scoring through FastAPI.",
+        "Reported 11.62ms P99 transfer evaluation over 200 prototype cycles against an 80ms design target; core ONNX execution = 0.27ms.",
+        "Implemented liquidity forecasts, commitment warnings, micro-sweeps with 1-Tap Undo, and direct recipient-risk explanations; projected 1.2–2.0B THB in potential CASA mobilization."
       ],
-      techStack: ["PyTorch Geometric", "Relational GCN", "ONNX Runtime", "FastAPI", "Redis", "React 18"]
+      techStack: ["PyTorch Geometric", "LightGBM", "ONNX Runtime", "FastAPI", "React 18", "Vite"]
     },
     {
       role: "National Finalist: Long Overdue Debtor (LOD) Prediction",
@@ -287,15 +288,16 @@ const portfolioData = {
   // Featured Engineering Projects
   projects: [
     {
-      id: "k-sentinel-wealthpilot",
-      title: "K-Sentinel & WealthPilot (K PLUS for First Jobbers)",
+      id: "k-flowsense-trustgraph",
+      title: "FlowSense & TrustGraph (K PLUS for First Jobbers)",
       domain: "Real-Time Graph Fraud Defense & Mobile Cashflow Intelligence",
-      context: "KBTG Kampus Hackathon 2026",
-      description: "Two-Tier inference architecture uniting PyTorch Geometric Relational GCN mule embeddings with ultra-low latency ONNX serving (< 12ms P99 SLA), Counterfactual Explainable AI recourse, and autonomous cashflow micro-sweeping for 3.2M young bank users.",
-      keyMetric: "11.62ms P99 Latency SLA &bull; 1.2–2.0B THB CASA Mobilization",
-      techStack: ["PyTorch Geometric", "ONNX Runtime v1.30", "FastAPI", "Redis", "React 18", "TreeSHAP"],
-      githubLink: "https://github.com/svkhun/k-sentinel-wealthpilot",
-      liveDemoLink: "https://k-sentinel-wealthpilot.onrender.com/"
+      context: "KBTG Kampus Hackathon 2026 — Advanced to the next round; not yet in the Final round",
+      caseStudyLink: "project-flowsense-trustgraph.html",
+      description: "FlowSense forecasts 30-day liquidity, warns about at-risk commitments, and supports micro-sweeps with 1-Tap Undo. TrustGraph uses R-GCN features and ONNX scoring to screen transfers, explain risk, and trigger targeted Micro-Auth in a K PLUS concept prototype.",
+      keyMetric: "11.62ms P99 Prototype Benchmark &bull; 1.2–2.0B THB Projected CASA",
+      techStack: ["PyTorch Geometric", "LightGBM", "ONNX Runtime", "FastAPI", "React 18", "Vite"],
+      githubLink: "https://github.com/svkhun/k-flowsense-trustgraph",
+      liveDemoLink: "https://k-flowsense-trustgraph.onrender.com/"
     },
     {
       id: "credit-risk-xai",
