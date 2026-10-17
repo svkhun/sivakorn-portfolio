@@ -120,8 +120,7 @@ const portfolioData = {
         descriptions: [
           "Curriculum Specialization: Statistical Machine Learning, Advanced Database Systems (RDBMS & Distributed Data), Operating Systems, Probability & Mathematical Statistics, Data Structures & Algorithms, Distributed Systems.",
           "Applied Research Focus: Architecting regulatory-defensible Probability of Default (PD) credit scorecards with TreeSHAP and counterfactual recourse under Basel II/III and ECOA standards.",
-          "Faculty of Engineering: Active engineering leadership in data science hackathons, automated data mart architectures, and quantitative finance models.",
-          "Academic Honors & Corporate Grants: Recipient of the NHK Spring (Thailand) Engineering Undergraduate Scholarship (30,000 THB/year continuing multi-year grant)."
+          "Faculty of Engineering: Active engineering leadership in data science hackathons, automated data mart architectures, and quantitative finance models."
         ],
         websiteLink: "https://swu.ac.th"
       }
