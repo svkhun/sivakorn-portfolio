@@ -129,7 +129,7 @@ const portfolioData = {
     scholarships: [
       {
         title: "NHK Spring (Thailand) Undergraduate Scholarship",
-        thaiTitle: "ทุนการศึกษา บริษัท เอ็นเอชเค สปริง (ประเทศไทย) จำกัด ประจำปีการศึกษา 2569",
+        officialTitle: "NHK Spring (Thailand) Academic Scholarship (Academic Year 2026)",
         sponsor: "NHK SPRING (THAILAND) CO., LTD.",
         award: "30,000 THB / Year (Continuing grant through Year 4 graduation)",
         internship: "2-Month Summer Industrial Internship at NHK Spring production facilities with corporate accommodation & allowance",
