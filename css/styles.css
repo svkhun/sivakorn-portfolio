@@ -4650,6 +4650,73 @@ html.dark #back-to-top .btt-ring-circle {
 }
 
 /* ==========================================================================
+   Experience Section: Dedicated Slender Geist Typography Suite
+   Ensures razor-sharp, authentic Slender Geist rendering across all headings,
+   body text, impact rows, milestones, tech pills, and tabular metrics.
+   ========================================================================== */
+#experience-header,
+#experience-milestones,
+.milestone-panels-section {
+  font-family: 'Slender Geist', 'Geist', var(--font-sans) !important;
+}
+
+#experience-header h1,
+#experience-header .hero-display,
+#experience-milestones h2,
+#experience-milestones h3,
+#experience-milestones h4 {
+  font-family: 'Slender Geist', 'Geist', var(--font-display) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.15;
+}
+
+#experience-milestones .stat-number,
+#experience-milestones [data-no-counter],
+#experience-milestones .stat-number * {
+  font-family: 'SlenderGeistDigits', 'Slender Geist', 'Geist', sans-serif !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.04em !important;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+#experience-milestones p,
+#experience-milestones li,
+#experience-header .hero-lead,
+#experience-milestones .impact-item p {
+  font-family: 'Slender Geist', 'Geist', var(--font-sans);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  line-height: 1.68;
+}
+
+#experience-milestones strong,
+#experience-milestones b {
+  font-family: 'Slender Geist', 'Geist', var(--font-sans);
+  font-weight: 600 !important;
+  letter-spacing: -0.015em;
+}
+
+#experience-milestones .font-mono,
+#experience-header .editorial-number-tag,
+#experience-header .editorial-num,
+#experience-header .editorial-cat,
+#experience-milestones .card-date-badge,
+#experience-milestones .tech-pill-lg,
+#experience-milestones .kpi-metric-strip,
+#experience-milestones .card-domain-badge,
+#experience-milestones .card-tech-footer {
+  font-family: 'Geist Mono', var(--font-mono) !important;
+}
+
+#experience-milestones .tabular-nums {
+  font-family: 'SlenderGeistDigits', 'Slender Geist', 'Geist', sans-serif !important;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+/* ==========================================================================
    Clean & Elegant Portfolio Styles ("ธรรมดาและสวย")
    ========================================================================== */
 
