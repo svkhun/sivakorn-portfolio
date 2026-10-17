@@ -135,6 +135,7 @@ const portfolioData = {
         internship: "2-Month Summer Industrial Internship at NHK Spring production facilities with corporate accommodation & allowance",
         criteria: "Faculty of Engineering (Computer Engineering) student with cumulative GPAX >= 2.75 and exemplary faculty conduct endorsement",
         announcementDate: "January 20, 2026",
+        ceremonyDate: "September 25, 2026",
         pdfUrl: "assets/nhk_spring_scholarship_announcement.pdf",
         imageUrl: "assets/nhk_spring_scholarship_page1.jpg",
         colorCode: "#E11D48"
