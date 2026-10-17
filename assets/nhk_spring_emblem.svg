@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 162" width="100%" height="100%">
+  <defs>
+    <style>
+      .nhk-red { fill: #E8380D; }
+      .nhk-green { fill: #009A53; }
+      .nhk-sub { fill: #E8380D; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 700; }
+    </style>
+  </defs>
+  <!-- Official NHK Vector Mark -->
+  <g transform="translate(10, 0)">
+    <g transform="translate(-113.38, 0)">
+      <!-- N -->
+      <polygon class="nhk-red" points="113.38 0 137.92 0 190.6 80.28 190.6 0 215.73 0 215.73 117.96 190.6 117.96 137.9 36.88 137.92 117.96 113.38 117.96 113.38 0"/>
+      <!-- H -->
+      <polygon class="nhk-red" points="232.75 0 257.83 0 257.83 45.16 310.01 45.16 310.01 0 334.64 0 334.64 117.96 310.01 117.96 310.01 68.24 257.88 68.24 257.88 117.96 232.75 117.96 232.75 0"/>
+      <!-- K (Red) -->
+      <polygon class="nhk-red" points="351.66 0 351.66 117.96 376.24 117.96 376.24 64.72 386.78 55.7 427.42 117.96 453.51 117.96 403.84 41.39 453.26 0 420.39 0 376.24 36.88 376.24 0 351.66 0"/>
+      <!-- K (Green Triangle) -->
+      <polygon class="nhk-green" points="416.63 43.28 453.53 98.97 453.53 12.67 416.63 43.28"/>
+    </g>
+  </g>
+  <!-- Subtitle: NHK SPRING (Thailand) -->
+  <text x="180" y="150" text-anchor="middle" class="nhk-sub" font-size="28" letter-spacing="-0.02em">NHK SPRING (Thailand)</text>
+</svg>

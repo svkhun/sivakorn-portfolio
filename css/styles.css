@@ -1596,13 +1596,14 @@ html.dark .hero-plot-dark {
 
 .nhk-emblem-box {
   width: clamp(115px, 14vw, 138px);
-  height: clamp(115px, 14vw, 138px);
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.9);
+  height: clamp(80px, 10vw, 110px);
+  background: transparent;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem;
+  padding: 0;
+  box-shadow: none;
   flex-shrink: 0;
   transition: transform var(--transition);
 }
@@ -1613,14 +1614,25 @@ html.dark .hero-plot-dark {
 
 [data-theme="dark"] .nhk-emblem-box,
 html.dark .nhk-emblem-box {
-  background: #18181b;
-  border-color: rgba(255, 255, 255, 0.1);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 [data-theme="dark"] .nhk-emblem-box:hover,
 html.dark .nhk-emblem-box:hover {
   transform: scale(1.05);
+  box-shadow: none;
 }
+
+.nhk-emblem-img {
+  width: 100%;
+  height: auto;
+  max-height: 85px;
+  object-fit: contain;
+  display: block;
+}
+
 
 
 .degree-meta-bar {
