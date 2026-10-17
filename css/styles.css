@@ -1594,6 +1594,35 @@ html.dark .hero-plot-dark {
   filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.45));
 }
 
+.nhk-emblem-box {
+  width: clamp(115px, 14vw, 138px);
+  height: clamp(115px, 14vw, 138px);
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.nhk-emblem-box:hover {
+  transform: scale(1.05);
+}
+
+[data-theme="dark"] .nhk-emblem-box,
+html.dark .nhk-emblem-box {
+  background: #18181b;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .nhk-emblem-box:hover,
+html.dark .nhk-emblem-box:hover {
+  transform: scale(1.05);
+}
+
+
 .degree-meta-bar {
   display: flex;
   justify-content: space-between;
@@ -2843,6 +2872,29 @@ html.dark .kpi-strip-blue .kpi-icon-badge {
   color: #BFDBFE;
 }
 
+/* Strip Theme: Rose (Corporate Honor / NHK Spring) */
+.kpi-strip-rose {
+  background: rgba(244, 63, 94, 0.08);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  color: #BE123C;
+}
+.kpi-strip-rose .kpi-icon-badge {
+  background: rgba(244, 63, 94, 0.15);
+  color: #E11D48;
+}
+[data-theme="dark"] .kpi-strip-rose,
+html.dark .kpi-strip-rose {
+  background: rgba(136, 19, 55, 0.3);
+  border-color: rgba(251, 113, 133, 0.28);
+  color: #FB7185;
+}
+[data-theme="dark"] .kpi-strip-rose .kpi-icon-badge,
+html.dark .kpi-strip-rose .kpi-icon-badge {
+  background: rgba(251, 113, 133, 0.2);
+  color: #FECDD3;
+}
+
+
 /* 4. Structured Impact List & Modern Chevron Chips */
 .impact-list {
   display: flex;
@@ -2961,6 +3013,17 @@ html.dark .impact-chip-blue {
   background: rgba(59, 130, 246, 0.2);
   color: #60A5FA;
 }
+
+.impact-chip-rose {
+  background: rgba(244, 63, 94, 0.12);
+  color: #E11D48;
+}
+[data-theme="dark"] .impact-chip-rose,
+html.dark .impact-chip-rose {
+  background: rgba(244, 63, 94, 0.2);
+  color: #FB7185;
+}
+
 
 /* 5. Integrated Tech Stack Footer */
 .card-tech-footer {
@@ -3107,6 +3170,19 @@ html.dark .card-domain-badge.badge-blue {
   color: #60A5FA;
   border-color: rgba(96, 165, 250, 0.3);
 }
+
+.card-domain-badge.badge-rose {
+  background: #FFF1F2;
+  color: #BE123C;
+  border: 1px solid #FECDD3;
+}
+[data-theme="dark"] .card-domain-badge.badge-rose,
+html.dark .card-domain-badge.badge-rose {
+  background: rgba(136, 19, 55, 0.4);
+  color: #FB7185;
+  border-color: rgba(251, 113, 133, 0.3);
+}
+
 
 .card-tech-footer .tech-pill-lg {
   padding: 0.35rem 0.75rem;

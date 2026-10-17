@@ -30,7 +30,8 @@ const portfolioData = {
   resumes: {
     primary: "assets/Sivakorn_Khundilokrattaya_Resume.pdf",
     cv: "assets/Sivakorn_Khundilokrattaya_CV.pdf",
-    aihackCertificate: "assets/aihack_thailand_2025_certificate.pdf"
+    aihackCertificate: "assets/aihack_thailand_2025_certificate.pdf",
+    nhkScholarshipAnnouncement: "assets/nhk_spring_scholarship_announcement.pdf"
   },
 
   // Home Page Greeting / Hero
@@ -119,9 +120,24 @@ const portfolioData = {
         descriptions: [
           "Curriculum Specialization: Statistical Machine Learning, Advanced Database Systems (RDBMS & Distributed Data), Operating Systems, Probability & Mathematical Statistics, Data Structures & Algorithms, Distributed Systems.",
           "Applied Research Focus: Architecting regulatory-defensible Probability of Default (PD) credit scorecards with TreeSHAP and counterfactual recourse under Basel II/III and ECOA standards.",
-          "Faculty of Engineering: Active engineering leadership in data science hackathons, automated data mart architectures, and quantitative finance models."
+          "Faculty of Engineering: Active engineering leadership in data science hackathons, automated data mart architectures, and quantitative finance models.",
+          "Academic Honors & Corporate Grants: Recipient of the NHK Spring (Thailand) Engineering Undergraduate Scholarship (30,000 THB/year continuing multi-year grant)."
         ],
         websiteLink: "https://swu.ac.th"
+      }
+    ],
+    scholarships: [
+      {
+        title: "NHK Spring (Thailand) Undergraduate Scholarship",
+        thaiTitle: "ทุนการศึกษา บริษัท เอ็นเอชเค สปริง (ประเทศไทย) จำกัด ประจำปีการศึกษา 2569",
+        sponsor: "NHK SPRING (THAILAND) CO., LTD.",
+        award: "30,000 THB / Year (Continuing grant through Year 4 graduation)",
+        internship: "2-Month Summer Industrial Internship at NHK Spring production facilities with corporate accommodation & allowance",
+        criteria: "Faculty of Engineering (Computer Engineering) student with cumulative GPAX >= 2.75 and exemplary faculty conduct endorsement",
+        announcementDate: "January 20, 2026",
+        pdfUrl: "assets/nhk_spring_scholarship_announcement.pdf",
+        imageUrl: "assets/nhk_spring_scholarship_page1.jpg",
+        colorCode: "#E11D48"
       }
     ],
     certifications: [
@@ -229,6 +245,19 @@ const portfolioData = {
         "Implemented liquidity forecasts, commitment warnings, micro-sweeps with 1-Tap Undo, and direct recipient-risk explanations; projected 1.2–2.0B THB in potential CASA mobilization."
       ],
       techStack: ["PyTorch Geometric", "LightGBM", "ONNX Runtime", "FastAPI", "React 18", "Vite"]
+    },
+    {
+      role: "Engineering Scholar & Industrial Intern",
+      company: "NHK Spring (Thailand) Corporate Fellowship",
+      organization: "NHK SPRING (THAILAND) CO., LTD. &bull; Faculty of Engineering, SWU",
+      duration: "2026 - 2029",
+      location: "Bangkok & Samut Prakan, Thailand",
+      description: [
+        "Recipient of the corporate undergraduate engineering scholarship awarded under competitive cumulative GPAX (>= 2.75) criteria and faculty character endorsement.",
+        "Awarded continuous educational grant of 30,000 THB/year through senior year graduation.",
+        "Selected for 2-month summer engineering internship within precision manufacturing and automotive components facilities with corporate accommodations and stipend."
+      ],
+      techStack: ["Computer Engineering", "Precision Manufacturing", "Industrial Automation", "Quality Control"]
     },
     {
       role: "National Finalist: Long Overdue Debtor (LOD) Prediction",

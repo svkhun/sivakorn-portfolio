@@ -237,6 +237,7 @@ cv_html_content = f"""<!DOCTYPE html>
               <span class="italic text-xs text-right whitespace-nowrap">Bangkok, Thailand</span>
             </div>
             <ul class="resume-list text-xs">
+              <li><strong class="font-bold">Honors &amp; Grants:</strong> Recipient of the NHK Spring (Thailand) Engineering Undergraduate Scholarship (30,000 THB/yr continuing merit grant).</li>
               <li>Specialization in Statistical Machine Learning, Financial Risk Modeling, and Distributed Data Engineering.</li>
             </ul>
           </div>
@@ -699,7 +700,7 @@ res_html_content = f"""<!DOCTYPE html>
             </div>
             <ul class="resume-list text-[10.5px]">
               <li>Specialization: Statistical Machine Learning, Financial Risk Modeling, and Distributed Data Engineering.</li>
-              <li>Relevant Coursework: Machine Learning, Database Systems, Operating Systems, Algorithms, Software Engineering.</li>
+              <li>Honors &amp; Coursework: NHK Spring (Thailand) Scholarship Recipient (30K THB/yr grant) &bull; Machine Learning, Database Systems, Algorithms.</li>
             </ul>
           </div>
         </div>
