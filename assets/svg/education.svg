@@ -18,17 +18,17 @@
     <!-- Book 1 (Blue) -->
     <rect x="120" y="235" width="120" height="35" rx="4" fill="#0056B3"/>
     <rect x="125" y="240" width="110" height="5" rx="2" fill="#3B82F6"/>
-    <text x="140" y="258" font-family="'JetBrains Mono', monospace" font-size="10" fill="#FFFFFF">ALGORITHMS</text>
+    <text x="140" y="258" font-family="'Geist Mono', 'Slender Geist', monospace" font-size="10" fill="#FFFFFF">ALGORITHMS</text>
 
     <!-- Book 2 (Green) -->
     <rect x="135" y="200" width="110" height="35" rx="4" fill="#00A950"/>
     <rect x="140" y="205" width="100" height="5" rx="2" fill="#34D399"/>
-    <text x="155" y="223" font-family="'JetBrains Mono', monospace" font-size="10" fill="#FFFFFF">PROBABILITY</text>
+    <text x="155" y="223" font-family="'Geist Mono', 'Slender Geist', monospace" font-size="10" fill="#FFFFFF">PROBABILITY</text>
 
     <!-- Book 3 (Dark Slate) -->
     <rect x="150" y="165" width="105" height="35" rx="4" fill="#1E293B"/>
     <rect x="155" y="170" width="95" height="5" rx="2" fill="#64748B"/>
-    <text x="175" y="188" font-family="'JetBrains Mono', monospace" font-size="10" fill="#FFFFFF">GRAPH ML</text>
+    <text x="175" y="188" font-family="'Geist Mono', 'Slender Geist', monospace" font-size="10" fill="#FFFFFF">GRAPH ML</text>
   </g>
 
   <!-- Laptop / Learning Station -->
@@ -36,9 +36,9 @@
     <rect x="275" y="180" width="150" height="95" rx="6" fill="#1E293B"/>
     <rect x="282" y="187" width="136" height="75" rx="3" fill="#0F172A"/>
     <!-- Terminal prompt on laptop -->
-    <text x="290" y="205" font-family="'JetBrains Mono', monospace" font-size="9" fill="#10B981">&gt; swu.degree.verify()</text>
-    <text x="290" y="222" font-family="'JetBrains Mono', monospace" font-size="9" fill="#0070F3">B.Eng. CompEng 2026</text>
-    <text x="290" y="238" font-family="'JetBrains Mono', monospace" font-size="9" fill="#E2E8F0">Status: PASS (97/150)</text>
+    <text x="290" y="205" font-family="'Geist Mono', 'Slender Geist', monospace" font-size="9" fill="#10B981">&gt; swu.degree.verify()</text>
+    <text x="290" y="222" font-family="'Geist Mono', 'Slender Geist', monospace" font-size="9" fill="#0070F3">B.Eng. CompEng 2026</text>
+    <text x="290" y="238" font-family="'Geist Mono', 'Slender Geist', monospace" font-size="9" fill="#E2E8F0">Status: PASS (97/150)</text>
     <!-- Base of laptop -->
     <path d="M260,275 L440,275 L430,285 L270,285 Z" fill="#94A3B8"/>
   </g>

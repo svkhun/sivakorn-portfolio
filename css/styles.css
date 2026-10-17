@@ -1,16 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap');
 
 /* ==========================================================================
-   Slender Geist Universal Numeric Engine
-   Renders all numbers (0-9) and numeric punctuation across the entire site
-   in elegant Slender Geist typography with Swiss tabular alignment.
+   Slender Geist Universal Typography Engine (Local High-Performance + CDN)
+   Renders letters, digits, and code across the entire site in elegant,
+   razor-sharp Slender Geist typography with Swiss tabular alignment.
    ========================================================================== */
+@font-face {
+  font-family: 'Slender Geist';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../assets/fonts/geist-variable-latin.woff2') format('woff2'),
+       local('Geist'),
+       url('https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwcGFU.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../assets/fonts/geist-variable-latin.woff2') format('woff2'),
+       local('Geist'),
+       url('https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwcGFU.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../assets/fonts/geist-mono-variable-latin.woff2') format('woff2'),
+       local('Geist Mono'),
+       url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrcdmg.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @font-face {
   font-family: 'SlenderGeistDigits';
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: local('Geist'),
+  src: url('../assets/fonts/geist-variable-latin.woff2') format('woff2'),
+       local('Geist'),
        url('https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwcGFU.woff2') format('woff2');
   unicode-range: U+0030-0039, U+0025, U+002B, U+002D, U+002E, U+002C, U+002F, U+003A, U+0024, U+003C, U+003E, U+007E;
 }
@@ -37,11 +71,11 @@
   --border-focus: #9CA3AF;
 
   /* Unified Slender Geist Typography System (Same font family across entire website) */
-  --font-digits: 'SlenderGeistDigits', 'Geist', sans-serif;
-  --font-sans: 'SlenderGeistDigits', 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'SlenderGeistDigits', 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'SlenderGeistDigits', 'Geist Mono', 'Geist', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
-  --font-serif: 'SlenderGeistDigits', 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-digits: 'SlenderGeistDigits', 'Slender Geist', 'Geist', sans-serif;
+  --font-sans: 'Slender Geist', 'Geist', 'SlenderGeistDigits', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Slender Geist', 'Geist', 'SlenderGeistDigits', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Geist Mono', 'Slender Geist', 'Geist', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  --font-serif: 'Slender Geist', 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --text-primary: #111827;
   --text-secondary: #4B5563;
   --text-muted: #6B7280;
@@ -4547,6 +4581,72 @@ html.dark #back-to-top .btt-ring-circle {
 #projects-header h1 + p,
 #experience-header h1 + p,
 #contact-header h1 + p {
+}
+
+/* ==========================================================================
+   Education Section: Dedicated Slender Geist Typography Suite
+   Ensures razor-sharp, authentic Slender Geist rendering across all headings,
+   body text, impact rows, credentials, and tabular metrics.
+   ========================================================================== */
+#education-header,
+#education-content,
+.education-content-section {
+  font-family: 'Slender Geist', 'Geist', var(--font-sans) !important;
+}
+
+#education-header h1,
+#education-header .hero-display,
+#education-content h2,
+#education-content h3,
+#education-content h4 {
+  font-family: 'Slender Geist', 'Geist', var(--font-display) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.15;
+}
+
+#education-content .stat-number,
+#education-content [data-no-counter],
+#education-content .stat-number * {
+  font-family: 'SlenderGeistDigits', 'Slender Geist', 'Geist', sans-serif !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.04em !important;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+#education-content p,
+#education-content li,
+#education-content .hero-lead,
+#education-content .impact-item p {
+  font-family: 'Slender Geist', 'Geist', var(--font-sans);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  line-height: 1.68;
+}
+
+#education-content strong,
+#education-content b {
+  font-family: 'Slender Geist', 'Geist', var(--font-sans);
+  font-weight: 600 !important;
+  letter-spacing: -0.015em;
+}
+
+#education-content .font-mono,
+#education-content .editorial-number-tag,
+#education-content .editorial-num,
+#education-content .editorial-cat,
+#education-content .card-date-badge,
+#education-content .tech-pill-lg,
+#education-content .kpi-metric-strip,
+#education-content .card-domain-badge {
+  font-family: 'Geist Mono', var(--font-mono) !important;
+}
+
+#education-content .tabular-nums {
+  font-family: 'SlenderGeistDigits', 'Slender Geist', 'Geist', sans-serif !important;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
 }
 
 /* ==========================================================================
