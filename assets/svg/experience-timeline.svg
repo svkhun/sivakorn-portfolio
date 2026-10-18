@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 520" role="img" aria-labelledby="title description">
+  <title id="title">Selected experience timeline, 2024 to 2027</title>
+  <desc id="description">A four-stage timeline showing LINE MAN growth analytics in 2024, AiHack Thailand finalist in 2025, KBTG Kampus project leadership in 2026, and an NHK Spring continuing undergraduate scholarship for both 2026 and 2027.</desc>
+  <defs>
+    <filter id="card-shadow" x="-15%" y="-30%" width="130%" height="170%">
+      <feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="#213b63" flood-opacity=".07"/>
+    </filter>
+    <linearGradient id="timeline-line" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0ea87e"/>
+      <stop offset=".34" stop-color="#e79826"/>
+      <stop offset=".68" stop-color="#1468da"/>
+      <stop offset="1" stop-color="#dc5275"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="12" y="12" width="516" height="496" rx="26" fill="#f8fafc" stroke="#dce5ef"/>
+  <path d="M388 12h114a26 26 0 0 1 26 26v105c-75-12-124-59-140-131Z" fill="#eaf2fc"/>
+  <path d="M12 414c69 4 118 35 138 94H38a26 26 0 0 1-26-26Z" fill="#eff9f6"/>
+
+  <text x="42" y="54" fill="#1468da" font-family="Geist Mono, ui-monospace, monospace" font-size="11" font-weight="700" letter-spacing="1.5">EXPERIENCE / 2024—2027</text>
+  <text x="42" y="89" fill="#17233a" font-family="Geist, Arial, sans-serif" font-size="25" font-weight="600" letter-spacing="-.8">Selected milestones</text>
+  <text x="496" y="87" text-anchor="end" fill="#8392a6" font-family="Geist Mono, ui-monospace, monospace" font-size="12">01—04</text>
+  <path d="M42 109H498" stroke="#dce5ef"/>
+
+  <path d="M111 170V450" fill="none" stroke="#dce5ef" stroke-width="5" stroke-linecap="round"/>
+  <path d="M111 170V450" fill="none" stroke="url(#timeline-line)" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- 2024 / Product analytics -->
+  <text x="79" y="175" text-anchor="end" fill="#56657a" font-family="Geist Mono, ui-monospace, monospace" font-size="13" font-weight="600">2024</text>
+  <circle cx="111" cy="170" r="13" fill="#fff" stroke="#0ea87e" stroke-width="3"/>
+  <circle cx="111" cy="170" r="4" fill="#0ea87e"/>
+  <g filter="url(#card-shadow)">
+    <rect x="139" y="132" width="355" height="77" rx="12" fill="#fff" stroke="#dce5ef"/>
+    <path d="M140 145a12 12 0 0 1 12-12h3v75h-3a12 12 0 0 1-12-12Z" fill="#0ea87e"/>
+  </g>
+  <text x="171" y="154" fill="#078568" font-family="Geist Mono, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="1">GROWTH ANALYTICS</text>
+  <text x="171" y="178" fill="#17233a" font-family="Geist, Arial, sans-serif" font-size="19" font-weight="600">LINE MAN Campus VIP</text>
+  <text x="171" y="196" fill="#66758a" font-family="Geist, Arial, sans-serif" font-size="13">Campaign analysis &amp; unit economics</text>
+
+  <!-- 2025 / National competition -->
+  <text x="79" y="268" text-anchor="end" fill="#56657a" font-family="Geist Mono, ui-monospace, monospace" font-size="13" font-weight="600">2025</text>
+  <circle cx="111" cy="263" r="13" fill="#fff" stroke="#e79826" stroke-width="3"/>
+  <circle cx="111" cy="263" r="4" fill="#e79826"/>
+  <g filter="url(#card-shadow)">
+    <rect x="139" y="225" width="355" height="77" rx="12" fill="#fff" stroke="#dce5ef"/>
+    <path d="M140 238a12 12 0 0 1 12-12h3v75h-3a12 12 0 0 1-12-12Z" fill="#e79826"/>
+  </g>
+  <text x="171" y="247" fill="#ab6b13" font-family="Geist Mono, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="1">NATIONAL FINALIST</text>
+  <text x="171" y="271" fill="#17233a" font-family="Geist, Arial, sans-serif" font-size="19" font-weight="600">AiHack Thailand</text>
+  <text x="171" y="289" fill="#66758a" font-family="Geist, Arial, sans-serif" font-size="13">Credit risk modeling challenge</text>
+
+  <!-- 2026 / Banking prototype -->
+  <text x="79" y="361" text-anchor="end" fill="#56657a" font-family="Geist Mono, ui-monospace, monospace" font-size="13" font-weight="600">2026</text>
+  <circle cx="111" cy="356" r="13" fill="#fff" stroke="#1468da" stroke-width="3"/>
+  <circle cx="111" cy="356" r="4" fill="#1468da"/>
+  <g filter="url(#card-shadow)">
+    <rect x="139" y="318" width="355" height="77" rx="12" fill="#fff" stroke="#dce5ef"/>
+    <path d="M140 331a12 12 0 0 1 12-12h3v75h-3a12 12 0 0 1-12-12Z" fill="#1468da"/>
+  </g>
+  <text x="171" y="340" fill="#1468da" font-family="Geist Mono, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="1">TRACK 2 LEAD</text>
+  <text x="171" y="364" fill="#17233a" font-family="Geist, Arial, sans-serif" font-size="19" font-weight="600">KBTG Kampus Hackathon</text>
+  <text x="171" y="382" fill="#66758a" font-family="Geist, Arial, sans-serif" font-size="13">FlowSense &amp; TrustGraph prototype</text>
+
+  <!-- 2026–2027 / Scholarship -->
+  <text x="79" y="448" text-anchor="end" fill="#56657a" font-family="Geist Mono, ui-monospace, monospace" font-size="12" font-weight="600">2026</text>
+  <text x="79" y="463" text-anchor="end" fill="#8392a6" font-family="Geist Mono, ui-monospace, monospace" font-size="11">2027</text>
+  <circle cx="111" cy="449" r="13" fill="#fff" stroke="#dc5275" stroke-width="3"/>
+  <circle cx="111" cy="449" r="4" fill="#dc5275"/>
+  <g filter="url(#card-shadow)">
+    <rect x="139" y="411" width="355" height="77" rx="12" fill="#fff" stroke="#dce5ef"/>
+    <path d="M140 424a12 12 0 0 1 12-12h3v75h-3a12 12 0 0 1-12-12Z" fill="#dc5275"/>
+  </g>
+  <text x="171" y="433" fill="#ba3f61" font-family="Geist Mono, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="1">CONTINUING SCHOLARSHIP</text>
+  <text x="171" y="457" fill="#17233a" font-family="Geist, Arial, sans-serif" font-size="19" font-weight="600">NHK Spring (Thailand)</text>
+  <text x="171" y="475" fill="#66758a" font-family="Geist, Arial, sans-serif" font-size="13">Academic years 2026 &amp; 2027</text>
+</svg>
