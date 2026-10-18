@@ -254,10 +254,10 @@ const portfolioData = {
       duration: "Dec 2025",
       location: "Bangkok, Thailand",
       description: [
-        "Engineered default prediction engine across ~40,000 real-world consumer loan records under extreme 1:12 default class imbalance.",
-        "Formulated temporal delinquency velocity ratios, credit exhaustion slopes, and 5-Fold Stratified Cross-Validation via Optuna Bayesian search.",
-        "Implemented out-of-fold rank/probability blending with CatBoost and LightGBM, achieving 0.894 ROC-AUC on out-of-time private test partitions.",
-        "Constructed asymmetric cost-matrix threshold optimization balancing catastrophic unrecovered default costs against lost customer margin."
+        "Built a competition pipeline for predicting 12-month long-overdue debt risk from tabular lending records.",
+        "Developed financial-ratio and delinquency features, with stratified validation and Optuna model search.",
+        "Implemented out-of-fold rank/probability blending with CatBoost and LightGBM; the public repository documents a 0.65333 out-of-fold ROC-AUC experiment, while private competition data is not published.",
+        "Compared model variants and kept confidential competition records outside the public repository."
       ],
       techStack: ["LightGBM", "XGBoost", "CatBoost", "Optuna", "Scikit-Learn", "OptBinning"]
     },
@@ -268,12 +268,11 @@ const portfolioData = {
       duration: "Jan 2026",
       location: "Bangkok, Thailand",
       description: [
-        "Architected GuardianAI, a preventive geriatric clinical frailty and acute fall risk scoring engine.",
-        "Trained Platt-calibrated XGBoost model on multi-biometric physical gait parameters and patient health records.",
-        "Integrated localized SHAP attribution to decompose individual patient risk drivers directly to clinical triage physicians.",
-        "Deployed asynchronous containerized FastAPI scoring microservice achieving sub-30ms response times with Docker."
+        "Designed a bilingual frailty-triage dashboard prototype for care-team review.",
+        "Built patient-profile, risk-factor, alert-acknowledgement, and follow-up views using example records.",
+        "Separated the demonstrated workflow from clinical validation, which remains future work."
       ],
-      techStack: ["XGBoost", "TreeSHAP", "FastAPI", "Docker", "Tailwind CSS", "React"]
+      techStack: ["React", "Vite", "Node.js", "Tailwind CSS", "Thai / English"]
     },
     {
       role: "Spatial Lead: 30m Grid Flash Flood Mapping",
@@ -337,18 +336,18 @@ const portfolioData = {
       context: "KBTG Kampus Hackathon 2026 — Advanced to the next round; not yet in the Final round",
       caseStudyLink: "project-flowsense-trustgraph.html",
       description: "FlowSense offers a spending outlook, accounts for bills and a chosen reserve, and offers user-triggered saving within safe-to-save capacity plus standard withdrawals. TrustGraph uses precomputed R-GCN features and ONNX scoring to review transfers and explain recipient risk. This is an independent prototype using synthetic data.",
-      keyMetric: "11.62ms P99 Prototype Benchmark &bull; 1.2–2.0B THB Projected CASA",
+      keyMetric: "Bill-Aware Planning &bull; Opt-In Saving &bull; Pre-Transfer Risk Review",
       techStack: ["PyTorch Geometric", "LightGBM", "ONNX Runtime", "FastAPI", "React 18", "Vite"],
-      githubLink: "https://github.com/svkhun/k-flowsense-trustgraph",
-      liveDemoLink: "https://k-flowsense-trustgraph.onrender.com/"
+      githubLink: "https://github.com/svkhun/k-nexus",
+      liveDemoLink: "https://k-nexus-app.onrender.com/"
     },
     {
       id: "credit-risk-xai",
       title: "Enterprise Credit Risk Scoring & Explainable AI (XAI)",
-      domain: "Basel II/III Probability of Default (PD) & Model Governance",
-      context: "Quantitative Credit Risk Research",
-      description: "Dual-scorecard credit engine combining monotonic Weight of Evidence (WoE) and Information Value (IV) screening with calibrated LightGBM and exact instance-level TreeSHAP Shapley decompositions to produce auditable, legally defensible ECOA/FCRA Adverse Action notices.",
-      keyMetric: "0.892 ROC-AUC &bull; 42.6% KS Separation &bull; PSI < 0.10",
+      domain: "Probability of Default & Explainable Decision Support",
+      context: "Quantitative credit risk research prototype",
+      description: "Research interface for estimating default risk, inspecting model explanations and reason codes, and exploring hypothetical alternative lending decisions. Regulatory and fair-lending validation remain separate work.",
+      keyMetric: "Default Probability &bull; Reason Codes &bull; Scenario Exploration",
       techStack: ["LightGBM", "OptBinning", "TreeSHAP", "DiCE Counterfactuals", "FastAPI", "SciPy"],
       githubLink: "https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI",
       liveDemoLink: null
@@ -356,10 +355,10 @@ const portfolioData = {
     {
       id: "aiful-lod-prediction",
       title: "Long Overdue Debtor (LOD) Prediction System",
-      domain: "Non-Performing Loan (NPL) Prevention & Asymmetric Loss Optimization",
+      domain: "Long-Overdue Default Prediction",
       context: "Aihack Thailand 2025 National Finalist",
-      description: "Default classification on ~40,000 real-world consumer loans under 1:12 default imbalance. Features Bayesian Optuna-tuned LightGBM/XGBoost/CatBoost ensembles and asymmetric cost-matrix threshold optimization balancing unrecovered default principal against lost margin.",
-      keyMetric: "0.894 ROC-AUC &bull; ~40,000 Records &bull; National Finalist",
+      description: "Competition pipeline for 12-month long-overdue prediction using financial feature engineering, stratified validation, and CatBoost/LightGBM blending. Confidential competition records are not published.",
+      keyMetric: "National Finalist &bull; 12-Month Default Prediction &bull; Out-of-Fold Validation",
       techStack: ["LightGBM", "XGBoost", "CatBoost", "Optuna", "Scikit-Learn", "Streamlit"],
       githubLink: "https://github.com/svkhun/aiful-credit-risk-modeling",
       liveDemoLink: null
@@ -367,22 +366,22 @@ const portfolioData = {
     {
       id: "mfg-data-pipeline",
       title: "Industrial IoT & OEE Manufacturing Data Platform",
-      domain: "Hybrid Lambda Data Engineering & Predictive Quality",
+      domain: "Manufacturing Telemetry & OEE Analytics",
       context: "Industrial Automation Systems",
-      description: "Hybrid Lambda architecture streaming sub-second PLC telemetry via WebSockets paired with deterministic hourly PostgreSQL 15 Data Mart aggregations (OEE = Availability x Performance x Quality). Employs Isolation Forests and LightGBM with TreeSHAP for root cause sensor anomaly diagnosis.",
-      keyMetric: "< 1.0s WebSocket Telemetry &bull; 100% Idempotent Upserts",
+      description: "Working prototype with simulated machine telemetry, FastAPI and WebSocket dashboard updates, PostgreSQL storage, hourly OEE summaries, and model-assisted anomaly views.",
+      keyMetric: "Simulated Sensors &bull; WebSocket Dashboard &bull; Hourly OEE",
       techStack: ["PostgreSQL 15", "FastAPI", "WebSockets", "LightGBM", "TreeSHAP", "React 18", "Docker"],
       githubLink: "https://github.com/svkhun/mfg-data-pipeline",
       liveDemoLink: null
     },
     {
       id: "guardianai-clinical-ops",
-      title: "GuardianAI – Clinical Frailty & Fall Risk Intervention",
+      title: "GuardianAI Frailty Triage Dashboard",
       domain: "Preventive Geriatric Healthcare Analytics & Clinical Triage",
       context: "True Innovation Launchpad 2026",
-      description: "Early frailty and acute fall risk prediction engine using Platt-calibrated XGBoost over multi-biometric physical gait indicators. Features localized SHAP clinical attributions and containerized asynchronous FastAPI scoring endpoints.",
-      keyMetric: "< 30ms FastAPI Latency &bull; Localized SHAP Attributions",
-      techStack: ["XGBoost", "TreeSHAP", "FastAPI", "Docker", "Tailwind CSS", "React"],
+      description: "Bilingual frailty-triage dashboard prototype with patient profiles, explainable risk-factor views, alert acknowledgement, and care-team follow-up workflows. Clinical outcomes have not been validated.",
+      keyMetric: "Frailty Review &bull; Risk Factors &bull; Care Coordination",
+      techStack: ["React", "Vite", "Node.js", "Tailwind CSS", "Thai / English"],
       githubLink: "https://github.com/svkhun/guardianai-clinical-ops-dashboard",
       liveDemoLink: null
     }

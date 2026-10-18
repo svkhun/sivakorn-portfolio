@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
   <title>Credit Risk Scoring &amp; Explainable AI Case Study | Sivakorn Khundilokrattaya</title>
-  <meta name="description" content="Basel II/III compliant credit scoring and real-time algorithmic recourse (< 50ms) using OptBinning monotonic WoE, TreeSHAP, and DiCE counterfactuals.">
+  <meta name="description" content="A credit risk research prototype showing default-risk estimates, model explanations, and scenario views with documented cross-validation results.">
   <link rel="canonical" href="https://svkhun.vercel.app/project-credit-risk">
 
         <!-- Favicon & Web App Icons -->
@@ -71,222 +71,61 @@
   <main>
     <article class="case-airy-wrap">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
-
-        <!-- Breadcrumb -->
         <nav class="case-breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
-          <span class="case-breadcrumb-sep">/</span>
-          <a href="projects.html">Projects</a>
-          <span class="case-breadcrumb-sep">/</span>
-          <span class="case-breadcrumb-current">Credit Risk &amp; Explainable AI</span>
+          <a href="index.html">Home</a><span class="case-breadcrumb-sep">/</span>
+          <a href="projects.html">Projects</a><span class="case-breadcrumb-sep">/</span>
+          <span class="case-breadcrumb-current">Credit Risk Scoring &amp; Explainable AI</span>
         </nav>
 
-        <!-- Airy Hero Header -->
         <header class="case-hero-airy">
-          <span class="case-section-num-tag">Basel II / III Regulatory Architecture &bull; Bank Audit Compliance</span>
-          
-          <h1 class="hero-display mb-6">
-            <span>Credit Risk Scoring &amp;</span>
-            <span class="text-accent-brand">Algorithmic Recourse</span>
-          </h1>
-
-          <p class="case-lead-airy">
-            A production scorecard system reconciling deep tree ensembles with central bank interpretability laws: monotonic binning via OptBinning, 64.2% Gini coefficient, and real-time counterfactual recourse under 50ms.
-          </p>
-
+          <span class="case-section-num-tag">Quantitative Risk Research &bull; Decision Support Prototype</span>
+          <h1 class="hero-display mb-6"><span>Credit Risk Scoring &amp;</span> <span class="text-accent-brand">Explainable AI</span></h1>
+          <p class="case-lead-airy">A research prototype that estimates probability of default, shows model reason codes, and lets a reviewer explore hypothetical changes to a credit decision. It is a demonstration of decision support, not a regulator-approved lending system.</p>
           <div class="flex flex-wrap items-center gap-3 pt-2">
-            <a href="https://github.com/svkhun/credit-risk-scoring" target="_blank" rel="noopener noreferrer" class="primary-cta inline-flex items-center gap-2">
-              <i class="fab fa-github"></i>
-              <span>View Source Code</span>
-            </a>
-            <a href="projects.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-none text-xs font-mono border border-border bg-subtle hover:bg-surface text-secondary transition-colors">
-              <i class="fas fa-arrow-left text-[10px]"></i>
-              <span>Back to Directory</span>
-            </a>
+            <a href="https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI" target="_blank" rel="noopener noreferrer" class="primary-cta inline-flex items-center gap-2"><i class="fab fa-github" aria-hidden="true"></i><span>View Source Code</span></a>
+            <a href="projects.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-none text-xs font-mono border border-border bg-subtle hover:bg-surface text-secondary transition-colors"><i class="fas fa-arrow-left text-[10px]" aria-hidden="true"></i><span>Back to Directory</span></a>
           </div>
         </header>
 
-        <!-- Thesis Quote -->
-        <div class="case-thesis-quote">
-          &ldquo;Telling an applicant 'the neural network rejected you' violates consumer banking regulations. Banks must furnish actionable recourse: the exact, minimal financial behaviors required to transition from rejection to approval.&rdquo;
-        </div>
+        <div class="case-thesis-quote">&ldquo;A risk score becomes more useful when a reviewer can inspect the drivers, question the result, and record why a decision was made.&rdquo;</div>
 
-        <!-- Section 1: The Regulatory Impasse -->
         <section class="case-section-airy">
-          <span class="case-section-num-tag">01 // The Regulatory Impasse</span>
-          <h2 class="case-section-heading">Monotonicity vs. Predictive Non-Linearity</h2>
-
+          <span class="case-section-num-tag">01 // Problem &amp; Approach</span>
+          <h2 class="case-section-heading">Make credit-model decisions inspectable</h2>
           <div class="case-body-airy">
-            <p>
-              In wholesale and retail credit adjudication, financial institutions are bound by strict supervisory oversight (such as the Bank of Thailand and Basel Committee internal ratings-based frameworks). Machine learning models cannot function as black boxes:
-            </p>
-            <p>
-              1. <strong>Strict Monotonicity:</strong> If an applicant's debt-to-income ratio increases, their risk score must never paradoxically decrease. Unconstrained deep neural nets and trees violate this fundamental economic sanity rule.<br>
-              2. <strong>Right to Adverse Action Notice:</strong> Under fair lending legislation, institutions are legally obligated to disclose the top factors driving a loan denial, alongside realistic steps the applicant can take to cure the deficiency.
-            </p>
+            <p>The project explores an underwriting workflow in which tabular credit features feed a probability-of-default model. The interface pairs the score with feature explanations, example reason codes, an audit trail, and policy scenarios.</p>
+            <p>Weight-of-Evidence screening and a LightGBM model support the research pipeline. TreeSHAP explanations and counterfactual examples help a reviewer see which inputs contributed to an outcome and what a hypothetical alternative might look like.</p>
           </div>
         </section>
 
-        <!-- Section 2: SIGNATURE CENTERPIECE 1 - Interactive DiCE Counterfactual Engine -->
         <section class="case-section-airy">
-          <span class="case-section-num-tag">02 // Signature Showcase &bull; Algorithmic Recourse</span>
-          <h2 class="case-section-heading">Interactive DiCE Counterfactual Recourse</h2>
-          <p class="case-lead-airy">
-            Toggle between the initial rejected profile and the generated counterfactual explanation below. Notice how DiCE preserves unchangeable factors (e.g. credit history age) while finding the minimal actionable adjustments to cross the approval threshold:
-          </p>
-
-          <!-- Bespoke Interactive Scorecard Widget -->
-          <div class="scorecard-interactive-box">
-            <div class="scorecard-toggle-bar">
-              <button id="btn-orig-app" class="scorecard-tab-btn active" type="button" aria-pressed="true">State A: Original Application (Rejected)</button>
-              <button id="btn-recourse-app" class="scorecard-tab-btn" type="button" aria-pressed="false">State B: DiCE Counterfactual (Approved)</button>
-            </div>
-
-            <!-- Score Badge Banner -->
-            <div class="p-4 mb-6 border border-border flex flex-wrap items-center justify-between gap-4" id="score-status-box" style="background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.3);">
-              <div>
-                <span class="text-xs font-mono uppercase text-muted block">Credit Score Decision</span>
-                <span id="score-val" class="font-mono text-2xl font-bold" style="color: #EF4444;">624 &bull; REJECTED</span>
-              </div>
-              <div class="text-right font-mono text-xs">
-                <span class="text-muted block">Estimated Basel PD</span>
-                <span id="pd-val" class="font-bold text-sm">4.85% (Cutoff: &le; 2.00%)</span>
-              </div>
-            </div>
-
-            <!-- Recourse Attribute Comparison Table -->
-            <table class="scorecard-data-table">
-              <thead>
-                <tr>
-                  <th>Financial Attribute</th>
-                  <th>Current Value</th>
-                  <th>Actionable DiCE Target</th>
-                  <th>Recourse Difficulty</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Debt-to-Income (DTI)</strong></td>
-                  <td id="attr-dti">48.0%</td>
-                  <td id="target-dti" class="text-muted">&mdash;</td>
-                  <td><span class="text-xs font-mono text-accent">High Actionability</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Recent Inquiries (6 Mos)</strong></td>
-                  <td id="attr-inq">5 Hard Inquiries</td>
-                  <td id="target-inq" class="text-muted">&mdash;</td>
-                  <td><span class="text-xs font-mono text-accent">Wait 90 Days</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Revolving Line Utilization</strong></td>
-                  <td id="attr-util">78.5%</td>
-                  <td id="target-util" class="text-muted">&mdash;</td>
-                  <td><span class="text-xs font-mono text-accent">Pay Down ฿18,000</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Length of Credit History</strong></td>
-                  <td>6.2 Years</td>
-                  <td class="text-muted">6.2 Years (Immutable)</td>
-                  <td><span class="text-xs font-mono text-muted">Fixed Factor</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <!-- Section 3: SIGNATURE CENTERPIECE 2 - Monotonic WoE Binning -->
-        <section class="case-section-airy">
-          <span class="case-section-num-tag">03 // Supervisory Transparency &bull; Feature Engineering</span>
-          <h2 class="case-section-heading">Monotonic Weight of Evidence (WoE)</h2>
-
-          <div class="case-body-airy">
-            <p>
-              Using <strong>OptBinning</strong> (Mixed-Integer Programming), all continuous features are binned such that bad rates monotonically decrease with risk scores. This satisfies both bank risk auditors and rating agencies while maintaining an Information Value (IV) &gt; 0.35:
-            </p>
-          </div>
-
-          <!-- Monotonic WoE Bars -->
-          <div class="woe-bar-container border border-border p-6 bg-surface my-6">
-            <span class="text-xs font-mono uppercase tracking-wider text-muted block mb-4">Feature Binning: Debt-to-Income Monotonic WoE</span>
-
-            <div class="woe-row">
-              <span>DTI &le; 20%</span>
-              <div class="woe-track"><div class="woe-fill" style="--target-width: 92%; --fill-delay: 0.1s;"></div></div>
-              <span class="text-right text-accent font-semibold">+0.84 WoE</span>
-            </div>
-            <div class="woe-row">
-              <span>20% &lt; DTI &le; 35%</span>
-              <div class="woe-track"><div class="woe-fill" style="--target-width: 68%; --fill-delay: 0.22s;"></div></div>
-              <span class="text-right text-accent font-semibold">+0.42 WoE</span>
-            </div>
-            <div class="woe-row">
-              <span>35% &lt; DTI &le; 45%</span>
-              <div class="woe-track"><div class="woe-fill" style="--target-width: 42%; --fill-delay: 0.34s;"></div></div>
-              <span class="text-right text-muted font-semibold">-0.18 WoE</span>
-            </div>
-            <div class="woe-row">
-              <span>DTI &gt; 45%</span>
-              <div class="woe-track"><div class="woe-fill" style="--target-width: 18%; --fill-delay: 0.46s; background: #EF4444;"></div></div>
-              <span class="text-right text-red-500 font-semibold">-0.76 WoE</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- Section 4: Production Benchmarks -->
-        <section class="case-section-airy">
-          <span class="case-section-num-tag">04 // Validation Telemetry</span>
-          <h2 class="case-section-heading">Discriminatory Power &amp; Recourse Latency</h2>
-
+          <span class="case-section-num-tag">02 // Documented Model Experiment</span>
+          <h2 class="case-section-heading">What the repository reports</h2>
+          <p class="case-lead-airy">The public README records these 5-fold cross-validation results. They describe model development on the project's data, not regulatory approval or performance at a bank.</p>
           <div class="case-table-wrap">
             <table class="case-benchmark-table">
-              <thead>
-                <tr>
-                  <th>Methodology</th>
-                  <th>Gini Coeff</th>
-                  <th>KS Statistic</th>
-                  <th>Counterfactual Speed</th>
-                  <th>Regulatory Audit Status</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Model</th><th>Reported ROC-AUC</th><th>Validation</th></tr></thead>
               <tbody>
-                <tr>
-                  <td>Unconstrained XGBoost</td>
-                  <td>66.8%</td>
-                  <td>51.2</td>
-                  <td>N/A (Black Box)</td>
-                  <td><span class="text-xs font-mono text-red-400">Rejected by Auditor</span></td>
-                </tr>
-                <tr>
-                  <td>Traditional Scorecard (Logistic)</td>
-                  <td>58.1%</td>
-                  <td>43.0</td>
-                  <td>Manual Lookup</td>
-                  <td>Approved (Low Lift)</td>
-                </tr>
-                <tr>
-                  <td><strong>OptBinning + TreeSHAP + DiCE</strong></td>
-                  <td><strong>64.2%</strong></td>
-                  <td><strong>48.6</strong></td>
-                  <td><strong>41.8ms</strong></td>
-                  <td><span class="case-badge-good">Full Basel Approved</span></td>
-                </tr>
+                <tr><td>Weight-of-Evidence logistic baseline</td><td>0.7420</td><td>5-fold stratified CV</td></tr>
+                <tr><td>Optuna-tuned LightGBM</td><td><strong>0.7854</strong></td><td>5-fold stratified CV</td></tr>
               </tbody>
             </table>
           </div>
         </section>
 
-        <!-- Next / Previous Navigation -->
-        <div class="case-nav-footer">
-          <a href="project-lod-engine.html" class="case-nav-btn">
-            <span class="case-nav-sub">&larr; Previous Case Study</span>
-            <span class="case-nav-title">Long Overdue Debtor (LOD) Engine</span>
-          </a>
-          <a href="project-industrial-iot.html" class="case-nav-btn text-right">
-            <span class="case-nav-sub">Next Case Study &rarr;</span>
-            <span class="case-nav-title">Industrial IoT &amp; OEE Data Platform</span>
-          </a>
-        </div>
+        <section class="case-section-airy">
+          <span class="case-section-num-tag">03 // Use &amp; Boundaries</span>
+          <h2 class="case-section-heading">A review aid with further validation ahead</h2>
+          <div class="case-body-airy">
+            <p>The prototype includes scoring and explanation views, example adverse-action reasons, scenario testing, and an audit record. These features can help demonstrate a transparent review process.</p>
+            <p>Before real lending use, a lender would need independent data-quality checks, calibration and drift monitoring, subgroup and fair-lending analysis, legal review, operational controls, and regulatory sign-off. The prototype alone does not establish those outcomes.</p>
+          </div>
+        </section>
 
+        <div class="case-nav-footer">
+          <a href="project-lod-engine.html" class="case-nav-btn"><span class="case-nav-sub">&larr; Previous Case Study</span><span class="case-nav-title">Long Overdue Debtor Prediction</span></a>
+          <a href="project-industrial-iot.html" class="case-nav-btn text-right"><span class="case-nav-sub">Next Case Study &rarr;</span><span class="case-nav-title">Industrial IoT &amp; OEE Data Platform</span></a>
+        </div>
       </div>
     </article>
   </main>
@@ -301,76 +140,6 @@
   <!-- Scripts -->
   <script src="js/portfolio-data.js"></script>
   <script src="js/main.js"></script>
-  <script>
-    // DiCE Counterfactual Scorecard Toggle
-    const btnOrig = document.getElementById('btn-orig-app');
-    const btnRecourse = document.getElementById('btn-recourse-app');
-    const statusBox = document.getElementById('score-status-box');
-    const scoreVal = document.getElementById('score-val');
-    const pdVal = document.getElementById('pd-val');
 
-    const attrDti = document.getElementById('attr-dti');
-    const targetDti = document.getElementById('target-dti');
-    const attrInq = document.getElementById('attr-inq');
-    const targetInq = document.getElementById('target-inq');
-    const attrUtil = document.getElementById('attr-util');
-    const targetUtil = document.getElementById('target-util');
-
-    let scoreAnimRaf = null;
-    function animateScore(fromVal, toVal, resultText, resultColor, duration = 360) {
-      if (scoreAnimRaf) cancelAnimationFrame(scoreAnimRaf);
-      const start = performance.now();
-      function tick(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        const current = Math.round(fromVal + (toVal - fromVal) * ease);
-        scoreVal.innerHTML = `${current} &bull; ${resultText}`;
-        scoreVal.style.color = resultColor;
-        if (progress < 1) {
-          scoreAnimRaf = requestAnimationFrame(tick);
-        }
-      }
-      scoreAnimRaf = requestAnimationFrame(tick);
-    }
-
-    btnOrig.addEventListener('click', () => {
-      btnOrig.classList.add('active');
-      btnOrig.setAttribute('aria-pressed', 'true');
-      btnRecourse.classList.remove('active');
-      btnRecourse.setAttribute('aria-pressed', 'false');
-
-      statusBox.style.background = 'rgba(239, 68, 68, 0.08)';
-      statusBox.style.borderColor = 'rgba(239, 68, 68, 0.3)';
-      animateScore(710, 624, 'REJECTED', '#EF4444', 360);
-      pdVal.textContent = '4.85% (Cutoff: \u2264 2.00%)';
-
-      targetDti.innerHTML = '&mdash;';
-      targetDti.className = 'text-muted';
-      targetInq.innerHTML = '&mdash;';
-      targetInq.className = 'text-muted';
-      targetUtil.innerHTML = '&mdash;';
-      targetUtil.className = 'text-muted';
-    });
-
-    btnRecourse.addEventListener('click', () => {
-      btnRecourse.classList.add('active');
-      btnRecourse.setAttribute('aria-pressed', 'true');
-      btnOrig.classList.remove('active');
-      btnOrig.setAttribute('aria-pressed', 'false');
-
-      statusBox.style.background = 'rgba(16, 185, 129, 0.08)';
-      statusBox.style.borderColor = 'rgba(16, 185, 129, 0.3)';
-      animateScore(624, 710, 'APPROVED (+86 pts)', '#10B981', 360);
-      pdVal.textContent = '1.42% (Passed Threshold)';
-
-      targetDti.innerHTML = '32.0% <span class="score-diff-highlight">(-16.0%)</span>';
-      targetDti.className = 'score-diff-highlight';
-      targetInq.innerHTML = '2 Inquiries <span class="score-diff-highlight">(-3)</span>';
-      targetInq.className = 'score-diff-highlight';
-      targetUtil.innerHTML = '42.0% <span class="score-diff-highlight">(-36.5%)</span>';
-      targetUtil.className = 'score-diff-highlight';
-    });
-  </script>
 </body>
 </html>

@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=20261018-projects">
 </head>
 <body>
 
@@ -89,7 +89,7 @@
           </div>
           <h1 class="hero-display">
             <span>Systems built for<br/></span>
-            <span class="text-accent-brand hero-nowrap">high stakes &amp; real scale</span>
+            <span class="text-accent-brand hero-nowrap">clearer decisions.</span>
           </h1>
           <p class="hero-lead mb-6 max-w-3xl">
             A curated timeline of machine learning prototypes and engineering case studies across banking, credit risk, manufacturing, and healthcare.
@@ -106,35 +106,39 @@
           </div>
         </div>
 
-        <!-- 2. Summary Stats Bar (aanandmadhav style 4-column metric bar) -->
-        <div class="work-summary-stats-bar">
-          <div class="scroll-anim anim-metric-pop">
-            <span class="work-metric-label">Graph Scoring</span>
-            <span class="work-metric-stat">11.62<span class="stat-unit" style="font-size: 0.55em; font-weight: 400; opacity: 0.8; margin-left: 0.2rem;">ms</span></span>
-            <span class="text-xs text-secondary mt-1 block">P99 prototype benchmark</span>
-          </div>
-          <div class="scroll-anim anim-metric-pop">
-            <span class="work-metric-label">Model Discrimination</span>
-            <span class="work-metric-stat">0.894<span class="stat-unit" style="font-size: 0.55em; font-weight: 400; opacity: 0.8; margin-left: 0.25rem;">ROC-AUC</span></span>
-            <span class="text-xs text-secondary mt-1 block">Long Overdue Debtor Engine</span>
-          </div>
-          <div class="scroll-anim anim-metric-pop">
-            <span class="work-metric-label">Projected Deposits</span>
-            <span class="work-metric-stat">1.2–2.0B<span class="stat-unit" style="font-size: 0.55em; font-weight: 400; opacity: 0.8; margin-left: 0.25rem;">THB</span></span>
-            <span class="text-xs text-secondary mt-1 block">CASA Business Scenario</span>
-          </div>
-          <div class="scroll-anim anim-metric-pop">
-            <span class="work-metric-label">Distributed Telemetry</span>
-            <span class="work-metric-stat">12K+<span class="stat-unit" style="font-size: 0.55em; font-weight: 400; opacity: 0.8; margin-left: 0.25rem;">Events/s</span></span>
-            <span class="text-xs text-secondary mt-1 block">Kafka + Flink Streaming</span>
-          </div>
+        <!-- Explain the value of the work before asking visitors to read case-study metrics. -->
+        <div class="work-summary-stats-bar" aria-label="What these projects help people do">
+          <a class="work-summary-card scroll-anim anim-metric-pop" href="project-flowsense-trustgraph.html">
+            <span class="work-metric-label">01 / Money planning</span>
+            <strong class="work-summary-title">Plan around bills</strong>
+            <span class="work-summary-copy">See spending room and a chosen reserve before deciding whether to save.</span>
+            <span class="work-summary-link">Explore FlowSense <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="work-summary-card scroll-anim anim-metric-pop" href="project-flowsense-trustgraph.html">
+            <span class="work-metric-label">02 / Safer transfers</span>
+            <strong class="work-summary-title">Review before sending</strong>
+            <span class="work-summary-copy">Understand a recipient-risk warning and the effect of a transfer on the plan.</span>
+            <span class="work-summary-link">Explore TrustGraph <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="work-summary-card scroll-anim anim-metric-pop" href="project-shopee-smart-cod.html">
+            <span class="work-metric-label">03 / E-commerce</span>
+            <strong class="work-summary-title">Make COD decisions clearer</strong>
+            <span class="work-summary-copy">Connect delivery-failure risk to proportionate checkout options.</span>
+            <span class="work-summary-link">Explore Smart COD <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="work-summary-card scroll-anim anim-metric-pop" href="project-industrial-iot.html">
+            <span class="work-metric-label">04 / Manufacturing</span>
+            <strong class="work-summary-title">Read machine signals</strong>
+            <span class="work-summary-copy">Turn simulated sensor events into OEE and machine-health views.</span>
+            <span class="work-summary-link">Explore Industrial IoT <span aria-hidden="true">↗</span></span>
+          </a>
         </div>
 
       </div>
     </section>
 
     <!-- ========================================================================
-         Production Case Studies Timeline Section
+         Case Studies Timeline Section
          ======================================================================== -->
     <section class="work-timeline-section scroll-mt-20 pt-16 lg:pt-24 pb-32 lg:pb-36" id="projects-timeline">
       <div class="max-w-5xl mx-auto px-6 lg:px-8">
@@ -151,13 +155,13 @@
                 <span class="work-org-card-date">2026 &bull; Case Competition Project</span>
               </div>
               <span class="work-org-card-role">Lead Data Scientist &amp; Product Architect</span>
-              <p class="work-org-card-desc">A cash-on-delivery reliability prototype combining calibrated failure prediction, adaptive checkout policies, and delivery feedback to explore lower return-to-origin costs.</p>
+              <p class="work-org-card-desc">A cash-on-delivery reliability prototype that uses synthetic orders to test failure prediction, checkout safeguards, and delivery-feedback updates.</p>
             </div>
             <div class="work-project-rows-wrap">
               <div class="work-project-row group scroll-anim anim-blueprint-row">
                 <div class="work-row-summary">
                   <div class="work-row-title-wrap"><h3 class="work-row-title"><a href="project-shopee-smart-cod.html" class="hover:text-accent transition-colors">Shopee Smart COD Reliability</a></h3></div>
-                  <p class="work-row-teaser">Synthetic Holdout: 0.8400 ROC-AUC &bull; 4 Reliability Grades &bull; Adaptive Checkout</p>
+                  <p class="work-row-teaser">Four buyer reliability grades &bull; Adaptive checkout &bull; Synthetic-data evaluation</p>
                   <a href="project-shopee-smart-cod.html" class="work-row-action" title="Explore Shopee Smart COD Reliability Case Study"><span>Explore</span><span>&rarr;</span></a>
                 </div>
                 <div class="work-project-details"><div class="work-details-inner"><div class="work-details-content">
@@ -194,7 +198,7 @@
               </div>
               <span class="work-org-card-role">Track 2: Data Science &amp; Intelligence &bull; Final Round Not Yet Reached</span>
               <p class="work-org-card-desc">
-                K PLUS concept prototype combining 30-day cashflow forecasting, flexible micro-savings, and graph-based screening before a transfer.
+                Independent banking prototype combining bill-aware money planning, user-controlled saving, and recipient-risk review before a transfer.
               </p>
             </div>
 
@@ -207,7 +211,7 @@
                     <h3 class="work-row-title"><a href="project-flowsense-trustgraph.html" class="hover:text-accent transition-colors">FlowSense &amp; TrustGraph</a></h3>
                     <span class="work-row-dot" aria-label="Advanced to the next round; not yet in the Final round"></span>
                   </div>
-                  <p class="work-row-teaser">FlowSense: Forecast &amp; Save &bull; TrustGraph: Screen &amp; Explain &bull; P99 Benchmark: 11.62ms</p>
+                  <p class="work-row-teaser">Plan around bills &bull; Save only with consent &bull; Review risky transfers before sending</p>
                   <a href="project-flowsense-trustgraph.html" class="work-row-action" title="Explore FlowSense &amp; TrustGraph Case Study">
                     <span>Explore</span>
                     <span>&rarr;</span>
@@ -220,30 +224,30 @@
                     <div class="work-details-content">
                       <!-- Left: Narrative Breakdown -->
                       <p class="work-details-desc">
-                        FlowSense projects liquidity with LightGBM, warns when upcoming commitments are at risk, and supports micro-sweeps with 1-Tap Undo. TrustGraph combines relational graph features with ONNX scoring, direct risk explanations, and a targeted Micro-Auth flow.
+                        FlowSense shows upcoming bills, living costs, and a user-chosen reserve before offering a capacity-limited, opt-in saving action; standard withdrawals remain available. TrustGraph previews how a transfer changes the plan and explains recipient-risk signals before eligible transfers proceed. The demo uses synthetic data.
                       </p>
 
                       <!-- Right: 3 Metrics + Problem Solved + Stack -->
                       <div>
                         <div class="work-details-metrics-grid">
                           <div>
-                            <span class="work-metric-sublabel">Reported Benchmark</span>
-                            <span class="work-metric-subval">11.62ms P99</span>
+                            <span class="work-metric-sublabel">Money Plan</span>
+                            <span class="work-metric-subval">Bills + Chosen Reserve</span>
                           </div>
                           <div>
-                            <span class="work-metric-sublabel">Projected CASA</span>
-                            <span class="work-metric-subval">1.2–2.0B THB</span>
+                            <span class="work-metric-sublabel">Saving Control</span>
+                            <span class="work-metric-subval">Opt In + Withdraw</span>
                           </div>
                           <div>
-                            <span class="work-metric-sublabel">User Control</span>
-                            <span class="work-metric-subval">1-Tap Undo</span>
+                            <span class="work-metric-sublabel">Transfer Review</span>
+                            <span class="work-metric-subval">Explain Risk First</span>
                           </div>
                         </div>
 
                         <div class="work-solved-block">
-                          <span class="work-solved-label">Problem Solved</span>
+                          <span class="work-solved-label">Problem Addressed</span>
                           <p class="work-solved-text">
-                            Precomputed 16D R-GCN embeddings support fast transfer screening, while cashflow forecasts keep savings responsive to upcoming bills.
+                            Helps a first-jobber see what remains after commitments and understand a warning before sending money, while keeping saving and withdrawals under their control.
                           </p>
                         </div>
 
@@ -258,11 +262,11 @@
                             <span class="tech-pill-sm">Vite</span>
                           </div>
                           <div class="work-details-links">
-                            <a href="https://k-flowsense-trustgraph.onrender.com/" target="_blank" rel="noopener noreferrer" class="work-link-btn" title="Live Demo">
+                            <a href="https://k-nexus-app.onrender.com/" target="_blank" rel="noopener noreferrer" class="work-link-btn" title="Live Demo">
                               <i class="fas fa-external-link-alt text-[10px]"></i>
                               <span>Demo &nearr;</span>
                             </a>
-                            <a href="https://github.com/svkhun/k-flowsense-trustgraph" target="_blank" rel="noopener noreferrer" class="work-link-btn">
+                            <a href="https://github.com/svkhun/k-nexus" target="_blank" rel="noopener noreferrer" class="work-link-btn">
                               <i class="fab fa-github"></i>
                               <span>GitHub</span>
                             </a>
@@ -289,9 +293,9 @@
                 <h2 class="work-org-card-title">AI Hack Thailand 2025</h2>
                 <span class="work-org-card-date">2025 &bull; National Finalist</span>
               </div>
-              <span class="work-org-card-role">National Finalist &bull; Supervised Credit &amp; Recovery Machine Learning</span>
+              <span class="work-org-card-role">National Finalist &bull; Credit Risk Modeling</span>
               <p class="work-org-card-desc">
-                Predictive delinquency scoring engine for non-performing retail debt portfolios, balancing aggressive recovery yield against borrower retention economics.
+                Competition model for predicting which borrowers may become long overdue within 12 months, using confidential credit data that is not published in the repository.
               </p>
             </div>
 
@@ -304,7 +308,7 @@
                     <h3 class="work-row-title"><a href="project-lod-engine.html" class="hover:text-accent transition-colors">Long Overdue Debtor (LOD) Engine</a></h3>
                     <span class="work-row-dot" aria-label="National Finalist"></span>
                   </div>
-                  <p class="work-row-teaser">ROC-AUC: 0.894 &bull; Net Yield: +6.2M THB &bull; Cohort: 40K Records Evaluated</p>
+                  <p class="work-row-teaser">National finalist &bull; Credit feature engineering &bull; Out-of-fold model evaluation</p>
                   <a href="project-lod-engine.html" class="work-row-action" title="Explore LOD Engine Case Study">
                     <span>Explore</span>
                     <span>&rarr;</span>
@@ -317,30 +321,30 @@
                     <div class="work-details-content">
                       <!-- Left: Narrative Breakdown -->
                       <p class="work-details-desc">
-                        Supervised tabular classification pipeline trained on 40,000+ debt records. Implemented Bayesian Hyperopt parameter search, Platt probability calibration, and Cost-Utility Frontier optimization, delivering +6.2M THB simulated incremental recovery while maintaining borrower fairness.
+                        Built a tabular default-prediction pipeline with financial-ratio features, missing-value handling, stratified validation, and CatBoost/LightGBM blending. The public repository documents the modeling workflow and provides synthetic sample data; confidential competition data is excluded.
                       </p>
 
                       <!-- Right: 3 Metrics + Problem Solved + Stack -->
                       <div>
                         <div class="work-details-metrics-grid">
                           <div>
-                            <span class="work-metric-sublabel">Model Quality</span>
-                            <span class="work-metric-subval">0.894 ROC-AUC</span>
+                            <span class="work-metric-sublabel">Task</span>
+                            <span class="work-metric-subval">12-Month Default Risk</span>
                           </div>
                           <div>
-                            <span class="work-metric-sublabel">Recovery Yield</span>
-                            <span class="work-metric-subval">+6.2M THB Net</span>
+                            <span class="work-metric-sublabel">Validation</span>
+                            <span class="work-metric-subval">Out-of-Fold ROC-AUC</span>
                           </div>
                           <div>
-                            <span class="work-metric-sublabel">Calibration</span>
-                            <span class="work-metric-subval">Platt Brier 0.082</span>
+                            <span class="work-metric-sublabel">Result</span>
+                            <span class="work-metric-subval">National Finalist</span>
                           </div>
                         </div>
 
                         <div class="work-solved-block">
-                          <span class="work-solved-label">Problem Solved</span>
+                          <span class="work-solved-label">Problem Addressed</span>
                           <p class="work-solved-text">
-                            Replaced arbitrary static cutoffs with a continuous cost-utility frontier dynamically balancing litigation costs vs. recovered debt on 90-day overdue borrowers.
+                            Ranks long-overdue risk in a heavily imbalanced lending dataset while keeping the evaluation and data-privacy boundaries clear.
                           </p>
                         </div>
 
@@ -349,8 +353,7 @@
                             <span class="tech-pill-sm">XGBoost</span>
                             <span class="tech-pill-sm">CatBoost</span>
                             <span class="tech-pill-sm">Scikit-learn</span>
-                            <span class="tech-pill-sm">Hyperopt</span>
-                            <span class="tech-pill-sm">Streamlit</span>
+                            <span class="tech-pill-sm">Python</span>
                             <span class="tech-pill-sm">Pandas</span>
                             <span class="tech-pill-sm">SHAP</span>
                           </div>
@@ -372,19 +375,19 @@
             </div>
           </div>
 
-          <!-- Timeline Item 3: Enterprise Financial Systems -->
+          <!-- Credit risk research prototype -->
           <div class="work-timeline-item">
             <div class="work-timeline-dot scroll-anim anim-timeline-node"></div>
             
             <!-- Organization Context Card -->
             <div class="work-org-card scroll-anim anim-org-card">
               <div class="work-org-card-top">
-                <h2 class="work-org-card-title">Enterprise Financial Analytics</h2>
-                <span class="work-org-card-date">2024–2025 &bull; Production Grade</span>
+                <h2 class="work-org-card-title">Credit Risk Research Prototype</h2>
+                <span class="work-org-card-date">2026 &bull; Decision Support Demo</span>
               </div>
-              <span class="work-org-card-role">Basel II/III Compliance &bull; Quantitative Risk Modeling</span>
+              <span class="work-org-card-role">Probability of Default &bull; Explainable Decisions</span>
               <p class="work-org-card-desc">
-                End-to-end credit assessment system combining classical scorecard methodology with gradient boosting and post-hoc SHAP tree explanations.
+                Exploratory underwriting interface combining a probability-of-default model, reason codes, and example changes an applicant could consider.
               </p>
             </div>
 
@@ -395,9 +398,9 @@
                 <div class="work-row-summary">
                   <div class="work-row-title-wrap">
                     <h3 class="work-row-title"><a href="project-credit-risk.html" class="hover:text-accent transition-colors">Credit Risk Scoring &amp; Explainable AI</a></h3>
-                    <span class="work-row-dot" aria-label="Production Grade"></span>
+                    <span class="work-row-dot" aria-label="Research prototype"></span>
                   </div>
-                  <p class="work-row-teaser">Power: 64.2% Gini / 48.6 KS &bull; Fairness: Disparate Impact &gt; 0.85 &bull; Recourse: &lt; 50ms</p>
+                  <p class="work-row-teaser">Estimate default risk &bull; Explain the main drivers &bull; Explore alternative decisions</p>
                   <a href="project-credit-risk.html" class="work-row-action" title="Explore Credit Risk Case Study">
                     <span>Explore</span>
                     <span>&rarr;</span>
@@ -410,30 +413,30 @@
                     <div class="work-details-content">
                       <!-- Left: Narrative Breakdown -->
                       <p class="work-details-desc">
-                        Regulatory-compliant probability of default (PD) modeling pipeline featuring Weight of Evidence (WoE) transformation, Information Value (IV) variable filtering, and real-time counterfactual recourse generation satisfying Basel II/III and consumer fair-lending requirements.
+                        The research prototype uses credit features and model explanations to show how a lending decision might be reviewed. It includes score, reason-code, scenario, and audit-trail views; actual regulatory approval and fair-lending validation would require separate review.
                       </p>
 
                       <!-- Right: 3 Metrics + Problem Solved + Stack -->
                       <div>
                         <div class="work-details-metrics-grid">
                           <div>
-                            <span class="work-metric-sublabel">Gini / KS</span>
-                            <span class="work-metric-subval">64.2% Gini / 48.6 KS</span>
+                            <span class="work-metric-sublabel">Risk View</span>
+                            <span class="work-metric-subval">Default Probability</span>
                           </div>
                           <div>
-                            <span class="work-metric-sublabel">Fair Lending</span>
-                            <span class="work-metric-subval">Disparate &gt; 0.85</span>
+                            <span class="work-metric-sublabel">Explanation</span>
+                            <span class="work-metric-subval">Reason Codes + SHAP</span>
                           </div>
                           <div>
-                            <span class="work-metric-sublabel">Recourse SLA</span>
-                            <span class="work-metric-subval">&lt; 50ms Real-Time</span>
+                            <span class="work-metric-sublabel">Next Step</span>
+                            <span class="work-metric-subval">Scenario Exploration</span>
                           </div>
                         </div>
 
                         <div class="work-solved-block">
-                          <span class="work-solved-label">Problem Solved</span>
+                          <span class="work-solved-label">Problem Addressed</span>
                           <p class="work-solved-text">
-                            Combined traditional auditable scorecards with monotonic gradient boosted trees and DiCE counterfactuals, generating actionable re-application paths for rejected loan applicants.
+                            Makes a model score easier to inspect by showing which factors influenced it and how a hypothetical change affects the result.
                           </p>
                         </div>
 
@@ -442,10 +445,10 @@
                             <span class="tech-pill-sm">Python</span>
                             <span class="tech-pill-sm">Scikit-learn</span>
                             <span class="tech-pill-sm">OptBinning</span>
-                            <span class="tech-pill-sm">XGBoost</span>
-                            <span class="tech-pill-sm">SHAP</span>
+                            <span class="tech-pill-sm">LightGBM</span>
+                            <span class="tech-pill-sm">TreeSHAP</span>
                             <span class="tech-pill-sm">FastAPI</span>
-                            <span class="tech-pill-sm">Streamlit</span>
+                            <span class="tech-pill-sm">Next.js</span>
                           </div>
                           <div class="work-details-links">
                             <a href="https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI" target="_blank" rel="noopener noreferrer" class="work-link-btn">
@@ -465,19 +468,19 @@
             </div>
           </div>
 
-          <!-- Timeline Item 4: Industrial IoT & Telemetry Systems -->
+          <!-- Industrial IoT prototype -->
           <div class="work-timeline-item">
             <div class="work-timeline-dot scroll-anim anim-timeline-node"></div>
             
             <!-- Organization Context Card -->
             <div class="work-org-card scroll-anim anim-org-card">
               <div class="work-org-card-top">
-                <h2 class="work-org-card-title">Industrial Telemetry &amp; Manufacturing Systems</h2>
-                <span class="work-org-card-date">2024 &bull; Enterprise Scale</span>
+                <h2 class="work-org-card-title">Manufacturing Data Platform</h2>
+                <span class="work-org-card-date">Prototype &bull; Simulated Telemetry</span>
               </div>
-              <span class="work-org-card-role">Distributed Streaming Telemetry &bull; Real-Time Operational Analytics</span>
+              <span class="work-org-card-role">Machine Health &bull; Overall Equipment Effectiveness</span>
               <p class="work-org-card-desc">
-                Hybrid Lambda architecture for industrial smart factory monitoring, transforming high-frequency sensor streams into actionable Overall Equipment Effectiveness (OEE) indicators.
+                A factory-monitoring prototype that turns simulated sensor readings into machine-health views and hourly OEE summaries.
               </p>
             </div>
 
@@ -488,9 +491,9 @@
                 <div class="work-row-summary">
                   <div class="work-row-title-wrap">
                     <h3 class="work-row-title"><a href="project-industrial-iot.html" class="hover:text-accent transition-colors">Industrial IoT &amp; OEE Data Platform</a></h3>
-                    <span class="work-row-dot" aria-label="Enterprise Architecture"></span>
+                    <span class="work-row-dot" aria-label="Working prototype with simulated telemetry"></span>
                   </div>
-                  <p class="work-row-teaser">Throughput: 12K+ Msg/s &bull; End-to-End: &lt; 85ms P95 &bull; Downtime: -18% Outages</p>
+                  <p class="work-row-teaser">Simulated machine signals &bull; Live dashboard updates &bull; Hourly OEE summaries</p>
                   <a href="project-industrial-iot.html" class="work-row-action" title="Explore Industrial IoT Case Study">
                     <span>Explore</span>
                     <span>&rarr;</span>
@@ -503,42 +506,42 @@
                     <div class="work-details-content">
                       <!-- Left: Narrative Breakdown -->
                       <p class="work-details-desc">
-                        Built scalable ingestion pipeline consuming multi-protocol industrial telemetry (MQTT, Modbus) into Kafka topics. Features Apache Flink streaming window aggregation, TimescaleDB time-series storage, and automated anomaly alert dispatch via Grafana dashboards.
+                        A simulator produces machine readings that the FastAPI service stores in PostgreSQL. WebSocket updates feed the React dashboard, while batch processing builds hourly OEE summaries and model views highlight possible anomalies.
                       </p>
 
                       <!-- Right: 3 Metrics + Problem Solved + Stack -->
                       <div>
                         <div class="work-details-metrics-grid">
                           <div>
-                            <span class="work-metric-sublabel">Throughput</span>
-                            <span class="work-metric-subval">12,000+ Msg/s</span>
+                            <span class="work-metric-sublabel">Input</span>
+                            <span class="work-metric-subval">Simulated Sensors</span>
                           </div>
                           <div>
-                            <span class="work-metric-sublabel">Latency</span>
-                            <span class="work-metric-subval">&lt; 85ms P95</span>
+                            <span class="work-metric-sublabel">Delivery</span>
+                            <span class="work-metric-subval">WebSocket Updates</span>
                           </div>
                           <div>
-                            <span class="work-metric-sublabel">Maintenance</span>
-                            <span class="work-metric-subval">-18% Downtime</span>
+                            <span class="work-metric-sublabel">Operations</span>
+                            <span class="work-metric-subval">OEE + Health Views</span>
                           </div>
                         </div>
 
                         <div class="work-solved-block">
-                          <span class="work-solved-label">Problem Solved</span>
+                          <span class="work-solved-label">Problem Addressed</span>
                           <p class="work-solved-text">
-                            Eliminated retroactive mechanical breakdown detection by computing tumbling OEE window aggregations in flight with Apache Flink, triggering predictive alerts 45 minutes prior to motor failure.
+                            Gives an operator one place to inspect production efficiency and unusual machine readings before deciding what needs investigation.
                           </p>
                         </div>
 
                         <div class="work-details-footer">
                           <div class="work-details-stack">
-                            <span class="tech-pill-sm">Apache Kafka</span>
-                            <span class="tech-pill-sm">Apache Flink</span>
-                            <span class="tech-pill-sm">TimescaleDB</span>
+                            <span class="tech-pill-sm">FastAPI</span>
+                            <span class="tech-pill-sm">WebSockets</span>
+                            <span class="tech-pill-sm">PostgreSQL</span>
                             <span class="tech-pill-sm">Docker</span>
                             <span class="tech-pill-sm">Python</span>
-                            <span class="tech-pill-sm">Grafana</span>
-                            <span class="tech-pill-sm">PostgreSQL</span>
+                            <span class="tech-pill-sm">React</span>
+                            <span class="tech-pill-sm">LightGBM</span>
                           </div>
                           <div class="work-details-links">
                             <a href="https://github.com/svkhun/mfg-data-pipeline" target="_blank" rel="noopener noreferrer" class="work-link-btn">
@@ -558,19 +561,19 @@
             </div>
           </div>
 
-          <!-- Timeline Item 5: Clinical Informatics & Geriatric Care -->
+          <!-- GuardianAI clinical workflow prototype -->
           <div class="work-timeline-item">
             <div class="work-timeline-dot scroll-anim anim-timeline-node"></div>
             
             <!-- Organization Context Card -->
             <div class="work-org-card scroll-anim anim-org-card">
               <div class="work-org-card-top">
-                <h2 class="work-org-card-title">Clinical Informatics &amp; Geriatric Care</h2>
-                <span class="work-org-card-date">2024 &bull; Healthcare Study</span>
+                <h2 class="work-org-card-title">GuardianAI Clinical Operations</h2>
+                <span class="work-org-card-date">2026 &bull; True Innovation Launchpad</span>
               </div>
-              <span class="work-org-card-role">Assistive Intelligence &bull; Predictive Clinical Decision Support</span>
+              <span class="work-org-card-role">Frailty Triage &bull; Care Coordination Prototype</span>
               <p class="work-org-card-desc">
-                Real-time clinical decision support system quantifying inpatient fall risks and frailty indices from Electronic Health Record (EHR) telemetry.
+                A bilingual dashboard concept for reviewing frailty signals, prioritizing follow-ups, and recording care-team actions.
               </p>
             </div>
 
@@ -580,10 +583,10 @@
                 <!-- Always-Visible Summary Header Bar -->
                 <div class="work-row-summary">
                   <div class="work-row-title-wrap">
-                    <h3 class="work-row-title"><a href="project-guardian-ai.html" class="hover:text-accent transition-colors">GuardianAI Clinical Fall Risk Engine</a></h3>
-                    <span class="work-row-dot" aria-label="Clinical Validation"></span>
+                    <h3 class="work-row-title"><a href="project-guardian-ai.html" class="hover:text-accent transition-colors">GuardianAI Frailty Triage Dashboard</a></h3>
+                    <span class="work-row-dot" aria-label="Clinical workflow prototype"></span>
                   </div>
-                  <p class="work-row-teaser">Sensitivity: 91.2% Recall &bull; Fatigue: -34% False Alarms &bull; Lead Time: 4.2 Hours</p>
+                  <p class="work-row-teaser">Frailty risk review &bull; Explainable factors &bull; Follow-up and notes workflow</p>
                   <a href="project-guardian-ai.html" class="work-row-action" title="Explore GuardianAI Case Study">
                     <span>Explore</span>
                     <span>&rarr;</span>
@@ -596,40 +599,39 @@
                     <div class="work-details-content">
                       <!-- Left: Narrative Breakdown -->
                       <p class="work-details-desc">
-                        Calibrated risk stratification models evaluated on longitudinal patient admission records. Integrates Morse Fall Scale telemetry with tree-based ensembles, triggering automated clinical interventions and nursing care plans with 91.2% sensitivity.
+                        The prototype presents patient profiles, risk-factor explanations, alert review, and care-status tracking in Thai and English. Example patients and alerts illustrate the intended workflow; clinical accuracy and patient outcomes have not been validated here.
                       </p>
 
                       <!-- Right: 3 Metrics + Problem Solved + Stack -->
                       <div>
                         <div class="work-details-metrics-grid">
                           <div>
-                            <span class="work-metric-sublabel">Sensitivity</span>
-                            <span class="work-metric-subval">91.2% Recall</span>
+                            <span class="work-metric-sublabel">Review</span>
+                            <span class="work-metric-subval">Frailty Signals</span>
                           </div>
                           <div>
-                            <span class="work-metric-sublabel">Alarm Fatigue</span>
-                            <span class="work-metric-subval">-34% False Positives</span>
+                            <span class="work-metric-sublabel">Explain</span>
+                            <span class="work-metric-subval">Risk Factors</span>
                           </div>
                           <div>
-                            <span class="work-metric-sublabel">Warning Window</span>
-                            <span class="work-metric-subval">4.2h Lead Time</span>
+                            <span class="work-metric-sublabel">Coordinate</span>
+                            <span class="work-metric-subval">Alerts + Follow-up</span>
                           </div>
                         </div>
 
                         <div class="work-solved-block">
-                          <span class="work-solved-label">Problem Solved</span>
+                          <span class="work-solved-label">Problem Addressed</span>
                           <p class="work-solved-text">
-                            Replaced manual once-per-shift scoring sheets with continuous calibrated risk streaming, giving nursing units an average 4.2-hour advance window to deploy bed sensors and mobility assistance.
+                            Helps a care team see who needs review, why a case was flagged, and what follow-up has been recorded in one interface.
                           </p>
                         </div>
 
                         <div class="work-details-footer">
                           <div class="work-details-stack">
-                            <span class="tech-pill-sm">Python</span>
-                            <span class="tech-pill-sm">LightGBM</span>
-                            <span class="tech-pill-sm">FastAPI</span>
-                            <span class="tech-pill-sm">EHR Telemetry</span>
-                            <span class="tech-pill-sm">Scikit-learn</span>
+                            <span class="tech-pill-sm">React</span>
+                            <span class="tech-pill-sm">Vite</span>
+                            <span class="tech-pill-sm">Node.js API</span>
+                            <span class="tech-pill-sm">Thai / English</span>
                             <span class="tech-pill-sm">Tailwind CSS</span>
                           </div>
                           <div class="work-details-links">

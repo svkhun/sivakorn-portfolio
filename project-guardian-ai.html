@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>GuardianAI Clinical Fall Risk Engine Case Study | Sivakorn Khundilokrattaya</title>
-  <meta name="description" content="Inpatient clinical fall risk prediction engine providing 4.2-hour advance early warning and bedside SHAP triage cards, cutting alarm fatigue by 34%.">
+  <title>GuardianAI Frailty Triage Case Study | Sivakorn Khundilokrattaya</title>
+  <meta name="description" content="GuardianAI frailty-triage dashboard prototype with example patient records, risk-factor views, alert review, and bilingual care-coordination workflows.">
   <link rel="canonical" href="https://svkhun.vercel.app/project-guardian-ai">
 
         <!-- Favicon & Web App Icons -->
@@ -71,291 +71,58 @@
   <main>
     <article class="case-airy-wrap">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
-
-        <!-- Breadcrumb -->
         <nav class="case-breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
-          <span class="case-breadcrumb-sep">/</span>
-          <a href="projects.html">Projects</a>
-          <span class="case-breadcrumb-sep">/</span>
-          <span class="case-breadcrumb-current">GuardianAI Clinical Fall Risk</span>
+          <a href="index.html">Home</a><span class="case-breadcrumb-sep">/</span>
+          <a href="projects.html">Projects</a><span class="case-breadcrumb-sep">/</span>
+          <span class="case-breadcrumb-current">GuardianAI Frailty Triage Dashboard</span>
         </nav>
 
-        <!-- Airy Hero Header -->
         <header class="case-hero-airy">
-          <span class="case-section-num-tag">Clinical Decision Support &bull; Patient Safety Informatics</span>
-          
-          <h1 class="hero-display mb-6">
-            <span>GuardianAI: Clinical</span>
-            <span class="text-accent-brand">Fall Risk Engine</span>
-          </h1>
-
-          <p class="case-lead-airy">
-            A bedside inpatient clinical risk surveillance engine predicting geriatric fall hazards 4.2 hours in advance with 91.2% sensitivity, cutting nursing alarm fatigue by 34% through transparent SHAP attribution cards.
-          </p>
-
+          <span class="case-section-num-tag">True Innovation Launchpad 2026 &bull; Clinical Workflow Prototype</span>
+          <h1 class="hero-display mb-6"><span>GuardianAI:</span> <span class="text-accent-brand">Frailty Triage</span></h1>
+          <p class="case-lead-airy">A bilingual dashboard prototype for reviewing frailty-related signals, understanding why a case was flagged, and coordinating follow-up across a care team. It uses example records and has not been clinically validated.</p>
           <div class="flex flex-wrap items-center gap-3 pt-2">
-            <a href="https://github.com/svkhun/guardian-clinical-ai" target="_blank" rel="noopener noreferrer" class="primary-cta inline-flex items-center gap-2">
-              <i class="fab fa-github"></i>
-              <span>View Source Code</span>
-            </a>
-            <a href="projects.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-none text-xs font-mono border border-border bg-subtle hover:bg-surface text-secondary transition-colors">
-              <i class="fas fa-arrow-left text-[10px]"></i>
-              <span>Back to Directory</span>
-            </a>
+            <a href="https://github.com/svkhun/guardianai-clinical-ops-dashboard" target="_blank" rel="noopener noreferrer" class="primary-cta inline-flex items-center gap-2"><i class="fab fa-github" aria-hidden="true"></i><span>View Source Code</span></a>
+            <a href="projects.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-none text-xs font-mono border border-border bg-subtle hover:bg-surface text-secondary transition-colors"><i class="fas fa-arrow-left text-[10px]" aria-hidden="true"></i><span>Back to Directory</span></a>
           </div>
         </header>
 
-        <!-- Thesis Quote -->
-        <div class="case-thesis-quote">
-          &ldquo;In hospital wards, an alarm that rings constantly is worse than no alarm at all. GuardianAI achieved clinical adoption not by sounding more sirens, but by giving nursing teams a 4.2-hour silent advance window and three concrete bedside actions.&rdquo;
-        </div>
+        <div class="case-thesis-quote">&ldquo;A useful risk view should help a care team find the next patient to review, understand the reason, and record what happened next.&rdquo;</div>
 
-        <!-- Section 1: The Clinical Reality -->
         <section class="case-section-airy">
-          <span class="case-section-num-tag">01 // The Clinical Reality</span>
-          <h2 class="case-section-heading">Alarm Fatigue &amp; Reactive Hospital Care</h2>
-
+          <span class="case-section-num-tag">01 // Workflow</span>
+          <h2 class="case-section-heading">From a flagged case to a follow-up</h2>
           <div class="case-body-airy">
-            <p>
-              Inpatient falls represent the leading cause of non-operative trauma and extended length-of-stay in geriatric hospital wards. Traditional risk assessment relies on paper-based Morse Fall Scales conducted once every 24 hours.
-            </p>
-            <p>
-              Meanwhile, commercial bed pressure sensors generate up to 200 false alerts per ward per night. Overwhelmed nursing staff suffer from <strong>severe alarm fatigue</strong>, turning off monitors or reacting only after the patient is already on the floor with a fractured femoral neck.
-            </p>
+            <p><strong>Find the case:</strong> The patient registry and alert queue surface example profiles by risk level, status, and assigned clinician.</p>
+            <p><strong>Understand the context:</strong> Profile views bring screening inputs, vital signs, trend summaries, and explanatory risk factors together so the team can review the flag.</p>
+            <p><strong>Close the loop:</strong> Staff can acknowledge alerts, change care status, assign a provider, schedule the next review, and add notes. The same flow is available in Thai and English.</p>
           </div>
         </section>
 
-        <!-- Section 2: SIGNATURE CENTERPIECE 1 - 4.2-Hour Early Warning Clinical Horizon Timeline -->
         <section class="case-section-airy">
-          <span class="case-section-num-tag">02 // Signature Showcase &bull; Patient Horizon</span>
-          <h2 class="case-section-heading">4.2-Hour Advance Early Warning Trajectory</h2>
-          <p class="case-lead-airy">
-            How subtle physiological drifts across EHR records, sedative dosages, and nocturnal vitals synthesize into a timely preventive intervention:
-          </p>
-
-          <!-- Bespoke Clinical Horizon Timeline -->
-          <div class="clinical-horizon-wrap">
-            
-            <!-- Step 1 -->
-            <div class="clinical-horizon-step">
-              <span class="clinical-step-bullet"></span>
-              <div class="clinical-step-content">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="clinical-step-time">T - 6.0 Hours &bull; Evening Round</span>
-                  <span class="clinical-telemetry-tag">Morse: 25 (Low Risk)</span>
-                </div>
-                <h4 class="clinical-step-title">Baseline Stable Inpatient Status</h4>
-                <p class="clinical-step-desc">Patient (Age 78, Post-Op Day 2). Morse Score 25. Stable hemodynamics and steady gait observed during evening ambulation round.</p>
-              </div>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="clinical-horizon-step">
-              <span class="clinical-step-bullet"></span>
-              <div class="clinical-step-content">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="clinical-step-time">T - 5.1 Hours &bull; Medication Administration</span>
-                  <span class="clinical-telemetry-tag">Rx: Sedative + Diuretic</span>
-                </div>
-                <h4 class="clinical-step-title">Zolpidem &amp; Loop Diuretic Administered</h4>
-                <p class="clinical-step-desc">Physician order dispensed for sleep aid + diuretic. Dual pharmacological interaction creates acute nocturnal voiding urge compounded by motor ataxia.</p>
-              </div>
-            </div>
-
-            <!-- Step 3: THE GUARDIANAI ALERT (Highlight) -->
-            <div class="clinical-horizon-step step-alert">
-              <span class="clinical-step-bullet"></span>
-              <div class="clinical-step-content">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="clinical-step-time text-red-500 font-bold">T - 4.2 Hours &bull; GuardianAI Early Flag</span>
-                  <span class="clinical-telemetry-tag tag-alert">CRITICAL ALERT &bull; 82% RISK</span>
-                </div>
-                <h4 class="clinical-step-title text-red-500">Hazard Probability Escalation: 0.18 &rarr; 0.82</h4>
-                <p class="clinical-step-desc text-primary font-medium">Temporal LightGBM flags synergistic hazard: patient age (78) + sedative-diuretic timing + nocturnal postural blood pressure dip (102/64). Push alert dispatched to charge nurse tablet.</p>
-              </div>
-            </div>
-
-            <!-- Step 4 -->
-            <div class="clinical-horizon-step">
-              <span class="clinical-step-bullet"></span>
-              <div class="clinical-step-content">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="clinical-step-time">T - 2.5 Hours &bull; Preventive Nursing Triage</span>
-                  <span class="clinical-telemetry-tag">Protocol: Fall-Zero Active</span>
-                </div>
-                <h4 class="clinical-step-title">Bedside Non-Restrictive Intervention</h4>
-                <p class="clinical-step-desc">Nurse executes targeted safety protocol: electric bed lowered to floor level, high-traction non-slip socks verified, bedside commode placed within arms-reach.</p>
-              </div>
-            </div>
-
-            <!-- Step 5: Incident Prevented -->
-            <div class="clinical-horizon-step step-prevented">
-              <span class="clinical-step-bullet"></span>
-              <div class="clinical-step-content">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="clinical-step-time text-emerald-500 font-bold">T - 0.0 Hours &bull; 02:45 AM Nocturnal Transit</span>
-                  <span class="clinical-telemetry-tag tag-success">INCIDENT PREVENTED &bull; 0 FALL</span>
-                </div>
-                <h4 class="clinical-step-title text-emerald-500">Zero-Fall Incident Successfully Prevented</h4>
-                <p class="clinical-step-desc">Patient attempted unassisted nocturnal bathroom transit. Commode proximity and floor-level bed allowed safe, unassisted transfer. Zero injury recorded.</p>
-              </div>
-            </div>
-
+          <span class="case-section-num-tag">02 // Implemented Interface</span>
+          <h2 class="case-section-heading">What the prototype contains</h2>
+          <div class="oee-trio-display">
+            <div class="oee-pill-card"><span class="text-xs font-mono uppercase text-muted block mb-1">Patient Registry</span><p class="text-sm text-secondary mt-2 mb-0">Search and filter example assessments and review individual profiles.</p></div>
+            <div class="oee-pill-card"><span class="text-xs font-mono uppercase text-muted block mb-1">Risk Factors</span><p class="text-sm text-secondary mt-2 mb-0">Inspect the factors shown alongside a frailty-risk indicator.</p></div>
+            <div class="oee-pill-card"><span class="text-xs font-mono uppercase text-muted block mb-1">Alert Queue</span><p class="text-sm text-secondary mt-2 mb-0">Acknowledge a flag and track whether it still needs review.</p></div>
+            <div class="oee-pill-card"><span class="text-xs font-mono uppercase text-muted block mb-1">Care Notes</span><p class="text-sm text-secondary mt-2 mb-0">Record ownership, status, scheduling, and follow-up notes.</p></div>
           </div>
         </section>
 
-        <!-- Section 3: SIGNATURE CENTERPIECE 2 - Bedside Nurse Triage Card -->
         <section class="case-section-airy">
-          <span class="case-section-num-tag">03 // Signature Showcase &bull; Bedside Usability</span>
-          <h2 class="case-section-heading">The 10-Second Bedside Triage Card</h2>
-          <p class="case-lead-airy">
-            Nurses do not have time to interpret complex gradient boosting charts. GuardianAI summarizes local TreeSHAP feature attributions into an actionable bedside triage card:
-          </p>
-
-          <!-- Bespoke Bedside Card Mockup -->
-          <div class="bedside-card-mockup">
-            <div class="bedside-patient-strip">
-              <div class="bedside-patient-cell">
-                <span class="bedside-patient-label">Patient Identity</span>
-                <span class="bedside-patient-val">Somchai P. &bull; Room 412-B</span>
-              </div>
-              <div class="bedside-patient-cell">
-                <span class="bedside-patient-label">Monitoring Protocol</span>
-                <span class="bedside-patient-val">Geriatric Post-Op Surveillance</span>
-              </div>
-              <div class="bedside-patient-cell">
-                <span class="bedside-patient-label">Shift Status</span>
-                <span class="bedside-patient-val text-accent">Active Ward 4 &bull; High Risk</span>
-              </div>
-            </div>
-
-            <!-- Triage Risk Alert Banner -->
-            <div class="triage-risk-banner">
-              <span>CRITICAL FALL RISK &bull; 82% PROBABILITY</span>
-              <span class="font-normal text-xs uppercase tracking-wider">Advance Early Warning: 4.2 Hours</span>
-            </div>
-
-            <!-- Visual TreeSHAP Attributions List -->
-            <div class="bedside-shap-list">
-              <span class="bedside-sub-heading">Key Driving Attributions &bull; Local TreeSHAP &Phi;</span>
-
-              <div class="shap-item">
-                <div class="shap-info">
-                  <span class="shap-feat-name">1. Sedative &amp; Diuretic Interaction (Zolpidem + Furosemide)</span>
-                  <span class="shap-impact-val">+0.38 Impact</span>
-                </div>
-                <div class="shap-bar-track">
-                  <div class="shap-bar-fill" style="width: 76%;"></div>
-                </div>
-              </div>
-
-              <div class="shap-item">
-                <div class="shap-info">
-                  <span class="shap-feat-name">2. Nocturnal Postural Blood Pressure Dip (&lt; 105 mmHg)</span>
-                  <span class="shap-impact-val">+0.24 Impact</span>
-                </div>
-                <div class="shap-bar-track">
-                  <div class="shap-bar-fill" style="width: 48%;"></div>
-                </div>
-              </div>
-
-              <div class="shap-item">
-                <div class="shap-info">
-                  <span class="shap-feat-name">3. Unassisted Bed Exit History in Last 48h</span>
-                  <span class="shap-impact-val">+0.16 Impact</span>
-                </div>
-                <div class="shap-bar-track">
-                  <div class="shap-bar-fill" style="width: 32%;"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Mandatory Nurse Actions 3-Column Grid -->
-            <div class="bedside-actions-section">
-              <span class="bedside-sub-heading">Mandatory Nursing Safety Protocol Executed</span>
-              <div class="bedside-actions-grid">
-                <div class="nurse-action-chip">
-                  <span class="nurse-chip-check">&check;</span>
-                  <div class="nurse-chip-text">
-                    <span class="nurse-chip-title">Low-Bed Setting</span>
-                    <span class="nurse-chip-sub">Lowered to floor level</span>
-                  </div>
-                </div>
-                <div class="nurse-action-chip">
-                  <span class="nurse-chip-check">&check;</span>
-                  <div class="nurse-chip-text">
-                    <span class="nurse-chip-title">Bedside Commode</span>
-                    <span class="nurse-chip-sub">Placed within arms-reach</span>
-                  </div>
-                </div>
-                <div class="nurse-action-chip">
-                  <span class="nurse-chip-check">&check;</span>
-                  <div class="nurse-chip-text">
-                    <span class="nurse-chip-title">Non-Slip Footwear</span>
-                    <span class="nurse-chip-sub">High-traction verified</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <span class="case-section-num-tag">03 // Evidence &amp; Boundaries</span>
+          <h2 class="case-section-heading">A workflow demonstration, not a clinical result</h2>
+          <div class="case-body-airy">
+            <p>The repository contains a React/Vite client, a Node.js API, example patient data, and Thai/English localization. It demonstrates the interface and care-coordination flow.</p>
+            <p>No verified sensitivity, reduction in false alarms, advance warning window, hospital adoption, or prevented fall is established by this prototype. Those outcomes would require clinical validation and governance before any real-world use.</p>
           </div>
         </section>
 
-        <!-- Section 4: Clinical Impact & Validation -->
-        <section class="case-section-airy">
-          <span class="case-section-num-tag">04 // Clinical Outcome Telemetry</span>
-          <h2 class="case-section-heading">Clinical Trial Validation Results</h2>
-
-          <div class="case-table-wrap">
-            <table class="case-benchmark-table">
-              <thead>
-                <tr>
-                  <th>Surveillance System</th>
-                  <th>Clinical Sensitivity</th>
-                  <th>False Alarm Rate</th>
-                  <th>Advance Warning</th>
-                  <th>Nurse Adoption</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Static Morse Scale (Every 24h)</td>
-                  <td>58.4%</td>
-                  <td>High (Outdated)</td>
-                  <td>0.0 Hours (Reactive)</td>
-                  <td>Routine Form Only</td>
-                </tr>
-                <tr>
-                  <td>Bed Pressure Mat Sensor</td>
-                  <td>74.2%</td>
-                  <td>68.0% (Severe Fatigue)</td>
-                  <td>&lt; 5 Seconds</td>
-                  <td>Frequent Silencing</td>
-                </tr>
-                <tr>
-                  <td><strong>GuardianAI Temporal Engine</strong></td>
-                  <td><strong>91.2%</strong></td>
-                  <td><strong>-34% Alarm Fatigue</strong></td>
-                  <td><strong>4.2 Hours Advance</strong></td>
-                  <td><span class="case-badge-good">94% Shift Protocol Compliance</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <!-- Next / Previous Navigation -->
         <div class="case-nav-footer">
-          <a href="project-industrial-iot.html" class="case-nav-btn">
-            <span class="case-nav-sub">&larr; Previous Case Study</span>
-            <span class="case-nav-title">Industrial IoT &amp; OEE Data Platform</span>
-          </a>
-          <a href="project-shopee-smart-cod.html" class="case-nav-btn text-right">
-            <span class="case-nav-sub">Next Case Study &rarr;</span>
-            <span class="case-nav-title">Shopee Smart COD Reliability</span>
-          </a>
+          <a href="project-industrial-iot.html" class="case-nav-btn"><span class="case-nav-sub">&larr; Previous Case Study</span><span class="case-nav-title">Industrial IoT &amp; OEE Data Platform</span></a>
+          <a href="project-shopee-smart-cod.html" class="case-nav-btn text-right"><span class="case-nav-sub">Next Case Study &rarr;</span><span class="case-nav-title">Shopee Smart COD Reliability</span></a>
         </div>
-
       </div>
     </article>
   </main>

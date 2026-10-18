@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
   <title>Industrial IoT &amp; OEE Data Platform Case Study | Sivakorn Khundilokrattaya</title>
-  <meta name="description" content="End-to-end cyber-physical IoT telemetry platform processing 12,000+ msg/s via Apache Kafka & Flink, cutting factory downtime by 18%.">
+  <meta name="description" content="Manufacturing prototype with simulated machine telemetry, FastAPI and WebSocket dashboard updates, PostgreSQL storage, and hourly OEE summaries.">
   <link rel="canonical" href="https://svkhun.vercel.app/project-industrial-iot">
 
         <!-- Favicon & Web App Icons -->
@@ -71,190 +71,59 @@
   <main>
     <article class="case-airy-wrap">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
-
-        <!-- Breadcrumb -->
         <nav class="case-breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
-          <span class="case-breadcrumb-sep">/</span>
-          <a href="projects.html">Projects</a>
-          <span class="case-breadcrumb-sep">/</span>
+          <a href="index.html">Home</a><span class="case-breadcrumb-sep">/</span>
+          <a href="projects.html">Projects</a><span class="case-breadcrumb-sep">/</span>
           <span class="case-breadcrumb-current">Industrial IoT &amp; OEE Data Platform</span>
         </nav>
 
-        <!-- Airy Hero Header -->
         <header class="case-hero-airy">
-          <span class="case-section-num-tag">Smart Manufacturing &bull; Cyber-Physical Lambda Architecture</span>
-          
-          <h1 class="hero-display mb-6">
-            <span>Industrial IoT &amp;</span>
-            <span class="text-accent-brand">OEE Data Platform</span>
-          </h1>
-
-          <p class="case-lead-airy">
-            A fault-tolerant streaming architecture ingesting 12,000+ sensor messages/second via Apache Kafka, Flink windowed CEP, and TimescaleDB, slashing unplanned CNC line downtime by 18%.
-          </p>
-
+          <span class="case-section-num-tag">Manufacturing Prototype &bull; Simulated Telemetry</span>
+          <h1 class="hero-display mb-6"><span>Industrial IoT &amp;</span> <span class="text-accent-brand">OEE Data Platform</span></h1>
+          <p class="case-lead-airy">A working prototype that simulates machine readings, streams dashboard updates through WebSockets, stores data in PostgreSQL, and builds hourly Overall Equipment Effectiveness (OEE) summaries.</p>
           <div class="flex flex-wrap items-center gap-3 pt-2">
-            <a href="https://github.com/svkhun/industrial-iot-platform" target="_blank" rel="noopener noreferrer" class="primary-cta inline-flex items-center gap-2">
-              <i class="fab fa-github"></i>
-              <span>View Source Code</span>
-            </a>
-            <a href="projects.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-none text-xs font-mono border border-border bg-subtle hover:bg-surface text-secondary transition-colors">
-              <i class="fas fa-arrow-left text-[10px]"></i>
-              <span>Back to Directory</span>
-            </a>
+            <a href="https://github.com/svkhun/mfg-data-pipeline" target="_blank" rel="noopener noreferrer" class="primary-cta inline-flex items-center gap-2"><i class="fab fa-github" aria-hidden="true"></i><span>View Source Code</span></a>
+            <a href="projects.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-none text-xs font-mono border border-border bg-subtle hover:bg-surface text-secondary transition-colors"><i class="fas fa-arrow-left text-[10px]" aria-hidden="true"></i><span>Back to Directory</span></a>
           </div>
         </header>
 
-        <!-- Thesis Quote -->
-        <div class="case-thesis-quote">
-          &ldquo;Industrial downtime doesn't happen without warning. Machine bearings whisper harmonic vibration anomalies hours before catastrophic mechanical seizure. The challenge is filtering 12,000 noise signals a second without dropping a single packet.&rdquo;
-        </div>
+        <div class="case-thesis-quote">&ldquo;Machine data helps only when operators can see what changed, understand the production impact, and decide what to inspect next.&rdquo;</div>
 
-        <!-- Section 1: The Manufacturing Dilemma -->
         <section class="case-section-airy">
-          <span class="case-section-num-tag">01 // The Manufacturing Dilemma</span>
-          <h2 class="case-section-heading">High Velocity Sensor Drift &amp; Blind Spots</h2>
-
+          <span class="case-section-num-tag">01 // Problem &amp; Approach</span>
+          <h2 class="case-section-heading">From sensor readings to an operator view</h2>
           <div class="case-body-airy">
-            <p>
-              In modern precision manufacturing facilities, sudden CNC spindle or injection mold failures cost upwards of $12,000 per hour in idle production lines and discarded raw materials. Traditional factories monitor equipment through periodic manual inspection logs, discovering mechanical fatigue only after catastrophic seizure.
-            </p>
-            <p>
-              Connecting high-frequency vibration, temperature, and current sensors (via OPC-UA and MQTT) generates over <strong>12,000 raw sensor payloads every second</strong>. Naive relational databases choke under this ingestion load, dropping telemetry packets and introducing multi-minute latency blind spots.
-            </p>
+            <p>Machine vibration, temperature, current, and cycle-time readings are difficult to interpret as isolated rows. This prototype brings them together in a live monitor so an operator can inspect machine state and possible anomalies in context.</p>
+            <p>A simulator supplies the demo readings. A FastAPI service receives and stores them in PostgreSQL, broadcasts updates to the React dashboard via WebSockets, and exposes API endpoints for machine health and OEE.</p>
           </div>
         </section>
 
-        <!-- Section 2: SIGNATURE CENTERPIECE 1 - Live Sensor Stream & Anomaly Waveform Monitor -->
         <section class="case-section-airy">
-          <span class="case-section-num-tag">02 // Signature Showcase &bull; Cyber-Physical Telemetry</span>
-          <h2 class="case-section-heading">Live Telemetry Waveform &amp; Tripwire Anomaly</h2>
-          <p class="case-lead-airy">
-            A real-time telemetry console monitoring spindle vibration frequency against the Isolation Forest dynamic tripwire threshold:
-          </p>
-
-          <!-- Bespoke Industrial Console Monitor -->
-          <div class="iot-console-box">
-            <div class="iot-console-header">
-              <span class="iot-stream-badge">
-                <span class="pulse-dot"></span>
-                <span>STREAM: KAFKA-PARTITION-04 [ONLINE]</span>
-              </span>
-              <span>INGEST: 12,480 msg/s</span>
-              <span>SENSOR: CNC-SPINDLE-08A (VIB_Z)</span>
-            </div>
-
-            <!-- Waveform SVG Plot -->
-            <svg class="iot-waveform-svg" viewBox="0 0 760 150" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Live Vibration Frequency Telemetry Waveform">
-              <!-- Technical Oscilloscope Inset Screen -->
-              <rect x="0" y="0" width="760" height="150" fill="var(--bg-subtle)" stroke="var(--border)" stroke-width="1" />
-
-              <!-- Technical Grid Hairlines -->
-              <line x1="76" y1="0" x2="76" y2="150" stroke="var(--border)" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="2 3" />
-              <line x1="152" y1="0" x2="152" y2="150" stroke="var(--border)" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="2 3" />
-              <line x1="228" y1="0" x2="228" y2="150" stroke="var(--border)" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="2 3" />
-              <line x1="304" y1="0" x2="304" y2="150" stroke="var(--border)" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="2 3" />
-              <line x1="380" y1="0" x2="380" y2="150" stroke="var(--border)" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="2 3" />
-              <line x1="456" y1="0" x2="456" y2="150" stroke="var(--border)" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="2 3" />
-              <line x1="532" y1="0" x2="532" y2="150" stroke="var(--border)" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="2 3" />
-              <line x1="608" y1="0" x2="608" y2="150" stroke="var(--border)" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="2 3" />
-              <line x1="684" y1="0" x2="684" y2="150" stroke="var(--border)" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="2 3" />
-
-              <!-- Nominal Baseline (70Hz / y=75) -->
-              <line x1="0" y1="75" x2="760" y2="75" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 3" />
-              <text x="14" y="70" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="8.5" font-weight="600">BASELINE 70Hz</text>
-
-              <!-- Dynamic Tripwire Threshold Line (160Hz / y=40) -->
-              <line x1="0" y1="40" x2="760" y2="40" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="4 4" />
-              <rect x="640" y="8" width="110" height="20" fill="var(--bg-canvas)" stroke="#EF4444" stroke-width="1" />
-              <text x="695" y="22" text-anchor="middle" fill="#EF4444" font-family="var(--font-mono)" font-size="8.5" font-weight="700">TRIPWIRE: 160Hz</text>
-
-              <!-- Anomaly Region Highlight Box -->
-              <rect class="iot-anomaly-box" x="425" y="8" width="180" height="134" fill="#EF4444" fill-opacity="0.08" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="3 3" />
-              
-              <!-- Anomaly Identification Badge (Cleanly placed at bottom, zero wave collision) -->
-              <rect x="435" y="122" width="160" height="18" fill="var(--bg-canvas)" stroke="#EF4444" stroke-width="1" />
-              <text x="515" y="135" text-anchor="middle" fill="#EF4444" font-family="var(--font-mono)" font-size="8" font-weight="700">HARMONIC RESONANCE SPIKE</text>
-
-              <!-- Continuous Precision Waveform Path -->
-              <path class="iot-waveform-path" d="M 0 75 
-                       Q 15 59, 30 75 T 60 75 T 90 75 T 120 75 T 150 75 T 180 75 T 210 75 T 240 75 T 270 75 T 300 75 T 330 75 T 360 75 T 390 75 T 420 75 
-                       L 435 55 L 448 95 L 464 32 L 480 115 L 496 24 L 512 118 L 528 26 L 544 112 L 560 36 L 576 98 L 592 65 L 605 75 
-                       Q 620 59, 635 75 T 665 75 T 695 75 T 725 75 T 755 75 L 760 75" 
-                    stroke="#10B981" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-
-              <!-- Live Oscilloscope Scanline Beam -->
-              <line class="iot-scanline" x1="0" y1="0" x2="0" y2="150" stroke="#059669" stroke-width="2" stroke-opacity="0.8" />
-            </svg>
-
-            <div class="iot-console-footer">
-              <span>Dynamic Window: 10-second Sliding Window (Apache Flink)</span>
-              <span class="text-accent font-semibold">Action: Automated Maintenance Ticket Dispatched (14.2s advance)</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- Section 3: SIGNATURE CENTERPIECE 2 - Overall Equipment Effectiveness (OEE) Trio -->
-        <section class="case-section-airy">
-          <span class="case-section-num-tag">03 // Signature Showcase &bull; Factory Productivity</span>
-          <h2 class="case-section-heading">OEE Multi-Factor Optimization</h2>
-          <p class="case-lead-airy">
-            Overall Equipment Effectiveness (OEE) represents the gold standard of world-class manufacturing, combining three discrete efficiency vectors:
-          </p>
-
-          <!-- OEE Trio Cards -->
+          <span class="case-section-num-tag">02 // Production Efficiency</span>
+          <h2 class="case-section-heading">What the OEE view explains</h2>
+          <p class="case-lead-airy">The hourly data mart combines three familiar production measures. The cards describe the calculation rather than claiming a factory performance result.</p>
           <div class="oee-trio-display">
-            <div class="oee-pill-card">
-              <span class="text-xs font-mono uppercase text-muted block mb-1">Availability Vector</span>
-              <span class="oee-pct-large text-accent">94.2%</span>
-              <p class="text-xs text-secondary mt-2 mb-0">Unplanned downtime minimized via predictive bearing alerts.</p>
-            </div>
-            <div class="oee-pill-card">
-              <span class="text-xs font-mono uppercase text-muted block mb-1">Performance Vector</span>
-              <span class="oee-pct-large text-accent">91.8%</span>
-              <p class="text-xs text-secondary mt-2 mb-0">Cycle-time drift tracking ensures optimal spindle feed speeds.</p>
-            </div>
-            <div class="oee-pill-card">
-              <span class="text-xs font-mono uppercase text-muted block mb-1">Quality Vector</span>
-              <span class="oee-pct-large text-accent">99.1%</span>
-              <p class="text-xs text-secondary mt-2 mb-0">Thermal drift calibration prevents tool deflection scrap.</p>
-            </div>
-            <div class="oee-pill-card" style="border-color: var(--accent); background: var(--bg-subtle);">
-              <span class="text-xs font-mono uppercase text-accent font-bold block mb-1">Total Compound OEE</span>
-              <span class="oee-pct-large text-primary">85.7%</span>
-              <p class="text-xs text-secondary mt-2 mb-0">World-Class Manufacturing benchmark (> 85.0%).</p>
-            </div>
+            <div class="oee-pill-card"><span class="text-xs font-mono uppercase text-muted block mb-1">Availability</span><p class="text-sm text-secondary mt-2 mb-0">How much planned production time the machine was running.</p></div>
+            <div class="oee-pill-card"><span class="text-xs font-mono uppercase text-muted block mb-1">Performance</span><p class="text-sm text-secondary mt-2 mb-0">How actual cycle speed compares with the expected pace.</p></div>
+            <div class="oee-pill-card"><span class="text-xs font-mono uppercase text-muted block mb-1">Quality</span><p class="text-sm text-secondary mt-2 mb-0">How many produced parts meet the intended quality criteria.</p></div>
+            <div class="oee-pill-card"><span class="text-xs font-mono uppercase text-accent block mb-1">OEE</span><p class="text-sm text-secondary mt-2 mb-0">Availability × Performance × Quality, shown alongside machine-health signals.</p></div>
           </div>
         </section>
 
-        <!-- Section 4: Architecture & Engineering Lessons -->
         <section class="case-section-airy">
-          <span class="case-section-num-tag">04 // Architectural Retrospective</span>
-          <h2 class="case-section-heading">Decoupling Fast &amp; Deep Storage Layers</h2>
-
-          <div class="case-body-airy space-y-6">
-            <p>
-              <strong>1. Time-Series Hyper-Tables with Retention Chunks:</strong> Storing raw vibration logs into standard PostgreSQL tables leads to catastrophic index fragmentation within 48 hours. Employing TimescaleDB automated hyper-table chunks with roll-up downsampling kept query latencies under 12ms even with 500M historical records.
-            </p>
-            <p>
-              <strong>2. Flink Stateful Streaming Over Micro-Batches:</strong> Windowed anomaly detection on tumbling 10-second buffers in Apache Flink detected mechanical phase drift in true real-time, eliminating the 30-to-60 second lag common in micro-batch frameworks.
-            </p>
+          <span class="case-section-num-tag">03 // Implemented System</span>
+          <h2 class="case-section-heading">A testable end-to-end pipeline</h2>
+          <div class="case-body-airy">
+            <p><strong>Live path:</strong> Python sensor simulator → FastAPI ingestion → PostgreSQL storage → WebSocket updates → React operations dashboard.</p>
+            <p><strong>Analysis path:</strong> Batch processing creates hourly OEE summaries; model components support anomaly and quality investigation with machine-health and feature-impact views.</p>
+            <p><strong>Scope:</strong> The repository demonstrates these flows with simulated telemetry. It does not establish production PLC integration, a verified 12,000-event-per-second throughput, or measured downtime reduction at a factory.</p>
           </div>
         </section>
 
-        <!-- Next / Previous Navigation -->
         <div class="case-nav-footer">
-          <a href="project-credit-risk.html" class="case-nav-btn">
-            <span class="case-nav-sub">&larr; Previous Case Study</span>
-            <span class="case-nav-title">Credit Risk Scoring &amp; Explainable AI</span>
-          </a>
-          <a href="project-guardian-ai.html" class="case-nav-btn text-right">
-            <span class="case-nav-sub">Next Case Study &rarr;</span>
-            <span class="case-nav-title">GuardianAI Clinical Fall Risk Engine</span>
-          </a>
+          <a href="project-credit-risk.html" class="case-nav-btn"><span class="case-nav-sub">&larr; Previous Case Study</span><span class="case-nav-title">Credit Risk Scoring &amp; Explainable AI</span></a>
+          <a href="project-guardian-ai.html" class="case-nav-btn text-right"><span class="case-nav-sub">Next Case Study &rarr;</span><span class="case-nav-title">GuardianAI Frailty Triage Dashboard</span></a>
         </div>
-
       </div>
     </article>
   </main>

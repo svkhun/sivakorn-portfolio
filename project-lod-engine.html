@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
   <title>LOD Engine Case Study | Sivakorn Khundilokrattaya</title>
-  <meta name="description" content="AI Hack Thailand 2025 National Finalist: Machine learning framework optimizing debt recovery yield across 40,000 overdue accounts, generating +6.2M THB.">
+  <meta name="description" content="AiHack Thailand 2025 national-finalist case study: 12-month long-overdue default prediction with financial feature engineering, out-of-fold validation, and CatBoost/LightGBM blending.">
   <link rel="canonical" href="https://svkhun.vercel.app/project-lod-engine">
 
         <!-- Favicon & Web App Icons -->
@@ -71,269 +71,65 @@
   <main>
     <article class="case-airy-wrap">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
-
-        <!-- Breadcrumb -->
         <nav class="case-breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
-          <span class="case-breadcrumb-sep">/</span>
-          <a href="projects.html">Projects</a>
-          <span class="case-breadcrumb-sep">/</span>
-          <span class="case-breadcrumb-current">LOD Engine</span>
+          <a href="index.html">Home</a><span class="case-breadcrumb-sep">/</span>
+          <a href="projects.html">Projects</a><span class="case-breadcrumb-sep">/</span>
+          <span class="case-breadcrumb-current">Long Overdue Debtor Prediction</span>
         </nav>
 
-        <!-- Airy Hero Header -->
         <header class="case-hero-airy">
-          <span class="case-section-num-tag">AI Hack Thailand 2025 &bull; National Finalist</span>
-          
-          <h1 class="hero-display mb-6">
-            <span>Long Overdue</span>
-            <span class="text-accent-brand">Debtor (LOD) Engine</span>
-          </h1>
-
-          <p class="case-lead-airy">
-            A Bayesian-optimized recovery intelligence framework applied to 40,000 delinquent debtor accounts, shifting collections from crude random calling to an expected-value prioritization matrix delivering +6.2M THB in recovered capital.
-          </p>
-
+          <span class="case-section-num-tag">AiHack Thailand 2025 &bull; National Finalist</span>
+          <h1 class="hero-display mb-6"><span>Long Overdue</span> <span class="text-accent-brand">Debtor Prediction</span></h1>
+          <p class="case-lead-airy">A competition machine-learning pipeline for predicting 12-month long-overdue borrowers. The work focuses on financial feature engineering, validation under class imbalance, and CatBoost/LightGBM blending.</p>
           <div class="flex flex-wrap items-center gap-3 pt-2">
-            <a href="https://github.com/svkhun/lod-debtor-engine" target="_blank" rel="noopener noreferrer" class="primary-cta inline-flex items-center gap-2">
-              <i class="fab fa-github"></i>
-              <span>View Source Code</span>
-            </a>
-            <a href="projects.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-none text-xs font-mono border border-border bg-subtle hover:bg-surface text-secondary transition-colors">
-              <i class="fas fa-arrow-left text-[10px]"></i>
-              <span>Back to Directory</span>
-            </a>
+            <a href="https://github.com/svkhun/aiful-credit-risk-modeling" target="_blank" rel="noopener noreferrer" class="primary-cta inline-flex items-center gap-2"><i class="fab fa-github" aria-hidden="true"></i><span>View Source Code</span></a>
+            <a href="projects.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-none text-xs font-mono border border-border bg-subtle hover:bg-surface text-secondary transition-colors"><i class="fas fa-arrow-left text-[10px]" aria-hidden="true"></i><span>Back to Directory</span></a>
           </div>
         </header>
 
-        <!-- Thesis Quote -->
-        <div class="case-thesis-quote">
-          &ldquo;Standard classifiers chase high-accuracy labels on easily cured debtors who would pay anyway. LOD Engine targets the high-friction middle ground—unlocking ฿6.2M in recovered yield by calculating Expected Liquidation Value.&rdquo;
-        </div>
+        <div class="case-thesis-quote">&ldquo;For a rare default outcome, the evaluation method and the meaning of each financial feature matter as much as the model choice.&rdquo;</div>
 
-        <!-- Section 1: The 40,000 Debtor Dilemma -->
         <section class="case-section-airy">
-          <span class="case-section-num-tag">01 // The Operational Dilemma</span>
-          <h2 class="case-section-heading">The Misallocation of Human Call Capacity</h2>
-
+          <span class="case-section-num-tag">01 // Competition Problem</span>
+          <h2 class="case-section-heading">Rank long-overdue risk from credit records</h2>
           <div class="case-body-airy">
-            <p>
-              Consumer lenders and collection agencies face a fundamental mathematical bottleneck: outbound calling capacity is strictly finite, while delinquent accounts number in the tens of thousands. In our benchmark dataset of <strong>40,000 real-world overdue records</strong>, traditional collection desks followed two deeply flawed routines:
-            </p>
-            <p>
-              1. <strong>Calling High-Propensity Debtors First:</strong> Debtors with 85%+ recovery probability are frequently called by expensive human collectors, even though automated SMS or digital self-cure links would have achieved the exact same outcome for 0.05% of the operational cost.<br>
-              2. <strong>Wasting Hours on Hopeless Default:</strong> High-balance accounts with near-zero repayment likelihood consume 40% of calling hours, yielding zero return while viable medium-risk accounts roll past the 90-day point of no return.
-            </p>
+            <p>The competition target was whether a borrower would become long overdue within 12 months. Positive cases were a minority, so simple accuracy could conceal weak risk ranking.</p>
+            <p>The team built features such as debt-to-income burden, credit utilization, unused credit headroom, working stability, and product-level balances. Missingness indicators and skew-aware transforms preserved information in imperfect records.</p>
           </div>
         </section>
 
-        <!-- Section 2: SIGNATURE CENTERPIECE 1 - Delinquent Recovery Waterfall Matrix -->
         <section class="case-section-airy">
-          <span class="case-section-num-tag">02 // Signature Showcase &bull; Operational Architecture</span>
-          <h2 class="case-section-heading">The Four-Tier Recovery Waterfall</h2>
-          <p class="case-lead-airy">
-            LOD Engine partitions delinquent portfolios into 4 distinct strategy tiers, matching collection channel cost to mathematical probability of cure:
-          </p>
-
-          <!-- Bespoke Waterfall Vertical Flow -->
-          <div class="waterfall-vertical-flow">
-
-            <!-- Tier A -->
-            <div class="waterfall-tier-card">
-              <div class="tier-code-tag">TIER A</div>
-              <div class="tier-details-block">
-                <h4>Autonomous Digital Self-Cure</h4>
-                <p>High repayment propensity (P &ge; 0.75). Automated SMS reminders, LINE push notifications, and frictionless 1-click QR payment gateways. Zero human call agent overhead.</p>
-              </div>
-              <div class="tier-metric-badge">
-                <span class="tier-metric-val text-accent">84.2%</span>
-                <span class="tier-metric-sub">Self-Cure Rate</span>
-              </div>
-            </div>
-
-            <!-- Tier B (Highlight Hotspot) -->
-            <div class="waterfall-tier-card tier-highlight">
-              <div class="tier-code-tag text-accent">TIER B</div>
-              <div class="tier-details-block">
-                <h4>Strategic Human Phone Negotiation</h4>
-                <p>Moderate repayment propensity (0.35 &le; P &lt; 0.75) with viable balance. Dedicated senior call agents deploy tailored installment restructuring. This tier yielded the entire <strong>+฿6.2M net cash recovery</strong>.</p>
-              </div>
-              <div class="tier-metric-badge">
-                <span class="tier-metric-val text-accent">+฿6.2M</span>
-                <span class="tier-metric-sub">Direct Net Yield</span>
-              </div>
-            </div>
-
-            <!-- Tier C -->
-            <div class="waterfall-tier-card">
-              <div class="tier-code-tag">TIER C</div>
-              <div class="tier-details-block">
-                <h4>Hardship Restructuring &amp; Concessions</h4>
-                <p>Low repayment propensity (0.15 &le; P &lt; 0.35). Waived penalty interest and amortized 36-month refinancing plans to prevent delinquency from sliding into irrevocable default.</p>
-              </div>
-              <div class="tier-metric-badge">
-                <span class="tier-metric-val">41.8%</span>
-                <span class="tier-metric-sub">Restructure Success</span>
-              </div>
-            </div>
-
-            <!-- Tier D -->
-            <div class="waterfall-tier-card">
-              <div class="tier-code-tag">TIER D</div>
-              <div class="tier-details-block">
-                <h4>Legal Remediation &amp; Asset Protection</h4>
-                <p>Severe default propensity (P &lt; 0.15) with irrecoverable debt profile. Immediate routing to legal counsel and NPL portfolio carve-out, preventing wasted labor.</p>
-              </div>
-              <div class="tier-metric-badge">
-                <span class="tier-metric-val text-muted">&lt; 8.0%</span>
-                <span class="tier-metric-sub">Salvage Rate</span>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        <!-- Section 3: SIGNATURE CENTERPIECE 2 - Expected Value & Platt Calibration -->
-        <section class="case-section-airy">
-          <span class="case-section-num-tag">03 // Applied Mathematics &bull; Probability Calibration</span>
-          <h2 class="case-section-heading">Why Uncalibrated Models Fail Debt Recovery</h2>
-
+          <span class="case-section-num-tag">02 // Modeling Process</span>
+          <h2 class="case-section-heading">Validate before blending</h2>
           <div class="case-body-airy">
-            <p>
-              Modern gradient boosting frameworks (XGBoost, CatBoost, LightGBM) output raw pseudo-probabilities that are heavily distorted by imbalanced loss functions. An uncalibrated score of 0.65 rarely corresponds to a true 65% chance of debt collection.
-            </p>
-            <p>
-              LOD Engine applies <strong>Platt Scaling (Sigmoidal Post-Hoc Calibration)</strong> over an out-of-fold validation set, aligning raw model logits with empirical frequency:
-            </p>
+            <p>CatBoost and LightGBM experiments were compared using stratified out-of-fold predictions. The team explored probability and rank blending, regularization, and financial-ratio features rather than reporting a single training-set score.</p>
+            <p>The public repository reports the following <strong>out-of-fold ROC-AUC</strong> experiments. They are model-development results, not a measured collections or recovery outcome.</p>
           </div>
-
-          <!-- Calibrated EV Decision Monograph -->
-          <div class="ev-monograph">
-            <!-- Header Bar -->
-            <div class="ev-monograph-header">
-              <span class="text-accent font-semibold tracking-wider uppercase">01 // Decision Engine Objective</span>
-              <span class="text-muted">Expected Liquidation Value (EV)</span>
-            </div>
-
-            <!-- Clean Formula Strip -->
-            <div class="ev-monograph-formula">
-              <div class="ev-formula-math">
-                EV = P(Cure) &times; Balance &minus; Call Cost
-              </div>
-              <p class="ev-formula-lead">
-                Instead of sorting debtors by balance size, the queue maximizes the net cash collected per senior agent phone hour.
-              </p>
-            </div>
-
-            <!-- Guaranteed 2-Column Comparison Grid -->
-            <div class="ev-compare-columns">
-              <!-- Column 1: Traditional -->
-              <div class="ev-col-item">
-                <div>
-                  <div class="ev-col-tag">
-                    <span>Traditional Strategy</span>
-                    <span class="text-muted">Balance-First</span>
-                  </div>
-                  <div class="ev-col-amount">
-                    <span>฿9,850</span> <span style="font-size: 0.8rem; font-weight: 400; color: var(--text-muted); font-family: var(--font-sans);">/ call</span>
-                  </div>
-                </div>
-                <p class="ev-col-desc">
-                  Calling a ฿500,000 delinquent balance with only 2% pay likelihood wastes 45 minutes of agent labor chasing chronic non-payers.
-                </p>
-              </div>
-
-              <!-- Column 2: LOD Engine -->
-              <div class="ev-col-item is-highlighted">
-                <div>
-                  <div class="ev-col-tag">
-                    <span class="text-accent font-semibold">LOD Engine Strategy</span>
-                    <span class="ev-lift-badge">6x Yield</span>
-                  </div>
-                  <div class="ev-col-amount">
-                    <span>฿59,850</span> <span style="font-size: 0.8rem; font-weight: 400; color: var(--text-muted); font-family: var(--font-sans);">/ call</span>
-                  </div>
-                </div>
-                <p class="ev-col-desc">
-                  Prioritizing an ฿80,000 balance with 75% cure probability captures 6x more cash, directly unlocking the <strong>+฿6.2M net cash recovery</strong>.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Calibration Metric Table -->
           <div class="case-table-wrap">
             <table class="case-benchmark-table">
-              <thead>
-                <tr>
-                  <th>Ensemble Model Candidate</th>
-                  <th>ROC-AUC</th>
-                  <th>PR-AUC</th>
-                  <th>Brier Loss Score</th>
-                  <th>Recovery Lift</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Public README experiment</th><th>Out-of-fold ROC-AUC</th><th>What changed</th></tr></thead>
               <tbody>
-                <tr>
-                  <td>Baseline Logistic Regression</td>
-                  <td>0.742</td>
-                  <td>0.485</td>
-                  <td>0.198</td>
-                  <td>Reference</td>
-                </tr>
-                <tr>
-                  <td>Default XGBoost (Uncalibrated)</td>
-                  <td>0.868</td>
-                  <td>0.692</td>
-                  <td>0.142</td>
-                  <td>+12.4%</td>
-                </tr>
-                <tr>
-                  <td>LightGBM + Optuna Bayesian Tuning</td>
-                  <td>0.887</td>
-                  <td>0.724</td>
-                  <td>0.118</td>
-                  <td>+24.1%</td>
-                </tr>
-                <tr>
-                  <td><strong>LOD Stacking Ensemble + Platt Scaling</strong></td>
-                  <td><strong>0.894</strong></td>
-                  <td><strong>0.751</strong></td>
-                  <td><strong>0.089</strong></td>
-                  <td><span class="case-badge-good">+38.6% (+฿6.2M)</span></td>
-                </tr>
+                <tr><td>Baseline</td><td>0.63300</td><td>Initial feature set</td></tr>
+                <tr><td>Qualifying champion</td><td>0.65080</td><td>Encoding and transforms</td></tr>
+                <tr><td>V13 CatBoost + LightGBM blend</td><td><strong>0.65333</strong></td><td>Financial ratios and blend search</td></tr>
               </tbody>
             </table>
           </div>
         </section>
 
-        <!-- Section 4: Engineering Retrospective -->
         <section class="case-section-airy">
-          <span class="case-section-num-tag">04 // Retrospective &bull; Lessons Learned</span>
-          <h2 class="case-section-heading">Principles for Applied Decision Science</h2>
-
-          <div class="case-body-airy space-y-6">
-            <p>
-              <strong>1. Optimize for Business Payoff, Not Abstract Accuracy:</strong> A model with 92% classification accuracy that prioritizes easy-to-cure accounts produces virtually zero financial uplift. Modeling Expected Liquidation Value directly translates predictive AI into measurable banking cashflows.
-            </p>
-            <p>
-              <strong>2. Probability Calibration is Non-Negotiable:</strong> Decision thresholds derived from uncalibrated probabilities create distorted rankings in the middle probability bands (0.3 &ndash; 0.7), which is precisely where all operational profit is made or lost.
-            </p>
+          <span class="case-section-num-tag">03 // Evidence &amp; Data Boundaries</span>
+          <h2 class="case-section-heading">What can be inspected publicly</h2>
+          <div class="case-body-airy">
+            <p>The source repository includes preprocessing, model-training and blending code, plus a synthetic fallback dataset so the workflow can be tried without exposing competition records. Raw financial data is confidential and is not published.</p>
+            <p>National-finalist status describes the competition outcome. The project does not establish actual debt recovered, collection-agent productivity, or a deployed lending decision service.</p>
           </div>
         </section>
 
-        <!-- Next / Previous Navigation -->
         <div class="case-nav-footer">
-          <a href="project-flowsense-trustgraph.html" class="case-nav-btn">
-            <span class="case-nav-sub">&larr; Previous Case Study</span>
-            <span class="case-nav-title">FlowSense &amp; TrustGraph</span>
-          </a>
-          <a href="project-credit-risk.html" class="case-nav-btn text-right">
-            <span class="case-nav-sub">Next Case Study &rarr;</span>
-            <span class="case-nav-title">Credit Risk Scoring &amp; Explainable AI</span>
-          </a>
+          <a href="project-flowsense-trustgraph.html" class="case-nav-btn"><span class="case-nav-sub">&larr; Previous Case Study</span><span class="case-nav-title">FlowSense &amp; TrustGraph</span></a>
+          <a href="project-credit-risk.html" class="case-nav-btn text-right"><span class="case-nav-sub">Next Case Study &rarr;</span><span class="case-nav-title">Credit Risk Scoring &amp; Explainable AI</span></a>
         </div>
-
       </div>
     </article>
   </main>
