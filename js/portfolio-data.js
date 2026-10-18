@@ -128,9 +128,9 @@ const portfolioData = {
     scholarships: [
       {
         title: "NHK Spring (Thailand) Undergraduate Scholarship",
-        officialTitle: "NHK Spring (Thailand) Academic Scholarship (Academic Year 2026)",
+        officialTitle: "NHK Spring (Thailand) Academic Scholarship (2026-2027)",
         sponsor: "NHK SPRING (THAILAND) CO., LTD.",
-        award: "30,000 THB / Year (Continuing grant through Year 4 graduation)",
+        award: "30,000 THB / academic year (2026-2027 award period)",
         internship: "2-Month Summer Industrial Internship at NHK Spring production facilities with corporate accommodation & allowance",
         criteria: "Faculty of Engineering (Computer Engineering) student with cumulative GPAX >= 2.75 and exemplary faculty conduct endorsement",
         announcementDate: "January 20, 2026",
@@ -222,7 +222,7 @@ const portfolioData = {
     {
       role: "Track 2 Lead: Data Science & Intelligence",
       company: "KBTG Kampus Hackathon 2026",
-      status: "Advanced to the next round; not yet in the Final round",
+      status: "Advanced to the next round in Track 2",
       organization: "Kasikorn Business-Technology Group (KBTG)",
       duration: "2026",
       location: "Bangkok, Thailand",
@@ -235,15 +235,15 @@ const portfolioData = {
       techStack: ["PyTorch Geometric", "LightGBM", "ONNX Runtime", "FastAPI", "React 18", "Vite"]
     },
     {
-      role: "Engineering Scholar & Industrial Intern",
-      company: "NHK Spring (Thailand) Corporate Fellowship",
+      role: "Undergraduate Engineering Scholar",
+      company: "NHK Spring (Thailand) Undergraduate Scholarship",
       organization: "NHK SPRING (THAILAND) CO., LTD. &bull; Faculty of Engineering, SWU",
-      duration: "2026 - 2029",
+      duration: "2026 - 2027",
       location: "Bangkok & Samut Prakan, Thailand",
       description: [
         "Recipient of the corporate undergraduate engineering scholarship awarded under competitive cumulative GPAX (>= 2.75) criteria and faculty character endorsement.",
-        "Awarded continuous educational grant of 30,000 THB/year through senior year graduation.",
-        "Selected for 2-month summer engineering internship within precision manufacturing and automotive components facilities with corporate accommodations and stipend."
+        "Awarded an educational grant of 30,000 THB per academic year for the 2026-2027 period.",
+        "Scholarship includes a planned 2-month summer engineering internship with accommodation and living allowance."
       ],
       techStack: ["Computer Engineering", "Precision Manufacturing", "Industrial Automation", "Quality Control"]
     },

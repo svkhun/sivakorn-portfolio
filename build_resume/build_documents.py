@@ -240,7 +240,7 @@ cv_html_content = f"""<!DOCTYPE html>
           <div class="resume-entry">
             <div class="flex items-baseline justify-between mb-0.5">
               <strong class="font-bold text-sm">NHK Spring (Thailand) Undergraduate Scholarship</strong>
-              <span class="text-xs text-right whitespace-nowrap ml-2">Sep 2026</span>
+              <span class="text-xs text-right whitespace-nowrap ml-2">2026&ndash;2027</span>
             </div>
             <div class="italic text-xs mb-0.5">NHK SPRING (THAILAND) CO., LTD. &bull; Faculty of Engineering, SWU</div>
             <ul class="resume-list text-xs">
@@ -718,7 +718,7 @@ res_html_content = f"""<!DOCTYPE html>
           <div class="resume-entry">
             <div class="flex items-baseline justify-between mb-0.5">
               <strong class="font-bold text-[12px]">NHK Spring (Thailand) Undergraduate Scholarship</strong>
-              <span class="text-[10.5px] text-right whitespace-nowrap ml-2">2026</span>
+              <span class="text-[10.5px] text-right whitespace-nowrap ml-2">2026&ndash;2027</span>
             </div>
             <div>30,000 THB/year merit award, conferred September 25, 2026; includes a planned two-month summer engineering internship.</div>
           </div>
