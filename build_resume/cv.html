@@ -169,6 +169,123 @@
       font-size: 8.5pt !important;
       color: #222222 !important;
     }
+  /* Shared print treatment for the one-page resume and two-page CV. */
+@font-face {
+  font-family: "Geist Local";
+  src: url("../assets/fonts/geist-variable-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+html, body {
+  font-family: "Geist Local", "Segoe UI", Arial, sans-serif !important;
+  color: #172033 !important;
+}
+
+.resume-paper {
+  position: relative;
+  border-top: 3px solid #2457d2 !important;
+}
+
+.resume-print-header { display: none !important; }
+
+.resume-header {
+  text-align: left !important;
+  border-bottom: 1px solid #cbd5e1;
+  padding: 0 0 11pt;
+  margin-bottom: 11pt !important;
+}
+
+.resume-name {
+  text-align: left !important;
+  font-family: "Geist Local", "Segoe UI", Arial, sans-serif !important;
+  font-size: 21pt !important;
+  font-weight: 580 !important;
+  letter-spacing: -0.055em !important;
+  text-transform: none !important;
+  line-height: 1.13 !important;
+  margin: 0 0 4pt !important;
+  color: #152137 !important;
+}
+
+.resume-headline {
+  text-align: left !important;
+  font-size: 9.2pt !important;
+  font-weight: 500 !important;
+  color: #2457d2 !important;
+  margin: 0 0 5pt !important;
+}
+
+.resume-contact {
+  justify-content: flex-start !important;
+  text-align: left !important;
+  color: #475569 !important;
+  margin: 0 0 1pt !important;
+}
+
+.resume-contact a { color: #334155 !important; }
+.resume-contact .pipe-sep { color: #a5afbe !important; }
+
+.section-title {
+  font-size: 9.3pt !important;
+  letter-spacing: .065em !important;
+  font-weight: 680 !important;
+  color: #2457d2 !important;
+  border-bottom: 1px solid #d7deea !important;
+  padding-bottom: 3pt !important;
+  margin-bottom: 5pt !important;
+}
+
+.resume-entry {
+  color: #263244 !important;
+  line-height: 1.38 !important;
+}
+
+.resume-entry strong,
+.resume-skills-block strong { color: #172033 !important; }
+
+.resume-entry .italic {
+  font-style: normal !important;
+  color: #5e6c7e !important;
+}
+
+ul.resume-list li { color: #354155 !important; }
+ul.resume-list li::marker { color: #5b83dc; }
+
+.resume-sheet-footer {
+  margin-top: auto !important;
+  border-top: 1px solid #e1e7ef !important;
+  color: #718096 !important;
+}
+
+.resume-sheet-footer .page-number { color: #718096 !important; }
+
+#resume-page-single {
+  padding: 9mm 13.5mm 8mm !important;
+}
+
+#resume-page-single .resume-header { padding-bottom: 7pt; margin-bottom: 5pt !important; }
+#resume-page-single .section-title { margin-top: 6pt !important; margin-bottom: 3pt !important; }
+#resume-page-single .resume-entry { font-size: 8.6pt !important; line-height: 1.34 !important; margin-bottom: 2.3pt !important; }
+#resume-page-single .resume-list { margin: .5pt 0 1pt !important; }
+#resume-page-single .resume-list li { line-height: 1.34 !important; }
+
+#resume-page-1,
+#resume-page-2 { padding: 12mm 15mm 10mm !important; }
+
+#resume-page-1 .resume-name { font-size: 22pt !important; }
+#resume-page-1 .resume-header { margin-bottom: 13pt !important; }
+
+#resume-page-2 .resume-entry .flex.justify-between { gap: 10pt; }
+#resume-page-2 .resume-entry .flex.justify-between > :first-child { min-width: 0; }
+#resume-page-2 .resume-entry .flex.justify-between > .text-right { flex: 0 0 auto; }
+
+@media screen {
+  body { background: #e8edf3 !important; }
+  .resume-paper { margin: 20px auto !important; box-shadow: 0 14px 45px rgba(30, 45, 70, .13) !important; }
+}
+
   </style>
 </head>
 <body>
@@ -178,12 +295,12 @@
       <div class="resume-content-wrap">
         <!-- Print Header (Top Right Date & Time) -->
         <div class="resume-print-header">
-          <span class="resume-print-datetime">10/18/2026, 12:19:25 AM</span>
+          <span class="resume-print-datetime">October 2026</span>
         </div>
 
         <!-- Header Row -->
         <div class="resume-header text-center mb-4">
-          <h1 class="resume-name uppercase">SIVAKORN KHUNDILOKRATTAYA</h1>
+          <h1 class="resume-name">Sivakorn Khundilokrattaya</h1>
           <div class="resume-headline">Computer Engineering Student &bull; Aspiring Data Scientist &amp; ML Engineer</div>
           <div class="resume-contact flex flex-wrap justify-center items-center">
             <span>Bangkok, Thailand</span>
@@ -211,8 +328,23 @@
               <span class="italic text-xs text-right whitespace-nowrap">Bangkok, Thailand</span>
             </div>
             <ul class="resume-list text-xs">
-              <li><strong class="font-bold">Honors &amp; Grants:</strong> Recipient of the NHK Spring (Thailand) Engineering Undergraduate Scholarship (30,000 THB/yr continuing grant, conferred Sept 2026).</li>
               <li>Specialization in Statistical Machine Learning, Financial Risk Modeling, and Distributed Data Engineering.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Scholarship awarded during undergraduate study -->
+        <div class="resume-section">
+          <h2 class="section-title">SCHOLARSHIP &amp; INDUSTRY DEVELOPMENT</h2>
+          <div class="resume-entry">
+            <div class="flex items-baseline justify-between mb-0.5">
+              <strong class="font-bold text-sm">NHK Spring (Thailand) Undergraduate Scholarship</strong>
+              <span class="text-xs text-right whitespace-nowrap ml-2">Sep 2026</span>
+            </div>
+            <div class="italic text-xs mb-0.5">NHK SPRING (THAILAND) CO., LTD. &bull; Faculty of Engineering, SWU</div>
+            <ul class="resume-list text-xs">
+              <li>Merit-based engineering award of 30,000 THB per academic year; formally conferred on September 25, 2026.</li>
+              <li>Scholarship program includes a planned two-month summer industrial internship with accommodation and living allowance.</li>
             </ul>
           </div>
         </div>
@@ -259,16 +391,16 @@
           <!-- Project 2: FlowSense & TrustGraph -->
           <div class="resume-entry mb-3">
             <div class="flex items-baseline justify-between mb-0.5">
-              <strong class="font-bold text-sm">FlowSense &amp; TrustGraph &ndash; Autonomous Cashflow &amp; Graph Fraud Defense</strong>
+              <strong class="font-bold text-sm">FlowSense &amp; TrustGraph &ndash; Money Planning &amp; Transfer Risk Review</strong>
               <span class="text-xs text-right whitespace-nowrap ml-2">2026</span>
             </div>
             <div class="mb-0.5">
               <span class="italic text-xs">PyTorch Geometric (R-GCN), LightGBM, ONNX Runtime, FastAPI, React 18 &bull; KBTG Kampus Hackathon 2026</span>
             </div>
             <ul class="resume-list text-xs">
-              <li>Engineered FlowSense 30-day liquidity forecasting using LightGBM with rolling lag features, normal-dip alert suppression, and surplus-only micro-savings sweeps with 1-tap recall.</li>
-              <li>Built TrustGraph pre-transfer fraud defense using Relational Graph Convolutional Networks (R-GCN) to embed account topology, executing sub-12ms P99 inference via ONNX Runtime (&lt;80ms SLA).</li>
-              <li>Formulated target-specific explainable risk factors (e.g., dormant account reactivation, transaction velocity surges) paired with a 5-second facial liveness micro-authentication gateway.</li>
+              <li>Built a spending outlook combining LightGBM forecasts with upcoming bills, living costs, and a user-selected reserve to calculate safe-to-save capacity. Saving requires opt-in and a user-triggered action; standard withdrawals remain available.</li>
+              <li>Combined precomputed R-GCN account embeddings with transfer signals for LightGBM/ONNX screening, then surfaced plain-language reasons and a review path before confirmation.</li>
+              <li>Used synthetic data for the demonstration. Documented the need to re-evaluate model quality without label leakage and to validate latency end to end before any banking deployment.</li>
             </ul>
           </div>
 
@@ -316,7 +448,7 @@
       <div class="resume-content-wrap">
         <!-- Print Header (Top Right Date & Time) -->
         <div class="resume-print-header">
-          <span class="resume-print-datetime">10/18/2026, 12:19:25 AM</span>
+          <span class="resume-print-datetime">October 2026</span>
         </div>
 
         <!-- Section 4: Hackathons & Competitions -->
@@ -334,8 +466,8 @@
               <span class="italic text-xs text-right whitespace-nowrap">Bangkok, Thailand</span>
             </div>
             <ul class="resume-list text-xs">
-              <li>Spearheaded data intelligence architecture for K PLUS, connecting FlowSense cashflow projection and TrustGraph relational fraud screening.</li>
-              <li>Designed R-GCN graph neural network embeddings with ONNX Runtime sub-12ms P99 inference, modeling projected 1.2B&ndash;2.0B THB in CASA deposit mobilization and &gt;85% fraud interdiction.</li>
+              <li>Led the FlowSense and TrustGraph concept prototype; advanced to the next round. The work is independent of KBank/KBTG production systems and uses synthetic demonstration data.</li>
+              <li>Combined precomputed R-GCN features and ONNX scoring with explainable review steps. The local latency result is a prototype benchmark; fraud reduction and deposit impact have not been validated.</li>
             </ul>
           </div>
 

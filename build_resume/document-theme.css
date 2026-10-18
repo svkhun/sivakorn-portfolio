@@ -1,0 +1,116 @@
+/* Shared print treatment for the one-page resume and two-page CV. */
+@font-face {
+  font-family: "Geist Local";
+  src: url("../assets/fonts/geist-variable-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+html, body {
+  font-family: "Geist Local", "Segoe UI", Arial, sans-serif !important;
+  color: #172033 !important;
+}
+
+.resume-paper {
+  position: relative;
+  border-top: 3px solid #2457d2 !important;
+}
+
+.resume-print-header { display: none !important; }
+
+.resume-header {
+  text-align: left !important;
+  border-bottom: 1px solid #cbd5e1;
+  padding: 0 0 11pt;
+  margin-bottom: 11pt !important;
+}
+
+.resume-name {
+  text-align: left !important;
+  font-family: "Geist Local", "Segoe UI", Arial, sans-serif !important;
+  font-size: 21pt !important;
+  font-weight: 580 !important;
+  letter-spacing: -0.055em !important;
+  text-transform: none !important;
+  line-height: 1.13 !important;
+  margin: 0 0 4pt !important;
+  color: #152137 !important;
+}
+
+.resume-headline {
+  text-align: left !important;
+  font-size: 9.2pt !important;
+  font-weight: 500 !important;
+  color: #2457d2 !important;
+  margin: 0 0 5pt !important;
+}
+
+.resume-contact {
+  justify-content: flex-start !important;
+  text-align: left !important;
+  color: #475569 !important;
+  margin: 0 0 1pt !important;
+}
+
+.resume-contact a { color: #334155 !important; }
+.resume-contact .pipe-sep { color: #a5afbe !important; }
+
+.section-title {
+  font-size: 9.3pt !important;
+  letter-spacing: .065em !important;
+  font-weight: 680 !important;
+  color: #2457d2 !important;
+  border-bottom: 1px solid #d7deea !important;
+  padding-bottom: 3pt !important;
+  margin-bottom: 5pt !important;
+}
+
+.resume-entry {
+  color: #263244 !important;
+  line-height: 1.38 !important;
+}
+
+.resume-entry strong,
+.resume-skills-block strong { color: #172033 !important; }
+
+.resume-entry .italic {
+  font-style: normal !important;
+  color: #5e6c7e !important;
+}
+
+ul.resume-list li { color: #354155 !important; }
+ul.resume-list li::marker { color: #5b83dc; }
+
+.resume-sheet-footer {
+  margin-top: auto !important;
+  border-top: 1px solid #e1e7ef !important;
+  color: #718096 !important;
+}
+
+.resume-sheet-footer .page-number { color: #718096 !important; }
+
+#resume-page-single {
+  padding: 9mm 13.5mm 8mm !important;
+}
+
+#resume-page-single .resume-header { padding-bottom: 7pt; margin-bottom: 5pt !important; }
+#resume-page-single .section-title { margin-top: 6pt !important; margin-bottom: 3pt !important; }
+#resume-page-single .resume-entry { font-size: 8.6pt !important; line-height: 1.34 !important; margin-bottom: 2.3pt !important; }
+#resume-page-single .resume-list { margin: .5pt 0 1pt !important; }
+#resume-page-single .resume-list li { line-height: 1.34 !important; }
+
+#resume-page-1,
+#resume-page-2 { padding: 12mm 15mm 10mm !important; }
+
+#resume-page-1 .resume-name { font-size: 22pt !important; }
+#resume-page-1 .resume-header { margin-bottom: 13pt !important; }
+
+#resume-page-2 .resume-entry .flex.justify-between { gap: 10pt; }
+#resume-page-2 .resume-entry .flex.justify-between > :first-child { min-width: 0; }
+#resume-page-2 .resume-entry .flex.justify-between > .text-right { flex: 0 0 auto; }
+
+@media screen {
+  body { background: #e8edf3 !important; }
+  .resume-paper { margin: 20px auto !important; box-shadow: 0 14px 45px rgba(30, 45, 70, .13) !important; }
+}

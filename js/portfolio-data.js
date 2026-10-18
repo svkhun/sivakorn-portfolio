@@ -239,10 +239,10 @@ const portfolioData = {
       duration: "2026",
       location: "Bangkok, Thailand",
       description: [
-        "Led engineering on FlowSense & TrustGraph, a K PLUS concept prototype for cashflow forecasting, flexible micro-savings, and graph-based transfer screening.",
+        "Led engineering on FlowSense & TrustGraph, an independent KBTG hackathon concept prototype for spending plans, opt-in saving, and pre-transfer risk review.",
         "Combined precomputed PyTorch Geometric R-GCN 16D embeddings with LightGBM and ONNX Runtime scoring through FastAPI.",
-        "Reported 11.62ms P99 transfer evaluation over 200 prototype cycles against an 80ms design target; core ONNX execution = 0.27ms.",
-        "Implemented liquidity forecasts, commitment warnings, micro-sweeps with 1-Tap Undo, and direct recipient-risk explanations; projected 1.2–2.0B THB in potential CASA mobilization."
+        "Reported 11.62ms P99 transfer evaluation over 200 local prototype cycles; this is not a production SLA or end-to-end user latency.",
+        "Implemented bills-aware spending plans, user-selected reserves, opt-in capacity-limited saving, standard withdrawals, and direct recipient-risk explanations using synthetic data."
       ],
       techStack: ["PyTorch Geometric", "LightGBM", "ONNX Runtime", "FastAPI", "React 18", "Vite"]
     },
@@ -344,11 +344,11 @@ const portfolioData = {
     },
     {
       id: "k-flowsense-trustgraph",
-      title: "FlowSense & TrustGraph (K PLUS for First Jobbers)",
+      title: "FlowSense & TrustGraph (Independent Banking Concept)",
       domain: "Real-Time Graph Fraud Defense & Mobile Cashflow Intelligence",
       context: "KBTG Kampus Hackathon 2026 — Advanced to the next round; not yet in the Final round",
       caseStudyLink: "project-flowsense-trustgraph.html",
-      description: "FlowSense forecasts 30-day liquidity, warns about at-risk commitments, and supports micro-sweeps with 1-Tap Undo. TrustGraph uses R-GCN features and ONNX scoring to screen transfers, explain risk, and trigger targeted Micro-Auth in a K PLUS concept prototype.",
+      description: "FlowSense offers a spending outlook, accounts for bills and a chosen reserve, and offers user-triggered saving within safe-to-save capacity plus standard withdrawals. TrustGraph uses precomputed R-GCN features and ONNX scoring to review transfers and explain recipient risk. This is an independent prototype using synthetic data.",
       keyMetric: "11.62ms P99 Prototype Benchmark &bull; 1.2–2.0B THB Projected CASA",
       techStack: ["PyTorch Geometric", "LightGBM", "ONNX Runtime", "FastAPI", "React 18", "Vite"],
       githubLink: "https://github.com/svkhun/k-flowsense-trustgraph",

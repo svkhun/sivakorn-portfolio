@@ -147,12 +147,12 @@
 
             <!-- Subtitle -->
             <p class="hero-role-title">
-              Architecting High-Precision Risk &amp; Low-Latency Inference Engines
+              Building practical data products for financial decisions
             </p>
 
             <!-- Bio: Concise, sharp, high-impact -->
             <p class="hero-lead">
-              Computer Engineering student at Srinakharinwirot University (SWU, Class of 2026). Specializing in <strong>Basel-compliant credit risk scorecards</strong>, regulatory <strong>Explainable AI (TreeSHAP)</strong>, relational <strong>Graph Neural Networks</strong>, and sub-12ms production inference systems.
+              Computer Engineering student at Srinakharinwirot University (SWU, Class of 2026). I work across <strong>machine learning</strong>, <strong>explainable risk models</strong>, and product prototypes that help people understand a decision before they act.
             </p>
 
             <!-- Action Buttons: Primary CTA + Inline Link -->
@@ -259,7 +259,7 @@
               <span>Inference SLA</span>
             </div>
             <div class="stat-number accent-amber">11.62 <span class="stat-unit">ms</span></div>
-            <div class="stat-caption font-mono uppercase text-[11px] tracking-[0.06em]">TrustGraph P99 Prototype Benchmark (80ms Target)</div>
+            <div class="stat-caption font-mono uppercase text-[11px] tracking-[0.06em]">TrustGraph local prototype P99, 200 cycles</div>
           </div>
 
           <!-- Card 2: Model Discrimination -->
@@ -295,308 +295,55 @@
       </div>
     </section>
 
-    <!-- ========================================================================
-         Section: 01 / Capabilities & Technical Architecture
-         ======================================================================== -->
-    <section class="section scroll-mt-20 py-16 lg:py-24" id="what-i-do">
+    <!-- Selected work: a clearer introduction to recent projects -->
+    <section class="section selected-work-section scroll-mt-20" id="what-i-do" aria-labelledby="selected-work-title">
       <div class="max-w-6xl lg:max-w-7xl mx-auto px-6 lg:px-12">
-        <div class="mb-12 lg:mb-16">
-          <div class="editorial-number-tag">
-            <span class="editorial-num">01 / Capabilities</span>
-            <span class="editorial-cat">Core Specialization</span>
+        <div class="selected-work-heading scroll-anim anim-metric-pop">
+          <div>
+            <div class="editorial-number-tag">
+              <span class="editorial-num">01 / Selected work</span>
+              <span class="editorial-cat">Projects in practice</span>
+            </div>
+            <h2 class="editorial-h2" id="selected-work-title">Models are most useful when people can act on them.</h2>
           </div>
-          <h2 class="editorial-h2 max-w-2xl">
-            Precision quantitative modeling and production-scale machine learning systems.
-          </h2>
-          <p class="text-base text-slate-600 dark:text-zinc-400 leading-relaxed max-w-xl">
-            Combining rigorous statistical theory with high-performance low-latency execution.
-          </p>
+          <p>I build the path from data and models to a decision someone can understand. Here are three projects that show that work.</p>
         </div>
 
-        <!-- High-Precision Engineering Architecture: 3 Alternating Vertical Rows -->
-        <div class="cap-alternating-stack">
-
-          <!-- Row 1: Machine Learning & Graph Intelligence (Left: Primary, Right: Telemetry) -->
-          <div class="cap-alternating-row card-domain-ml group" data-domain="ml">
-            <!-- Left: Primary Console Card -->
-            <div class="cap-primary-card scroll-anim anim-split-left lg:col-span-6 lg:order-1 order-1" tabindex="0" role="region" aria-label="Machine Learning Capabilities Console">
-              <div class="cap-header-meta">
-                <span class="cap-domain-code">01 // Tabular &amp; Graph ML</span>
-                <span class="cap-metric-tag">[ SLA &lt; 12MS ]</span>
-              </div>
-
-              <div class="capability-icon-box bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400">
-                <i class="fas fa-brain text-2xl"></i>
-              </div>
-
-              <h3 class="editorial-h3 mb-2">
-                Data Science &amp; Machine Learning
-              </h3>
-              <p class="text-slate-600 dark:text-zinc-300 text-sm leading-relaxed mb-4">
-                Calibrated tabular modeling with gradient boosted trees (LightGBM, XGBoost, CatBoost) and Relational Graph Convolutional Networks (PyG RGCN) for multi-hop banking fraud detection.
-              </p>
-
-              <!-- Tech Pills with 100% Complete Color Logos -->
-              <div class="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-100 dark:border-zinc-800/80">
-                <span class="tech-pill-sm"><i class="devicon-python-plain colored"></i> Python</span>
-                <span class="tech-pill-sm"><i class="devicon-pytorch-original colored"></i> PyTorch</span>
-                <span class="tech-pill-sm"><i class="fas fa-network-wired" style="color: #0284C7;"></i> LightGBM</span>
-                <span class="tech-pill-sm"><i class="fas fa-bolt" style="color: #FF9900;"></i> XGBoost</span>
-                <span class="tech-pill-sm"><i class="fas fa-microchip" style="color: #005CED;"></i> ONNX</span>
+        <div class="selected-work-grid">
+          <article class="selected-card selected-card-featured scroll-anim anim-split-left">
+            <div class="selected-card-topline"><span>01 / Financial wellbeing</span><span>2026 · KBTG Kampus Hackathon</span></div>
+            <div class="selected-card-content">
+              <p class="selected-card-kicker">Recent project · Independent concept prototype</p>
+              <h3>FlowSense <span>&amp;</span> TrustGraph</h3>
+              <p class="selected-card-summary">A banking concept that helps first jobbers see what is safe to spend or save, then understand recipient risk before sending money.</p>
+              <div class="selected-card-points">
+                <div><span>FlowSense</span><p>Shows upcoming bills, living costs and a chosen reserve before offering an optional, capacity limited savings action.</p></div>
+                <div><span>TrustGraph</span><p>Combines graph features and transfer signals to explain risk and guide a review before confirmation.</p></div>
               </div>
             </div>
+            <div class="selected-card-bottom"><span>React · FastAPI · LightGBM · PyG · ONNX</span><a href="project-flowsense-trustgraph.html">Read the case study <span aria-hidden="true">↗</span></a></div>
+          </article>
 
-            <!-- Right: Telemetry & Architecture Specifications -->
-            <div class="cap-opposite-panel scroll-anim anim-split-right lg:col-span-6 lg:order-2 order-2">
-              <div>
-                <div class="cap-header-meta mb-3">
-                  <span class="cap-domain-code">System Telemetry // ML_Core</span>
-                  <span class="cap-metric-tag">[ P99 BENCHMARK ]</span>
-                </div>
-
-                <!-- Micro-Telemetry Console Box -->
-                <div class="cap-telemetry-console">
-                  <div class="cap-telemetry-row">
-                    <span class="cap-telemetry-label">INFERENCE SLA (P99)</span>
-                    <span class="cap-telemetry-val">11.4 ms <span class="cap-telemetry-sub">(ONNX C++)</span></span>
-                  </div>
-                  <div class="cap-bench-track">
-                    <div class="cap-bench-fill" style="width: 86%;"></div>
-                  </div>
-                  <div class="cap-telemetry-grid">
-                    <div>
-                      <span class="cap-meta-k">ROC-AUC</span>
-                      <span class="cap-meta-v">0.892</span>
-                    </div>
-                    <div>
-                      <span class="cap-meta-k">GINI</span>
-                      <span class="cap-meta-v">0.784</span>
-                    </div>
-                    <div>
-                      <span class="cap-meta-k">CALIBRATION</span>
-                      <span class="cap-meta-v">ISOTONIC</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cap-spec-title">
-                  <span>Core Deliverables</span>
-                  <i class="fas fa-terminal text-[10px]"></i>
-                </div>
-                <ul class="cap-spec-list">
-                  <li>
-                    <span class="cap-spec-marker">↳</span>
-                    <span><strong>Model Calibration:</strong> Platt &amp; Isotonic scaling reducing Brier score by 18%.</span>
-                  </li>
-                  <li>
-                    <span class="cap-spec-marker">↳</span>
-                    <span><strong>Graph Embeddings:</strong> 2-hop RGCN across 40K+ debtor and co-guarantor nodes.</span>
-                  </li>
-                  <li>
-                    <span class="cap-spec-marker">↳</span>
-                    <span><strong>Zero-Copy Core:</strong> Multithreaded ONNX Runtime C++ engine for low-latency scoring.</span>
-                  </li>
-                </ul>
+          <div class="selected-work-side">
+            <article class="selected-card selected-card-compact scroll-anim anim-split-right">
+              <div class="selected-card-topline"><span>02 / Commerce decisions</span><span>2026</span></div>
+              <div class="selected-card-content">
+                <h3>Shopee Smart COD</h3>
+                <p class="selected-card-summary">A prototype that turns delivery failure estimates into checkout choices and buyer feedback.</p>
               </div>
-              <a href="projects.html#graph-fraud-detection" class="cap-case-link">
-                <span>Explore Fraud Engine Case Study</span>
-                <i class="fas fa-arrow-right text-[10px]"></i>
-              </a>
-            </div>
+              <div class="selected-card-bottom"><span>Risk scoring · Product rules</span><a href="project-shopee-smart-cod.html">Explore project <span aria-hidden="true">↗</span></a></div>
+            </article>
+            <article class="selected-card selected-card-compact scroll-anim anim-split-right">
+              <div class="selected-card-topline"><span>03 / Explainable risk</span><span>2026</span></div>
+              <div class="selected-card-content">
+                <h3>Credit Risk &amp; XAI</h3>
+                <p class="selected-card-summary">A credit scoring case study focused on interpretable risk factors and clear reasons behind a model decision.</p>
+              </div>
+              <div class="selected-card-bottom"><span>Scorecards · SHAP</span><a href="project-credit-risk.html">Explore project <span aria-hidden="true">↗</span></a></div>
+            </article>
           </div>
-
-          <!-- Row 2: Credit Risk & Explainable AI (Left: Primary, Right: Telemetry) -->
-          <div class="cap-alternating-row card-domain-risk group" data-domain="risk">
-            <!-- Left: Primary Console Card -->
-            <div class="cap-primary-card scroll-anim anim-split-left lg:col-span-6 lg:order-1 order-1" tabindex="0" role="region" aria-label="Credit Risk Capabilities Console">
-              <div class="cap-header-meta">
-                <span class="cap-domain-code">02 // Regulatory XAI &amp; Risk</span>
-                <span class="cap-metric-tag">[ BASEL III / IV ]</span>
-              </div>
-
-              <div class="capability-icon-box bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400">
-                <i class="fas fa-shield-halved text-2xl"></i>
-              </div>
-
-              <h3 class="editorial-h3 mb-2">
-                Credit Risk &amp; Explainable AI
-              </h3>
-              <p class="text-slate-600 dark:text-zinc-300 text-sm leading-relaxed mb-4">
-                Basel III/IV compliant Probability of Default (PD) scorecards, strict monotonic trend binning, localized TreeSHAP waterfall attributions, and DiCE actionable counterfactual recourse.
-              </p>
-
-              <!-- Tech Pills with 100% Complete Color Logos -->
-              <div class="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-100 dark:border-zinc-800/80">
-                <span class="tech-pill-sm"><i class="fas fa-sitemap" style="color: #2563EB;"></i> TreeSHAP</span>
-                <span class="tech-pill-sm"><i class="fas fa-chart-line" style="color: #10B981;"></i> OptBinning</span>
-                <span class="tech-pill-sm"><i class="fas fa-shuffle" style="color: #8B5CF6;"></i> DiCE</span>
-                <span class="tech-pill-sm"><i class="fas fa-shield-halved" style="color: #3B82F6;"></i> Basel Risk</span>
-                <span class="tech-pill-sm"><i class="devicon-scikitlearn-plain colored"></i> Scikit-learn</span>
-              </div>
-            </div>
-
-            <!-- Right: Telemetry & Regulatory Specifications -->
-            <div class="cap-opposite-panel scroll-anim anim-split-right lg:col-span-6 lg:order-2 order-2">
-              <div>
-                <div class="cap-header-meta mb-3">
-                  <span class="cap-domain-code">Regulatory Telemetry // Risk_XAI</span>
-                  <span class="cap-metric-tag">[ AUDIT VERIFIED ]</span>
-                </div>
-
-                <!-- Micro-Telemetry Console Box -->
-                <div class="cap-telemetry-console">
-                  <div class="cap-telemetry-row">
-                    <span class="cap-telemetry-label">POPULATION STABILITY</span>
-                    <span class="cap-telemetry-val text-blue-600 dark:text-blue-400">PSI 0.038 <span class="cap-telemetry-sub">(STABLE)</span></span>
-                  </div>
-                  <div class="cap-shap-bars">
-                    <div class="cap-shap-row">
-                      <span class="cap-shap-feat">Debt-to-Income</span>
-                      <div class="cap-shap-track"><div class="cap-shap-fill-pos" style="width: 68%;"></div></div>
-                      <span class="cap-shap-num text-amber-600 dark:text-amber-400">+0.24</span>
-                    </div>
-                    <div class="cap-shap-row">
-                      <span class="cap-shap-feat">Liquidity Ratio</span>
-                      <div class="cap-shap-track"><div class="cap-shap-fill-neg" style="width: 54%;"></div></div>
-                      <span class="cap-shap-num text-emerald-600 dark:text-emerald-400">-0.19</span>
-                    </div>
-                  </div>
-                  <div class="cap-telemetry-grid">
-                    <div>
-                      <span class="cap-meta-k">FRAMEWORK</span>
-                      <span class="cap-meta-v">TREESHAP</span>
-                    </div>
-                    <div>
-                      <span class="cap-meta-k">AUDIT</span>
-                      <span class="cap-meta-v">BOT COMPLIANT</span>
-                    </div>
-                    <div>
-                      <span class="cap-meta-k">RECOURSE</span>
-                      <span class="cap-meta-v">DICE OPTIM</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cap-spec-title">
-                  <span>Core Deliverables</span>
-                  <i class="fas fa-terminal text-[10px]"></i>
-                </div>
-                <ul class="cap-spec-list">
-                  <li>
-                    <span class="cap-spec-marker">↳</span>
-                    <span><strong>Monotonic Binning:</strong> OptBinning trend enforcement satisfying Bank of Thailand audit.</span>
-                  </li>
-                  <li>
-                    <span class="cap-spec-marker">↳</span>
-                    <span><strong>Local Attribution:</strong> Localized TreeSHAP waterfalls for transparent adverse action notices.</span>
-                  </li>
-                  <li>
-                    <span class="cap-spec-marker">↳</span>
-                    <span><strong>Counterfactual Recourse:</strong> DiCE optimization generating actionable recovery guidance.</span>
-                  </li>
-                </ul>
-              </div>
-              <a href="projects.html#credit-risk-engine" class="cap-case-link">
-                <span>Explore Risk Scorecard Case Study</span>
-                <i class="fas fa-arrow-right text-[10px]"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Row 3: Data Engineering & Pipelines (Left: Primary, Right: Telemetry) -->
-          <div class="cap-alternating-row card-domain-data group" data-domain="data">
-            <!-- Left: Primary Console Card -->
-            <div class="cap-primary-card scroll-anim anim-split-left lg:col-span-6 lg:order-1 order-1" tabindex="0" role="region" aria-label="Data Engineering Capabilities Console">
-              <div class="cap-header-meta">
-                <span class="cap-domain-code">03 // Streaming Infrastructure</span>
-                <span class="cap-metric-tag">[ 12.5K EV/S ]</span>
-              </div>
-
-              <div class="capability-icon-box bg-teal-50 text-teal-600 dark:bg-teal-950/40 dark:text-teal-400">
-                <i class="fas fa-network-wired text-2xl"></i>
-              </div>
-
-              <h3 class="editorial-h3 mb-2">
-                Data Engineering &amp; Pipelines
-              </h3>
-              <p class="text-slate-600 dark:text-zinc-300 text-sm leading-relaxed mb-4">
-                Hybrid Lambda data architecture with Apache Kafka streaming ingestion, distributed Apache Spark transformations, and sub-second analytical aggregations in ClickHouse columnar storage.
-              </p>
-
-              <!-- Tech Pills with 100% Complete Color Logos -->
-              <div class="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-100 dark:border-zinc-800/80">
-                <span class="tech-pill-sm"><i class="devicon-apachekafka-original colored"></i> Kafka</span>
-                <span class="tech-pill-sm"><i class="devicon-apachespark-original colored"></i> Spark</span>
-                <span class="tech-pill-sm"><i class="fas fa-chart-column" style="color: #EAB308;"></i> ClickHouse</span>
-                <span class="tech-pill-sm"><i class="devicon-docker-plain colored"></i> Docker</span>
-                <span class="tech-pill-sm"><i class="devicon-fastapi-plain colored"></i> FastAPI</span>
-              </div>
-            </div>
-
-            <!-- Right: Telemetry & Pipeline Specifications -->
-            <div class="cap-opposite-panel scroll-anim anim-split-right lg:col-span-6 lg:order-2 order-2">
-              <div>
-                <div class="cap-header-meta mb-3">
-                  <span class="cap-domain-code">Streaming Telemetry // Pipeline</span>
-                  <span class="cap-metric-tag">[ 12,500 EV/S ]</span>
-                </div>
-
-                <!-- Micro-Telemetry Console Box -->
-                <div class="cap-telemetry-console">
-                  <div class="cap-telemetry-row">
-                    <span class="cap-telemetry-label">PIPELINE TOPOLOGY</span>
-                    <span class="cap-telemetry-val text-cyan-600 dark:text-cyan-400">12,500 ev/s</span>
-                  </div>
-                  <div class="cap-topology-flow">
-                    <span class="cap-topo-node">Kafka</span>
-                    <span class="cap-topo-arr">➔</span>
-                    <span class="cap-topo-node">Spark Stream</span>
-                    <span class="cap-topo-arr">➔</span>
-                    <span class="cap-topo-node">ClickHouse</span>
-                  </div>
-                  <div class="cap-telemetry-grid">
-                    <div>
-                      <span class="cap-meta-k">INGESTION P99</span>
-                      <span class="cap-meta-v">&lt; 250ms</span>
-                    </div>
-                    <div>
-                      <span class="cap-meta-k">RUNTIME</span>
-                      <span class="cap-meta-v">FASTAPI / DOCKER</span>
-                    </div>
-                    <div>
-                      <span class="cap-meta-k">STORAGE</span>
-                      <span class="cap-meta-v">COLUMNAR OLAP</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cap-spec-title">
-                  <span>Core Deliverables</span>
-                  <i class="fas fa-terminal text-[10px]"></i>
-                </div>
-                <ul class="cap-spec-list">
-                  <li>
-                    <span class="cap-spec-marker">↳</span>
-                    <span><strong>High-Throughput Buffering:</strong> Partitioned Kafka topics with idempotent consumer groups.</span>
-                  </li>
-                  <li>
-                    <span class="cap-spec-marker">↳</span>
-                    <span><strong>Columnar Analytics:</strong> ClickHouse partitioning delivering 10x faster aggregation.</span>
-                  </li>
-                  <li>
-                    <span class="cap-spec-marker">↳</span>
-                    <span><strong>Containerized Services:</strong> Microservices orchestrated via FastAPI with deterministic Docker builds.</span>
-                  </li>
-                </ul>
-              </div>
-              <a href="projects.html" class="cap-case-link">
-                <span>Explore Data Pipeline Architecture</span>
-                <i class="fas fa-arrow-right text-[10px]"></i>
-              </a>
-            </div>
-          </div>
-
         </div>
+        <p class="selected-work-note scroll-anim anim-metric-pop">The KBTG work is a hackathon prototype using synthetic data. Model quality and impact still need independent validation before any real banking use.</p>
       </div>
     </section>
 

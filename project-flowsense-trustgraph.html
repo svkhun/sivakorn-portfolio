@@ -79,7 +79,7 @@
         <header class="case-hero-airy">
           <span class="case-section-num-tag">KBTG Kampus Hackathon 2026 &bull; Track 2</span>
           <h1 class="hero-display mb-6"><span>FlowSense &amp;</span><br><span class="text-accent-brand">TrustGraph</span></h1>
-          <p class="case-lead-airy">A K PLUS concept prototype combining cashflow forecasting, flexible automated savings, and graph-based screening before a transfer.</p>
+          <p class="case-lead-airy">An independent banking concept prototype combining cashflow planning, optional saving, and graph-based risk review before a transfer.</p>
           <div class="kpi-metric-strip kpi-strip-emerald">
             <span class="kpi-icon-badge"><i class="fas fa-arrow-up" aria-hidden="true"></i></span>
             <span class="case-progress-text">Advanced to the next round &bull; Not yet in the Final round</span>
@@ -106,12 +106,12 @@
           <h2 class="case-section-heading">Save with a clear view of upcoming commitments</h2>
           <div class="case-architecture-box my-8">
             <div class="case-pipeline-flow case-pipeline-three">
-              <div class="case-pipeline-step"><span class="case-pipeline-num">01 &bull; Forecast</span><h3 class="case-pipeline-title">Status Horizon</h3><p class="case-pipeline-desc">LightGBM projects a 30-day liquidity trajectory using cashflow history, rolling features, and recurring commitments.</p></div>
-              <div class="case-pipeline-step"><span class="case-pipeline-num">02 &bull; Save</span><h3 class="case-pipeline-title">Micro-Sweep</h3><p class="case-pipeline-desc">Move small surplus amounts into a savings sub-account when cashflow permits, with warnings when upcoming bills are at risk.</p></div>
-              <div class="case-pipeline-step"><span class="case-pipeline-num">03 &bull; Recall</span><h3 class="case-pipeline-title">1-Tap Undo</h3><p class="case-pipeline-desc">Return swept funds to the main balance through the prototype's recall flow, keeping savings accessible when plans change.</p></div>
+              <div class="case-pipeline-step"><span class="case-pipeline-num">01 &bull; Forecast</span><h3 class="case-pipeline-title">Status Horizon</h3><p class="case-pipeline-desc">LightGBM estimates near-term spending from cashflow history and rolling features; planning rules then account for recurring commitments.</p></div>
+              <div class="case-pipeline-step"><span class="case-pipeline-num">02 &bull; Save</span><h3 class="case-pipeline-title">Safe-to-Save</h3><p class="case-pipeline-desc">Calculate available capacity after bills, living costs, and the user's chosen reserve. Saving starts only after opt-in and a user-requested action.</p></div>
+              <div class="case-pipeline-step"><span class="case-pipeline-num">03 &bull; Withdraw</span><h3 class="case-pipeline-title">Standard Withdrawal</h3><p class="case-pipeline-desc">Move a selected amount, or the full savings balance, back to the main account without a special emergency flow.</p></div>
             </div>
           </div>
-          <div class="case-body-airy"><p>Commitment warnings focus on projected shortfalls for fixed payments. Normal balance dips are suppressed to reduce unnecessary alerts.</p></div>
+          <div class="case-body-airy"><p>Commitment warnings focus on projected shortfalls for fixed payments. Normal balance dips are suppressed to reduce unnecessary alerts. The prototype also lets users preview how a different daily budget or emergency reserve would affect their plan.</p></div>
         </section>
 
         <section class="case-section-airy">
@@ -119,14 +119,14 @@
           <h2 class="case-section-heading">Screen recipient risk before the transfer</h2>
           <div class="case-body-airy">
             <p><strong>Routine transfer:</strong> Known or low-risk recipients follow the baseline path without an additional confirmation step.</p>
-            <p><strong>Critical anomaly:</strong> Suspicious recipient patterns trigger the prototype's Micro-Auth flow, designed around a five-second face liveness step and a direct explanation of the risk.</p>
-            <p><strong>User decision:</strong> A confirmation or cancellation flow keeps the transfer decision explicit. The interface explains signals such as a newly opened recipient account and rapid pass-through transactions.</p>
+            <p><strong>Critical anomaly:</strong> Suspicious recipient patterns open a risk review with plain-language reasons, an optional 15-minute reflection period, and official bank contact options in the simulated flow.</p>
+            <p><strong>User decision:</strong> The prototype separates routine, risky, and blocked recipients. The interface explains signals such as a newly opened recipient account and rapid pass-through transactions before any eligible confirmation.</p>
           </div>
           <div class="case-architecture-box my-8">
             <div class="case-pipeline-flow case-pipeline-three">
               <div class="case-pipeline-step"><span class="case-pipeline-num">Offline</span><h3 class="case-pipeline-title">R-GCN Embeddings</h3><p class="case-pipeline-desc">PyTorch Geometric learns 16-dimensional account representations from relationships in the transaction graph.</p></div>
               <div class="case-pipeline-step"><span class="case-pipeline-num">Online</span><h3 class="case-pipeline-title">ONNX Scoring</h3><p class="case-pipeline-desc">FastAPI combines precomputed graph features with transfer data for LightGBM inference through ONNX Runtime.</p></div>
-              <div class="case-pipeline-step"><span class="case-pipeline-num">Experience</span><h3 class="case-pipeline-title">Explain &amp; Confirm</h3><p class="case-pipeline-desc">React presents the risk reason and the appropriate next step before recording the user's decision.</p></div>
+              <div class="case-pipeline-step"><span class="case-pipeline-num">Experience</span><h3 class="case-pipeline-title">Explain &amp; Review</h3><p class="case-pipeline-desc">React presents the risk reason and the appropriate next step. Server rules govern the review path in the prototype.</p></div>
             </div>
           </div>
         </section>
@@ -144,12 +144,13 @@
                 <tr><td>Transfer evaluation &bull; P95</td><td><strong>5.11ms</strong></td><td>Prototype benchmark</td></tr>
                 <tr><td>Transfer evaluation &bull; P99</td><td><strong>11.62ms</strong></td><td>Prototype benchmark</td></tr>
                 <tr><td>ONNX model execution</td><td><strong>0.27ms</strong></td><td>Core model only</td></tr>
-                <tr><td>FlowSense 30-day forecast</td><td><strong>10.29ms</strong></td><td>Forecast evaluation</td></tr>
+                <tr><td>FlowSense forecast calculation</td><td><strong>10.29ms</strong></td><td>Local prototype evaluation</td></tr>
               </tbody>
             </table>
           </div>
           <div class="case-body-airy">
-            <p><strong>Working prototype:</strong> React 18, React Router, Vite, Tailwind CSS, FastAPI, LightGBM, PyTorch Geometric, and ONNX Runtime. The repository includes synthetic datasets, model training and export scripts, a mobile banking simulator, and dataset analytics.</p>
+            <p><strong>Working prototype:</strong> React 18, React Router, Vite, Tailwind CSS, FastAPI, LightGBM, PyTorch Geometric, and ONNX Runtime. The repository includes synthetic datasets, model training and export scripts, a banking simulator, and dataset analytics. Savings actions are opt-in and user-triggered; standard withdrawals are available.</p>
+            <p><strong>Evidence limit:</strong> TrustGraph's existing training graph uses the scam label when defining an edge type before data splitting. Its reported classification scores cannot establish predictive accuracy. The model needs leakage-safe, time-based evaluation before any real-world claim.</p>
             <p><strong>Scaling blueprint:</strong> The architecture describes Kafka event ingestion, a Feast feature store, and Triton serving. Distributed streaming and feature storage are represented by prototype simulations.</p>
           </div>
         </section>

@@ -1,24 +1,16 @@
 import os
 import shutil
 import subprocess
-from datetime import datetime
 from pypdf import PdfReader
 
 BUILD_DIR = r"d:\All Project\web portfolio\build_resume"
 ASSETS_DIR = r"d:\All Project\web portfolio\assets"
-DOWNLOADS_DIR = r"C:\Users\Acer\Downloads\Resume&CV"
-ARTIFACT_DIR = r"C:\Users\Acer\.gemini\antigravity\brain\d9db4834-7ed1-4308-86e1-bc6cd1af34dd"
 CHROME_BIN = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
 os.makedirs(BUILD_DIR, exist_ok=True)
 os.makedirs(ASSETS_DIR, exist_ok=True)
 
-now = datetime.now()
-timestamp_str = now.strftime("%m/%d/%Y, %I:%M:%S %p")
-if timestamp_str.startswith("0"):
-    timestamp_str = timestamp_str[1:]
-
-print(f"Timestamp: {timestamp_str}")
+timestamp_str = "October 2026"
 
 # =========================================================================
 # 1. GENERATE CV HTML (2 Pages)
@@ -209,7 +201,7 @@ cv_html_content = f"""<!DOCTYPE html>
 
         <!-- Header Row -->
         <div class="resume-header text-center mb-4">
-          <h1 class="resume-name uppercase">SIVAKORN KHUNDILOKRATTAYA</h1>
+          <h1 class="resume-name">Sivakorn Khundilokrattaya</h1>
           <div class="resume-headline">Computer Engineering Student &bull; Aspiring Data Scientist &amp; ML Engineer</div>
           <div class="resume-contact flex flex-wrap justify-center items-center">
             <span>Bangkok, Thailand</span>
@@ -237,8 +229,23 @@ cv_html_content = f"""<!DOCTYPE html>
               <span class="italic text-xs text-right whitespace-nowrap">Bangkok, Thailand</span>
             </div>
             <ul class="resume-list text-xs">
-              <li><strong class="font-bold">Honors &amp; Grants:</strong> Recipient of the NHK Spring (Thailand) Engineering Undergraduate Scholarship (30,000 THB/yr continuing grant, conferred Sept 2026).</li>
               <li>Specialization in Statistical Machine Learning, Financial Risk Modeling, and Distributed Data Engineering.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Scholarship awarded during undergraduate study -->
+        <div class="resume-section">
+          <h2 class="section-title">SCHOLARSHIP &amp; INDUSTRY DEVELOPMENT</h2>
+          <div class="resume-entry">
+            <div class="flex items-baseline justify-between mb-0.5">
+              <strong class="font-bold text-sm">NHK Spring (Thailand) Undergraduate Scholarship</strong>
+              <span class="text-xs text-right whitespace-nowrap ml-2">Sep 2026</span>
+            </div>
+            <div class="italic text-xs mb-0.5">NHK SPRING (THAILAND) CO., LTD. &bull; Faculty of Engineering, SWU</div>
+            <ul class="resume-list text-xs">
+              <li>Merit-based engineering award of 30,000 THB per academic year; formally conferred on September 25, 2026.</li>
+              <li>Scholarship program includes a planned two-month summer industrial internship with accommodation and living allowance.</li>
             </ul>
           </div>
         </div>
@@ -285,16 +292,16 @@ cv_html_content = f"""<!DOCTYPE html>
           <!-- Project 2: FlowSense & TrustGraph -->
           <div class="resume-entry mb-3">
             <div class="flex items-baseline justify-between mb-0.5">
-              <strong class="font-bold text-sm">FlowSense &amp; TrustGraph &ndash; Autonomous Cashflow &amp; Graph Fraud Defense</strong>
+              <strong class="font-bold text-sm">FlowSense &amp; TrustGraph &ndash; Money Planning &amp; Transfer Risk Review</strong>
               <span class="text-xs text-right whitespace-nowrap ml-2">2026</span>
             </div>
             <div class="mb-0.5">
               <span class="italic text-xs">PyTorch Geometric (R-GCN), LightGBM, ONNX Runtime, FastAPI, React 18 &bull; KBTG Kampus Hackathon 2026</span>
             </div>
             <ul class="resume-list text-xs">
-              <li>Engineered FlowSense 30-day liquidity forecasting using LightGBM with rolling lag features, normal-dip alert suppression, and surplus-only micro-savings sweeps with 1-tap recall.</li>
-              <li>Built TrustGraph pre-transfer fraud defense using Relational Graph Convolutional Networks (R-GCN) to embed account topology, executing sub-12ms P99 inference via ONNX Runtime (&lt;80ms SLA).</li>
-              <li>Formulated target-specific explainable risk factors (e.g., dormant account reactivation, transaction velocity surges) paired with a 5-second facial liveness micro-authentication gateway.</li>
+              <li>Built a spending outlook combining LightGBM forecasts with upcoming bills, living costs, and a user-selected reserve to calculate safe-to-save capacity. Saving requires opt-in and a user-triggered action; standard withdrawals remain available.</li>
+              <li>Combined precomputed R-GCN account embeddings with transfer signals for LightGBM/ONNX screening, then surfaced plain-language reasons and a review path before confirmation.</li>
+              <li>Used synthetic data for the demonstration. Documented the need to re-evaluate model quality without label leakage and to validate latency end to end before any banking deployment.</li>
             </ul>
           </div>
 
@@ -360,8 +367,8 @@ cv_html_content = f"""<!DOCTYPE html>
               <span class="italic text-xs text-right whitespace-nowrap">Bangkok, Thailand</span>
             </div>
             <ul class="resume-list text-xs">
-              <li>Spearheaded data intelligence architecture for K PLUS, connecting FlowSense cashflow projection and TrustGraph relational fraud screening.</li>
-              <li>Designed R-GCN graph neural network embeddings with ONNX Runtime sub-12ms P99 inference, modeling projected 1.2B&ndash;2.0B THB in CASA deposit mobilization and &gt;85% fraud interdiction.</li>
+              <li>Led the FlowSense and TrustGraph concept prototype; advanced to the next round. The work is independent of KBank/KBTG production systems and uses synthetic demonstration data.</li>
+              <li>Combined precomputed R-GCN features and ONNX scoring with explainable review steps. The local latency result is a prototype benchmark; fraud reduction and deposit impact have not been validated.</li>
             </ul>
           </div>
 
@@ -700,8 +707,20 @@ res_html_content = f"""<!DOCTYPE html>
             </div>
             <ul class="resume-list text-[10.5px]">
               <li>Specialization: Statistical Machine Learning, Financial Risk Modeling, and Distributed Data Engineering.</li>
-              <li>Honors &amp; Coursework: NHK Spring (Thailand) Scholarship Recipient (30K THB/yr grant, conferred Sept 2026) &bull; Machine Learning, Database Systems.</li>
+              <li>Relevant coursework: Machine Learning and Database Systems.</li>
             </ul>
+          </div>
+        </div>
+
+        <!-- Scholarship -->
+        <div class="resume-section">
+          <h2 class="section-title">SCHOLARSHIP</h2>
+          <div class="resume-entry">
+            <div class="flex items-baseline justify-between mb-0.5">
+              <strong class="font-bold text-[12px]">NHK Spring (Thailand) Undergraduate Scholarship</strong>
+              <span class="text-[10.5px] text-right whitespace-nowrap ml-2">2026</span>
+            </div>
+            <div>30,000 THB/year merit award, conferred September 25, 2026; includes a planned two-month summer engineering internship.</div>
           </div>
         </div>
 
@@ -742,8 +761,8 @@ res_html_content = f"""<!DOCTYPE html>
               <span class="italic text-[10.5px]">PyTorch Geometric (R-GCN), LightGBM, ONNX Runtime, FastAPI, React 18 &bull; KBTG Kampus Hackathon 2026</span>
             </div>
             <ul class="resume-list text-[10.5px]">
-              <li>Built R-GCN graph neural network embeddings with ONNX Runtime sub-12ms P99 inference for real-time mule account screening.</li>
-              <li>Deployed 30-day liquidity forecasting with normal-dip alert suppression and surplus-only micro-savings sweeps with 1-tap undo.</li>
+              <li>Built a synthetic-data prototype for pre-transfer risk review using precomputed R-GCN features, LightGBM/ONNX scoring, and clear recipient-risk explanations.</li>
+              <li>Combined spending forecasts with bills, living costs, and a chosen reserve; added opt-in, capacity-limited saving and standard savings withdrawals.</li>
             </ul>
           </div>
 
@@ -807,7 +826,7 @@ res_html_content = f"""<!DOCTYPE html>
               <span class="italic text-[10.5px] text-right whitespace-nowrap">Bangkok, Thailand</span>
             </div>
             <ul class="resume-list text-[10.5px]">
-              <li>Formulated FlowSense cashflow forecasting and TrustGraph pre-transfer fraud defense, projecting 1.2B&ndash;2.0B THB CASA deposit impact.</li>
+              <li>Led the FlowSense and TrustGraph concept prototype with synthetic data; advanced to the next round. Model quality and business impact require further validation.</li>
             </ul>
           </div>
 
@@ -873,6 +892,12 @@ res_html_content = f"""<!DOCTYPE html>
 </html>
 """
 
+with open(os.path.join(BUILD_DIR, "document-theme.css"), encoding="utf-8") as theme_file:
+    theme_css = theme_file.read()
+
+cv_html_content = cv_html_content.replace("</style>", theme_css + "\n  </style>", 1)
+res_html_content = res_html_content.replace("</style>", theme_css + "\n  </style>", 1)
+
 cv_file = os.path.join(BUILD_DIR, "cv.html")
 res_file = os.path.join(BUILD_DIR, "resume.html")
 
@@ -906,8 +931,13 @@ cmd_res = [
     res_file
 ]
 
-subprocess.run(cmd_cv, check=True)
-subprocess.run(cmd_res, check=True)
+try:
+    subprocess.run(cmd_cv, check=True)
+    subprocess.run(cmd_res, check=True)
+except (OSError, subprocess.CalledProcessError):
+    # Some restricted Windows sessions cannot start Chrome's command-line printer.
+    # The Playwright helper prints the same local HTML with its bundled Chromium.
+    subprocess.run(["node", os.path.join(BUILD_DIR, "print_documents.cjs")], check=True)
 
 print("PDFs rendered successfully.")
 
@@ -935,9 +965,3 @@ shutil.copyfile(cv_pdf, assets_cv)
 shutil.copyfile(res_pdf, assets_res)
 print(f"\n[OK] Deployed updated CV to: {assets_cv}")
 print(f"[OK] Deployed updated Resume to: {assets_res}")
-
-# Deploy to Downloads/Resume&CV if available
-if os.path.exists(DOWNLOADS_DIR):
-    shutil.copyfile(cv_pdf, os.path.join(DOWNLOADS_DIR, "Sivakorn_Khundilokrattaya_CV.pdf"))
-    shutil.copyfile(res_pdf, os.path.join(DOWNLOADS_DIR, "Sivakorn_Khundilokrattaya_Resume.pdf"))
-    print(f"[OK] Deployed copies to Downloads: {DOWNLOADS_DIR}")
