@@ -68,24 +68,25 @@
   </header>
 
   <main>
-    <!-- ========================================================================
-         Education Hero Section (Full Viewport Height - First Fold)
-         ======================================================================== -->
-    <section class="page-hero-fullscreen scroll-mt-20" id="education-header">
-      <!-- 1. Hero Intro Banner (aanandmadhav Editorial Style) -->
+    <section class="page-hero-fullscreen education-hero scroll-mt-20" id="education-header">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center max-w-6xl lg:max-w-7xl xl:max-w-[1340px] mx-auto px-6 lg:px-10 py-12 lg:py-16 w-full">
         <div class="lg:col-span-8">
           <div class="editorial-number-tag">
-            <span class="editorial-num">04 / Credentials</span>
-            <span class="editorial-cat">Academic &amp; Industry Verification</span>
+            <span class="editorial-num">Education / 01</span>
+            <span class="editorial-cat">Degree · Scholarship · Assessments</span>
           </div>
           <h1 class="hero-display">
-            <span>Academic Rigor &amp;<br/></span>
-            <span class="text-accent-brand hero-nowrap">Verified Benchmarks</span>
+            <span>Learning, applied<br/></span>
+            <span class="text-accent-brand">and independently assessed.</span>
           </h1>
           <p class="hero-lead mb-6">
-            Formal academic foundations in Computer Engineering combined with standardized industry certifications in machine learning, quantitative data analysis, and technical communication.
+            Computer Engineering at Srinakharinwirot University, an NHK Spring undergraduate scholarship, and external assessments in data analysis and English.
           </p>
+          <nav class="education-jump-nav" aria-label="Education sections">
+            <a href="#degree">Degree <span aria-hidden="true">↗</span></a>
+            <a href="#scholarship">Scholarship <span aria-hidden="true">↗</span></a>
+            <a href="#assessments">Assessments <span aria-hidden="true">↗</span></a>
+          </nav>
         </div>
         <div class="lg:col-span-4 flex justify-center items-center w-full">
           <img src="assets/svg/education.svg" alt="Academic Training &amp; Verified Credentials" class="w-full max-w-sm lg:max-w-md h-auto object-contain">
@@ -97,13 +98,13 @@
          Education & Verified Credentials Main Content
          ==================================================================== -->
     <section class="education-content-section scroll-mt-20 pt-16 lg:pt-24 pb-12 lg:pb-20" id="education-content">
-      <!-- 2. Degrees Received Card -->
-      <div class="max-w-6xl mx-auto px-6 lg:px-8 mb-24 lg:mb-32">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8 mb-24 lg:mb-32 education-block" id="degree">
+        <p class="education-section-index">01 / Academic foundation</p>
         <h2 class="text-2xl lg:text-3xl font-medium text-slate-900 dark:text-white tracking-[-0.03em] mb-8">
-          Degrees Received
+          University education
         </h2>
 
-        <div class="full-width-panel scroll-anim anim-academic-panel">
+        <div class="full-width-panel scroll-anim anim-academic-panel education-degree-panel">
           <div class="card-accent-bar accent-bar-blue anim-accent-expand"></div>
           <div class="flex flex-col md:flex-row gap-6 lg:gap-8 items-start">
             <!-- Left: SWU Official English Emblem -->
@@ -117,7 +118,7 @@
                 <h3 class="text-xl lg:text-2xl font-medium text-slate-900 dark:text-white tracking-tight">Bachelor of Engineering (B.Eng.) in Computer Engineering</h3>
                 <span class="card-date-badge self-start sm:self-center">
                   <i class="far fa-calendar-alt text-xs opacity-70"></i>
-                  2022 &ndash; 2026 (Expected Graduation)
+                  Expected graduation · 2026
                 </span>
               </div>
               
@@ -130,7 +131,8 @@
               </p>
 
               <!-- Core Coursework Matrix -->
-              <div class="flex flex-wrap gap-2 mb-6">
+              <p class="education-detail-label">Selected coursework</p>
+              <div class="flex flex-wrap gap-2 mb-6 education-coursework">
                 <span class="tech-pill-lg">Machine Learning</span>
                 <span class="tech-pill-lg">Advanced Database Systems</span>
                 <span class="tech-pill-lg">Probability &amp; Statistics</span>
@@ -140,14 +142,10 @@
                 <span class="tech-pill-lg">Computer Networks</span>
               </div>
 
-              <div class="impact-list mb-6">
+              <div class="impact-list mb-6 education-focus">
                 <div class="impact-item">
                   <span class="impact-chip impact-chip-blue"><i class="fas fa-chevron-right"></i></span>
                   <p class="leading-relaxed text-base text-slate-600 dark:text-zinc-300 mb-0"><strong class="text-slate-900 dark:text-white font-semibold">Applied Research Focus:</strong> Architecting regulatory-defensible Probability of Default (PD) credit scorecards with TreeSHAP Shapley decompositions and counterfactual recourse under Basel II/III and ECOA compliance.</p>
-                </div>
-                <div class="impact-item">
-                  <span class="impact-chip impact-chip-blue"><i class="fas fa-chevron-right"></i></span>
-                  <p class="leading-relaxed text-base text-slate-600 dark:text-zinc-300 mb-0"><strong class="text-slate-900 dark:text-white font-semibold">Engineering Leadership:</strong> Track 2 Data Science &amp; Intelligence Lead for FlowSense &amp; TrustGraph at KBTG Kampus Hackathon 2026 (advanced to the next round; not yet in the Final round); National Finalist at Aihack Thailand 2025.</p>
                 </div>
               </div>
 
@@ -161,21 +159,15 @@
       </div>
 
       <!-- 3. Academic Scholarships & Corporate Grants -->
-      <div class="max-w-6xl mx-auto px-6 lg:px-8 mb-24 lg:mb-32">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8 mb-24 lg:mb-32 education-block" id="scholarship">
         <div class="mb-10">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="card-domain-badge badge-rose"><i class="fas fa-graduation-cap text-xs"></i> SCHOLARSHIPS &amp; GRANTS</span>
-            <span class="card-domain-badge badge-blue"><i class="fas fa-handshake text-xs"></i> CORPORATE SPONSORSHIP</span>
-          </div>
+          <p class="education-section-index">02 / Awarded support</p>
           <h2 class="text-2xl lg:text-3xl font-medium text-slate-900 dark:text-white tracking-[-0.03em] mb-3">
-            Academic Scholarships &amp; Honors
+            Undergraduate scholarship
           </h2>
-          <p class="text-slate-600 dark:text-zinc-400 text-base lg:text-lg leading-relaxed max-w-3xl mb-0">
-            Competitive corporate academic sponsorships and engineering grants awarded on the basis of scholastic excellence, verified university standing, and future industrial leadership.
-          </p>
         </div>
 
-        <div class="full-width-panel scroll-anim anim-academic-panel">
+        <div class="full-width-panel scroll-anim anim-academic-panel education-scholarship-panel">
           <div class="card-accent-bar accent-bar-rose anim-accent-expand"></div>
           
           <div class="flex flex-col md:flex-row gap-6 lg:gap-8 items-start">
@@ -192,7 +184,7 @@
                 </h3>
                 <span class="card-date-badge self-start sm:self-center">
                   <i class="far fa-calendar-alt text-xs opacity-70"></i>
-                  Academic Year 2026 &ndash; 2029
+                  Awarded · 2026
                 </span>
               </div>
 
@@ -201,18 +193,18 @@
               </div>
 
               <!-- Highlight Metric Strip -->
-              <div class="kpi-metric-strip kpi-strip-rose anim-kpi-glow">
+              <div class="kpi-metric-strip kpi-strip-rose anim-kpi-glow education-scholarship-facts">
                 <span class="kpi-icon-badge"><i class="fas fa-coins"></i></span>
                 <span>30,000 THB / Year</span>
                 <span class="kpi-divider">&bull;</span>
                 <span class="kpi-icon-badge"><i class="fas fa-user-graduate"></i></span>
-                <span>Continuing Grant Through Year 4 Graduation</span>
+                <span>Continuing undergraduate grant</span>
                 <span class="kpi-divider">&bull;</span>
                 <span class="kpi-icon-badge"><i class="fas fa-calendar-check"></i></span>
-                <span>Conferred: Sept 25, 2026</span>
+                <span>Conferred · 25 Sep 2026</span>
                 <span class="kpi-divider">&bull;</span>
                 <span class="kpi-icon-badge"><i class="fas fa-briefcase"></i></span>
-                <span>2-Month Summer Industrial Internship</span>
+                <span>2-month summer internship</span>
               </div>
 
               <p class="text-base text-slate-600 dark:text-zinc-300 leading-relaxed mb-5">
@@ -220,7 +212,7 @@
               </p>
 
               <!-- Impact List -->
-              <div class="impact-list mb-6">
+              <div class="impact-list mb-6 education-scholarship-details">
                 <div class="impact-item">
                   <span class="impact-chip impact-chip-rose"><i class="fas fa-chevron-right"></i></span>
                   <p class="leading-relaxed text-base text-slate-600 dark:text-zinc-300 mb-0">
@@ -266,18 +258,19 @@
       </div>
 
       <!-- 4. Standardized Assessment Feature Panels -->
-      <div class="max-w-6xl mx-auto px-6 lg:px-8 mb-24 lg:mb-32">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8 mb-24 lg:mb-32 education-block" id="assessments">
 
         <div class="mb-14 lg:mb-20">
+          <p class="education-section-index">03 / External assessment</p>
           <h2 class="text-2xl lg:text-3xl font-medium text-slate-900 dark:text-white tracking-[-0.03em] mb-3">
-            Verified Industry Credentials &amp; Assessments
+            Assessed skills
           </h2>
           <p class="text-slate-600 dark:text-zinc-400 text-base lg:text-lg leading-relaxed max-w-3xl mb-0">
-            Standardized quantitative assessments certified by Kasikorn Business-Technology Group (KBTG) and Oxford University Press. Completely transparent competency breakdowns and scoring benchmarks.
+            Score reports from KBTG STAMP and the Oxford Placement Test. Open each source document to see the original result.
           </p>
         </div>
 
-        <div class="space-y-16 lg:space-y-24">
+        <div class="education-assessments-grid">
           <!-- Panel 1: KBTG Data Analyst Track -->
           <div class="assessment-card-panel scroll-anim anim-academic-panel">
             <div class="card-accent-bar accent-bar-emerald anim-accent-expand"></div>
@@ -309,7 +302,7 @@
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                   </svg>
-                  <span>View Official Score Report (PDF)</span>
+                  <span>View original score report</span>
                 </a>
               </div>
 
@@ -405,7 +398,7 @@
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                   </svg>
-                  <span>View Official Score Report (PDF)</span>
+                  <span>View original score report</span>
                 </a>
               </div>
 
@@ -543,47 +536,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ====================================================================
-           Featured Competition Banner: Aihack Thailand 2025
-           ==================================================================== -->
-      <div class="max-w-6xl mx-auto px-6 lg:px-8 mb-24 lg:mb-32">
-        <div class="full-width-panel scroll-anim anim-academic-panel">
-          <div class="card-accent-bar accent-bar-amber anim-accent-expand"></div>
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <!-- Left Info (lg:col-span-8) -->
-            <div class="lg:col-span-8">
-              <div class="flex items-center gap-2 mb-2">
-                <span class="card-domain-badge badge-blue">AIRA &amp; AIFUL</span>
-                <span class="card-domain-badge badge-amber">National Finalist</span>
-              </div>
-              <h3 class="text-2xl lg:text-3xl font-medium text-slate-900 dark:text-white tracking-tight mb-1">
-                Aihack Thailand 2025 &bull; National Finalist Tier
-              </h3>
-              <div class="text-sm font-medium text-slate-500 dark:text-zinc-400 mb-3">
-                Chulalongkorn Business School &bull; ProbSpace
-              </div>
-              <p class="text-slate-600 dark:text-zinc-300 text-base lg:text-lg leading-relaxed mb-0">
-                Consumer lending credit default prediction under severe 1:12 class imbalance evaluated across ~40,000 real records. Architected gradient boosted decision trees (LightGBM, CatBoost, XGBoost) with Bayesian hyperparameter optimization and custom asymmetric cost matrices.
-              </p>
-            </div>
-
-            <!-- Right Metric & Action (lg:col-span-4) -->
-            <div class="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-4 border-t lg:border-t-0 lg:border-l border-slate-100 dark:border-zinc-800 pt-4 lg:pt-0 lg:pl-6">
-              <div class="kpi-metric-strip kpi-strip-amber">
-                <span class="kpi-icon-badge"><i class="fas fa-trophy"></i></span>
-                <span>0.894 ROC-AUC</span>
-                <span class="kpi-divider">&bull;</span>
-                <span>National Finalist</span>
-              </div>
-              <a href="assets/aihack_thailand_2025_certificate.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-none border border-slate-300 dark:border-zinc-700 hover:bg-slate-50 dark:hover:bg-zinc-800 text-slate-800 dark:text-zinc-200 text-sm font-semibold transition-colors w-full sm:w-auto">
-                <i class="fas fa-file-pdf"></i>
-                <span>View AIFUL Certificate (PDF)</span>
-              </a>
             </div>
           </div>
         </div>

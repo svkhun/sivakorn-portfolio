@@ -8211,3 +8211,262 @@ main.page-entered {
 
 
 
+
+/* Education: a compact editorial sequence instead of repeating full-width cards. */
+#education-header.education-hero {
+  min-height: min(76vh, 700px);
+  padding-block: clamp(3rem, 8vw, 7rem);
+  border-bottom: 1px solid #e5eaf0;
+}
+
+#education-header.education-hero .hero-display {
+  max-width: 850px;
+  font-size: clamp(2.9rem, 5.5vw, 5.5rem);
+  line-height: 1.03;
+}
+
+#education-header.education-hero .hero-display .text-accent-brand {
+  white-space: normal;
+}
+
+.education-jump-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin-top: 2rem;
+}
+
+.education-jump-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .75rem 1rem;
+  border: 1px solid #d9e2ef;
+  color: #26384f;
+  background: #fff;
+  font: 500 .82rem 'Geist Mono', var(--font-mono);
+  transition: border-color .25s, color .25s, background .25s, transform .25s;
+}
+
+.education-jump-nav a:hover,
+.education-jump-nav a:focus-visible {
+  color: #005deb;
+  border-color: #367bfa;
+  background: #f2f7ff;
+  transform: translateY(-2px);
+}
+
+#education-content {
+  padding-top: clamp(4rem, 7vw, 7rem);
+}
+
+#education-content .education-block {
+  scroll-margin-top: 7rem;
+  margin-bottom: clamp(5rem, 9vw, 9rem) !important;
+}
+
+#education-content .education-section-index,
+#education-content .education-detail-label {
+  color: #2466ce;
+  font: 600 .72rem 'Geist Mono', var(--font-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+#education-content .education-block > h2,
+#education-content .education-block > div:first-child h2 {
+  font-size: clamp(2rem, 3.3vw, 3.4rem);
+  max-width: 20ch;
+  margin-bottom: clamp(1.5rem, 3vw, 2.75rem);
+}
+
+#education-content .education-degree-panel,
+#education-content .education-scholarship-panel,
+#education-content .education-assessments-grid .assessment-card-panel {
+  background: #fff;
+  border: 1px solid #dce4ee;
+  border-radius: 3px;
+  box-shadow: 0 10px 35px -25px rgba(24, 41, 74, .25);
+}
+
+#education-content .education-degree-panel {
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+#education-content .education-degree-panel > .flex {
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+#education-content .education-degree-panel .swu-seal-box {
+  width: clamp(120px, 13vw, 170px);
+  min-width: clamp(120px, 13vw, 170px);
+  height: clamp(120px, 13vw, 170px);
+  background: #f8fafc;
+  border: 1px solid #e5eaf0;
+  box-shadow: none;
+}
+
+#education-content .education-degree-panel h3,
+#education-content .education-scholarship-panel h3 {
+  font-size: clamp(1.6rem, 2.6vw, 2.55rem);
+  max-width: 24ch;
+}
+
+#education-content .education-degree-panel .card-date-badge,
+#education-content .education-scholarship-panel .card-date-badge {
+  white-space: nowrap;
+}
+
+#education-content .education-coursework {
+  padding-block: .35rem 1.75rem;
+  border-bottom: 1px solid #e8edf4;
+}
+
+#education-content .education-coursework .tech-pill-lg {
+  padding: .55rem .75rem;
+  font-size: .75rem;
+  background: #f5f8fc;
+  border-color: #e3eaf3;
+  box-shadow: none;
+}
+
+#education-content .education-focus {
+  margin: 1.5rem 0 2rem;
+}
+
+#education-content .education-scholarship-panel {
+  border-left: 4px solid #d9394b;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+#education-content .education-scholarship-panel > .flex {
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+#education-content .education-scholarship-panel .nhk-emblem-box {
+  width: clamp(150px, 16vw, 200px);
+  min-width: clamp(150px, 16vw, 200px);
+  background: #fff;
+  border: 1px solid #f0e2e4;
+  box-shadow: none;
+}
+
+#education-content .education-scholarship-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .85rem 1.25rem;
+  margin-block: 1.5rem;
+  padding: 1.25rem;
+  background: #fff7f8;
+  border: 1px solid #f1d8dc;
+  color: #9e2336;
+  box-shadow: none;
+}
+
+#education-content .education-scholarship-facts .kpi-divider {
+  display: none;
+}
+
+#education-content .education-scholarship-facts .kpi-icon-badge {
+  display: none;
+}
+
+#education-content .education-scholarship-facts > span:not(.kpi-divider):not(.kpi-icon-badge) {
+  padding-left: .8rem;
+  border-left: 2px solid #e66c79;
+}
+
+#education-content .education-scholarship-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.5rem;
+  margin-top: 1.75rem;
+}
+
+#education-content .education-scholarship-details .impact-item {
+  align-items: flex-start;
+  margin: 0;
+}
+
+#education-content .education-assessments-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+#education-content .education-assessments-grid .assessment-card-panel {
+  margin: 0 !important;
+  padding: clamp(1.4rem, 3vw, 2.5rem);
+}
+
+#education-content .education-assessments-grid .assessment-card-panel:first-child {
+  grid-column: 1 / -1;
+}
+
+#education-content .education-assessments-grid .assessment-card-panel:not(:first-child) > .grid {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+#education-content .education-assessments-grid .assessment-card-panel:not(:first-child) > .grid > div {
+  width: 100%;
+  padding-left: 0;
+  border-left: 0;
+}
+
+#education-content .education-assessments-grid .assessment-card-panel:not(:first-child) > .grid > div + div {
+  border-top: 1px solid #e8edf4;
+  padding-top: 1.4rem;
+}
+
+#education-content .assessment-card-panel .stat-number {
+  font-size: clamp(2.8rem, 4vw, 4.4rem) !important;
+}
+
+#education-content .assessment-card-panel .stat-denom {
+  font-size: .48em;
+}
+
+#education-content .assessment-card-panel .anim-bar-sweep-fill {
+  height: 5px;
+}
+
+#education-content .assessment-card-panel .h-2 {
+  height: 5px;
+}
+
+#education-content .competitive-card {
+  background: transparent;
+  box-shadow: none;
+  border: 1px solid #dce4ee;
+  padding: 1.25rem;
+}
+
+html.dark #education-header.education-hero { border-color: #282e39; }
+html.dark .education-jump-nav a { background: #191c23; border-color: #343d4b; color: #e3e9f3; }
+html.dark #education-content .education-degree-panel,
+html.dark #education-content .education-scholarship-panel,
+html.dark #education-content .education-assessments-grid .assessment-card-panel { background: #15181e; border-color: #343a45; }
+html.dark #education-content .education-degree-panel .swu-seal-box,
+html.dark #education-content .education-scholarship-panel .nhk-emblem-box { background: #fff; }
+html.dark #education-content .education-coursework,
+html.dark #education-content .education-assessments-grid .assessment-card-panel:not(:first-child) > .grid > div + div { border-color: #303743; }
+html.dark #education-content .education-coursework .tech-pill-lg { background: #202630; border-color: #343d4b; }
+html.dark #education-content .education-scholarship-facts { background: #2b1a20; border-color: #62313a; color: #ffb0bd; }
+html.dark #education-content .competitive-card { border-color: #343a45; }
+
+@media (max-width: 767px) {
+  #education-header.education-hero { min-height: auto; padding-block: 4.5rem 3.5rem; }
+  #education-header.education-hero .hero-display { font-size: clamp(2.6rem, 10vw, 4.2rem); }
+  #education-content .education-degree-panel .swu-seal-box,
+  #education-content .education-scholarship-panel .nhk-emblem-box { width: 120px; min-width: 120px; }
+  #education-content .education-scholarship-details,
+  #education-content .education-assessments-grid { grid-template-columns: 1fr; }
+  #education-content .education-assessments-grid .assessment-card-panel:first-child { grid-column: auto; }
+  #education-content .education-assessments-grid .assessment-card-panel > .grid { display: flex; flex-direction: column; }
+  #education-content .education-assessments-grid .assessment-card-panel > .grid > div { width: 100%; padding-left: 0; border-left: 0; }
+  #education-content .education-scholarship-facts { grid-template-columns: 1fr; }
+}
+

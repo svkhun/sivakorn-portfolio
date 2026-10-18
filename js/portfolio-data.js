@@ -120,7 +120,7 @@ const portfolioData = {
         descriptions: [
           "Curriculum Specialization: Statistical Machine Learning, Advanced Database Systems (RDBMS & Distributed Data), Operating Systems, Probability & Mathematical Statistics, Data Structures & Algorithms, Distributed Systems.",
           "Applied Research Focus: Architecting regulatory-defensible Probability of Default (PD) credit scorecards with TreeSHAP and counterfactual recourse under Basel II/III and ECOA standards.",
-          "Faculty of Engineering: Active engineering leadership in data science hackathons, automated data mart architectures, and quantitative finance models."
+          "Faculty of Engineering: Applied coursework spanning statistical modeling, database architecture, and quantitative systems."
         ],
         websiteLink: "https://swu.ac.th"
       }
@@ -176,18 +176,6 @@ const portfolioData = {
         certificateImage: "assets/20260621 Sivakorn Khundilokrattaya.pdf",
         skillsCovered: "Grammar & Use of English (54/B1), Listening Comprehension (48/B1)",
         colorCode: "#002147"
-      },
-      {
-        title: "Aihack Thailand 2025 National Finalist",
-        subtitle: "Non-Performing Loan & Long Overdue Debtor Risk Modeling",
-        issuer: "AIRA & AIFUL, Chulalongkorn Business School & ProbSpace",
-        issueDate: "December 2025",
-        score: "0.894 ROC-AUC (~40,000 credit records)",
-        benchmark: "National Finalist Tier",
-        status: "Verified National Finalist",
-        certificateImage: "assets/aihack_thailand_2025_certificate.pdf",
-        skillsCovered: "Default Risk Modeling, Optuna Optimization, Asymmetric Cost Matrix, LightGBM/XGBoost/CatBoost Ensemble",
-        colorCode: "#DC2626"
       }
     ],
     competitiveSites: [
