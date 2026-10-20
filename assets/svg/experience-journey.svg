@@ -47,7 +47,7 @@
   <circle cx="357" cy="183" r="7" fill="#0769cb"/>
   <g filter="url(#float-shadow)"><rect x="282" y="212" width="205" height="67" rx="10" fill="#fff" stroke="#dbe5ef"/></g>
   <path d="M292 213h4v65h-4a10 10 0 0 1-10-10v-45a10 10 0 0 1 10-10Z" fill="#0769cb"/>
-  <text x="309" y="231" fill="#0759bf" font-family="Geist Mono, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing=".8">2026 / TRACK 2 LEAD</text>
+  <text x="309" y="231" fill="#0759bf" font-family="Geist Mono, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing=".8">2026 / FINALIST</text>
   <text x="309" y="254" fill="#19263b" font-family="Geist, Arial, sans-serif" font-size="17" font-weight="600">KBTG Kampus</text>
   <text x="309" y="271" fill="#617188" font-family="Geist, Arial, sans-serif" font-size="11">FlowSense &amp; TrustGraph</text>
 

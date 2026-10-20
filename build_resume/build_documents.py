@@ -363,11 +363,11 @@ cv_html_content = f"""<!DOCTYPE html>
               <span class="text-xs text-right whitespace-nowrap ml-2">2026</span>
             </div>
             <div class="flex items-baseline justify-between mb-0.5">
-              <span class="italic text-xs">Kasikorn Business-Technology Group (KBTG) &bull; Status: Advanced to Next Round</span>
+              <span class="italic text-xs">Kasikorn Business-Technology Group (KBTG) &bull; Status: Finalist</span>
               <span class="italic text-xs text-right whitespace-nowrap">Bangkok, Thailand</span>
             </div>
             <ul class="resume-list text-xs">
-              <li>Led the FlowSense and TrustGraph concept prototype; advanced to the next round. The work is independent of KBank/KBTG production systems and uses synthetic demonstration data.</li>
+              <li>Led the FlowSense and TrustGraph concept prototype; reached the final round. The work is independent of KBank/KBTG production systems and uses synthetic demonstration data.</li>
               <li>Combined precomputed R-GCN features and ONNX scoring with explainable review steps. The local latency result is a prototype benchmark; fraud reduction and deposit impact have not been validated.</li>
             </ul>
           </div>
@@ -822,11 +822,11 @@ res_html_content = f"""<!DOCTYPE html>
               <span class="text-[10.5px] text-right whitespace-nowrap ml-2">2026</span>
             </div>
             <div class="flex items-baseline justify-between">
-              <span class="italic text-[10.5px]">Kasikorn Business-Technology Group (KBTG) &bull; Status: Advanced to Next Round</span>
+              <span class="italic text-[10.5px]">Kasikorn Business-Technology Group (KBTG) &bull; Status: Finalist</span>
               <span class="italic text-[10.5px] text-right whitespace-nowrap">Bangkok, Thailand</span>
             </div>
             <ul class="resume-list text-[10.5px]">
-              <li>Led the FlowSense and TrustGraph concept prototype with synthetic data; advanced to the next round. Model quality and business impact require further validation.</li>
+              <li>Led the FlowSense and TrustGraph concept prototype with synthetic data; reached the final round. Model quality and business impact require further validation.</li>
             </ul>
           </div>
 

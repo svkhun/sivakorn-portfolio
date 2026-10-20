@@ -64,7 +64,7 @@ The portfolio is architected following the clean, structured, and developer-focu
 
 ### 1. FlowSense & TrustGraph (K PLUS for First Jobbers)
 * **Context**: **KBTG Kampus Hackathon 2026 — Track 2: Data Science & Intelligence**.
-* **Progress**: **Advanced to the next round; not yet in the Final round**.
+* **Progress**: **Finalist**.
 * **Case Study**: [Deep Dive](https://svkhun.vercel.app/project-flowsense-trustgraph) &bull; **Live Demo**: [FlowSense & TrustGraph](https://k-flowsense-trustgraph.onrender.com/) &bull; **Repository**: [Source Code](https://github.com/svkhun/k-flowsense-trustgraph)
 * **FlowSense**: LightGBM 30-day liquidity forecasting, Status Horizon, warnings for at-risk commitments, and micro-sweeps with 1-Tap Undo.
 * **TrustGraph**: Precomputed 16D R-GCN embeddings, LightGBM/ONNX transfer scoring, direct recipient-risk explanations, and a targeted Micro-Auth flow.
@@ -163,7 +163,7 @@ The portfolio is architected following the clean, structured, and developer-focu
 | Competition / Hackathon | Organization / Hosts | Role & Focus | Timeline |
 | :--- | :--- | :--- | :--- |
 | **Shopee Ultimate Case Challenge 2026** | Shopee | **Lead Data Scientist & Product Architect** &bull; Smart COD Reliability prototype | 2026 |
-| **KBTG Kampus Hackathon 2026** | Kasikorn Business-Technology Group (KBTG) | **Track 2: Data Science & Intelligence Lead** &bull; FlowSense & TrustGraph &bull; **Advanced to the next round; not yet in the Final round** | 2026 |
+| **KBTG Kampus Hackathon 2026** | Kasikorn Business-Technology Group (KBTG) | **Track 2: Data Science & Intelligence Lead** &bull; FlowSense & TrustGraph &bull; **Finalist** | 2026 |
 | **CDG Hackathon 2026** | CDG Group | Operational AI & System Reliability (Team GrandGuardianAI) | Jul 2026 |
 | **Geospatial Intelligence for Resilience Hackathon 2026** | GISTDA &bull; KMITL &bull; KMUTT | Spatial Lead &bull; 30m Grid Flash Flood Mapping via Sentinel-1 SAR & Copernicus DEM | Jan 2026 |
 | **True Innovation Launchpad 2026** | True Corporation | AI & Data Science Lead &bull; Preventive Healthcare & Clinical Frailty Scoring (GuardianAI) | Jan 2026 |

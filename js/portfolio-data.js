@@ -222,7 +222,7 @@ const portfolioData = {
     {
       role: "Track 2 Lead: Data Science & Intelligence",
       company: "KBTG Kampus Hackathon 2026",
-      status: "Advanced to the next round in Track 2",
+      status: "Finalist in Track 2",
       organization: "Kasikorn Business-Technology Group (KBTG)",
       duration: "2026",
       location: "Bangkok, Thailand",
@@ -333,7 +333,7 @@ const portfolioData = {
       id: "k-flowsense-trustgraph",
       title: "FlowSense & TrustGraph (Independent Banking Concept)",
       domain: "Real-Time Graph Fraud Defense & Mobile Cashflow Intelligence",
-      context: "KBTG Kampus Hackathon 2026 — Advanced to the next round; not yet in the Final round",
+      context: "KBTG Kampus Hackathon 2026 — Finalist, Track 2: Data Science & Intelligence",
       caseStudyLink: "project-flowsense-trustgraph.html",
       description: "FlowSense offers a spending outlook, accounts for bills and a chosen reserve, and offers user-triggered saving within safe-to-save capacity plus standard withdrawals. TrustGraph uses precomputed R-GCN features and ONNX scoring to review transfers and explain recipient risk. This is an independent prototype using synthetic data.",
       keyMetric: "Bill-Aware Planning &bull; Opt-In Saving &bull; Pre-Transfer Risk Review",
