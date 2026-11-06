@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>FlowSense &amp; TrustGraph Case Study | Sivakorn Khundilokrattaya</title>
-  <meta name="description" content="FlowSense &amp; TrustGraph: cashflow forecasting and graph-based fraud screening. KBTG Kampus Hackathon 2026 Finalist, Track 2: Data Science &amp; Intelligence.">
+  <title>K-NEXUS · FlowSense &amp; TrustGraph Case Study | Sivakorn Khundilokrattaya</title>
+  <meta name="description" content="K-NEXUS: independent synthetic financial planning and transaction-risk prototype. FlowSense ML disabled; saved experiments and baseline comparisons documented.">
   <link rel="canonical" href="https://svkhun.vercel.app/project-flowsense-trustgraph">
 
         <!-- Favicon & Web App Icons -->
@@ -74,97 +74,36 @@
         <nav class="case-breadcrumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a><span class="case-breadcrumb-sep">/</span>
           <a href="projects.html">Projects</a><span class="case-breadcrumb-sep">/</span>
-          <span class="case-breadcrumb-current">FlowSense &amp; TrustGraph</span>
+          <span class="case-breadcrumb-current">K-NEXUS · FlowSense &amp; TrustGraph</span>
         </nav>
         <header class="case-hero-airy">
           <span class="case-section-num-tag">KBTG Kampus Hackathon 2026 &bull; Track 2</span>
-          <h1 class="hero-display mb-6"><span>FlowSense &amp;</span><br><span class="text-accent-brand">TrustGraph</span></h1>
-          <p class="case-lead-airy">An independent banking concept prototype combining cashflow planning, optional saving, and graph-based risk review before a transfer.</p>
+          <h1 class="hero-display mb-6"><span>K-NEXUS</span><br><span class="text-accent-brand">FlowSense &amp; TrustGraph</span></h1>
+          <p class="case-lead-airy">An independent team prototype combining explainable spending plans and recipient-risk review. All financial data, transfers, and authentication are simulated.</p>
           <div class="kpi-metric-strip kpi-strip-emerald">
             <span class="kpi-icon-badge"><i class="fas fa-arrow-up" aria-hidden="true"></i></span>
             <span class="case-progress-text">Finalist &bull; Track 2: Data Science &amp; Intelligence</span>
           </div>
           <div class="flex flex-wrap items-center gap-3 pt-2">
             <a href="https://k-nexus-app.onrender.com/" target="_blank" rel="noopener noreferrer" class="primary-cta inline-flex items-center gap-2"><i class="fas fa-bolt text-xs" aria-hidden="true"></i><span>Launch Live Prototype</span></a>
-            <a href="https://github.com/svkhun/k-nexus" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-none text-xs font-mono border border-border bg-subtle hover:bg-surface text-primary transition-colors"><i class="fab fa-github" aria-hidden="true"></i><span>View Source Code</span></a>
+            <a href="https://github.com/svkhun/K-NEXUS-Application" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-none text-xs font-mono border border-border bg-subtle hover:bg-surface text-primary transition-colors"><i class="fab fa-github" aria-hidden="true"></i><span>Application Source</span></a>
           </div>
         </header>
 
-        <div class="case-thesis-quote">Help young professionals understand their next month of cashflow, build accessible savings, and make informed decisions before sending money.</div>
+<div class="case-thesis-quote">Understand the basis of a spending plan, then review recipient risk before a simulated transfer.</div>
 
-        <section class="case-section-airy">
-          <span class="case-section-num-tag">01 // Problem &amp; Product Direction</span>
-          <h2 class="case-section-heading">Financial confidence between paydays</h2>
-          <div class="case-body-airy">
-            <p>Designed for first jobbers with recurring bills and frequent mobile payments, the prototype addresses two connected needs: knowing whether money will last until payday, and understanding recipient risk before a transfer.</p>
-            <p><strong>My role:</strong> Data Science &amp; Intelligence Lead for Track 2, connecting cashflow forecasting and relational fraud features to a React experience and FastAPI inference service.</p>
-          </div>
-        </section>
+        <section class="case-section-airy"><span class="case-section-num-tag">01 // Problem &amp; Team Contribution</span><h2 class="case-section-heading">Financial decisions need context</h2><div class="case-body-airy"><p>K-NEXUS explores two questions for first jobbers: what remains after bills and a chosen reserve, and what deserves review before sending money. It is an independent hackathon-context prototype, not an official KBank/KBTG product or an endorsed banking service.</p><p><strong>Recorded role:</strong> Track 2 Data Science &amp; Intelligence Lead. Implementation is described here as team work where individual component ownership is not separately established by the inspected sources.</p></div></section>
 
-        <section class="case-section-airy">
-          <span class="case-section-num-tag">02 // FlowSense</span>
-          <h2 class="case-section-heading">Save with a clear view of upcoming commitments</h2>
-          <div class="case-architecture-box my-8">
-            <div class="case-pipeline-flow case-pipeline-three">
-              <div class="case-pipeline-step"><span class="case-pipeline-num">01 &bull; Forecast</span><h3 class="case-pipeline-title">Status Horizon</h3><p class="case-pipeline-desc">LightGBM estimates near-term spending from cashflow history and rolling features; planning rules then account for recurring commitments.</p></div>
-              <div class="case-pipeline-step"><span class="case-pipeline-num">02 &bull; Save</span><h3 class="case-pipeline-title">Safe-to-Save</h3><p class="case-pipeline-desc">Calculate available capacity after bills, living costs, and the user's chosen reserve. Saving starts only after opt-in and a user-requested action.</p></div>
-              <div class="case-pipeline-step"><span class="case-pipeline-num">03 &bull; Withdraw</span><h3 class="case-pipeline-title">Standard Withdrawal</h3><p class="case-pipeline-desc">Move a selected amount, or the full savings balance, back to the main account without a special emergency flow.</p></div>
-            </div>
-          </div>
-          <div class="case-body-airy"><p>Commitment warnings focus on projected shortfalls for fixed payments. Normal balance dips are suppressed to reduce unnecessary alerts. The prototype also lets users preview how a different daily budget or emergency reserve would affect their plan.</p></div>
-        </section>
+        <section class="case-section-airy"><span class="case-section-num-tag">02 // FlowSense · Application Baseline</span><h2 class="case-section-heading">An explainable plan, with ML disabled</h2><div class="case-body-airy"><p>The documented Application uses <strong>HISTORY_MEAN → SCENARIO → ABSTAIN</strong>. It averages non-bill spending when at least seven complete, known days exist in a 28-day window. A known zero-spending day counts; missing and partial days do not become zero.</p><p>Without sufficient history, a valid versioned scenario can supply the spending basis. Default synthetic non-bill assumptions are 350 / 600 / 300 THB per day for the three personas. Without history or a valid scenario, the system abstains. These are assumptions, not measured customer spending.</p><p>Bills, reserves, the spending outlook, simulated saving capacity, and transfer review share this basis. Savings require opt-in and a user action; standard simulated withdrawals remain available. <strong>FlowSense ML remains disabled.</strong> A baseline projection is not a validated 30-day ML forecast.</p></div></section>
 
-        <section class="case-section-airy">
-          <span class="case-section-num-tag">03 // TrustGraph</span>
-          <h2 class="case-section-heading">Screen recipient risk before the transfer</h2>
-          <div class="case-body-airy">
-            <p><strong>Routine transfer:</strong> Known or low-risk recipients follow the baseline path without an additional confirmation step.</p>
-            <p><strong>Critical anomaly:</strong> Suspicious recipient patterns open a risk review with plain-language reasons, an optional 15-minute reflection period, and official bank contact options in the simulated flow.</p>
-            <p><strong>User decision:</strong> The prototype separates routine, risky, and blocked recipients. The interface explains signals such as a newly opened recipient account and rapid pass-through transactions before any eligible confirmation.</p>
-          </div>
-          <div class="case-architecture-box my-8">
-            <div class="case-pipeline-flow case-pipeline-three">
-              <div class="case-pipeline-step"><span class="case-pipeline-num">Offline</span><h3 class="case-pipeline-title">R-GCN Embeddings</h3><p class="case-pipeline-desc">PyTorch Geometric learns 16-dimensional account representations from relationships in the transaction graph.</p></div>
-              <div class="case-pipeline-step"><span class="case-pipeline-num">Online</span><h3 class="case-pipeline-title">ONNX Scoring</h3><p class="case-pipeline-desc">FastAPI combines precomputed graph features with transfer data for LightGBM inference through ONNX Runtime.</p></div>
-              <div class="case-pipeline-step"><span class="case-pipeline-num">Experience</span><h3 class="case-pipeline-title">Explain &amp; Review</h3><p class="case-pipeline-desc">React presents the risk reason and the appropriate next step. Server rules govern the review path in the prototype.</p></div>
-            </div>
-          </div>
-        </section>
+        <section class="case-section-airy"><span class="case-section-num-tag">03 // TrustGraph · Implementation</span><h2 class="case-section-heading">Stored graph context, classifier, and separate policy</h2><div class="case-body-airy"><p>The research pipeline builds a past-only transaction graph using channel and reverse-channel relations. Node inputs come from past degree and transferred amounts. A self-supervised R-GCN produces 16-dimensional account embeddings without reading timeless mule labels.</p><p>The Application combines stored recipient embeddings with transaction telemetry and authentication features for LightGBM inference through ONNX Runtime. The GNN is computed offline rather than on every request. An unknown recipient can lack graph context; missing context does not mean safe.</p><p>Model scores are distinct from synthetic blacklist and review policies. Eligible risky scenarios use a cooldown and simulated authentication; a policy block is not evidence that the model intercepted a real scam. Authentication and all transfers remain simulated.</p></div></section>
 
-        <section class="case-section-airy">
-          <span class="case-section-num-tag">04 // Prototype Evidence</span>
-          <h2 class="case-section-heading">Reported latency &amp; implementation scope</h2>
-          <div class="case-body-airy"><p>The project README reports the following timings from 200 consecutive evaluation cycles, against an 80ms design target. These are prototype benchmarks; results depend on the test environment.</p></div>
-          <div class="case-table-wrap">
-            <table class="case-benchmark-table">
-              <caption class="text-sm text-secondary mb-4">Latency figures reported in the FlowSense &amp; TrustGraph project</caption>
-              <thead><tr><th scope="col">Evaluation</th><th scope="col">Reported latency</th><th scope="col">Scope</th></tr></thead>
-              <tbody>
-                <tr><td>Transfer evaluation &bull; P50</td><td><strong>3.85ms</strong></td><td>Prototype benchmark</td></tr>
-                <tr><td>Transfer evaluation &bull; P95</td><td><strong>5.11ms</strong></td><td>Prototype benchmark</td></tr>
-                <tr><td>Transfer evaluation &bull; P99</td><td><strong>11.62ms</strong></td><td>Prototype benchmark</td></tr>
-                <tr><td>ONNX model execution</td><td><strong>0.27ms</strong></td><td>Core model only</td></tr>
-                <tr><td>FlowSense forecast calculation</td><td><strong>10.29ms</strong></td><td>Local prototype evaluation</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="case-body-airy">
-            <p><strong>Working prototype:</strong> React 18, React Router, Vite, Tailwind CSS, FastAPI, LightGBM, PyTorch Geometric, and ONNX Runtime. The repository includes synthetic datasets, model training and export scripts, a banking simulator, and dataset analytics. Savings actions are opt-in and user-triggered; standard withdrawals are available.</p>
-            <p><strong>Evidence limit:</strong> TrustGraph's existing training graph uses the scam label when defining an edge type before data splitting. Its reported classification scores cannot establish predictive accuracy. The model needs leakage-safe, time-based evaluation before any real-world claim.</p>
-            <p><strong>Scaling blueprint:</strong> The architecture describes Kafka event ingestion, a Feast feature store, and Triton serving. Distributed streaming and feature storage are represented by prototype simulations.</p>
-          </div>
-        </section>
+        <section class="case-section-airy"><span class="case-section-num-tag">04 // Saved Evaluation</span><h2 class="case-section-heading">The baseline comparison matters</h2><div class="case-body-airy"><p>The following figures are read from saved synthetic research artifacts; this portfolio update did not train or re-evaluate models.</p><div class="case-table-wrap"><table class="case-benchmark-table"><caption class="text-sm text-secondary mb-4">TrustGraph · synthetic temporal test · 1,354 transactions / 67 positives</caption><thead><tr><th scope="col">Model</th><th scope="col">Test average precision</th><th scope="col">Interpretation</th></tr></thead><tbody><tr><td>No-GNN baseline</td><td>0.99640</td><td>Higher on this saved test</td></tr><tr><td>R-GCN + LightGBM</td><td>0.99373</td><td>No demonstrated GNN advantage</td></tr></tbody></table></div><p>Graph context precedes classifier training; validation and test are chronological, with assumed 24-hour label availability. The threshold was fixed at 0.5 before evaluation. The revised pipeline addresses earlier label-leakage issues, but these synthetic scores do not establish real-world detection or calibrated risk for bank customers.</p><div class="case-table-wrap"><table class="case-benchmark-table"><caption class="text-sm text-secondary mb-4">FlowSense Gate 2 · paired cumulative MAE, THB/account-origin · lower is better</caption><thead><tr><th scope="col">Horizon</th><th scope="col">Paired origins</th><th scope="col">Candidate</th><th scope="col">Account mean</th></tr></thead><tbody><tr><td>1 day</td><td>1,419</td><td>73.83</td><td>78.27</td></tr><tr><td>7 days</td><td>1,173</td><td>567.29</td><td>148.48</td></tr><tr><td>14 days</td><td>1,139</td><td>1,212.74</td><td>199.87</td></tr><tr><td>30 days</td><td>1,121</td><td>2,701.63</td><td>313.32</td></tr></tbody></table></div><p>The proposed.4 / synthetic v2.1.1 study uses 32 designed accounts and 6,688 origins. The table uses common scored origins; six unmatched candidate origins per horizon are reported separately in the diagnostics. Conditional one-step scores use different denominators and are not interchangeable with this table.</p><p><strong>No horizon passed Gate 2.</strong> Uncertainty crossed zero, clamp-rate requirements failed, and independent risk-group evidence was insufficient. Recursive forecasts worsened. No qualifying export/parity run followed, and ML Gates 3–4 were not opened for this candidate. A separate direct-ML development study reused training/validation data and remains unvalidated for integration.</p></div></section>
 
-        <section class="case-section-airy">
-          <span class="case-section-num-tag">05 // Impact &amp; Current Progress</span>
-          <h2 class="case-section-heading">Progressing through the hackathon</h2>
-          <div class="case-body-airy">
-            <p><strong>Competition status:</strong> Finalist in KBTG Kampus Hackathon 2026, Track 2: Data Science &amp; Intelligence.</p>
-            <p><strong>Business potential:</strong> The project estimates 1.2&ndash;2.0B THB in potential CASA deposit mobilization through flexible micro-savings. This is a projected business scenario, not a realized deposit result.</p>
-            <p><strong>Engineering takeaway:</strong> Precomputed graph representations keep the online scoring path compact, while cashflow warnings and risk explanations connect model outputs to decisions users can understand.</p>
-          </div>
-          <div class="flex flex-wrap gap-2 mt-6"><span class="tech-pill-sm">LightGBM</span><span class="tech-pill-sm">PyTorch Geometric</span><span class="tech-pill-sm">ONNX Runtime</span><span class="tech-pill-sm">FastAPI</span><span class="tech-pill-sm">React 18</span><span class="tech-pill-sm">Vite</span></div>
-        </section>
+        <section class="case-section-airy"><span class="case-section-num-tag">05 // Application, Showcase &amp; Boundaries</span><h2 class="case-section-heading">Keep runtime, research, and outcomes separate</h2><div class="case-body-airy"><p><strong>Application:</strong> React and FastAPI own the synthetic session, bill/reserve/savings rules, model-package loading, and transfer-review workflow. <strong>Showcase:</strong> a separate presentation and research repository owns training, evaluation, and artifact export. Research results are not activated automatically.</p><p>Kafka, Feast, and Triton are proposed scaling components, not established parts of this documented serving path. Earlier local latency figures are not current production SLAs. No realized CASA growth, prevented losses, real-user benefit, or production banking readiness is established.</p><p>The historical 30 October 2026 audit recorded <strong>Ready for demo with limitations</strong>. That is dated release evidence, not a fresh live verification. The local Showcase README and the historical deployed release differ on legacy POST routes; this case does not claim the current live backend is entirely read-only.</p></div></section>
+
+        <section class="case-section-airy"><span class="case-section-num-tag">06 // Sources &amp; Current Scope</span><h2 class="case-section-heading">Inspect the implementation and saved evidence</h2><div class="case-body-airy"><p><a href="https://github.com/svkhun/K-NEXUS-Application" target="_blank" rel="noopener noreferrer">Application repository ↗</a> &bull; <a href="https://github.com/svkhun/K-NEXUS-Showcase" target="_blank" rel="noopener noreferrer">Showcase repository ↗</a> &bull; <a href="https://k-nexus-showcase.onrender.com/" target="_blank" rel="noopener noreferrer">Showcase portal ↗</a></p><p><a href="https://github.com/svkhun/K-NEXUS-Application/blob/46ad6e28c996e74dfd6c41171f7d79f1e17e0f55/src/baseline_policy.py" target="_blank" rel="noopener noreferrer">Pinned Application baseline policy ↗</a> &bull; <a href="docs/k-nexus-content-update-20261106.md">Claim/source record ↗</a> &bull; <a href="docs/k-nexus-source-hashes.json">Reviewed file hashes ↗</a></p><p>Sources reviewed 6 November 2026. Local research artifacts are identified by file hashes; local Git state and current public deployments were not independently reverified. Competition finalist status is retained from the existing portfolio record.</p></div></section>
+
         <div class="case-nav-footer">
           <a href="projects.html" class="case-nav-btn"><span class="case-nav-sub">&larr; Back to Directory</span><span class="case-nav-title">All Case Studies</span></a>
           <a href="project-lod-engine.html" class="case-nav-btn text-right"><span class="case-nav-sub">Next Case Study &rarr;</span><span class="case-nav-title">Long Overdue Debtor (LOD) Engine</span></a>

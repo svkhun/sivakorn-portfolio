@@ -292,16 +292,16 @@ cv_html_content = f"""<!DOCTYPE html>
           <!-- Project 2: FlowSense & TrustGraph -->
           <div class="resume-entry mb-3">
             <div class="flex items-baseline justify-between mb-0.5">
-              <strong class="font-bold text-sm">FlowSense &amp; TrustGraph &ndash; Money Planning &amp; Transfer Risk Review</strong>
+              <strong class="font-bold text-sm">K-NEXUS &ndash; Synthetic Planning &amp; Risk Review</strong>
               <span class="text-xs text-right whitespace-nowrap ml-2">2026</span>
             </div>
             <div class="mb-0.5">
               <span class="italic text-xs">PyTorch Geometric (R-GCN), LightGBM, ONNX Runtime, FastAPI, React 18 &bull; KBTG Kampus Hackathon 2026</span>
             </div>
             <ul class="resume-list text-xs">
-              <li>Built a spending outlook combining LightGBM forecasts with upcoming bills, living costs, and a user-selected reserve to calculate safe-to-save capacity. Saving requires opt-in and a user-triggered action; standard withdrawals remain available.</li>
-              <li>Combined precomputed R-GCN account embeddings with transfer signals for LightGBM/ONNX screening, then surfaced plain-language reasons and a review path before confirmation.</li>
-              <li>Used synthetic data for the demonstration. Documented the need to re-evaluate model quality without label leakage and to validate latency end to end before any banking deployment.</li>
+              <li>Team prototype using a history/scenario/abstention baseline, bills, reserves, and simulated saving. FlowSense ML remains disabled.</li>
+              <li>Stored past-only R-GCN context supports LightGBM/ONNX review. Synthetic no-GNN test AP 0.99640 exceeded graph-model AP 0.99373.</li>
+              <li>FlowSense Gate 2 passed no horizon; direct-ML development is not validated for integration. No real-world fraud prevention or banking SLA is established.</li>
             </ul>
           </div>
 
@@ -367,8 +367,8 @@ cv_html_content = f"""<!DOCTYPE html>
               <span class="italic text-xs text-right whitespace-nowrap">Bangkok, Thailand</span>
             </div>
             <ul class="resume-list text-xs">
-              <li>Led the FlowSense and TrustGraph concept prototype; reached the final round. The work is independent of KBank/KBTG production systems and uses synthetic demonstration data.</li>
-              <li>Combined precomputed R-GCN features and ONNX scoring with explainable review steps. The local latency result is a prototype benchmark; fraud reduction and deposit impact have not been validated.</li>
+              <li>K-NEXUS team project; hackathon finalist. Independent of KBank/KBTG production systems, using synthetic data.</li>
+              <li>Documented baseline planning, graph/classifier comparisons, and simulated review flows. Individual component ownership and real-world impact are not independently established.</li>
             </ul>
           </div>
 
@@ -754,15 +754,15 @@ res_html_content = f"""<!DOCTYPE html>
           <!-- Project 1: FlowSense & TrustGraph -->
           <div class="resume-entry">
             <div class="flex items-baseline justify-between mb-0.5">
-              <strong class="font-bold text-[12px]">FlowSense &amp; TrustGraph &ndash; FinTech Cashflow &amp; Graph Fraud Defense</strong>
+              <strong class="font-bold text-[12px]">K-NEXUS &ndash; Synthetic Planning &amp; Risk Review</strong>
               <span class="text-[10.5px] text-right whitespace-nowrap ml-2">2026</span>
             </div>
             <div class="mb-0.5">
               <span class="italic text-[10.5px]">PyTorch Geometric (R-GCN), LightGBM, ONNX Runtime, FastAPI, React 18 &bull; KBTG Kampus Hackathon 2026</span>
             </div>
             <ul class="resume-list text-[10.5px]">
-              <li>Built a synthetic-data prototype for pre-transfer risk review using precomputed R-GCN features, LightGBM/ONNX scoring, and clear recipient-risk explanations.</li>
-              <li>Combined spending forecasts with bills, living costs, and a chosen reserve; added opt-in, capacity-limited saving and standard savings withdrawals.</li>
+              <li>Team prototype combining a synthetic spending baseline, stored graph context, and ONNX recipient-risk review.</li>
+              <li>FlowSense ML remains disabled; Gate 2 passed no horizon. No real banking or business outcome is claimed.</li>
             </ul>
           </div>
 
@@ -826,7 +826,7 @@ res_html_content = f"""<!DOCTYPE html>
               <span class="italic text-[10.5px] text-right whitespace-nowrap">Bangkok, Thailand</span>
             </div>
             <ul class="resume-list text-[10.5px]">
-              <li>Led the FlowSense and TrustGraph concept prototype with synthetic data; reached the final round. Model quality and business impact require further validation.</li>
+              <li>K-NEXUS team project; hackathon finalist. Synthetic data, FlowSense ML disabled, and research findings reported with baseline comparisons.</li>
             </ul>
           </div>
 

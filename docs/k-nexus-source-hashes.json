@@ -1,0 +1,66 @@
+{
+  "reviewed": "2026-11-06",
+  "scope": "Read-only local evidence; saved experiments not rerun. Historical audit is not a new live check.",
+  "sources": [
+    {
+      "repository": "Application",
+      "path": "src/baseline_policy.py",
+      "sha256": "9423479cd945866b81ca77c1c76948e41abecf00b7fc63a5615d5bf8f8624800"
+    },
+    {
+      "repository": "Application",
+      "path": "src/liquidity_forecast.py",
+      "sha256": "1f5d496e9769d4b1dddc4d3585092ef40e4105e70d00a5acb1919170bfac0a27"
+    },
+    {
+      "repository": "Application",
+      "path": "src/model_package.py",
+      "sha256": "b643a4619d6bb335139700e7a59571be147d25d9bb884c1efa16b32efea14862"
+    },
+    {
+      "repository": "Application",
+      "path": "models/serving.json",
+      "sha256": "acdeac1fa7a3bc7b814afcd0bcb89d0188645b4ee9edf5f1954ff7d30a1c407e"
+    },
+    {
+      "repository": "Application",
+      "path": "config/baseline-personas.v1.json",
+      "sha256": "bd2c09c81d4f8e9705c03f2015ddd969ae99d1be90e5b2279209b792cbdbd2cf"
+    },
+    {
+      "repository": "Application",
+      "path": "docs/final-demo-audit/20261030-0837/FINAL_DEMO_AUDIT_TH.md",
+      "sha256": "a0f165d0722571e8d046d269ce2865534a14cdec80b8a5a4553e2c8215f74a7c"
+    },
+    {
+      "repository": "Showcase",
+      "path": "README.md",
+      "sha256": "249b3546292285ace212088bd83a7a7347bce0ee3e5c6de04871740c1175822c"
+    },
+    {
+      "repository": "Showcase",
+      "path": "src/train_trustgraph_two_tier.py",
+      "sha256": "5a480879e9dbea60870312ee4f1fc881f26b51f1f02c7909d2cf1b5fe97de12f"
+    },
+    {
+      "repository": "Showcase",
+      "path": "artifacts/model-handoff/trustgraph-evaluation.json",
+      "sha256": "2ebd4efc7eda60408e90e6d30b74d0ff5fcfa36892a70272ea0efdcb54ac41ab"
+    },
+    {
+      "repository": "Showcase",
+      "path": "artifacts/flowsense-studies/fs-gate2-20261028-01/decision.json",
+      "sha256": "ba296e37a6b3e217461eb9b1b6cb3206fcafe222cbc508f3d61ed1c2640bb78c"
+    },
+    {
+      "repository": "Showcase",
+      "path": "artifacts/flowsense-studies/fs-gate2-20261028-01/DIAGNOSTICS_TH.md",
+      "sha256": "945b6ace9787976f6cc1776c099b9a44767929ccb0d18637f953c1582889a9be"
+    },
+    {
+      "repository": "Showcase",
+      "path": "artifacts/flowsense-studies/fs-direct-dev-20261028-01/REPORT_TH.md",
+      "sha256": "6a469416684dcbe2f55e6079fe44c00d30223c671bdcb1d30eca96fa0ef2046d"
+    }
+  ]
+}

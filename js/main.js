@@ -316,9 +316,67 @@
     });
   }
 
+  // Education detail drawers: hover the hinge to preview, click to keep open.
+  function initEducationDrawers() {
+    const hoverPointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    document.querySelectorAll('.education-disclosure').forEach(card => {
+      if (card.dataset.drawerInit) return;
+      const button = card.querySelector('.education-hinge');
+      const drawer = card.querySelector('.education-drawer');
+      const content = drawer?.querySelector('.education-drawer-clip');
+      if (!button || !drawer || !content) return;
+      card.dataset.drawerInit = 'true';
+      let preview = false;
+      let pinned = false;
+      let focusInside = false;
+      const update = () => {
+        const open = preview || pinned || focusInside;
+        card.classList.toggle('is-open', open);
+        button.setAttribute('aria-expanded', String(open));
+        content.inert = !open;
+        content.setAttribute('aria-hidden', String(!open));
+        button.querySelector('.education-hinge-hint').textContent = pinned
+          ? 'Click to close' : open ? 'Click to keep open' : 'Hover or click to open';
+      };
+      button.addEventListener('pointerenter', event => {
+        if (hoverPointer.matches && event.pointerType !== 'touch') {
+          preview = true;
+          update();
+        }
+      });
+      card.addEventListener('pointerleave', () => {
+        preview = false;
+        update();
+      });
+      button.addEventListener('click', () => {
+        pinned = !pinned;
+        if (!pinned) preview = false;
+        update();
+      });
+      drawer.addEventListener('focusin', () => {
+        focusInside = true;
+        update();
+      });
+      drawer.addEventListener('focusout', event => {
+        focusInside = drawer.contains(event.relatedTarget);
+        update();
+      });
+      card.addEventListener('keydown', event => {
+        if (event.key !== 'Escape' || !card.classList.contains('is-open')) return;
+        event.preventDefault();
+        if (drawer.contains(document.activeElement)) button.focus();
+        preview = pinned = focusInside = false;
+        update();
+      });
+      const title = card.querySelector('h3')?.textContent.trim();
+      if (title) button.setAttribute('aria-label', `Details: ${title}`);
+      update();
+      card.classList.add('is-ready');
+    });
+  }
+
   // 7. Signature Intro Preloader Controller ("Sivakorn") & Home Entrance Orchestrator
   const preloader = document.getElementById('signature-preloader');
-  const skipBtn = document.getElementById('sig-skip-btn');
   const INTRO_SESSION_KEY = 'svkhun_intro_played';
 
   function triggerHeroEntrance() {
@@ -383,43 +441,42 @@
       homeHero.classList.add('hero-intro-ready');
     }
 
-    // Dismiss function
+    document.body.classList.add('signature-loading');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let dismissed = false;
+    let animationReady = reducedMotion;
+    let pageReady = document.readyState === 'complete';
     function dismiss() {
       if (dismissed) return;
       dismissed = true;
+      clearTimeout(animationTimer);
+      clearTimeout(fallbackTimer);
+      window.removeEventListener('load', onPageLoad);
+      document.removeEventListener('keydown', onIntroKeydown);
+      document.body.classList.remove('signature-loading');
       preloader.classList.add('fade-out');
+      preloader.setAttribute('aria-hidden', 'true');
       triggerHeroEntrance();
-      setTimeout(() => {
-        preloader.style.display = 'none';
-      }, 480);
+      setTimeout(() => { preloader.style.display = 'none'; }, reducedMotion ? 0 : 480);
     }
-
-    // Auto-dismiss after animation completes (~2.3s)
-    const timer = setTimeout(dismiss, 2300);
-
-    // Skip Button Handler
-    if (skipBtn) {
-      skipBtn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        clearTimeout(timer);
-        dismiss();
-      });
+    function finishWhenReady() {
+      if (animationReady && pageReady) dismiss();
     }
-
-    // Click anywhere on overlay to dismiss immediately
-    preloader.addEventListener('click', function () {
-      clearTimeout(timer);
-      dismiss();
-    });
-
-    // Keyboard ESC or Space to skip immediately
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' || e.key === ' ') {
-        clearTimeout(timer);
-        dismiss();
-      }
-    });
+    function onPageLoad() {
+      pageReady = true;
+      finishWhenReady();
+    }
+    function onIntroKeydown(event) {
+      if (event.key === 'Escape') dismiss();
+    }
+    const animationTimer = setTimeout(() => {
+      animationReady = true;
+      finishWhenReady();
+    }, reducedMotion ? 0 : 2100);
+    // Bounded fallback prevents slow third-party assets from blocking entry.
+    const fallbackTimer = setTimeout(dismiss, 5000);
+    window.addEventListener('load', onPageLoad, { once: true });
+    document.addEventListener('keydown', onIntroKeydown);
 
     // Clicking brand logo on index page can replay intro
     const brandLogo = document.querySelector('.brand-logo');
@@ -1012,6 +1069,7 @@
     initWorkAccordion();
     initTechStackFilter();
     initAssessmentAccordion();
+    initEducationDrawers();
 
     // Trigger Home hero cascade entrance if on Home page
     const homeHero = document.getElementById('home-hero');
@@ -1056,6 +1114,7 @@
     initWorkAccordion();
     initTechStackFilter();
     initAssessmentAccordion();
+    initEducationDrawers();
     initPageTransitions();
   }
 

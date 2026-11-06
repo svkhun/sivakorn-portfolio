@@ -51,7 +51,7 @@ const portfolioData = {
       skills: [
         "Building scalable, calibrated tabular machine learning models with state-of-the-art tree ensembles (LightGBM, XGBoost, CatBoost).",
         "Developing Two-Tier Relational Graph Neural Networks (PyTorch Geometric RGCN) for multi-hop mule account fraud detection.",
-        "Optimizing sub-millisecond model execution and low-latency microservice serving via ONNX Runtime v1.30 (< 12ms P99 SLA).",
+        "Serving prototype models through ONNX Runtime; reported local timings are not production banking SLAs.",
         "Conducting Bayesian hyperparameter optimization (Optuna) with 5-fold stratified cross-validation."
       ],
       softwareSkills: [
@@ -227,10 +227,10 @@ const portfolioData = {
       duration: "2026",
       location: "Bangkok, Thailand",
       description: [
-        "Led engineering on FlowSense & TrustGraph, an independent KBTG hackathon concept prototype for spending plans, opt-in saving, and pre-transfer risk review.",
-        "Combined precomputed PyTorch Geometric R-GCN 16D embeddings with LightGBM and ONNX Runtime scoring through FastAPI.",
-        "Reported 11.62ms P99 transfer evaluation over 200 local prototype cycles; this is not a production SLA or end-to-end user latency.",
-        "Implemented bills-aware spending plans, user-selected reserves, opt-in capacity-limited saving, standard withdrawals, and direct recipient-risk explanations using synthetic data."
+        "Contributed to K-NEXUS, an independent synthetic-data team prototype for planning, simulated saving, and recipient-risk review.",
+        "The Application uses history/scenario/abstention rules with FlowSense ML disabled; the Showcase contains separate research evidence.",
+        "Saved TrustGraph test AP: no-GNN baseline 0.99640; R-GCN + LightGBM 0.99373. No GNN superiority is established.",
+        "FlowSense Gate 2 passed no horizon. Individual component ownership and real-world impact are not independently established."
       ],
       techStack: ["PyTorch Geometric", "LightGBM", "ONNX Runtime", "FastAPI", "React 18", "Vite"]
     },
@@ -331,14 +331,16 @@ const portfolioData = {
     },
     {
       id: "k-flowsense-trustgraph",
-      title: "FlowSense & TrustGraph (Independent Banking Concept)",
+      title: "K-NEXUS — FlowSense & TrustGraph",
       domain: "Real-Time Graph Fraud Defense & Mobile Cashflow Intelligence",
       context: "KBTG Kampus Hackathon 2026 — Finalist, Track 2: Data Science & Intelligence",
       caseStudyLink: "project-flowsense-trustgraph.html",
-      description: "FlowSense offers a spending outlook, accounts for bills and a chosen reserve, and offers user-triggered saving within safe-to-save capacity plus standard withdrawals. TrustGraph uses precomputed R-GCN features and ONNX scoring to review transfers and explain recipient risk. This is an independent prototype using synthetic data.",
-      keyMetric: "Bill-Aware Planning &bull; Opt-In Saving &bull; Pre-Transfer Risk Review",
+      description: "Independent synthetic financial prototype. FlowSense uses an explainable history/scenario/abstention baseline with ML disabled. TrustGraph combines stored graph context, ONNX scoring and separate policies; saved comparisons do not show a GNN advantage.",
+      keyMetric: "Synthetic Data &bull; FlowSense ML Disabled &bull; Baseline Comparisons",
       techStack: ["PyTorch Geometric", "LightGBM", "ONNX Runtime", "FastAPI", "React 18", "Vite"],
-      githubLink: "https://github.com/svkhun/k-nexus",
+      githubLink: "https://github.com/svkhun/K-NEXUS-Application",
+      showcaseRepository: "https://github.com/svkhun/K-NEXUS-Showcase",
+      showcaseLink: "https://k-nexus-showcase.onrender.com/",
       liveDemoLink: "https://k-nexus-app.onrender.com/"
     },
     {

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
+
   <title>Education &amp; Verified Credentials | Sivakorn Khundilokrattaya</title>
   <meta name="description" content="Formal academic training, curriculum focus, and verified industry credentials of Sivakorn Khundilokrattaya (svkhun) - Computer Engineering @ SWU.">
   <link rel="canonical" href="https://svkhun.vercel.app/education">
@@ -104,7 +104,7 @@
           University education
         </h2>
 
-        <div class="full-width-panel scroll-anim anim-academic-panel education-degree-panel">
+        <div class="full-width-panel scroll-anim anim-academic-panel education-degree-panel education-disclosure">
           <div class="card-accent-bar accent-bar-blue anim-accent-expand"></div>
           <div class="flex flex-col md:flex-row gap-6 lg:gap-8 items-start">
             <!-- Left: SWU Official English Emblem -->
@@ -121,12 +121,19 @@
                   Expected graduation · 2026
                 </span>
               </div>
-              
-              <div class="text-base font-semibold text-blue-600 dark:text-blue-400 mb-3">
+
+              <div class="text-base font-semibold education-university-name mb-3">
                 Srinakharinwirot University (SWU, Bangkok, Thailand) &bull; Faculty of Engineering
               </div>
 
-              <p class="text-base lg:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed mb-5">
+              <button type="button" class="education-hinge" aria-expanded="true" aria-controls="degree-details">
+                <span class="education-hinge-label">Details</span>
+                <span class="education-hinge-hint" aria-hidden="true">Hover or click to open</span>
+                <svg class="education-hinge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div class="education-drawer" id="degree-details">
+                <div class="education-drawer-clip"><div class="education-drawer-content">
+<p class="text-base lg:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed mb-5">
                 Specialization in <strong class="text-slate-900 dark:text-white font-semibold">Statistical Tabular Machine Learning, Relational Database Systems (RDBMS &amp; Distributed Data), and Basel-Compliant Credit Risk Engineering</strong>.
               </p>
 
@@ -153,7 +160,9 @@
                 <span>Visit University Official Website</span>
                 <i class="fas fa-external-link-alt text-xs"></i>
               </a>
-            </div>
+
+                </div></div>
+              </div></div>
           </div>
         </div>
       </div>
@@ -167,9 +176,9 @@
           </h2>
         </div>
 
-        <div class="full-width-panel scroll-anim anim-academic-panel education-scholarship-panel">
+        <div class="full-width-panel scroll-anim anim-academic-panel education-scholarship-panel education-disclosure">
           <div class="card-accent-bar accent-bar-rose anim-accent-expand"></div>
-          
+
           <div class="flex flex-col md:flex-row gap-6 lg:gap-8 items-start">
             <!-- Left: Official Corporate Emblem -->
             <div class="nhk-emblem-box flex-shrink-0">
@@ -193,7 +202,14 @@
               </div>
 
               <!-- Highlight Metric Strip -->
-              <div class="kpi-metric-strip kpi-strip-rose anim-kpi-glow education-scholarship-facts">
+              <button type="button" class="education-hinge" aria-expanded="true" aria-controls="scholarship-details">
+                <span class="education-hinge-label">Details</span>
+                <span class="education-hinge-hint" aria-hidden="true">Hover or click to open</span>
+                <svg class="education-hinge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div class="education-drawer" id="scholarship-details">
+                <div class="education-drawer-clip"><div class="education-drawer-content">
+<div class="kpi-metric-strip kpi-strip-rose anim-kpi-glow education-scholarship-facts">
                 <span class="kpi-icon-badge"><i class="fas fa-coins"></i></span>
                 <span>30,000 THB / Year</span>
                 <span class="kpi-divider">&bull;</span>
@@ -252,7 +268,9 @@
                   <span>Preview Announcement Document Scan</span>
                 </a>
               </div>
-            </div>
+
+                </div></div>
+              </div></div>
           </div>
         </div>
       </div>
@@ -272,11 +290,9 @@
 
         <div class="education-assessments-grid">
           <!-- Panel 1: KBTG Data Analyst Track -->
-          <div class="assessment-card-panel scroll-anim anim-academic-panel">
+          <div class="assessment-card-panel scroll-anim anim-academic-panel education-disclosure">
             <div class="card-accent-bar accent-bar-emerald anim-accent-expand"></div>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <!-- Left Column (lg:col-span-5) -->
-              <div class="lg:col-span-5">
+            <div class="education-assessment-summary">
                 <div class="flex items-center gap-2 mb-2">
                   <span class="bg-emerald-600 text-white font-medium text-xs px-2.5 py-1.5 rounded-none tracking-wider inline-flex items-center shadow-xs">KBTG</span>
                   <span class="card-domain-badge badge-emerald">Above Benchmark</span>
@@ -294,7 +310,14 @@
                   </div>
                 </div>
 
-                <p class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+                </div><button type="button" class="education-hinge" aria-expanded="true" aria-controls="analyst-details">
+                <span class="education-hinge-label">Details</span>
+                <span class="education-hinge-hint" aria-hidden="true">Hover or click to open</span>
+                <svg class="education-hinge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div class="education-drawer" id="analyst-details">
+                <div class="education-drawer-clip"><div class="education-drawer-content">
+<div class="education-assessment-details"><div><p class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
                   Standardized assessment measuring quantitative readiness, preprocessing pipelines, SQL data querying, and practical statistical modeling under KBTG enterprise benchmark standards.
                 </p>
 
@@ -304,10 +327,7 @@
                   </svg>
                   <span>View original score report</span>
                 </a>
-              </div>
-
-              <!-- Right Column (lg:col-span-7 lg:border-l lg:border-slate-100 lg:pl-8) -->
-              <div class="lg:col-span-7 lg:border-l lg:border-slate-100 dark:lg:border-zinc-800 lg:pl-8 border-t lg:border-t-0 border-slate-100 dark:border-zinc-800 pt-6 lg:pt-0">
+              </div><div class="lg:col-span-7 lg:border-l lg:border-slate-100 dark:lg:border-zinc-800 lg:pl-8 border-t lg:border-t-0 border-slate-100 dark:border-zinc-800 pt-6 lg:pt-0">
                 <div class="text-xs font-bold tracking-widest text-slate-400 dark:text-zinc-500 uppercase mb-4">
                   COMPETENCY BREAKDOWN &amp; METRICS
                 </div>
@@ -363,16 +383,15 @@
                     </div>
                   </div>
                 </div>
+              </div></div>
+                </div></div>
               </div>
-            </div>
           </div>
 
           <!-- Panel 2: KBTG Digital Marketer Track -->
-          <div class="assessment-card-panel scroll-anim anim-academic-panel">
+          <div class="assessment-card-panel scroll-anim anim-academic-panel education-disclosure">
             <div class="card-accent-bar accent-bar-teal anim-accent-expand"></div>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <!-- Left Column (lg:col-span-5) -->
-              <div class="lg:col-span-5">
+            <div class="education-assessment-summary">
                 <div class="flex items-center gap-2 mb-2">
                   <span class="bg-emerald-600 text-white font-medium text-xs px-2.5 py-1.5 rounded-none tracking-wider inline-flex items-center shadow-xs">KBTG</span>
                   <span class="card-domain-badge badge-teal">Top Tier Analytics</span>
@@ -390,7 +409,14 @@
                   </div>
                 </div>
 
-                <p class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+                </div><button type="button" class="education-hinge" aria-expanded="true" aria-controls="marketer-details">
+                <span class="education-hinge-label">Details</span>
+                <span class="education-hinge-hint" aria-hidden="true">Hover or click to open</span>
+                <svg class="education-hinge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div class="education-drawer" id="marketer-details">
+                <div class="education-drawer-clip"><div class="education-drawer-content">
+<div class="education-assessment-details"><div><p class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
                   Assessed across multi-channel conversion attribution pipelines, user funnel retention economics, quantitative CAC/LTV forecasting, and paid performance metrics.
                 </p>
 
@@ -400,10 +426,7 @@
                   </svg>
                   <span>View original score report</span>
                 </a>
-              </div>
-
-              <!-- Right Column (lg:col-span-7 lg:border-l lg:border-slate-100 lg:pl-8) -->
-              <div class="lg:col-span-7 lg:border-l lg:border-slate-100 dark:lg:border-zinc-800 lg:pl-8 border-t lg:border-t-0 border-slate-100 dark:border-zinc-800 pt-6 lg:pt-0">
+              </div><div class="lg:col-span-7 lg:border-l lg:border-slate-100 dark:lg:border-zinc-800 lg:pl-8 border-t lg:border-t-0 border-slate-100 dark:border-zinc-800 pt-6 lg:pt-0">
                 <div class="text-xs font-bold tracking-widest text-slate-400 dark:text-zinc-500 uppercase mb-4">
                   COMPETENCY BREAKDOWN &amp; METRICS
                 </div>
@@ -459,16 +482,15 @@
                     </div>
                   </div>
                 </div>
+              </div></div>
+                </div></div>
               </div>
-            </div>
           </div>
 
           <!-- Panel 3: Oxford Placement Test -->
-          <div class="assessment-card-panel scroll-anim anim-academic-panel">
+          <div class="assessment-card-panel scroll-anim anim-academic-panel education-disclosure">
             <div class="card-accent-bar accent-bar-purple anim-accent-expand"></div>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <!-- Left Column (lg:col-span-5) -->
-              <div class="lg:col-span-5">
+            <div class="education-assessment-summary">
                 <div class="flex items-center gap-2 mb-2">
                   <span class="bg-blue-900 text-amber-300 font-medium text-xs px-2.5 py-1.5 rounded-none tracking-wider inline-flex items-center shadow-xs">OXFORD</span>
                   <span class="card-domain-badge badge-purple">International CEFR</span>
@@ -486,7 +508,14 @@
                   </div>
                 </div>
 
-                <p class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+                </div><button type="button" class="education-hinge" aria-expanded="true" aria-controls="oxford-details">
+                <span class="education-hinge-label">Details</span>
+                <span class="education-hinge-hint" aria-hidden="true">Hover or click to open</span>
+                <svg class="education-hinge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div class="education-drawer" id="oxford-details">
+                <div class="education-drawer-clip"><div class="education-drawer-content">
+<div class="education-assessment-details"><div><p class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
                   Standardized international English proficiency certification evaluating professional technical communication, listening comprehension, and grammatical accuracy.
                 </p>
 
@@ -496,10 +525,7 @@
                   </svg>
                   <span>View Official Score Report (PDF)</span>
                 </a>
-              </div>
-
-              <!-- Right Column (lg:col-span-7 lg:border-l lg:border-slate-100 lg:pl-8) -->
-              <div class="lg:col-span-7 lg:border-l lg:border-slate-100 dark:lg:border-zinc-800 lg:pl-8 border-t lg:border-t-0 border-slate-100 dark:border-zinc-800 pt-6 lg:pt-0">
+              </div><div class="lg:col-span-7 lg:border-l lg:border-slate-100 dark:lg:border-zinc-800 lg:pl-8 border-t lg:border-t-0 border-slate-100 dark:border-zinc-800 pt-6 lg:pt-0">
                 <div class="text-xs font-bold tracking-widest text-slate-400 dark:text-zinc-500 uppercase mb-4">
                   COMPETENCY BREAKDOWN &amp; METRICS
                 </div>
@@ -535,8 +561,9 @@
                     </div>
                   </div>
                 </div>
+              </div></div>
+                </div></div>
               </div>
-            </div>
           </div>
         </div>
       </div>

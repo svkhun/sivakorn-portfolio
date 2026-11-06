@@ -4,7 +4,7 @@
 ### Data Scientist & Machine Learning Engineer &bull; FinTech & Quantitative Risk
 
 [![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-svkhun.vercel.app-0284C7?style=for-the-badge&logo=vercel&logoColor=white)](https://svkhun.vercel.app)
-[![FlowSense & TrustGraph](https://img.shields.io/badge/Flagship-FlowSense_%26_TrustGraph-00A950?style=for-the-badge&logo=fastapi&logoColor=white)](https://k-flowsense-trustgraph.onrender.com/)
+[![FlowSense & TrustGraph](https://img.shields.io/badge/Flagship-FlowSense_%26_TrustGraph-00A950?style=for-the-badge&logo=fastapi&logoColor=white)](https://k-nexus-showcase.onrender.com/)
 [![Education](https://img.shields.io/badge/Education-B.Eng._Computer_Engineering_@_SWU-38BDF8?style=for-the-badge&logo=google-scholar&logoColor=white)](https://swu.ac.th)
 [![Design System](https://img.shields.io/badge/Design-Keynote_Slide_Deck_%7C_Dark_Slate-6366F1?style=for-the-badge)](https://svkhun.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-059669?style=for-the-badge)](https://opensource.org/licenses/MIT)
@@ -24,7 +24,7 @@
 I am a **Computer Engineering student at Srinakharinwirot University (SWU, Class of 2026)** specializing in **statistical tabular machine learning, Heterogeneous Graph Neural Networks (GNNs), Basel II/III credit risk modeling, regulatory-compliant Explainable AI (XAI), and high-throughput production data pipelines**.
 
 In institutional finance and quantitative underwriting, black-box machine learning models introduce unacceptable regulatory and solvency liabilities. My engineering discipline unites rigorous statistical risk modeling with modern software reliability:
-* **Real-Time Graph Intelligence & Anti-Scam Shields**: Engineering Two-Tier inference pipelines using **PyTorch Geometric (PyG) Relational GCNs** for continuous node embeddings and **ONNX Runtime v1.30** for sub-12ms P99 pre-transaction fraud scoring (beating &lt; 80ms bank SLAs).
+* **Synthetic transaction-risk research:** Compare a past-only graph-augmented classifier with a no-GNN baseline and connect prototype scores to separate review policies. No GNN advantage or real-world interception is established.
 * **Calibrated Default Prediction**: Estimating Probability of Default (PD) via monotonic Weight of Evidence (WoE) binning, Information Value (IV) screening, and asymmetric cost matrix threshold optimization.
 * **Regulatory Compliance & Explainability**: Decomposing complex non-linear models with **TreeSHAP** and **Counterfactual What-If Recourse** to deliver auditable, legally defensible Adverse Action notices under **ECOA (12 C.F.R. § 1002.9) / FCRA**.
 * **Risk Governance & Stability**: Monitoring continuous model drift, Population Stability Index (PSI < 0.10), and Kolmogorov-Smirnov separation (KS > 40%) across temporal cohorts.
@@ -62,15 +62,14 @@ The portfolio is architected following the clean, structured, and developer-focu
 
 ## 🔬 Featured Engineering Case Studies
 
-### 1. FlowSense & TrustGraph (K PLUS for First Jobbers)
-* **Context**: **KBTG Kampus Hackathon 2026 — Track 2: Data Science & Intelligence**.
-* **Progress**: **Finalist**.
-* **Case Study**: [Deep Dive](https://svkhun.vercel.app/project-flowsense-trustgraph) &bull; **Live Demo**: [FlowSense & TrustGraph](https://k-flowsense-trustgraph.onrender.com/) &bull; **Repository**: [Source Code](https://github.com/svkhun/k-flowsense-trustgraph)
-* **FlowSense**: LightGBM 30-day liquidity forecasting, Status Horizon, warnings for at-risk commitments, and micro-sweeps with 1-Tap Undo.
-* **TrustGraph**: Precomputed 16D R-GCN embeddings, LightGBM/ONNX transfer scoring, direct recipient-risk explanations, and a targeted Micro-Auth flow.
-* **Implementation**: FastAPI, ONNX Runtime, PyTorch Geometric, React 18, React Router, Vite, and Tailwind CSS. Synthetic datasets and a mobile banking simulator support the prototype. Kafka, Feast, and Triton appear in the scaling blueprint; distributed streaming and feature storage are simulated.
-* **Reported Prototype Benchmarks**: P50 3.85ms, P95 5.11ms, P99 11.62ms over 200 consecutive evaluation cycles; ONNX core 0.27ms; FlowSense forecast 10.29ms. These are project-reported timings against an 80ms design target.
-* **Projected Business Scenario**: 1.2–2.0B THB potential CASA mobilization through flexible micro-savings; this is an estimate, not a realized result.
+### 1. K-NEXUS — FlowSense & TrustGraph
+* **Context:** Independent synthetic-data team prototype in KBTG Kampus Hackathon 2026, Track 2. The existing portfolio records finalist status; no KBank/KBTG ownership or endorsement is implied.
+* **Application:** [Demo](https://k-nexus-app.onrender.com/) · [Source](https://github.com/svkhun/K-NEXUS-Application). Spending plans, reserves, simulated savings and recipient-risk review. FlowSense uses HISTORY_MEAN → SCENARIO → ABSTAIN with ML disabled.
+* **Showcase:** [Portal](https://k-nexus-showcase.onrender.com/) · [Source](https://github.com/svkhun/K-NEXUS-Showcase). Separate presentation, training and evaluation evidence.
+* **TrustGraph:** Saved synthetic test AP 0.99640 (no-GNN) versus 0.99373 (R-GCN + LightGBM), 1,354 transactions / 67 positives. No GNN advantage or real-world fraud prevention is established.
+* **FlowSense:** proposed.4 / synthetic v2.1.1 Gate 2 passed no horizon; direct-ML development is not validated for integration. No qualifying export followed.
+* **Status:** The historical 30 October audit concluded READY_FOR_DEMO_WITH_LIMITATIONS. Live uptime was not reverified in this content update. Older latency/CASA headlines are not current runtime or realized business outcomes.
+* [Case study](project-flowsense-trustgraph.html) · [Sources and claim record](docs/k-nexus-content-update-20261106.md)
 
 ---
 

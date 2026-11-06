@@ -3967,7 +3967,7 @@ html.dark .telemetry-terminal-card {
               visibility 0.48s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
-  cursor: pointer;
+  cursor: default;
 }
 
 .signature-preloader.fade-out {
@@ -4022,6 +4022,19 @@ html.dark .telemetry-terminal-card {
   height: auto;
   overflow: visible;
   filter: drop-shadow(0 0 16px var(--preloader-glow));
+}
+
+/* Signature-only popup and indeterminate page-loading indicator. */
+body.signature-loading { overflow: hidden; }
+.signature-card { animation: signaturePopIn .5s cubic-bezier(.16, 1, .3, 1) both; }
+.signature-loading-track { width: 96px; height: 2px; margin-top: 28px; overflow: hidden; background: var(--preloader-border); }
+.signature-loading-track > span { display: block; width: 45%; height: 100%; background: var(--preloader-stroke); animation: signatureLoading 1.1s ease-in-out infinite; }
+@keyframes signaturePopIn { from { opacity: 0; transform: translateY(12px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes signatureLoading { from { transform: translateX(-110%); } to { transform: translateX(330%); } }
+@media (prefers-reduced-motion: reduce) {
+  .signature-preloader, .signature-card, .signature-loading-track > span, .sig-char, .sig-flourish, .flourish-nib { animation: none !important; transition: none !important; }
+  .sig-char { fill: var(--preloader-fill); stroke-dashoffset: 0; }
+  .sig-flourish { stroke-dashoffset: 0; }
 }
 
 /* Stroke paths */
@@ -8523,6 +8536,114 @@ html.dark #education-content .competitive-card { border-color: #343a45; }
   #education-content .education-assessments-grid .assessment-card-panel > .grid { display: flex; flex-direction: column; }
   #education-content .education-assessments-grid .assessment-card-panel > .grid > div { width: 100%; padding-left: 0; border-left: 0; }
   #education-content .education-scholarship-facts { grid-template-columns: 1fr; }
+}
+
+/* Education disclosures retain their full content when JavaScript is unavailable. */
+#education-content .education-disclosure { --drawer-accent: #0666ff; }
+#education-content .education-scholarship-panel { --drawer-accent: #d9394b; }
+#education-content .assessment-card-panel { --drawer-accent: #009b72; }
+#education-content .assessment-card-panel:last-child { --drawer-accent: #8755e9; }
+#education-content .education-hinge { display: none; }
+#education-content .is-ready .education-hinge {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 1.25rem;
+  padding: .85rem 1rem;
+  border: 1px solid #dce4ee;
+  border-left: 3px solid var(--drawer-accent);
+  background: #f7f9fc;
+  color: #172238;
+  text-align: left;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+#education-content .education-hinge-label {
+  font: 600 .75rem var(--font-mono, 'Geist Mono', monospace);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+#education-content .education-hinge-hint { margin-left: auto; font-size: .75rem; color: #617087; }
+#education-content .education-hinge-icon { flex: 0 0 20px; color: var(--drawer-accent); transition: transform .4s; }
+#education-content .education-hinge:hover,
+#education-content .is-open .education-hinge { background: #edf3fc; border-color: var(--drawer-accent); }
+#education-content .education-hinge:focus-visible { outline: 2px solid var(--drawer-accent); outline-offset: 4px; }
+#education-content .is-open .education-hinge-icon { transform: rotate(180deg); }
+#education-content .is-ready .education-drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-rows .45s cubic-bezier(.22, 1, .36, 1), opacity .25s, visibility 0s .45s;
+}
+#education-content .is-ready .education-drawer-clip { min-height: 0; overflow: hidden; }
+#education-content .is-ready .education-drawer-content {
+  padding-top: 1.5rem;
+  transform: translateY(-12px);
+  transition: transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+#education-content .is-open .education-drawer {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+#education-content .is-open .education-drawer-content { transform: translateY(0); }
+#education-content .education-assessments-grid { align-items: start; }
+#education-content .education-assessment-details { display: grid; gap: 2rem; }
+#education-content .education-assessment-details > div { min-width: 0; grid-column: auto; }
+#education-content .assessment-card-panel:not(:first-child) .education-assessment-details > div + div {
+  border-top: 1px solid #e8edf4;
+  border-left: 0;
+  padding: 1.5rem 0 0;
+}
+@media (min-width: 1024px) {
+  #education-content .assessment-card-panel:first-child .education-assessment-details { grid-template-columns: 5fr 7fr; }
+}
+html.dark #education-content .education-hinge { background: #1c232e; border-color: #343d4b; border-left-color: var(--drawer-accent); color: #f1f5fc; }
+html.dark #education-content .education-hinge-hint { color: #a6b4c9; }
+html.dark #education-content .education-hinge:hover,
+html.dark #education-content .is-open .education-hinge { background: #242e3d; border-color: var(--drawer-accent); }
+html.dark #education-content .education-assessment-details > div + div { border-color: #303743; }
+
+/* SWU uses the red of its university seal throughout the degree card. */
+#education-content .education-degree-panel { --drawer-accent: #d92032; }
+#education-content #degree > .education-section-index,
+#education-content .education-degree-panel .education-university-name,
+#education-content .education-degree-panel .education-detail-label { color: #c51e30; }
+#education-content .education-degree-panel .card-accent-bar {
+  background: linear-gradient(90deg, #ed3445, #bc182c);
+}
+#education-content .education-degree-panel .education-hinge { background: #fff7f8; border-color: #f1d8dc; border-left-color: var(--drawer-accent); }
+#education-content .education-degree-panel .education-hinge:hover,
+#education-content .education-degree-panel.is-open .education-hinge { background: #fff0f2; border-color: var(--drawer-accent); }
+#education-content .education-degree-panel .impact-chip-blue { background: #fde8ec; color: #c51e30; }
+#education-content .education-degree-panel.spotlight-card::before {
+  background: radial-gradient(500px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(217, 32, 50, .06), transparent 45%);
+}
+html.dark #education-content #degree > .education-section-index,
+html.dark #education-content .education-degree-panel .education-university-name,
+html.dark #education-content .education-degree-panel .education-detail-label { color: #ff8c96; }
+html.dark #education-content .education-degree-panel .education-hinge { background: #291c23; border-color: #62313a; border-left-color: var(--drawer-accent); }
+html.dark #education-content .education-degree-panel .education-hinge:hover,
+html.dark #education-content .education-degree-panel.is-open .education-hinge { background: #38212b; border-color: var(--drawer-accent); }
+html.dark #education-content .education-degree-panel .impact-chip-blue { background: #42212b; color: #ff8c96; }
+@media (max-width: 767px) {
+  #education-content .education-hinge-hint { max-width: 15ch; text-align: right; }
+  #education-content .education-assessment-details > div + div { padding-left: 0; border-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #education-content .education-drawer,
+  #education-content .education-drawer-content,
+  #education-content .education-hinge-icon { transition: none !important; transform: none; }
+}
+@media print {
+  #education-content .education-hinge { display: none !important; }
+  #education-content .education-drawer { display: block !important; opacity: 1 !important; visibility: visible !important; }
+  #education-content .education-drawer-clip { overflow: visible !important; }
+  #education-content .education-drawer-content { transform: none !important; }
 }
 
 /* Experience: featured builds, recognition and earlier work form three chapters. */
