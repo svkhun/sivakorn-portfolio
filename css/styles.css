@@ -535,6 +535,21 @@ html.dark .nav-active-glider {
   transform: translateY(-1px);
 }
 
+/* A hidden bold copy reserves the widest label size, so selection never moves the menu. */
+.nav-item a[data-nav-label] {
+  display: inline-grid;
+  place-items: center;
+  white-space: nowrap;
+}
+.nav-item a[data-nav-label]::before,
+.nav-item a .nav-label { grid-area: 1 / 1; }
+.nav-item a[data-nav-label]::before {
+  content: attr(data-nav-label);
+  font-weight: 600;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .nav-item a:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 5px;

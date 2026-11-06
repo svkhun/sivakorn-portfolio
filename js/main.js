@@ -109,6 +109,16 @@
     const navMenu = document.getElementById('nav-menu');
     if (!navMenu) return null;
 
+    // Reserve the bold label width without changing the visible label or its accessible name.
+    navMenu.querySelectorAll('.nav-item a').forEach(link => {
+      if (link.querySelector('.nav-label')) return;
+      const label = document.createElement('span');
+      label.className = 'nav-label';
+      label.textContent = link.textContent;
+      link.replaceChildren(label);
+      link.dataset.navLabel = label.textContent;
+    });
+
     let glider = navMenu.querySelector('.nav-active-glider');
     if (!glider) {
       glider = document.createElement('div');
@@ -124,6 +134,8 @@
       return el.tagName === 'A' ? el : el.querySelector('a');
     }
 
+    let targetLeft = null;
+    let targetWidth = null;
     function updateGlider(targetEl, animate = true) {
       const link = getLinkElement(targetEl);
       if (!link || navMenu.classList.contains('active')) {
@@ -141,6 +153,15 @@
 
       const left = linkRect.left - menuRect.left;
       const width = linkRect.width;
+
+      // Selection can update after hover has already reached the same target.
+      // Do not restart that transition when the geometry has not changed.
+      if (animate && targetLeft !== null && Math.abs(left - targetLeft) < .01 && Math.abs(width - targetWidth) < .01) {
+        glider.style.opacity = '1';
+        return;
+      }
+      targetLeft = left;
+      targetWidth = width;
 
       if (!animate) {
         glider.style.transition = 'none';
@@ -182,7 +203,7 @@
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(() => {
         const cur = navMenu.querySelector('.nav-item a.active');
-        updateGlider(hoveredLink || cur, Boolean(previousGlider));
+        updateGlider(hoveredLink || cur, Boolean(previousGlider || hoveredLink));
       });
     }
 
