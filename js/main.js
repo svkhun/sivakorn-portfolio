@@ -153,7 +153,9 @@
       glider.style.opacity = '1';
     }
 
-    updateGliderGlobal = updateGlider;
+    let hoveredLink = null;
+    // Hover previews the target; the active page remains selected until navigation completes.
+    updateGliderGlobal = (activeLink, animate = true) => updateGlider(hoveredLink || activeLink, animate);
 
     const currentActive = navMenu.querySelector('.nav-item a.active');
     let previousGlider = null;
@@ -180,13 +182,25 @@
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(() => {
         const cur = navMenu.querySelector('.nav-item a.active');
-        updateGlider(cur, Boolean(previousGlider));
+        updateGlider(hoveredLink || cur, Boolean(previousGlider));
       });
     }
 
+    navMenu.querySelectorAll('.nav-item a').forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        hoveredLink = link;
+        updateGlider(link, true);
+      });
+    });
+
+    navMenu.addEventListener('mouseleave', () => {
+      hoveredLink = null;
+      updateGlider(navMenu.querySelector('.nav-item a.active'), true);
+    });
+
     window.addEventListener('resize', () => {
       const cur = navMenu.querySelector('.nav-item a.active');
-      updateGlider(cur, false);
+      updateGlider(hoveredLink || cur, false);
     }, { passive: true });
 
     return updateGlider;
