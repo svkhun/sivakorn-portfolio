@@ -467,26 +467,15 @@ section[id] {
   transition: transform var(--transition);
 }
 
-.brand-signature-svg {
-  height: 38px;
-  width: auto;
-  max-width: 140px;
+.brand-signature {
   display: block;
-  overflow: visible;
-  color: var(--accent);
-  transition: color var(--transition), filter 0.2s ease, transform 0.2s ease;
+  width: 140px;
+  height: auto;
+  transition: opacity .2s ease;
 }
-
-[data-theme="dark"] .brand-signature-svg {
-  color: var(--accent-text);
-  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.35));
-}
-
-.brand-logo:hover .brand-signature-svg {
-  color: var(--accent-hover);
-  transform: translateY(-1px) scale(1.03);
-  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.55));
-}
+.brand-logo:hover .brand-signature { opacity: .75; }
+html.dark .brand-signature,
+html.dark .intro-signature { filter: brightness(1.35); }
 
 .nav-right {
   display: flex;
@@ -538,21 +527,21 @@ html.dark .nav-active-glider {
   padding: 0.4rem 0.25rem;
   position: relative;
   display: inline-block;
-  transition: color var(--transition), transform var(--transition);
+  transition: color var(--transition);
 }
 
 .nav-item a:hover {
-  color: var(--text-primary);
-  transform: translateY(-1px);
+  color: var(--accent);
 }
 
-.nav-item a:active {
-  transform: translateY(0.5px) scale(0.97);
+.nav-item a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
 }
 
 .nav-item a.active {
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 [data-theme="dark"] .nav-item a.active,
@@ -3959,21 +3948,20 @@ html.dark .telemetry-terminal-card {
   inset: 0;
   z-index: 999999;
   background-color: var(--preloader-bg);
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.48s cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 0.48s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity .25s ease, visibility .25s ease;
   user-select: none;
   cursor: default;
 }
 
+html.intro-pending .signature-preloader { display: flex; }
+
 .signature-preloader.fade-out {
   opacity: 0;
   visibility: hidden;
-  transform: scale(1.015);
   pointer-events: none;
 }
 
@@ -4017,22 +4005,23 @@ html.dark .telemetry-terminal-card {
   pointer-events: none;
 }
 
-.signature-svg {
-  width: 100%;
+.intro-signature {
+  display: block;
+  width: min(400px, 78vw);
   height: auto;
-  overflow: visible;
-  filter: drop-shadow(0 0 16px var(--preloader-glow));
+  animation: signatureReveal .65s cubic-bezier(.22, 1, .36, 1) both;
 }
 
-/* Signature-only popup and indeterminate page-loading indicator. */
+/* A short signature reveal; independent of slow page assets. */
 body.signature-loading { overflow: hidden; }
-.signature-card { animation: signaturePopIn .5s cubic-bezier(.16, 1, .3, 1) both; }
-.signature-loading-track { width: 96px; height: 2px; margin-top: 28px; overflow: hidden; background: var(--preloader-border); }
-.signature-loading-track > span { display: block; width: 45%; height: 100%; background: var(--preloader-stroke); animation: signatureLoading 1.1s ease-in-out infinite; }
-@keyframes signaturePopIn { from { opacity: 0; transform: translateY(12px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
-@keyframes signatureLoading { from { transform: translateX(-110%); } to { transform: translateX(330%); } }
+.signature-card { animation: signaturePopIn .45s cubic-bezier(.22, 1, .36, 1) both; }
+.signature-loading-track { width: 88px; height: 2px; margin-top: 24px; overflow: hidden; background: var(--preloader-border); }
+.signature-loading-track > span { display: block; width: 100%; height: 100%; background: var(--preloader-stroke); transform-origin: left; animation: signatureLoading 1s ease-in-out both; }
+@keyframes signatureReveal { from { clip-path: inset(0 100% 0 0); opacity: .2; } to { clip-path: inset(0); opacity: 1; } }
+@keyframes signaturePopIn { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes signatureLoading { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @media (prefers-reduced-motion: reduce) {
-  .signature-preloader, .signature-card, .signature-loading-track > span, .sig-char, .sig-flourish, .flourish-nib { animation: none !important; transition: none !important; }
+  .signature-preloader, .signature-card, .intro-signature, .signature-loading-track > span, .sig-char, .sig-flourish, .flourish-nib { animation: none !important; transition: none !important; }
   .sig-char { fill: var(--preloader-fill); stroke-dashoffset: 0; }
   .sig-flourish { stroke-dashoffset: 0; }
 }
@@ -8066,75 +8055,11 @@ html.dark #back-to-top .btt-ring-circle {
   }
 }
 
-/* ==========================================================================
-   Seamless Page & Section Transition Engine (Linear / Stripe Grade)
-   ========================================================================== */
-
-/* Hairline Top Loading Progress Indicator */
-#page-nav-loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2.5px;
-  background: linear-gradient(90deg, #0066FF, #38BDF8, #818CF8);
-  z-index: 9999999;
-  transform-origin: left;
-  transform: scaleX(0);
-  opacity: 0;
-  pointer-events: none;
-  box-shadow: 0 0 10px rgba(0, 102, 255, 0.45);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.2s ease;
-}
-
-#page-nav-loader.is-loading {
-  opacity: 1;
-  transform: scaleX(0.72);
-  transition: transform 0.75s cubic-bezier(0.1, 0.5, 0.2, 1),
-              opacity 0.2s ease;
-}
-
-#page-nav-loader.is-complete {
-  opacity: 1;
-  transform: scaleX(1);
-  transition: transform 0.18s ease-out,
-              opacity 0.25s ease 0.12s;
-}
-
-/* Page Transition States for <main> */
-main {
-  will-change: opacity, transform, filter;
-  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-main.page-exiting {
-  opacity: 0 !important;
-  transform: translate3d(0, -14px, 0) scale(0.995) !important;
-  filter: blur(2.5px) !important;
-  pointer-events: none;
-  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-main.page-entering {
-  opacity: 0 !important;
-  transform: translate3d(0, 22px, 0) !important;
-  filter: blur(3.5px) !important;
-  pointer-events: none;
-}
-
-main.page-entered {
-  opacity: 1 !important;
-  transform: translate3d(0, 0, 0) !important;
-  filter: blur(0) !important;
-  pointer-events: auto;
-  transition: opacity 0.44s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.44s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+/* Keep the navigation stationary while the next page settles into view. */
+main.page-entered { animation: pageContentEnter .24s cubic-bezier(.22, 1, .36, 1) both; }
+@keyframes pageContentEnter {
+  from { opacity: .75; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ==========================================================================
@@ -8257,11 +8182,7 @@ main.page-entered {
 /* Reduced Motion Override for Navigation & Page Transitions */
 @media (prefers-reduced-motion: reduce) {
   .nav-active-glider,
-  #page-nav-loader,
   main,
-  main.page-exiting,
-  main.page-entering,
-  main.page-entered,
   .hero-intro-ready *,
   .hero-intro-animate *,
   .page-hero-fullscreen *,

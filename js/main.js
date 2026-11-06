@@ -8,6 +8,7 @@
 
   // 1. Theme Engine (Light / Dark Mode)
   const THEME_KEY = 'svkhun_theme_preference';
+  const NAV_GLIDER_KEY = 'svkhun_nav_glider';
   const themeToggleBtn = document.getElementById('theme-toggle-btn');
   const themeIcon = document.getElementById('theme-icon');
 
@@ -80,20 +81,19 @@
   }
 
   // 3. Highlight Active Nav Item
-  function highlightActiveNav() {
-    const path = window.location.pathname;
-    const page = path.split('/').pop() || 'index.html';
+  function pageIdentity(url) {
+    return (url.pathname.replace(/\.html?$/i, '').replace(/\/$/, '').replace(/\/index$/, '') || '/') + url.search;
+  }
+
+  function highlightActiveNav(targetHref = window.location.href) {
+    const path = new URL(targetHref, window.location.href).pathname;
+    const page = (path.split('/').pop() || 'index').replace(/\.html?$/i, '');
+    const section = page.startsWith('project-') ? 'projects' : page;
     const navLinks = document.querySelectorAll('.nav-item a');
 
     navLinks.forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === page || (page === '' && href === 'index.html') || (page === 'index.html' && href === 'index.html')) {
-        link.classList.add('active');
-      } else if (page !== '' && page !== 'index.html' && href && href.includes(page)) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
+      const href = (link.getAttribute('href') || '').replace(/\.html?$/i, '');
+      link.classList.toggle('active', href === section);
     });
 
     if (updateGliderGlobal) {
@@ -156,25 +156,33 @@
     updateGliderGlobal = updateGlider;
 
     const currentActive = navMenu.querySelector('.nav-item a.active');
-    updateGlider(currentActive, false);
+    let previousGlider = null;
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(NAV_GLIDER_KEY) || 'null');
+      sessionStorage.removeItem(NAV_GLIDER_KEY);
+      if (saved && saved.page === pageIdentity(new URL(window.location.href)) &&
+          Date.now() - saved.at < 10000 && Date.now() >= saved.at &&
+          saved.viewport === window.innerWidth && Number.isFinite(saved.left) && saved.width > 0) {
+        previousGlider = saved;
+      }
+    } catch (error) {}
+    if (previousGlider) {
+      glider.style.transition = 'none';
+      glider.style.transform = `translate3d(${previousGlider.left}px, 0, 0)`;
+      glider.style.width = `${previousGlider.width}px`;
+      glider.style.opacity = '1';
+      void glider.offsetWidth;
+      requestAnimationFrame(() => requestAnimationFrame(() => updateGlider(currentActive, true)));
+    } else {
+      updateGlider(currentActive, false);
+    }
 
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(() => {
         const cur = navMenu.querySelector('.nav-item a.active');
-        updateGlider(cur, false);
+        updateGlider(cur, Boolean(previousGlider));
       });
     }
-
-    navMenu.querySelectorAll('.nav-item a').forEach(link => {
-      link.addEventListener('mouseenter', () => {
-        updateGlider(link, true);
-      });
-    });
-
-    navMenu.addEventListener('mouseleave', () => {
-      const cur = navMenu.querySelector('.nav-item a.active');
-      updateGlider(cur, true);
-    });
 
     window.addEventListener('resize', () => {
       const cur = navMenu.querySelector('.nav-item a.active');
@@ -375,9 +383,10 @@
     });
   }
 
-  // 7. Signature Intro Preloader Controller ("Sivakorn") & Home Entrance Orchestrator
+  // 7. Signature intro & Home Entrance Orchestrator
   const preloader = document.getElementById('signature-preloader');
-  const INTRO_SESSION_KEY = 'svkhun_intro_played';
+  const INTRO_NAVIGATION_KEY = 'svkhun_intro_navigation';
+  let dismissIntro = null;
 
   function triggerHeroEntrance() {
     const hero = document.getElementById('home-hero');
@@ -402,38 +411,14 @@
       return;
     }
 
-    // Check if user reloaded the page (F5/refresh) or if it's first visit in session
-    let isReload = false;
-    try {
-      const navEntries = performance.getEntriesByType('navigation');
-      if (navEntries && navEntries.length > 0) {
-        isReload = navEntries[0].type === 'reload';
-      } else if (performance.navigation) {
-        isReload = performance.navigation.type === 1; // TYPE_RELOAD
-      }
-    } catch (e) {
-      isReload = false;
-    }
-
-    let hasPlayedThisSession = false;
-    try {
-      hasPlayedThisSession = sessionStorage.getItem(INTRO_SESSION_KEY) === 'true';
-    } catch (e) {
-      hasPlayedThisSession = false;
-    }
-
-    // If already played in this session and NOT a hard refresh, dismiss immediately and start hero
-    if (hasPlayedThisSession && !isReload) {
+    if (!document.documentElement.classList.contains('intro-pending')) {
+      document.documentElement.classList.remove('intro-pending');
       preloader.style.display = 'none';
       preloader.classList.add('fade-out');
+      preloader.setAttribute('aria-hidden', 'true');
       triggerHeroEntrance();
       return;
     }
-
-    // Mark as played for this session
-    try {
-      sessionStorage.setItem(INTRO_SESSION_KEY, 'true');
-    } catch (e) {}
 
     // Put Home hero in ready state while preloader runs
     const homeHero = document.getElementById('home-hero');
@@ -444,53 +429,27 @@
     document.body.classList.add('signature-loading');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let dismissed = false;
-    let animationReady = reducedMotion;
-    let pageReady = document.readyState === 'complete';
     function dismiss() {
       if (dismissed) return;
       dismissed = true;
       clearTimeout(animationTimer);
-      clearTimeout(fallbackTimer);
-      window.removeEventListener('load', onPageLoad);
       document.removeEventListener('keydown', onIntroKeydown);
       document.body.classList.remove('signature-loading');
       preloader.classList.add('fade-out');
       preloader.setAttribute('aria-hidden', 'true');
       triggerHeroEntrance();
-      setTimeout(() => { preloader.style.display = 'none'; }, reducedMotion ? 0 : 480);
-    }
-    function finishWhenReady() {
-      if (animationReady && pageReady) dismiss();
-    }
-    function onPageLoad() {
-      pageReady = true;
-      finishWhenReady();
+      setTimeout(() => {
+        preloader.style.display = 'none';
+        document.documentElement.classList.remove('intro-pending');
+      }, reducedMotion ? 0 : 250);
     }
     function onIntroKeydown(event) {
       if (event.key === 'Escape') dismiss();
     }
-    const animationTimer = setTimeout(() => {
-      animationReady = true;
-      finishWhenReady();
-    }, reducedMotion ? 0 : 2100);
-    // Bounded fallback prevents slow third-party assets from blocking entry.
-    const fallbackTimer = setTimeout(dismiss, 5000);
-    window.addEventListener('load', onPageLoad, { once: true });
+    // The document is ready here; images, fonts and third-party assets load in parallel.
+    const animationTimer = setTimeout(dismiss, reducedMotion ? 0 : 1000);
     document.addEventListener('keydown', onIntroKeydown);
-
-    // Clicking brand logo on index page can replay intro
-    const brandLogo = document.querySelector('.brand-logo');
-    if (brandLogo) {
-      brandLogo.addEventListener('click', function (e) {
-        const path = window.location.pathname;
-        const page = path.split('/').pop() || 'index.html';
-        if (page === 'index.html' || page === '') {
-          try {
-            sessionStorage.removeItem(INTRO_SESSION_KEY);
-          } catch (err) {}
-        }
-      });
-    }
+    dismissIntro = dismiss;
   }
 
   // 8. Hairline Scroll Progress Bar
@@ -581,6 +540,7 @@
   }
 
   // 10. Bi-Directional Scroll Animation Engine with Page-Format Choreography
+  const pageObservers = [];
   let scrollDirTrackerBound = false;
 
   function initScrollDirectionTracker() {
@@ -703,6 +663,7 @@
         rootMargin: '0px 0px -20px 0px'
       });
 
+      pageObservers.push(observer);
       elements.forEach(el => observer.observe(el));
     } else {
       elements.forEach(el => el.classList.add('is-in-view'));
@@ -871,224 +832,161 @@
         threshold: 0.2
       });
 
+      pageObservers.push(observer);
       statsData.forEach(item => observer.observe(item.element));
     } else {
       statsData.forEach(item => animateNumber(item));
     }
   }
 
-  // 17. Seamless Fluid Page & Section Transition Engine (Linear / Stripe Grade)
-  function initPageTransitions() {
-    let loader = document.getElementById('page-nav-loader');
-    if (!loader) {
-      loader = document.createElement('div');
-      loader.id = 'page-nav-loader';
-      loader.setAttribute('aria-hidden', 'true');
-      document.body.prepend(loader);
-    }
+  // 17. Keep the header mounted during web navigation, with native file support.
+  function initPageNavigation() {
+    let renderedUrl = new URL(window.location.href);
+    let navigationId = 0;
+    let controller = null;
+    const pageCache = new Map();
+    const canFetchPages = ['http:', 'https:'].includes(window.location.protocol);
 
-    let isNavigating = false;
-
-    function isInternalLink(link) {
-      if (!link || !link.href) return false;
-      if (link.target && link.target !== '_self' && link.target !== '') return false;
-      if (link.hasAttribute('download') || link.getAttribute('rel') === 'external') return false;
-      if (link.hasAttribute('data-open-cert') || link.hasAttribute('data-copy-email')) return false;
-
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) {
-        return false;
-      }
-
+    function prepareNativeNavigation(destination) {
       try {
-        const dest = new URL(link.href, window.location.href);
-        return dest.origin === window.location.origin;
-      } catch (e) {
-        return false;
-      }
+        const page = destination.pathname.split('/').pop() || 'index';
+        if (page.replace(/\.html?$/i, '') === 'index') {
+          sessionStorage.setItem(INTRO_NAVIGATION_KEY, String(Date.now()));
+        }
+        const menu = document.getElementById('nav-menu');
+        const glider = menu?.querySelector('.nav-active-glider');
+        if (menu && glider && window.innerWidth >= 768) {
+          const rect = glider.getBoundingClientRect();
+          sessionStorage.setItem(NAV_GLIDER_KEY, JSON.stringify({
+            page: pageIdentity(destination), at: Date.now(), viewport: window.innerWidth,
+            left: rect.left - menu.getBoundingClientRect().left, width: rect.width
+          }));
+        }
+      } catch (error) {}
     }
 
-    async function navigateTo(targetHref, pushState = true) {
-      if (isNavigating) return;
+    function scrollToDestination(destination, position) {
+      let anchor = null;
+      try { if (destination.hash) anchor = document.getElementById(decodeURIComponent(destination.hash.slice(1))); } catch (error) {}
+      if (anchor) anchor.scrollIntoView({ behavior: 'instant' });
+      else window.scrollTo({ left: position?.[0] || 0, top: position?.[1] || 0, behavior: 'instant' });
+    }
 
-      const currentUrl = new URL(window.location.href);
-      const destUrl = new URL(targetHref, window.location.href);
-
-      // Same page anchor or exact same URL
-      if (currentUrl.pathname === destUrl.pathname && currentUrl.search === destUrl.search) {
-        if (destUrl.hash) {
-          const el = document.querySelector(destUrl.hash);
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-            return;
-          }
+    async function navigate(destination, push = true, position = null) {
+      const id = ++navigationId;
+      controller?.abort();
+      controller = new AbortController();
+      const signal = controller.signal;
+      if (pageIdentity(destination) === pageIdentity(renderedUrl)) {
+        document.querySelector('main')?.removeAttribute('aria-busy');
+        if (push && destination.href !== renderedUrl.href) {
+          window.history.pushState({ portfolioScroll: [0, 0] }, '', destination.href);
         }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        renderedUrl = destination;
+        highlightActiveNav(destination.href);
+        scrollToDestination(destination, position);
         return;
       }
 
-      isNavigating = true;
+      dismissIntro?.();
+      const oldMain = document.querySelector('main');
+      oldMain?.setAttribute('aria-busy', 'true');
+      try {
+        const key = pageIdentity(destination);
+        let page = pageCache.get(key);
+        if (!page) {
+          const response = await fetch(destination.href, { signal });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          page = { html: await response.text(), url: response.url || destination.href };
+          if (id !== navigationId) return;
+          pageCache.set(key, page);
+        }
+        if (id !== navigationId) return;
+        const nextDoc = new DOMParser().parseFromString(page.html, 'text/html');
+        const nextMain = nextDoc.querySelector('main');
+        const nextUrl = new URL(page.url);
+        nextUrl.hash = destination.hash;
+        if (!nextMain || nextUrl.origin !== window.location.origin) throw new Error('Not an internal content page');
 
-      // Start progress bar sweep
-      loader.classList.remove('is-complete');
-      loader.classList.add('is-loading');
-
-      // Instant active nav feedback & glider transition
-      const navMenu = document.getElementById('nav-menu');
-      if (navMenu) {
-        const targetPage = destUrl.pathname.split('/').pop() || 'index.html';
-        const targetNav = Array.from(navMenu.querySelectorAll('.nav-item a')).find(a => {
-          const h = a.getAttribute('href');
-          return h === targetPage || (targetPage === 'index.html' && h === 'index.html');
+        if (push) {
+          window.history.replaceState({ ...window.history.state, portfolioScroll: [window.scrollX, window.scrollY] }, '', renderedUrl.href);
+          window.history.pushState({ portfolioScroll: [0, 0] }, '', nextUrl.href);
+        }
+        pageObservers.splice(0).forEach(observer => observer.disconnect());
+        closeCertModal();
+        const main = document.importNode(nextMain, true);
+        oldMain.replaceWith(main);
+        renderedUrl = nextUrl;
+        document.title = nextDoc.title;
+        ['meta[name="description"]', 'link[rel="canonical"]'].forEach(selector => {
+          const current = document.head.querySelector(selector);
+          const next = nextDoc.head.querySelector(selector);
+          if (current && next) current.replaceWith(document.importNode(next, true));
         });
-        if (targetNav) {
-          navMenu.querySelectorAll('.nav-item a').forEach(a => a.classList.remove('active'));
-          targetNav.classList.add('active');
-          if (updateGliderGlobal) updateGliderGlobal(targetNav, true);
-        }
-      }
-
-      // Close mobile nav drawer if open
-      if (navMenu && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        const mobileToggle = document.getElementById('mobile-nav-toggle');
-        if (mobileToggle) {
-          const icon = mobileToggle.querySelector('i');
-          if (icon) icon.className = 'fas fa-bars';
-        }
-      }
-
-      // Smooth Exit Phase for current main content
-      const currentMain = document.querySelector('main');
-      if (currentMain) {
-        currentMain.classList.remove('page-entered', 'page-entering');
-        currentMain.classList.add('page-exiting');
-      }
-
-      const minExitDuration = 220; // ms
-      const startTime = performance.now();
-
-      try {
-        const response = await fetch(destUrl.href);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const html = await response.text();
-
-        const parser = new DOMParser();
-        const newDoc = parser.parseFromString(html, 'text/html');
-        const newMain = newDoc.querySelector('main');
-        const newTitle = newDoc.querySelector('title')?.textContent || document.title;
-
-        if (!newMain) {
-          window.location.href = destUrl.href;
-          return;
-        }
-
-        // Wait for exit animation to complete smoothly
-        const elapsed = performance.now() - startTime;
-        if (elapsed < minExitDuration) {
-          await new Promise(r => setTimeout(r, minExitDuration - elapsed));
-        }
-
-        // Complete progress bar
-        loader.classList.remove('is-loading');
-        loader.classList.add('is-complete');
-
-        // Update Document Title and URL
-        document.title = newTitle;
-        if (pushState) {
-          window.history.pushState({ path: destUrl.href }, newTitle, destUrl.href);
-        }
-
-        // Scroll instantly to top before rendering new page
-        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-
-        // Swap Main Content & Trigger Enter Phase
-        if (currentMain) {
-          currentMain.innerHTML = newMain.innerHTML;
-          currentMain.className = newMain.className;
-          currentMain.classList.remove('page-exiting');
-          currentMain.classList.add('page-entering');
-
-          // Force reflow
-          void currentMain.offsetWidth;
-
-          currentMain.classList.remove('page-entering');
-          currentMain.classList.add('page-entered');
-
-          setTimeout(() => {
-            currentMain.classList.remove('page-entered');
-          }, 480);
-        }
-
-        setTimeout(() => {
-          loader.classList.remove('is-complete');
-        }, 320);
-
-        // Highlight Active Nav & sync glider
-        highlightActiveNav();
-
-        // Re-initialize interactive modules on new page
-        reinitPageModules(newDoc);
-
-      } catch (err) {
-        console.warn('Page transition fallback to default navigation:', err);
-        const elapsed = performance.now() - startTime;
-        const remaining = Math.max(0, minExitDuration - elapsed);
-        setTimeout(() => {
-          window.location.href = destUrl.href;
-        }, remaining);
+        scrollToDestination(nextUrl, position);
+        main.classList.add('page-entered');
+        setTimeout(() => main.classList.remove('page-entered'), 240);
+        highlightActiveNav(nextUrl.href);
+        initPageContent();
+        if (document.getElementById('home-hero')) triggerHeroEntrance();
+        window.dispatchEvent(new Event('scroll'));
+      } catch (error) {
+        if (signal.aborted || id !== navigationId) return;
+        prepareNativeNavigation(destination);
+        window.location.assign(destination.href);
       } finally {
-        isNavigating = false;
+        if (id === navigationId) document.querySelector('main')?.removeAttribute('aria-busy');
       }
     }
 
-    // Intercept internal link clicks
-    document.addEventListener('click', function (e) {
-      const link = e.target.closest('a');
-      if (!link) return;
-      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
+    document.addEventListener('click', event => {
+      const link = event.target.closest('a');
+      if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey ||
+          event.ctrlKey || event.shiftKey || event.altKey || link.hasAttribute('download') ||
+          (link.target && link.target !== '_self') || link.hasAttribute('data-open-cert') ||
+          link.hasAttribute('data-copy-email')) return;
+      const href = link.getAttribute('href');
+      if (!href || /^(#|mailto:|tel:|javascript:)/i.test(href)) return;
+      const destination = new URL(link.href, window.location.href);
+      const current = new URL(window.location.href);
+      if (destination.origin !== current.origin ||
+          !['http:', 'https:', 'file:'].includes(destination.protocol) ||
+          (/\.[^/]+$/.test(destination.pathname) && !/\.html?$/i.test(destination.pathname))) return;
+
+      if (link.closest('.nav-menu, .brand-logo') && pageIdentity(destination) === pageIdentity(renderedUrl) && !destination.hash) {
+        event.preventDefault();
+        ++navigationId;
+        controller?.abort();
+        document.querySelector('main')?.removeAttribute('aria-busy');
+        if (pageIdentity(current) !== pageIdentity(renderedUrl)) {
+          window.history.pushState({ portfolioScroll: [window.scrollX, window.scrollY] }, '', renderedUrl.href);
+        }
+        highlightActiveNav(renderedUrl.href);
+        window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
         return;
       }
-      if (isInternalLink(link)) {
-        e.preventDefault();
-        navigateTo(link.href, true);
+      if (!canFetchPages) {
+        prepareNativeNavigation(destination);
+        return;
       }
+      event.preventDefault();
+      navigate(destination);
     });
 
-    // Browser navigation (Back / Forward)
-    window.addEventListener('popstate', function () {
-      navigateTo(window.location.href, false);
+    window.addEventListener('popstate', event => {
+      if (canFetchPages) navigate(new URL(window.location.href), false, event.state?.portfolioScroll);
     });
   }
 
-  function reinitPageModules(newDoc) {
+  function initPageContent() {
     initScrollReveal();
     initSpotlightCards();
-    initStatCounters();
     initHeroTilt();
+    initStatCounters();
     initWorkAccordion();
     initTechStackFilter();
     initAssessmentAccordion();
     initEducationDrawers();
-
-    // Trigger Home hero cascade entrance if on Home page
-    const homeHero = document.getElementById('home-hero');
-    if (homeHero) {
-      triggerHeroEntrance();
-    }
-
-    // Execute any page-specific inline scripts (e.g. interactive case studies)
-    if (newDoc) {
-      const inlineScripts = newDoc.querySelectorAll('script:not([src])');
-      inlineScripts.forEach(script => {
-        try {
-          const fn = new Function(script.textContent);
-          fn();
-        } catch (e) {
-          console.warn('Inline script execution error:', e);
-        }
-      });
-    }
   }
 
   // Initialize on load
@@ -1107,15 +1005,8 @@
 
     initScrollProgress();
     initBackToTop();
-    initScrollReveal();
-    initSpotlightCards();
-    initHeroTilt();
-    initStatCounters();
-    initWorkAccordion();
-    initTechStackFilter();
-    initAssessmentAccordion();
-    initEducationDrawers();
-    initPageTransitions();
+    initPageContent();
+    initPageNavigation();
   }
 
   // 15. Work Page Hover & Click Accordion Toggle
@@ -1197,7 +1088,7 @@
     showToast,
     replaySignature: function () {
       try {
-        sessionStorage.removeItem(INTRO_SESSION_KEY);
+        sessionStorage.removeItem(INTRO_NAVIGATION_KEY);
       } catch (e) {}
       window.location.reload();
     }
