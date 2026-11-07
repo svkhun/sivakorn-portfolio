@@ -203,6 +203,20 @@ const portfolioData = {
     ]
   },
 
+  // Owner-confirmed pitching experience; the certificate documents participation.
+  pitching: {
+    project: "K-NEXUS — FlowSense & TrustGraph",
+    event: "KBTG KAMPUS Hackathon – Intern Edition",
+    date: "2026-11-07",
+    role: "Solo Developer & Pitcher",
+    summary: "Independently developed the complete K-NEXUS project and delivered its pitch.",
+    certificateImage: "assets/kbtg-kampus-hackathon-2026-certificate.png",
+    certificateType: "Certificate of Participation",
+    photosStatus: "Awaiting official event photos from KBTG",
+    photos: [],
+    experienceLink: "experience.html#pitching"
+  },
+
   // Experience & Competitions (Timeline & Cards)
   experience: [
     {
@@ -220,17 +234,17 @@ const portfolioData = {
       techStack: ["Python", "scikit-learn", "Random Forest", "FastAPI", "Pandas", "JavaScript"]
     },
     {
-      role: "Track 2 Lead: Data Science & Intelligence",
+      role: "Solo Developer & Pitcher — Track 2: Data Science & Intelligence",
       company: "KBTG Kampus Hackathon 2026",
       status: "Finalist in Track 2",
       organization: "Kasikorn Business-Technology Group (KBTG)",
-      duration: "2026",
+      duration: "7 November 2026",
       location: "Bangkok, Thailand",
       description: [
-        "Contributed to K-NEXUS, an independent synthetic-data team prototype for planning, simulated saving, and recipient-risk review.",
+        "Independently developed the complete K-NEXUS project and delivered its pitch at KBTG KAMPUS Hackathon – Intern Edition on 7 November 2026.",
         "The Application uses history/scenario/abstention rules with FlowSense ML disabled; the Showcase contains separate research evidence.",
         "Saved TrustGraph test AP: no-GNN baseline 0.99640; R-GCN + LightGBM 0.99373. No GNN superiority is established.",
-        "FlowSense Gate 2 passed no horizon. Individual component ownership and real-world impact are not independently established."
+        "FlowSense Gate 2 passed no horizon. Financial data and transfers remain simulated; real-world impact is not established."
       ],
       techStack: ["PyTorch Geometric", "LightGBM", "ONNX Runtime", "FastAPI", "React 18", "Vite"]
     },

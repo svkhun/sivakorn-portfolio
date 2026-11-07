@@ -63,7 +63,8 @@ The portfolio is architected following the clean, structured, and developer-focu
 ## 🔬 Featured Engineering Case Studies
 
 ### 1. K-NEXUS — FlowSense & TrustGraph
-* **Context:** Independent synthetic-data team prototype in KBTG Kampus Hackathon 2026, Track 2. The existing portfolio records finalist status; no KBank/KBTG ownership or endorsement is implied.
+* **Context:** Independently developed synthetic-data prototype in KBTG Kampus Hackathon 2026, Track 2. The existing portfolio records finalist status; no KBank/KBTG ownership or endorsement is implied.
+* **My role:** Solo developer and pitcher. Developed the complete K-NEXUS project and delivered its pitch at KBTG KAMPUS Hackathon – Intern Edition on 7 November 2026, as confirmed by the portfolio owner. [Pitching experience](experience.html#pitching) includes the participation certificate and reserved spaces for official event photos.
 * **Application:** [Demo](https://k-nexus-app.onrender.com/) · [Source](https://github.com/svkhun/K-NEXUS-Application). Spending plans, reserves, simulated savings and recipient-risk review. FlowSense uses HISTORY_MEAN → SCENARIO → ABSTAIN with ML disabled.
 * **Showcase:** [Portal](https://k-nexus-showcase.onrender.com/) · [Source](https://github.com/svkhun/K-NEXUS-Showcase). Separate presentation, training and evaluation evidence.
 * **TrustGraph:** Saved synthetic test AP 0.99640 (no-GNN) versus 0.99373 (R-GCN + LightGBM), 1,354 transactions / 67 positives. No GNN advantage or real-world fraud prevention is established.
@@ -162,7 +163,7 @@ The portfolio is architected following the clean, structured, and developer-focu
 | Competition / Hackathon | Organization / Hosts | Role & Focus | Timeline |
 | :--- | :--- | :--- | :--- |
 | **Shopee Ultimate Case Challenge 2026** | Shopee | **Lead Data Scientist & Product Architect** &bull; Smart COD Reliability prototype | 2026 |
-| **KBTG Kampus Hackathon 2026** | Kasikorn Business-Technology Group (KBTG) | **Track 2: Data Science & Intelligence Lead** &bull; FlowSense & TrustGraph &bull; **Finalist** | 2026 |
+| **KBTG Kampus Hackathon 2026** | Kasikorn Business-Technology Group (KBTG) | **Solo Developer & Pitcher** &bull; Track 2: Data Science & Intelligence &bull; K-NEXUS &bull; **Finalist** | 7 Nov 2026 |
 | **CDG Hackathon 2026** | CDG Group | Operational AI & System Reliability (Team GrandGuardianAI) | Jul 2026 |
 | **Geospatial Intelligence for Resilience Hackathon 2026** | GISTDA &bull; KMITL &bull; KMUTT | Spatial Lead &bull; 30m Grid Flash Flood Mapping via Sentinel-1 SAR & Copernicus DEM | Jan 2026 |
 | **True Innovation Launchpad 2026** | True Corporation | AI & Data Science Lead &bull; Preventive Healthcare & Clinical Frailty Scoring (GuardianAI) | Jan 2026 |
