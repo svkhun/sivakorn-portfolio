@@ -267,6 +267,8 @@ const portfolioData = {
       organization: "AIRA & AIFUL &bull; Chulalongkorn Business School &bull; ProbSpace",
       duration: "Dec 2025",
       location: "Bangkok, Thailand",
+      certificateImage: "assets/aihack_thailand_2025_certificate.png",
+      certificatePdf: "assets/aihack_thailand_2025_certificate.pdf",
       description: [
         "Built a competition pipeline for predicting 12-month long-overdue debt risk from tabular lending records.",
         "Developed financial-ratio and delinquency features, with stratified validation and Optuna model search.",

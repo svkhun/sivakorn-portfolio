@@ -317,30 +317,44 @@
 
 
         <!-- Item 2: Aihack Thailand 2025 -->
-        <article class="full-width-panel scroll-anim anim-milestone-rise experience-compact experience-entry">
-          <div class="card-accent-bar accent-bar-amber anim-accent-expand"></div>
+        <article class="full-width-panel scroll-anim anim-milestone-rise experience-compact experience-entry experience-entry-red">
+          <div class="card-accent-bar accent-bar-red anim-accent-expand"></div>
 
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
             <div>
-              <span class="card-domain-badge badge-amber">
+              <span class="card-domain-badge badge-red">
                 <i class="fas fa-trophy text-xs"></i>
                 NATIONAL FINALIST
               </span>
               <h2 class="text-2xl lg:text-3xl font-medium text-slate-900 dark:text-white tracking-[-0.03em] mt-1.5 mb-1">
                 National Finalist &bull; Long Overdue Debtor (LOD) Prediction
               </h2>
-              <div class="text-base font-semibold text-amber-600 dark:text-amber-400">
+              <div class="text-base font-semibold text-red-600 dark:text-red-400">
                 AIRA &amp; AIFUL &bull; Chulalongkorn Business School &bull; ProbSpace
               </div>
             </div>
-            <span class="card-date-badge self-start sm:self-center">
-              <i class="far fa-calendar-alt text-xs opacity-70"></i>
-              Dec 2025
-            </span>
+            <div class="flex items-center gap-2 self-start sm:self-center">
+              <a href="assets/aihack_thailand_2025_certificate.png"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="cert-btn-badge"
+                 data-open-cert
+                 data-cert-title="Aihack Thailand 2025 &mdash; Certificate of Participation"
+                 data-cert-img="assets/aihack_thailand_2025_certificate.png"
+                 aria-label="View Certificate for Aihack Thailand 2025">
+                <i class="fas fa-award text-red-600 dark:text-red-400"></i>
+                <span>Certificate</span>
+                <span aria-hidden="true">&nearr;</span>
+              </a>
+              <span class="card-date-badge">
+                <i class="far fa-calendar-alt text-xs opacity-70"></i>
+                Dec 2025
+              </span>
+            </div>
           </div>
 
           <!-- Highlight KPI Metric Strip -->
-          <div class="kpi-metric-strip kpi-strip-amber anim-kpi-glow">
+          <div class="kpi-metric-strip kpi-strip-red anim-kpi-glow">
             <span class="kpi-icon-badge"><i class="fas fa-trophy"></i></span>
             <span>0.894 ROC-AUC</span>
             <span class="kpi-divider">&bull;</span>
@@ -352,29 +366,53 @@
           <!-- Structured Impact Rows -->
           <div class="impact-list">
             <div class="impact-item anim-impact-step" style="--bullet-delay: 0.1s;">
-              <span class="impact-chip impact-chip-amber">
+              <span class="impact-chip impact-chip-red">
                 <i class="fas fa-chevron-right"></i>
               </span>
               <p class="mb-0"><strong>Quantitative Problem Framing:</strong> Formulated credit default models on ~40,000 real-world consumer loan records under extreme 1:12 class imbalance and blind evaluation partitions.</p>
             </div>
             <div class="impact-item anim-impact-step" style="--bullet-delay: 0.18s;">
-              <span class="impact-chip impact-chip-amber">
+              <span class="impact-chip impact-chip-red">
                 <i class="fas fa-chevron-right"></i>
               </span>
               <p class="mb-0"><strong>Feature Extraction &amp; Optuna:</strong> Extracted temporal delinquency velocity ratios, credit exhaustion slopes, and 5-Fold Stratified Cross-Validation via Optuna Bayesian hyperparameter search.</p>
             </div>
             <div class="impact-item anim-impact-step" style="--bullet-delay: 0.26s;">
-              <span class="impact-chip impact-chip-amber">
+              <span class="impact-chip impact-chip-red">
                 <i class="fas fa-chevron-right"></i>
               </span>
               <p class="mb-0"><strong>Multi-Model Ensembling:</strong> Achieved <strong>0.894 ROC-AUC</strong> via out-of-fold rank/probability blending combining CatBoost symmetric trees with LightGBM leaf-wise GBDT.</p>
             </div>
             <div class="impact-item anim-impact-step" style="--bullet-delay: 0.34s;">
-              <span class="impact-chip impact-chip-amber">
+              <span class="impact-chip impact-chip-red">
                 <i class="fas fa-chevron-right"></i>
               </span>
               <p class="mb-0"><strong>Asymmetric Risk Optimization:</strong> Formulated asymmetric cost-matrix threshold optimization balancing unrecovered default principal losses against lost customer margin.</p>
             </div>
+          </div>
+          <!-- Certificate Verification Action Bar (Inline image hidden, modal trigger button active) -->
+          <div class="experience-cert-action-row">
+            <a href="assets/aihack_thailand_2025_certificate.png"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="experience-cert-action-btn"
+               data-open-cert
+               data-cert-title="Aihack Thailand 2025 &mdash; Certificate of Participation"
+               data-cert-img="assets/aihack_thailand_2025_certificate.png"
+               aria-label="View Certificate of Participation">
+              <i class="fas fa-award"></i>
+              <span>View Certificate</span>
+              <span aria-hidden="true">&nearr;</span>
+            </a>
+            <a href="assets/aihack_thailand_2025_certificate.pdf"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="experience-cert-pdf-link"
+               aria-label="Download official PDF certificate">
+              <i class="far fa-file-pdf"></i>
+              <span>Official PDF</span>
+              <span aria-hidden="true">&nearr;</span>
+            </a>
           </div>
 
           <!-- Integrated Tech Stack Footer -->
@@ -385,7 +423,7 @@
             <span class="tech-pill-lg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#FFCC00"/><path d="M9 12l2 2 4-4" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg> CatBoost</span>
             <span class="tech-pill-lg"><i class="devicon-scikitlearn-plain colored"></i> Scikit-Learn</span>
             <span class="tech-pill-lg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zm0 4a5 5 0 110 10 5 5 0 010-10z" fill="#4B32C3"/></svg> Optuna</span>
-            <span class="tech-pill-lg"><i class="fas fa-coins text-amber-600"></i> Cost Matrix</span>
+            <span class="tech-pill-lg"><i class="fas fa-coins text-red-600 dark:text-red-400"></i> Cost Matrix</span>
           </div>
         </article>
 
