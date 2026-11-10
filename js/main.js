@@ -380,6 +380,10 @@
         content.setAttribute('aria-hidden', String(!open));
         button.querySelector('.education-hinge-hint').textContent = pinned
           ? 'Click to close' : open ? 'Click to keep open' : 'Hover or click to open';
+        setTimeout(() => {
+          if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+          if (lenisInstance) lenisInstance.resize();
+        }, 260);
       };
       button.addEventListener('pointerenter', event => {
         if (hoverPointer.matches && event.pointerType !== 'touch') {
@@ -418,26 +422,111 @@
     });
   }
 
-  // 7. Signature intro & Home Entrance Orchestrator
+  // 7. Signature intro & Coordinated Hero Entrance Orchestrator
   const preloader = document.getElementById('signature-preloader');
   const INTRO_NAVIGATION_KEY = 'svkhun_intro_navigation';
   let dismissIntro = null;
 
   function triggerHeroEntrance() {
-    const hero = document.getElementById('home-hero');
-    if (!hero) return;
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    requestAnimationFrame(() => {
-      hero.classList.remove('hero-intro-ready');
-      hero.classList.add('hero-intro-animate');
+    // 7.1 Home Hero Reveal & Orchestration
+    const homeHero = document.getElementById('home-hero');
+    if (homeHero) {
+      homeHero.classList.remove('hero-intro-ready');
+      homeHero.classList.add('hero-intro-animate');
 
-      const portraitWrap = hero.querySelector('.hero-illustration-wrapper');
+      const portraitWrap = homeHero.querySelector('.hero-illustration-wrapper');
       if (portraitWrap) {
         setTimeout(() => {
           portraitWrap.classList.add('is-floating');
         }, 1100);
       }
-    });
+
+      if (!prefersReduced && typeof gsap !== 'undefined') {
+        const heroTargets = [
+          homeHero.querySelector('.hero-text-col > div:first-child'),
+          homeHero.querySelector('.hero-display'),
+          homeHero.querySelector('.hero-role-title'),
+          homeHero.querySelector('.hero-lead'),
+          homeHero.querySelector('.hero-text-col .flex.flex-wrap'),
+          homeHero.querySelector('.social-icons-row'),
+          homeHero.querySelector('.hero-illustration-wrapper'),
+          document.querySelector('.stats-band')
+        ].filter(Boolean);
+
+        gsap.fromTo(heroTargets,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.82,
+            stagger: 0.08,
+            ease: 'power3.out',
+            clearProps: 'transform,opacity',
+            onComplete: () => {
+              if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+            }
+          }
+        );
+      }
+    }
+
+    // 7.2 Fullscreen Page Heroes (Education, Experience, Projects, Contact)
+    const pageHero = document.querySelector('.page-hero-fullscreen, #contact-header');
+    if (pageHero && !homeHero) {
+      if (!prefersReduced && typeof gsap !== 'undefined') {
+        const elements = [
+          pageHero.querySelector('.editorial-number-tag'),
+          pageHero.querySelector('.hero-display, h1'),
+          pageHero.querySelector('.hero-role-title, h2'),
+          pageHero.querySelector('.hero-lead, p.lead'),
+          pageHero.querySelector('.flex.flex-wrap, .social-icons-row'),
+          pageHero.querySelector('img, .hero-visual-card')
+        ].filter(Boolean);
+
+        if (elements.length > 0) {
+          gsap.fromTo(elements,
+            { opacity: 0, y: 30 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              stagger: 0.09,
+              ease: 'power3.out',
+              clearProps: 'transform,opacity',
+              onComplete: () => {
+                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+              }
+            }
+          );
+        }
+      }
+    }
+
+    // 7.3 Case Study Engineering Articles
+    const caseHero = document.querySelector('.case-lead-hero, .case-header-wrap, article header');
+    if (caseHero && !homeHero && !pageHero) {
+      if (!prefersReduced && typeof gsap !== 'undefined') {
+        const elements = caseHero.querySelectorAll('.case-tag, .font-mono, h1, .case-title, .case-thesis-quote, .case-meta-bar, .hero-lead');
+        if (elements.length > 0) {
+          gsap.fromTo(elements,
+            { opacity: 0, y: 28 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.78,
+              stagger: 0.08,
+              ease: 'power3.out',
+              clearProps: 'transform,opacity',
+              onComplete: () => {
+                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+              }
+            }
+          );
+        }
+      }
+    }
   }
 
   function initSignaturePreloader() {
@@ -481,13 +570,12 @@
     function onIntroKeydown(event) {
       if (event.key === 'Escape') dismiss();
     }
-    // The document is ready here; images, fonts and third-party assets load in parallel.
     const animationTimer = setTimeout(dismiss, reducedMotion ? 0 : 1000);
     document.addEventListener('keydown', onIntroKeydown);
     dismissIntro = dismiss;
   }
 
-  // 8. Hairline Scroll Progress Bar
+  // 8. Hairline Scroll Progress Bar (Synchronized with Lenis & Standard Scroll)
   function initScrollProgress() {
     let progressBar = document.getElementById('scroll-progress-bar');
     if (!progressBar) {
@@ -497,18 +585,26 @@
       document.body.prepend(progressBar);
     }
 
-    let ticking = false;
-    function updateProgress() {
-      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = height > 0 ? Math.min(Math.max(scrollY / height, 0), 1) : 0;
+    function updateProgress(scrollY, maxScroll) {
+      const height = maxScroll !== undefined ? maxScroll : (document.documentElement.scrollHeight - window.innerHeight);
+      const y = scrollY !== undefined ? scrollY : (window.pageYOffset || document.documentElement.scrollTop);
+      const progress = height > 0 ? Math.min(Math.max(y / height, 0), 1) : 0;
       progressBar.style.transform = `scaleX(${progress})`;
-      ticking = false;
     }
 
+    if (lenisInstance) {
+      lenisInstance.on('scroll', (e) => {
+        updateProgress(e.scroll, e.limit);
+      });
+    }
+
+    let ticking = false;
     window.addEventListener('scroll', function () {
-      if (!ticking) {
-        window.requestAnimationFrame(updateProgress);
+      if (!lenisInstance && !ticking) {
+        window.requestAnimationFrame(() => {
+          updateProgress();
+          ticking = false;
+        });
         ticking = true;
       }
     }, { passive: true });
@@ -516,7 +612,7 @@
     updateProgress();
   }
 
-  // 9. Back-to-Top Floating Button with Circular SVG Progress Ring
+  // 9. Back-to-Top Floating Button with Circular SVG Progress Ring (Smooth Lenis Jump)
   function initBackToTop() {
     let btt = document.getElementById('back-to-top');
     if (!btt) {
@@ -537,14 +633,13 @@
 
     const ring = btt.querySelector('.btt-ring-circle');
     const circumference = 144.5;
-    let ticking = false;
 
-    function onScroll() {
-      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = height > 0 ? Math.min(Math.max(scrollY / height, 0), 1) : 0;
+    function onScrollUpdate(scrollY, maxScroll) {
+      const height = maxScroll !== undefined ? maxScroll : (document.documentElement.scrollHeight - window.innerHeight);
+      const y = scrollY !== undefined ? scrollY : (window.pageYOffset || document.documentElement.scrollTop);
+      const progress = height > 0 ? Math.min(Math.max(y / height, 0), 1) : 0;
 
-      if (scrollY > 350) {
+      if (y > 350) {
         btt.classList.add('visible');
       } else {
         btt.classList.remove('visible');
@@ -554,24 +649,37 @@
         const offset = circumference - (progress * circumference);
         ring.style.strokeDashoffset = offset;
       }
-      ticking = false;
     }
 
+    if (lenisInstance) {
+      lenisInstance.on('scroll', (e) => {
+        onScrollUpdate(e.scroll, e.limit);
+      });
+    }
+
+    let ticking = false;
     window.addEventListener('scroll', function () {
-      if (!ticking) {
-        window.requestAnimationFrame(onScroll);
+      if (!lenisInstance && !ticking) {
+        window.requestAnimationFrame(() => {
+          onScrollUpdate();
+          ticking = false;
+        });
         ticking = true;
       }
     }, { passive: true });
 
     btt.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      if (lenisInstance) {
+        lenisInstance.scrollTo(0, { duration: 1.15 });
+      } else {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
     });
 
-    onScroll();
+    onScrollUpdate();
   }
 
   // 10. Bi-Directional Scroll Animation Engine with Page-Format Choreography
@@ -874,7 +982,284 @@
     }
   }
 
-  // 17. Keep the header mounted during web navigation, with native file support.
+  // 14. Lenis Momentum Smooth Scroll Engine
+  let lenisInstance = null;
+
+  function initLenis() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return null;
+    }
+    if (typeof Lenis === 'undefined') {
+      return null;
+    }
+
+    if (lenisInstance) {
+      lenisInstance.destroy();
+      lenisInstance = null;
+    }
+
+    lenisInstance = new Lenis({
+      duration: 1.15,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
+      infinite: false,
+    });
+
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+      lenisInstance.on('scroll', ScrollTrigger.update);
+
+      gsap.ticker.add((time) => {
+        if (lenisInstance) {
+          lenisInstance.raf(time * 1000);
+        }
+      });
+
+      gsap.ticker.lagSmoothing(0);
+    } else {
+      function raf(time) {
+        if (lenisInstance) {
+          lenisInstance.raf(time);
+          requestAnimationFrame(raf);
+        }
+      }
+      requestAnimationFrame(raf);
+    }
+
+    return lenisInstance;
+  }
+
+  // 15. Multi-Layered Vertical Parallax Scrolling Depth Engine
+  function initParallaxDepth() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    // 15.1 Home Hero Parallax (Foreground copy vs Portrait vs Ambient Glow)
+    const homeHero = document.getElementById('home-hero');
+    if (homeHero) {
+      const illustration = homeHero.querySelector('.hero-illustration-wrapper');
+      if (illustration) {
+        gsap.to(illustration, {
+          yPercent: 18,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: homeHero,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1
+          }
+        });
+      }
+
+      const glow = homeHero.querySelector('.hero-aura-glow, .hero-backdrop-glow');
+      if (glow) {
+        gsap.to(glow, {
+          yPercent: -28,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: homeHero,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.2
+          }
+        });
+      }
+
+      const textCol = homeHero.querySelector('.hero-text-col');
+      if (textCol) {
+        gsap.to(textCol, {
+          yPercent: -6,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: homeHero,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 0.6
+          }
+        });
+      }
+    }
+
+    // 15.2 Fullscreen Page Heroes (Education, Experience, Projects, Contact)
+    document.querySelectorAll('.page-hero-fullscreen, #contact-header').forEach((hero) => {
+      const watermark = hero.querySelector('.editorial-number-tag');
+      if (watermark) {
+        gsap.to(watermark, {
+          yPercent: -35,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: hero,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1
+          }
+        });
+      }
+
+      const img = hero.querySelector('img, .hero-visual-card');
+      if (img) {
+        gsap.to(img, {
+          yPercent: 16,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: hero,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1
+          }
+        });
+      }
+    });
+
+    // 15.3 Stats Band Parallax Elevation
+    const statsBand = document.getElementById('stats-band');
+    if (statsBand) {
+      gsap.to(statsBand, {
+        y: -24,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: statsBand,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.8
+        }
+      });
+    }
+
+    // 15.4 Case Study Mockups & Architecture Consoles Parallax
+    document.querySelectorAll('.graph-preview-canvas-box, .scorecard-interactive-box, .iot-console-box, .terminal-card, .ev-monograph, .bedside-card-mockup').forEach((card) => {
+      gsap.to(card, {
+        yPercent: 10,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.2
+        }
+      });
+    });
+  }
+
+  // 16. Scroll-Driven Typography & Content Flow (Viewport-Triggered Reveals)
+  function initTypographyReveals() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    const typographyTargets = document.querySelectorAll(
+      'main .editorial-h2, main .editorial-eyebrow, main .case-thesis-quote, main blockquote, main .lead-para, main .section-header > h2, main .section-header > p, main .pitch-home-copy h2, main .pitch-home-copy p'
+    );
+
+    typographyTargets.forEach((el) => {
+      if (el.closest('#home-hero, .page-hero-fullscreen, #contact-header')) return;
+
+      gsap.fromTo(el,
+        { opacity: 0, y: 28 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+    });
+  }
+
+  // 17. Staggered Cascades for Grids & Card Lists (0.08s - 0.12s Stagger Delay)
+  function initStaggeredGrids() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll(
+        '.tech-stack-card, .work-project-row, .stat-box, .cert-card, .competitive-card, .assessment-card-panel, .education-disclosure, .waterfall-tier-card, .oee-pill-card'
+      ).forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+      return;
+    }
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    const gridContainers = document.querySelectorAll(
+      '.tech-stack-grid, .work-timeline-list, .stats-band .grid, .cert-grid, .assessment-grid, .education-block, .pitch-capabilities, [class*="grid-cols-"]'
+    );
+
+    gridContainers.forEach((container) => {
+      const cards = container.querySelectorAll(
+        ':scope > .tech-stack-card, :scope > .work-project-row, :scope > .stat-box, :scope > .cert-card, :scope > .competitive-card, :scope > .assessment-card-panel, :scope > .education-disclosure, :scope > .waterfall-tier-card, :scope > .oee-pill-card, :scope > li'
+      );
+
+      if (cards.length > 0) {
+        gsap.fromTo(cards,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.75,
+            stagger: 0.09,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: container,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        );
+      }
+    });
+  }
+
+  // 18. Floating Visual Archive (Curated Layered Scatter Board with Subtle Rotation Offsets)
+  function initFloatingVisualArchive() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    const archiveTargets = [
+      '.work-timeline-list .work-project-row',
+      '.graph-preview-canvas-box',
+      '.scorecard-interactive-box',
+      '.iot-console-box',
+      '.terminal-card',
+      '.waterfall-tier-card',
+      '.bedside-card-mockup',
+      '.cert-card',
+      '.competitive-card',
+      '.ev-monograph'
+    ];
+
+    const items = document.querySelectorAll(archiveTargets.join(', '));
+    if (!items.length) return;
+
+    const angles = [-1.2, 1.4, -0.9, 1.2, -1.4, 0.9];
+
+    items.forEach((item, idx) => {
+      item.classList.add('scatter-card');
+      const angle = angles[idx % angles.length];
+      item.style.setProperty('--scatter-rotate', `${angle}deg`);
+
+      // Gentle vertical floating translation scrubbed to scroll
+      const floatDistance = idx % 2 === 0 ? -16 : 16;
+      gsap.to(item, {
+        '--scatter-y': `${floatDistance}px`,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.4
+        }
+      });
+    });
+  }
+
+  // 19. Global Multi-Page Architecture & Seamless View Transitions
   function initPageNavigation() {
     let renderedUrl = new URL(window.location.href);
     let navigationId = 0;
@@ -902,9 +1287,24 @@
 
     function scrollToDestination(destination, position) {
       let anchor = null;
-      try { if (destination.hash) anchor = document.getElementById(decodeURIComponent(destination.hash.slice(1))); } catch (error) {}
-      if (anchor) anchor.scrollIntoView({ behavior: 'instant' });
-      else window.scrollTo({ left: position?.[0] || 0, top: position?.[1] || 0, behavior: 'instant' });
+      try {
+        if (destination.hash) anchor = document.getElementById(decodeURIComponent(destination.hash.slice(1)));
+      } catch (error) {}
+      if (anchor) {
+        if (lenisInstance) {
+          lenisInstance.scrollTo(anchor, { offset: -70, duration: 1.0 });
+        } else {
+          anchor.scrollIntoView({ behavior: 'instant' });
+        }
+      } else {
+        const top = position?.[1] || 0;
+        const left = position?.[0] || 0;
+        if (lenisInstance) {
+          lenisInstance.scrollTo(top, { immediate: true });
+        } else {
+          window.scrollTo({ left, top, behavior: 'instant' });
+        }
+      }
     }
 
     async function navigate(destination, push = true, position = null) {
@@ -912,6 +1312,7 @@
       controller?.abort();
       controller = new AbortController();
       const signal = controller.signal;
+
       if (pageIdentity(destination) === pageIdentity(renderedUrl)) {
         document.querySelector('main')?.removeAttribute('aria-busy');
         if (push && destination.href !== renderedUrl.href) {
@@ -926,6 +1327,7 @@
       dismissIntro?.();
       const oldMain = document.querySelector('main');
       oldMain?.setAttribute('aria-busy', 'true');
+
       try {
         const key = pageIdentity(destination);
         let page = pageCache.get(key);
@@ -937,18 +1339,51 @@
           pageCache.set(key, page);
         }
         if (id !== navigationId) return;
+
         const nextDoc = new DOMParser().parseFromString(page.html, 'text/html');
         const nextMain = nextDoc.querySelector('main');
         const nextUrl = new URL(page.url);
         nextUrl.hash = destination.hash;
         if (!nextMain || nextUrl.origin !== window.location.origin) throw new Error('Not an internal content page');
 
+        // 1. Route Exit: Smooth fade-out and subtle upward lift of outgoing views
+        const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced && typeof gsap !== 'undefined' && oldMain) {
+          await new Promise((resolve) => {
+            gsap.to(oldMain, {
+              opacity: 0,
+              y: -22,
+              duration: 0.32,
+              ease: 'power2.inOut',
+              onComplete: resolve
+            });
+          });
+        }
+
+        if (id !== navigationId) return;
+
+        // 2. Lifecycle Management: Properly destroy and reset scroll triggers & momentum scroll
+        if (typeof ScrollTrigger !== 'undefined') {
+          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        }
+        if (lenisInstance) {
+          lenisInstance.stop();
+        }
+        pageObservers.splice(0).forEach(observer => observer.disconnect());
+        closeCertModal();
+
+        // 3. Scroll Restoration: Instantly reset window scroll to top prior to triggering enter animations
+        window.scrollTo(0, 0);
+        if (lenisInstance) {
+          lenisInstance.scrollTo(0, { immediate: true });
+        }
+
         if (push) {
           window.history.replaceState({ ...window.history.state, portfolioScroll: [window.scrollX, window.scrollY] }, '', renderedUrl.href);
           window.history.pushState({ portfolioScroll: [0, 0] }, '', nextUrl.href);
         }
-        pageObservers.splice(0).forEach(observer => observer.disconnect());
-        closeCertModal();
+
+        // 4. Swap DOM
         const main = document.importNode(nextMain, true);
         oldMain.replaceWith(main);
         renderedUrl = nextUrl;
@@ -958,12 +1393,42 @@
           const next = nextDoc.head.querySelector(selector);
           if (current && next) current.replaceWith(document.importNode(next, true));
         });
-        scrollToDestination(nextUrl, position);
-        main.classList.add('page-entered');
-        setTimeout(() => main.classList.remove('page-entered'), 240);
+
         highlightActiveNav(nextUrl.href);
+
+        // 5. Restart momentum engine & re-initialize interactive components
+        if (lenisInstance) {
+          lenisInstance.start();
+          lenisInstance.resize();
+        }
         initPageContent();
-        if (document.getElementById('home-hero')) triggerHeroEntrance();
+
+        // 6. Route Enter: Coordinated staggered reveal for incoming hero elements and main content
+        if (!prefersReduced && typeof gsap !== 'undefined') {
+          gsap.set(main, { opacity: 0, y: 28 });
+          gsap.to(main, {
+            opacity: 1,
+            y: 0,
+            duration: 0.52,
+            ease: 'power3.out',
+            clearProps: 'transform,opacity',
+            onComplete: () => {
+              if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.refresh();
+              }
+              if (lenisInstance) {
+                lenisInstance.resize();
+              }
+            }
+          });
+        }
+
+        triggerHeroEntrance();
+
+        if (destination.hash) {
+          scrollToDestination(nextUrl, position);
+        }
+
         window.dispatchEvent(new Event('scroll'));
       } catch (error) {
         if (signal.aborted || id !== navigationId) return;
@@ -997,7 +1462,11 @@
           window.history.pushState({ portfolioScroll: [window.scrollX, window.scrollY] }, '', renderedUrl.href);
         }
         highlightActiveNav(renderedUrl.href);
-        window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+        if (lenisInstance) {
+          lenisInstance.scrollTo(0, { duration: 1.15 });
+        } else {
+          window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+        }
         return;
       }
       if (!canFetchPages) {
@@ -1015,6 +1484,10 @@
 
   function initPageContent() {
     initScrollReveal();
+    initTypographyReveals();
+    initStaggeredGrids();
+    initParallaxDepth();
+    initFloatingVisualArchive();
     initSpotlightCards();
     initHeroTilt();
     initStatCounters();
@@ -1029,12 +1502,15 @@
     initTheme();
     highlightActiveNav();
     initNavGlider();
+    initLenis();
     initSignaturePreloader();
 
     // If on Home page and preloader is not present or already dismissed, trigger hero entrance
     const homeHero = document.getElementById('home-hero');
     const preloaderEl = document.getElementById('signature-preloader');
     if (homeHero && (!preloaderEl || preloaderEl.style.display === 'none' || preloaderEl.classList.contains('fade-out'))) {
+      triggerHeroEntrance();
+    } else if (!homeHero) {
       triggerHeroEntrance();
     }
 
@@ -1056,6 +1532,10 @@
       summary.addEventListener('click', (e) => {
         if (e.target.closest('a')) return;
         row.classList.toggle('is-expanded');
+        setTimeout(() => {
+          if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+          if (lenisInstance) lenisInstance.resize();
+        }, 300);
       });
     });
   }
@@ -1094,6 +1574,11 @@
             card.classList.remove('is-filtering');
           }
         });
+
+        setTimeout(() => {
+          if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+          if (lenisInstance) lenisInstance.resize();
+        }, 320);
       });
     });
 

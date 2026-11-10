@@ -6367,8 +6367,8 @@ html.dark #back-to-top .btt-ring-circle {
 
 /* When in view */
 .scroll-anim.is-in-view {
-  opacity: 1 !important;
-  transform: translate3d(0, 0, 0) scale(1) rotate(0deg) !important;
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
 }
 
 /* --------------------------------------------------------------------------
@@ -9177,4 +9177,160 @@ html.dark .pitch-home-section { --pitch-accent: #64d4c9; --pitch-tint: #142a29; 
 @media (prefers-reduced-motion: reduce) {
   .pitch-certificate > a { transition: none; }
 }
+
+/* ==========================================================================
+   Creative Portfolio Motion System: Lenis, Route Transitions, Parallax, & Hover States
+   ========================================================================== */
+
+/* 1. Lenis Smooth Momentum Scroll Engine */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* 2. Global View Transitions & Route Swap Lifecycle */
+main {
+  will-change: transform, opacity;
+  transform-origin: center top;
+}
+
+main[aria-busy="true"] {
+  pointer-events: none;
+}
+
+/* 3. GPU Accelerated Parallax Depth Layers */
+.hero-illustration-wrapper,
+.hero-portrait-img,
+.hero-aura-glow,
+.page-hero-fullscreen img,
+.editorial-number-tag,
+.hero-architecture-card,
+.graph-preview-canvas-box,
+.scorecard-interactive-box,
+.iot-console-box,
+.terminal-card,
+.ev-monograph,
+.bedside-card-mockup {
+  will-change: transform;
+}
+
+/* 4. High-End Interactive Card Hover States */
+.stat-box,
+.tech-stack-card,
+.work-project-row,
+.cert-card,
+.competitive-card,
+.education-disclosure,
+.assessment-card-panel,
+.terminal-card,
+.waterfall-tier-card,
+.scorecard-interactive-box,
+.iot-console-box,
+.oee-pill-card,
+.bedside-card-mockup,
+.pitch-home-card {
+  will-change: transform, box-shadow;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background-color 0.25s ease;
+}
+
+.stat-box:hover,
+.tech-stack-card:hover,
+.work-project-row:hover,
+.cert-card:hover,
+.competitive-card:hover,
+.education-disclosure:hover,
+.assessment-card-panel:hover,
+.terminal-card:hover,
+.waterfall-tier-card:hover,
+.scorecard-interactive-box:hover,
+.iot-console-box:hover,
+.oee-pill-card:hover,
+.bedside-card-mockup:hover {
+  transform: translateY(-6px) scale(1.014);
+  box-shadow: 0 20px 42px -12px rgba(0, 0, 0, 0.12),
+              0 6px 18px -4px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .stat-box:hover,
+[data-theme="dark"] .tech-stack-card:hover,
+[data-theme="dark"] .work-project-row:hover,
+[data-theme="dark"] .cert-card:hover,
+[data-theme="dark"] .competitive-card:hover,
+[data-theme="dark"] .education-disclosure:hover,
+[data-theme="dark"] .assessment-card-panel:hover,
+[data-theme="dark"] .terminal-card:hover,
+[data-theme="dark"] .waterfall-tier-card:hover,
+[data-theme="dark"] .scorecard-interactive-box:hover,
+[data-theme="dark"] .iot-console-box:hover,
+[data-theme="dark"] .oee-pill-card:hover,
+[data-theme="dark"] .bedside-card-mockup:hover {
+  box-shadow: 0 22px 50px -12px rgba(0, 0, 0, 0.65),
+              0 0 24px -4px var(--brand-glow, rgba(99, 102, 241, 0.2));
+}
+
+/* 5. Floating Visual Archive (Curated Layered Scatter Board) */
+.scatter-card {
+  --scatter-rotate: 0deg;
+  --scatter-y: 0px;
+  transform: translate3d(0, var(--scatter-y, 0px), 0) rotate(var(--scatter-rotate, 0deg));
+  will-change: transform, box-shadow;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+}
+
+.scatter-card:hover {
+  transform: translate3d(0, -8px, 0) scale(1.018) rotate(0deg) !important;
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.15),
+              0 8px 20px -4px rgba(0, 0, 0, 0.06);
+  z-index: 5;
+}
+
+[data-theme="dark"] .scatter-card:hover {
+  box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.7),
+              0 0 28px -4px var(--brand-glow, rgba(99, 102, 241, 0.25));
+}
+
+/* 6. Strict Reduced Motion Conformance */
+@media (prefers-reduced-motion: reduce) {
+  html.lenis,
+  html.lenis body {
+    scroll-behavior: auto !important;
+  }
+
+  main,
+  .scroll-anim,
+  .scatter-card,
+  .stat-box,
+  .tech-stack-card,
+  .work-project-row,
+  .cert-card,
+  .hero-illustration-wrapper,
+  .page-hero-fullscreen * {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
 
