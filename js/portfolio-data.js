@@ -220,6 +220,21 @@ const portfolioData = {
   // Experience & Competitions (Timeline & Cards)
   experience: [
     {
+      role: "Web Developer & UX/UI Enhancement Lead",
+      company: "SWU OPEN HOUSE 2026",
+      status: "Official university web platform",
+      organization: "Srinakharinwirot University &bull; THE CONCERT",
+      duration: "2026",
+      location: "Bangkok, Thailand",
+      description: [
+        "Led front-end development and UX/UI enhancement for the official SWU Open House 2026 web portal using WordPress, Elementor, and Custom CSS.",
+        "Redesigned the onboarding process into an intuitive 3-step registration flow integrated with THE CONCERT ticketing platform to maximize attendee conversions.",
+        "Engineered an interactive faculty poster showcase carousel and real-time event countdown timer, establishing clear visual hierarchy across mobile and desktop devices.",
+        "Implemented the official design system featuring Prompt typography, high-contrast dark surfaces, and signature coral and lavender accents."
+      ],
+      techStack: ["WordPress", "Elementor", "Custom CSS", "Responsive Design", "THE CONCERT Integration", "Prompt Typography"]
+    },
+    {
       role: "Lead Data Scientist & Product Architect",
       company: "Shopee Ultimate Case Challenge 2026",
       status: "Case competition project",
@@ -333,6 +348,20 @@ const portfolioData = {
 
   // Featured Engineering Projects
   projects: [
+    {
+      id: "swu-openhouse-2026",
+      title: "SWU OPEN HOUSE 2026 — Web Enhancement & UX/UI",
+      domain: "Event Registration & Responsive Web Engineering",
+      context: "Srinakharinwirot University & THE CONCERT — Official Web Platform",
+      caseStudyLink: "project-swu-openhouse.html",
+      description: "Front-end enhancement and UX/UI overhaul for SWU Open House 2026, delivering an intuitive 3-step registration flow, interactive faculty poster gallery, real-time countdown timer, and responsive design system.",
+      keyMetric: "3-Step Registration Flow &bull; Interactive Faculty Carousel &bull; Responsive Design",
+      techStack: ["WordPress", "Elementor", "Custom CSS", "Responsive Design", "Prompt Typography"],
+      mockupLaptop: "assets/swu-openhouse-laptop-frame.png",
+      mockupDevice: "assets/swu-openhouse-vertical-device.png",
+      githubLink: null,
+      liveDemoLink: null
+    },
     {
       id: "shopee-smart-cod",
       title: "Shopee Smart COD Reliability",

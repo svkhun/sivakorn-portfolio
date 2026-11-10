@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>SWU OPEN HOUSE 2026 Web Enhancement Case Study | Sivakorn Khundilokrattaya</title>
+  <meta name="description" content="Front-end enhancement and UX/UI overhaul for the SWU Open House 2026 web portal, featuring a 3-step registration flow, interactive faculty poster showcase, and responsive design system.">
+  <link rel="canonical" href="https://svkhun.vercel.app/project-swu-openhouse">
+
+  <!-- Favicon & Web App Icons -->
+  <link rel="shortcut icon" href="favicon.ico?v=sk-logo-s">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=sk-logo-s">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=sk-logo-s">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg?v=sk-logo-s">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=sk-logo-s">
+
+  <!-- Google Fonts: Slender Geist & Geist Mono & Prompt -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Devicon & FontAwesome -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css?v=nav-click-20261106">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Sivakorn Portfolio Home" title="Sivakorn Portfolio">
+        <img class="brand-signature" src="assets/sivakorn-signature.svg" alt="" width="150" height="45" decoding="async">
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-menu" id="nav-menu">
+          <div class="nav-item"><a href="index.html" data-nav-label="Home"><span class="nav-label">Home</span></a></div>
+          <div class="nav-item"><a href="education.html" data-nav-label="Education"><span class="nav-label">Education</span></a></div>
+          <div class="nav-item"><a href="experience.html" data-nav-label="Experience"><span class="nav-label">Experience</span></a></div>
+          <div class="nav-item"><a href="projects.html" class="active" data-nav-label="Projects"><span class="nav-label">Projects</span></a></div>
+          <div class="nav-item"><a href="contact.html" data-nav-label="Contact Me"><span class="nav-label">Contact Me</span></a></div>
+        </nav>
+
+        <button class="theme-switch-btn" id="theme-toggle-btn" aria-label="Toggle theme" title="Toggle Theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="case-airy-wrap">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <nav class="case-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span class="case-breadcrumb-sep">/</span>
+          <a href="projects.html">Projects</a><span class="case-breadcrumb-sep">/</span>
+          <span class="case-breadcrumb-current">SWU OPEN HOUSE 2026</span>
+        </nav>
+
+        <header class="case-hero-airy">
+          <span class="case-section-num-tag">Srinakharinwirot University &bull; THE CONCERT &bull; Official Web Platform</span>
+          <h1 class="hero-display mb-6"><span>SWU OPEN HOUSE 2026:</span> <span class="text-accent-brand">Website Enhancement &amp; UX/UI</span></h1>
+          <p class="case-lead-airy">A comprehensive front-end enhancement and UX/UI overhaul for Srinakharinwirot University's flagship annual open house web portal, delivering a streamlined 3-step registration flow, interactive faculty poster gallery, live countdown timer, and responsive design system.</p>
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="experience.html#recent-work" class="primary-cta inline-flex items-center gap-2"><i class="fas fa-briefcase" aria-hidden="true"></i><span>View in Experience</span></a>
+            <a href="projects.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-none text-xs font-mono border border-border bg-subtle hover:bg-surface text-secondary transition-colors"><i class="fas fa-arrow-left text-[10px]" aria-hidden="true"></i><span>Back to Projects</span></a>
+          </div>
+        </header>
+
+        <div class="case-thesis-quote">&ldquo;An event website should do more than display dates—it must build anticipation, make registration frictionless, and showcase each faculty's uniqueness in a single intuitive flow.&rdquo;</div>
+
+        <!-- Visual Hero Showcase: Laptop Mockup -->
+        <figure class="my-10 text-center">
+          <img src="assets/swu-openhouse-showcase.png" alt="SWU Open House 2026 Website Enhancement Showcase" class="w-full max-w-4xl mx-auto h-auto object-contain" loading="lazy" decoding="async">
+          <figcaption class="mt-4 text-xs font-mono text-muted">Figure 1.0: Desktop experience featuring hero branding, countdown timer, and interactive feature highlights.</figcaption>
+        </figure>
+
+        <section class="case-section-airy">
+          <span class="case-section-num-tag">01 // Problem &amp; Scope</span>
+          <h2 class="case-section-heading">Transforming university open house onboarding</h2>
+          <div class="case-body-airy">
+            <p><strong>The Challenge:</strong> SWU Open House is one of Thailand's largest annual higher-education events, welcoming tens of thousands of high school students and parents across dozens of academic programs. Previous iterations suffered from fragmented event schedules, multi-step registration friction, and poor mobile navigation during high-concurrency traffic surges.</p>
+            <p><strong>The Objective:</strong> Deliver a clean, mobile-first responsive web portal that integrates directly with <strong>THE CONCERT</strong> ticketing platform, highlights academic curricula across all faculties in an interactive gallery, and keeps visitors informed with live countdown updates.</p>
+          </div>
+        </section>
+
+        <section class="case-section-airy">
+          <span class="case-section-num-tag">02 // Core Product Pillars</span>
+          <h2 class="case-section-heading">Key features and UX enhancements</h2>
+          <div class="oee-trio-display">
+            <div class="oee-pill-card">
+              <span class="text-xs font-mono uppercase text-muted block mb-1">3-Step Registration Flow</span>
+              <p class="text-sm text-secondary mt-2 mb-0">Deconstructed the ticketing onboarding into 3 guided steps: <em>Portal Entry &rarr; Information Input &rarr; Verification</em>, minimizing bounce rates.</p>
+            </div>
+            <div class="oee-pill-card">
+              <span class="text-xs font-mono uppercase text-muted block mb-1">Faculty Poster Showcase</span>
+              <p class="text-sm text-secondary mt-2 mb-0">Built an interactive carousel gallery highlighting key activities, workshops, and posters across every university faculty.</p>
+            </div>
+            <div class="oee-pill-card">
+              <span class="text-xs font-mono uppercase text-muted block mb-1">Live Countdown Engine</span>
+              <p class="text-sm text-secondary mt-2 mb-0">Integrated a real-time countdown timer counting days, hours, minutes, and seconds to amplify excitement leading to opening day.</p>
+            </div>
+            <div class="oee-pill-card">
+              <span class="text-xs font-mono uppercase text-muted block mb-1">Atmosphere &amp; Social Links</span>
+              <p class="text-sm text-secondary mt-2 mb-0">Curated previous year highlights and unified official social channels across Facebook, X, Instagram, YouTube, and TikTok.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Vertical Full-Page Flow Showcase -->
+        <section class="case-section-airy">
+          <span class="case-section-num-tag">03 // Page Flow &amp; Hierarchy</span>
+          <h2 class="case-section-heading">Mobile-first end-to-end user journey</h2>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center my-6">
+            <div class="md:col-span-5 flex justify-center">
+              <figure class="max-w-xs text-center">
+                <img src="assets/swu-openhouse-vertical-device.png" alt="SWU Open House 2026 Full Mobile Page Flow" class="w-full h-auto object-contain" loading="lazy" decoding="async">
+                <figcaption class="mt-3 text-[11px] font-mono text-muted text-center">Figure 2.0: Complete vertical page hierarchy</figcaption>
+              </figure>
+            </div>
+            <div class="md:col-span-7 case-body-airy">
+              <h3 class="text-xl font-medium text-slate-900 dark:text-white mb-3">Structured for Rapid Content Discovery</h3>
+              <ol class="space-y-3 text-secondary text-sm">
+                <li><strong class="text-slate-900 dark:text-white">1. Hero &amp; Countdown:</strong> Immediate brand identity with the "SWU TOPIA" theme and instant registration countdown badge.</li>
+                <li><strong class="text-slate-900 dark:text-white">2. Visual How-To-Register:</strong> Step-by-step visual onboarding reducing customer inquiries.</li>
+                <li><strong class="text-slate-900 dark:text-white">3. Faculty Showcase Grid:</strong> High-impact visual posters enabling one-tap access to curriculum details.</li>
+                <li><strong class="text-slate-900 dark:text-white">4. Photo Memories &amp; Highlights:</strong> Authentic campus snapshots highlighting student life and club activities.</li>
+                <li><strong class="text-slate-900 dark:text-white">5. Consolidated Footer:</strong> Legal copyright, university address, and verified social media handles.</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section-airy">
+          <span class="case-section-num-tag">04 // Design System</span>
+          <h2 class="case-section-heading">Typography, palette, and styling principles</h2>
+          <div class="case-body-airy">
+            <p><strong>Typography:</strong> Implemented <code>Prompt</code> for both Thai and English typography. Its clean sans-serif geometry provides excellent readability across mobile viewports while maintaining an energetic, modern campus personality.</p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-4">
+              <div class="p-3 rounded border border-border" style="background-color: #FF6B6B; color: #FFFFFF;">
+                <span class="font-mono text-xs block font-bold">#FF6B6B</span>
+                <span class="text-xs">Primary CTA / Coral</span>
+              </div>
+              <div class="p-3 rounded border border-border" style="background-color: #D9A6FF; color: #1E1E1E;">
+                <span class="font-mono text-xs block font-bold">#D9A6FF</span>
+                <span class="text-xs">Lavender Accent</span>
+              </div>
+              <div class="p-3 rounded border border-border" style="background-color: #1E1E1E; color: #FFFFFF;">
+                <span class="font-mono text-xs block font-bold">#1E1E1E</span>
+                <span class="text-xs">Deep Dark Surface</span>
+              </div>
+              <div class="p-3 rounded border border-border bg-white text-slate-900">
+                <span class="font-mono text-xs block font-bold">#FFFFFF</span>
+                <span class="text-xs">Clean White Contrast</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section-airy">
+          <span class="case-section-num-tag">05 // Technical Implementation</span>
+          <h2 class="case-section-heading">Engineering stack and tooling</h2>
+          <div class="case-body-airy">
+            <p>The platform was engineered on <strong>WordPress</strong> with <strong>Elementor</strong> for flexible component composition, enhanced by bespoke <strong>Custom CSS</strong> for micro-animations, custom countdown logic, and touch-optimized carousel behavior.</p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="tech-pill-lg"><i class="fab fa-wordpress text-blue-600"></i> WordPress</span>
+              <span class="tech-pill-lg"><i class="fab fa-elementor text-red-500"></i> Elementor</span>
+              <span class="tech-pill-lg"><i class="fab fa-css3-alt text-blue-500"></i> Custom CSS</span>
+              <span class="tech-pill-lg"><i class="fas fa-mobile-alt text-purple-500"></i> Responsive UI</span>
+              <span class="tech-pill-lg"><i class="fas fa-ticket-alt text-amber-500"></i> THE CONCERT API</span>
+              <span class="tech-pill-lg"><i class="fas fa-font text-emerald-500"></i> Prompt Font</span>
+            </div>
+          </div>
+        </section>
+
+        <div class="case-nav-footer">
+          <a href="project-shopee-smart-cod.html" class="case-nav-btn"><span class="case-nav-sub">&larr; Previous Case Study</span><span class="case-nav-title">Shopee Smart COD Reliability</span></a>
+          <a href="project-flowsense-trustgraph.html" class="case-nav-btn text-right"><span class="case-nav-sub">Next Case Study &rarr;</span><span class="case-nav-title">K-NEXUS &bull; FlowSense &amp; TrustGraph</span></a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Designed &amp; Engineered by <strong>Sivakorn Khundilokrattaya</strong> &bull; &copy; 2026 All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/portfolio-data.js"></script>
+  <script src="js/main.js?v=nav-click-20261106"></script>
+</body>
+</html>
