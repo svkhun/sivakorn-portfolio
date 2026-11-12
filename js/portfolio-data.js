@@ -135,8 +135,10 @@ const portfolioData = {
         criteria: "Faculty of Engineering (Computer Engineering) student with cumulative GPAX >= 2.75 and exemplary faculty conduct endorsement",
         announcementDate: "January 20, 2026",
         ceremonyDate: "September 25, 2026",
+        ceremonyVenue: "NHK Training Village, NHK SPRING (THAILAND) CO., LTD.",
         pdfUrl: "assets/nhk_spring_scholarship_announcement.pdf",
         imageUrl: "assets/nhk_spring_scholarship_page1.jpg",
+        ceremonyImageUrl: "assets/nhk_spring_scholarship_ceremony.jpg",
         colorCode: "#E11D48"
       }
     ],
