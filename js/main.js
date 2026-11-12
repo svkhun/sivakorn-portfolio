@@ -1285,25 +1285,34 @@
       } catch (error) {}
     }
 
-    function scrollToDestination(destination, position) {
+    function scrollToDestination(destination, position = null) {
       let anchor = null;
       try {
-        if (destination.hash) anchor = document.getElementById(decodeURIComponent(destination.hash.slice(1)));
+        if (destination.hash) {
+          const id = decodeURIComponent(destination.hash.slice(1));
+          anchor = document.getElementById(id) || document.querySelector(destination.hash);
+        }
       } catch (error) {}
+
       if (anchor) {
         if (lenisInstance) {
           lenisInstance.scrollTo(anchor, { offset: -70, duration: 1.0 });
         } else {
-          anchor.scrollIntoView({ behavior: 'instant' });
+          anchor.scrollIntoView({ behavior: 'smooth' });
         }
-      } else {
-        const top = position?.[1] || 0;
-        const left = position?.[0] || 0;
-        if (lenisInstance) {
-          lenisInstance.scrollTo(top, { immediate: true });
-        } else {
-          window.scrollTo({ left, top, behavior: 'instant' });
-        }
+        return;
+      }
+
+      const top = position?.[1] || 0;
+      const left = position?.[0] || 0;
+
+      window.scrollTo({ left, top, behavior: 'instant' });
+      document.documentElement.scrollTop = top;
+      document.body.scrollTop = top;
+
+      if (lenisInstance) {
+        lenisInstance.scrollTo(top, { immediate: true, force: true });
+        lenisInstance.resize();
       }
     }
 
@@ -1327,6 +1336,11 @@
       dismissIntro?.();
       const oldMain = document.querySelector('main');
       oldMain?.setAttribute('aria-busy', 'true');
+
+      // Preserve current scroll position before we navigate away
+      if (push) {
+        window.history.replaceState({ ...window.history.state, portfolioScroll: [window.scrollX, window.scrollY] }, '', renderedUrl.href);
+      }
 
       try {
         const key = pageIdentity(destination);
@@ -1353,7 +1367,7 @@
             gsap.to(oldMain, {
               opacity: 0,
               y: -22,
-              duration: 0.32,
+              duration: 0.28,
               ease: 'power2.inOut',
               onComplete: resolve
             });
@@ -1366,24 +1380,10 @@
         if (typeof ScrollTrigger !== 'undefined') {
           ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         }
-        if (lenisInstance) {
-          lenisInstance.stop();
-        }
         pageObservers.splice(0).forEach(observer => observer.disconnect());
         closeCertModal();
 
-        // 3. Scroll Restoration: Instantly reset window scroll to top prior to triggering enter animations
-        window.scrollTo(0, 0);
-        if (lenisInstance) {
-          lenisInstance.scrollTo(0, { immediate: true });
-        }
-
-        if (push) {
-          window.history.replaceState({ ...window.history.state, portfolioScroll: [window.scrollX, window.scrollY] }, '', renderedUrl.href);
-          window.history.pushState({ portfolioScroll: [0, 0] }, '', nextUrl.href);
-        }
-
-        // 4. Swap DOM
+        // 3. Swap DOM
         const main = document.importNode(nextMain, true);
         oldMain.replaceWith(main);
         renderedUrl = nextUrl;
@@ -1394,11 +1394,17 @@
           if (current && next) current.replaceWith(document.importNode(next, true));
         });
 
+        if (push) {
+          window.history.pushState({ portfolioScroll: [0, 0] }, '', nextUrl.href);
+        }
+
         highlightActiveNav(nextUrl.href);
 
-        // 5. Restart momentum engine & re-initialize interactive components
+        // 4. Scroll Restoration: Ensure window and Lenis are instantly at the top baseline
+        scrollToDestination(nextUrl, position);
+
+        // 5. Restart momentum engine & re-initialize interactive components on clean top baseline
         if (lenisInstance) {
-          lenisInstance.start();
           lenisInstance.resize();
         }
         initPageContent();
@@ -1426,7 +1432,16 @@
         triggerHeroEntrance();
 
         if (destination.hash) {
-          scrollToDestination(nextUrl, position);
+          setTimeout(() => {
+            scrollToDestination(destination, null);
+          }, 60);
+        }
+
+        if (typeof ScrollTrigger !== 'undefined') {
+          ScrollTrigger.refresh();
+        }
+        if (lenisInstance) {
+          lenisInstance.resize();
         }
 
         window.dispatchEvent(new Event('scroll'));
@@ -1499,6 +1514,9 @@
 
   // Initialize on load
   function initApp() {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
     initTheme();
     highlightActiveNav();
     initNavGlider();

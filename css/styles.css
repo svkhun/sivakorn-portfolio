@@ -9197,7 +9197,7 @@ html.lenis body {
 }
 
 .lenis.lenis-stopped {
-  overflow: clip;
+  overflow: hidden;
 }
 
 .lenis.lenis-smooth iframe {
