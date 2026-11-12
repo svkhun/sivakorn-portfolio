@@ -214,8 +214,34 @@ const portfolioData = {
     summary: "Independently developed the complete K-NEXUS project and delivered its pitch.",
     certificateImage: "assets/kbtg-kampus-hackathon-2026-certificate.png",
     certificateType: "Certificate of Participation",
-    photosStatus: "Awaiting official event photos from KBTG",
-    photos: [],
+    photosStatus: "Official stage photos (5 moments)",
+    photos: [
+      {
+        url: "assets/kbtg-kampus-pitch-01.jpg",
+        caption: "Pitch Presentation — Introducing K-NEXUS Track 2",
+        moment: "Opening"
+      },
+      {
+        url: "assets/kbtg-kampus-pitch-02.jpg",
+        caption: "Product Narrative — Problem context and first-jobber financial realities",
+        moment: "Narrative"
+      },
+      {
+        url: "assets/kbtg-kampus-pitch-03.jpg",
+        caption: "Technical Demonstration — FlowSense baseline & TrustGraph transaction graph",
+        moment: "Architecture"
+      },
+      {
+        url: "assets/kbtg-kampus-pitch-04.jpg",
+        caption: "Engineering Safeguards — Risk review policies and model explainability",
+        moment: "Safeguards"
+      },
+      {
+        url: "assets/kbtg-kampus-pitch-05.jpg",
+        caption: "Closing Defense & Q&A — Engaging with judging panel on product viability",
+        moment: "Defense"
+      }
+    ],
     experienceLink: "experience.html#pitching"
   },
 

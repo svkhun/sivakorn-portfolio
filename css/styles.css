@@ -9167,28 +9167,129 @@ html.dark .experience-cert-action-row-rose {
   align-items: baseline;
   justify-content: space-between;
   gap: .5rem 1rem;
-  margin-bottom: .85rem;
+  margin-bottom: 1.15rem;
 }
-.pitch-gallery-heading h3 { margin: 0; font-size: .9rem; font-weight: 500; }
-.pitch-gallery-heading p { margin: 0; color: var(--text-muted); font-size: .75rem; }
-.pitch-photo-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 1rem; }
+.pitch-gallery-heading h3 { margin: 0; font-size: 1.05rem; font-weight: 600; color: var(--text-primary); }
+.pitch-gallery-heading p { margin: 0; color: var(--text-secondary); font-size: .82rem; }
+.pitch-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.25rem;
+}
 .pitch-photo {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.pitch-photo.pitch-photo-featured {
+  grid-column: span 3;
+}
+.pitch-photo:hover {
+  border-color: var(--pitch-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.12);
+}
+.pitch-photo-link {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background: #0d1117;
+  cursor: pointer;
+}
+.pitch-photo-link img,
+.pitch-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pitch-photo:hover .pitch-photo-link img,
+.pitch-photo:hover img {
+  transform: scale(1.035);
+}
+.pitch-photo-zoom-hint {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2rem;
+  height: 2rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  min-height: 124px;
-  margin: 0;
-  padding: 1.25rem;
-  background: var(--bg-surface);
-  border: 1px dashed var(--border-hover);
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
 }
-.pitch-photo-index { color: var(--pitch-accent); font: 400 .75rem var(--font-mono); }
-.pitch-photo figcaption { display: grid; gap: .35rem; font-size: .82rem; color: var(--text-secondary); }
-.pitch-photo figcaption small { color: var(--text-muted); font-size: .72rem; }
-/* Replace a pending figure's contents with an image and caption when supplied. */
-.pitch-photo:has(img) { display: block; padding: 0; border-style: solid; }
-.pitch-photo img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
-.pitch-photo:has(img) figcaption { padding: 1rem; }
+.pitch-photo:hover .pitch-photo-zoom-hint {
+  opacity: 1;
+  transform: scale(1);
+}
+.pitch-photo figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.15rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+.pitch-photo-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+.pitch-photo-meta .pitch-photo-index {
+  color: var(--pitch-accent);
+  font: 500 0.75rem var(--font-mono);
+}
+.pitch-photo figcaption small {
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 899px) {
+  .pitch-photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .pitch-photo,
+  .pitch-photo.pitch-photo-featured {
+    grid-column: span 1;
+  }
+  .pitch-photo:last-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 599px) {
+  .pitch-photo-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .pitch-photo,
+  .pitch-photo.pitch-photo-featured,
+  .pitch-photo:last-child {
+    grid-column: span 1;
+  }
+}
 
 .pitch-home-section { padding-block: 1rem clamp(3.5rem, 6vw, 5rem); }
 .pitch-home-card {
