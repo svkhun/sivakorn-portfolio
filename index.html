@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -26,11 +26,11 @@
   <link rel="canonical" href="https://svkhun.vercel.app">
 
         <!-- Favicon & Web App Icons -->
-  <link rel="shortcut icon" href="favicon.ico?v=sk-logo-s">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=sk-logo-s">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=sk-logo-s">
-  <link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg?v=sk-logo-s">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=sk-logo-s">
+  <link rel="shortcut icon" href="favicon.ico?v=sk-terminal-s">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=sk-terminal-s">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=sk-terminal-s">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg?v=sk-terminal-s">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=sk-terminal-s">
 
   <!-- Google Fonts: Slender Geist & Geist Mono (Unified System) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,18 +44,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=20261112-kbtg-pitch">
+  <link rel="stylesheet" href="css/styles.css?v=20261113-typing-logo">
 </head>
 <body>
 
   <!-- ========================================================================
-       Brief Sivakorn Wordmark Intro
+       Dynamic Sivakorn Logo Typing Intro Preloader
        ======================================================================== -->
   <div class="signature-preloader" id="signature-preloader" role="status" aria-label="Loading portfolio">
-    <div class="signature-card">
-      <img class="intro-signature" src="assets/sivakorn-signature.svg" alt="Sivakorn" width="400" height="120" fetchpriority="high">
-
-      <div class="signature-loading-track" aria-hidden="true"><span></span></div>
+    <div class="intro-logo-card">
+      <!-- Wordmark Typing Stage -->
+      <div class="intro-wordmark-stage">
+        <div class="intro-wordmark-wrapper" id="intro-wordmark-wrapper" aria-label="sivakorn">
+          <span class="intro-char-slot" data-index="0" data-char="s"><span class="intro-char-inner">s</span></span>
+          <span class="intro-char-slot" data-index="1" data-char="i"><span class="intro-char-inner">i</span></span>
+          <span class="intro-char-slot" data-index="2" data-char="v"><span class="intro-char-inner">v</span></span>
+          <span class="intro-char-slot" data-index="3" data-char="a"><span class="intro-char-inner">a</span></span>
+          <span class="intro-char-slot" data-index="4" data-char="k"><span class="intro-char-inner">k</span></span>
+          <span class="intro-char-slot" data-index="5" data-char="o"><span class="intro-char-inner">o</span></span>
+          <span class="intro-char-slot" data-index="6" data-char="r"><span class="intro-char-inner">r</span></span>
+          <span class="intro-char-slot" data-index="7" data-char="n"><span class="intro-char-inner">n</span></span>
+          <span class="intro-typing-cursor" id="intro-typing-cursor" aria-hidden="true"></span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -65,7 +76,10 @@
   <header class="header">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo" aria-label="Sivakorn Portfolio Home" title="Sivakorn Portfolio">
-        <img class="brand-signature" src="assets/sivakorn-signature.svg" alt="" width="150" height="45" decoding="async">
+        <span class="brand-logo-wrap">
+          <span class="brand-logo-text">sivakorn</span>
+          <span class="brand-logo-cursor" aria-hidden="true"></span>
+        </span>
       </a>
 
       <div class="nav-right">
@@ -279,11 +293,11 @@
 
         <div class="selected-work-grid">
           <article class="selected-card selected-card-featured scroll-anim anim-split-left">
-            <div class="selected-card-topline"><span>01 / Financial wellbeing</span><span>2026 · KBTG Kampus Hackathon</span></div>
+            <div class="selected-card-topline"><span>01 / Financial wellbeing</span><span>2026 · KBTG Kampus Hackathon (Top 30 Team · Top 10 Data Science)</span></div>
             <div class="selected-card-content">
-              <p class="selected-card-kicker">Recent project · Independent concept prototype</p>
+              <p class="selected-card-kicker">Recent project · Team concept prototype</p>
               <h3>K-NEXUS <span>/</span> FlowSense &amp; TrustGraph</h3>
-              <p class="selected-card-summary">An independently developed prototype for bill-aware planning and recipient-risk review, using synthetic data. Built and pitched by me at KBTG Kampus Hackathon 2026.</p>
+              <p class="selected-card-summary">A prototype for bill-aware planning and recipient-risk review, using synthetic data. Conceived core concept, built prototype, and pitched by me at KBTG Kampus Hackathon 2026.</p>
               <div class="selected-card-points">
                 <div><span>FlowSense</span><p>Uses known history, explicit scenarios, or abstention to plan around bills and reserves. FlowSense ML remains disabled.</p></div>
                 <div><span>TrustGraph</span><p>Combines stored graph context, ONNX scoring and separate review policies. Saved synthetic tests do not show a GNN advantage.</p></div>
@@ -323,8 +337,8 @@
         <article class="pitch-home-card">
           <div class="pitch-home-copy">
             <span class="pitch-eyebrow">Pitching &amp; communication / 7 November 2026</span>
-            <h2 id="pitch-home-title">Built the product.<br>Delivered the pitch.</h2>
-            <p>I developed K-NEXUS end to end and presented it as the pitcher at KBTG KAMPUS Hackathon &ndash; Intern Edition, connecting the technical work to a clear product story.</p>
+            <h2 id="pitch-home-title">Concept &amp; build.<br>Delivered the pitch.</h2>
+            <p>I conceived the core concept, engineered the prototype, and presented K-NEXUS as the team pitcher at KBTG KAMPUS Hackathon &ndash; Intern Edition (Top 30 Team overall &bull; Top 10 Data Science Track), connecting technical innovation with product vision.</p>
             <a class="inline-link" href="experience.html#pitching">Explore my pitching experience <span aria-hidden="true">&nearr;</span></a>
           </div>
           <a class="pitch-home-certificate" href="experience.html#pitching" aria-label="View KBTG Kampus pitching experience and participation certificate">
@@ -833,6 +847,6 @@
 
   <!-- Scripts -->
   <script src="js/portfolio-data.js"></script>
-  <script src="js/main.js?v=motion-20261110-scroll"></script>
+  <script src="js/main.js?v=20261113-anchor-scroll"></script>
 </body>
 </html>

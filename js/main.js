@@ -415,7 +415,7 @@
         preview = pinned = focusInside = false;
         update();
       });
-      const title = card.querySelector('h3')?.textContent.trim();
+      const title = card.querySelector('h3, h2')?.textContent.trim();
       if (title) button.setAttribute('aria-label', `Details: ${title}`);
       update();
       card.classList.add('is-ready');
@@ -553,10 +553,14 @@
     document.body.classList.add('signature-loading');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let dismissed = false;
+    let typingTimer = null;
+    let dismissTimer = null;
+
     function dismiss() {
       if (dismissed) return;
       dismissed = true;
-      clearTimeout(animationTimer);
+      if (typingTimer) clearTimeout(typingTimer);
+      if (dismissTimer) clearTimeout(dismissTimer);
       document.removeEventListener('keydown', onIntroKeydown);
       document.body.classList.remove('signature-loading');
       preloader.classList.add('fade-out');
@@ -567,12 +571,60 @@
         document.documentElement.classList.remove('intro-pending');
       }, reducedMotion ? 0 : 250);
     }
+
     function onIntroKeydown(event) {
       if (event.key === 'Escape') dismiss();
     }
-    const animationTimer = setTimeout(dismiss, reducedMotion ? 0 : 1000);
     document.addEventListener('keydown', onIntroKeydown);
+
     dismissIntro = dismiss;
+
+    if (reducedMotion) {
+      dismiss();
+      return;
+    }
+
+    // Dynamic Logo Typing Animation (Fast & Snappy Cadence)
+    const targetText = 'sivakorn';
+    const charSlots = Array.from(document.querySelectorAll('.intro-char-slot'));
+    const typingCursor = document.getElementById('intro-typing-cursor');
+    const wordmarkWrapper = document.getElementById('intro-wordmark-wrapper');
+
+    let currentIndex = 0;
+
+    function typeNextChar() {
+      if (dismissed) return;
+
+      if (currentIndex >= targetText.length) {
+        if (wordmarkWrapper) {
+          wordmarkWrapper.classList.add('completed');
+        }
+
+        // Brief pause to admire the completed logo before entering site
+        dismissTimer = setTimeout(dismiss, 280);
+        return;
+      }
+
+      const slot = charSlots[currentIndex];
+      if (slot) {
+        slot.classList.add('typed', 'pop');
+        setTimeout(() => slot.classList.remove('pop'), 160);
+
+        // Move typing cursor to the trailing edge of the active character
+        const cursorX = slot.offsetLeft + slot.offsetWidth;
+        if (typingCursor) {
+          typingCursor.style.transform = `translateX(${cursorX}px)`;
+        }
+      }
+
+      currentIndex++;
+      typingTimer = setTimeout(typeNextChar, 75);
+    }
+
+    // Start typing sequence
+    setTimeout(() => {
+      typeNextChar();
+    }, 100);
   }
 
   // 8. Hairline Scroll Progress Bar (Synchronized with Lenis & Standard Scroll)
@@ -1296,7 +1348,8 @@
 
       if (anchor) {
         if (lenisInstance) {
-          lenisInstance.scrollTo(anchor, { offset: -70, duration: 1.0 });
+          lenisInstance.resize();
+          lenisInstance.scrollTo(anchor, { offset: -80, duration: 1.0, force: true });
         } else {
           anchor.scrollIntoView({ behavior: 'smooth' });
         }
@@ -1461,7 +1514,47 @@
           (link.target && link.target !== '_self') || link.hasAttribute('data-open-cert') ||
           link.hasAttribute('data-copy-email')) return;
       const href = link.getAttribute('href');
-      if (!href || /^(#|mailto:|tel:|javascript:)/i.test(href)) return;
+      if (!href || /^(mailto:|tel:|javascript:)/i.test(href)) return;
+
+      // 1. Same-page in-page anchor navigation (e.g. href="#pitching" or href="experience.html#pitching")
+      let anchorTarget = null;
+      let targetHash = null;
+
+      if (href.startsWith('#')) {
+        targetHash = href;
+        const hashId = decodeURIComponent(href.slice(1));
+        if (hashId) anchorTarget = document.getElementById(hashId) || document.querySelector(href);
+      } else if (href.includes('#')) {
+        try {
+          const dest = new URL(link.href, window.location.href);
+          const curr = new URL(window.location.href);
+          if (pageIdentity(dest) === pageIdentity(curr) && dest.hash) {
+            targetHash = dest.hash;
+            const hashId = decodeURIComponent(dest.hash.slice(1));
+            anchorTarget = document.getElementById(hashId) || document.querySelector(dest.hash);
+          }
+        } catch (e) {}
+      }
+
+      if (anchorTarget) {
+        event.preventDefault();
+        try {
+          if (window.location.hash !== targetHash) {
+            window.history.pushState(null, '', targetHash);
+          }
+        } catch (e) {}
+
+        if (lenisInstance) {
+          lenisInstance.resize();
+          lenisInstance.scrollTo(anchorTarget, { offset: -80, duration: 1.0, force: true });
+        } else {
+          anchorTarget.scrollIntoView({ behavior: 'smooth' });
+        }
+        return;
+      }
+
+      if (href.startsWith('#')) return;
+
       const destination = new URL(link.href, window.location.href);
       const current = new URL(window.location.href);
       if (destination.origin !== current.origin ||
@@ -1492,9 +1585,277 @@
       navigate(destination);
     });
 
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash) {
+        try {
+          const hashId = decodeURIComponent(window.location.hash.slice(1));
+          const target = document.getElementById(hashId);
+          if (target) {
+            if (lenisInstance) {
+              lenisInstance.resize();
+              lenisInstance.scrollTo(target, { offset: -80, duration: 1.0, force: true });
+            } else {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        } catch (e) {}
+      }
+    });
+
     window.addEventListener('popstate', event => {
       if (canFetchPages) navigate(new URL(window.location.href), false, event.state?.portfolioScroll);
     });
+  }
+
+  // 20. SWU Open House Sticky Interactive Page Flow Scroller
+  function initSwuScrollShowcase() {
+    const track = document.getElementById('swu-flow-section');
+    const viewport = document.getElementById('swu-browser-viewport');
+    const pageImg = document.getElementById('swu-page-img');
+    const progressFill = document.getElementById('swu-progress-fill');
+    const percentText = document.getElementById('swu-scroll-percent');
+    const stepTag = document.getElementById('swu-step-tag');
+    const stepTitle = document.getElementById('swu-step-caption-title');
+    const stepDesc = document.getElementById('swu-step-caption-desc');
+    const stepPills = document.querySelectorAll('.swu-step-pill');
+    const autoplayBtn = document.getElementById('swu-autoplay-toggle');
+
+    if (!track || !viewport || !pageImg) return;
+    if (track.dataset.swuInit === 'true') return;
+    track.dataset.swuInit = 'true';
+
+    const stepsData = [
+      { num: '01', title: '01 // Hero & Countdown', desc: 'Immediate brand identity with the "SWU TOPIA" theme and instant registration countdown badge.', threshold: 0.15 },
+      { num: '02', title: '02 // Visual How-To-Register', desc: 'Step-by-step visual onboarding reducing customer inquiries.', threshold: 0.38 },
+      { num: '03', title: '03 // Faculty Showcase Grid', desc: 'Two-tier dynamic showcase featuring official faculty posters across Engineering, Science, PE, Social Sciences, Education, and Humanities.', threshold: 0.68 },
+      { num: '04', title: '04 // Photo Memories & Highlights', desc: 'Authentic campus snapshots highlighting student life and club activities.', threshold: 0.90 },
+      { num: '05', title: '05 // Consolidated Footer', desc: 'Legal copyright, university address, and verified social media handles.', threshold: 1.0 }
+    ];
+
+    // Rest Buffers:
+    // 0.0 to 0.12: Initial rest buffer so user clearly sees the top banner & countdown before scrolling starts.
+    // 0.12 to 0.96: Active smooth scroll of internal mobile webpage.
+    // 0.96 to 1.0: Seamless unpin release directly into Section 04 with zero dead wait.
+    const START_BUFFER = 0.12;
+    const END_BUFFER = 0.96;
+
+    const mapProgress = (p) => {
+      if (p <= START_BUFFER) return 0;
+      if (p >= END_BUFFER) return 1;
+      return (p - START_BUFFER) / (END_BUFFER - START_BUFFER);
+    };
+
+    const getTravelDistance = () => {
+      const imgHeight = pageImg.offsetHeight || 2116;
+      const vpHeight = viewport.clientHeight || 420;
+      return Math.max(0, imgHeight - vpHeight);
+    };
+
+    const updateUI = (progress, isNative = false) => {
+      const clamped = Math.max(0, Math.min(1, progress));
+      const internalProgress = isNative ? clamped : mapProgress(clamped);
+      const travelDistance = getTravelDistance();
+      gsap.set(pageImg, { y: -internalProgress * travelDistance });
+
+      if (progressFill) {
+        progressFill.style.width = `${(internalProgress * 100).toFixed(1)}%`;
+      }
+      if (percentText) {
+        percentText.textContent = internalProgress >= 0.98 ? '100%' : `${Math.round(internalProgress * 100)}%`;
+      }
+
+      let activeIdx = 0;
+      for (let i = 0; i < stepsData.length; i++) {
+        if (internalProgress <= stepsData[i].threshold || i === stepsData.length - 1) {
+          activeIdx = i;
+          break;
+        }
+      }
+
+      stepPills.forEach((pill, idx) => {
+        pill.classList.toggle('is-active', idx === activeIdx);
+      });
+
+      const current = stepsData[activeIdx];
+      if (stepTag) stepTag.textContent = current.title;
+      if (stepTitle) stepTitle.textContent = current.title;
+      if (stepDesc) stepDesc.textContent = current.desc;
+    };
+
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.innerWidth <= 640;
+
+    // Mobile / reduced motion fallback: native scrollable window
+    if (isMobile || prefersReduced || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      viewport.style.overflowY = 'auto';
+      viewport.setAttribute('data-lenis-prevent', 'true');
+      viewport.addEventListener('scroll', () => {
+        const maxScroll = viewport.scrollHeight - viewport.clientHeight;
+        const progress = maxScroll > 0 ? viewport.scrollTop / maxScroll : 0;
+        updateUI(progress, true);
+      }, { passive: true });
+
+      stepPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const targetFrac = parseFloat(pill.dataset.stepProgress) || 0;
+          const maxScroll = viewport.scrollHeight - viewport.clientHeight;
+          viewport.scrollTo({
+            top: targetFrac * maxScroll,
+            behavior: prefersReduced ? 'instant' : 'smooth'
+          });
+        });
+      });
+      return;
+    }
+
+    // ScrollTrigger Scrub synchronized with CSS position: sticky
+    const sticky = track.querySelector('.swu-flow-sticky');
+    let trigger = null;
+    trigger = ScrollTrigger.create({
+      trigger: track,
+      start: 'top 72px',
+      end: () => '+=' + Math.max(1, track.offsetHeight - (sticky ? sticky.offsetHeight : 700)),
+      scrub: 0.15,
+      invalidateOnRefresh: true,
+      onRefresh: (self) => {
+        updateUI(self.progress || 0);
+      },
+      onUpdate: (self) => {
+        updateUI(self.progress);
+      }
+    });
+
+    if (!pageImg.complete) {
+      pageImg.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+        if (trigger) updateUI(trigger.progress || 0);
+      }, { once: true });
+    }
+
+    // Interactive Milestone Click-to-Jump
+    stepPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        stopAutoplay();
+        const targetFrac = parseFloat(pill.dataset.stepProgress) || 0;
+        let targetY;
+        if (trigger && typeof trigger.start === 'number' && typeof trigger.end === 'number') {
+          targetY = trigger.start + (trigger.end - trigger.start) * targetFrac;
+        } else {
+          const trackRect = track.getBoundingClientRect();
+          const trackTop = trackRect.top + window.scrollY;
+          const stickyHeight = sticky ? sticky.offsetHeight : 700;
+          const scrollDistance = track.offsetHeight - stickyHeight;
+          targetY = trackTop - 72 + (scrollDistance * targetFrac);
+        }
+        if (lenisInstance) {
+          lenisInstance.scrollTo(targetY, { duration: 0.85 });
+        } else {
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Auto-Scroll Simulation ("เหมือนคนเลื่อนเอง")
+    let autoplayTween = null;
+    let isPlaying = false;
+
+    function stopAutoplay() {
+      if (autoplayTween) {
+        autoplayTween.kill();
+        autoplayTween = null;
+      }
+      isPlaying = false;
+      autoplayBtn?.classList.remove('is-playing');
+      const icon = document.getElementById('swu-autoplay-icon');
+      const label = document.getElementById('swu-autoplay-label');
+      if (icon) icon.className = 'fa-solid fa-play text-[10px]';
+      if (label) label.textContent = 'Auto Scroll';
+    }
+
+    function startAutoplay() {
+      isPlaying = true;
+      autoplayBtn?.classList.add('is-playing');
+      const icon = document.getElementById('swu-autoplay-icon');
+      const label = document.getElementById('swu-autoplay-label');
+      if (icon) icon.className = 'fa-solid fa-pause text-[10px]';
+      if (label) label.textContent = 'Pause';
+
+      let startY, endY;
+      if (trigger && typeof trigger.start === 'number' && typeof trigger.end === 'number') {
+        startY = trigger.start;
+        endY = trigger.end;
+      } else {
+        const trackRect = track.getBoundingClientRect();
+        const trackTop = trackRect.top + window.scrollY;
+        const scrollDistance = track.offsetHeight - window.innerHeight + 72;
+        startY = trackTop - 72;
+        endY = startY + scrollDistance;
+      }
+
+      const totalDist = Math.max(1, endY - startY);
+      const currentY = window.scrollY;
+      const currentProgress = Math.max(0, Math.min(1, (currentY - startY) / totalDist));
+      const duration = Math.max(3.5, (1 - currentProgress) * 7.5);
+
+      if (lenisInstance) {
+        lenisInstance.scrollTo(endY, {
+          duration: duration,
+          onComplete: stopAutoplay
+        });
+      } else {
+        autoplayTween = gsap.to(window, {
+          scrollTo: endY,
+          duration: duration,
+          ease: 'power1.inOut',
+          onComplete: stopAutoplay
+        });
+      }
+    }
+
+    autoplayBtn?.addEventListener('click', () => {
+      if (isPlaying) {
+        stopAutoplay();
+      } else {
+        startAutoplay();
+      }
+    });
+
+    window.addEventListener('wheel', stopAutoplay, { passive: true });
+    window.addEventListener('touchmove', stopAutoplay, { passive: true });
+
+    // Direct Drag-to-Scrub on the viewport surface
+    let isDragging = false;
+    let startY = 0;
+    let startScroll = 0;
+
+    viewport.addEventListener('mousedown', (e) => {
+      if (e.button !== 0) return;
+      stopAutoplay();
+      isDragging = true;
+      startY = e.clientY;
+      startScroll = window.scrollY;
+      viewport.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const deltaY = e.clientY - startY;
+      const targetScroll = startScroll - deltaY * 2.2;
+      if (lenisInstance) {
+        lenisInstance.scrollTo(targetScroll, { immediate: true });
+      } else {
+        window.scrollTo({ top: targetScroll });
+      }
+    });
+
+    const endDrag = () => {
+      if (isDragging) {
+        isDragging = false;
+        viewport.style.cursor = '';
+      }
+    };
+    window.addEventListener('mouseup', endDrag);
   }
 
   function initPageContent() {
@@ -1510,6 +1871,7 @@
     initTechStackFilter();
     initAssessmentAccordion();
     initEducationDrawers();
+    initSwuScrollShowcase();
   }
 
   // Initialize on load
@@ -1536,6 +1898,24 @@
     initBackToTop();
     initPageContent();
     initPageNavigation();
+
+    // Initial hash scroll restoration (e.g. experience.html#pitching)
+    if (window.location.hash) {
+      try {
+        const hashId = decodeURIComponent(window.location.hash.slice(1));
+        const targetAnchor = document.getElementById(hashId);
+        if (targetAnchor) {
+          setTimeout(() => {
+            if (lenisInstance) {
+              lenisInstance.resize();
+              lenisInstance.scrollTo(targetAnchor, { offset: -80, immediate: true, force: true });
+            } else {
+              targetAnchor.scrollIntoView();
+            }
+          }, 180);
+        }
+      } catch (e) {}
+    }
   }
 
   // 15. Work Page Hover & Click Accordion Toggle

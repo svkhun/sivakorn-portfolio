@@ -210,36 +210,27 @@ const portfolioData = {
     project: "K-NEXUS — FlowSense & TrustGraph",
     event: "KBTG KAMPUS Hackathon – Intern Edition",
     date: "2026-11-07",
-    role: "Solo Developer & Pitcher",
-    summary: "Independently developed the complete K-NEXUS project and delivered its pitch.",
+    role: "Pitcher, Developer & Concept Lead",
+    placement: "Top 30 Team Overall · Top 10 in Track 2 (Data Science)",
+    summary: "Conceived the team's core concept, developed the prototype, and delivered the stage pitch at KBTG KAMPUS Hackathon.",
     certificateImage: "assets/kbtg-kampus-hackathon-2026-certificate.png",
     certificateType: "Certificate of Participation",
-    photosStatus: "Official stage photos (5 moments)",
+    photosStatus: "Official stage photos (3 moments)",
     photos: [
       {
-        url: "assets/kbtg-kampus-pitch-01.jpg",
-        caption: "Pitch Presentation — Introducing K-NEXUS Track 2",
-        moment: "Opening"
+        url: "assets/kbtg-kampus-pitch-04.jpg",
+        caption: "Pitch Presentation & Risk Context — Presenting K-NEXUS Track 2",
+        moment: "Pitch Presentation"
       },
       {
         url: "assets/kbtg-kampus-pitch-02.jpg",
-        caption: "Product Narrative — Problem context and first-jobber financial realities",
-        moment: "Narrative"
-      },
-      {
-        url: "assets/kbtg-kampus-pitch-03.jpg",
-        caption: "Technical Demonstration — FlowSense baseline & TrustGraph transaction graph",
-        moment: "Architecture"
-      },
-      {
-        url: "assets/kbtg-kampus-pitch-04.jpg",
-        caption: "Engineering Safeguards — Risk review policies and model explainability",
-        moment: "Safeguards"
+        caption: "Product Narrative & Architecture — First-jobber spending baseline and recipient-risk review",
+        moment: "Product Narrative"
       },
       {
         url: "assets/kbtg-kampus-pitch-05.jpg",
-        caption: "Closing Defense & Q&A — Engaging with judging panel on product viability",
-        moment: "Defense"
+        caption: "Technical Defense & Q&A — Walking judges through past-only R-GCN embeddings and Gate 2 evaluation",
+        moment: "Technical Defense"
       }
     ],
     experienceLink: "experience.html#pitching"
@@ -277,14 +268,14 @@ const portfolioData = {
       techStack: ["Python", "scikit-learn", "Random Forest", "FastAPI", "Pandas", "JavaScript"]
     },
     {
-      role: "Solo Developer & Pitcher — Track 2: Data Science & Intelligence",
+      role: "Pitcher, Developer & Concept Lead — Track 2: Data Science & Intelligence",
       company: "KBTG Kampus Hackathon 2026",
-      status: "Finalist in Track 2",
+      status: "Top 30 Team Overall · Top 10 in Track 2 (Data Science)",
       organization: "Kasikorn Business-Technology Group (KBTG)",
       duration: "7 November 2026",
       location: "Bangkok, Thailand",
       description: [
-        "Independently developed the complete K-NEXUS project and delivered its pitch at KBTG KAMPUS Hackathon – Intern Edition on 7 November 2026.",
+        "Conceived the team's core product concept, engineered the K-NEXUS prototype, and delivered the stage pitch at KBTG KAMPUS Hackathon – Intern Edition on 7 November 2026, ranking in the Top 30 Teams overall and Top 10 in Track 2 (Data Science).",
         "The Application uses history/scenario/abstention rules with FlowSense ML disabled; the Showcase contains separate research evidence.",
         "Saved TrustGraph test AP: no-GNN baseline 0.99640; R-GCN + LightGBM 0.99373. No GNN superiority is established.",
         "FlowSense Gate 2 passed no horizon. Financial data and transfers remain simulated; real-world impact is not established."
@@ -406,10 +397,10 @@ const portfolioData = {
       id: "k-flowsense-trustgraph",
       title: "K-NEXUS — FlowSense & TrustGraph",
       domain: "Real-Time Graph Fraud Defense & Mobile Cashflow Intelligence",
-      context: "KBTG Kampus Hackathon 2026 — Finalist, Track 2: Data Science & Intelligence",
+      context: "KBTG Kampus Hackathon 2026 — Top 30 Team, Top 10 in Track 2: Data Science & Intelligence",
       caseStudyLink: "project-flowsense-trustgraph.html",
-      description: "Independent synthetic financial prototype. FlowSense uses an explainable history/scenario/abstention baseline with ML disabled. TrustGraph combines stored graph context, ONNX scoring and separate policies; saved comparisons do not show a GNN advantage.",
-      keyMetric: "Synthetic Data &bull; FlowSense ML Disabled &bull; Baseline Comparisons",
+      description: "Financial intelligence and recipient-risk prototype. Conceived core concept, built prototype, and delivered hackathon pitch. FlowSense uses an explainable history/scenario/abstention baseline with ML disabled. TrustGraph combines stored graph context, ONNX scoring and separate policies; saved comparisons do not show a GNN advantage.",
+      keyMetric: "Top 30 Team &bull; Top 10 Data Science &bull; Baseline Comparisons",
       techStack: ["PyTorch Geometric", "LightGBM", "ONNX Runtime", "FastAPI", "React 18", "Vite"],
       githubLink: "https://github.com/svkhun/K-NEXUS-Application",
       showcaseRepository: "https://github.com/svkhun/K-NEXUS-Showcase",

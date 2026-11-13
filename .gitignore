@@ -44,6 +44,7 @@ node_modules/
 .yarn/
 dist/
 build/
+build_resume/*.pdf
 out/
 .next/
 .vercel/

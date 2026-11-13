@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,11 +10,11 @@
   <link rel="canonical" href="https://svkhun.vercel.app/project-swu-openhouse">
 
   <!-- Favicon & Web App Icons -->
-  <link rel="shortcut icon" href="favicon.ico?v=sk-logo-s">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=sk-logo-s">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=sk-logo-s">
-  <link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg?v=sk-logo-s">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=sk-logo-s">
+  <link rel="shortcut icon" href="favicon.ico?v=sk-terminal-s">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=sk-terminal-s">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=sk-terminal-s">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg?v=sk-terminal-s">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=sk-terminal-s">
 
   <!-- Google Fonts: Slender Geist & Geist Mono & Prompt -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=20261112-kbtg-pitch">
+  <link rel="stylesheet" href="css/styles.css?v=20261113-typing-logo">
 </head>
 <body>
 
@@ -34,7 +34,10 @@
   <header class="header">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo" aria-label="Sivakorn Portfolio Home" title="Sivakorn Portfolio">
-        <img class="brand-signature" src="assets/sivakorn-signature.svg" alt="" width="150" height="45" decoding="async">
+        <span class="brand-logo-wrap">
+          <span class="brand-logo-text">sivakorn</span>
+          <span class="brand-logo-cursor" aria-hidden="true"></span>
+        </span>
       </a>
 
       <div class="nav-right">
@@ -78,12 +81,6 @@
 
         <div class="case-thesis-quote">&ldquo;An event website should do more than display dates—it must build anticipation, make registration frictionless, and showcase each faculty's uniqueness in a single intuitive flow.&rdquo;</div>
 
-        <!-- Visual Hero Showcase: Laptop Mockup -->
-        <figure class="my-10 text-center">
-          <img src="assets/swu-openhouse-showcase.png" alt="SWU Open House 2026 Website Enhancement Showcase" class="w-full max-w-4xl mx-auto h-auto object-contain" loading="lazy" decoding="async">
-          <figcaption class="mt-4 text-xs font-mono text-muted">Figure 1.0: Desktop experience featuring hero branding, countdown timer, and interactive feature highlights.</figcaption>
-        </figure>
-
         <section class="case-section-airy">
           <span class="case-section-num-tag">01 // Problem &amp; Scope</span>
           <h2 class="case-section-heading">Transforming university open house onboarding</h2>
@@ -116,26 +113,94 @@
           </div>
         </section>
 
-        <!-- Vertical Full-Page Flow Showcase -->
-        <section class="case-section-airy">
-          <span class="case-section-num-tag">03 // Page Flow &amp; Hierarchy</span>
-          <h2 class="case-section-heading">Mobile-first end-to-end user journey</h2>
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center my-6">
-            <div class="md:col-span-5 flex justify-center">
-              <figure class="max-w-xs text-center">
-                <img src="assets/swu-openhouse-vertical-device.png" alt="SWU Open House 2026 Full Mobile Page Flow" class="w-full h-auto object-contain" loading="lazy" decoding="async">
-                <figcaption class="mt-3 text-[11px] font-mono text-muted text-center">Figure 2.0: Complete vertical page hierarchy</figcaption>
-              </figure>
+        <!-- Interactive Sticky Page Flow Showcase -->
+        <section class="swu-flow-track" id="swu-flow-section">
+          <div class="swu-flow-sticky">
+            <!-- Header with Title, Auto-Scroll Simulation & Live Percent -->
+            <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
+              <div>
+                <span class="case-section-num-tag">03 // Page Flow &amp; Hierarchy</span>
+                <h2 class="case-section-heading mb-0 text-xl sm:text-2xl">Mobile-first end-to-end user journey</h2>
+              </div>
+              <div class="flex items-center gap-2">
+                <button type="button" id="swu-autoplay-toggle" class="swu-pill-action-btn" title="Simulate human scroll">
+                  <i class="fa-solid fa-play text-[10px]" id="swu-autoplay-icon"></i>
+                  <span id="swu-autoplay-label" class="font-bold">Auto Scroll</span>
+                </button>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono rounded bg-accent-subtle text-accent border border-border">
+                  <i class="fa-solid fa-arrows-up-down text-[10px] animate-pulse"></i>
+                  <span id="swu-scroll-percent" class="font-bold">0%</span>
+                </span>
+              </div>
             </div>
-            <div class="md:col-span-7 case-body-airy">
-              <h3 class="text-xl font-medium text-slate-900 dark:text-white mb-3">Structured for Rapid Content Discovery</h3>
-              <ol class="space-y-3 text-secondary text-sm">
-                <li><strong class="text-slate-900 dark:text-white">1. Hero &amp; Countdown:</strong> Immediate brand identity with the "SWU TOPIA" theme and instant registration countdown badge.</li>
-                <li><strong class="text-slate-900 dark:text-white">2. Visual How-To-Register:</strong> Step-by-step visual onboarding reducing customer inquiries.</li>
-                <li><strong class="text-slate-900 dark:text-white">3. Faculty Showcase Grid:</strong> High-impact visual posters enabling one-tap access to curriculum details.</li>
-                <li><strong class="text-slate-900 dark:text-white">4. Photo Memories &amp; Highlights:</strong> Authentic campus snapshots highlighting student life and club activities.</li>
-                <li><strong class="text-slate-900 dark:text-white">5. Consolidated Footer:</strong> Legal copyright, university address, and verified social media handles.</li>
-              </ol>
+
+            <!-- Milestone Pills Bar -->
+            <div class="swu-pills-bar" role="tablist" aria-label="Page flow milestones">
+              <button type="button" class="swu-step-pill is-active" data-step-progress="0.06" aria-label="Step 1: Hero & Countdown">
+                <span class="swu-pill-num">01</span>
+                <span>Hero &amp; Countdown</span>
+              </button>
+              <button type="button" class="swu-step-pill" data-step-progress="0.33" aria-label="Step 2: Visual How-To-Register">
+                <span class="swu-pill-num">02</span>
+                <span>How-To-Register</span>
+              </button>
+              <button type="button" class="swu-step-pill" data-step-progress="0.55" aria-label="Step 3: Interactive Faculty Showcase">
+                <span class="swu-pill-num">03</span>
+                <span>Faculty Grid</span>
+              </button>
+              <button type="button" class="swu-step-pill" data-step-progress="0.80" aria-label="Step 4: Photo Memories & Highlights">
+                <span class="swu-pill-num">04</span>
+                <span>Highlights</span>
+              </button>
+              <button type="button" class="swu-step-pill" data-step-progress="0.98" aria-label="Step 5: Consolidated Footer">
+                <span class="swu-pill-num">05</span>
+                <span>Footer</span>
+              </button>
+            </div>
+
+            <!-- Clean Centered Browser Showcase (Taller Vertical Screen & Super-Resolution) -->
+            <div class="swu-browser-window mx-auto">
+              <!-- Browser Chrome -->
+              <div class="swu-browser-chrome">
+                <div class="swu-browser-dots" aria-hidden="true">
+                  <span class="swu-dot swu-dot-red"></span>
+                  <span class="swu-dot swu-dot-yellow"></span>
+                  <span class="swu-dot swu-dot-green"></span>
+                </div>
+                <div class="swu-browser-url">
+                  <i class="fa-solid fa-lock text-[10px] mr-1.5 text-emerald-500"></i>
+                  <span>openhouse.swu.ac.th</span>
+                </div>
+                <button type="button" data-open-cert data-cert-img="assets/swu-openhouse-fullpage-2x.png" data-cert-title="SWU Open House 2026 — Full Page Flow (Super-Resolution)" class="swu-browser-action-btn" title="View full screenshot in lightbox" aria-label="View full screenshot">
+                  <i class="fa-solid fa-up-right-and-down-left-from-center text-xs"></i>
+                </button>
+              </div>
+
+              <!-- Viewport with Super-Resolution 2x Full-Page Screenshot -->
+              <div class="swu-browser-viewport" id="swu-browser-viewport" tabindex="0" role="region" aria-label="Interactive preview of SWU Open House webpage">
+                <img src="assets/swu-openhouse-fullpage-2x.png"
+                     alt="SWU Open House 2026 Full Webpage Experience"
+                     id="swu-page-img"
+                     class="swu-browser-page-img"
+                     loading="eager"
+                     decoding="async"
+                     width="2048"
+                     height="4942">
+              </div>
+
+              <!-- Footer with Scroll Progress Indicator -->
+              <div class="swu-browser-footer flex items-center justify-between text-xs font-mono text-muted">
+                <div class="swu-scroll-progress-track flex-1 mr-3">
+                  <div class="swu-scroll-progress-fill" id="swu-progress-fill"></div>
+                </div>
+                <span id="swu-step-tag" class="text-[11px] text-accent font-semibold whitespace-nowrap">01 // Hero &amp; Countdown</span>
+              </div>
+            </div>
+
+            <!-- Dynamically Updating Step Description Card -->
+            <div class="swu-step-desc-card mt-2 mx-auto px-4 py-2 text-center">
+              <div class="text-xs font-mono text-accent font-bold uppercase mb-0.5" id="swu-step-caption-title">01 // Hero &amp; Countdown</div>
+              <p class="text-xs text-secondary mb-0" id="swu-step-caption-desc">Immediate brand identity with the "SWU TOPIA" theme and instant registration countdown badge.</p>
             </div>
           </div>
         </section>
@@ -204,6 +269,6 @@
 
   <!-- Scripts -->
   <script src="js/portfolio-data.js"></script>
-  <script src="js/main.js?v=motion-20261110-scroll"></script>
+  <script src="js/main.js?v=20261113-anchor-scroll"></script>
 </body>
 </html>
