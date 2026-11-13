@@ -2,8 +2,8 @@ import subprocess
 import os
 import re
 
-BUILD_DIR = r"d:\All Project\web portfolio\build_resume"
-ARTIFACT_DIR = r"C:\Users\Acer\.gemini\antigravity\brain\d9db4834-7ed1-4308-86e1-bc6cd1af34dd"
+BUILD_DIR = os.path.dirname(os.path.abspath(__file__))
+ARTIFACT_DIR = os.environ.get("ARTIFACT_DIR", BUILD_DIR)
 CHROME_BIN = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
 os.makedirs(ARTIFACT_DIR, exist_ok=True)

@@ -1858,6 +1858,124 @@
     window.addEventListener('mouseup', endDrag);
   }
 
+  // Activity Gallery filter and video controls (KBTG Hackathon)
+  function initActivityGallery() {
+    const galleries = document.querySelectorAll('[data-activity-gallery]');
+    if (!galleries.length) return;
+
+    galleries.forEach(gallery => {
+      const tabs = gallery.querySelectorAll('.activity-tab-btn');
+      const cards = gallery.querySelectorAll('.activity-card');
+      const videos = gallery.querySelectorAll('.activity-video');
+
+      // Guarantee all videos are strictly muted & optimized for inline looping
+      videos.forEach(video => {
+        video.muted = true;
+        video.playsInline = true;
+        video.setAttribute('playsinline', '');
+        video.setAttribute('muted', '');
+      });
+
+      // Filter tabs handling
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const filter = tab.getAttribute('data-filter') || 'all';
+
+          tabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+
+          cards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+              card.classList.remove('is-filtered-out');
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(12px)';
+              setTimeout(() => {
+                card.style.transition = 'opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              }, 30);
+            } else {
+              card.classList.add('is-filtered-out');
+            }
+          });
+
+          if (typeof ScrollTrigger !== 'undefined' && ScrollTrigger.refresh) {
+            ScrollTrigger.refresh();
+          }
+          if (lenisInstance && lenisInstance.resize) {
+            lenisInstance.resize();
+          }
+        });
+      });
+
+      // Play/Pause toggle buttons for videos
+      gallery.querySelectorAll('.activity-card[data-category="video"]').forEach(card => {
+        const video = card.querySelector('.activity-video');
+        const playBtn = card.querySelector('.activity-play-toggle');
+        if (!video || !playBtn) return;
+
+        function updatePlayIcon() {
+          if (video.paused) {
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            playBtn.setAttribute('aria-label', 'Play video');
+          } else {
+            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            playBtn.setAttribute('aria-label', 'Pause video');
+          }
+        }
+
+        playBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          video.muted = true; // Strict adherence to "วิดีโอไม่เอาเสียงนะ"
+          if (video.paused) {
+            video.play().then(updatePlayIcon).catch(() => {});
+          } else {
+            video.pause();
+            updatePlayIcon();
+          }
+        });
+
+        video.addEventListener('click', () => {
+          video.muted = true;
+          if (video.paused) {
+            video.play().then(updatePlayIcon).catch(() => {});
+          } else {
+            video.pause();
+            updatePlayIcon();
+          }
+        });
+
+        video.addEventListener('play', updatePlayIcon);
+        video.addEventListener('pause', updatePlayIcon);
+      });
+
+      // IntersectionObserver: auto pause when scrolled away to conserve performance
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const vid = entry.target;
+            if (entry.isIntersecting) {
+              vid.muted = true;
+              const promise = vid.play();
+              if (promise !== undefined) {
+                promise.catch(() => {});
+              }
+            } else {
+              vid.pause();
+            }
+          });
+        }, { threshold: 0.25 });
+
+        videos.forEach(v => observer.observe(v));
+      }
+    });
+  }
+
   function initPageContent() {
     initScrollReveal();
     initTypographyReveals();
@@ -1872,6 +1990,7 @@
     initAssessmentAccordion();
     initEducationDrawers();
     initSwuScrollShowcase();
+    initActivityGallery();
   }
 
   // Initialize on load

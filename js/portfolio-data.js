@@ -215,12 +215,12 @@ const portfolioData = {
     summary: "Conceived the team's core concept, developed the prototype, and delivered the stage pitch at KBTG KAMPUS Hackathon.",
     certificateImage: "assets/kbtg-kampus-hackathon-2026-certificate.png",
     certificateType: "Certificate of Participation",
-    photosStatus: "Official stage photos (3 moments)",
+    photosStatus: "Official stage photos (5 moments)",
     photos: [
       {
-        url: "assets/kbtg-kampus-pitch-04.jpg",
-        caption: "Pitch Presentation & Risk Context — Presenting K-NEXUS Track 2",
-        moment: "Pitch Presentation"
+        url: "assets/kbtg-kampus-pitch-01.jpg",
+        caption: "Stage Opening — Introducing K-NEXUS & first-jobber money context",
+        moment: "Stage Opening"
       },
       {
         url: "assets/kbtg-kampus-pitch-02.jpg",
@@ -228,9 +228,47 @@ const portfolioData = {
         moment: "Product Narrative"
       },
       {
+        url: "assets/kbtg-kampus-pitch-03.jpg",
+        caption: "Technical Architecture & Methodology — Walking judges through offline R-GCN embeddings and Gate 2 evaluation",
+        moment: "Technical Architecture"
+      },
+      {
+        url: "assets/kbtg-kampus-pitch-04.jpg",
+        caption: "Live Stage Pitch Delivery — Presenting K-NEXUS Track 2 before judges and peers",
+        moment: "Stage Pitch Delivery"
+      },
+      {
         url: "assets/kbtg-kampus-pitch-05.jpg",
-        caption: "Technical Defense & Q&A — Walking judges through past-only R-GCN embeddings and Gate 2 evaluation",
+        caption: "Technical Defense & Q&A — Defending ML boundaries & synthetic data decisions",
         moment: "Technical Defense"
+      }
+    ],
+    activityPhotos: [
+      {
+        url: "assets/kbtg-kampus-group-01.jpg",
+        caption: "Grand Finalists & Judging Committee Group Photo in Main Auditorium",
+        category: "group"
+      },
+      {
+        url: "assets/kbtg-kampus-group-02.jpg",
+        caption: "Participants, Mentors & Organizers Celebration Pose",
+        category: "group"
+      }
+    ],
+    videos: [
+      {
+        url: "assets/kbtg-kampus-activity-video-01.mp4",
+        poster: "assets/kbtg-kampus-activity-poster-01.jpg",
+        caption: "Team & Mascot Greeting — KBTG Pitching Day",
+        duration: "0:05",
+        muted: true
+      },
+      {
+        url: "assets/kbtg-kampus-activity-video-02.mp4",
+        poster: "assets/kbtg-kampus-activity-poster-02.jpg",
+        caption: "Mascot Celebration & Energy — Community Floor",
+        duration: "0:08",
+        muted: true
       }
     ],
     experienceLink: "experience.html#pitching"
