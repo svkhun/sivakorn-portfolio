@@ -293,12 +293,16 @@
     }
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-    // Let the visibility transition enter its first rendered frame before focusing.
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      if (modal.classList.contains('active')) {
-        modal.querySelector('#cert-modal-close')?.focus({ preventScroll: true });
+    // Respect the published visibility animation, then place keyboard focus inside.
+    const focusWhenVisible = () => {
+      if (!modal.classList.contains('active')) return;
+      if (getComputedStyle(modal).visibility !== 'visible') {
+        requestAnimationFrame(focusWhenVisible);
+        return;
       }
-    }));
+      modal.querySelector('#cert-modal-close')?.focus({ preventScroll: true });
+    };
+    Promise.allSettled((modal.getAnimations?.() || []).map(animation => animation.finished)).then(focusWhenVisible);
   }
 
   function closeCertModal() {
@@ -463,6 +467,10 @@
 
   function triggerHeroEntrance() {
     const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      const stats = document.getElementById('stats-band');
+      if (stats) Object.assign(stats.style, { animation: 'none', opacity: '1', transform: 'none' });
+    }
 
     // 7.1 Home Hero Reveal & Orchestration
     const homeHero = document.getElementById('home-hero');

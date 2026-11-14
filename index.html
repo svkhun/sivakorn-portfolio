@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -142,7 +142,7 @@
               <a href="projects.html" class="primary-cta">
                 <span>Explore Case Studies &rarr;</span>
               </a>
-              <a href="assets/Sivakorn_Khundilokrattaya_Resume.pdf" target="_blank" rel="noopener noreferrer" class="inline-link">
+              <a href="assets/Sivakorn_Khundilokrattaya_Resume_20261114_content_v2.pdf" target="_blank" rel="noopener noreferrer" class="inline-link">
                 <span>Download Resume (PDF)</span>
                 <span aria-hidden="true">&nearr;</span>
               </a>
@@ -352,6 +352,208 @@
     </section>
 
 
+    <section class="section tech-stack-section scroll-mt-20 py-16 lg:py-24 border-t border-border" id="tech-stack">
+      <div class="max-w-6xl lg:max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+          <div>
+            <div class="editorial-number-tag">
+              <span class="editorial-num">02 / Tech Stack</span>
+              <span class="editorial-cat">Used in projects</span>
+            </div>
+            <h2 class="editorial-h2 max-w-2xl">
+              Tools used in project work.
+            </h2>
+            <p class="text-base text-slate-600 dark:text-zinc-400 leading-relaxed max-w-xl mb-0">
+              Each tool below links to a documented use in the K-NEXUS prototype and research workflow.
+            </p>
+          </div>
+        </div>
+
+        <!-- Category Filter Tabs (Swiss Sharp Design) -->
+        <div class="tech-category-tabs" role="tablist" aria-label="Tech Stack Categories">
+          <button type="button" class="tech-filter-tab is-active" data-filter="all" role="tab" aria-selected="true">
+            <span>All Technologies</span>
+            <span class="tech-tab-count">(6)</span>
+          </button>
+          <button type="button" class="tech-filter-tab" data-filter="cat-ml" role="tab" aria-selected="false">
+            <span>Machine Learning &amp; AI</span>
+            <span class="tech-tab-count">(4)</span>
+          </button>
+          <button type="button" class="tech-filter-tab" data-filter="cat-data" role="tab" aria-selected="false">
+            <span>Data &amp; Graph Systems</span>
+            <span class="tech-tab-count">(1)</span>
+          </button>
+          <button type="button" class="tech-filter-tab" data-filter="cat-backend" role="tab" aria-selected="false">
+            <span>Backend &amp; Cloud</span>
+            <span class="tech-tab-count">(1)</span>
+          </button>
+
+        </div>
+
+        <!-- Tech Cards Grid -->
+        <div class="tech-stack-grid" id="tech-stack-grid">
+          <!-- ML Category -->
+          <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #3776AB; --brand-glow: rgba(55, 118, 171, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-python-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Python</span>
+                <span class="tech-card-tag">Core Language</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Data preparation and prototype API logic in <a href="project-flowsense-trustgraph.html">K-NEXUS</a>.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #EE4C2C; --brand-glow: rgba(238, 76, 44, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-pytorch-original colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">PyTorch</span>
+                <span class="tech-card-tag">Deep Learning</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Past-only R-GCN training experiments in <a href="project-flowsense-trustgraph.html">K-NEXUS</a>; saved tests did not show a GNN advantage.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #0284C7; --brand-glow: rgba(2, 132, 199, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-tree" style="color: #0284C7;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">LightGBM</span>
+                <span class="tech-card-tag">Gradient Boosting</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Synthetic recipient-risk classification in <a href="project-flowsense-trustgraph.html">K-NEXUS</a>, evaluated against a no-GNN baseline.</p>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #005CED; --brand-glow: rgba(0, 92, 237, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-microchip" style="color: #005CED;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">ONNX Runtime</span>
+                <span class="tech-card-tag">Inference Engine</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Classifier artifact execution for <a href="project-flowsense-trustgraph.html">K-NEXUS</a> synthetic recipient-risk review.</p>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- Data & Graph Category -->
+          <div class="tech-stack-card" data-category="cat-data" style="--brand-color: #008CC1; --brand-glow: rgba(0, 140, 193, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-pytorch-original colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">PyTorch Geometric</span>
+                <span class="tech-card-tag">Graph Learning</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">16-dimensional account embeddings in the <a href="project-flowsense-trustgraph.html">K-NEXUS</a> research workflow.</p>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+          <!-- Backend & Cloud Category -->
+          <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #009688; --brand-glow: rgba(0, 150, 136, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-fastapi-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">FastAPI</span>
+                <span class="tech-card-tag">Async Microservice</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Synthetic spending-plan and transfer-review endpoints in <a href="project-flowsense-trustgraph.html">K-NEXUS</a>.</p>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+          <!-- Risk & Explainability Category -->
+
+
+
+
+
+
+
+
+
+        </div>
+
+        <!-- Sleek High-Contrast Bottom CTA Banner -->
+        <div class="bottom-cta-banner scroll-anim anim-banner-lift mt-20">
+          <div class="bottom-cta-content">
+            <div class="font-mono text-[11px] tracking-[0.08em] uppercase text-emerald-400 mb-2">Project evidence</div>
+            <h3 class="bottom-cta-title text-2xl lg:text-3xl font-medium tracking-[-0.03em] leading-snug">Ready to inspect end-to-end architectures?</h3>
+            <p class="bottom-cta-desc text-sm leading-[1.7] opacity-80 mt-2">
+              Explore source code, experiment results, and limitations across the engineering case studies.
+            </p>
+          </div>
+          <a href="projects.html" class="primary-cta">
+            <span>Explore Case Studies &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- ========================================================================
