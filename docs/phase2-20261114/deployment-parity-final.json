@@ -1,0 +1,66 @@
+[
+  {
+    "file": "index.html",
+    "url": "https://svkhun.vercel.app/",
+    "status": 200,
+    "matchesPushedNormalized": true,
+    "matchesEditedNormalized": false,
+    "remoteSha256": "e51dda657f354900addbe6425a42ed5d2126657b20dd7693cdf3fd846d8c428e"
+  },
+  {
+    "file": "education.html",
+    "url": "https://svkhun.vercel.app/education",
+    "status": 200,
+    "matchesPushedNormalized": true,
+    "matchesEditedNormalized": false,
+    "remoteSha256": "d8ba3444ab268ac1c36f24e28cf66c83f0c1ae7173ea6ec2020198f4a5f3d7c5"
+  },
+  {
+    "file": "experience.html",
+    "url": "https://svkhun.vercel.app/experience",
+    "status": 200,
+    "matchesPushedNormalized": true,
+    "matchesEditedNormalized": false,
+    "remoteSha256": "71ac3e12613fa3b112b737daa198ba2360e3e36d7898848a716c82377cc9c396"
+  },
+  {
+    "file": "projects.html",
+    "url": "https://svkhun.vercel.app/projects",
+    "status": 200,
+    "matchesPushedNormalized": true,
+    "matchesEditedNormalized": false,
+    "remoteSha256": "9c2fd598bf3e5b32e09f5bdec512182fc1787bc52e322c257447f550e7917b8f"
+  },
+  {
+    "file": "contact.html",
+    "url": "https://svkhun.vercel.app/contact",
+    "status": 200,
+    "matchesPushedNormalized": true,
+    "matchesEditedNormalized": false,
+    "remoteSha256": "03516b8133cea36bbf9b2840d6c9adc240d9f969ba5d0a8867f5819078703b60"
+  },
+  {
+    "file": "css/styles.css",
+    "url": "https://svkhun.vercel.app/css/styles.css",
+    "status": 200,
+    "matchesPushedNormalized": true,
+    "matchesEditedNormalized": true,
+    "remoteSha256": "72485f4b603719b6d84ddda22c8ad8633b5c07f8019788a49595e6d597237503"
+  },
+  {
+    "file": "js/main.js",
+    "url": "https://svkhun.vercel.app/js/main.js",
+    "status": 200,
+    "matchesPushedNormalized": true,
+    "matchesEditedNormalized": false,
+    "remoteSha256": "985620093cfc6176392136d95fd781433407c49821e97735f9290a8a1b0664e1"
+  },
+  {
+    "file": "js/portfolio-data.js",
+    "url": "https://svkhun.vercel.app/js/portfolio-data.js",
+    "status": 200,
+    "matchesPushedNormalized": true,
+    "matchesEditedNormalized": false,
+    "remoteSha256": "366f1cf97d6376b740e5f929344ca377c3709cf7f56b704d0840dfe424c7bfa0"
+  }
+]

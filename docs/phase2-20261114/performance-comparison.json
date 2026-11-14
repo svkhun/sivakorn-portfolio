@@ -1,0 +1,121 @@
+{
+  "scope": "Matched local mobile lab runs, alternating old and edited source. Not field data or a deployed-site measurement.",
+  "runs": [
+    {
+      "page": "index.html",
+      "iteration": 1,
+      "revision": "pushed",
+      "score": 70,
+      "lcpMs": 4237.71424420913,
+      "cls": 0,
+      "tbtMs": 221.5,
+      "warnings": []
+    },
+    {
+      "page": "index.html",
+      "iteration": 1,
+      "revision": "content",
+      "score": 86,
+      "lcpMs": 3016.203,
+      "cls": 0,
+      "tbtMs": 44,
+      "warnings": []
+    },
+    {
+      "page": "index.html",
+      "iteration": 2,
+      "revision": "pushed",
+      "score": 70,
+      "lcpMs": 4357.128,
+      "cls": 0.004499065957420672,
+      "tbtMs": 217,
+      "warnings": []
+    },
+    {
+      "page": "index.html",
+      "iteration": 2,
+      "revision": "content",
+      "score": 87,
+      "lcpMs": 3008.0438935694824,
+      "cls": 0,
+      "tbtMs": 26,
+      "warnings": []
+    },
+    {
+      "page": "index.html",
+      "iteration": 3,
+      "revision": "pushed",
+      "score": 84,
+      "lcpMs": 3156.871194860289,
+      "cls": 0,
+      "tbtMs": 54,
+      "warnings": []
+    },
+    {
+      "page": "index.html",
+      "iteration": 3,
+      "revision": "content",
+      "score": 87,
+      "lcpMs": 3007.1189,
+      "cls": 0.005223256540840523,
+      "tbtMs": 23.5,
+      "warnings": []
+    },
+    {
+      "page": "experience.html",
+      "iteration": 1,
+      "revision": "pushed",
+      "score": 55,
+      "lcpMs": 19182.5034,
+      "cls": 0,
+      "tbtMs": 462.0000000000009,
+      "warnings": []
+    },
+    {
+      "page": "experience.html",
+      "iteration": 1,
+      "revision": "content",
+      "score": 69,
+      "lcpMs": 18926.841049606304,
+      "cls": 0.0003727456003404692,
+      "tbtMs": 61,
+      "warnings": []
+    }
+  ],
+  "lighthouseVersion": "13.6.0",
+  "pushedCommit": "92ecc471d6c686dae44d87e0d4620c3ddf59397b",
+  "rawReports": [
+    {
+      "file": "experience.html-content-1.json",
+      "sha256": "9d802bc325e4f67004abe5a04437b1dfb3dce4ed59e55135c8c3daaadc998100"
+    },
+    {
+      "file": "experience.html-pushed-1.json",
+      "sha256": "e723a81ce7dffa42d7c2fb6fb8f97789833fc226e7ed962bef59123b38dcb202"
+    },
+    {
+      "file": "index.html-content-1.json",
+      "sha256": "a0c8b8e71dc85aa6c71b92b6d0e19368af057af918a26cdb9278096ab905354c"
+    },
+    {
+      "file": "index.html-content-2.json",
+      "sha256": "ad99e9205bd6360e0005a266f4f3dd1a8caca149af16589e8063fde575119cdb"
+    },
+    {
+      "file": "index.html-content-3.json",
+      "sha256": "da88dffb04be777ed004dfdc2ac8c701426ba0349154412e8fb1ebfe7405114a"
+    },
+    {
+      "file": "index.html-pushed-1.json",
+      "sha256": "73112b904e5d2d9371ad160f3735a7bf09a430be921d5d6fb508407901d14265"
+    },
+    {
+      "file": "index.html-pushed-2.json",
+      "sha256": "623457e9dc77c9e4eae91d36393a180a2bc539471bfd9c40fb49693cce93fc03"
+    },
+    {
+      "file": "index.html-pushed-3.json",
+      "sha256": "a809168c646d6659898ace61fdc184137006a8e0ca8d39dd9beca001c1e7c89f"
+    }
+  ]
+}
