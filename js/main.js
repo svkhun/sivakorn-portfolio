@@ -36,7 +36,7 @@
   }
 
   function toggleTheme() {
-    const isDark = document.documentElement.classList.contains('dark') || 
+    const isDark = document.documentElement.classList.contains('dark') ||
                    document.documentElement.getAttribute('data-theme') === 'dark';
     const newTheme = isDark ? 'light' : 'dark';
     localStorage.setItem(THEME_KEY, newTheme);
@@ -228,6 +228,7 @@
   }
 
   // 4. Certificate Modal Viewer
+  let previewReturnFocus = null;
   function bindCertModalEvents(modal) {
     if (!modal || modal.dataset.eventsBound === 'true') return;
     modal.dataset.eventsBound = 'true';
@@ -240,9 +241,24 @@
         closeCertModal();
       }
     });
+    modal.addEventListener('keydown', function (event) {
+      if (event.key !== 'Tab') return;
+      const controls = Array.from(modal.querySelectorAll('button, a[href], [tabindex="0"]'));
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (!first) return;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
   }
 
   function openCertModal(title, imgSrc) {
+    previewReturnFocus = document.activeElement;
     let modal = document.getElementById('cert-modal');
     if (!modal) {
       modal = document.createElement('div');
@@ -254,13 +270,13 @@
       modal.innerHTML = `
         <div class="modal-card">
           <div class="modal-header">
-            <h3 class="modal-title" id="cert-modal-title">Certificate Verification</h3>
+            <h3 class="modal-title" id="cert-modal-title">Document preview</h3>
             <button class="modal-close-btn" id="cert-modal-close" aria-label="Close modal">
               <i class="fas fa-times"></i>
             </button>
           </div>
           <div class="modal-body">
-            <img src="" alt="Verified Certificate Report" id="cert-modal-img" class="modal-image">
+            <img src="" alt="Document preview" id="cert-modal-img" class="modal-image">
           </div>
         </div>
       `;
@@ -271,9 +287,18 @@
     const titleEl = modal.querySelector('#cert-modal-title');
     const imgEl = modal.querySelector('#cert-modal-img');
     if (titleEl) titleEl.textContent = title;
-    if (imgEl) imgEl.src = imgSrc;
+    if (imgEl) {
+      imgEl.src = imgSrc;
+      imgEl.alt = title;
+    }
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    // Let the visibility transition enter its first rendered frame before focusing.
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (modal.classList.contains('active')) {
+        modal.querySelector('#cert-modal-close')?.focus({ preventScroll: true });
+      }
+    }));
   }
 
   function closeCertModal() {
@@ -281,6 +306,8 @@
     if (!modal) return;
     modal.classList.remove('active');
     document.body.style.overflow = '';
+    if (previewReturnFocus?.isConnected) previewReturnFocus.focus({ preventScroll: true });
+    previewReturnFocus = null;
   }
 
   const initialCertModal = document.getElementById('cert-modal');
@@ -302,7 +329,7 @@
     const certBtn = e.target.closest('[data-open-cert]');
     if (certBtn) {
       e.preventDefault();
-      const title = certBtn.getAttribute('data-cert-title') || 'Certificate Verification';
+      const title = certBtn.getAttribute('data-cert-title') || 'Document preview';
       const imgSrc = certBtn.getAttribute('data-cert-img');
       if (imgSrc) {
         openCertModal(title, imgSrc);
@@ -328,6 +355,7 @@
   });
 
   // 5. Toast Feedback
+  let toastTimer = null;
   function showToast(message) {
     let toast = document.getElementById('toast-notification');
     if (!toast) {
@@ -336,10 +364,16 @@
       toast.id = 'toast-notification';
       document.body.appendChild(toast);
     }
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.setAttribute('aria-atomic', 'true');
+    if (toastTimer) clearTimeout(toastTimer);
     toast.textContent = message;
     toast.classList.add('active');
-    setTimeout(() => {
+    toastTimer = setTimeout(() => {
       toast.classList.remove('active');
+      toast.textContent = '';
+      toastTimer = null;
     }, 2800);
   }
 
@@ -351,8 +385,8 @@
       accordion.addEventListener('toggle', function () {
         const triggerText = this.querySelector('.accordion-trigger-text');
         if (triggerText) {
-          triggerText.textContent = this.open 
-            ? 'Hide Score Breakdown & Details' 
+          triggerText.textContent = this.open
+            ? 'Hide Score Breakdown & Details'
             : 'View Score Breakdown & Details';
         }
       });
@@ -948,7 +982,7 @@
       if (el.hasAttribute('data-no-counter')) return;
       const originalHTML = el.innerHTML;
       const originalText = el.textContent.trim();
-      // Match pattern like "11.62 ms", "0.894", "97 / 150", "2.0B THB"
+      // Match a displayed decimal, score fraction, or unit-bearing number.
       const match = originalText.match(/^([^\d]*)([\d,]+(?:\.\d+)?)(.*)$/);
       if (match) {
         const prefix = match[1];

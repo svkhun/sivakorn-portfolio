@@ -50,7 +50,7 @@
 }
 
 /* ==========================================================================
-   PRODUCTION DESIGN SYSTEM (Linear / Stripe Aesthetic)
+   SHARED DESIGN SYSTEM (Linear / Stripe Aesthetic)
    Sivakorn Khundilokrattaya - Data Scientist & ML Engineer
    Strict Rules: 1 Solid Accent, Clean Neutrals, 1px Hairline Borders, Zero Clutter
    ========================================================================== */
@@ -653,7 +653,7 @@ html.dark .nav-item a.active {
 }
 
 /* --------------------------------------------------------------------------
-   5. Hero Section (Production-Grade Layout)
+   5. Hero Section (Responsive Layout)
    -------------------------------------------------------------------------- */
 .hero-wrapper {
   padding: clamp(64px, 8vw, 104px) 0 clamp(48px, 6vw, 72px) 0;
@@ -2256,7 +2256,7 @@ html.dark .nhk-emblem-box:hover {
   z-index: 2000;
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--transition), visibility var(--transition);
+  transition: opacity var(--transition);
   padding: 1.5rem;
 }
 
@@ -5853,6 +5853,14 @@ html.dark #back-to-top .btt-ring-circle {
   text-overflow: ellipsis;
 }
 
+@media (max-width: 767px) {
+  .work-row-title,
+  .work-org-card-date {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
 .work-row-dot {
   width: 7px;
   height: 7px;
@@ -5927,14 +5935,18 @@ html.dark #back-to-top .btt-ring-circle {
 
 .work-details-content {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
   padding: 4px 20px 20px 20px;
 }
 
+.work-details-content > * {
+  min-width: 0;
+}
+
 @media (min-width: 900px) {
   .work-details-content {
-    grid-template-columns: 1fr 1.15fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
     gap: 32px;
     padding: 4px 24px 24px 24px;
   }
@@ -5949,7 +5961,7 @@ html.dark #back-to-top .btt-ring-circle {
 
 .work-details-metrics-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -9974,6 +9986,7 @@ main[aria-busy="true"] {
   .work-project-row,
   .cert-card,
   .hero-illustration-wrapper,
+  .stats-band,
   .activity-card,
   .activity-video,
   .activity-img,
