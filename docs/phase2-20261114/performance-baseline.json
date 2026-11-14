@@ -1,0 +1,984 @@
+{
+  "recordedAt": "2026-11-14T08:09:26.430Z",
+  "repositoryHead": "92ecc471d6c686dae44d87e0d4620c3ddf59397b",
+  "lighthouseVersion": "13.6.0",
+  "scope": "Deployed site before content edits; lab measurements, not field Core Web Vitals",
+  "parity": [
+    {
+      "source": "contact.html",
+      "url": "https://svkhun.vercel.app/contact",
+      "status": 200,
+      "localSHA256": "5a083ce47a19923b6054e3de87b527711f5549fc580470eae5ea95d1bd8949ab",
+      "deployedSHA256": "03516b8133cea36bbf9b2840d6c9adc240d9f969ba5d0a8867f5819078703b60",
+      "equal": false,
+      "equalAfterLineEndingNormalization": false,
+      "equalAfterEncodingNormalization": true
+    },
+    {
+      "source": "education.html",
+      "url": "https://svkhun.vercel.app/education",
+      "status": 200,
+      "localSHA256": "60cbc1eb9e178c48663273942e0ec432c28fe758c9a5b383560419d0a1b32ac2",
+      "deployedSHA256": "d8ba3444ab268ac1c36f24e28cf66c83f0c1ae7173ea6ec2020198f4a5f3d7c5",
+      "equal": false,
+      "equalAfterLineEndingNormalization": false,
+      "equalAfterEncodingNormalization": true
+    },
+    {
+      "source": "experience.html",
+      "url": "https://svkhun.vercel.app/experience",
+      "status": 200,
+      "localSHA256": "d6ff6b029f8b381217e5779a3d550c912a6d0e3886394fd3942632fb3f58befb",
+      "deployedSHA256": "71ac3e12613fa3b112b737daa198ba2360e3e36d7898848a716c82377cc9c396",
+      "equal": false,
+      "equalAfterLineEndingNormalization": false,
+      "equalAfterEncodingNormalization": true
+    },
+    {
+      "source": "index.html",
+      "url": "https://svkhun.vercel.app/",
+      "status": 200,
+      "localSHA256": "69396261085823b42e429911977be531f0857f5964ea683987e893e75d130e16",
+      "deployedSHA256": "e51dda657f354900addbe6425a42ed5d2126657b20dd7693cdf3fd846d8c428e",
+      "equal": false,
+      "equalAfterLineEndingNormalization": false,
+      "equalAfterEncodingNormalization": true
+    },
+    {
+      "source": "project-credit-risk.html",
+      "url": "https://svkhun.vercel.app/project-credit-risk",
+      "status": 200,
+      "localSHA256": "06f4486cd5ada0b2ad3e78eb07a509bbf827600d37f1521b7e023af2a6df6dba",
+      "deployedSHA256": "c048423e9333ee6477cef346c51b62e1d26a22aac72eb6e9481ddaf2e635fe5f",
+      "equal": false,
+      "equalAfterLineEndingNormalization": false,
+      "equalAfterEncodingNormalization": true
+    },
+    {
+      "source": "project-flowsense-trustgraph.html",
+      "url": "https://svkhun.vercel.app/project-flowsense-trustgraph",
+      "status": 200,
+      "localSHA256": "af90b46962da92c7511374519abba3525090c6d0f88753acb4c752fb0de58d7e",
+      "deployedSHA256": "1e2987ac6d258b1f615970c8b02fbaff7e0b047cd68f5d290b8f3cd4b26bcc43",
+      "equal": false,
+      "equalAfterLineEndingNormalization": false,
+      "equalAfterEncodingNormalization": true
+    },
+    {
+      "source": "project-guardian-ai.html",
+      "url": "https://svkhun.vercel.app/project-guardian-ai",
+      "status": 200,
+      "localSHA256": "b3899436821306c23869edb8f98d9aaac73bb2428ef42e836d81d8ccd4170064",
+      "deployedSHA256": "3f12c50689e87d72192ec741a5a9151b7e17ebe71094f30ef6edf07834ede64e",
+      "equal": false,
+      "equalAfterLineEndingNormalization": false,
+      "equalAfterEncodingNormalization": true
+    },
+    {
+      "source": "project-industrial-iot.html",
+      "url": "https://svkhun.vercel.app/project-industrial-iot",
+      "status": 200,
+      "localSHA256": "21b217ebc1d433689fcfa8f2e60f069e4c6d0f9d79b56e61801f295b326ffaff",
+      "deployedSHA256": "8d1959dc3cd8460ea68e66fd2a30a0b46a9fecc14036ab28664e9986f52ca702",
+      "equal": false,
+      "equalAfterLineEndingNormalization": false,
+      "equalAfterEncodingNormalization": true
+    },
+    {
+      "source": "project-k-sentinel.html",
+      "url": "https://svkhun.vercel.app/project-flowsense-trustgraph",
+      "status": 200,
+      "localSHA256": "ad947b487abcc57c0041a411d2604f24547cba2e8ae5d58846891c43c1530293",
+      "deployedSHA256": "1e2987ac6d258b1f615970c8b02fbaff7e0b047cd68f5d290b8f3cd4b26bcc43",
+      "equal": false,
+      "note": "Legacy redirect resolves to canonical FlowSense page"
+    },
+    {
+      "source": "project-lod-engine.html",
+      "url": "https://svkhun.vercel.app/project-lod-engine",
+      "status": 200,
+      "localSHA256": "7a76c91bbbab4bbebd54a87dbbb44be9e029e1dd3302d541df15633885a06f09",
+      "deployedSHA256": "c5fdb299e0268a274b7f7439a8ed0a2180927144e5595b24c6e0468c4622bc71",
+      "equal": false,
+      "equalAfterLineEndingNormalization": false,
+      "equalAfterEncodingNormalization": true
+    },
+    {
+      "source": "project-shopee-smart-cod.html",
+      "url": "https://svkhun.vercel.app/project-shopee-smart-cod",
+      "status": 200,
+      "localSHA256": "a5914493ef548679181bdd950eb608c842f17f39b4fca49448512fc4fb0c1b27",
+      "deployedSHA256": "ec374a146a3a89f8b7c501bb66373293255783e2e9633080dc6fc3fe6857143a",
+      "equal": false,
+      "equalAfterLineEndingNormalization": false,
+      "equalAfterEncodingNormalization": true
+    },
+    {
+      "source": "project-swu-openhouse.html",
+      "url": "https://svkhun.vercel.app/project-swu-openhouse",
+      "status": 200,
+      "localSHA256": "8d2fccbe57bcdeb5525bc61821d29c2976facbe8ddcb76273a91c213b5369648",
+      "deployedSHA256": "e17da90395de6e8c163db940235ef7aae47ff3982bdaa9a92a0cbb2644720fc7",
+      "equal": false,
+      "equalAfterLineEndingNormalization": false,
+      "equalAfterEncodingNormalization": true
+    },
+    {
+      "source": "projects.html",
+      "url": "https://svkhun.vercel.app/projects",
+      "status": 200,
+      "localSHA256": "f0ebaf48b86e268ae88c43e4b71afa5077047c4d2f701ca56495900e4f64ca21",
+      "deployedSHA256": "9c2fd598bf3e5b32e09f5bdec512182fc1787bc52e322c257447f550e7917b8f",
+      "equal": false,
+      "equalAfterLineEndingNormalization": false,
+      "equalAfterEncodingNormalization": true
+    },
+    {
+      "source": "js/main.js",
+      "url": "https://svkhun.vercel.app/js/main.js",
+      "status": 200,
+      "localSHA256": "710034eb6f040bd3ede13c0d241ce5491c080bdd841ebeb67cfc47df843fa820",
+      "deployedSHA256": "985620093cfc6176392136d95fd781433407c49821e97735f9290a8a1b0664e1",
+      "equal": false,
+      "equalAfterLineEndingNormalization": true,
+      "equalAfterEncodingNormalization": true
+    },
+    {
+      "source": "js/portfolio-data.js",
+      "url": "https://svkhun.vercel.app/js/portfolio-data.js",
+      "status": 200,
+      "localSHA256": "366f1cf97d6376b740e5f929344ca377c3709cf7f56b704d0840dfe424c7bfa0",
+      "deployedSHA256": "366f1cf97d6376b740e5f929344ca377c3709cf7f56b704d0840dfe424c7bfa0",
+      "equal": true
+    },
+    {
+      "source": "css/styles.css",
+      "url": "https://svkhun.vercel.app/css/styles.css",
+      "status": 200,
+      "localSHA256": "72485f4b603719b6d84ddda22c8ad8633b5c07f8019788a49595e6d597237503",
+      "deployedSHA256": "72485f4b603719b6d84ddda22c8ad8633b5c07f8019788a49595e6d597237503",
+      "equal": true
+    },
+    {
+      "source": "assets/Sivakorn_Khundilokrattaya_Resume.pdf",
+      "url": "https://svkhun.vercel.app/assets/Sivakorn_Khundilokrattaya_Resume.pdf",
+      "status": 200,
+      "localSHA256": "6f6db45b0f51207c24fd7bee0dd3858671e5514198f0f2372e4ebf6a28e6f55d",
+      "deployedSHA256": "6f6db45b0f51207c24fd7bee0dd3858671e5514198f0f2372e4ebf6a28e6f55d",
+      "equal": true
+    },
+    {
+      "source": "assets/Sivakorn_Khundilokrattaya_CV.pdf",
+      "url": "https://svkhun.vercel.app/assets/Sivakorn_Khundilokrattaya_CV.pdf",
+      "status": 200,
+      "localSHA256": "49010b335ef22cfefad4a954f052561f0ad8d1ee98bf06f28da37a617521fd80",
+      "deployedSHA256": "49010b335ef22cfefad4a954f052561f0ad8d1ee98bf06f28da37a617521fd80",
+      "equal": true
+    }
+  ],
+  "runs": [
+    {
+      "name": "home-mobile-1",
+      "url": "https://svkhun.vercel.app/",
+      "formFactor": "mobile",
+      "lighthouseVersion": "13.6.0",
+      "fetchTime": "2026-11-14T08:09:29.732Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "settings": {
+        "output": [
+          "json",
+          "html"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "scores": {
+        "performance": 90,
+        "accessibility": 96,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 2244.448,
+      "cls": 0,
+      "fcpMs": 2244.448,
+      "tbtMs": 78.5,
+      "warnings": []
+    },
+    {
+      "name": "home-mobile-2",
+      "url": "https://svkhun.vercel.app/",
+      "formFactor": "mobile",
+      "lighthouseVersion": "13.6.0",
+      "fetchTime": "2026-11-14T08:09:42.566Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "settings": {
+        "output": [
+          "json",
+          "html"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "scores": {
+        "performance": 90,
+        "accessibility": 96,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 2482.941,
+      "cls": 0,
+      "fcpMs": 2482.941,
+      "tbtMs": 48,
+      "warnings": []
+    },
+    {
+      "name": "home-mobile-3",
+      "url": "https://svkhun.vercel.app/",
+      "formFactor": "mobile",
+      "lighthouseVersion": "13.6.0",
+      "fetchTime": "2026-11-14T08:09:53.608Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "settings": {
+        "output": [
+          "json",
+          "html"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "scores": {
+        "performance": 85,
+        "accessibility": 96,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 2512.365,
+      "cls": 0,
+      "fcpMs": 2512.365,
+      "tbtMs": 193,
+      "warnings": []
+    },
+    {
+      "name": "home-desktop",
+      "url": "https://svkhun.vercel.app/",
+      "formFactor": "desktop",
+      "lighthouseVersion": "13.6.0",
+      "fetchTime": "2026-11-14T08:10:04.851Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "settings": {
+        "output": [
+          "json",
+          "html"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "desktop",
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "requestLatencyMs": 0,
+          "downloadThroughputKbps": 0,
+          "uploadThroughputKbps": 0,
+          "cpuSlowdownMultiplier": 1
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "scores": {
+        "performance": 96,
+        "accessibility": 96,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 671.087,
+      "cls": 0.008403087766202015,
+      "fcpMs": 671.087,
+      "tbtMs": 18.499999999999886,
+      "warnings": []
+    },
+    {
+      "name": "education-mobile",
+      "url": "https://svkhun.vercel.app/education",
+      "formFactor": "mobile",
+      "lighthouseVersion": "13.6.0",
+      "fetchTime": "2026-11-14T08:10:15.773Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "settings": {
+        "output": [
+          "json",
+          "html"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "scores": {
+        "performance": 81,
+        "accessibility": 95,
+        "best-practices": 100,
+        "seo": 92
+      },
+      "lcpMs": 3989.466,
+      "cls": 0,
+      "fcpMs": 2404.466,
+      "tbtMs": 185.5,
+      "warnings": []
+    },
+    {
+      "name": "experience-mobile",
+      "url": "https://svkhun.vercel.app/experience",
+      "formFactor": "mobile",
+      "lighthouseVersion": "13.6.0",
+      "fetchTime": "2026-11-14T08:10:26.513Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "settings": {
+        "output": [
+          "json",
+          "html"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "scores": {
+        "performance": 72,
+        "accessibility": 96,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 9727.635499999997,
+      "cls": 0,
+      "fcpMs": 1908.8629999999994,
+      "tbtMs": 134,
+      "warnings": []
+    },
+    {
+      "name": "projects-mobile",
+      "url": "https://svkhun.vercel.app/projects",
+      "formFactor": "mobile",
+      "lighthouseVersion": "13.6.0",
+      "fetchTime": "2026-11-14T08:10:37.379Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "settings": {
+        "output": [
+          "json",
+          "html"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "scores": {
+        "performance": 91,
+        "accessibility": 89,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 2383.746,
+      "cls": 0,
+      "fcpMs": 2383.746,
+      "tbtMs": 230,
+      "warnings": []
+    },
+    {
+      "name": "contact-mobile",
+      "url": "https://svkhun.vercel.app/contact",
+      "formFactor": "mobile",
+      "lighthouseVersion": "13.6.0",
+      "fetchTime": "2026-11-14T08:10:47.240Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "settings": {
+        "output": [
+          "json",
+          "html"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "scores": {
+        "performance": 95,
+        "accessibility": 93,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 2302.8955000000005,
+      "cls": 0.009285382209893066,
+      "fcpMs": 2302.8955000000005,
+      "tbtMs": 87.5,
+      "warnings": []
+    },
+    {
+      "name": "flowsense-mobile",
+      "url": "https://svkhun.vercel.app/project-flowsense-trustgraph",
+      "formFactor": "mobile",
+      "lighthouseVersion": "13.6.0",
+      "fetchTime": "2026-11-14T08:10:56.837Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "settings": {
+        "output": [
+          "json",
+          "html"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "scores": {
+        "performance": 92,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 2509.3585000000003,
+      "cls": 0,
+      "fcpMs": 2509.3585000000003,
+      "tbtMs": 109,
+      "warnings": []
+    },
+    {
+      "name": "shopee-mobile",
+      "url": "https://svkhun.vercel.app/project-shopee-smart-cod",
+      "formFactor": "mobile",
+      "lighthouseVersion": "13.6.0",
+      "fetchTime": "2026-11-14T08:11:07.455Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "settings": {
+        "output": [
+          "json",
+          "html"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "scores": {
+        "performance": 93,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 2316.526999999999,
+      "cls": 0,
+      "fcpMs": 2316.526999999999,
+      "tbtMs": 170,
+      "warnings": []
+    }
+  ],
+  "rawReportDirectory": "C:\\Users\\Acer\\.codex\\visualizations\\2026\\11\\14\\01a1d902-d389-7e22-a085-33f91d86a530\\baseline",
+  "rawReportSHA256": {
+    "contact-mobile.html": "cd41f4b02ad3ac3b4931ccf54453b1bd3eeb8a4ab0c3d04584750c160d2f2506",
+    "contact-mobile.json": "7b4aa52bdde685cb5314eaedf56f860045caec96a1fb9443d55df34f6574fb5c",
+    "education-mobile.html": "7b17fdcf2315036c89799723c837c5f30039de1883dd070e7c75d5e9c6c7f871",
+    "education-mobile.json": "3e41fb7e0864e88fd5dd8423cda7b5b28309681fa0cfbded6f72a3acbfc64fb0",
+    "experience-mobile.html": "f40d431226cc20da8c53689ee36f1ae9b83f2f272c8dd1916b8bb66a56f5a1e8",
+    "experience-mobile.json": "00620f927f2d90a52624f198d429d634ddd7e5cfb42a1ead4513a19a255ff9c9",
+    "flowsense-mobile.html": "44c45291d031c16995b2d955a7047af0154d091b119bb251ae272f3d50db3621",
+    "flowsense-mobile.json": "731934cbfeae59e0a256d7d318a8005c6fa8cd25603938a289f8fe9999f4307b",
+    "home-desktop.html": "16bbe87f3ff030b5ab138f26b0471cd6c584a069d946b91a1d93c00754dec808",
+    "home-desktop.json": "a44d79e30c8ae73bf61298dd536918b95799ee763ec63470ba185bf88d767584",
+    "home-mobile-1.html": "3c4f22b93d36d9299f83fc25ac206d0b4b0960228566fa5465c78b730cfa9b95",
+    "home-mobile-1.json": "8baa23bfb00297393c01f0b169002febcdc7db08a56c90f7cb974c98913ac08c",
+    "home-mobile-2.html": "9e24b220ce1ee3346331a377d361b8d8e8d437afc06598d8c6630c2b9e8c3c5e",
+    "home-mobile-2.json": "6652569f36abb0b572cbad096182e69d851530a245c3f7479ba99c02f006f7a7",
+    "home-mobile-3.html": "1137c8649cf90a3d7dd9ff5c895e5de26c3f86a00df60987cc032c152609ba91",
+    "home-mobile-3.json": "ce9cba68a55f4af119ad8ddd6db7c979b1b799a68b3cb17a260cb40aa44b22c3",
+    "projects-mobile.html": "f40c45ce6ef4fc5c2995424d3286cf70b051026c05c36addbb5a24a8146ca95d",
+    "projects-mobile.json": "bf7d972f2b6552e99726b26fa8cf8efc7cb2a28d81aef0a4d243ff5add474ec8",
+    "shopee-mobile.html": "724e0d15f41f8c6cb22ba68ffde3efa605055db77ff32ca82f282a54ea6bd54b",
+    "shopee-mobile.json": "fbaaa5ab32dfe6ef86a94dfa95919e5ec319cd2cf55d278513e65cac70a2f63c"
+  }
+}
