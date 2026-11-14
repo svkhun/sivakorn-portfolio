@@ -63,6 +63,16 @@
   ],
   "redirects": [
     {
+      "source": "/assets/Sivakorn_Khundilokrattaya_Resume.pdf",
+      "destination": "/assets/Sivakorn_Khundilokrattaya_Resume_20261114_navy.pdf",
+      "permanent": false
+    },
+    {
+      "source": "/assets/Sivakorn_Khundilokrattaya_CV.pdf",
+      "destination": "/assets/Sivakorn_Khundilokrattaya_CV_20261114_navy.pdf",
+      "permanent": false
+    },
+    {
       "source": "/project-k-sentinel",
       "destination": "/project-flowsense-trustgraph",
       "permanent": true
