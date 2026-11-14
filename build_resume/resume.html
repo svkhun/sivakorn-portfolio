@@ -41,7 +41,7 @@
 :root {
   --ink: #1F1E1D;
   --muted: #6B6A66;
-  --accent: #C96442;
+  --accent: #24527A;
   --rule: #E2DFD8;
   --font-serif: "Newsreader", "Source Serif 4", Georgia, serif;
   --font-sans: "Inter", Helvetica, Arial, sans-serif;
@@ -197,7 +197,7 @@ html, body {
   min-width: 0;
 }
 
-/* Section Labels: 8.5-9pt UPPERCASE with letter-spacing in accent terracotta */
+/* Section Labels: 8.5-9pt UPPERCASE with letter-spacing in accent navy blue */
 .section-label {
   font-family: var(--font-sans);
   font-size: 8.5pt;
@@ -452,9 +452,8 @@ ul.ed-bullets li strong {
         <!-- Header -->
         <header class="ed-header">
           <h1 class="ed-name">Sivakorn Khundilokrattaya</h1>
-          <div class="ed-role">Computer Engineering Student &middot; Data Science &amp; Machine Learning</div>
-          <div class="entry-subline">Building explainable decision-support prototypes in credit risk, fraud review, and e-commerce.</div>
-          <div class="entry-subline">Seeking: Data Science / Machine Learning Internship</div>
+          <div class="ed-role">Computer Engineering Student &middot; Seeking a Data Science Internship</div>
+          <div class="entry-subline">Python projects in credit risk and fraud review, with a focus on model evaluation and explainable scoring.</div>
           <div class="ed-contacts">
             <span>Bangkok, Thailand</span>
             <span class="sep">|</span>
@@ -470,27 +469,6 @@ ul.ed-bullets li strong {
           </div>
         </header>
 
-        <!-- Section 1: Education (Merged Education, Scholarship & STAMP) -->
-        <section class="ed-section">
-          <div class="ed-row">
-            <div class="ed-left">
-              <h2 class="section-label">Education</h2>
-              <div class="ed-date">Undergraduate</div>
-              <div class="ed-tag">Expected 2028</div>
-              <div class="ed-location">Bangkok, Thailand</div>
-            </div>
-            <div class="ed-right">
-              <div class="entry-heading">
-                <span class="entry-title">Srinakharinwirot University - B.Eng. in Computer Engineering</span>
-              </div>
-
-              <ul class="ed-bullets">
-                <li><strong>NHK Spring Scholarship (2026-2027):</strong> 30,000 THB/year engineering grant (eligibility GPAX &ge; 2.75); planned 2-month summer internship.</li>
-                <li><strong>Assessments (2026):</strong> KBTG Data Analyst STAMP (Score 97/150, report average: 90) and Oxford Placement Test (CEFR B1, Score 51).</li>
-              </ul>
-            </div>
-          </div>
-        </section>
 
         <!-- Section 2: Skills (4 short single-line rows, no repeated tools) -->
         <section class="ed-section">
@@ -501,20 +479,20 @@ ul.ed-bullets li strong {
             <div class="ed-right">
               <div class="skills-list">
                 <div class="skill-line">
-                  <span class="skill-cat">ML &amp; Data</span>
-                  <span class="skill-items">Python, PyTorch / PyTorch Geometric (R-GCN), LightGBM</span>
+                  <span class="skill-cat">Modeling</span>
+                  <span class="skill-items">Python, LightGBM, PyTorch Geometric</span>
                 </div>
                 <div class="skill-line">
-                  <span class="skill-cat">Inference</span>
-                  <span class="skill-items">ONNX Runtime, FastAPI</span>
+                  <span class="skill-cat">Evaluation</span>
+                  <span class="skill-items">Cross-validation, baseline comparisons, average precision</span>
                 </div>
                 <div class="skill-line">
-                  <span class="skill-cat">Engineering</span>
-                  <span class="skill-items">React, Git</span>
+                  <span class="skill-cat">Prototyping</span>
+                  <span class="skill-items">FastAPI, ONNX Runtime, React, Git</span>
                 </div>
                 <div class="skill-line">
                   <span class="skill-cat">Languages</span>
-                  <span class="skill-items">Thai; English (CEFR B1, Oxford score 51)</span>
+                  <span class="skill-items">Thai, English (CEFR B1)</span>
                 </div>
               </div>
             </div>
@@ -529,7 +507,7 @@ ul.ed-bullets li strong {
             <div class="ed-left">
               <h2 class="section-label">Projects</h2>
               <div class="ed-date">2026</div>
-              <div class="ed-tag">KBTG Top 10 DS</div>
+              <div class="ed-tag">KBTG Kampus Hackathon</div>
             </div>
             <div class="ed-right">
               <div class="entry-heading">
@@ -538,8 +516,8 @@ ul.ed-bullets li strong {
               </div>
 
               <ul class="ed-bullets">
-                <li>Built a past-only graph; benchmarked no-GNN average precision 0.99640 versus 16D R-GCN + LightGBM 0.99373 on 1,354 synthetic transactions (67 positives). The GNN did not beat the baseline.</li>
-                <li>Kept FlowSense ML disabled: the 30-day forecast on 32 synthetic accounts had candidate model MAE 2,701.6 versus baseline MAE 313.3 THB/account-origin. Used history/scenario/abstention plans; ML did not beat the baseline.</li>
+                <li>Designed, built and pitched a prototype for cash-flow planning and recipient-risk review. Selected for the Top 10 in Data Science and Top 30 overall at the KBTG Kampus Hackathon.</li>
+                <li>Tested a graph model on 1,354 synthetic transactions. The baseline ranked flagged cases more accurately. Kept forecasting ML disabled after a separate baseline also performed better on 32 synthetic accounts.</li>
               </ul>
             </div>
           </div>
@@ -557,8 +535,8 @@ ul.ed-bullets li strong {
               </div>
 
               <ul class="ed-bullets">
-                <li>Estimates default risk with 5-fold LightGBM: ROC-AUC 0.7854 versus WoE logistic baseline 0.7420; KS 43.17%. Results are model-development experiments.</li>
-                <li>Maps probabilities to a 300-850 scorecard (Base 600, PDO 20), with TreeSHAP and DiCE views. Mapping establishes neither probability calibration nor lending approval.</li>
+                <li>Five-fold cross-validation compared two models for ranking credit default risk. LightGBM achieved a ROC-AUC of 0.785 versus 0.742 for logistic regression.</li>
+                <li>The research scorecard pairs each score with its main contributing factors (TreeSHAP) and examples of how different inputs could change it (DiCE).</li>
               </ul>
             </div>
           </div>
@@ -575,33 +553,52 @@ ul.ed-bullets li strong {
                 <span class="entry-links"><a href="https://github.com/svkhun/Shopee-Ultimate-Case-Challenge" target="_blank" rel="noopener noreferrer">GitHub</a></span>
               </div>
 
-              <p class="entry-subline">Independent synthetic prototype; not affiliated with or endorsed by Shopee.</p>
+              <p class="entry-subline">Independent project using simulated orders, with no Shopee affiliation.</p>
               <ul class="ed-bullets">
-                <li>Connects Random Forest with sigmoid calibration to checkout policies: ROC-AUC 0.8400, average precision 0.3056 on 3,500 synthetic holdout COD orders from 50,000 synthetic orders.</li>
-                <li>Models 3.58M THB/month potential savings at an assumed 58% RTO reduction, using 5-99 scores and four checkout tiers; no realized savings or real-order validation.</li>
+                <li>A calibrated random forest estimates delivery failure risk. A FastAPI service combines that estimate with buyer history to select a checkout option, from a reminder to a deposit or prepayment.</li>
+                <li>On 3,500 held-out synthetic orders, the model achieved a ROC-AUC of 0.840 and average precision of 0.306.</li>
               </ul>
             </div>
           </div>
 
-          <!-- Project 4: LOD -->
+
+        </section>
+
+        <section class="ed-section">
+          <div class="ed-row">
+            <div class="ed-left"><h2 class="section-label">Competitions</h2></div>
+            <div class="ed-right">
+              <div class="entry-heading"><span class="entry-title">AIRA &amp; AIFUL / Aihack Thailand 2025</span><span class="entry-links"><a href="https://github.com/svkhun/aiful-credit-risk-modeling">GitHub</a></span></div>
+              <ul class="ed-bullets">
+                <li>National finalist, team entry. The team modeled 12-month overdue-debt risk using financial ratios and missing-data indicators. Its CatBoost and LightGBM blend scored 0.653 out-of-fold ROC-AUC versus 0.633 for the baseline.</li>
+              </ul>
+              <div class="entry-heading"><span class="entry-title">NTT DATA Challenge 2026</span></div>
+              <div class="entry-text">Top 24 team with WELLYNC, a healthcare platform prototype.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Education and scholarship -->
+        <section class="ed-section">
           <div class="ed-row">
             <div class="ed-left">
-              <div class="ed-date">2025</div>
-              <div class="ed-tag">National finalist (team entry)</div>
+              <h2 class="section-label">Education</h2>
+              <div class="ed-date">Undergraduate</div>
+              <div class="ed-tag">Expected 2028</div>
+              <div class="ed-location">Bangkok, Thailand</div>
             </div>
             <div class="ed-right">
               <div class="entry-heading">
-                <span class="entry-title">Long Overdue Debtor (LOD) Prediction</span>
-                <span class="entry-links"><a href="https://github.com/svkhun/aiful-credit-risk-modeling" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+                <span class="entry-title">Srinakharinwirot University - B.Eng. in Computer Engineering</span>
               </div>
 
               <ul class="ed-bullets">
-                <li>Ranks long-overdue risk with V13 CatBoost/LightGBM: attributed out-of-fold ROC-AUC 0.65333 versus baseline 0.63300 on imbalanced competition data; development experiment.</li>
-                <li>Combines financial ratios and missingness in a synthetic example; excludes confidential records. No debt-recovery outcome established.</li>
+                <li><strong>NHK Spring Scholarship (2026-2027):</strong> 30,000 THB per year.</li>
+                <li><strong>KBTG Data Analyst Assessment (STAMP):</strong> 97/150, above the report average of 90.</li>
+
               </ul>
             </div>
           </div>
-
         </section>
 
       </div>

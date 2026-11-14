@@ -41,7 +41,7 @@
 :root {
   --ink: #1F1E1D;
   --muted: #6B6A66;
-  --accent: #C96442;
+  --accent: #24527A;
   --rule: #E2DFD8;
   --font-serif: "Newsreader", "Source Serif 4", Georgia, serif;
   --font-sans: "Inter", Helvetica, Arial, sans-serif;
@@ -197,7 +197,7 @@ html, body {
   min-width: 0;
 }
 
-/* Section Labels: 8.5-9pt UPPERCASE with letter-spacing in accent terracotta */
+/* Section Labels: 8.5-9pt UPPERCASE with letter-spacing in accent navy blue */
 .section-label {
   font-family: var(--font-sans);
   font-size: 8.5pt;
@@ -453,9 +453,8 @@ ul.ed-bullets li strong {
         <!-- Header -->
         <header class="ed-header">
           <h1 class="ed-name">Sivakorn Khundilokrattaya</h1>
-          <div class="ed-role">Computer Engineering Student &middot; Data Science &amp; Machine Learning</div>
-          <div class="entry-subline">Building explainable decision-support prototypes in credit risk, fraud review, and e-commerce.</div>
-          <div class="entry-subline">Seeking: Data Science / Machine Learning Internship</div>
+          <div class="ed-role">Computer Engineering Student &middot; Seeking a Data Science Internship</div>
+          <div class="entry-subline">Python projects in credit risk and fraud review, with a focus on model evaluation and explainable scoring.</div>
           <div class="ed-contacts">
             <span>Bangkok, Thailand</span>
             <span class="sep">|</span>
@@ -471,27 +470,6 @@ ul.ed-bullets li strong {
           </div>
         </header>
 
-        <!-- Section 1: Education -->
-        <section class="ed-section">
-          <div class="ed-row">
-            <div class="ed-left">
-              <h2 class="section-label">Education</h2>
-              <div class="ed-date">Undergraduate</div>
-              <div class="ed-tag">Expected 2028</div>
-              <div class="ed-location">Bangkok, Thailand</div>
-            </div>
-            <div class="ed-right">
-              <div class="entry-heading">
-                <span class="entry-title">Srinakharinwirot University - B.Eng. in Computer Engineering</span>
-              </div>
-
-              <ul class="ed-bullets">
-                <li><strong>NHK Spring Scholarship (2026-2027):</strong> 30,000 THB/year engineering grant (eligibility GPAX &ge; 2.75); planned 2-month summer internship.</li>
-                <li><strong>Assessment reports (2026):</strong> Scored 97/150 on SKILLKAMP by KBTG Data Analyst STAMP (report average: 90) and CEFR B1 (score 51) on Oxford Placement.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
 
         <!-- Section 2: Skills -->
         <section class="ed-section">
@@ -502,20 +480,20 @@ ul.ed-bullets li strong {
             <div class="ed-right">
               <div class="skills-list">
                 <div class="skill-line">
-                  <span class="skill-cat">ML &amp; Data</span>
-                  <span class="skill-items">Python, PyTorch / PyTorch Geometric (R-GCN), LightGBM</span>
+                  <span class="skill-cat">Modeling</span>
+                  <span class="skill-items">Python, LightGBM, PyTorch Geometric</span>
                 </div>
                 <div class="skill-line">
-                  <span class="skill-cat">Inference</span>
-                  <span class="skill-items">ONNX Runtime, FastAPI</span>
+                  <span class="skill-cat">Evaluation</span>
+                  <span class="skill-items">Cross-validation, baseline comparisons, average precision</span>
                 </div>
                 <div class="skill-line">
-                  <span class="skill-cat">Engineering</span>
-                  <span class="skill-items">React, Git</span>
+                  <span class="skill-cat">Prototyping</span>
+                  <span class="skill-items">FastAPI, ONNX Runtime, React, Git</span>
                 </div>
                 <div class="skill-line">
                   <span class="skill-cat">Languages</span>
-                  <span class="skill-items">Thai; English (CEFR B1, Oxford score 51)</span>
+                  <span class="skill-items">Thai, English (CEFR B1)</span>
                 </div>
               </div>
             </div>
@@ -530,7 +508,7 @@ ul.ed-bullets li strong {
             <div class="ed-left">
               <h2 class="section-label">Projects</h2>
               <div class="ed-date">2026</div>
-              <div class="ed-tag">KBTG Top 10 DS</div>
+              <div class="ed-tag">KBTG Kampus Hackathon</div>
             </div>
             <div class="ed-right">
               <div class="entry-heading">
@@ -539,8 +517,9 @@ ul.ed-bullets li strong {
               </div>
 
               <ul class="ed-bullets">
-                <li>Built a past-only graph; benchmarked no-GNN average precision 0.99640 versus 16D R-GCN + LightGBM 0.99373 on 1,354 synthetic transactions (67 positives). The GNN did not beat the baseline.</li>
-                <li>Kept FlowSense ML disabled: the 30-day forecast on 32 synthetic accounts had candidate model MAE 2,701.6 versus baseline MAE 313.3 THB/account-origin. Used history/scenario/abstention plans; ML did not beat the baseline.</li>
+                <li>Designed, built and pitched a prototype for cash-flow planning and recipient-risk review. Selected for the Top 10 in Data Science and Top 30 overall at the KBTG Kampus Hackathon.</li>
+                <li>Built a graph using only past transactions. On 1,354 synthetic transactions, the graph model scored 0.994 average precision versus 0.996 for the simpler baseline.</li>
+                <li>Kept forecasting ML disabled after testing 30-day forecasts on 32 synthetic accounts. Mean absolute error was 2,701.6 versus 313.3 THB per account-origin for the baseline.</li>
               </ul>
             </div>
           </div>
@@ -558,8 +537,8 @@ ul.ed-bullets li strong {
               </div>
 
               <ul class="ed-bullets">
-                <li>Estimates default risk with 5-fold LightGBM: ROC-AUC 0.7854 versus WoE logistic baseline 0.7420; KS 43.17%. Results are model-development experiments.</li>
-                <li>Maps probabilities to a 300-850 scorecard (Base 600, PDO 20), with TreeSHAP and DiCE views. Mapping establishes neither probability calibration nor lending approval.</li>
+                <li>In five-fold stratified cross-validation, an Optuna-tuned LightGBM model ranked default risk with a ROC-AUC of 0.7854. The logistic regression baseline used weight-of-evidence features and scored 0.7420.</li>
+                <li>The research scorecard pairs each score with its main contributing factors (TreeSHAP) and examples of how different inputs could change it (DiCE).</li>
               </ul>
             </div>
           </div>
@@ -576,33 +555,37 @@ ul.ed-bullets li strong {
                 <span class="entry-links"><a href="https://github.com/svkhun/Shopee-Ultimate-Case-Challenge" target="_blank" rel="noopener noreferrer">GitHub</a></span>
               </div>
 
-              <p class="entry-subline">Independent synthetic prototype; not affiliated with or endorsed by Shopee.</p>
+              <p class="entry-subline">Independent project using simulated orders, with no Shopee affiliation.</p>
               <ul class="ed-bullets">
-                <li>Connects Random Forest with sigmoid calibration to checkout policies: ROC-AUC 0.8400, average precision 0.3056 on 3,500 synthetic holdout COD orders from 50,000 synthetic orders.</li>
-                <li>Models 3.58M THB/month potential savings at an assumed 58% RTO reduction, using 5-99 scores and four checkout tiers; no realized savings or real-order validation.</li>
+                <li>A calibrated random forest estimates delivery failure risk. A FastAPI service combines that estimate with buyer history to select a checkout option, from a reminder to a deposit or prepayment.</li>
+                <li>On 3,500 held-out synthetic orders, the model achieved a ROC-AUC of 0.840 and average precision of 0.306. At a 15% probability threshold, it flagged 50 of 91 failed deliveries and raised 126 false alarms.</li>
               </ul>
             </div>
           </div>
 
-          <!-- Project 4: LOD -->
+
+        </section>
+
+        <!-- Education and scholarship -->
+        <section class="ed-section">
           <div class="ed-row">
             <div class="ed-left">
-              <div class="ed-date">2025</div>
-              <div class="ed-tag">National finalist (team entry)</div>
+              <h2 class="section-label">Education</h2>
+              <div class="ed-date">Undergraduate</div>
+              <div class="ed-tag">Expected 2028</div>
+              <div class="ed-location">Bangkok, Thailand</div>
             </div>
             <div class="ed-right">
               <div class="entry-heading">
-                <span class="entry-title">Long Overdue Debtor (LOD) Prediction</span>
-                <span class="entry-links"><a href="https://github.com/svkhun/aiful-credit-risk-modeling" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+                <span class="entry-title">Srinakharinwirot University - B.Eng. in Computer Engineering</span>
               </div>
 
               <ul class="ed-bullets">
-                <li>Ranks long-overdue risk with V13 CatBoost/LightGBM: attributed out-of-fold ROC-AUC 0.65333 versus baseline 0.63300 on imbalanced competition data; development experiment.</li>
-                <li>Combines financial ratios and missingness in a synthetic example; excludes confidential records. No debt-recovery outcome established.</li>
+                <li><strong>NHK Spring Scholarship (2026-2027):</strong> 30,000 THB per year.</li>
+
               </ul>
             </div>
           </div>
-
         </section>
 
       </div>
@@ -635,8 +618,45 @@ ul.ed-bullets li strong {
               </div>
               <div class="entry-subline">Python, FastAPI, PostgreSQL 15, WebSockets, LightGBM, TreeSHAP, React 18</div>
               <ul class="ed-bullets">
-                <li>Streams simulated sensor readings through FastAPI, PostgreSQL 15 and WebSockets to a React 18 dashboard; hourly OEE combines Availability, Performance and Quality.</li>
-                <li>Shows Isolation Forest, LightGBM and TreeSHAP anomaly views; no measured factory throughput, latency or downtime improvement is established.</li>
+                <li>A Python simulator sends machine readings to FastAPI. The service stores them in PostgreSQL and streams updates to a React dashboard over WebSockets.</li>
+                <li>Hourly summaries break overall equipment effectiveness into availability, performance and quality. Anomaly views pair model flags with feature contributions for inspection.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Project 4: LOD -->
+          <div class="ed-row">
+            <div class="ed-left">
+              <div class="ed-date">2025</div>
+              <div class="ed-tag">National finalist (team entry)</div>
+            </div>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">Long Overdue Debtor (LOD) Prediction</span>
+                <span class="entry-links"><a href="https://github.com/svkhun/aiful-credit-risk-modeling" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+              </div>
+
+              <ul class="ed-bullets">
+                <li>The team used financial ratios and missing-data indicators to rank 12-month overdue-debt risk. Its public repository reports an out-of-fold ROC-AUC of 0.653 for the CatBoost/LightGBM blend versus 0.633 for the baseline.</li>
+                <li>The team compared probability and rank blending on stratified out-of-fold predictions. A public synthetic example lets reviewers inspect the preprocessing and blending steps.</li>
+              </ul>
+            </div>
+          </div>
+
+
+          <!-- Project 7: GuardianAI -->
+          <div class="ed-row">
+            <div class="ed-left">
+              <div class="ed-tag">Dashboard Prototype</div>
+            </div>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">GuardianAI Clinical Frailty Triage Dashboard</span>
+                <span class="entry-links"><a href="https://github.com/svkhun/guardianai-clinical-ops-dashboard" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+              </div>
+              <div class="entry-subline">React, Vite, Node.js, Tailwind CSS, Thai / English Localization</div>
+              <ul class="ed-bullets">
+                <li>A bilingual dashboard uses example patient profiles to show risk factors, review alerts and assign follow-up tasks. The dashboard has not been clinically validated.</li>
               </ul>
             </div>
           </div>
@@ -652,32 +672,11 @@ ul.ed-bullets li strong {
                 <span class="entry-title">SWU Open House 2026 Web Platform Enhancement</span>
                 <span class="entry-links"><a href="https://svkhun.vercel.app/project-swu-openhouse" target="_blank" rel="noopener noreferrer">Case Study</a></span>
               </div>
-              <div class="entry-subline">Registration guide, faculty carousel, countdown, responsive layout</div>
               <ul class="ed-bullets">
-                <li>Guides registration in three steps alongside a faculty poster carousel, countdown and responsive page hierarchy; no measured visitor or conversion outcome is claimed.</li>
+                <li>The responsive interface organizes registration into three steps and lets visitors browse faculty posters before the event.</li>
               </ul>
             </div>
           </div>
-
-          <!-- Project 7: GuardianAI -->
-          <div class="ed-row">
-            <div class="ed-left">
-              <div class="ed-tag">Dashboard Prototype</div>
-            </div>
-            <div class="ed-right">
-              <div class="entry-heading">
-                <span class="entry-title">GuardianAI Clinical Frailty Triage Dashboard</span>
-                <span class="entry-links"><a href="https://github.com/svkhun/guardianai-clinical-ops-dashboard" target="_blank" rel="noopener noreferrer">GitHub</a></span>
-              </div>
-              <div class="entry-subline">React, Vite, Node.js, Tailwind CSS, Thai / English Localization</div>
-              <ul class="ed-bullets">
-                <li>Presents example patient profiles, risk-factor views and alert review in a React/Vite and Node.js dashboard; not clinically validated.</li>
-                <li>Connects Thai/English care notes, provider assignment and follow-up views; no trained-model performance, latency or patient outcome is established.</li>
-              </ul>
-            </div>
-          </div>
-
-
 
         </section>
 
@@ -733,7 +732,7 @@ ul.ed-bullets li strong {
               <div class="entry-heading">
                 <span class="entry-title">SKILLKAMP by KBTG - Data Analyst Assessment (STAMP)</span>
               </div>
-              <div class="entry-text">21 March 2026: 97/150; report average 90. Foundations of Data Analysis 20/30; Data Cleaning and Preprocessing 23/30; Exploratory Data Analysis and Visualization 20/30; Data Analysis Techniques and Statistical Methods 16/30; Machine Learning for Data Analysts 18/30.</div>
+              <div class="entry-text">97/150 (report average 90). Selected scores include 23/30 in data cleaning and preprocessing and 20/30 in exploratory analysis and visualization.</div>
             </div>
           </div>
 
@@ -746,7 +745,7 @@ ul.ed-bullets li strong {
               <div class="entry-heading">
                 <span class="entry-title">SKILLKAMP by KBTG - Digital &amp; Performance Marketer (STAMP)</span>
               </div>
-              <div class="entry-text">21 March 2026: 98/150; report average 94. Data-Driven Marketing 21/30; Customer Segmentation and Targeting 16/30; Digital Marketing Analytics 26/30; Data-Driven Content Marketing 19/30; Marketing Strategy and Optimization 16/30.</div>
+              <div class="entry-text">98/150 (report average 94).</div>
             </div>
           </div>
 
@@ -759,7 +758,7 @@ ul.ed-bullets li strong {
               <div class="entry-heading">
                 <span class="entry-title">Oxford Placement Test - English Placement (AUA / Oxford University Press)</span>
               </div>
-              <div class="entry-text">21 June 2026: overall score 51, CEFR B1; Use of English 54/B1, Listening 48/B1.</div>
+              <div class="entry-text">Overall score 51 (CEFR B1).</div>
             </div>
           </div>
 

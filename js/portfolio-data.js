@@ -28,8 +28,8 @@ const portfolioData = {
 
   // Resume Documents
   resumes: {
-    primary: "assets/Sivakorn_Khundilokrattaya_Resume_20261114_content_v2.pdf",
-    cv: "assets/Sivakorn_Khundilokrattaya_CV_20261114_content_v2.pdf",
+    primary: "assets/Sivakorn_Khundilokrattaya_Resume_20261114_navy.pdf",
+    cv: "assets/Sivakorn_Khundilokrattaya_CV_20261114_navy.pdf",
     aihackCertificate: "assets/aihack_thailand_2025_certificate.pdf",
     nhkScholarshipAnnouncement: "assets/nhk_spring_scholarship_announcement.pdf"
   },
@@ -39,7 +39,7 @@ const portfolioData = {
     title: "Hi all, I'm Sivakorn",
     fullName: "Sivakorn Khundilokrattaya",
     subTitle: "Building explainable decision-support prototypes in credit risk, fraud review, and e-commerce.",
-    resumeLink: "assets/Sivakorn_Khundilokrattaya_Resume_20261114_content_v2.pdf"
+    resumeLink: "assets/Sivakorn_Khundilokrattaya_Resume_20261114_navy.pdf"
   },
 
   // What I Do (Categorized Tech Stacks & Capabilities)
@@ -395,8 +395,8 @@ const portfolioData = {
     email: "sivakorn.khun@gmail.com",
     location: "Bangkok, Thailand",
     availability: "Seeking an internship. Contact me to discuss dates and working arrangements.",
-    resumePdf: "assets/Sivakorn_Khundilokrattaya_Resume_20261114_content_v2.pdf",
-    cvPdf: "assets/Sivakorn_Khundilokrattaya_CV_20261114_content_v2.pdf"
+    resumePdf: "assets/Sivakorn_Khundilokrattaya_Resume_20261114_navy.pdf",
+    cvPdf: "assets/Sivakorn_Khundilokrattaya_CV_20261114_navy.pdf"
   }
 };
 

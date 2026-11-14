@@ -26,7 +26,7 @@ Building explainable decision-support prototypes in credit risk, fraud review, a
 
 Model-development scores, synthetic evaluations and modeled savings are labeled separately. They do not establish lending approval, clinical efficacy, factory outcomes or realized savings.
 
-Current content-review documents: [Resume (1 page)](assets/Sivakorn_Khundilokrattaya_Resume_20261114_content_v2.pdf) · [CV (2 pages)](assets/Sivakorn_Khundilokrattaya_CV_20261114_content_v2.pdf). Both retain the last-pushed print design. The original PDFs are preserved; Cover Letter work is deferred. See [document build instructions](build_resume/README.md).
+Current content-review documents: [Resume (1 page)](assets/Sivakorn_Khundilokrattaya_Resume_20261114_navy.pdf) · [CV (2 pages)](assets/Sivakorn_Khundilokrattaya_CV_20261114_navy.pdf). Both retain the last-pushed print design. The original PDFs are preserved; Cover Letter work is deferred. See [document build instructions](build_resume/README.md).
 
 ---
 

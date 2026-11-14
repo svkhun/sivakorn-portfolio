@@ -35,7 +35,7 @@
 :root {
   --ink: #1F1E1D;
   --muted: #6B6A66;
-  --accent: #C96442;
+  --accent: #24527A;
   --rule: #E2DFD8;
   --font-serif: "Newsreader", "Source Serif 4", Georgia, serif;
   --font-sans: "Inter", Helvetica, Arial, sans-serif;
@@ -191,7 +191,7 @@ html, body {
   min-width: 0;
 }
 
-/* Section Labels: 8.5-9pt UPPERCASE with letter-spacing in accent terracotta */
+/* Section Labels: 8.5-9pt UPPERCASE with letter-spacing in accent navy blue */
 .section-label {
   font-family: var(--font-sans);
   font-size: 8.5pt;
