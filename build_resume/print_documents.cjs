@@ -8,15 +8,20 @@ async function main() {
     ...(process.env.CHROMIUM_EXECUTABLE ? { executablePath: process.env.CHROMIUM_EXECUTABLE } : {})
   });
   try {
-    for (const kind of ['cv', 'resume']) {
+    const docs = [
+      { html: 'cv.html', pdf: 'Sivakorn_Khundilokrattaya_CV.pdf' },
+      { html: 'resume.html', pdf: 'Sivakorn_Khundilokrattaya_Resume.pdf' },
+      { html: 'cover_letter.html', pdf: 'Sivakorn_Khundilokrattaya_Cover_Letter.pdf' }
+    ];
+    for (const doc of docs) {
       const page = await browser.newPage();
-      const html = path.join(__dirname, `${kind}.html`);
-      const pdf = path.join(__dirname, `Sivakorn_Khundilokrattaya_${kind === 'cv' ? 'CV' : 'Resume'}.pdf`);
-      await page.goto(pathToFileURL(html).href, { waitUntil: 'load' });
+      const htmlPath = path.join(__dirname, doc.html);
+      const pdfPath = path.join(__dirname, doc.pdf);
+      await page.goto(pathToFileURL(htmlPath).href, { waitUntil: 'load' });
       await page.evaluate(() => document.fonts.ready);
-      await page.pdf({ path: pdf, format: 'A4', printBackground: true, preferCSSPageSize: true, displayHeaderFooter: false });
+      await page.pdf({ path: pdfPath, format: 'A4', printBackground: true, preferCSSPageSize: true, displayHeaderFooter: false });
       await page.close();
-      process.stdout.write(`Printed ${pdf}\n`);
+      process.stdout.write(`Printed ${pdfPath}\n`);
     }
   } finally {
     await browser.close();

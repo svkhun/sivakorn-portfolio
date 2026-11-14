@@ -4,371 +4,610 @@
   <meta charset="UTF-8">
   <title>Sivakorn Khundilokrattaya – Resume</title>
   <style>
-    @page {
-      size: A4 portrait;
-      margin: 0;
-    }
-    * {
-      box-sizing: border-box;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 210mm;
-      background: #ffffff;
-      font-family: "Geist Local", "Segoe UI", Arial, sans-serif;
-      font-size: 10pt;
-      line-height: 1.42;
-      color: #172033;
-    }
-    .resume-paper, .resume-a4-page {
-      position: relative !important;
-      width: 210mm !important;
-      height: 297mm !important;
-      max-width: 210mm !important;
-      min-height: 297mm !important;
-      max-height: 297mm !important;
-      margin: 0 !important;
-      padding: 13mm 14.5mm 12mm 14.5mm !important;
-      box-sizing: border-box !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: flex-start !important;
-      box-shadow: none !important;
-      border: none !important;
-      border-radius: 0 !important;
-      background: #ffffff !important;
-      overflow: hidden !important;
-      page-break-inside: avoid !important;
-      break-inside: avoid !important;
-    }
-    #resume-page-single {
-      page-break-before: avoid !important;
-      break-before: avoid !important;
-      page-break-after: avoid !important;
-      break-after: avoid !important;
-    }
-    .resume-content-wrap {
-      width: 100%;
-    }
-    .flex { display: flex; }
-    .flex-wrap { flex-wrap: wrap; }
-    .justify-between { justify-content: space-between; }
-    .items-center { align-items: center; }
-    .items-baseline { align-items: baseline; }
-    .text-right { text-align: right; }
-    .whitespace-nowrap { white-space: nowrap; }
-    .italic { font-style: normal !important; color: #4b5563 !important; }
-    .grid-skill-row {
-      display: flex;
-      align-items: baseline;
-      margin-bottom: 3pt;
-      line-height: 1.42;
-      font-size: 10pt;
-    }
-    .grid-skill-row:last-child {
-      margin-bottom: 0;
-    }
-    .grid-skill-row strong {
-      min-width: 138px;
-      flex-shrink: 0;
-    }
-  /* Shared print treatment for the one-page resume and two-page CV. */
+/* Editorial Print Design System for 1-Page Resume, 2-Page CV, and 1-Page Cover Letter */
+
 @font-face {
-  font-family: "Geist Local";
-  src: url("../assets/fonts/geist-variable-latin.woff2") format("woff2");
+  font-family: "Newsreader";
+  src: url("../assets/fonts/newsreader-variable-latin.woff2") format("woff2");
   font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
+  font-weight: 400 700;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("../assets/fonts/newsreader-italic-variable-latin.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("../assets/fonts/source-serif-4-variable-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/inter-variable-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: block;
+}
+
+:root {
+  --ink: #1F1E1D;
+  --muted: #6B6A66;
+  --accent: #C96442;
+  --rule: #E2DFD8;
+  --font-serif: "Newsreader", "Source Serif 4", Georgia, serif;
+  --font-sans: "Inter", Helvetica, Arial, sans-serif;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
 }
 
 html, body {
-  font-family: "Geist Local", "Segoe UI", Arial, sans-serif !important;
-  color: #172033 !important;
-  font-size: 9.6pt !important;
+  margin: 0;
+  padding: 0;
+  width: 210mm;
+  background: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.4;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
 }
 
-.resume-paper {
+/* A4 Sheet Container (~18-20mm margins) */
+.editorial-page {
   position: relative;
-  border-top: 3px solid #2457d2 !important;
+  width: 210mm;
+  height: 297mm;
+  max-width: 210mm;
+  min-height: 297mm;
+  max-height: 297mm;
+  margin: 0;
+  padding: 19mm 19.5mm 18mm 19.5mm;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
-.resume-print-header { display: none !important; }
-
-.resume-header {
-  text-align: left !important;
-  border-bottom: 1px solid #cbd5e1;
-  padding: 0 0 8.5pt;
-  margin-bottom: 9pt !important;
+#cv-page-1 {
+  page-break-after: always;
+  break-after: page;
 }
 
-.resume-name {
-  text-align: left !important;
-  font-family: "Geist Local", "Segoe UI", Arial, sans-serif !important;
-  font-size: 20.5pt !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.045em !important;
-  text-transform: none !important;
-  line-height: 1.12 !important;
-  margin: 0 0 3.5pt !important;
-  color: #152137 !important;
+#cv-page-2 {
+  page-break-before: always;
+  break-before: page;
+  page-break-after: avoid;
+  break-after: avoid;
 }
 
-.resume-headline {
-  text-align: left !important;
-  font-size: 9.8pt !important;
-  font-weight: 500 !important;
-  color: #2457d2 !important;
-  margin: 0 0 4.5pt !important;
+#resume-page-1,
+#cover-letter-page-1 {
+  page-break-before: avoid;
+  break-before: avoid;
+  page-break-after: avoid;
+  break-after: avoid;
 }
 
-.resume-contact {
-  justify-content: flex-start !important;
-  text-align: left !important;
-  font-size: 9.1pt !important;
-  color: #475569 !important;
-  margin: 0 !important;
+.page-main {
+  width: 100%;
 }
 
-.resume-contact a { color: #2457d2 !important; text-decoration: none !important; }
-.resume-contact .pipe-sep { color: #94a3b8 !important; margin: 0 4.5pt !important; }
-
-.section-title {
-  font-size: 10pt !important;
-  letter-spacing: .06em !important;
-  font-weight: 700 !important;
-  color: #2457d2 !important;
-  border-bottom: 1px solid #cbd5e1 !important;
-  padding-bottom: 3pt !important;
-  margin-top: 12pt !important;
-  margin-bottom: 6pt !important;
+/* Header: Name large in serif, 1 line target role in muted gray, 1 line contacts */
+.ed-header {
+  margin-bottom: 3pt;
 }
 
-.resume-entry {
-  font-size: 9.6pt !important;
-  color: #263244 !important;
-  line-height: 1.38 !important;
-  margin-bottom: 7pt !important;
+.ed-name {
+  font-family: var(--font-serif);
+  font-size: 26pt;
+  font-weight: 500;
+  letter-spacing: -0.018em;
+  line-height: 1.06;
+  color: var(--ink);
+  margin: 0 0 5pt 0;
 }
 
-.resume-entry:last-child {
-  margin-bottom: 0 !important;
+.ed-role {
+  font-family: var(--font-sans);
+  font-size: 9.6pt;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--muted);
+  margin: 0 0 4.5pt 0;
+}
+
+.ed-contacts {
+  font-family: var(--font-sans);
+  font-size: 8.85pt;
+  line-height: 1.35;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.ed-contacts a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.ed-contacts .sep {
+  color: var(--accent);
+  opacity: 0.65;
+  margin: 0 5.5pt;
+  font-weight: 300;
+}
+
+/* Sections & Hairline Dividers (0.5pt light-gray between sections only) */
+.ed-section {
+  border-top: 0.5pt solid var(--rule);
+  padding-top: 12pt;
+  margin-top: 12pt;
+}
+
+#cv-page-2 .ed-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* Two-Column Grid: Narrow left column (~22%) & Wide right column (~78%) */
+.ed-row {
+  display: grid;
+  grid-template-columns: 21.5% 78.5%;
+  align-items: baseline;
+  margin-bottom: 11pt;
+}
+
+.ed-row.compact-row {
+  margin-bottom: 7.5pt;
+}
+
+.ed-row:last-child {
+  margin-bottom: 0;
+}
+
+.ed-left {
+  padding-right: 10pt;
+}
+
+.ed-right {
+  min-width: 0;
+}
+
+/* Section Labels: 8.5-9pt UPPERCASE with letter-spacing in accent terracotta */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 8.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent);
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* Dates & Competition/Context Badges in Left Column */
+.ed-date {
+  font-family: var(--font-sans);
+  font-size: 8.8pt;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.section-label + .ed-date {
+  margin-top: 3pt;
+}
+
+.ed-tag,
+.ed-location {
+  font-family: var(--font-sans);
+  font-size: 8.25pt;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.3;
+  margin-top: 1pt;
+}
+
+/* Entry / Project Titles: 10.5pt semi-bold serif */
+.entry-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8pt;
 }
 
 .entry-title {
-  font-size: 10pt !important;
-  font-weight: 650 !important;
-  color: #152137 !important;
+  font-family: var(--font-serif);
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.24;
 }
 
-.entry-meta {
-  font-size: 9.5pt !important;
-  color: #475569 !important;
-  font-weight: 400 !important;
+.entry-links {
+  font-family: var(--font-sans);
+  font-size: 8.75pt;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.entry-link {
-  color: #2457d2 !important;
-  text-decoration: none !important;
-  font-weight: 500 !important;
+.entry-links a,
+.inline-link {
+  color: var(--accent);
+  text-decoration: none;
 }
 
-.resume-entry strong,
-.resume-skills-block strong { color: #152137 !important; font-weight: 650 !important; }
-
-.resume-entry .italic {
-  font-style: normal !important;
-  color: #4b5563 !important;
-  font-size: 9.5pt !important;
-  margin-top: 0.5pt !important;
-  margin-bottom: 1.5pt !important;
+.entry-links .link-sep {
+  color: var(--muted);
+  margin: 0 3.5pt;
+  font-weight: 400;
 }
 
-ul.resume-list {
-  margin: 2pt 0 0 0 !important;
-  padding-left: 13pt !important;
+/* Tech Stack / Context Line: 1 muted line */
+.entry-subline {
+  font-family: var(--font-sans);
+  font-size: 8.75pt;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.35;
+  margin-top: 1.5pt;
+  margin-bottom: 3pt;
 }
 
-ul.resume-list li {
-  font-size: 9.6pt !important;
-  color: #2d3748 !important;
-  line-height: 1.38 !important;
-  margin-bottom: 2.5pt !important;
+/* Bullets: 9.5pt, line-height ~1.4 */
+ul.ed-bullets {
+  margin: 0;
+  padding-left: 10.5pt;
+  list-style-type: disc;
 }
 
-ul.resume-list li:last-child {
-  margin-bottom: 0 !important;
+ul.ed-bullets li {
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.4;
+  color: var(--ink);
+  margin-bottom: 2.5pt;
 }
 
-ul.resume-list li::marker { color: #3b6ce2; }
-
-.resume-sheet-footer {
-  margin-top: auto !important;
-  border-top: 1px solid #e1e7ef !important;
-  color: #64748b !important;
+ul.ed-bullets li:last-child {
+  margin-bottom: 0;
 }
 
-.resume-sheet-footer .page-number { color: #64748b !important; }
-
-#resume-page-single {
-  padding: 13.5mm 14.5mm 12mm !important;
+ul.ed-bullets li::marker {
+  color: var(--muted);
+  font-size: 7pt;
 }
 
-#resume-page-single .resume-header { padding-bottom: 9.5pt; margin-bottom: 10.5pt !important; }
-#resume-page-single .section-title { font-size: 10.3pt !important; margin-top: 16.5pt !important; margin-bottom: 7.5pt !important; padding-bottom: 3.5pt !important; }
-#resume-page-single .resume-section:first-of-type .section-title { margin-top: 0 !important; }
-#resume-page-single .resume-entry { font-size: 10pt !important; line-height: 1.43 !important; margin-bottom: 9.5pt !important; }
-#resume-page-single .resume-entry:last-child { margin-bottom: 0 !important; }
-#resume-page-single .entry-title { font-size: 10.4pt !important; }
-#resume-page-single .entry-meta { font-size: 9.8pt !important; }
-#resume-page-single .resume-entry .italic { font-size: 9.8pt !important; margin-top: 1pt !important; margin-bottom: 2pt !important; }
-#resume-page-single .resume-list { margin: 2.5pt 0 0 !important; }
-#resume-page-single .resume-list li { font-size: 10pt !important; line-height: 1.43 !important; margin-bottom: 3.2pt !important; }
-#resume-page-single .resume-list li:last-child { margin-bottom: 0 !important; }
+ul.ed-bullets li strong {
+  font-weight: 600;
+  color: var(--ink);
+}
 
-#resume-page-1,
-#resume-page-2 { padding: 13mm 14.5mm 11mm !important; }
+/* Education Merged Block */
+.edu-subline {
+  font-family: var(--font-sans);
+  font-size: 8.8pt;
+  color: var(--muted);
+  line-height: 1.35;
+  margin-top: 1.5pt;
+  margin-bottom: 3pt;
+}
 
-#resume-page-1 .resume-name { font-size: 20.5pt !important; }
-#resume-page-1 .resume-header { padding-bottom: 8.5pt; margin-bottom: 9.5pt !important; }
-#resume-page-1 .section-title,
-#resume-page-2 .section-title { margin-top: 13.5pt !important; margin-bottom: 6.5pt !important; }
-#resume-page-1 .resume-section:first-of-type .section-title,
-#resume-page-2 .resume-section:first-of-type .section-title { margin-top: 0 !important; }
-#resume-page-1 .resume-entry,
-#resume-page-2 .resume-entry { font-size: 9.6pt !important; line-height: 1.4 !important; margin-bottom: 8pt !important; }
-#resume-page-1 .resume-list li,
-#resume-page-2 .resume-list li { font-size: 9.6pt !important; line-height: 1.39 !important; margin-bottom: 2.8pt !important; }
+/* Skills: 3-4 short lines, no repeated tools */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5pt;
+}
 
-#resume-page-1 .flex.justify-between,
-#resume-page-2 .flex.justify-between,
-#resume-page-single .flex.justify-between { gap: 8pt; }
+.skill-line {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  align-items: baseline;
+  font-size: 9.4pt;
+  line-height: 1.38;
+}
+
+.skill-cat {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.skill-items {
+  color: var(--ink);
+}
+
+/* Compact descriptive text for Assessments & Honors */
+.entry-text {
+  font-family: var(--font-sans);
+  font-size: 9.35pt;
+  line-height: 1.38;
+  color: var(--ink);
+  margin-top: 1.5pt;
+}
+
+.entry-text strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Cover Letter Typography */
+.letter-recipient {
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.letter-recipient .muted-line {
+  color: var(--muted);
+  font-size: 9pt;
+}
+
+.letter-subject {
+  font-family: var(--font-serif);
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0 0 8pt 0;
+}
+
+.letter-body p {
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.44;
+  color: var(--ink);
+  margin: 0 0 7.5pt 0;
+}
+
+.letter-body ul.ed-bullets {
+  margin: 6pt 0 8pt 0;
+}
+
+.letter-body ul.ed-bullets li {
+  font-size: 9.45pt;
+  line-height: 1.41;
+  margin-bottom: 4pt;
+}
+
+.letter-signoff {
+  margin-top: 10pt;
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  color: var(--ink);
+}
+
+.letter-signature-name {
+  font-family: var(--font-serif);
+  font-size: 12.5pt;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 7pt;
+}
+
+.letter-signature-role {
+  font-family: var(--font-sans);
+  font-size: 8.8pt;
+  color: var(--muted);
+  margin-top: 1.5pt;
+}
+
+/* Footer: Name + Page Number in small muted text */
+.ed-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 0.5pt solid var(--rule);
+  padding-top: 6pt;
+  margin-top: 6pt;
+  font-family: var(--font-sans);
+  font-size: 8.25pt;
+  color: var(--muted);
+}
 
 @media screen {
-  body { background: #e8edf3 !important; }
-  .resume-paper { margin: 20px auto !important; box-shadow: 0 14px 45px rgba(30, 45, 70, .13) !important; }
+  body {
+    background: #EAE7E1;
+  }
+  .editorial-page {
+    margin: 20px auto;
+    box-shadow: 0 10px 36px rgba(31, 30, 29, 0.10);
+  }
 }
 
   </style>
 </head>
 <body>
   <div id="resume-view">
-    <div class="resume-paper resume-a4-page" id="resume-page-single">
-      <div class="resume-content-wrap">
-        <!-- Header Row -->
-        <div class="resume-header">
-          <h1 class="resume-name">Sivakorn Khundilokrattaya</h1>
-          <div class="resume-headline">3rd-Year Computer Engineering Student &bull; Seeking Data Science, ML &amp; Quantitative Fintech Internship</div>
-          <div class="resume-contact flex flex-wrap items-center">
+    <div class="editorial-page" id="resume-page-1">
+      <div class="page-main">
+
+        <!-- Header -->
+        <header class="ed-header">
+          <h1 class="ed-name">Sivakorn Khundilokrattaya</h1>
+          <div class="ed-role">3rd-Year Computer Engineering Student &middot; Seeking Data Science, ML &amp; Quantitative Fintech Internship</div>
+          <div class="ed-contacts">
             <span>Bangkok, Thailand</span>
-            <span class="pipe-sep">|</span>
+            <span class="sep">|</span>
             <a href="mailto:sivakorn.khun@gmail.com">sivakorn.khun@gmail.com</a>
-            <span class="pipe-sep">|</span>
+            <span class="sep">|</span>
             <a href="https://svkhun.vercel.app" target="_blank" rel="noopener noreferrer">svkhun.vercel.app</a>
-            <span class="pipe-sep">|</span>
+            <span class="sep">|</span>
             <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer">github.com/svkhun</a>
-            <span class="pipe-sep">|</span>
+            <span class="sep">|</span>
             <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <span class="pipe-sep">|</span>
+            <span class="sep">|</span>
             <a href="https://www.kaggle.com/sivakornkhun" target="_blank" rel="noopener noreferrer">Kaggle</a>
           </div>
-        </div>
+        </header>
 
-        <!-- Section 1: EDUCATION & CREDENTIALS -->
-        <div class="resume-section">
-          <h2 class="section-title">EDUCATION &amp; CREDENTIALS</h2>
-          <div class="resume-entry">
-            <div class="flex items-baseline justify-between">
-              <span class="entry-title">Srinakharinwirot University (SWU) &ndash; B.Eng. in Computer Engineering</span>
-              <span class="entry-meta text-right whitespace-nowrap">2024 &ndash; Present (Expected 2028)</span>
+        <!-- Section 1: Education (Merged Education, Scholarship & STAMP) -->
+        <section class="ed-section">
+          <div class="ed-row">
+            <div class="ed-left">
+              <h2 class="section-label">Education</h2>
+              <div class="ed-date">2024 &ndash; Present</div>
+              <div class="ed-tag">Expected 2028</div>
+              <div class="ed-location">Bangkok, Thailand</div>
             </div>
-            <ul class="resume-list">
-              <li><strong>Focus &amp; Coursework:</strong> Statistical ML, Credit Risk Modeling, Explainable AI; Machine Learning, Probability &amp; Statistics, Database Systems, DSA.</li>
-              <li><strong>NHK Spring Undergraduate Scholarship (2026&ndash;2027):</strong> Corporate engineering scholarship (GPAX &ge; 2.75).</li>
-              <li><strong>Standardized Assessments (2026):</strong> KBTG Data Analyst STAMP (Score 97/150, Benchmark: 90) &bull; Oxford Placement Test English Proficiency (CEFR B1, Score 51/120, AUA / Oxford University Press).</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Section 2: TECHNICAL SKILLS (3 Compact Single-Line Rows) -->
-        <div class="resume-section">
-          <h2 class="section-title">TECHNICAL SKILLS</h2>
-          <div class="resume-skills-block">
-            <div class="grid-skill-row">
-              <strong>ML &amp; Explainable AI:</strong>
-              <span>LightGBM, CatBoost, XGBoost, Scikit-Learn, PyG, Optuna, OptBinning, TreeSHAP, DiCE</span>
-            </div>
-            <div class="grid-skill-row">
-              <strong>Data &amp; Engineering:</strong>
-              <span>Python (Pandas, NumPy, SciPy), SQL (PostgreSQL), FastAPI, ONNX, Docker, React, Git</span>
-            </div>
-            <div class="grid-skill-row">
-              <strong>Languages:</strong>
-              <span>Thai (Native), English (CEFR B1 &ndash; Oxford Placement Test), Japanese (Elementary)</span>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">Srinakharinwirot University (SWU) &ndash; B.Eng. in Computer Engineering</span>
+              </div>
+              <div class="edu-subline">Statistical ML, Credit Risk &amp; Explainable AI &middot; Coursework: ML, Statistics, Databases, DSA</div>
+              <ul class="ed-bullets">
+                <li><strong>NHK Spring Scholarship (2026&ndash;2027):</strong> Awarded 30,000 THB/year corporate engineering grant (GPAX &ge; 2.75) with a planned 2-month summer internship.</li>
+                <li><strong>Assessments (2026):</strong> KBTG Data Analyst STAMP (Score 97/150, Benchmark: 90) and Oxford Placement Test English Proficiency (CEFR B1, Score 51/120).</li>
+              </ul>
             </div>
           </div>
-        </div>
+        </section>
 
-        <!-- Section 3: FEATURED DATA SCIENCE & ML PROJECTS -->
-        <div class="resume-section">
-          <h2 class="section-title">FEATURED DATA SCIENCE &amp; ML PROJECTS</h2>
+        <!-- Section 2: Skills (4 short single-line rows, no repeated tools) -->
+        <section class="ed-section">
+          <div class="ed-row">
+            <div class="ed-left">
+              <h2 class="section-label">Skills</h2>
+            </div>
+            <div class="ed-right">
+              <div class="skills-list">
+                <div class="skill-line">
+                  <span class="skill-cat">ML &amp; Risk</span>
+                  <span class="skill-items">LightGBM, CatBoost, XGBoost, Scikit-Learn, PyG (R-GCN), Optuna</span>
+                </div>
+                <div class="skill-line">
+                  <span class="skill-cat">XAI &amp; Data</span>
+                  <span class="skill-items">OptBinning, TreeSHAP, DiCE, Python (Pandas, NumPy, SciPy), SQL</span>
+                </div>
+                <div class="skill-line">
+                  <span class="skill-cat">Engineering</span>
+                  <span class="skill-items">FastAPI, ONNX, Docker, WebSockets, PostgreSQL, React, Next.js, Git</span>
+                </div>
+                <div class="skill-line">
+                  <span class="skill-cat">Languages</span>
+                  <span class="skill-items">Thai (Native), English (CEFR B1 &ndash; Oxford), Japanese (Elementary)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Selected Projects (Left-Rail Competition/Context Tags) -->
+        <section class="ed-section">
 
           <!-- Project 1: K-NEXUS -->
-          <div class="resume-entry">
-            <div class="flex items-baseline justify-between">
-              <span class="entry-title">K-NEXUS &ndash; FlowSense &amp; TrustGraph (Synthetic Cashflow &amp; Risk Prototype) &bull; <a class="entry-link" href="https://github.com/svkhun/K-NEXUS-Application" target="_blank">App</a> | <a class="entry-link" href="https://github.com/svkhun/K-NEXUS-Showcase" target="_blank">Showcase</a></span>
-              <span class="entry-meta text-right whitespace-nowrap">2026</span>
+          <div class="ed-row">
+            <div class="ed-left">
+              <h2 class="section-label">Projects</h2>
+              <div class="ed-date">2026</div>
+              <div class="ed-tag">KBTG Top 10 DS</div>
             </div>
-            <div class="italic">PyG (R-GCN), LightGBM, ONNX, FastAPI &bull; KBTG Kampus Hackathon 2026 &ndash; Top 30 Overall &amp; Top 10 Data Science</div>
-            <ul class="resume-list">
-              <li>Evaluated pre-transfer scam-risk screening across 1,354 synthetic transactions, showing that a simpler tabular baseline (0.996 PR-AUC) outperformed a complex R-GCN + LightGBM graph model (0.994 PR-AUC).</li>
-              <li>Prevented inaccurate 30-day cashflow forecasts by disabling an unvalidated ML module on synthetic data and serving an explainable rule-based spending plan in FastAPI and React.</li>
-            </ul>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">K-NEXUS &ndash; FlowSense &amp; TrustGraph (Synthetic Prototype)</span>
+                <span class="entry-links"><a href="https://github.com/svkhun/K-NEXUS-Application" target="_blank" rel="noopener noreferrer">App</a><span class="link-sep">/</span><a href="https://github.com/svkhun/K-NEXUS-Showcase" target="_blank" rel="noopener noreferrer">Showcase</a></span>
+              </div>
+              <div class="entry-subline">PyTorch Geometric (R-GCN), LightGBM, ONNX Runtime, FastAPI, React 18</div>
+              <ul class="ed-bullets">
+                <li>Achieved 0.996 PR-AUC with a tabular baseline vs. 0.994 for R-GCN + LightGBM across 1,354 synthetic transfers using a leak-free past-only graph.</li>
+                <li>Prevented inaccurate 30-day cashflow forecasts (2,701.6 vs. 313.3 THB baseline MAE) by gating out unvalidated ML for a FastAPI/React rule plan.</li>
+              </ul>
+            </div>
           </div>
 
           <!-- Project 2: Credit Risk -->
-          <div class="resume-entry">
-            <div class="flex items-baseline justify-between">
-              <span class="entry-title">Credit Risk Scoring &amp; Explainable AI (XAI) Decision-Support Prototype &bull; <a class="entry-link" href="https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI" target="_blank">GitHub</a></span>
-              <span class="entry-meta text-right whitespace-nowrap">2026</span>
+          <div class="ed-row">
+            <div class="ed-left">
+              <div class="ed-date">2026</div>
+              <div class="ed-tag">Research Prototype</div>
             </div>
-            <div class="italic">LightGBM, Optuna, TreeSHAP, FastAPI &bull; Research Prototype</div>
-            <ul class="resume-list">
-              <li>Improved loan default prediction to 0.785 ROC-AUC and 43.2% KS separation (vs. 0.742 logistic baseline) on Home Credit data by tuning a 5-fold LightGBM model with Optuna and mapping to a 300&ndash;850 scorecard.</li>
-              <li>Built an interactive loan-review dashboard in FastAPI and Next.js that explains rejection reasons with TreeSHAP and generates hypothetical approval adjustments using DiCE counterfactuals.</li>
-            </ul>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">Credit Risk Scoring &amp; Explainable AI (XAI) Decision Prototype</span>
+                <span class="entry-links"><a href="https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+              </div>
+              <div class="entry-subline">Python, LightGBM, Optuna, OptBinning (WoE), TreeSHAP, DiCE, FastAPI, Next.js</div>
+              <ul class="ed-bullets">
+                <li>Improved loan default prediction from 0.742 to 0.785 ROC-AUC (43.2% KS) on Home Credit data by tuning a 5-fold LightGBM model with Optuna.</li>
+                <li>Calibrated probabilities to a 300&ndash;850 credit scorecard and built a FastAPI/Next.js dashboard with TreeSHAP reasons and DiCE counterfactuals.</li>
+              </ul>
+            </div>
           </div>
 
           <!-- Project 3: Shopee Smart COD -->
-          <div class="resume-entry">
-            <div class="flex items-baseline justify-between">
-              <span class="entry-title">Shopee Smart COD Reliability &amp; Adaptive Checkout Prototype (Synthetic Data) &bull; <a class="entry-link" href="https://github.com/svkhun/Shopee-Ultimate-Case-Challenge" target="_blank">GitHub</a></span>
-              <span class="entry-meta text-right whitespace-nowrap">2026</span>
+          <div class="ed-row">
+            <div class="ed-left">
+              <div class="ed-date">2026</div>
+              <div class="ed-tag">Shopee Challenge</div>
             </div>
-            <div class="italic">Python, Scikit-Learn, FastAPI, JavaScript &bull; Shopee Ultimate Case Challenge 2026 &ndash; Operations Strategy Track</div>
-            <ul class="resume-list">
-              <li>Predicted cash-on-delivery (COD) failure risk at 0.840 ROC-AUC on 3,500 held-out synthetic orders (from 50,000 simulated orders) using a Random Forest pipeline to flag high-risk checkouts before shipping.</li>
-              <li>Modeled a simulated 3.58M THB/month return-cost savings scenario (assuming 58% fewer failed deliveries) by designing a 4-tier checkout policy (Grades A&ndash;D) and a mobile checkout simulator in FastAPI.</li>
-            </ul>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">Shopee Smart COD Reliability &amp; Adaptive Checkout Prototype</span>
+                <span class="entry-links"><a href="https://github.com/svkhun/Shopee-Ultimate-Case-Challenge" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+              </div>
+              <div class="entry-subline">Python, Scikit-Learn (Random Forest), Pandas, FastAPI, JavaScript</div>
+              <ul class="ed-bullets">
+                <li>Predicted COD delivery failure at 0.840 ROC-AUC on 3,500 held-out synthetic orders (from 50,000 checkouts) via a calibrated Random Forest.</li>
+                <li>Modeled 3.58M THB/month in simulated return savings (at 58% RTO reduction) by building a 4-tier deposit policy and FastAPI mobile simulator.</li>
+              </ul>
+            </div>
           </div>
 
           <!-- Project 4: LOD -->
-          <div class="resume-entry">
-            <div class="flex items-baseline justify-between">
-              <span class="entry-title">Long Overdue Debtor (LOD) Default Prediction Pipeline &bull; <a class="entry-link" href="https://github.com/svkhun/aiful-credit-risk-modeling" target="_blank">GitHub</a></span>
-              <span class="entry-meta text-right whitespace-nowrap">2025</span>
+          <div class="ed-row">
+            <div class="ed-left">
+              <div class="ed-date">2025</div>
+              <div class="ed-tag">Aihack Finalist</div>
             </div>
-            <div class="italic">CatBoost, LightGBM, Optuna, Scikit-Learn &bull; Aihack Thailand 2025 &ndash; National Finalist (Team OEIA)</div>
-            <ul class="resume-list">
-              <li>Improved 12-month loan default ranking from 0.633 to 0.653 ROC-AUC on imbalanced consumer loan records (~8.3% default rate) by blending CatBoost and LightGBM predictions across 5-fold cross-validation.</li>
-              <li>Captured borrower distress signals using engineered debt-to-income, credit utilization, and missingness features, and published a reproducible synthetic data pipeline to protect confidential competition records.</li>
-            </ul>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">Long Overdue Debtor (LOD) Default Prediction Pipeline</span>
+                <span class="entry-links"><a href="https://github.com/svkhun/aiful-credit-risk-modeling" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+              </div>
+              <div class="entry-subline">CatBoost, LightGBM, XGBoost, Optuna, Scikit-Learn</div>
+              <ul class="ed-bullets">
+                <li>Lifted 12-month default ranking from 0.633 to 0.653 OOF ROC-AUC on imbalanced loans (~8.3% default rate) by blending CatBoost and LightGBM.</li>
+                <li>Captured borrower distress via debt-to-income and utilization ratios, releasing an NDA-safe synthetic pipeline to protect private records.</li>
+              </ul>
+            </div>
           </div>
-        </div>
+
+        </section>
 
       </div>
+
+      <!-- Footer -->
+      <footer class="ed-footer">
+        <span>Sivakorn Khundilokrattaya</span>
+        <span>Page 1 of 1</span>
+      </footer>
     </div>
   </div>
 </body>

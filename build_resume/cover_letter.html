@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sivakorn Khundilokrattaya – Cover Letter</title>
+  <style>
+/* Editorial Print Design System for 1-Page Resume, 2-Page CV, and 1-Page Cover Letter */
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("../assets/fonts/newsreader-variable-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("../assets/fonts/newsreader-italic-variable-latin.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("../assets/fonts/source-serif-4-variable-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/inter-variable-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: block;
+}
+
+:root {
+  --ink: #1F1E1D;
+  --muted: #6B6A66;
+  --accent: #C96442;
+  --rule: #E2DFD8;
+  --font-serif: "Newsreader", "Source Serif 4", Georgia, serif;
+  --font-sans: "Inter", Helvetica, Arial, sans-serif;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 210mm;
+  background: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.4;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* A4 Sheet Container (~18-20mm margins) */
+.editorial-page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  max-width: 210mm;
+  min-height: 297mm;
+  max-height: 297mm;
+  margin: 0;
+  padding: 19mm 19.5mm 18mm 19.5mm;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+#cv-page-1 {
+  page-break-after: always;
+  break-after: page;
+}
+
+#cv-page-2 {
+  page-break-before: always;
+  break-before: page;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+#resume-page-1,
+#cover-letter-page-1 {
+  page-break-before: avoid;
+  break-before: avoid;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+.page-main {
+  width: 100%;
+}
+
+/* Header: Name large in serif, 1 line target role in muted gray, 1 line contacts */
+.ed-header {
+  margin-bottom: 3pt;
+}
+
+.ed-name {
+  font-family: var(--font-serif);
+  font-size: 26pt;
+  font-weight: 500;
+  letter-spacing: -0.018em;
+  line-height: 1.06;
+  color: var(--ink);
+  margin: 0 0 5pt 0;
+}
+
+.ed-role {
+  font-family: var(--font-sans);
+  font-size: 9.6pt;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--muted);
+  margin: 0 0 4.5pt 0;
+}
+
+.ed-contacts {
+  font-family: var(--font-sans);
+  font-size: 8.85pt;
+  line-height: 1.35;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.ed-contacts a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.ed-contacts .sep {
+  color: var(--accent);
+  opacity: 0.65;
+  margin: 0 5.5pt;
+  font-weight: 300;
+}
+
+/* Sections & Hairline Dividers (0.5pt light-gray between sections only) */
+.ed-section {
+  border-top: 0.5pt solid var(--rule);
+  padding-top: 12pt;
+  margin-top: 12pt;
+}
+
+#cv-page-2 .ed-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* Two-Column Grid: Narrow left column (~22%) & Wide right column (~78%) */
+.ed-row {
+  display: grid;
+  grid-template-columns: 21.5% 78.5%;
+  align-items: baseline;
+  margin-bottom: 11pt;
+}
+
+.ed-row.compact-row {
+  margin-bottom: 7.5pt;
+}
+
+.ed-row:last-child {
+  margin-bottom: 0;
+}
+
+.ed-left {
+  padding-right: 10pt;
+}
+
+.ed-right {
+  min-width: 0;
+}
+
+/* Section Labels: 8.5-9pt UPPERCASE with letter-spacing in accent terracotta */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 8.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent);
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* Dates & Competition/Context Badges in Left Column */
+.ed-date {
+  font-family: var(--font-sans);
+  font-size: 8.8pt;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.section-label + .ed-date {
+  margin-top: 3pt;
+}
+
+.ed-tag,
+.ed-location {
+  font-family: var(--font-sans);
+  font-size: 8.25pt;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.3;
+  margin-top: 1pt;
+}
+
+/* Entry / Project Titles: 10.5pt semi-bold serif */
+.entry-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8pt;
+}
+
+.entry-title {
+  font-family: var(--font-serif);
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.24;
+}
+
+.entry-links {
+  font-family: var(--font-sans);
+  font-size: 8.75pt;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.entry-links a,
+.inline-link {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.entry-links .link-sep {
+  color: var(--muted);
+  margin: 0 3.5pt;
+  font-weight: 400;
+}
+
+/* Tech Stack / Context Line: 1 muted line */
+.entry-subline {
+  font-family: var(--font-sans);
+  font-size: 8.75pt;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.35;
+  margin-top: 1.5pt;
+  margin-bottom: 3pt;
+}
+
+/* Bullets: 9.5pt, line-height ~1.4 */
+ul.ed-bullets {
+  margin: 0;
+  padding-left: 10.5pt;
+  list-style-type: disc;
+}
+
+ul.ed-bullets li {
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.4;
+  color: var(--ink);
+  margin-bottom: 2.5pt;
+}
+
+ul.ed-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+ul.ed-bullets li::marker {
+  color: var(--muted);
+  font-size: 7pt;
+}
+
+ul.ed-bullets li strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Education Merged Block */
+.edu-subline {
+  font-family: var(--font-sans);
+  font-size: 8.8pt;
+  color: var(--muted);
+  line-height: 1.35;
+  margin-top: 1.5pt;
+  margin-bottom: 3pt;
+}
+
+/* Skills: 3-4 short lines, no repeated tools */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5pt;
+}
+
+.skill-line {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  align-items: baseline;
+  font-size: 9.4pt;
+  line-height: 1.38;
+}
+
+.skill-cat {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.skill-items {
+  color: var(--ink);
+}
+
+/* Compact descriptive text for Assessments & Honors */
+.entry-text {
+  font-family: var(--font-sans);
+  font-size: 9.35pt;
+  line-height: 1.38;
+  color: var(--ink);
+  margin-top: 1.5pt;
+}
+
+.entry-text strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Cover Letter Typography */
+.letter-recipient {
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.letter-recipient .muted-line {
+  color: var(--muted);
+  font-size: 9pt;
+}
+
+.letter-subject {
+  font-family: var(--font-serif);
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0 0 8pt 0;
+}
+
+.letter-body p {
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.44;
+  color: var(--ink);
+  margin: 0 0 7.5pt 0;
+}
+
+.letter-body ul.ed-bullets {
+  margin: 6pt 0 8pt 0;
+}
+
+.letter-body ul.ed-bullets li {
+  font-size: 9.45pt;
+  line-height: 1.41;
+  margin-bottom: 4pt;
+}
+
+.letter-signoff {
+  margin-top: 10pt;
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  color: var(--ink);
+}
+
+.letter-signature-name {
+  font-family: var(--font-serif);
+  font-size: 12.5pt;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 7pt;
+}
+
+.letter-signature-role {
+  font-family: var(--font-sans);
+  font-size: 8.8pt;
+  color: var(--muted);
+  margin-top: 1.5pt;
+}
+
+/* Footer: Name + Page Number in small muted text */
+.ed-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 0.5pt solid var(--rule);
+  padding-top: 6pt;
+  margin-top: 6pt;
+  font-family: var(--font-sans);
+  font-size: 8.25pt;
+  color: var(--muted);
+}
+
+@media screen {
+  body {
+    background: #EAE7E1;
+  }
+  .editorial-page {
+    margin: 20px auto;
+    box-shadow: 0 10px 36px rgba(31, 30, 29, 0.10);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div id="cover-letter-view">
+    <div class="editorial-page" id="cover-letter-page-1">
+      <div class="page-main">
+
+        <!-- Header -->
+        <header class="ed-header">
+          <h1 class="ed-name">Sivakorn Khundilokrattaya</h1>
+          <div class="ed-role">3rd-Year Computer Engineering Student &middot; Seeking Data Science, ML &amp; Quantitative Fintech Internship</div>
+          <div class="ed-contacts">
+            <span>Bangkok, Thailand</span>
+            <span class="sep">|</span>
+            <a href="mailto:sivakorn.khun@gmail.com">sivakorn.khun@gmail.com</a>
+            <span class="sep">|</span>
+            <a href="https://svkhun.vercel.app" target="_blank" rel="noopener noreferrer">svkhun.vercel.app</a>
+            <span class="sep">|</span>
+            <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer">github.com/svkhun</a>
+            <span class="sep">|</span>
+            <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span class="sep">|</span>
+            <a href="https://www.kaggle.com/sivakornkhun" target="_blank" rel="noopener noreferrer">Kaggle</a>
+          </div>
+        </header>
+
+        <!-- Recipient & Date Section -->
+        <section class="ed-section">
+          <div class="ed-row">
+            <div class="ed-left">
+              <h2 class="section-label">Recipient</h2>
+              <div class="ed-date">November 2026</div>
+              <div class="ed-location">Bangkok, Thailand</div>
+            </div>
+            <div class="ed-right letter-recipient">
+              <div><strong>Hiring Committee &ndash; Data Science, Machine Learning &amp; Quantitative Risk</strong></div>
+              <div class="muted-line">Data Science, AI &amp; Quantitative Engineering Internship</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Main Letter Section -->
+        <section class="ed-section">
+          <div class="ed-row">
+            <div class="ed-left">
+              <h2 class="section-label">Cover Letter</h2>
+              <div class="ed-tag">Internship Application</div>
+            </div>
+            <div class="ed-right letter-body">
+              <div class="letter-subject">Re: Application for Data Science, ML &amp; Quantitative Fintech Internship</div>
+
+              <p>Dear Hiring Team,</p>
+
+              <p>I am a third-year Computer Engineering student at Srinakharinwirot University (SWU) and an NHK Spring Engineering Scholar (2026&ndash;2027), applying for a Data Science, Machine Learning, or Quantitative Fintech internship. Across national hackathons and independent prototypes, my focus is building tabular and graph risk models that are rigorously validated against simple baselines, calibrated for decisions, and paired with clear explanations.</p>
+
+              <p>In my recent engineering and competition work, I have focused on three core disciplines:</p>
+
+              <ul class="ed-bullets">
+                <li><strong>Baseline Benchmarking &amp; Validation Gating (KBTG Hackathon 2026 &ndash; Top 10 Data Science):</strong> As Concept Lead and Pitcher for <a class="inline-link" href="https://github.com/svkhun/K-NEXUS-Application" target="_blank" rel="noopener noreferrer">K-NEXUS</a>, I built a past-only transaction graph to prevent label leakage, showing that a tabular baseline (0.996 PR-AUC) beat 16D R-GCN + LightGBM embeddings (0.994 PR-AUC) across 1,354 synthetic transfers. When our 30-day cashflow ML candidate trailed the account-mean baseline (2,701.6 vs. 313.3 THB MAE), I gated it out for an explainable FastAPI/React rule plan.</li>
+                <li><strong>Interpretable Credit Risk &amp; Calibration (Research Prototype &amp; Aihack 2025 Finalist):</strong> In my <a class="inline-link" href="https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI" target="_blank" rel="noopener noreferrer">Credit Risk &amp; XAI</a> prototype, I paired monotonic WoE binning with 5-fold Optuna LightGBM to lift Home Credit default prediction from 0.742 to 0.785 ROC-AUC (43.2% KS), calibrated to a 300&ndash;850 scorecard with TreeSHAP and DiCE recourse. At <a class="inline-link" href="https://github.com/svkhun/aiful-credit-risk-modeling" target="_blank" rel="noopener noreferrer">Aihack Thailand 2025</a> (National Finalist), I blended CatBoost and LightGBM to raise 12-month default ranking from 0.633 to 0.653 OOF ROC-AUC on imbalanced loans (~8.3% default rate).</li>
+                <li><strong>Connecting Models to Operational Policy (Shopee Challenge &amp; Production Systems):</strong> For the <a class="inline-link" href="https://github.com/svkhun/Shopee-Ultimate-Case-Challenge" target="_blank" rel="noopener noreferrer">Shopee Ultimate Case Challenge 2026</a>, I trained a calibrated Random Forest (0.840 ROC-AUC on 3,500 synthetic holdout orders) and designed a 4-tier deposit policy modeling 3.58M THB/month in simulated return savings. Beyond ML, I build end-to-end delivery systems&mdash;from FastAPI, ONNX, and PostgreSQL/WebSocket telemetry views to the official <a class="inline-link" href="https://svkhun.vercel.app/project-swu-openhouse" target="_blank" rel="noopener noreferrer">SWU Open House 2026</a> portal.</li>
+              </ul>
+
+              <p>Backed by a verified 97/150 score on the SKILLKAMP by KBTG Data Analyst STAMP (above the 90 benchmark) and CEFR B1 English proficiency on the Oxford Placement Test, I would welcome the opportunity to discuss how my background in statistical machine learning and explainable risk modeling can support your team.</p>
+
+              <div class="letter-signoff">
+                <div>Sincerely,</div>
+                <div class="letter-signature-name">Sivakorn Khundilokrattaya</div>
+                <div class="letter-signature-role">B.Eng. in Computer Engineering Student, Srinakharinwirot University (SWU)</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Footer -->
+      <footer class="ed-footer">
+        <span>Sivakorn Khundilokrattaya &ndash; Cover Letter</span>
+        <span>Page 1 of 1</span>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

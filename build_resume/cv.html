@@ -4,282 +4,442 @@
   <meta charset="UTF-8">
   <title>Sivakorn Khundilokrattaya – Curriculum Vitae</title>
   <style>
-    @page {
-      size: A4 portrait;
-      margin: 0;
-    }
-    * {
-      box-sizing: border-box;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 210mm;
-      background: #ffffff;
-      font-family: "Geist Local", "Segoe UI", Arial, sans-serif;
-      font-size: 9.5pt;
-      line-height: 1.38;
-      color: #172033;
-    }
-    .resume-paper, .resume-a4-page {
-      position: relative !important;
-      width: 210mm !important;
-      height: 297mm !important;
-      max-width: 210mm !important;
-      min-height: 297mm !important;
-      max-height: 297mm !important;
-      margin: 0 !important;
-      padding: 12.5mm 14.5mm 11mm 14.5mm !important;
-      box-sizing: border-box !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
-      box-shadow: none !important;
-      border: none !important;
-      border-radius: 0 !important;
-      background: #ffffff !important;
-      overflow: hidden !important;
-      page-break-inside: avoid !important;
-      break-inside: avoid !important;
-    }
-    #resume-page-1 {
-      page-break-after: always !important;
-      break-after: page !important;
-    }
-    #resume-page-2 {
-      page-break-before: always !important;
-      break-before: page !important;
-      page-break-after: avoid !important;
-      break-after: avoid !important;
-    }
-    .resume-content-wrap {
-      width: 100%;
-    }
-    .flex { display: flex; }
-    .flex-wrap { flex-wrap: wrap; }
-    .justify-between { justify-content: space-between; }
-    .items-center { align-items: center; }
-    .items-baseline { align-items: baseline; }
-    .text-right { text-align: right; }
-    .whitespace-nowrap { white-space: nowrap; }
-    .italic { font-style: normal !important; color: #4b5563 !important; }
-    .grid-skill-row {
-      display: flex;
-      align-items: baseline;
-      margin-bottom: 2.5pt;
-      line-height: 1.37;
-      font-size: 9.5pt;
-    }
-    .grid-skill-row:last-child {
-      margin-bottom: 0;
-    }
-    .grid-skill-row strong {
-      min-width: 155px;
-      flex-shrink: 0;
-    }
-    .compact-line {
-      font-size: 9.5pt;
-      line-height: 1.38;
-      color: #2d3748;
-      margin-top: 1.5pt;
-    }
-    .hackathon-line {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 8pt;
-      font-size: 9.5pt;
-      line-height: 1.42;
-      margin-bottom: 3.5pt;
-      color: #2d3748;
-    }
-    .hackathon-line:last-child {
-      margin-bottom: 0;
-    }
-    .resume-sheet-footer {
-      display: flex !important;
-      justify-content: space-between !important;
-      align-items: flex-end !important;
-      margin-top: 6pt !important;
-      padding-top: 4pt !important;
-      font-size: 8.5pt !important;
-    }
-  /* Shared print treatment for the one-page resume and two-page CV. */
+/* Editorial Print Design System for 1-Page Resume, 2-Page CV, and 1-Page Cover Letter */
+
 @font-face {
-  font-family: "Geist Local";
-  src: url("../assets/fonts/geist-variable-latin.woff2") format("woff2");
+  font-family: "Newsreader";
+  src: url("../assets/fonts/newsreader-variable-latin.woff2") format("woff2");
   font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
+  font-weight: 400 700;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("../assets/fonts/newsreader-italic-variable-latin.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("../assets/fonts/source-serif-4-variable-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/inter-variable-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: block;
+}
+
+:root {
+  --ink: #1F1E1D;
+  --muted: #6B6A66;
+  --accent: #C96442;
+  --rule: #E2DFD8;
+  --font-serif: "Newsreader", "Source Serif 4", Georgia, serif;
+  --font-sans: "Inter", Helvetica, Arial, sans-serif;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
 }
 
 html, body {
-  font-family: "Geist Local", "Segoe UI", Arial, sans-serif !important;
-  color: #172033 !important;
-  font-size: 9.6pt !important;
+  margin: 0;
+  padding: 0;
+  width: 210mm;
+  background: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.4;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
 }
 
-.resume-paper {
+/* A4 Sheet Container (~18-20mm margins) */
+.editorial-page {
   position: relative;
-  border-top: 3px solid #2457d2 !important;
+  width: 210mm;
+  height: 297mm;
+  max-width: 210mm;
+  min-height: 297mm;
+  max-height: 297mm;
+  margin: 0;
+  padding: 19mm 19.5mm 18mm 19.5mm;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
-.resume-print-header { display: none !important; }
-
-.resume-header {
-  text-align: left !important;
-  border-bottom: 1px solid #cbd5e1;
-  padding: 0 0 8.5pt;
-  margin-bottom: 9pt !important;
+#cv-page-1 {
+  page-break-after: always;
+  break-after: page;
 }
 
-.resume-name {
-  text-align: left !important;
-  font-family: "Geist Local", "Segoe UI", Arial, sans-serif !important;
-  font-size: 20.5pt !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.045em !important;
-  text-transform: none !important;
-  line-height: 1.12 !important;
-  margin: 0 0 3.5pt !important;
-  color: #152137 !important;
+#cv-page-2 {
+  page-break-before: always;
+  break-before: page;
+  page-break-after: avoid;
+  break-after: avoid;
 }
 
-.resume-headline {
-  text-align: left !important;
-  font-size: 9.8pt !important;
-  font-weight: 500 !important;
-  color: #2457d2 !important;
-  margin: 0 0 4.5pt !important;
+#resume-page-1,
+#cover-letter-page-1 {
+  page-break-before: avoid;
+  break-before: avoid;
+  page-break-after: avoid;
+  break-after: avoid;
 }
 
-.resume-contact {
-  justify-content: flex-start !important;
-  text-align: left !important;
-  font-size: 9.1pt !important;
-  color: #475569 !important;
-  margin: 0 !important;
+.page-main {
+  width: 100%;
 }
 
-.resume-contact a { color: #2457d2 !important; text-decoration: none !important; }
-.resume-contact .pipe-sep { color: #94a3b8 !important; margin: 0 4.5pt !important; }
-
-.section-title {
-  font-size: 10pt !important;
-  letter-spacing: .06em !important;
-  font-weight: 700 !important;
-  color: #2457d2 !important;
-  border-bottom: 1px solid #cbd5e1 !important;
-  padding-bottom: 3pt !important;
-  margin-top: 12pt !important;
-  margin-bottom: 6pt !important;
+/* Header: Name large in serif, 1 line target role in muted gray, 1 line contacts */
+.ed-header {
+  margin-bottom: 3pt;
 }
 
-.resume-entry {
-  font-size: 9.6pt !important;
-  color: #263244 !important;
-  line-height: 1.38 !important;
-  margin-bottom: 7pt !important;
+.ed-name {
+  font-family: var(--font-serif);
+  font-size: 26pt;
+  font-weight: 500;
+  letter-spacing: -0.018em;
+  line-height: 1.06;
+  color: var(--ink);
+  margin: 0 0 5pt 0;
 }
 
-.resume-entry:last-child {
-  margin-bottom: 0 !important;
+.ed-role {
+  font-family: var(--font-sans);
+  font-size: 9.6pt;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--muted);
+  margin: 0 0 4.5pt 0;
+}
+
+.ed-contacts {
+  font-family: var(--font-sans);
+  font-size: 8.85pt;
+  line-height: 1.35;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.ed-contacts a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.ed-contacts .sep {
+  color: var(--accent);
+  opacity: 0.65;
+  margin: 0 5.5pt;
+  font-weight: 300;
+}
+
+/* Sections & Hairline Dividers (0.5pt light-gray between sections only) */
+.ed-section {
+  border-top: 0.5pt solid var(--rule);
+  padding-top: 12pt;
+  margin-top: 12pt;
+}
+
+#cv-page-2 .ed-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* Two-Column Grid: Narrow left column (~22%) & Wide right column (~78%) */
+.ed-row {
+  display: grid;
+  grid-template-columns: 21.5% 78.5%;
+  align-items: baseline;
+  margin-bottom: 11pt;
+}
+
+.ed-row.compact-row {
+  margin-bottom: 7.5pt;
+}
+
+.ed-row:last-child {
+  margin-bottom: 0;
+}
+
+.ed-left {
+  padding-right: 10pt;
+}
+
+.ed-right {
+  min-width: 0;
+}
+
+/* Section Labels: 8.5-9pt UPPERCASE with letter-spacing in accent terracotta */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 8.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent);
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* Dates & Competition/Context Badges in Left Column */
+.ed-date {
+  font-family: var(--font-sans);
+  font-size: 8.8pt;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.section-label + .ed-date {
+  margin-top: 3pt;
+}
+
+.ed-tag,
+.ed-location {
+  font-family: var(--font-sans);
+  font-size: 8.25pt;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.3;
+  margin-top: 1pt;
+}
+
+/* Entry / Project Titles: 10.5pt semi-bold serif */
+.entry-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8pt;
 }
 
 .entry-title {
-  font-size: 10pt !important;
-  font-weight: 650 !important;
-  color: #152137 !important;
+  font-family: var(--font-serif);
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.24;
 }
 
-.entry-meta {
-  font-size: 9.5pt !important;
-  color: #475569 !important;
-  font-weight: 400 !important;
+.entry-links {
+  font-family: var(--font-sans);
+  font-size: 8.75pt;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.entry-link {
-  color: #2457d2 !important;
-  text-decoration: none !important;
-  font-weight: 500 !important;
+.entry-links a,
+.inline-link {
+  color: var(--accent);
+  text-decoration: none;
 }
 
-.resume-entry strong,
-.resume-skills-block strong { color: #152137 !important; font-weight: 650 !important; }
-
-.resume-entry .italic {
-  font-style: normal !important;
-  color: #4b5563 !important;
-  font-size: 9.5pt !important;
-  margin-top: 0.5pt !important;
-  margin-bottom: 1.5pt !important;
+.entry-links .link-sep {
+  color: var(--muted);
+  margin: 0 3.5pt;
+  font-weight: 400;
 }
 
-ul.resume-list {
-  margin: 2pt 0 0 0 !important;
-  padding-left: 13pt !important;
+/* Tech Stack / Context Line: 1 muted line */
+.entry-subline {
+  font-family: var(--font-sans);
+  font-size: 8.75pt;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.35;
+  margin-top: 1.5pt;
+  margin-bottom: 3pt;
 }
 
-ul.resume-list li {
-  font-size: 9.6pt !important;
-  color: #2d3748 !important;
-  line-height: 1.38 !important;
-  margin-bottom: 2.5pt !important;
+/* Bullets: 9.5pt, line-height ~1.4 */
+ul.ed-bullets {
+  margin: 0;
+  padding-left: 10.5pt;
+  list-style-type: disc;
 }
 
-ul.resume-list li:last-child {
-  margin-bottom: 0 !important;
+ul.ed-bullets li {
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.4;
+  color: var(--ink);
+  margin-bottom: 2.5pt;
 }
 
-ul.resume-list li::marker { color: #3b6ce2; }
-
-.resume-sheet-footer {
-  margin-top: auto !important;
-  border-top: 1px solid #e1e7ef !important;
-  color: #64748b !important;
+ul.ed-bullets li:last-child {
+  margin-bottom: 0;
 }
 
-.resume-sheet-footer .page-number { color: #64748b !important; }
-
-#resume-page-single {
-  padding: 13.5mm 14.5mm 12mm !important;
+ul.ed-bullets li::marker {
+  color: var(--muted);
+  font-size: 7pt;
 }
 
-#resume-page-single .resume-header { padding-bottom: 9.5pt; margin-bottom: 10.5pt !important; }
-#resume-page-single .section-title { font-size: 10.3pt !important; margin-top: 16.5pt !important; margin-bottom: 7.5pt !important; padding-bottom: 3.5pt !important; }
-#resume-page-single .resume-section:first-of-type .section-title { margin-top: 0 !important; }
-#resume-page-single .resume-entry { font-size: 10pt !important; line-height: 1.43 !important; margin-bottom: 9.5pt !important; }
-#resume-page-single .resume-entry:last-child { margin-bottom: 0 !important; }
-#resume-page-single .entry-title { font-size: 10.4pt !important; }
-#resume-page-single .entry-meta { font-size: 9.8pt !important; }
-#resume-page-single .resume-entry .italic { font-size: 9.8pt !important; margin-top: 1pt !important; margin-bottom: 2pt !important; }
-#resume-page-single .resume-list { margin: 2.5pt 0 0 !important; }
-#resume-page-single .resume-list li { font-size: 10pt !important; line-height: 1.43 !important; margin-bottom: 3.2pt !important; }
-#resume-page-single .resume-list li:last-child { margin-bottom: 0 !important; }
+ul.ed-bullets li strong {
+  font-weight: 600;
+  color: var(--ink);
+}
 
-#resume-page-1,
-#resume-page-2 { padding: 13mm 14.5mm 11mm !important; }
+/* Education Merged Block */
+.edu-subline {
+  font-family: var(--font-sans);
+  font-size: 8.8pt;
+  color: var(--muted);
+  line-height: 1.35;
+  margin-top: 1.5pt;
+  margin-bottom: 3pt;
+}
 
-#resume-page-1 .resume-name { font-size: 20.5pt !important; }
-#resume-page-1 .resume-header { padding-bottom: 8.5pt; margin-bottom: 9.5pt !important; }
-#resume-page-1 .section-title,
-#resume-page-2 .section-title { margin-top: 13.5pt !important; margin-bottom: 6.5pt !important; }
-#resume-page-1 .resume-section:first-of-type .section-title,
-#resume-page-2 .resume-section:first-of-type .section-title { margin-top: 0 !important; }
-#resume-page-1 .resume-entry,
-#resume-page-2 .resume-entry { font-size: 9.6pt !important; line-height: 1.4 !important; margin-bottom: 8pt !important; }
-#resume-page-1 .resume-list li,
-#resume-page-2 .resume-list li { font-size: 9.6pt !important; line-height: 1.39 !important; margin-bottom: 2.8pt !important; }
+/* Skills: 3-4 short lines, no repeated tools */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5pt;
+}
 
-#resume-page-1 .flex.justify-between,
-#resume-page-2 .flex.justify-between,
-#resume-page-single .flex.justify-between { gap: 8pt; }
+.skill-line {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  align-items: baseline;
+  font-size: 9.4pt;
+  line-height: 1.38;
+}
+
+.skill-cat {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.skill-items {
+  color: var(--ink);
+}
+
+/* Compact descriptive text for Assessments & Honors */
+.entry-text {
+  font-family: var(--font-sans);
+  font-size: 9.35pt;
+  line-height: 1.38;
+  color: var(--ink);
+  margin-top: 1.5pt;
+}
+
+.entry-text strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Cover Letter Typography */
+.letter-recipient {
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.letter-recipient .muted-line {
+  color: var(--muted);
+  font-size: 9pt;
+}
+
+.letter-subject {
+  font-family: var(--font-serif);
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0 0 8pt 0;
+}
+
+.letter-body p {
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.44;
+  color: var(--ink);
+  margin: 0 0 7.5pt 0;
+}
+
+.letter-body ul.ed-bullets {
+  margin: 6pt 0 8pt 0;
+}
+
+.letter-body ul.ed-bullets li {
+  font-size: 9.45pt;
+  line-height: 1.41;
+  margin-bottom: 4pt;
+}
+
+.letter-signoff {
+  margin-top: 10pt;
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  color: var(--ink);
+}
+
+.letter-signature-name {
+  font-family: var(--font-serif);
+  font-size: 12.5pt;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 7pt;
+}
+
+.letter-signature-role {
+  font-family: var(--font-sans);
+  font-size: 8.8pt;
+  color: var(--muted);
+  margin-top: 1.5pt;
+}
+
+/* Footer: Name + Page Number in small muted text */
+.ed-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 0.5pt solid var(--rule);
+  padding-top: 6pt;
+  margin-top: 6pt;
+  font-family: var(--font-sans);
+  font-size: 8.25pt;
+  color: var(--muted);
+}
 
 @media screen {
-  body { background: #e8edf3 !important; }
-  .resume-paper { margin: 20px auto !important; box-shadow: 0 14px 45px rgba(30, 45, 70, .13) !important; }
+  body {
+    background: #EAE7E1;
+  }
+  .editorial-page {
+    margin: 20px auto;
+    box-shadow: 0 10px 36px rgba(31, 30, 29, 0.10);
+  }
 }
 
   </style>
@@ -287,206 +447,337 @@ ul.resume-list li::marker { color: #3b6ce2; }
 <body>
   <div id="cv-view">
     <!-- ==================== PAGE 1 ==================== -->
-    <div class="resume-paper resume-a4-page" id="resume-page-1">
-      <div class="resume-content-wrap">
-        <!-- Header Row -->
-        <div class="resume-header">
-          <h1 class="resume-name">Sivakorn Khundilokrattaya</h1>
-          <div class="resume-headline">3rd-Year Computer Engineering Student &bull; Seeking Data Science, ML &amp; Quantitative Fintech Internship</div>
-          <div class="resume-contact flex flex-wrap items-center">
+    <div class="editorial-page" id="cv-page-1">
+      <div class="page-main">
+
+        <!-- Header -->
+        <header class="ed-header">
+          <h1 class="ed-name">Sivakorn Khundilokrattaya</h1>
+          <div class="ed-role">3rd-Year Computer Engineering Student &middot; Seeking Data Science, ML &amp; Quantitative Fintech Internship</div>
+          <div class="ed-contacts">
             <span>Bangkok, Thailand</span>
-            <span class="pipe-sep">|</span>
+            <span class="sep">|</span>
             <a href="mailto:sivakorn.khun@gmail.com">sivakorn.khun@gmail.com</a>
-            <span class="pipe-sep">|</span>
+            <span class="sep">|</span>
             <a href="https://svkhun.vercel.app" target="_blank" rel="noopener noreferrer">svkhun.vercel.app</a>
-            <span class="pipe-sep">|</span>
+            <span class="sep">|</span>
             <a href="https://github.com/svkhun" target="_blank" rel="noopener noreferrer">github.com/svkhun</a>
-            <span class="pipe-sep">|</span>
+            <span class="sep">|</span>
             <a href="https://linkedin.com/in/sivakorn-khundilokrattaya-5870b8429" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <span class="pipe-sep">|</span>
+            <span class="sep">|</span>
             <a href="https://www.kaggle.com/sivakornkhun" target="_blank" rel="noopener noreferrer">Kaggle</a>
           </div>
-        </div>
+        </header>
 
-        <!-- Section 1: Education & Scholarship -->
-        <div class="resume-section">
-          <h2 class="section-title">EDUCATION &amp; SCHOLARSHIP</h2>
-          
-          <div class="resume-entry">
-            <div class="flex items-baseline justify-between">
-              <span class="entry-title">Srinakharinwirot University (SWU) &ndash; B.Eng. in Computer Engineering</span>
-              <span class="entry-meta text-right whitespace-nowrap">2024 &ndash; Present (Expected 2028)</span>
+        <!-- Section 1: Education -->
+        <section class="ed-section">
+          <div class="ed-row">
+            <div class="ed-left">
+              <h2 class="section-label">Education</h2>
+              <div class="ed-date">2024 &ndash; Present</div>
+              <div class="ed-tag">Expected 2028</div>
+              <div class="ed-location">Bangkok, Thailand</div>
             </div>
-            <ul class="resume-list">
-              <li><strong>Focus &amp; Specialization:</strong> Statistical Machine Learning, Quantitative Credit Risk Modeling, Explainable AI (XAI), and Data Engineering.</li>
-              <li><strong>Core Coursework:</strong> Machine Learning, Probability &amp; Statistics, Database Systems, Data Structures &amp; Algorithms, Operating Systems, Software Engineering.</li>
-            </ul>
-          </div>
-
-          <div class="resume-entry">
-            <div class="flex items-baseline justify-between">
-              <span class="entry-title">NHK Spring (Thailand) Undergraduate Scholarship &ndash; Corporate Engineering Scholar</span>
-              <span class="entry-meta text-right whitespace-nowrap">2026 &ndash; 2027</span>
-            </div>
-            <ul class="resume-list">
-              <li><strong>Scholarship &amp; Internship:</strong> Awarded an undergraduate engineering scholarship (conferred Sep 2026 under cumulative GPAX &ge; 2.75 and faculty endorsement criteria), including a planned 2-month summer industrial internship at NHK Spring (Thailand) Co., Ltd.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Section 2: Technical Skills -->
-        <div class="resume-section">
-          <h2 class="section-title">TECHNICAL SKILLS &amp; COMPETENCIES</h2>
-          <div class="resume-skills-block">
-            <div class="grid-skill-row">
-              <strong>ML &amp; Quantitative Risk:</strong>
-              <span>LightGBM, CatBoost, XGBoost, Scikit-Learn, PyG (R-GCN), Optuna, OptBinning (WoE/IV)</span>
-            </div>
-            <div class="grid-skill-row">
-              <strong>Explainable AI &amp; Risk:</strong>
-              <span>TreeSHAP (Reason Codes), DiCE Counterfactuals, PSI Drift Monitoring, KS &amp; Brier Score</span>
-            </div>
-            <div class="grid-skill-row">
-              <strong>Programming &amp; Data:</strong>
-              <span>Python (Pandas, NumPy, SciPy), SQL (PostgreSQL, SQLite), TypeScript, JS, C/C++, Bash</span>
-            </div>
-            <div class="grid-skill-row">
-              <strong>Engineering &amp; Serving:</strong>
-              <span>FastAPI, ONNX, Docker, WebSockets, SQLAlchemy, React, Next.js, GeoPandas, Rasterio, Git</span>
-            </div>
-            <div class="grid-skill-row">
-              <strong>Languages:</strong>
-              <span>Thai (Native), English (CEFR B1 &ndash; Oxford Placement Test), Japanese (Elementary)</span>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">Srinakharinwirot University (SWU) &ndash; B.Eng. in Computer Engineering</span>
+              </div>
+              <div class="edu-subline">Statistical ML, Credit Risk &amp; Data Engineering &middot; Coursework: ML, Statistics, Databases, OS</div>
+              <ul class="ed-bullets">
+                <li><strong>NHK Spring Scholar (2026&ndash;2027):</strong> Conferred a 30,000 THB/year engineering award (Sep 2026, GPAX &ge; 2.75) with a 2-month summer internship.</li>
+                <li><strong>Verified Benchmarks (2026):</strong> Scored 97/150 on SKILLKAMP by KBTG Data Analyst STAMP (vs. 90 benchmark) and CEFR B1 (51/120) on Oxford Placement.</li>
+              </ul>
             </div>
           </div>
-        </div>
+        </section>
 
-        <!-- Section 3: Featured Data Science & ML Projects (Part 1) -->
-        <div class="resume-section">
-          <h2 class="section-title">FEATURED DATA SCIENCE &amp; ML PROJECTS</h2>
+        <!-- Section 2: Skills -->
+        <section class="ed-section">
+          <div class="ed-row">
+            <div class="ed-left">
+              <h2 class="section-label">Skills</h2>
+            </div>
+            <div class="ed-right">
+              <div class="skills-list">
+                <div class="skill-line">
+                  <span class="skill-cat">ML &amp; Risk</span>
+                  <span class="skill-items">LightGBM, CatBoost, XGBoost, Scikit-Learn, PyG (R-GCN), Optuna</span>
+                </div>
+                <div class="skill-line">
+                  <span class="skill-cat">XAI &amp; Data</span>
+                  <span class="skill-items">OptBinning, TreeSHAP, DiCE, Python (Pandas, NumPy, SciPy), SQL</span>
+                </div>
+                <div class="skill-line">
+                  <span class="skill-cat">Engineering</span>
+                  <span class="skill-items">FastAPI, ONNX, Docker, WebSockets, PostgreSQL, React, Next.js, Git</span>
+                </div>
+                <div class="skill-line">
+                  <span class="skill-cat">Languages</span>
+                  <span class="skill-items">Thai (Native), English (CEFR B1 &ndash; Oxford), Japanese (Elementary)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Selected Projects (Page 1 — Left-Rail Competition/Context Tags) -->
+        <section class="ed-section">
 
           <!-- Project 1: K-NEXUS -->
-          <div class="resume-entry">
-            <div class="flex items-baseline justify-between">
-              <span class="entry-title">K-NEXUS &ndash; FlowSense &amp; TrustGraph (Synthetic Cashflow &amp; Risk Prototype) &bull; <a class="entry-link" href="https://github.com/svkhun/K-NEXUS-Application" target="_blank">App</a> | <a class="entry-link" href="https://github.com/svkhun/K-NEXUS-Showcase" target="_blank">Showcase</a></span>
-              <span class="entry-meta text-right whitespace-nowrap">2026</span>
+          <div class="ed-row">
+            <div class="ed-left">
+              <h2 class="section-label">Projects</h2>
+              <div class="ed-date">2026</div>
+              <div class="ed-tag">KBTG Top 10 DS</div>
             </div>
-            <div class="italic">PyG (R-GCN), LightGBM, ONNX, FastAPI, React &bull; KBTG Hackathon 2026 &ndash; Top 30 Overall &amp; Top 10 Data Science</div>
-            <ul class="resume-list">
-              <li><strong>Leakage-Free Graph Ablation (TrustGraph):</strong> Built a chronological past-only transaction graph so 16D R-GCN embeddings could not leak future mule labels. Evaluated on 1,354 synthetic holdout transfers (67 positives), showing that the tabular baseline (0.996 PR-AUC) outperformed R-GCN + LightGBM (0.994 PR-AUC).</li>
-              <li><strong>Validation Gating &amp; Model Rejection (FlowSense):</strong> Evaluated 1, 7, 14, and 30-day cashflow candidates via paired cumulative MAE on 32 synthetic accounts (30-day candidate MAE reached 2,701.6 THB vs. 313.3 THB account-mean baseline across 1,121 origins) and kept FlowSense ML disabled after failing Gate 2 criteria.</li>
-              <li><strong>Runtime Architecture &amp; Stage Pitch:</strong> Built and pitched the FastAPI + React 18 prototype, serving an explainable history-mean, scenario-fallback, or abstention rule alongside offline ONNX Runtime transfer risk review.</li>
-            </ul>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">K-NEXUS &ndash; FlowSense &amp; TrustGraph (Synthetic Prototype)</span>
+                <span class="entry-links"><a href="https://github.com/svkhun/K-NEXUS-Application" target="_blank" rel="noopener noreferrer">App</a><span class="link-sep">/</span><a href="https://github.com/svkhun/K-NEXUS-Showcase" target="_blank" rel="noopener noreferrer">Showcase</a></span>
+              </div>
+              <div class="entry-subline">PyTorch Geometric (R-GCN), LightGBM, ONNX Runtime, FastAPI, React 18</div>
+              <ul class="ed-bullets">
+                <li>Verified that a non-graph baseline (0.996 PR-AUC) beat 16D R-GCN + LightGBM embeddings (0.994 PR-AUC) across 1,354 chronological transfers.</li>
+                <li>Kept 30-day direct-ML cashflow forecasting disabled after paired evaluation on 32 synthetic accounts (2,701.6 vs. 313.3 THB baseline MAE).</li>
+              </ul>
+            </div>
           </div>
 
           <!-- Project 2: Credit Risk -->
-          <div class="resume-entry">
-            <div class="flex items-baseline justify-between">
-              <span class="entry-title">Credit Risk Scoring &amp; Explainable AI (XAI) Decision-Support Prototype &bull; <a class="entry-link" href="https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI" target="_blank">GitHub Repo</a></span>
-              <span class="entry-meta text-right whitespace-nowrap">2026</span>
+          <div class="ed-row">
+            <div class="ed-left">
+              <div class="ed-date">2026</div>
+              <div class="ed-tag">Research Prototype</div>
             </div>
-            <div class="italic">Python, LightGBM, Optuna, OptBinning (WoE/IV), TreeSHAP, DiCE, FastAPI, Next.js &bull; Research Prototype</div>
-            <ul class="resume-list">
-              <li><strong>Monotonic Feature Screening:</strong> Built a Probability of Default (PD) pipeline on Home Credit and bureau datasets using domain financial ratios, applying monotonic Weight of Evidence (WoE) binning via OptBinning to enforce economic directionality while screening for Information Value (IV &ge; 0.02) and multicollinearity (VIF &lt; 5.0).</li>
-              <li><strong>Baseline Benchmarking &amp; Scorecard Calibration:</strong> Tuned a 5-fold stratified LightGBM ensemble with Optuna against an interpretable WoE logistic regression baseline, improving cross-validation ROC-AUC from 0.742 to 0.785 with 43.2% KS separation, and calibrated predictions to a 300&ndash;850 point scorecard (Base 600, PDO 20).</li>
-              <li><strong>Explainability &amp; Audit Workflow:</strong> Integrated TreeSHAP adverse-action reason codes, DiCE counterfactual recourse scenarios, simulated Population Stability Index (PSI) drift checks, and SQLite audit logging into a FastAPI + Next.js underwriting dashboard.</li>
-            </ul>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">Credit Risk Scoring &amp; Explainable AI (XAI) Decision Prototype</span>
+                <span class="entry-links"><a href="https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+              </div>
+              <div class="entry-subline">Python, LightGBM, Optuna, OptBinning (WoE), TreeSHAP, DiCE, FastAPI, Next.js</div>
+              <ul class="ed-bullets">
+                <li>Raised cross-validation ROC-AUC from 0.742 to 0.785 with 43.2% KS separation by pairing monotonic WoE screening with 5-fold Optuna LightGBM.</li>
+                <li>Mapped default probabilities into a 300&ndash;850 underwriting scorecard (Base 600, PDO 20) served in FastAPI/Next.js with TreeSHAP and DiCE.</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Page 1 Sheet Footer -->
-      <div class="resume-sheet-footer">
-        <span>Sivakorn Khundilokrattaya &ndash; Curriculum Vitae</span>
-        <span class="page-number">Page 1 of 2</span>
-      </div>
-    </div>
-
-    <!-- ==================== PAGE 2 ==================== -->
-    <div class="resume-paper resume-a4-page" id="resume-page-2">
-      <div class="resume-content-wrap">
-        <!-- Section 3 Continued: Featured Data Science & ML Projects -->
-        <div class="resume-section">
-          <h2 class="section-title">FEATURED DATA SCIENCE &amp; ML PROJECTS (CONTINUED)</h2>
 
           <!-- Project 3: Shopee Smart COD -->
-          <div class="resume-entry">
-            <div class="flex items-baseline justify-between">
-              <span class="entry-title">Shopee Smart COD Reliability &amp; Adaptive Checkout Prototype (Synthetic Data) &bull; <a class="entry-link" href="https://github.com/svkhun/Shopee-Ultimate-Case-Challenge" target="_blank">GitHub Repo</a></span>
-              <span class="entry-meta text-right whitespace-nowrap">2026</span>
+          <div class="ed-row">
+            <div class="ed-left">
+              <div class="ed-date">2026</div>
+              <div class="ed-tag">Shopee Challenge</div>
             </div>
-            <div class="italic">Python, Scikit-Learn (Random Forest), FastAPI, JS &bull; Shopee Ultimate Case Challenge 2026 &ndash; Operations Strategy</div>
-            <ul class="resume-list">
-              <li><strong>Statistical Formulation &amp; Calibration:</strong> Evaluated simulated COD vs. prepaid failure disparity via two-proportion Z-test (10.6&times; ratio, z = 24.4, p &lt; 0.001) across 50,000 synthetic orders. Trained a 3-fold sigmoid-calibrated Random Forest achieving 0.840 ROC-AUC, 0.306 PR-AUC, and 0.021 Brier score on 3,500 held-out synthetic orders.</li>
-              <li><strong>Adaptive Checkout Policy &amp; Feedback Loop:</strong> Mapped predicted failure probabilities into bounded reliability-score adjustments (+1 / -3 / -6 pts within 5&ndash;99) across a 4-tier checkout policy (Grades A&ndash;D: 1-click COD, reminder, 20% deposit, or 30% deposit/prepaid), paired with delivery-feedback updates (+8/-20 pts) and rule-based seller checks.</li>
-              <li><strong>Scenario Modeling &amp; Simulator:</strong> Built a FastAPI scoring service and mobile checkout simulator modeling 3.58M THB/month in simulated return-cost savings (assuming a target 58% RTO failure reduction).</li>
-            </ul>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">Shopee Smart COD Reliability &amp; Adaptive Checkout Prototype</span>
+                <span class="entry-links"><a href="https://github.com/svkhun/Shopee-Ultimate-Case-Challenge" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+              </div>
+              <div class="entry-subline">Python, Scikit-Learn (Random Forest), Pandas, FastAPI, JavaScript</div>
+              <ul class="ed-bullets">
+                <li>Reached 0.840 ROC-AUC and 0.306 PR-AUC on 3,500 synthetic holdout orders across 50,000 simulated checkouts using a 3-fold Random Forest.</li>
+                <li>Projected 3.58M THB/month in reverse-logistics savings (at 58% RTO reduction) by mapping risk scores to a 5&ndash;99 scale and 4 checkout tiers.</li>
+              </ul>
+            </div>
           </div>
 
           <!-- Project 4: LOD -->
-          <div class="resume-entry">
-            <div class="flex items-baseline justify-between">
-              <span class="entry-title">Long Overdue Debtor (LOD) Default Prediction Pipeline &bull; <a class="entry-link" href="https://github.com/svkhun/aiful-credit-risk-modeling" target="_blank">GitHub Repo</a></span>
-              <span class="entry-meta text-right whitespace-nowrap">2025</span>
+          <div class="ed-row">
+            <div class="ed-left">
+              <div class="ed-date">2025</div>
+              <div class="ed-tag">Aihack Finalist</div>
             </div>
-            <div class="italic">CatBoost, LightGBM, XGBoost, Optuna, Scikit-Learn &bull; Aihack Thailand 2025 &ndash; National Finalist (Team OEIA)</div>
-            <ul class="resume-list">
-              <li><strong>Imbalanced Financial Feature Engineering:</strong> Engineered leak-free financial ratios (debt-to-income burden, credit utilization, unused credit headroom, tenure stability, and product debt density) and explicit missingness indicators for 12-month default prediction on confidential consumer loan records (~8.3% default rate / 1:12 imbalance).</li>
-              <li><strong>Out-of-Fold Validation &amp; Blending:</strong> Implemented cohort-aware 5-fold stratified cross-validation and out-of-fold probability/rank blending across CatBoost and LightGBM, improving OOF ROC-AUC from 0.633 baseline to 0.651 (transforms) and 0.653 (final blend).</li>
-              <li><strong>Finalist Pitch &amp; Reproducible Pipeline:</strong> Presented risk-cutoff trade-offs in the National Finalist round and published an NDA-safe synthetic data pipeline so the preprocessing and blending workflow can be inspected without exposing confidential lending records.</li>
-            </ul>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">Long Overdue Debtor (LOD) Default Prediction Pipeline</span>
+                <span class="entry-links"><a href="https://github.com/svkhun/aiful-credit-risk-modeling" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+              </div>
+              <div class="entry-subline">CatBoost, LightGBM, XGBoost, Optuna, Scikit-Learn</div>
+              <ul class="ed-bullets">
+                <li>Advanced out-of-fold ROC-AUC from 0.633 to 0.653 across 1:12 imbalanced consumer loans (~8.3% default rate) via 5-fold rank-blended trees.</li>
+                <li>Engineered leak-free credit utilization, tenure, and missingness features while publishing a synthetic pipeline for reproducible review.</li>
+              </ul>
+            </div>
           </div>
 
-          <!-- Project 5: Industrial IoT (Condensed to 1-2 lines) -->
-          <div class="resume-entry">
-            <div class="flex items-baseline justify-between">
-              <span class="entry-title">Industrial IoT Telemetry &amp; OEE Data Platform (Simulated Telemetry) &bull; <a class="entry-link" href="https://github.com/svkhun/mfg-data-pipeline" target="_blank">GitHub Repo</a></span>
-              <span class="entry-meta text-right whitespace-nowrap">2026</span>
-            </div>
-            <div class="compact-line">Simulated sensor-telemetry pipeline (Python, FastAPI, PostgreSQL 15, WebSockets, React 18) computing hourly OEE summaries (Availability &times; Performance &times; Quality) and Isolation Forest / LightGBM / TreeSHAP anomaly views.</div>
-          </div>
-        </div>
+        </section>
 
-        <!-- Section 4: Hackathons (Only GISTDA & True Innovation, 1 line each) -->
-        <div class="resume-section">
-          <h2 class="section-title">OTHER HACKATHONS &amp; APPLIED AI CHALLENGES</h2>
-          <div class="resume-entry">
-            <div class="hackathon-line">
-              <span><strong>GISTDA Hackathon (Spatial Data Science Developer):</strong> Sentinel-1 SAR &amp; DEM flood-hazard pipeline.</span>
-              <span class="entry-meta whitespace-nowrap">Jan 2026</span>
-            </div>
-            <div class="hackathon-line">
-              <span><strong>True Innovation Launchpad 2026 (AI &amp; Full-Stack Developer):</strong> GuardianAI frailty triage &bull; <a class="entry-link" href="https://github.com/svkhun/guardianai-clinical-ops-dashboard" target="_blank">GitHub</a></span>
-              <span class="entry-meta whitespace-nowrap">Jan 2026</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Section 5: Standardized Assessments & Credentials -->
-        <div class="resume-section">
-          <h2 class="section-title">STANDARDIZED ASSESSMENTS &amp; CREDENTIALS</h2>
-          <div class="resume-entry">
-            <div class="flex items-baseline justify-between">
-              <span class="entry-title">SKILLKAMP by KBTG &ndash; Data Analyst Assessment (STAMP)</span>
-              <span class="entry-meta text-right whitespace-nowrap">Mar 2026</span>
-            </div>
-            <div class="compact-line">Verified score of 97/150 (Above KBTG Industry Benchmark of 90).</div>
-          </div>
-          <div class="resume-entry">
-            <div class="flex items-baseline justify-between">
-              <span class="entry-title">Oxford Placement Test &ndash; English Proficiency (AUA Language Center / Oxford University Press)</span>
-              <span class="entry-meta text-right whitespace-nowrap">Jun 2026</span>
-            </div>
-            <div class="compact-line">Verified CEFR B1 (Independent User, Overall Score: 51/120 &bull; Use of English: 54 / B1, Listening: 48 / B1).</div>
-          </div>
-        </div>
       </div>
 
-      <!-- Page 2 Sheet Footer -->
-      <div class="resume-sheet-footer">
+      <!-- Page 1 Footer -->
+      <footer class="ed-footer">
         <span>Sivakorn Khundilokrattaya &ndash; Curriculum Vitae</span>
-        <span class="page-number">Page 2 of 2</span>
+        <span>Page 1 of 2</span>
+      </footer>
+    </div>
+
+    <!-- ==================== PAGE 2 ==================== -->
+    <div class="editorial-page" id="cv-page-2">
+      <div class="page-main">
+
+        <!-- Section 4: Additional Projects (Unified Format with Left-Rail Context Tags) -->
+        <section class="ed-section">
+
+          <!-- Project 5: Industrial IoT -->
+          <div class="ed-row">
+            <div class="ed-left">
+              <h2 class="section-label">More Projects</h2>
+              <div class="ed-date">2026</div>
+              <div class="ed-tag">IoT Prototype</div>
+            </div>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">Industrial IoT Telemetry &amp; OEE Data Platform (Simulated Telemetry)</span>
+                <span class="entry-links"><a href="https://github.com/svkhun/mfg-data-pipeline" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+              </div>
+              <div class="entry-subline">Python, FastAPI, PostgreSQL 15, WebSockets, LightGBM, TreeSHAP, React 18</div>
+              <ul class="ed-bullets">
+                <li>Streamed live machine-health readings and hourly OEE summaries (Availability &times; Performance &times; Quality) via FastAPI, PostgreSQL, and WebSockets.</li>
+                <li>Surfaced interpretable equipment anomaly flags on a React 18 dashboard by combining Isolation Forest, LightGBM, and TreeSHAP attributions.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Project 6: SWU Open House -->
+          <div class="ed-row">
+            <div class="ed-left">
+              <div class="ed-date">2026</div>
+              <div class="ed-tag">Official SWU Portal</div>
+            </div>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">SWU Open House 2026 Web Platform Enhancement</span>
+                <span class="entry-links"><a href="https://svkhun.vercel.app/project-swu-openhouse" target="_blank" rel="noopener noreferrer">Case Study</a></span>
+              </div>
+              <div class="entry-subline">WordPress, Elementor, Custom CSS, Responsive UI, THE CONCERT Integration</div>
+              <ul class="ed-bullets">
+                <li>Streamlined university event onboarding into a guided 3-step registration flow integrated with THE CONCERT ticketing platform across devices.</li>
+                <li>Built an interactive multi-faculty poster showcase and live countdown interface with responsive custom CSS and unified navigation.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Project 7: GuardianAI -->
+          <div class="ed-row">
+            <div class="ed-left">
+              <div class="ed-date">Jan 2026</div>
+              <div class="ed-tag">True Launchpad</div>
+            </div>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">GuardianAI Clinical Frailty Triage Dashboard (Prototype)</span>
+                <span class="entry-links"><a href="https://github.com/svkhun/guardianai-clinical-ops-dashboard" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+              </div>
+              <div class="entry-subline">React, Vite, Node.js, Tailwind CSS, Thai / English Localization</div>
+              <ul class="ed-bullets">
+                <li>Unified patient screening registries, vital trends, and alert queues into a bilingual (Thai/English) care-coordination triage prototype.</li>
+                <li>Structured clinical follow-up workflows on example patient records by linking risk-factor views with provider assignment and care notes.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Project 8: GISTDA Flood Mapping -->
+          <div class="ed-row">
+            <div class="ed-left">
+              <div class="ed-date">Jan 2026</div>
+              <div class="ed-tag">GISTDA Hackathon</div>
+            </div>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">30m Grid Flash-Flood Hazard Mapping Pipeline</span>
+              </div>
+              <div class="entry-subline">Python, GeoPandas, Rasterio, Shapely, Sentinel-1 SAR, Copernicus DEM</div>
+              <ul class="ed-bullets">
+                <li>Segmented flood extent from dual-polarization Sentinel-1 SAR backscatter and Copernicus DEM rasters to build 30m provincial hazard matrices.</li>
+              </ul>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- Section 5: Honors & Competition Leadership (Complete Unified Roster, No Tech Duplication) -->
+        <section class="ed-section">
+
+          <div class="ed-row compact-row">
+            <div class="ed-left">
+              <h2 class="section-label">Honors</h2>
+              <div class="ed-date">Nov 2026</div>
+            </div>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">KBTG Kampus Hackathon 2026 &ndash; Top 30 Overall &amp; Top 10 Data Science</span>
+              </div>
+              <div class="entry-text"><strong>Pitcher, Developer &amp; Concept Lead</strong> &middot; Conceived the K-NEXUS product architecture and delivered the stage pitch at Kasikorn Business-Technology Group.</div>
+            </div>
+          </div>
+
+          <div class="ed-row compact-row">
+            <div class="ed-left">
+              <div class="ed-date">Dec 2025</div>
+            </div>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">AIRA &amp; AIFUL / Aihack Thailand 2025 &ndash; National Finalist (Team OEIA)</span>
+              </div>
+              <div class="entry-text"><strong>ML &amp; Financial Risk Lead</strong> &middot; Pitched credit-cutoff vs. interest-margin profitability trade-offs to executive judges (Chulalongkorn Business School &times; ProbSpace).</div>
+            </div>
+          </div>
+
+
+        </section>
+
+        <!-- Section 6: Standardized Assessments & Credentials -->
+        <section class="ed-section">
+
+          <!-- Assessment 1: KBTG Data Analyst -->
+          <div class="ed-row compact-row">
+            <div class="ed-left">
+              <h2 class="section-label">Assessments</h2>
+              <div class="ed-date">Mar 2026</div>
+            </div>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">SKILLKAMP by KBTG &ndash; Data Analyst Assessment (STAMP)</span>
+              </div>
+              <div class="entry-text">Verified score of 97/150 (Above KBTG Industry Benchmark of 90) &middot; Data Cleaning 23/30, EDA &amp; Visualization 20/30, Foundations 20/30, ML 18/30.</div>
+            </div>
+          </div>
+
+          <!-- Assessment 2: KBTG Digital Marketer -->
+          <div class="ed-row compact-row">
+            <div class="ed-left">
+              <div class="ed-date">Mar 2026</div>
+            </div>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">SKILLKAMP by KBTG &ndash; Digital &amp; Performance Marketer (STAMP)</span>
+              </div>
+              <div class="entry-text">Verified score of 98/150 (Above KBTG Industry Benchmark of 94) &middot; Digital Marketing Analytics 26/30 (Benchmark: 17.94), Data-Driven Marketing 21/30.</div>
+            </div>
+          </div>
+
+          <!-- Assessment 3: Oxford Placement Test -->
+          <div class="ed-row compact-row">
+            <div class="ed-left">
+              <div class="ed-date">Jun 2026</div>
+            </div>
+            <div class="ed-right">
+              <div class="entry-heading">
+                <span class="entry-title">Oxford Placement Test &ndash; English Proficiency (AUA / Oxford University Press)</span>
+              </div>
+              <div class="entry-text">Verified CEFR B1 (Overall Score: 51/120 &middot; Use of English: 54 / B1, Listening: 48 / B1).</div>
+            </div>
+          </div>
+
+        </section>
+
       </div>
+
+      <!-- Page 2 Footer -->
+      <footer class="ed-footer">
+        <span>Sivakorn Khundilokrattaya &ndash; Curriculum Vitae</span>
+        <span>Page 2 of 2</span>
+      </footer>
     </div>
   </div>
 </body>

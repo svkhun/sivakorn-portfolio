@@ -1,175 +1,437 @@
-/* Shared print treatment for the one-page resume and two-page CV. */
+/* Editorial Print Design System for 1-Page Resume, 2-Page CV, and 1-Page Cover Letter */
+
 @font-face {
-  font-family: "Geist Local";
-  src: url("../assets/fonts/geist-variable-latin.woff2") format("woff2");
+  font-family: "Newsreader";
+  src: url("../assets/fonts/newsreader-variable-latin.woff2") format("woff2");
   font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
+  font-weight: 400 700;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("../assets/fonts/newsreader-italic-variable-latin.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("../assets/fonts/source-serif-4-variable-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/inter-variable-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: block;
+}
+
+:root {
+  --ink: #1F1E1D;
+  --muted: #6B6A66;
+  --accent: #C96442;
+  --rule: #E2DFD8;
+  --font-serif: "Newsreader", "Source Serif 4", Georgia, serif;
+  --font-sans: "Inter", Helvetica, Arial, sans-serif;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
 }
 
 html, body {
-  font-family: "Geist Local", "Segoe UI", Arial, sans-serif !important;
-  color: #172033 !important;
-  font-size: 9.6pt !important;
+  margin: 0;
+  padding: 0;
+  width: 210mm;
+  background: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.4;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
 }
 
-.resume-paper {
+/* A4 Sheet Container (~18-20mm margins) */
+.editorial-page {
   position: relative;
-  border-top: 3px solid #2457d2 !important;
+  width: 210mm;
+  height: 297mm;
+  max-width: 210mm;
+  min-height: 297mm;
+  max-height: 297mm;
+  margin: 0;
+  padding: 19mm 19.5mm 18mm 19.5mm;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
-.resume-print-header { display: none !important; }
-
-.resume-header {
-  text-align: left !important;
-  border-bottom: 1px solid #cbd5e1;
-  padding: 0 0 8.5pt;
-  margin-bottom: 9pt !important;
+#cv-page-1 {
+  page-break-after: always;
+  break-after: page;
 }
 
-.resume-name {
-  text-align: left !important;
-  font-family: "Geist Local", "Segoe UI", Arial, sans-serif !important;
-  font-size: 20.5pt !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.045em !important;
-  text-transform: none !important;
-  line-height: 1.12 !important;
-  margin: 0 0 3.5pt !important;
-  color: #152137 !important;
+#cv-page-2 {
+  page-break-before: always;
+  break-before: page;
+  page-break-after: avoid;
+  break-after: avoid;
 }
 
-.resume-headline {
-  text-align: left !important;
-  font-size: 9.8pt !important;
-  font-weight: 500 !important;
-  color: #2457d2 !important;
-  margin: 0 0 4.5pt !important;
+#resume-page-1,
+#cover-letter-page-1 {
+  page-break-before: avoid;
+  break-before: avoid;
+  page-break-after: avoid;
+  break-after: avoid;
 }
 
-.resume-contact {
-  justify-content: flex-start !important;
-  text-align: left !important;
-  font-size: 9.1pt !important;
-  color: #475569 !important;
-  margin: 0 !important;
+.page-main {
+  width: 100%;
 }
 
-.resume-contact a { color: #2457d2 !important; text-decoration: none !important; }
-.resume-contact .pipe-sep { color: #94a3b8 !important; margin: 0 4.5pt !important; }
-
-.section-title {
-  font-size: 10pt !important;
-  letter-spacing: .06em !important;
-  font-weight: 700 !important;
-  color: #2457d2 !important;
-  border-bottom: 1px solid #cbd5e1 !important;
-  padding-bottom: 3pt !important;
-  margin-top: 12pt !important;
-  margin-bottom: 6pt !important;
+/* Header: Name large in serif, 1 line target role in muted gray, 1 line contacts */
+.ed-header {
+  margin-bottom: 3pt;
 }
 
-.resume-entry {
-  font-size: 9.6pt !important;
-  color: #263244 !important;
-  line-height: 1.38 !important;
-  margin-bottom: 7pt !important;
+.ed-name {
+  font-family: var(--font-serif);
+  font-size: 26pt;
+  font-weight: 500;
+  letter-spacing: -0.018em;
+  line-height: 1.06;
+  color: var(--ink);
+  margin: 0 0 5pt 0;
 }
 
-.resume-entry:last-child {
-  margin-bottom: 0 !important;
+.ed-role {
+  font-family: var(--font-sans);
+  font-size: 9.6pt;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--muted);
+  margin: 0 0 4.5pt 0;
+}
+
+.ed-contacts {
+  font-family: var(--font-sans);
+  font-size: 8.85pt;
+  line-height: 1.35;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.ed-contacts a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.ed-contacts .sep {
+  color: var(--accent);
+  opacity: 0.65;
+  margin: 0 5.5pt;
+  font-weight: 300;
+}
+
+/* Sections & Hairline Dividers (0.5pt light-gray between sections only) */
+.ed-section {
+  border-top: 0.5pt solid var(--rule);
+  padding-top: 12pt;
+  margin-top: 12pt;
+}
+
+#cv-page-2 .ed-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* Two-Column Grid: Narrow left column (~22%) & Wide right column (~78%) */
+.ed-row {
+  display: grid;
+  grid-template-columns: 21.5% 78.5%;
+  align-items: baseline;
+  margin-bottom: 11pt;
+}
+
+.ed-row.compact-row {
+  margin-bottom: 7.5pt;
+}
+
+.ed-row:last-child {
+  margin-bottom: 0;
+}
+
+.ed-left {
+  padding-right: 10pt;
+}
+
+.ed-right {
+  min-width: 0;
+}
+
+/* Section Labels: 8.5-9pt UPPERCASE with letter-spacing in accent terracotta */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 8.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent);
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* Dates & Competition/Context Badges in Left Column */
+.ed-date {
+  font-family: var(--font-sans);
+  font-size: 8.8pt;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.section-label + .ed-date {
+  margin-top: 3pt;
+}
+
+.ed-tag,
+.ed-location {
+  font-family: var(--font-sans);
+  font-size: 8.25pt;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.3;
+  margin-top: 1pt;
+}
+
+/* Entry / Project Titles: 10.5pt semi-bold serif */
+.entry-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8pt;
 }
 
 .entry-title {
-  font-size: 10pt !important;
-  font-weight: 650 !important;
-  color: #152137 !important;
+  font-family: var(--font-serif);
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.24;
 }
 
-.entry-meta {
-  font-size: 9.5pt !important;
-  color: #475569 !important;
-  font-weight: 400 !important;
+.entry-links {
+  font-family: var(--font-sans);
+  font-size: 8.75pt;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.entry-link {
-  color: #2457d2 !important;
-  text-decoration: none !important;
-  font-weight: 500 !important;
+.entry-links a,
+.inline-link {
+  color: var(--accent);
+  text-decoration: none;
 }
 
-.resume-entry strong,
-.resume-skills-block strong { color: #152137 !important; font-weight: 650 !important; }
-
-.resume-entry .italic {
-  font-style: normal !important;
-  color: #4b5563 !important;
-  font-size: 9.5pt !important;
-  margin-top: 0.5pt !important;
-  margin-bottom: 1.5pt !important;
+.entry-links .link-sep {
+  color: var(--muted);
+  margin: 0 3.5pt;
+  font-weight: 400;
 }
 
-ul.resume-list {
-  margin: 2pt 0 0 0 !important;
-  padding-left: 13pt !important;
+/* Tech Stack / Context Line: 1 muted line */
+.entry-subline {
+  font-family: var(--font-sans);
+  font-size: 8.75pt;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.35;
+  margin-top: 1.5pt;
+  margin-bottom: 3pt;
 }
 
-ul.resume-list li {
-  font-size: 9.6pt !important;
-  color: #2d3748 !important;
-  line-height: 1.38 !important;
-  margin-bottom: 2.5pt !important;
+/* Bullets: 9.5pt, line-height ~1.4 */
+ul.ed-bullets {
+  margin: 0;
+  padding-left: 10.5pt;
+  list-style-type: disc;
 }
 
-ul.resume-list li:last-child {
-  margin-bottom: 0 !important;
+ul.ed-bullets li {
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.4;
+  color: var(--ink);
+  margin-bottom: 2.5pt;
 }
 
-ul.resume-list li::marker { color: #3b6ce2; }
-
-.resume-sheet-footer {
-  margin-top: auto !important;
-  border-top: 1px solid #e1e7ef !important;
-  color: #64748b !important;
+ul.ed-bullets li:last-child {
+  margin-bottom: 0;
 }
 
-.resume-sheet-footer .page-number { color: #64748b !important; }
-
-#resume-page-single {
-  padding: 13.5mm 14.5mm 12mm !important;
+ul.ed-bullets li::marker {
+  color: var(--muted);
+  font-size: 7pt;
 }
 
-#resume-page-single .resume-header { padding-bottom: 9.5pt; margin-bottom: 10.5pt !important; }
-#resume-page-single .section-title { font-size: 10.3pt !important; margin-top: 16.5pt !important; margin-bottom: 7.5pt !important; padding-bottom: 3.5pt !important; }
-#resume-page-single .resume-section:first-of-type .section-title { margin-top: 0 !important; }
-#resume-page-single .resume-entry { font-size: 10pt !important; line-height: 1.43 !important; margin-bottom: 9.5pt !important; }
-#resume-page-single .resume-entry:last-child { margin-bottom: 0 !important; }
-#resume-page-single .entry-title { font-size: 10.4pt !important; }
-#resume-page-single .entry-meta { font-size: 9.8pt !important; }
-#resume-page-single .resume-entry .italic { font-size: 9.8pt !important; margin-top: 1pt !important; margin-bottom: 2pt !important; }
-#resume-page-single .resume-list { margin: 2.5pt 0 0 !important; }
-#resume-page-single .resume-list li { font-size: 10pt !important; line-height: 1.43 !important; margin-bottom: 3.2pt !important; }
-#resume-page-single .resume-list li:last-child { margin-bottom: 0 !important; }
+ul.ed-bullets li strong {
+  font-weight: 600;
+  color: var(--ink);
+}
 
-#resume-page-1,
-#resume-page-2 { padding: 13mm 14.5mm 11mm !important; }
+/* Education Merged Block */
+.edu-subline {
+  font-family: var(--font-sans);
+  font-size: 8.8pt;
+  color: var(--muted);
+  line-height: 1.35;
+  margin-top: 1.5pt;
+  margin-bottom: 3pt;
+}
 
-#resume-page-1 .resume-name { font-size: 20.5pt !important; }
-#resume-page-1 .resume-header { padding-bottom: 8.5pt; margin-bottom: 9.5pt !important; }
-#resume-page-1 .section-title,
-#resume-page-2 .section-title { margin-top: 13.5pt !important; margin-bottom: 6.5pt !important; }
-#resume-page-1 .resume-section:first-of-type .section-title,
-#resume-page-2 .resume-section:first-of-type .section-title { margin-top: 0 !important; }
-#resume-page-1 .resume-entry,
-#resume-page-2 .resume-entry { font-size: 9.6pt !important; line-height: 1.4 !important; margin-bottom: 8pt !important; }
-#resume-page-1 .resume-list li,
-#resume-page-2 .resume-list li { font-size: 9.6pt !important; line-height: 1.39 !important; margin-bottom: 2.8pt !important; }
+/* Skills: 3-4 short lines, no repeated tools */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5pt;
+}
 
-#resume-page-1 .flex.justify-between,
-#resume-page-2 .flex.justify-between,
-#resume-page-single .flex.justify-between { gap: 8pt; }
+.skill-line {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  align-items: baseline;
+  font-size: 9.4pt;
+  line-height: 1.38;
+}
+
+.skill-cat {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.skill-items {
+  color: var(--ink);
+}
+
+/* Compact descriptive text for Assessments & Honors */
+.entry-text {
+  font-family: var(--font-sans);
+  font-size: 9.35pt;
+  line-height: 1.38;
+  color: var(--ink);
+  margin-top: 1.5pt;
+}
+
+.entry-text strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Cover Letter Typography */
+.letter-recipient {
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.letter-recipient .muted-line {
+  color: var(--muted);
+  font-size: 9pt;
+}
+
+.letter-subject {
+  font-family: var(--font-serif);
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0 0 8pt 0;
+}
+
+.letter-body p {
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  line-height: 1.44;
+  color: var(--ink);
+  margin: 0 0 7.5pt 0;
+}
+
+.letter-body ul.ed-bullets {
+  margin: 6pt 0 8pt 0;
+}
+
+.letter-body ul.ed-bullets li {
+  font-size: 9.45pt;
+  line-height: 1.41;
+  margin-bottom: 4pt;
+}
+
+.letter-signoff {
+  margin-top: 10pt;
+  font-family: var(--font-sans);
+  font-size: 9.5pt;
+  color: var(--ink);
+}
+
+.letter-signature-name {
+  font-family: var(--font-serif);
+  font-size: 12.5pt;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 7pt;
+}
+
+.letter-signature-role {
+  font-family: var(--font-sans);
+  font-size: 8.8pt;
+  color: var(--muted);
+  margin-top: 1.5pt;
+}
+
+/* Footer: Name + Page Number in small muted text */
+.ed-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 0.5pt solid var(--rule);
+  padding-top: 6pt;
+  margin-top: 6pt;
+  font-family: var(--font-sans);
+  font-size: 8.25pt;
+  color: var(--muted);
+}
 
 @media screen {
-  body { background: #e8edf3 !important; }
-  .resume-paper { margin: 20px auto !important; box-shadow: 0 14px 45px rgba(30, 45, 70, .13) !important; }
+  body {
+    background: #EAE7E1;
+  }
+  .editorial-page {
+    margin: 20px auto;
+    box-shadow: 0 10px 36px rgba(31, 30, 29, 0.10);
+  }
 }
