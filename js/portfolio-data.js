@@ -46,17 +46,195 @@ const portfolioData = {
   whatIDo: [{
     id: "ds-ml",
     title: "Tools used in project work",
-    subtitle: "Documented K-NEXUS prototype and research workflow",
+    subtitle: "Tools linked to portfolio projects and case studies",
     projectLink: "project-flowsense-trustgraph.html",
-    skills: ["Past-only graph experiments, model comparison and prototype API work; synthetic results do not establish real-world outcomes."],
+    skills: ["Risk modeling and evaluation, explainable scoring, simulated data pipelines and web prototypes."],
     softwareSkills: [
-      { name: "Python", level: "Used", projectLink: "project-flowsense-trustgraph.html" },
-      { name: "PyTorch", level: "Used", projectLink: "project-flowsense-trustgraph.html" },
-      { name: "LightGBM", level: "Used", projectLink: "project-flowsense-trustgraph.html" },
-      { name: "ONNX Runtime", level: "Used", projectLink: "project-flowsense-trustgraph.html" },
-      { name: "PyTorch Geometric", level: "Used", projectLink: "project-flowsense-trustgraph.html" },
-      { name: "FastAPI", level: "Used", projectLink: "project-flowsense-trustgraph.html" }
-    ]
+      {
+            "name": "Python",
+            "level": "Used",
+            "projectLink": "project-flowsense-trustgraph.html",
+            "category": "cat-ml",
+            "description": "Data preparation, graph-training experiments and prototype API logic",
+            "project": "K-NEXUS"
+      },
+      {
+            "name": "PyTorch",
+            "level": "Used",
+            "projectLink": "project-flowsense-trustgraph.html",
+            "category": "cat-ml",
+            "description": "Training framework for the past-only R-GCN graph experiments",
+            "project": "K-NEXUS"
+      },
+      {
+            "name": "LightGBM",
+            "level": "Used",
+            "projectLink": "project-credit-risk.html",
+            "category": "cat-ml",
+            "description": "Default-risk ranking evaluated with five-fold cross-validation against a logistic baseline",
+            "project": "Credit Risk Scoring"
+      },
+      {
+            "name": "XGBoost",
+            "level": "Used",
+            "projectLink": "project-lod-engine.html",
+            "category": "cat-ml",
+            "description": "One of the tree-model options recorded in the competition project stack",
+            "project": "LOD Prediction"
+      },
+      {
+            "name": "Scikit-Learn",
+            "level": "Used",
+            "projectLink": "project-shopee-smart-cod.html",
+            "category": "cat-ml",
+            "description": "Random forest training, preprocessing and sigmoid calibration for synthetic delivery-risk scoring",
+            "project": "Smart COD"
+      },
+      {
+            "name": "ONNX Runtime",
+            "level": "Used",
+            "projectLink": "project-flowsense-trustgraph.html",
+            "category": "cat-ml",
+            "description": "Executing paired classifier and embedding artifacts for synthetic recipient-risk review",
+            "project": "K-NEXUS"
+      },
+      {
+            "name": "CatBoost",
+            "level": "Used",
+            "projectLink": "project-lod-engine.html",
+            "category": "cat-ml",
+            "description": "Blended with LightGBM and evaluated using stratified out-of-fold predictions",
+            "project": "LOD Prediction"
+      },
+      {
+            "name": "Pandas & NumPy",
+            "level": "Used",
+            "projectLink": "project-shopee-smart-cod.html",
+            "category": "cat-data",
+            "description": "Preparing order features and arrays for the synthetic order-modeling workflow",
+            "project": "Smart COD"
+      },
+      {
+            "name": "PyTorch Geometric",
+            "level": "Used",
+            "projectLink": "project-flowsense-trustgraph.html",
+            "category": "cat-data",
+            "description": "Building relational graph experiments with 16-dimensional account embeddings",
+            "project": "K-NEXUS"
+      },
+      {
+            "name": "PostgreSQL",
+            "level": "Used",
+            "projectLink": "project-industrial-iot.html",
+            "category": "cat-data",
+            "description": "Storing simulated machine telemetry for machine-health views and hourly OEE summaries",
+            "project": "Industrial IoT"
+      },
+      {
+            "name": "FastAPI",
+            "level": "Used",
+            "projectLink": "project-shopee-smart-cod.html",
+            "category": "cat-backend",
+            "description": "Serving delivery-risk scores, checkout policies and the shopping simulator",
+            "project": "Smart COD"
+      },
+      {
+            "name": "Docker",
+            "level": "Used",
+            "projectLink": "project-industrial-iot.html",
+            "category": "cat-backend",
+            "description": "Containerized local services for the simulated manufacturing data platform",
+            "project": "Industrial IoT"
+      },
+      {
+            "name": "Git & GitHub",
+            "level": "Used",
+            "projectLink": "projects.html",
+            "category": "cat-backend",
+            "description": "Version history and source review across the portfolio projects",
+            "project": "Project repositories"
+      },
+      {
+            "name": "React",
+            "level": "Used",
+            "projectLink": "project-guardian-ai.html",
+            "category": "cat-backend",
+            "description": "Building patient-profile, alert-review and care-coordination views with example records",
+            "project": "GuardianAI"
+      },
+      {
+            "name": "Vite",
+            "level": "Used",
+            "projectLink": "project-guardian-ai.html",
+            "category": "cat-backend",
+            "description": "Development and build tooling for the React dashboard client",
+            "project": "GuardianAI"
+      },
+      {
+            "name": "Node.js",
+            "level": "Used",
+            "projectLink": "project-guardian-ai.html",
+            "category": "cat-backend",
+            "description": "API layer supporting the dashboard and example patient workflows",
+            "project": "GuardianAI"
+      },
+      {
+            "name": "Tailwind CSS",
+            "level": "Used",
+            "projectLink": "project-guardian-ai.html",
+            "category": "cat-backend",
+            "description": "Styling the bilingual dashboard layout and care-team interface",
+            "project": "GuardianAI"
+      },
+      {
+            "name": "JavaScript",
+            "level": "Used",
+            "projectLink": "project-shopee-smart-cod.html",
+            "category": "cat-backend",
+            "description": "Interactive shopping, delivery-feedback updates and analytics views",
+            "project": "Smart COD"
+      },
+      {
+            "name": "HTML & CSS",
+            "level": "Used",
+            "projectLink": "project-shopee-smart-cod.html",
+            "category": "cat-backend",
+            "description": "Page structure and responsive styling for the smartphone shopping simulator",
+            "project": "Smart COD"
+      },
+      {
+            "name": "TreeSHAP",
+            "level": "Used",
+            "projectLink": "project-credit-risk.html",
+            "category": "cat-risk",
+            "description": "Explaining which features contribute to a model score in the research interface",
+            "project": "Credit Risk Scoring"
+      },
+      {
+            "name": "OptBinning",
+            "level": "Used",
+            "projectLink": "project-credit-risk.html",
+            "category": "cat-risk",
+            "description": "Weight-of-evidence binning in the documented research scoring workflow",
+            "project": "Credit Risk Scoring"
+      },
+      {
+            "name": "DiCE Recourse",
+            "level": "Used",
+            "projectLink": "project-credit-risk.html",
+            "category": "cat-risk",
+            "description": "Showing how hypothetical input changes could affect a model score",
+            "project": "Credit Risk Scoring"
+      },
+      {
+            "name": "Optuna",
+            "level": "Used",
+            "projectLink": "project-credit-risk.html",
+            "category": "cat-risk",
+            "description": "Tuning LightGBM for the documented five-fold model-development experiments",
+            "project": "Credit Risk Scoring"
+      }
+]
   }],
 
   // Education & Degrees Received
@@ -228,6 +406,85 @@ const portfolioData = {
   // Experience & Competitions (Timeline & Cards)
   experience: [
     {
+      "role": "Web interface case study",
+      "company": "Srinakharinwirot University",
+      "duration": "2026",
+      "description": [
+        "Registration journey. The interface organizes Portal Entry, Information Input and Verification into three visible steps, with a registration link to THE CONCERT.",
+        "Faculty discovery. A poster carousel lets visitors browse faculty activities and workshops. The page hierarchy keeps the event overview and faculty content easy to reach.",
+        "Event timing and highlights. The countdown shows days, hours, minutes and seconds. Previous-year photos and official social links sit alongside the event information.",
+        "Visual system. Prompt typography, dark surfaces and coral/lavender accents give the Thai and English content a consistent appearance across screen sizes."
+      ],
+      "projectLink": "project-swu-openhouse.html",
+      "techStack": [
+        "WordPress",
+        "Custom CSS",
+        "Prompt Font"
+      ],
+      "stackLabel": "Platform & styling"
+    },
+    {
+      "role": "Independent case-competition prototype",
+      "company": "Shopee Ultimate Case Challenge",
+      "duration": "2026",
+      "description": [
+        "Data and modeling. The prototype uses 50,000 synthetic orders and 12,000 buyer profiles. A random forest with sigmoid calibration processes buyer history, basket context, delivery window and courier features.",
+        "Holdout evaluation. The saved evaluation reports ROC-AUC 0.8400 and average precision 0.3056 on 3,500 synthetic COD orders. At a 0.15 threshold, the model detects 50 of 91 failures and flags 126 successful orders.",
+        "Adaptive checkout and feedback. Four reliability grades map scores to reminders, 20% or 30% deposits, and prepaid options. Simulated successful deliveries add 8 points, failed deliveries subtract 20, and the next checkout policy is recalculated.",
+        "Full-stack workflow. FastAPI serves scoring and policy endpoints to a smartphone shopping simulator. The interface includes delivery-feedback controls, rule-based EasySell checks, EDA views and a dataset explorer."
+      ],
+      "projectLink": "project-shopee-smart-cod.html",
+      "techStack": [
+        "Python",
+        "scikit-learn",
+        "Random Forest",
+        "Pandas",
+        "NumPy",
+        "FastAPI",
+        "HTML5",
+        "CSS3",
+        "JavaScript"
+      ],
+      "stackLabel": "Tech Stack"
+    },
+    {
+      "role": "Application project · Dashboard prototype",
+      "company": "True Innovation Launchpad 2026 application · Team Nakphatthana Tuapralat",
+      "duration": "2026",
+      "description": [
+        "Patient review. Profile views bring example patient information and risk-factor explanations into one dashboard so a reviewer can inspect the reason for a flag.",
+        "Care coordination. Alert acknowledgement, provider assignment, follow-up status and care notes connect the review queue to the next care-team task.",
+        "Client and API. A React/Vite client connects to a Node.js API. Tailwind CSS styles the interface and Thai/English localization supports the care workflow. The dashboard has not been clinically validated."
+      ],
+      "projectLink": "project-guardian-ai.html",
+      "techStack": [
+        "React",
+        "Vite",
+        "Node.js",
+        "Tailwind CSS",
+        "JavaScript"
+      ],
+      "stackLabel": "Tech Stack"
+    },
+    {
+      "role": "Hackathon application concept",
+      "company": "CDG Hackathon 2026 application · Team GrandGuardianAI",
+      "duration": "2026",
+      "description": [
+        "Monitoring concept. The application proposes collecting service telemetry so an operator can inspect system signals and related alerts in one workflow.",
+        "Alert handling. The concept covers anomaly rules, alert review and incident prioritization, with proposed Python and REST API components.",
+        "Reliability planning. Proposed containerized services and Linux-based operations would support response runbooks and recovery checks. Production availability and zero-downtime failover have not been demonstrated."
+      ],
+      "projectLink": "project-cdg.html",
+      "techStack": [
+        "Python",
+        "Docker",
+        "Linux",
+        "REST APIs"
+      ],
+      "stackLabel": "Proposed Stack"
+    },
+    {
       "role": "Pitcher, Developer & Concept Lead — Track 2: Data Science & Intelligence",
       "company": "KBTG Kampus Hackathon 2026",
       "status": "Top 30 Team Overall · Top 10 in Track 2 (Data Science)",
@@ -303,6 +560,28 @@ const portfolioData = {
   // Featured Engineering Projects
   projects: [
     {
+      "id": "wellync",
+      "title": "WELLYNC — Agentic Healthcare Platform",
+      "domain": "Top 24 team",
+      "context": "NTT DATA Challenge 2026",
+      "description": "A team healthcare platform prototype connecting patient, caregiver and physician workflows. Top 24 team recognition. The project repository is maintained by teammate Panupong-xD and documents the team prototype.",
+      "techStack": [
+        "Healthcare workflows",
+        "Team project"
+      ],
+      "caseStudyLink": "project-wellync.html",
+      "githubLink": "https://github.com/Panupong-xD/NTT-Data"
+    },
+    {
+      "id": "cdg",
+      "title": "Operational AI & System Reliability",
+      "domain": "Hackathon application concept",
+      "context": "CDG Hackathon 2026 application · Team GrandGuardianAI",
+      "description": "A proposal for operational monitoring that brings telemetry, anomaly alerts and incident response into one review workflow. The concept covers monitoring signals, alert review and reliability runbooks. Production availability and zero-downtime failover have not been demonstrated.",
+      "techStack": ["Python", "Docker", "Linux", "REST APIs"],
+      "caseStudyLink": "project-cdg.html"
+    },
+    {
       id: "swu-openhouse-2026",
       title: "SWU OPEN HOUSE 2026 — Web Enhancement & UX/UI",
       domain: "Event Registration & Responsive Web Engineering",
@@ -310,7 +589,7 @@ const portfolioData = {
       caseStudyLink: "project-swu-openhouse.html",
       description: "Interface with a three-step registration guide, faculty poster carousel, event countdown and responsive page sections.",
       keyMetric: "3-Step Registration Flow &bull; Interactive Faculty Carousel &bull; Responsive Design",
-      techStack: [],
+      techStack: ["WordPress", "Custom CSS", "Prompt Font"],
       mockupLaptop: "assets/swu-openhouse-laptop-frame.png",
       mockupDevice: "assets/swu-openhouse-vertical-device.png",
       githubLink: null,
@@ -324,7 +603,7 @@ const portfolioData = {
       caseStudyLink: "project-shopee-smart-cod.html",
       description: "Independent case-competition prototype, synthetic data, not affiliated with or endorsed by Shopee. Calibrated Random Forest failure prediction, four reliability grades, adaptive deposit policies, delivery-feedback scoring, and a FastAPI-powered shopping simulator evaluated on synthetic order data.",
       keyMetric: "0.8400 ROC-AUC on Synthetic Holdout &bull; 50,000 Synthetic Orders &bull; 4 Risk Grades",
-      techStack: ["Python", "scikit-learn", "Random Forest", "FastAPI", "Pandas", "JavaScript"],
+      techStack: ["Python", "scikit-learn", "Random Forest", "Pandas", "NumPy", "FastAPI", "HTML5", "CSS3", "JavaScript"],
       githubLink: "https://github.com/svkhun/Shopee-Ultimate-Case-Challenge",
       liveDemoLink: null
     },
@@ -382,7 +661,7 @@ const portfolioData = {
       context: "Dashboard prototype · Example records",
       description: "Bilingual frailty-triage dashboard prototype with patient profiles, explainable risk-factor views, alert acknowledgement, and care-team follow-up workflows. Clinical outcomes have not been validated.",
       keyMetric: "Frailty Review &bull; Risk Factors &bull; Care Coordination",
-      techStack: ["React", "Vite", "Node.js", "Tailwind CSS", "Thai / English"],
+      techStack: ["React", "Vite", "Node.js", "Tailwind CSS", "JavaScript"],
       githubLink: "https://github.com/svkhun/guardianai-clinical-ops-dashboard",
       liveDemoLink: null
     }

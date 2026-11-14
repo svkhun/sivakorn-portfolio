@@ -358,13 +358,13 @@
           <div>
             <div class="editorial-number-tag">
               <span class="editorial-num">02 / Tech Stack</span>
-              <span class="editorial-cat">Used in projects</span>
+              <span class="editorial-cat">Tools &amp; Architecture Notes</span>
             </div>
             <h2 class="editorial-h2 max-w-2xl">
-              Tools used in project work.
+              Tools used across project work.
             </h2>
             <p class="text-base text-slate-600 dark:text-zinc-400 leading-relaxed max-w-xl mb-0">
-              Each tool below links to a documented use in the K-NEXUS prototype and research workflow.
+              Explore the tools behind the portfolio projects. Open a card to see its role and the related case study.
             </p>
           </div>
         </div>
@@ -373,26 +373,28 @@
         <div class="tech-category-tabs" role="tablist" aria-label="Tech Stack Categories">
           <button type="button" class="tech-filter-tab is-active" data-filter="all" role="tab" aria-selected="true">
             <span>All Technologies</span>
-            <span class="tech-tab-count">(6)</span>
+            <span class="tech-tab-count">(23)</span>
           </button>
           <button type="button" class="tech-filter-tab" data-filter="cat-ml" role="tab" aria-selected="false">
             <span>Machine Learning &amp; AI</span>
-            <span class="tech-tab-count">(4)</span>
+            <span class="tech-tab-count">(7)</span>
           </button>
           <button type="button" class="tech-filter-tab" data-filter="cat-data" role="tab" aria-selected="false">
             <span>Data &amp; Graph Systems</span>
-            <span class="tech-tab-count">(1)</span>
+            <span class="tech-tab-count">(3)</span>
           </button>
           <button type="button" class="tech-filter-tab" data-filter="cat-backend" role="tab" aria-selected="false">
-            <span>Backend &amp; Cloud</span>
-            <span class="tech-tab-count">(1)</span>
+            <span>Backend &amp; Web</span>
+            <span class="tech-tab-count">(9)</span>
           </button>
-
+          <button type="button" class="tech-filter-tab" data-filter="cat-risk" role="tab" aria-selected="false">
+            <span>Risk &amp; Explainability</span>
+            <span class="tech-tab-count">(4)</span>
+          </button>
         </div>
 
         <!-- Tech Cards Grid -->
         <div class="tech-stack-grid" id="tech-stack-grid">
-          <!-- ML Category -->
           <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #3776AB; --brand-glow: rgba(55, 118, 171, 0.35);">
             <div class="tech-card-header">
               <div class="tech-card-icon-wrap">
@@ -400,13 +402,13 @@
               </div>
               <div class="tech-card-title-group">
                 <span class="tech-card-name">Python</span>
-                <span class="tech-card-tag">Core Language</span>
+                <span class="tech-card-tag">Core language</span>
               </div>
               <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
             </div>
             <div class="tech-card-drawer">
               <div class="tech-card-drawer-inner">
-                <p class="tech-card-desc">Data preparation and prototype API logic in <a href="project-flowsense-trustgraph.html">K-NEXUS</a>.</p>
+                <p class="tech-card-desc">Data preparation, graph-training experiments and prototype API logic in <a href="project-flowsense-trustgraph.html">K-NEXUS</a>.</p>
               </div>
             </div>
           </div>
@@ -418,13 +420,13 @@
               </div>
               <div class="tech-card-title-group">
                 <span class="tech-card-name">PyTorch</span>
-                <span class="tech-card-tag">Deep Learning</span>
+                <span class="tech-card-tag">Deep learning</span>
               </div>
               <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
             </div>
             <div class="tech-card-drawer">
               <div class="tech-card-drawer-inner">
-                <p class="tech-card-desc">Past-only R-GCN training experiments in <a href="project-flowsense-trustgraph.html">K-NEXUS</a>; saved tests did not show a GNN advantage.</p>
+                <p class="tech-card-desc">Training framework for the past-only R-GCN graph experiments in <a href="project-flowsense-trustgraph.html">K-NEXUS</a>.</p>
               </div>
             </div>
           </div>
@@ -436,20 +438,52 @@
               </div>
               <div class="tech-card-title-group">
                 <span class="tech-card-name">LightGBM</span>
-                <span class="tech-card-tag">Gradient Boosting</span>
+                <span class="tech-card-tag">Gradient boosting</span>
               </div>
               <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
             </div>
             <div class="tech-card-drawer">
               <div class="tech-card-drawer-inner">
-                <p class="tech-card-desc">Synthetic recipient-risk classification in <a href="project-flowsense-trustgraph.html">K-NEXUS</a>, evaluated against a no-GNN baseline.</p>
+                <p class="tech-card-desc">Default-risk ranking evaluated with five-fold cross-validation against a logistic baseline in <a href="project-credit-risk.html">Credit Risk Scoring</a>.</p>
               </div>
             </div>
           </div>
 
+          <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #FF9900; --brand-glow: rgba(255, 153, 0, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-bolt" style="color: #FF9900;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">XGBoost</span>
+                <span class="tech-card-tag">Tree ensembles</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">One of the tree-model options recorded in the competition project stack in <a href="project-lod-engine.html">LOD Prediction</a>.</p>
+              </div>
+            </div>
+          </div>
 
-
-
+          <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #F7931E; --brand-glow: rgba(247, 147, 30, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-scikitlearn-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Scikit-Learn</span>
+                <span class="tech-card-tag">ML pipelines</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Random forest training, preprocessing and sigmoid calibration for synthetic delivery-risk scoring in <a href="project-shopee-smart-cod.html">Smart COD</a>.</p>
+              </div>
+            </div>
+          </div>
 
           <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #005CED; --brand-glow: rgba(0, 92, 237, 0.35);">
             <div class="tech-card-header">
@@ -458,20 +492,51 @@
               </div>
               <div class="tech-card-title-group">
                 <span class="tech-card-name">ONNX Runtime</span>
-                <span class="tech-card-tag">Inference Engine</span>
+                <span class="tech-card-tag">Model inference</span>
               </div>
               <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
             </div>
             <div class="tech-card-drawer">
               <div class="tech-card-drawer-inner">
-                <p class="tech-card-desc">Classifier artifact execution for <a href="project-flowsense-trustgraph.html">K-NEXUS</a> synthetic recipient-risk review.</p>
+                <p class="tech-card-desc">Executing paired classifier and embedding artifacts for synthetic recipient-risk review in <a href="project-flowsense-trustgraph.html">K-NEXUS</a>.</p>
               </div>
             </div>
           </div>
 
+          <div class="tech-stack-card" data-category="cat-ml" style="--brand-color: #B8860B; --brand-glow: #B8860B40;">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap"><i class="fas fa-cat"></i></div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">CatBoost</span>
+                <span class="tech-card-tag">Tree ensembles</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Blended with LightGBM and evaluated using stratified out-of-fold predictions in <a href="project-lod-engine.html">LOD Prediction</a>.</p>
+              </div>
+            </div>
+          </div>
 
+          <div class="tech-stack-card" data-category="cat-data" style="--brand-color: #150458; --brand-glow: rgba(59, 130, 246, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-pandas-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Pandas &amp; NumPy</span>
+                <span class="tech-card-tag">Data processing</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Preparing order features and arrays for the synthetic order-modeling workflow in <a href="project-shopee-smart-cod.html">Smart COD</a>.</p>
+              </div>
+            </div>
+          </div>
 
-          <!-- Data & Graph Category -->
           <div class="tech-stack-card" data-category="cat-data" style="--brand-color: #008CC1; --brand-glow: rgba(0, 140, 193, 0.35);">
             <div class="tech-card-header">
               <div class="tech-card-icon-wrap">
@@ -479,28 +544,35 @@
               </div>
               <div class="tech-card-title-group">
                 <span class="tech-card-name">PyTorch Geometric</span>
-                <span class="tech-card-tag">Graph Learning</span>
+                <span class="tech-card-tag">Graph learning</span>
               </div>
               <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
             </div>
             <div class="tech-card-drawer">
               <div class="tech-card-drawer-inner">
-                <p class="tech-card-desc">16-dimensional account embeddings in the <a href="project-flowsense-trustgraph.html">K-NEXUS</a> research workflow.</p>
+                <p class="tech-card-desc">Building relational graph experiments with 16-dimensional account embeddings in <a href="project-flowsense-trustgraph.html">K-NEXUS</a>.</p>
               </div>
             </div>
           </div>
 
+          <div class="tech-stack-card" data-category="cat-data" style="--brand-color: #336791; --brand-glow: rgba(51, 103, 145, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-postgresql-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">PostgreSQL</span>
+                <span class="tech-card-tag">Relational database</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Storing simulated machine telemetry for machine-health views and hourly OEE summaries in <a href="project-industrial-iot.html">Industrial IoT</a>.</p>
+              </div>
+            </div>
+          </div>
 
-
-
-
-
-
-
-
-
-
-          <!-- Backend & Cloud Category -->
           <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #009688; --brand-glow: rgba(0, 150, 136, 0.35);">
             <div class="tech-card-header">
               <div class="tech-card-icon-wrap">
@@ -508,35 +580,220 @@
               </div>
               <div class="tech-card-title-group">
                 <span class="tech-card-name">FastAPI</span>
-                <span class="tech-card-tag">Async Microservice</span>
+                <span class="tech-card-tag">API services</span>
               </div>
               <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
             </div>
             <div class="tech-card-drawer">
               <div class="tech-card-drawer-inner">
-                <p class="tech-card-desc">Synthetic spending-plan and transfer-review endpoints in <a href="project-flowsense-trustgraph.html">K-NEXUS</a>.</p>
+                <p class="tech-card-desc">Serving delivery-risk scores, checkout policies and the shopping simulator in <a href="project-shopee-smart-cod.html">Smart COD</a>.</p>
               </div>
             </div>
           </div>
 
+          <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #0DB7ED; --brand-glow: rgba(13, 183, 237, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-docker-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Docker</span>
+                <span class="tech-card-tag">Containerization</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Containerized local services for the simulated manufacturing data platform in <a href="project-industrial-iot.html">Industrial IoT</a>.</p>
+              </div>
+            </div>
+          </div>
 
+          <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #F05032; --brand-glow: rgba(240, 80, 50, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="devicon-git-plain colored"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Git &amp; GitHub</span>
+                <span class="tech-card-tag">Version control</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Version history and source review across the portfolio projects in <a href="projects.html">Project repositories</a>.</p>
+              </div>
+            </div>
+          </div>
 
+          <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #087EA4; --brand-glow: #087EA440;">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap"><i class="devicon-react-original colored"></i></div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">React</span>
+                <span class="tech-card-tag">User interfaces</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Building patient-profile, alert-review and care-coordination views with example records in <a href="project-guardian-ai.html">GuardianAI</a>.</p>
+              </div>
+            </div>
+          </div>
 
+          <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #646CFF; --brand-glow: #646CFF40;">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap"><i class="devicon-vitejs-plain colored"></i></div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Vite</span>
+                <span class="tech-card-tag">Frontend tooling</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Development and build tooling for the React dashboard client in <a href="project-guardian-ai.html">GuardianAI</a>.</p>
+              </div>
+            </div>
+          </div>
 
+          <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #339933; --brand-glow: #33993340;">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap"><i class="devicon-nodejs-plain colored"></i></div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Node.js</span>
+                <span class="tech-card-tag">Backend runtime</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">API layer supporting the dashboard and example patient workflows in <a href="project-guardian-ai.html">GuardianAI</a>.</p>
+              </div>
+            </div>
+          </div>
 
+          <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #0891B2; --brand-glow: #0891B240;">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap"><i class="devicon-tailwindcss-original colored"></i></div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Tailwind CSS</span>
+                <span class="tech-card-tag">Interface styling</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Styling the bilingual dashboard layout and care-team interface in <a href="project-guardian-ai.html">GuardianAI</a>.</p>
+              </div>
+            </div>
+          </div>
 
+          <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #9A6700; --brand-glow: #9A670040;">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap"><i class="devicon-javascript-plain colored"></i></div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">JavaScript</span>
+                <span class="tech-card-tag">Web interactions</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Interactive shopping, delivery-feedback updates and analytics views in <a href="project-shopee-smart-cod.html">Smart COD</a>.</p>
+              </div>
+            </div>
+          </div>
 
+          <div class="tech-stack-card" data-category="cat-backend" style="--brand-color: #E34F26; --brand-glow: #E34F2640;">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap"><i class="devicon-html5-plain colored"></i></div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">HTML &amp; CSS</span>
+                <span class="tech-card-tag">Responsive web</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Page structure and responsive styling for the smartphone shopping simulator in <a href="project-shopee-smart-cod.html">Smart COD</a>.</p>
+              </div>
+            </div>
+          </div>
 
-          <!-- Risk & Explainability Category -->
+          <div class="tech-stack-card" data-category="cat-risk" style="--brand-color: #2563EB; --brand-glow: rgba(37, 99, 235, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-sitemap" style="color: #2563EB;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">TreeSHAP</span>
+                <span class="tech-card-tag">Model attribution</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Explaining which features contribute to a model score in the research interface in <a href="project-credit-risk.html">Credit Risk Scoring</a>.</p>
+              </div>
+            </div>
+          </div>
 
+          <div class="tech-stack-card" data-category="cat-risk" style="--brand-color: #10B981; --brand-glow: rgba(16, 185, 129, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-chart-line" style="color: #10B981;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">OptBinning</span>
+                <span class="tech-card-tag">Scorecard binning</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Weight-of-evidence binning in the documented research scoring workflow in <a href="project-credit-risk.html">Credit Risk Scoring</a>.</p>
+              </div>
+            </div>
+          </div>
 
+          <div class="tech-stack-card" data-category="cat-risk" style="--brand-color: #8B5CF6; --brand-glow: rgba(139, 92, 246, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-shuffle" style="color: #8B5CF6;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">DiCE Recourse</span>
+                <span class="tech-card-tag">Counterfactual examples</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Showing how hypothetical input changes could affect a model score in <a href="project-credit-risk.html">Credit Risk Scoring</a>.</p>
+              </div>
+            </div>
+          </div>
 
-
-
-
-
-
-
+          <div class="tech-stack-card" data-category="cat-risk" style="--brand-color: #0284C7; --brand-glow: rgba(2, 132, 199, 0.35);">
+            <div class="tech-card-header">
+              <div class="tech-card-icon-wrap">
+                <i class="fas fa-sliders" style="color: #0284C7;"></i>
+              </div>
+              <div class="tech-card-title-group">
+                <span class="tech-card-name">Optuna</span>
+                <span class="tech-card-tag">Hyperparameter search</span>
+              </div>
+              <i class="fas fa-chevron-down tech-card-hint-icon" aria-hidden="true"></i>
+            </div>
+            <div class="tech-card-drawer">
+              <div class="tech-card-drawer-inner">
+                <p class="tech-card-desc">Tuning LightGBM for the documented five-fold model-development experiments in <a href="project-credit-risk.html">Credit Risk Scoring</a>.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Sleek High-Contrast Bottom CTA Banner -->
