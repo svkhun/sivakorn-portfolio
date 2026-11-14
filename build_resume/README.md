@@ -1,32 +1,21 @@
-# Resume, CV & Cover Letter Editorial Build System
+# Resume and CV build
 
-This directory maintains the source code and build automation for Sivakorn Khundilokrattaya's matched editorial document suite (`Newsreader` serif + `Inter` sans-serif + `#C96442` terracotta accent, bundled locally in `../assets/fonts/`).
+`resume.html` and `cv.html` are the maintained content sources. Their inline print styles and `document-theme.css` retain the design from pushed commit `92ecc471d6c686dae44d87e0d4620c3ddf59397b`: Newsreader, Inter and the terracotta accent.
 
-## Documents
+The Cover Letter is deferred. Its source and original PDF remain unchanged and neither build entry point generates it.
 
-1. **Resume (1-Page Industry Resume — Website Primary Download)**
-   - Source: `resume.html`
-   - Output: `Sivakorn_Khundilokrattaya_Resume.pdf` (Strictly 1 A4 Page)
-   - Target: Fast-track industry portals, ATS screening, and the single primary download button on the portfolio website (`index.html`, `experience.html`, `contact.html`).
+## Build
 
-2. **Curriculum Vitae (2-Page Complete Technical & Competition Dossier)**
-   - Source: `cv.html`
-   - Output: `Sivakorn_Khundilokrattaya_CV.pdf` (Strictly 2 A4 Pages)
-   - Target: Research fellowships, academic applications, and deep-dive reviews. Uses left-rail competition/context tags (`KBTG Top 10 DS`, `Aihack Finalist`, `Shopee Challenge`, `Research Prototype`) on Page 1, and houses Additional Projects, a unified Honors & Competition Leadership roster, and Standardized Assessments on Page 2.
+Use the project's Python environment with `pypdf` installed and an installed Google Chrome:
 
-3. **Cover Letter (1-Page Editorial Cover Letter)**
-   - Source: `cover_letter.html`
-   - Output: `Sivakorn_Khundilokrattaya_Cover_Letter.pdf` (Strictly 1 A4 Page)
-   - Target: Matched 1-page cover letter for Data Science, Machine Learning, and Quantitative Fintech internship applications.
-
-## How to Build & Recompile
-
-Run the automated build script:
-```bash
-python build_resume/build_documents.py
+```powershell
+python build_resume/build_documents.py --revision 20261114_content_v2
 ```
 
-This will:
-1. Re-render all three documents using headless Google Chrome with exact A4 print settings and suppressed browser headers/footers.
-2. Programmatically verify page counts (`Resume = 1 page`, `CV = 2 pages`, `Cover Letter = 1 page`).
-3. Copy all verified PDFs to `../assets/`.
+Supply a new revision on each build. Optional arguments are `--chrome PATH` and `--output-dir PATH`. `CHROMIUM_EXECUTABLE` also selects Chrome. The legacy Node entry point delegates to the same Python build; set `PYTHON` if Python is not on PATH.
+
+Outputs use new names under `output/pdf/`. The builder refuses existing targets, rejects unresolved review fields, verifies one Resume page and two CV pages, checks bullet/title text and footers, and requires clickable repository links. It does not copy files into `assets/` or overwrite the original PDFs.
+
+Render and visually inspect every page after building. Check typography, clipping, page numbers and links before copying the approved new filenames into `assets/` and updating the site downloads. The documents currently contain English text only; no Thai text or new Thai font has been added.
+
+The reviewed content revision is `20261114_content_v2`. Availability dates, enrollment year, coursework and unconfirmed individual contributions are omitted rather than filled with placeholders.

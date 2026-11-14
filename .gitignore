@@ -46,6 +46,9 @@ dist/
 build/
 build_resume/*.pdf
 out/
+/output/
+__pycache__/
+*.py[cod]
 .next/
 .vercel/
 .cache/

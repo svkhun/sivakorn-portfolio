@@ -28,8 +28,8 @@ const portfolioData = {
 
   // Resume Documents
   resumes: {
-    primary: "assets/Sivakorn_Khundilokrattaya_Resume.pdf",
-    cv: "assets/Sivakorn_Khundilokrattaya_CV.pdf",
+    primary: "assets/Sivakorn_Khundilokrattaya_Resume_20261114_content_v2.pdf",
+    cv: "assets/Sivakorn_Khundilokrattaya_CV_20261114_content_v2.pdf",
     aihackCertificate: "assets/aihack_thailand_2025_certificate.pdf",
     nhkScholarshipAnnouncement: "assets/nhk_spring_scholarship_announcement.pdf"
   },
@@ -39,11 +39,25 @@ const portfolioData = {
     title: "Hi all, I'm Sivakorn",
     fullName: "Sivakorn Khundilokrattaya",
     subTitle: "Building explainable decision-support prototypes in credit risk, fraud review, and e-commerce.",
-    resumeLink: "assets/Sivakorn_Khundilokrattaya_Resume.pdf"
+    resumeLink: "assets/Sivakorn_Khundilokrattaya_Resume_20261114_content_v2.pdf"
   },
 
   // What I Do (Categorized Tech Stacks & Capabilities)
-  whatIDo: [],
+  whatIDo: [{
+    id: "ds-ml",
+    title: "Tools used in project work",
+    subtitle: "Documented K-NEXUS prototype and research workflow",
+    projectLink: "project-flowsense-trustgraph.html",
+    skills: ["Past-only graph experiments, model comparison and prototype API work; synthetic results do not establish real-world outcomes."],
+    softwareSkills: [
+      { name: "Python", level: "Used", projectLink: "project-flowsense-trustgraph.html" },
+      { name: "PyTorch", level: "Used", projectLink: "project-flowsense-trustgraph.html" },
+      { name: "LightGBM", level: "Used", projectLink: "project-flowsense-trustgraph.html" },
+      { name: "ONNX Runtime", level: "Used", projectLink: "project-flowsense-trustgraph.html" },
+      { name: "PyTorch Geometric", level: "Used", projectLink: "project-flowsense-trustgraph.html" },
+      { name: "FastAPI", level: "Used", projectLink: "project-flowsense-trustgraph.html" }
+    ]
+  }],
 
   // Education & Degrees Received
   education: {
@@ -381,8 +395,8 @@ const portfolioData = {
     email: "sivakorn.khun@gmail.com",
     location: "Bangkok, Thailand",
     availability: "Seeking an internship. Contact me to discuss dates and working arrangements.",
-    resumePdf: "assets/Sivakorn_Khundilokrattaya_Resume.pdf",
-    cvPdf: "assets/Sivakorn_Khundilokrattaya_CV.pdf"
+    resumePdf: "assets/Sivakorn_Khundilokrattaya_Resume_20261114_content_v2.pdf",
+    cvPdf: "assets/Sivakorn_Khundilokrattaya_CV_20261114_content_v2.pdf"
   }
 };
 
