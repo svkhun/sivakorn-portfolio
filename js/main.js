@@ -926,7 +926,8 @@
       '.ev-monograph',
       '.scorecard-interactive-box',
       '.oee-pill-card',
-      '.bedside-card-mockup'
+      '.bedside-card-mockup',
+      '.page-seq-card'
     ];
 
     const cards = document.querySelectorAll(cardSelectors.join(', '));
