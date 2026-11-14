@@ -1,16 +1,15 @@
 <div align="center">
 
 # Sivakorn Khundilokrattaya
-### Data Scientist & Machine Learning Engineer &bull; FinTech & Quantitative Risk
+### Computer Engineering Student · Data Science & Machine Learning
 
 [![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-svkhun.vercel.app-0284C7?style=for-the-badge&logo=vercel&logoColor=white)](https://svkhun.vercel.app)
 [![FlowSense & TrustGraph](https://img.shields.io/badge/Flagship-FlowSense_%26_TrustGraph-00A950?style=for-the-badge&logo=fastapi&logoColor=white)](https://k-nexus-showcase.onrender.com/)
 [![Education](https://img.shields.io/badge/Education-B.Eng._Computer_Engineering_@_SWU-38BDF8?style=for-the-badge&logo=google-scholar&logoColor=white)](https://swu.ac.th)
 [![Design System](https://img.shields.io/badge/Design-Keynote_Slide_Deck_%7C_Dark_Slate-6366F1?style=for-the-badge)](https://svkhun.vercel.app)
-[![License: MIT](https://img.shields.io/badge/License-MIT-059669?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 <p align="center">
-  <strong>Architecting explainable credit risk engines, Basel-compliant probability of default (PD) models, and scalable production data pipelines.</strong>
+  <strong>Building explainable decision-support prototypes in credit risk, fraud review, and e-commerce.</strong>
 </p>
 
 [Explore Projects](#-featured-engineering-case-studies) &bull; [Competitions & Hackathons](#-competitions--industry-challenges) &bull; [KBTG Certifications](#-verified-industry-credentials--assessments) &bull; [Architecture & Design](#-architectural-highlights--keynote-presentation) &bull; [GitHub](https://github.com/svkhun) &bull; [LinkedIn](https://www.linkedin.com/in/sivakorn-khundilokrattaya-5870b8429/)
@@ -21,20 +20,17 @@
 
 ## 📌 Executive Summary
 
-I am a **Computer Engineering student at Srinakharinwirot University (SWU, Class of 2026)** specializing in **statistical tabular machine learning, Heterogeneous Graph Neural Networks (GNNs), Basel II/III credit risk modeling, regulatory-compliant Explainable AI (XAI), and high-throughput production data pipelines**.
+I am a **Computer Engineering student at Srinakharinwirot University, expected graduation 2028**, seeking an internship. Dates and working arrangements remain to be discussed around the planned two-month NHK Spring summer internship.
 
-In institutional finance and quantitative underwriting, black-box machine learning models introduce unacceptable regulatory and solvency liabilities. My engineering discipline unites rigorous statistical risk modeling with modern software reliability:
-* **Synthetic transaction-risk research:** Compare a past-only graph-augmented classifier with a no-GNN baseline and connect prototype scores to separate review policies. No GNN advantage or real-world interception is established.
-* **Calibrated Default Prediction**: Estimating Probability of Default (PD) via monotonic Weight of Evidence (WoE) binning, Information Value (IV) screening, and asymmetric cost matrix threshold optimization.
-* **Regulatory Compliance & Explainability**: Decomposing complex non-linear models with **TreeSHAP** and **Counterfactual What-If Recourse** to deliver auditable, legally defensible Adverse Action notices under **ECOA (12 C.F.R. § 1002.9) / FCRA**.
-* **Risk Governance & Stability**: Monitoring continuous model drift, Population Stability Index (PSI < 0.10), and Kolmogorov-Smirnov separation (KS > 40%) across temporal cohorts.
-* **Production Data Engineering**: Implementing Hybrid Lambda data platforms, sub-second PLC telemetry streaming via WebSockets, idempotent hourly OEE Data Marts in PostgreSQL 15, and low-latency FastAPI inference microservices (< 30ms).
+Building explainable decision-support prototypes in credit risk, fraud review, and e-commerce.
+
+Model-development scores, synthetic evaluations and modeled savings are labeled separately. They do not establish lending approval, clinical efficacy, factory outcomes or realized savings.
 
 ---
 
 ## 🎨 Architectural Highlights & masterPortfolio Design System
 
-The portfolio is architected following the clean, structured, and developer-focused **masterPortfolio aesthetic** (inspired by Ashutosh Hathidara):
+The portfolio follows the clean, structured, and developer-focused **masterPortfolio aesthetic** (inspired by Ashutosh Hathidara):
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -44,18 +40,18 @@ The portfolio is architected following the clean, structured, and developer-focu
 │  [ Brand Accent ] ──> Solid Professional Deep Blue (#0056B3)                │
 │  [ Architecture ] ──> Modular Multi-Page Structure (Home, Edu, Exp, Proj)  │
 │  [ Data Store   ] ──> Centralized Data Dictionary (js/portfolio-data.js)    │
-│  [ Typography   ] ──> Inter (Headings/Body) + JetBrains Mono (Metrics/Code) │
-│  [ Performance  ] ──> Lightweight Zero-Dependency Vanilla ES6+ (< 25KB CSS) │
-│  [ Graphics     ] ──> 100% Vector Flat SVG Tech & Developer Illustrations   │
+│  [ Typography   ] ──> Geist (Headings/Body) + Geist Mono (Metrics/Code) │
+│  [ Performance  ] ──> Vanilla ES6+ with bundled animation libraries (shared CSS) │
+│  [ Graphics     ] ──> SVG illustrations and project/event images   │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 * **Content-Driven Layout**: Generous whitespace (`clamp(60px, 7vw, 90px) 0`), clear typography hierarchy, and structured cards optimized for hiring managers and technical leadership to digest complex engineering achievements without cognitive overload.
-* **Dedicated Deep-Dive Case Study Pages**: 6 standalone editorial case studies (`project-*.html`) covering graph screening, COD reliability, credit risk, debt recovery, industrial telemetry, and clinical operations.
-* **Bespoke Apple/Linear Fluid Animation Suite**: Custom physics-based cubic-bezier easing (`cubic-bezier(0.16, 1, 0.3, 1)`), staggered scroll cascades, real-time SVG packet flows, and strict `prefers-reduced-motion` compliance.
+* **Dedicated Deep-Dive Case Study Pages**: 7 standalone editorial case studies (`project-*.html`) covering graph screening, COD reliability, credit risk, debt recovery, industrial telemetry, and clinical operations.
+* **Bespoke Apple/Linear Fluid Animation Suite**: Custom physics-based cubic-bezier easing (`cubic-bezier(0.16, 1, 0.3, 1)`), staggered scroll cascades, real-time SVG packet flows, and `prefers-reduced-motion` styles.
 * **Dual Theme Engine**: Seamless toggle between crisp, clean light mode and dark slate theme with persistent preference storage in `localStorage`.
 * **Zero Anti-Patterns**: Free of purple-to-blue neon gradients, heavy drop-shadows, glassmorphism blur, and distracting particle physics animations.
-* **Separation of Data & Layout**: All portfolio items, credentials, metrics, and case studies are managed within `js/portfolio-data.js`.
+* **Separation of Data & Layout**: Pages contain independent static HTML. `js/portfolio-data.js` is a supporting content record; both must be updated together.
 * **Crisp Vector Illustrations**: Custom SVG illustrations for Hero, What I Do categories, Education, Experience, Projects, and Contact sections.
 
 ---
@@ -68,87 +64,43 @@ The portfolio is architected following the clean, structured, and developer-focu
 * **Application:** [Demo](https://k-nexus-app.onrender.com/) · [Source](https://github.com/svkhun/K-NEXUS-Application). Spending plans, reserves, simulated savings and recipient-risk review. FlowSense uses HISTORY_MEAN → SCENARIO → ABSTAIN with ML disabled.
 * **Showcase:** [Portal](https://k-nexus-showcase.onrender.com/) · [Source](https://github.com/svkhun/K-NEXUS-Showcase). Separate presentation, training and evaluation evidence.
 * **TrustGraph:** Saved synthetic test AP 0.99640 (no-GNN) versus 0.99373 (R-GCN + LightGBM), 1,354 transactions / 67 positives. No GNN advantage or real-world fraud prevention is established.
-* **FlowSense:** proposed.4 / synthetic v2.1.1 Gate 2 passed no horizon; direct-ML development is not validated for integration. No qualifying export followed.
+* **FlowSense:** No tested forecast horizon met the acceptance criteria. The 30-day ML forecast did not beat the account-mean baseline: candidate model MAE 2,701.6 versus baseline MAE 313.3 THB/account-origin. FlowSense ML remains disabled; no qualifying export followed.
 * **Status:** The historical 30 October audit concluded READY_FOR_DEMO_WITH_LIMITATIONS. Live uptime was not reverified in this content update. Older latency/CASA headlines are not current runtime or realized business outcomes.
 * [Case study](project-flowsense-trustgraph.html) · [Sources and claim record](docs/k-nexus-content-update-20261106.md)
 
 ---
 
-### 2. Enterprise Credit Risk Scoring & Explainable AI (XAI)
-* **Domain**: Quantitative Credit Risk, Basel II/III Compliance, Consumer Lending Intelligence.
-* **Case Study**: [Interactive Deep-Dive](https://svkhun.vercel.app/project-credit-risk) &bull; **Repository**: [https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI](https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI)
-* **Problem**: Standard deep learning and complex ensemble models operate as black boxes, exposing financial institutions to severe legal penalties under ECOA / SR 11-7 model risk governance.
-* **Architecture**:
-  * Continuous feature discretization using **Monotonic Weight of Evidence (WoE)** and **Information Value (IV)** filtering.
-  * Dual-scorecard engine combining calibrated **Logistic Regression** baseline with tuned **LightGBM**.
-  * Exact instance-level Shapley value decomposition ($f(x) = \mathbb{E}[f(x)] + \sum_{j=1}^M \phi_j$) via **TreeSHAP** to generate automated, legally defensible Adverse Action notices.
-  * Prescriptive **Counterfactual Recourse (DiCE)** generating actionable loan adjustments to flip rejections into approvals.
-* **Key Metrics**:
-  * **0.892 ROC-AUC** (0.784 Gini) on 5-Fold Stratified Cross-Validation.
-  * **42.6% KS Separation Statistic** demonstrating high discriminatory power between good and bad loan applicants.
-  * **PSI < 0.10** indicating robust temporal population stability.
-  * **< 50ms** FastAPI inference latency delivering real-time underwriting decisions.
+### 2. Credit Risk Scoring & Explainable AI
+* **Scope:** Research decision-support prototype with scoring, explanations and hypothetical scenarios; not a regulator-approved lending system.
+* **Repository-reported experiment:** 5-fold cross-validation ROC-AUC 0.7420 (WoE logistic baseline) and 0.7854 (tuned LightGBM); tuned-model Gini 0.5708 and KS 43.17%. These are model-development results.
+* **Evidence:** [Project README](https://github.com/svkhun/Credit-Risk-Scoring-Explainable-AI/blob/main/README.md) · [Case study](project-credit-risk.html).
 
 ---
 
-### 3. Long Overdue Debtor (LOD) Prediction System
-* **Domain**: Non-Performing Loan (NPL) Prevention, Asymmetric Loss Optimization.
-* **Context**: **Aihack Thailand 2025 National Finalist** (Organized by AIRA & AIFUL, Chulalongkorn Business School, and ProbSpace).
-* **Case Study**: [Interactive Deep-Dive](https://svkhun.vercel.app/project-lod-engine) &bull; **Repository**: [https://github.com/svkhun/aiful-credit-risk-modeling](https://github.com/svkhun/aiful-credit-risk-modeling)
-* **Problem**: Default classification on ~40,000 real-world consumer loans under extreme 1:12 default imbalance and blind private leaderboard evaluation.
-* **Architecture**:
-  * Formulated temporal delinquency velocity ratios, credit exhaustion slopes, and payment behavior vectors.
-  * 5-Fold Stratified Cross-Validation tuning LightGBM and XGBoost via Bayesian Optuna search.
-  * Out-of-fold rank and probability blending combining CatBoost symmetric trees with LightGBM leaf-wise GBDT.
-  * Asymmetric cost-matrix optimization: mathematically balancing the catastrophic cost of False Negatives (unrecovered principal default) against False Positives (lost customer margin).
-  * Interactive client-side ROC curve & Decision Matrix threshold simulator.
-* **Key Metrics**:
-  * **0.894 ROC-AUC** across out-of-time blind test partitions.
-  * **~40,000** Real consumer loan records evaluated.
-  * **PSI < 0.10** Scorecard stability index.
-  * **National Finalist** tier in Aihack Thailand 2025.
+### 3. Long Overdue Debtor (LOD) Prediction
+* **Result:** AiHack Thailand 2025 national finalist (team entry); participation certificate records attendance at the final round.
+* **Experiment:** V13 CatBoost/LightGBM blend — **0.65333 out-of-fold ROC-AUC**, as attributed to the public repository. Confidential competition records are not published; the dataset is described qualitatively as imbalanced.
+* **Limits:** The experiment does not establish actual debt recovery or a deployed lending outcome.
+* **Evidence:** [Project README](https://github.com/svkhun/aiful-credit-risk-modeling/blob/main/README.md) · [Case study](project-lod-engine.html).
 
 ---
 
-### 4. Industrial IoT & OEE Manufacturing Data Platform
-* **Domain**: Hybrid Lambda Data Engineering, Industrial Telemetry & Predictive Quality.
-* **Case Study**: [Interactive Deep-Dive](https://svkhun.vercel.app/project-industrial-iot) &bull; **Repository**: [https://github.com/svkhun/mfg-data-pipeline](https://github.com/svkhun/mfg-data-pipeline)
-* **Problem**: Factory automation requires simultaneous sub-second edge anomaly detection and compute-intensive hourly batch aggregations for Overall Equipment Effectiveness (OEE) tracking.
-* **Architecture**:
-  * **Hybrid / Lambda Pipeline**: Decoupled sub-second edge event streaming from idempotent batch Data Mart processing.
-  * **Physical Data Quality Gate**: Multi-machine PLC simulator (automotive manufacturing baseline) streaming cycle times, vibration RMS/Kurtosis harmonics, temperatures, and press loads; automatically filters non-positive ($t \le 0$) cycle times.
-  * **Idempotent Batch OEE Data Mart**: PostgreSQL 15 dimensional store computing $OEE = \text{Availability} \times \text{Performance} \times \text{Quality}$ with `ON CONFLICT DO UPDATE` deterministic upserts and structured audit trails.
-  * **Dual ML & TreeSHAP XAI**: Unsupervised Isolation Forest (0–100% continuous health scores) paired with cost-sensitive LightGBM Virtual Metrology predicting defect escape risk; TreeSHAP decomposes machine sensor anomalies into actionable root causes for line operators.
-  * **Observability & Serving**: High-concurrency FastAPI service with asynchronous WebSockets (`/api/ws/telemetry`) and responsive live React 18 + Tailwind CSS shopfloor dashboard.
-* **Key Metrics**:
-  * **< 1.0s** WebSocket push latency from edge PLC event to live UI.
-  * **100%** Idempotent upsert execution guarantee across hourly aggregation windows.
-  * **OEE = A × P × Q** Automated hourly data mart calculations.
-  * **TreeSHAP** Real-time localized root cause explainability.
+### 4. Industrial IoT & OEE Data Platform
+* **Scope:** Simulated sensor readings flow through FastAPI, PostgreSQL and WebSockets to a React dashboard; batch processing builds hourly OEE summaries.
+* **Limits:** The prototype does not establish live factory PLC integration, measured throughput, latency or downtime savings. OEE = availability × performance × quality is a calculation, not a factory outcome.
+* [Repository](https://github.com/svkhun/mfg-data-pipeline) · [Case study](project-industrial-iot.html).
 
 ---
 
-### 5. GuardianAI – Clinical Frailty & Fall Risk Intervention
-* **Domain**: Healthcare AI, Preventive Geriatric Analytics.
-* **Context**: **True Innovation Launchpad 2026** (AI & Data Science Lead &bull; Team Nakphatthana Tuapralat).
-* **Case Study**: [Interactive Deep-Dive](https://svkhun.vercel.app/project-guardian-ai) &bull; **Repository**: [https://github.com/svkhun/guardianai-clinical-ops-dashboard](https://github.com/svkhun/guardianai-clinical-ops-dashboard)
-* **Problem**: Early identification of elderly frailty and acute fall risk before irreversible physical decline occurs.
-* **Architecture**:
-  * Calibrated **XGBoost** risk engine trained on multi-biometric physical markers, gait parameters, and health records.
-  * Integrated localized **SHAP** attribution to explain individual patient risk drivers directly to clinical practitioners.
-  * Asynchronous containerized **FastAPI** medical scoring endpoint with sub-30ms response times.
-  * Proactive clinical workflow dashboard built with **React** and **Tailwind CSS** for physician-facing triage queues.
-* **Key Metrics**:
-  * **< 30ms** FastAPI inference latency for real-time clinical assessment.
-  * **Platt-Calibrated XGBoost** probabilities providing interpretable risk stratifications.
-  * **Local SHAP** Clinical attributions for medical decision support.
-  * **Docker** Isolated microservice deployment.
+### 5. GuardianAI Dashboard Prototype
+* **Scope:** React/Vite client, Node.js API, example patient records and Thai/English care-coordination views.
+* **Limits:** Not clinically validated. No trained-model evaluation or latency result is established.
+* [Repository](https://github.com/svkhun/guardianai-clinical-ops-dashboard) · [Case study](project-guardian-ai.html).
 
 ---
 
 ### 6. Shopee Smart COD Reliability
-* **Context**: Shopee Ultimate Case Challenge (SUCC) 2026 — case competition project.
-* **My Role**: Lead Data Scientist & Product Architect.
+* **Context:** Independent case-competition prototype, synthetic data, not affiliated with or endorsed by Shopee.
 * **Case Study**: [Deep Dive](https://svkhun.vercel.app/project-shopee-smart-cod) &bull; **Repository**: [Source Code](https://github.com/svkhun/Shopee-Ultimate-Case-Challenge)
 * **Implementation**: A calibrated, class-balanced Random Forest with 9 numeric and 2 categorical inputs, FastAPI inference, a vanilla JavaScript smartphone simulator, EDA dashboard, and dataset explorer.
 * **Decision Policy**: Four reliability grades with reminders, 20%/30% deposits, prepaid options, delivery-feedback score updates, and rule-based EasySell checks.
@@ -162,78 +114,42 @@ The portfolio is architected following the clean, structured, and developer-focu
 
 | Competition / Hackathon | Organization / Hosts | Role & Focus | Timeline |
 | :--- | :--- | :--- | :--- |
-| **Shopee Ultimate Case Challenge 2026** | Shopee | **Lead Data Scientist & Product Architect** &bull; Smart COD Reliability prototype | 2026 |
-| **KBTG Kampus Hackathon 2026** | Kasikorn Business-Technology Group (KBTG) | **Pitcher, Developer & Concept Lead** &bull; Track 2: Data Science & Intelligence &bull; K-NEXUS &bull; **Top 30 Team Overall &bull; Top 10 in Track 2 (Data Science)** | 7 Nov 2026 |
-| **CDG Hackathon 2026** | CDG Group | Operational AI & System Reliability (Team GrandGuardianAI) | Jul 2026 |
-| **Geospatial Intelligence for Resilience Hackathon 2026** | GISTDA &bull; KMITL &bull; KMUTT | Spatial Lead &bull; 30m Grid Flash Flood Mapping via Sentinel-1 SAR & Copernicus DEM | Jan 2026 |
-| **True Innovation Launchpad 2026** | True Corporation | AI & Data Science Lead &bull; Preventive Healthcare & Clinical Frailty Scoring (GuardianAI) | Jan 2026 |
-| **Aihack Thailand 2025** | AIRA & AIFUL &bull; Chulalongkorn Business School &bull; ProbSpace | **National Finalist** &bull; Long Overdue Debtor (LOD) Prediction (~40,000 credit records, 0.894 ROC-AUC) | Dec 2025 |
-| **LINE MAN Campus VIP Growth Campaign** | LINE MAN Wongnai | Unit Economics Lead &bull; 8.87 THB CAC, 462 student conversions within 8,000 THB budget | Nov 2024 |
+| **KBTG Kampus Hackathon 2026** | KBTG | Pitcher, Developer & Concept Lead · Top 30 teams overall / Top 10 Data Science | 7 Nov 2026 |
+| **NTT DATA Challenge 2026** | NTT DATA | Top 24 team · WELLYNC; [teammate repository](https://github.com/Panupong-xD/NTT-Data) | 2026 |
+| **AiHack Thailand 2025** | AIRA & AIFUL / Chulalongkorn Business School / ProbSpace | National finalist (team entry) | Dec 2025 |
 
 ---
 
 ## 📜 Verified Industry Credentials & Assessments
 
-### SKILLKAMP by KBTG Industry Benchmarks
-Certified by **Kasikorn Business-Technology Group (KBTG)** across standardized quantitative technical assessments:
+### SKILLKAMP by KBTG assessment reports
 
-| Assessment Track | Score | Benchmark | Status |
-| :--- | :---: | :---: | :---: |
-| **Data Analyst (STAMP)** | **97 / 150** | 90.0 | Verified Intermediate (Above Benchmark) |
-| **Digital & Performance Marketer** | **98 / 150** | 94.0 | Verified Intermediate (Top Tier Analytics) |
+Both assessments were taken on **21 March 2026**. The comparison is with the average shown on each supplied report.
 
-#### 5-Domain Competency Breakdown (Data Analyst Track):
-```
-1. Data Cleaning & Preprocessing      [████████████████░░░░]  23 / 30  (76.7%)
-2. EDA & Visualization                [██████████████░░░░░░]  20 / 30  (66.7%)
-3. Foundations of Data Analysis       [██████████████░░░░░░]  20 / 30  (66.7%)
-4. Machine Learning for Analysts      [█████████████░░░░░░░]  18 / 30  (60.0%)
-5. SQL & Quantitative Querying        [████████████░░░░░░░░]  17 / 30  (56.7%)
-─────────────────────────────────────────────────────────────────────────────
-TOTAL VERIFIED SCORE:                                         97 / 150
-```
+| Assessment | Score | Report average |
+|---|---:|---:|
+| Data Analyst | 97 / 150 | 90 / 150 |
+| Digital and Performance Marketer | 98 / 150 | 94 / 150 |
 
-### Standardized International Assessments
-* **Oxford Placement Test (AUA / Oxford University Press)**:
-  * **CEFR Level: B1+** (Working Professional English Proficiency)
-  * **Total Score: 51 / 120** (Grammar & Use of English: 54 / B1, Listening: 48 / B1)
+Data Analyst subjects: Foundations of Data Analysis 20/30; Data Cleaning and Preprocessing 23/30; Exploratory Data Analysis and Visualization 20/30; Data Analysis Techniques and Statistical Methods 16/30; Machine Learning for Data Analysts 18/30.
 
-### Academic Degree
-* **B.Eng. in Computer Engineering** &bull; Srinakharinwirot University (SWU, Bangkok, Thailand)
-* **Expected Graduation**: Class of 2026
-* **Curriculum Focus**: Statistical Machine Learning, Advanced Database Systems (RDBMS & Distributed Data), Operating Systems, Probability & Mathematical Statistics, Data Structures & Algorithms, Distributed Systems.
+Digital and Performance Marketer subjects: Data-Driven Marketing 21/30; Customer Segmentation and Targeting 16/30; Digital Marketing Analytics 26/30; Data-Driven Content Marketing 19/30; Marketing Strategy and Optimization 16/30.
 
----
+### Oxford Placement Test
 
-## 🛠 Technical Arsenal
+Supplied AUA/Oxford report: **21 June 2026**, overall score **51**, **CEFR B1**; Use of English 54/B1 and Listening 48/B1.
 
-```
-┌──────────────────┬───────────────────────────────────────────────────────────┐
-│ CATEGORY         │ TECHNOLOGIES & TOOLS                                      │
-├──────────────────┼───────────────────────────────────────────────────────────┤
-│ Tabular ML / DS  │ Python, LightGBM, XGBoost, CatBoost, Scikit-Learn, Pandas │
-│ Graph ML & GNN   │ PyTorch Geometric (PyG), Relational GCN (RGCN), GNNs      │
-│ High-Perf Engine │ ONNX Runtime v1.30 (Sub-millisecond Model Execution)     │
-│ Risk & XAI       │ OptBinning (WoE/IV), TreeSHAP, Counterfactual XAI, SciPy  │
-│ Data Eng & DB    │ Redis Feature Store, PostgreSQL 15, Apache Spark, Polars  │
-│ Backend & API    │ FastAPI (Asynchronous), WebSockets, Docker Microservices  │
-│ Frontend & UI    │ React 18, React Router 6, Vite, Tailwind CSS, Vanilla JS  │
-│ Tooling & DevOps │ Docker Compose, Git, GitHub Actions, Vercel, Linux / Bash │
-└──────────────────┴───────────────────────────────────────────────────────────┘
-```
+### Education and availability
 
----
+B.Eng. Computer Engineering student at Srinakharinwirot University; **expected graduation 2028**. NHK Spring scholarship **2026–2027** includes a planned two-month Year 3 summer internship. Exact internship dates and availability remain to be agreed.
 
-## 🛡 Production Security Hardening & AppSec Controls
+### SWU Open House interface
 
-* **Web Crypto Administrative Authentication**: Interactive telemetry and administrative drawers are authenticated via client-side SHA-256 hash digests (`window.crypto.subtle.digest`). Plaintext credentials are never committed or exposed in client bundles.
-* **Transient URL Sanitization**: Query parameter authentication tokens (`?auth=...`) are scrubbed from browser history in-memory using `window.history.replaceState` immediately upon verification.
-* **HTTP Defense-in-Depth (`vercel.json`)**:
-  * `Content-Security-Policy`: Strictly restricts script execution and style origins to authorized domains and CDNs.
-  * `X-Frame-Options: DENY`: Full protection against clickjacking and UI redressing attacks.
-  * `X-Content-Type-Options: nosniff`: Enforces strict MIME-type sniffing defense.
-  * `Referrer-Policy: strict-origin-when-cross-origin`.
-  * `Permissions-Policy`: Restricts browser hardware access (camera, microphone, geolocation).
+The case study illustrates a three-step registration guide, a faculty poster carousel, a countdown and responsive page sections. It does not establish measured traffic/conversion outcomes or an API integration method. [Case study](project-swu-openhouse.html).
+
+## HTTP response headers
+
+`vercel.json` configures `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY` and `Referrer-Policy: strict-origin-when-cross-origin`. This describes configuration, not a security certification.
 
 ---
 
@@ -256,12 +172,12 @@ npx serve .
 
 Open `http://localhost:8080` (or `http://localhost:3000`) in any modern web browser.
 
-### Production Deployment
+### Vercel deployment
 
 The project is configured for automated, zero-config continuous deployment on **Vercel**:
 
 ```bash
-# Deploy to production
+# Publish a reviewed revision
 vercel --prod
 ```
 
@@ -277,7 +193,7 @@ sivakorn-portfolio/
 ├── projects.html               # Projects page (Curated Interactive Engineering Timeline)
 ├── project-shopee-smart-cod.html # Case Study: Calibrated COD risk & adaptive checkout
 ├── project-flowsense-trustgraph.html     # Case Study: FlowSense cashflow & TrustGraph transfer screening
-├── project-credit-risk.html    # Case Study: Basel II/III Credit Risk & DiCE Counterfactual Recourse
+├── project-credit-risk.html    # Case Study: Credit risk decision-support prototype
 ├── project-lod-engine.html     # Case Study: Long Overdue Debtor (LOD) & 4-Tier Recovery Waterfall
 ├── project-industrial-iot.html # Case Study: Industrial IoT Telemetry & OEE Manufacturing Data Mart
 ├── project-guardian-ai.html    # Case Study: GuardianAI Clinical Horizon & Bedside Triage Engine
@@ -299,13 +215,13 @@ sivakorn-portfolio/
 
 ## 📬 Contact & Connectivity
 
-I am actively seeking **full-time Data Scientist, Machine Learning Engineer, and Quantitative Risk Analyst** opportunities.
+I am seeking a **Data Science / Machine Learning internship**. Please contact me to discuss dates, location and availability around the planned NHK Spring summer placement.
 
 * **Portfolio Website**: [svkhun.vercel.app](https://svkhun.vercel.app)
 * **Direct Email**: [sivakorn.khun@gmail.com](mailto:sivakorn.khun@gmail.com)
 * **LinkedIn**: [linkedin.com/in/sivakorn-khundilokrattaya-5870b8429](https://www.linkedin.com/in/sivakorn-khundilokrattaya-5870b8429/)
 * **GitHub**: [github.com/svkhun](https://github.com/svkhun)
-* **Location**: Bangkok, Thailand (Available for On-site, Hybrid & Remote roles)
+* **Location**: Bangkok, Thailand; internship arrangements to be discussed
 
 ---
 

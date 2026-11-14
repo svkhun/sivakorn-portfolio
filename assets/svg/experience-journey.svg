@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 430" role="img" aria-labelledby="journey-title journey-description">
-  <title id="journey-title">Selected experience journey, 2024 to 2027</title>
-  <desc id="journey-description">An ascending curved path links LINE MAN in 2024, AiHack Thailand in 2025, KBTG Kampus in 2026, and the continuing NHK Spring scholarship in both 2026 and 2027.</desc>
+  <title id="journey-title">Verified competition milestones and scholarship</title>
+  <desc id="journey-description">AiHack Thailand national finalist in 2025, NTT DATA Top 24 team and KBTG Top 30 overall / Top 10 Data Science in 2026, and NHK Spring scholarship support for 2026–2027.</desc>
   <defs>
     <filter id="float-shadow" x="-20%" y="-30%" width="140%" height="170%">
       <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#233957" flood-opacity=".11"/>
@@ -24,23 +24,23 @@
   <!-- Short connectors keep the floating labels visually attached to their nodes. -->
   <path d="M91 327v10M209 236v-41M357 198v14M470 94v-8" fill="none" stroke="#a7b9ce" stroke-width="2" stroke-linecap="round"/>
 
-  <!-- LINE MAN / 2024 -->
+  <!-- AiHack / 2025 -->
   <circle cx="91" cy="313" r="17" fill="#fff" stroke="#00a776" stroke-width="3"/>
   <circle cx="91" cy="313" r="6" fill="#00a776"/>
   <g filter="url(#float-shadow)"><rect x="19" y="337" width="202" height="67" rx="10" fill="#fff" stroke="#dbe5ef"/></g>
   <path d="M29 338h4v65h-4a10 10 0 0 1-10-10v-45a10 10 0 0 1 10-10Z" fill="#00a776"/>
-  <text x="46" y="355" fill="#008b64" font-family="Geist Mono, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing=".8">2024 / GROWTH</text>
-  <text x="46" y="378" fill="#19263b" font-family="Geist, Arial, sans-serif" font-size="17" font-weight="600">LINE MAN Wongnai</text>
-  <text x="46" y="395" fill="#617188" font-family="Geist, Arial, sans-serif" font-size="11">Campus VIP · 8.87 THB CAC</text>
+  <text x="46" y="355" fill="#008b64" font-family="Geist Mono, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing=".8">2025 / FINALIST</text>
+  <text x="46" y="378" fill="#19263b" font-family="Geist, Arial, sans-serif" font-size="17" font-weight="600">AiHack Thailand</text>
+  <text x="46" y="395" fill="#617188" font-family="Geist, Arial, sans-serif" font-size="11">National finalist · team entry</text>
 
-  <!-- AiHack / 2025 -->
+  <!-- NTT DATA / 2026 -->
   <circle cx="209" cy="251" r="18" fill="#fff" stroke="#e49632" stroke-width="3"/>
   <circle cx="209" cy="251" r="6" fill="#e49632"/>
   <g filter="url(#float-shadow)"><rect x="119" y="129" width="191" height="66" rx="10" fill="#fff" stroke="#dbe5ef"/></g>
   <path d="M129 130h4v64h-4a10 10 0 0 1-10-10v-44a10 10 0 0 1 10-10Z" fill="#e49632"/>
-  <text x="146" y="148" fill="#a96816" font-family="Geist Mono, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing=".8">2025 / FINALIST</text>
-  <text x="146" y="171" fill="#19263b" font-family="Geist, Arial, sans-serif" font-size="17" font-weight="600">AiHack Thailand</text>
-  <text x="146" y="188" fill="#617188" font-family="Geist, Arial, sans-serif" font-size="11">Credit risk modeling</text>
+  <text x="146" y="148" fill="#a96816" font-family="Geist Mono, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing=".8">2026 / TOP 24 TEAM</text>
+  <text x="146" y="171" fill="#19263b" font-family="Geist, Arial, sans-serif" font-size="17" font-weight="600">NTT DATA Challenge</text>
+  <text x="146" y="188" fill="#617188" font-family="Geist, Arial, sans-serif" font-size="11">WELLYNC · team prototype</text>
 
   <!-- KBTG / 2026 -->
   <circle cx="357" cy="183" r="19" fill="#fff" stroke="#0769cb" stroke-width="3.5"/>

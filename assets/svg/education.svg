@@ -36,9 +36,9 @@
     <rect x="275" y="180" width="150" height="95" rx="6" fill="#1E293B"/>
     <rect x="282" y="187" width="136" height="75" rx="3" fill="#0F172A"/>
     <!-- Terminal prompt on laptop -->
-    <text x="290" y="205" font-family="'Geist Mono', 'Slender Geist', monospace" font-size="9" fill="#10B981">&gt; swu.degree.verify()</text>
-    <text x="290" y="222" font-family="'Geist Mono', 'Slender Geist', monospace" font-size="9" fill="#0070F3">B.Eng. CompEng 2026</text>
-    <text x="290" y="238" font-family="'Geist Mono', 'Slender Geist', monospace" font-size="9" fill="#E2E8F0">Status: PASS (97/150)</text>
+    <text x="290" y="205" font-family="'Geist Mono', 'Slender Geist', monospace" font-size="9" fill="#10B981">&gt; learning.record()</text>
+    <text x="290" y="222" font-family="'Geist Mono', 'Slender Geist', monospace" font-size="9" fill="#0070F3">B.Eng. Expected 2028</text>
+    <text x="290" y="238" font-family="'Geist Mono', 'Slender Geist', monospace" font-size="9" fill="#E2E8F0">STAMP: 97/150</text>
     <!-- Base of laptop -->
     <path d="M260,275 L440,275 L430,285 L270,285 Z" fill="#94A3B8"/>
   </g>

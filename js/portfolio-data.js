@@ -1,7 +1,7 @@
 /**
  * Portfolio Data Store
  * Structured data repository inspired by masterPortfolio (Ashutosh Hathidara)
- * All personal information, credentials, project case studies, and experience are preserved here.
+ * Supporting content record; static HTML carries independent page content.
  */
 
 const portfolioData = {
@@ -10,11 +10,11 @@ const portfolioData = {
     logoText: "< Sivakorn />",
     fullName: "Sivakorn Khundilokrattaya",
     nickname: "svkhun",
-    roleTitle: "Data Scientist & Machine Learning Engineer",
-    subTitle: "Computer Engineering Student @ Srinakharinwirot University (SWU, Class of 2026)",
+    roleTitle: "Computer Engineering Student · Data Science & Machine Learning",
+    subTitle: "Computer Engineering at SWU · Expected graduation 2028",
     location: "Bangkok, Thailand",
-    statusBadge: "Open to Work",
-    statusDetail: "Available for On-site, Hybrid & Remote roles"
+    statusBadge: "Seeking an internship",
+    statusDetail: "Contact me to discuss dates and working arrangements"
   },
 
   // Social & Connectivity Links
@@ -38,91 +38,28 @@ const portfolioData = {
   greeting: {
     title: "Hi all, I'm Sivakorn",
     fullName: "Sivakorn Khundilokrattaya",
-    subTitle: "A passionate Data Scientist & Machine Learning Engineer specializing in Basel-compliant credit risk modeling, Explainable AI (XAI), relational Graph Neural Networks, and scalable production data pipelines.",
+    subTitle: "Building explainable decision-support prototypes in credit risk, fraud review, and e-commerce.",
     resumeLink: "assets/Sivakorn_Khundilokrattaya_Resume.pdf"
   },
 
   // What I Do (Categorized Tech Stacks & Capabilities)
-  whatIDo: [
-    {
-      id: "ds-ml",
-      title: "Data Science & Machine Learning",
-      subtitle: "Statistical Tabular Modeling, Graph Neural Networks & Production Inference",
-      skills: [
-        "Building scalable, calibrated tabular machine learning models with state-of-the-art tree ensembles (LightGBM, XGBoost, CatBoost).",
-        "Developing Two-Tier Relational Graph Neural Networks (PyTorch Geometric RGCN) for multi-hop mule account fraud detection.",
-        "Serving prototype models through ONNX Runtime; reported local timings are not production banking SLAs.",
-        "Conducting Bayesian hyperparameter optimization (Optuna) with 5-fold stratified cross-validation."
-      ],
-      softwareSkills: [
-        { name: "Python", icon: "fab fa-python", color: "#3776AB" },
-        { name: "PyTorch", icon: "fas fa-fire", color: "#EE4C2C" },
-        { name: "LightGBM", icon: "fas fa-tree", color: "#0056B3" },
-        { name: "XGBoost", icon: "fas fa-bolt", color: "#FF9900" },
-        { name: "CatBoost", icon: "fas fa-cubes", color: "#F05032" },
-        { name: "Scikit-Learn", icon: "fas fa-brain", color: "#F7931E" },
-        { name: "Pandas", icon: "fas fa-table", color: "#150458" },
-        { name: "NumPy", icon: "fas fa-square-root-alt", color: "#013243" },
-        { name: "ONNX", icon: "fas fa-microchip", color: "#005CED" }
-      ]
-    },
-    {
-      id: "risk-xai",
-      title: "Quantitative Risk & Explainable AI (XAI)",
-      subtitle: "Basel II/III Probability of Default (PD), Scorecards & Regulatory Defensibility",
-      skills: [
-        "Engineering Basel II/III compliant credit scorecards with monotonic Weight of Evidence (WoE) binning and Information Value (IV) screening.",
-        "Decomposing complex non-linear models with TreeSHAP and Counterfactual What-If Recourse for legally defensible Adverse Action notices (ECOA / FCRA).",
-        "Formulating asymmetric cost matrices to balance False Negatives (unrecovered principal default) against False Positives (lost margin).",
-        "Monitoring continuous Population Stability Index (PSI < 0.10) and Kolmogorov-Smirnov separation (KS > 40%) across temporal cohorts."
-      ],
-      softwareSkills: [
-        { name: "TreeSHAP", icon: "fas fa-sitemap", color: "#0056B3" },
-        { name: "OptBinning", icon: "fas fa-chart-line", color: "#10B981" },
-        { name: "Counterfactuals (DiCE)", icon: "fas fa-exchange-alt", color: "#6366F1" },
-        { name: "SciPy", icon: "fas fa-square-root-variable", color: "#00549D" },
-        { name: "Basel II/III", icon: "fas fa-building-columns", color: "#0284C7" },
-        { name: "Risk Governance", icon: "fas fa-shield-halved", color: "#059669" }
-      ]
-    },
-    {
-      id: "data-eng",
-      title: "Production Data Engineering & Microservices",
-      subtitle: "Hybrid Lambda Architecture, Real-Time Telemetry & Containerized APIs",
-      skills: [
-        "Architecting decoupled Hybrid Lambda pipelines streaming sub-second edge sensor telemetry via asynchronous WebSockets (< 1.0s push).",
-        "Building idempotent dimensional Data Marts in PostgreSQL 15 with deterministic ON CONFLICT DO UPDATE upserts and audit trails.",
-        "Deploying high-concurrency asynchronous FastAPI microservices containerized with Docker for sub-30ms real-time inference.",
-        "Engineering in-memory feature stores with Redis for O(1) continuous graph embedding lookups."
-      ],
-      softwareSkills: [
-        { name: "FastAPI", icon: "fas fa-rocket", color: "#009688" },
-        { name: "PostgreSQL 15", icon: "fas fa-database", color: "#336791" },
-        { name: "Redis", icon: "fas fa-memory", color: "#DC382D" },
-        { name: "Docker", icon: "fab fa-docker", color: "#2496ED" },
-        { name: "WebSockets", icon: "fas fa-plug", color: "#6366F1" },
-        { name: "Polars / Spark", icon: "fas fa-bolt-lightning", color: "#E25A1C" },
-        { name: "Git", icon: "fab fa-git-alt", color: "#F05032" }
-      ]
-    }
-  ],
+  whatIDo: [],
 
   // Education & Degrees Received
   education: {
     degrees: [
       {
-        title: "Bachelor of Engineering (B.Eng.) in Computer Engineering",
-        subtitle: "Srinakharinwirot University (SWU, Bangkok, Thailand)",
-        logo: "swu-logo",
-        altName: "SWU",
-        duration: "2022 - 2026 (Expected Graduation)",
-        focus: "Statistical Machine Learning, Advanced Database Systems & Credit Risk Engineering",
-        descriptions: [
-          "Curriculum Specialization: Statistical Machine Learning, Advanced Database Systems (RDBMS & Distributed Data), Operating Systems, Probability & Mathematical Statistics, Data Structures & Algorithms, Distributed Systems.",
-          "Applied Research Focus: Architecting regulatory-defensible Probability of Default (PD) credit scorecards with TreeSHAP and counterfactual recourse under Basel II/III and ECOA standards.",
-          "Faculty of Engineering: Applied coursework spanning statistical modeling, database architecture, and quantitative systems."
+        "title": "Bachelor of Engineering (B.Eng.) in Computer Engineering",
+        "subtitle": "Srinakharinwirot University (SWU, Bangkok, Thailand)",
+        "logo": "swu-logo",
+        "altName": "SWU",
+        "duration": "Expected graduation 2028",
+        "focus": "Self-directed focus: data science and explainable decision-support prototypes",
+        "descriptions": [
+          "Computer Engineering undergraduate at Srinakharinwirot University.",
+          "Self-directed project focus: data science, machine learning and explainable decision-support prototypes."
         ],
-        websiteLink: "https://swu.ac.th"
+        "websiteLink": "https://swu.ac.th"
       }
     ],
     scholarships: [
@@ -144,40 +81,40 @@ const portfolioData = {
     ],
     certifications: [
       {
-        title: "STAMP Score Report: Data Analyst Track",
-        subtitle: "Kasikorn Business-Technology Group (KBTG)",
-        issuer: "SKILLKAMP by KBTG",
-        issueDate: "Verified 2024",
-        score: "97 / 150",
-        benchmark: "Benchmark 90.0 (Above Benchmark)",
-        status: "Verified Intermediate",
-        certificateImage: "assets/kbtg_stamp_data_analyst.png",
-        skillsCovered: "Data Cleaning (23/30), EDA & Visualization (20/30), Foundations (20/30), ML for Analysts (18/30), SQL (17/30)",
-        colorCode: "#00A950"
+        "title": "STAMP Score Report: Data Analyst Track",
+        "subtitle": "Kasikorn Business-Technology Group (KBTG)",
+        "issuer": "SKILLKAMP by KBTG",
+        "issueDate": "21 March 2026",
+        "score": "97 / 150",
+        "benchmark": "Report average: 90 / 150",
+        "status": "Intermediate",
+        "certificateImage": "assets/kbtg_stamp_data_analyst.png",
+        "skillsCovered": "Foundations of Data Analysis: 20/30; Data Cleaning and Preprocessing: 23/30; Exploratory Data Analysis and Visualization: 20/30; Data Analysis Techniques and Statistical Methods: 16/30; Machine Learning for Data Analysts: 18/30",
+        "colorCode": "#00A950"
       },
       {
-        title: "STAMP Score Report: Digital & Performance Marketer",
-        subtitle: "Kasikorn Business-Technology Group (KBTG)",
-        issuer: "SKILLKAMP by KBTG",
-        issueDate: "Verified 2024",
-        score: "98 / 150",
-        benchmark: "Benchmark 94.0 (Top Tier Analytics)",
-        status: "Verified Intermediate",
-        certificateImage: "assets/kbtg_stamp_digital_marketer.png",
-        skillsCovered: "Performance Analytics, Campaign Funnels, Conversion Attribution, Unit Economics",
-        colorCode: "#00A950"
+        "title": "STAMP Score Report: Digital & Performance Marketer",
+        "subtitle": "Kasikorn Business-Technology Group (KBTG)",
+        "issuer": "SKILLKAMP by KBTG",
+        "issueDate": "21 March 2026",
+        "score": "98 / 150",
+        "benchmark": "Report average: 94 / 150",
+        "status": "Intermediate",
+        "certificateImage": "assets/kbtg_stamp_digital_marketer.png",
+        "skillsCovered": "Data-Driven Marketing: 21/30; Customer Segmentation and Targeting: 16/30; Digital Marketing Analytics: 26/30; Data-Driven Content Marketing: 19/30; Marketing Strategy and Optimization: 16/30",
+        "colorCode": "#00A950"
       },
       {
-        title: "Oxford Placement Test (English Proficiency)",
-        subtitle: "AUA Language Center / Oxford University Press",
-        issuer: "Oxford University Press",
-        issueDate: "Verified 2024",
-        score: "51 / 120 (CEFR Level B1+)",
-        benchmark: "Working Professional English Proficiency",
-        status: "CEFR B1+ Certified",
-        certificateImage: "assets/20260621 Sivakorn Khundilokrattaya.pdf",
-        skillsCovered: "Grammar & Use of English (54/B1), Listening Comprehension (48/B1)",
-        colorCode: "#002147"
+        "title": "Oxford Placement Test",
+        "subtitle": "AUA Language Center / Oxford University Press",
+        "issuer": "Oxford University Press",
+        "issueDate": "21 June 2026",
+        "score": "51 (CEFR B1)",
+        "benchmark": "Placement result",
+        "status": "CEFR B1",
+        "certificateImage": "assets/20260621 Sivakorn Khundilokrattaya.pdf",
+        "skillsCovered": "Use of English: 54 / B1; Listening: 48 / B1",
+        "colorCode": "#002147"
       }
     ],
     competitiveSites: [
@@ -229,7 +166,7 @@ const portfolioData = {
       },
       {
         url: "assets/kbtg-kampus-pitch-03.jpg",
-        caption: "Technical Architecture & Methodology — Walking judges through offline R-GCN embeddings and Gate 2 evaluation",
+        caption: "Technical Architecture & Methodology — Walking judges through offline R-GCN embeddings and forecast evaluation",
         moment: "Technical Architecture"
       },
       {
@@ -277,129 +214,75 @@ const portfolioData = {
   // Experience & Competitions (Timeline & Cards)
   experience: [
     {
-      role: "Web Developer & UX/UI Enhancement Lead",
-      company: "SWU OPEN HOUSE 2026",
-      status: "Official university web platform",
-      organization: "Srinakharinwirot University &bull; THE CONCERT",
-      duration: "2026",
-      location: "Bangkok, Thailand",
-      description: [
-        "Led front-end development and UX/UI enhancement for the official SWU Open House 2026 web portal using WordPress, Elementor, and Custom CSS.",
-        "Redesigned the onboarding process into an intuitive 3-step registration flow integrated with THE CONCERT ticketing platform to maximize attendee conversions.",
-        "Engineered an interactive faculty poster showcase carousel and real-time event countdown timer, establishing clear visual hierarchy across mobile and desktop devices.",
-        "Implemented the official design system featuring Prompt typography, high-contrast dark surfaces, and signature coral and lavender accents."
-      ],
-      techStack: ["WordPress", "Elementor", "Custom CSS", "Responsive Design", "THE CONCERT Integration", "Prompt Typography"]
-    },
-    {
-      role: "Lead Data Scientist & Product Architect",
-      company: "Shopee Ultimate Case Challenge 2026",
-      status: "Case competition project",
-      organization: "Shopee",
-      duration: "2026",
-      description: [
-        "Developed Smart COD Reliability, a prototype connecting calibrated delivery failure predictions to adaptive checkout safeguards.",
-        "Built a Random Forest pipeline with sigmoid calibration; recorded 0.8400 ROC-AUC and 0.3056 average precision on 3,500 synthetic holdout COD orders.",
-        "Implemented four reliability grades, 20%/30% deposit policies, delivery-feedback scoring, and rule-based EasySell checks.",
-        "Built FastAPI inference, a smartphone shopping simulator, and analytics views over 50,000 synthetic orders and 12,000 buyer profiles."
-      ],
-      techStack: ["Python", "scikit-learn", "Random Forest", "FastAPI", "Pandas", "JavaScript"]
-    },
-    {
-      role: "Pitcher, Developer & Concept Lead — Track 2: Data Science & Intelligence",
-      company: "KBTG Kampus Hackathon 2026",
-      status: "Top 30 Team Overall · Top 10 in Track 2 (Data Science)",
-      organization: "Kasikorn Business-Technology Group (KBTG)",
-      duration: "7 November 2026",
-      location: "Bangkok, Thailand",
-      description: [
+      "role": "Pitcher, Developer & Concept Lead — Track 2: Data Science & Intelligence",
+      "company": "KBTG Kampus Hackathon 2026",
+      "status": "Top 30 Team Overall · Top 10 in Track 2 (Data Science)",
+      "organization": "Kasikorn Business-Technology Group (KBTG)",
+      "duration": "7 November 2026",
+      "location": "Bangkok, Thailand",
+      "description": [
         "Conceived the team's core product concept, engineered the K-NEXUS prototype, and delivered the stage pitch at KBTG KAMPUS Hackathon – Intern Edition on 7 November 2026, ranking in the Top 30 Teams overall and Top 10 in Track 2 (Data Science).",
         "The Application uses history/scenario/abstention rules with FlowSense ML disabled; the Showcase contains separate research evidence.",
         "Saved TrustGraph test AP: no-GNN baseline 0.99640; R-GCN + LightGBM 0.99373. No GNN superiority is established.",
-        "FlowSense Gate 2 passed no horizon. Financial data and transfers remain simulated; real-world impact is not established."
+        "No tested FlowSense forecast met the acceptance criteria; the 30-day ML forecast did not beat the baseline. Financial data and transfers remain simulated; real-world impact is not established."
       ],
-      techStack: ["PyTorch Geometric", "LightGBM", "ONNX Runtime", "FastAPI", "React 18", "Vite"]
+      "techStack": [
+        "PyTorch Geometric",
+        "LightGBM",
+        "ONNX Runtime",
+        "FastAPI",
+        "React 18",
+        "Vite"
+      ]
     },
     {
-      role: "Undergraduate Engineering Scholar",
-      company: "NHK Spring (Thailand) Undergraduate Scholarship",
-      organization: "NHK SPRING (THAILAND) CO., LTD. &bull; Faculty of Engineering, SWU",
-      duration: "2026 - 2027",
-      location: "Bangkok & Samut Prakan, Thailand",
-      description: [
+      "role": "Undergraduate Engineering Scholar",
+      "company": "NHK Spring (Thailand) Undergraduate Scholarship",
+      "organization": "NHK SPRING (THAILAND) CO., LTD. &bull; Faculty of Engineering, SWU",
+      "duration": "2026 - 2027",
+      "location": "Bangkok & Samut Prakan, Thailand",
+      "description": [
         "Recipient of the corporate undergraduate engineering scholarship awarded under competitive cumulative GPAX (>= 2.75) criteria and faculty character endorsement.",
         "Awarded an educational grant of 30,000 THB per academic year for the 2026-2027 period.",
         "Scholarship includes a planned 2-month summer engineering internship with accommodation and living allowance."
       ],
-      techStack: ["Computer Engineering", "Precision Manufacturing", "Industrial Automation", "Quality Control"]
+      "techStack": [
+        "Computer Engineering",
+        "Precision Manufacturing",
+        "Industrial Automation",
+        "Quality Control"
+      ]
     },
     {
-      role: "National Finalist: Long Overdue Debtor (LOD) Prediction",
-      company: "Aihack Thailand 2025",
-      organization: "AIRA & AIFUL &bull; Chulalongkorn Business School &bull; ProbSpace",
-      duration: "Dec 2025",
-      location: "Bangkok, Thailand",
-      certificateImage: "assets/aihack_thailand_2025_certificate.png",
-      certificatePdf: "assets/aihack_thailand_2025_certificate.pdf",
-      description: [
-        "Built a competition pipeline for predicting 12-month long-overdue debt risk from tabular lending records.",
-        "Developed financial-ratio and delinquency features, with stratified validation and Optuna model search.",
-        "Implemented out-of-fold rank/probability blending with CatBoost and LightGBM; the public repository documents a 0.65333 out-of-fold ROC-AUC experiment, while private competition data is not published.",
-        "Compared model variants and kept confidential competition records outside the public repository."
+      "role": "National Finalist: Long Overdue Debtor (LOD) Prediction",
+      "company": "Aihack Thailand 2025",
+      "organization": "AIRA & AIFUL &bull; Chulalongkorn Business School &bull; ProbSpace",
+      "duration": "Dec 2025",
+      "location": "Bangkok, Thailand",
+      "certificateImage": "assets/aihack_thailand_2025_certificate.png",
+      "certificatePdf": "assets/aihack_thailand_2025_certificate.pdf",
+      "description": [
+        "National finalist (team entry).",
+        "The public repository documents 0.65333 out-of-fold ROC-AUC for the V13 CatBoost/LightGBM blend. The competition dataset is imbalanced; confidential records are not published.",
+        "Model development and finalist status do not establish debt recovery or deployed lending performance."
       ],
-      techStack: ["LightGBM", "XGBoost", "CatBoost", "Optuna", "Scikit-Learn", "OptBinning"]
+      "techStack": [
+        "LightGBM",
+        "XGBoost",
+        "CatBoost",
+        "Optuna",
+        "Scikit-Learn",
+        "OptBinning"
+      ]
     },
     {
-      role: "AI & Data Science Lead (Team Nakphatthana Tuapralat)",
-      company: "True Innovation Launchpad 2026",
-      organization: "True Corporation",
-      duration: "Jan 2026",
-      location: "Bangkok, Thailand",
-      description: [
-        "Designed a bilingual frailty-triage dashboard prototype for care-team review.",
-        "Built patient-profile, risk-factor, alert-acknowledgement, and follow-up views using example records.",
-        "Separated the demonstrated workflow from clinical validation, which remains future work."
+      "role": "Top 24 team · WELLYNC",
+      "company": "NTT DATA Challenge 2026",
+      "duration": "2026",
+      "description": [
+        "Top 24 team. The linked repository belongs to teammate Panupong-xD; it documents the team prototype."
       ],
-      techStack: ["React", "Vite", "Node.js", "Tailwind CSS", "Thai / English"]
-    },
-    {
-      role: "Spatial Lead: 30m Grid Flash Flood Mapping",
-      company: "Geospatial Intelligence for Resilience Hackathon 2026",
-      organization: "GISTDA &bull; KMITL &bull; KMUTT",
-      duration: "Jan 2026",
-      location: "Bangkok, Thailand",
-      description: [
-        "Extracted and segmented flood extent using Sentinel-1 Synthetic Aperture Radar (SAR) dual-polarization backscatter and Copernicus DEM elevation rasters.",
-        "Generated granular 30-meter disaster risk hazard matrices for local provincial resilience planning.",
-        "Built automated geospatial processing pipelines in Python with Rasterio, GeoPandas, and Shapely."
-      ],
-      techStack: ["Sentinel-1 SAR", "Copernicus DEM", "Python", "GeoPandas", "Rasterio"]
-    },
-    {
-      role: "Operational AI & System Reliability Lead",
-      company: "CDG Hackathon 2026",
-      organization: "CDG Group",
-      duration: "Jul 2026",
-      location: "Bangkok, Thailand",
-      description: [
-        "Spearheaded enterprise operational intelligence and proactive telemetry monitoring under Team GrandGuardianAI.",
-        "Designed automated anomaly detection alerting rules across distributed microservice infrastructures.",
-        "Formulated system reliability benchmarks and operational runbooks for zero-downtime failover."
-      ],
-      techStack: ["Python", "System Reliability", "Observability", "Docker", "RESTful APIs"]
-    },
-    {
-      role: "Unit Economics & Growth Lead",
-      company: "LINE MAN Campus VIP Growth Campaign",
-      organization: "LINE MAN Wongnai",
-      duration: "Nov 2024",
-      location: "Bangkok, Thailand",
-      description: [
-        "Optimized digital acquisition funnel and unit economics, achieving an ultra-lean 8.87 THB Customer Acquisition Cost (CAC).",
-        "Generated 462 verified university student conversions within a strict 8,000 THB total growth budget.",
-        "Modeled multi-cohort retention curves, referral loops, and user lifetime value (LTV) dynamics using SQL and Python."
-      ],
-      techStack: ["Unit Economics", "Cohort Analysis", "SQL", "Conversion Attribution", "Python"]
+      "repository": "https://github.com/Panupong-xD/NTT-Data"
     }
   ],
 
@@ -409,11 +292,11 @@ const portfolioData = {
       id: "swu-openhouse-2026",
       title: "SWU OPEN HOUSE 2026 — Web Enhancement & UX/UI",
       domain: "Event Registration & Responsive Web Engineering",
-      context: "Srinakharinwirot University & THE CONCERT — Official Web Platform",
+      context: "SWU Open House interface case study",
       caseStudyLink: "project-swu-openhouse.html",
-      description: "Front-end enhancement and UX/UI overhaul for SWU Open House 2026, delivering an intuitive 3-step registration flow, interactive faculty poster gallery, real-time countdown timer, and responsive design system.",
+      description: "Interface with a three-step registration guide, faculty poster carousel, event countdown and responsive page sections.",
       keyMetric: "3-Step Registration Flow &bull; Interactive Faculty Carousel &bull; Responsive Design",
-      techStack: ["WordPress", "Elementor", "Custom CSS", "Responsive Design", "Prompt Typography"],
+      techStack: [],
       mockupLaptop: "assets/swu-openhouse-laptop-frame.png",
       mockupDevice: "assets/swu-openhouse-vertical-device.png",
       githubLink: null,
@@ -423,9 +306,9 @@ const portfolioData = {
       id: "shopee-smart-cod",
       title: "Shopee Smart COD Reliability",
       domain: "E-Commerce Delivery Risk & Adaptive Checkout",
-      context: "Shopee Ultimate Case Challenge 2026 — Case competition project",
+      context: "Independent case-competition prototype",
       caseStudyLink: "project-shopee-smart-cod.html",
-      description: "Calibrated Random Forest failure prediction, four reliability grades, adaptive deposit policies, delivery-feedback scoring, and a FastAPI-powered shopping simulator evaluated on synthetic order data.",
+      description: "Independent case-competition prototype, synthetic data, not affiliated with or endorsed by Shopee. Calibrated Random Forest failure prediction, four reliability grades, adaptive deposit policies, delivery-feedback scoring, and a FastAPI-powered shopping simulator evaluated on synthetic order data.",
       keyMetric: "0.8400 ROC-AUC on Synthetic Holdout &bull; 50,000 Synthetic Orders &bull; 4 Risk Grades",
       techStack: ["Python", "scikit-learn", "Random Forest", "FastAPI", "Pandas", "JavaScript"],
       githubLink: "https://github.com/svkhun/Shopee-Ultimate-Case-Challenge",
@@ -447,7 +330,7 @@ const portfolioData = {
     },
     {
       id: "credit-risk-xai",
-      title: "Enterprise Credit Risk Scoring & Explainable AI (XAI)",
+      title: "Credit Risk Scoring & Explainable AI (XAI)",
       domain: "Probability of Default & Explainable Decision Support",
       context: "Quantitative credit risk research prototype",
       description: "Research interface for estimating default risk, inspecting model explanations and reason codes, and exploring hypothetical alternative lending decisions. Regulatory and fair-lending validation remain separate work.",
@@ -482,7 +365,7 @@ const portfolioData = {
       id: "guardianai-clinical-ops",
       title: "GuardianAI Frailty Triage Dashboard",
       domain: "Preventive Geriatric Healthcare Analytics & Clinical Triage",
-      context: "True Innovation Launchpad 2026",
+      context: "Dashboard prototype · Example records",
       description: "Bilingual frailty-triage dashboard prototype with patient profiles, explainable risk-factor views, alert acknowledgement, and care-team follow-up workflows. Clinical outcomes have not been validated.",
       keyMetric: "Frailty Review &bull; Risk Factors &bull; Care Coordination",
       techStack: ["React", "Vite", "Node.js", "Tailwind CSS", "Thai / English"],
@@ -497,7 +380,7 @@ const portfolioData = {
     subHeading: "Discuss a project or just want to say hi? My inbox is open for all.",
     email: "sivakorn.khun@gmail.com",
     location: "Bangkok, Thailand",
-    availability: "Available for full-time Data Scientist, Machine Learning Engineer, and Quantitative Risk Analyst opportunities (On-site, Hybrid & Remote).",
+    availability: "Seeking an internship. Contact me to discuss dates and working arrangements.",
     resumePdf: "assets/Sivakorn_Khundilokrattaya_Resume.pdf",
     cvPdf: "assets/Sivakorn_Khundilokrattaya_CV.pdf"
   }
